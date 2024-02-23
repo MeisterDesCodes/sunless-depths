@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca0d7whibvanw"]
+
+[ext_resource type="Script" path="res://Entities/enemy.gd" id="1_6idy8"]
+[ext_resource type="Texture2D" uid="uid://bk3pjyonqnau7" path="res://Assets/entities/ravager.png" id="2_dxgsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvffo"]
+size = Vector2(33.5, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5spg8"]
+radius = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
+radius = 199.003
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcvxu"]
+size = Vector2(48, 42)
+
+[sub_resource type="Animation" id="Animation_shkm4"]
+resource_name = "damage-received"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.717647, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3bes3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4oud"]
+_data = {
+"RESET": SubResource("Animation_3bes3"),
+"damage-received": SubResource("Animation_shkm4")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_6idy8")
+moveSpeed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 4.71239
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_dxgsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qvffo")
+
+[node name="DamageRadius" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5spg8")
+disabled = true
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_6eh1t")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_fcvxu")
+
+[node name="FollowTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f4oud")
+}
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="FollowTimer" to="." method="_on_timer_timeout"]

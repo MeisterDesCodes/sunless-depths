@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://doutrnnc21duh"]
+
+[ext_resource type="Script" path="res://Inventory/inventory-resource.gd" id="1_2sx4e"]
+[ext_resource type="Texture2D" uid="uid://cd2vqxnyi7s7i" path="res://Assets/resource/caveshroom.svg" id="2_ohous"]
+
+[resource]
+script = ExtResource("1_2sx4e")
+name = "Cave Shroom"
+amount = 1
+texture = ExtResource("2_ohous")

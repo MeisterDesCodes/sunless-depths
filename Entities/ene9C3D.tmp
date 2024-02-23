@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca0d7whibvanw"]
+
+[ext_resource type="Script" path="res://Entities/enemy.gd" id="1_6idy8"]
+[ext_resource type="Texture2D" uid="uid://j5bo4qbdc5sn" path="res://Assets/Underdark_Spider_Corpse_Black_A1_4x4.png" id="1_6mcsi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ig7i7"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
+radius = 133.015
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_6idy8")
+moveSpeed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_6mcsi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ig7i7")
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_6eh1t")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
