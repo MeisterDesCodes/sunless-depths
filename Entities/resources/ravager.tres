@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://dw50wr63ie873"]
+
+[ext_resource type="Script" path="res://entities/entity.gd" id="1_2o7s0"]
+[ext_resource type="Texture2D" uid="uid://d2xgoe15106" path="res://assets/entities/ravager.png" id="2_uexqh"]
+
+[resource]
+script = ExtResource("1_2o7s0")
+name = "Ravager"
+texture = ExtResource("2_uexqh")
+maxHealth = 450.0
+knockbackStrength = 200.0
+damage = 30.0
+moveSpeed = 175.0

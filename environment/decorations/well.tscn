@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://duf63m41ihawf"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_s6bg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
+radius = 35.97
+
+[node name="Well" type="Node2D"]
+script = ExtResource("1_s6bg2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_mdnsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)

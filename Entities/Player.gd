@@ -1,67 +1,122 @@
 extends CharacterBody2D
 
+signal updateHud
+signal healthModified
 
-@export var moveSpeed: float = 200
+@export var moveSpeed: float
 @export var inventory: Inventory
 
-@onready var rubble: InventoryResource = preload("res://Inventory/resources/rubble.tres")
-@onready var planks: InventoryResource = preload("res://Inventory/resources/planks.tres")
-@onready var caveshroom: InventoryResource = preload("res://Inventory/resources/caveshroom.tres")
+@export var supplyDrainBase: float = 0.75
+@export var oxygenDrainBase: float = 0.5
+@export var staminaDrainBase: float = 0
+@export var staminaRestoreBase: float = 15
+
+@onready var rubble: InventoryResource = preload("res://items/resources/rubble.tres")
+@onready var planks: InventoryResource = preload("res://items/resources/planks.tres")
+@onready var caveshroom: InventoryResource = preload("res://items/resources/caveshroom.tres")
+@onready var weapons: Array
 @onready var animations = $"AnimationPlayer"
-@onready var weapons = $"RotationPoint/Weapons".get_children()
 @onready var hitboxCollision = $"RotationPoint/Hitbox/CollisionShape2D"
 @onready var hitbox = $"RotationPoint/Hitbox"
-
+@onready var HudUI = get_tree().current_scene.get_node("CanvasLayer/UIControl/HudUI")
 
 var attackState: bool = false
 var attackOnCooldown: bool = false
 
-var health: int = 1000
-var isKnockback: bool = false
-var immunityFramesActive: bool = false
+var maxHealth: float = 25
+var health: float = maxHealth
+var healthRegeneration = 0.01
 
-var currentWeapon
+var immunityFramesActive: bool = false
+var isKnockback: bool = false
+var isSprinting: bool = false
+var isDashing: bool = false
+var canDash: bool = true
+
+var lanceScene = preload("res://weapons/lance.tscn")
+var crossbowScene = preload("res://weapons/crossbow.tscn")
+var availableWeapons: AllWeapons = preload("res://weapons/resources/all-weapons.tres")
+var currentWeaponScene: StaticBody2D
+
+var supplyDrain: float = supplyDrainBase
+var oxygenDrain: float = oxygenDrainBase
+var staminaDrain: float = staminaDrainBase
+var staminaRestore: float = staminaRestoreBase
+var dashStaminaCost: float = 20
 
 
 func _ready():
-	currentWeapon = weapons[0]
+	for weapon in availableWeapons.weapons:
+		var weaponInstance: StaticBody2D
+		match weapon.type:
+			Enums.weaponTypes.LANCE:
+				weaponInstance = lanceScene.instantiate()
+				weaponInstance.rotation = deg_to_rad(90)
+				weaponInstance.position += Vector2(15, 10)
+			Enums.weaponTypes.CROSSBOW:
+				weaponInstance = crossbowScene.instantiate()
+				weaponInstance.rotation = deg_to_rad(60)
+				weaponInstance.position += Vector2(15, 15)
+		weaponInstance.weapon = weapon
+		weaponInstance.update()
+		$"RotationPoint/Weapons".add_child(weaponInstance)
+			
+	weapons = $"RotationPoint/Weapons".get_children()
+	currentWeaponScene = weapons[1]
 	updateWeapons()
-			
-			
-func updateWeapons():
-	for weapon in weapons:
-		if weapon != currentWeapon:
-			weapon.visible = false
-		else:
-			weapon.visible = true
-	
-	
+
+
 func _process(delta):
+	if Input.is_action_just_pressed("dash"):
+		if (canDash && HudUI.stamina.value > dashStaminaCost):
+			canDash = false
+			isDashing = true
+			updateHud.emit(2, dashStaminaCost, 0.5)
+			var dash_vector = global_position.direction_to(get_global_mouse_position()) * 500
+			velocity = lerp(velocity, dash_vector, 0.5)
+			$"DashTimer".start()
+			await get_tree().create_timer(0.2).timeout
+			isDashing = false
+
+
 	if Input.is_action_just_pressed("interact"):
-		inventory.addResource(rubble, 5)
-		inventory.addResource(planks, 5)
-		inventory.addResource(caveshroom, 5)
+		pass
 	
 	if Input.is_action_just_pressed("switch"):
 		switchToNextWeapon()
 		
 	if Input.get_action_strength("attack"):
-		attack()
+		if HudUI.stamina.value >= currentWeaponScene.weapon.staminaCost:
+			attack()
 		
-		
+	if Input.get_action_strength("sprint") && HudUI.stamina.value > 0:
+		isSprinting = true
+		supplyDrain = supplyDrainBase + 1.25
+		staminaDrain = 10
+		staminaRestore = 0
+		$"StaminaRestore".start()
+	else:
+		isSprinting = false
+		supplyDrain = supplyDrainBase
+		staminaDrain = staminaDrainBase
+
+
 func _physics_process(_delta):
-	
-	if !isKnockback:
+	if !isKnockback && !isDashing:
 		var direction = Vector2(
 			Input.get_action_strength("right") - Input.get_action_strength("left"),
 			Input.get_action_strength("down") - Input.get_action_strength("up")
 		)
 		var currentMoveSpeed = moveSpeed
 		if (direction.x != 0 && direction.y != 0):
-			currentMoveSpeed = moveSpeed * 0.7
+			currentMoveSpeed = moveSpeed / pow(2, 0.5)
 		else:
 			currentMoveSpeed = moveSpeed
-		velocity = direction * currentMoveSpeed
+		
+		if isSprinting:
+			currentMoveSpeed *= 1.35
+		
+		velocity = lerp(velocity, direction * currentMoveSpeed, 0.15)
 	
 	move_and_slide()
 
@@ -70,25 +125,35 @@ func _physics_process(_delta):
 		processIncomingAttack(body)
 
 
+func updateWeapons():
+	for weapon in weapons:
+		if weapon != currentWeaponScene:
+			weapon.visible = false
+		else:
+			weapon.visible = true
+
+
 func switchToNextWeapon():
-	var index = weapons.find(currentWeapon)
+	var index = weapons.find(currentWeaponScene)
 	if index >= weapons.size() - 1:
-		currentWeapon = weapons[0]
+		currentWeaponScene = weapons[0]
 	else:
-		currentWeapon = weapons[index + 1]
-	updateWeapons()
+		currentWeaponScene = weapons[index + 1]
+	
 	attackOnCooldown = false
-	
-	
+	updateWeapons()
+
+
 func attack():
 	if !attackOnCooldown:
 		attackOnCooldown = true
-		$"AttackDelay".wait_time = currentWeapon.attackDelay
+		$"AttackDelay".wait_time = currentWeaponScene.weapon.attackDelay
 		$"AttackDelay".start()
-		currentWeapon.attack(currentWeapon.global_position, 
-			currentWeapon.global_position.direction_to(get_global_mouse_position()))
+		currentWeaponScene.attack(currentWeaponScene.global_position, 
+			currentWeaponScene.global_position.direction_to(get_global_mouse_position()))
 		attackState = true
-		await currentWeapon.animations.animation_finished
+		updateHud.emit(2, currentWeaponScene.weapon.staminaCost, 0.5)
+		await currentWeaponScene.animations.animation_finished
 		attackState = false
 	
 
@@ -98,25 +163,26 @@ func _on_hitbox_body_entered(body):
 
 func processIncomingAttack(body):
 	var enemy = body.get_parent()
-	enemy.attack(self)
 	if !immunityFramesActive:
 		immunityFramesActive = true
 		$"ImmunityFrames".start()
 		health -= enemy.damage
 		if health <= 0:
-			queue_free()
+			pass
+			
 		if animations.is_playing():
 			animations.stop()
 		animations.play("damage-received")
 		
 		isKnockback = true
 		var knockback_vector = global_position.direction_to(enemy.global_position) * -1 * enemy.knockbackStrength
-		velocity = knockback_vector
+		velocity = lerp(velocity, knockback_vector, 0.75)
 		await get_tree().create_timer(0.2).timeout
 		isKnockback = false
 		
-	
-	
+		healthModified.emit()
+
+
 func isPlayer():
 	pass
 
@@ -127,3 +193,11 @@ func _on_attack_delay_timeout():
 
 func _on_immunity_frames_timeout():
 	immunityFramesActive = false
+
+
+func _on_stamina_restore_timeout():
+	staminaRestore = staminaRestoreBase
+
+
+func _on_dash_timer_timeout():
+	canDash = true

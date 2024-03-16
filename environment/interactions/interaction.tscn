@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt8jeingtjfoh"]
+
+[ext_resource type="Script" path="res://environment/interactions/interaction.gd" id="1_v8g2p"]
+[ext_resource type="PackedScene" uid="uid://c30m4otyx5tja" path="res://shared/resource-spawner.tscn" id="2_xbi0e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxikl"]
+radius = 132.015
+
+[node name="Interaction" type="Node2D"]
+script = ExtResource("1_v8g2p")
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectionRadius"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_wxikl")
+
+[node name="ResourceSpawner" parent="." instance=ExtResource("2_xbi0e")]
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]

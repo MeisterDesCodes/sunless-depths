@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://chew5px6e025h"]
+
+[ext_resource type="Texture2D" uid="uid://bc7l4frd0lvey" path="res://assets/particles/cirlce.png" id="1_26vay"]
+
+[sub_resource type="Curve" id="Curve_v1o0q"]
+_data = [Vector2(0.702479, 0.978022), 0.0, 0.0, 0, 0, Vector2(0.979339, 0.120879), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8cb5l"]
+offsets = PackedFloat32Array(0.18, 0.626667, 1)
+colors = PackedColorArray(0.305783, 0.302246, 0.303127, 0.780392, 0.440939, 0.433954, 0.427967, 0.654902, 0.109804, 0.0980392, 0.0862745, 0)
+
+[node name="PlayerParticles" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 2.0
+speed_scale = 0.25
+randomness = 0.18
+draw_order = 1
+texture = ExtResource("1_26vay")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_v1o0q")
+color_ramp = SubResource("Gradient_8cb5l")

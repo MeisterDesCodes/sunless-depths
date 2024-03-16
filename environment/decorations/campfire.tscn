@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceyk8mxkdgl5s"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_7prux"]
+[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="2_huqr5"]
+[ext_resource type="PackedScene" uid="uid://bjw85nwae6j0u" path="res://environment/decorations/particles/torch-particles.tscn" id="3_a2x4h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v372m"]
+radius = 25.0
+
+[node name="Campfire" type="Node2D"]
+script = ExtResource("1_7prux")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_v372m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)
+
+[node name="LightSource" parent="." instance=ExtResource("2_huqr5")]
+position = Vector2(-2, 2)
+
+[node name="TorchParticles" parent="." instance=ExtResource("3_a2x4h")]
+scale = Vector2(2, 2)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://s068tliviiio"]
+
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction.tscn" id="1_i8be6"]
+[ext_resource type="Texture2D" uid="uid://b805e3axhdjgo" path="res://assets/environment/tent-1.png" id="1_s4tun"]
+[ext_resource type="Script" path="res://environment/interactions/tent.gd" id="1_sh4ek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
+radius = 74.0608
+
+[node name="Tent" type="Node2D"]
+script = ExtResource("1_sh4ek")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_mdnsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)
+texture = ExtResource("1_s4tun")
+
+[node name="Interaction" parent="." instance=ExtResource("1_i8be6")]

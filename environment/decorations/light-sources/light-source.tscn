@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://2wn1b725gt7m"]
+
+[ext_resource type="Script" path="res://environment/decorations/light-sources/light-source.gd" id="1_x2cfu"]
+
+[sub_resource type="Gradient" id="Gradient_1uavd"]
+offsets = PackedFloat32Array(0.162338, 0.350649, 0.525974, 0.701299)
+colors = PackedColorArray(1, 1, 1, 1, 0.393086, 0.393085, 0.393086, 1, 0.103744, 0.103743, 0.103744, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ww04t"]
+gradient = SubResource("Gradient_1uavd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="LightSource" type="Node2D"]
+script = ExtResource("1_x2cfu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(4.40625, 4.40625)
+color = Color(0.94902, 0.74902, 0.360784, 1)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ww04t")

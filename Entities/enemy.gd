@@ -3,25 +3,44 @@ extends CharacterBody2D
 @onready var navigationHandler = $"NavigationAgent2D"
 @onready var animations = $"AnimationPlayer"
 @onready var attackCollision = $"DamageRadius/CollisionShape2D"
-@onready var hurtParticles = $"CPUParticles2D"
-
+@onready var bloodParticles = $"BloodParticles"
+@onready var hitParticles = $"HitParticles"
+@onready var hitbox = $"Hitbox"
+@onready var resourceSpawner = $"ResourceSpawner"
 
 var seesPlayer = false
 var player = null
 
-var maxHealth: float = 2000
-var health: float = maxHealth
-var knockbackStrength = 250
-var knockback: Vector2 = Vector2.ZERO
+@export var enemy: Enemy
+
+var maxHealth: float
+var health: float
+var knockbackStrength: float
+var damage: float
+var moveSpeed: float
+
+var dropSpeed: float = 100
+
 var isKnockback: bool = false
-var damage: float = 10
+var knockback: Vector2 = Vector2.ZERO
 var attackState: bool = false
-var moveSpeed: float = 100
+var immunityFramesActive: bool = false
+
+
+func update():
+	maxHealth = enemy.maxHealth
+	health = enemy.maxHealth
+	knockbackStrength = enemy.knockbackStrength
+	damage = enemy.damage
+	moveSpeed = enemy.moveSpeed
+	$"Sprite2D".texture = enemy.texture
+
 
 func _ready():
-	hurtParticles.visible = false
-				
-				
+	bloodParticles.visible = false
+	update()
+
+
 func _physics_process(delta):
 	
 	if seesPlayer:
@@ -30,9 +49,14 @@ func _physics_process(delta):
 	if !isKnockback:
 		var direction = navigationHandler.get_next_path_position() - global_position
 		direction = direction.normalized()
-		velocity = direction * moveSpeed
+		velocity = lerp(velocity, direction * moveSpeed, 0.15)
 		
 	move_and_slide()
+	
+	var bodies = hitbox.get_overlapping_bodies()
+	for body in bodies:
+		processIncomingAttack(body)
+	
 	
 	
 func _on_timer_timeout():
@@ -50,41 +74,63 @@ func _on_detection_radius_body_exited(body):
 
 
 func _on_hitbox_body_entered(body):
-	if !body.hitEntities.has(self):
-		applyDamage(body)
+	processIncomingAttack(body)
 
 
-func applyDamage(body):
+func processIncomingAttack(body):
+	if !immunityFramesActive && !body.hitEntities.has(self):
+		immunityFramesActive = true
 		body.hitEntities.append(self)
-		health -= body.damage
+		$"ImmunityFrames".start()
+		
+		if body.has_method("isWeapon"):
+			health -= body.weapon.damage
+		else:
+			health -= body.damage
+		
 		if animations.is_playing():
 			animations.stop()
 		animations.play("damage-received")
+		hitParticles.restart()
+		hitParticles.direction = global_position.direction_to(body.global_position).rotated(-rotation) * -1
 		if health < maxHealth / 2:
-			hurtParticles.visible = true
-			hurtParticles.amount = (maxHealth / 2 - health) / maxHealth / 2 * 200
+			bloodParticles.visible = true
+			bloodParticles.amount = (maxHealth / 2 - health) / maxHealth / 2 * 200
 		if health <= 0:
-			queue_free()
+			entityKilled()
+
 		toggleKnockback(body)
 		toggleAwareness()
-	
+
+
+func entityKilled():
+	for i in enemy.drops.size():
+		if enemy.drops[i].dropChance > randf():
+			resourceSpawner.spawnResources(enemy.drops[i].resource, enemy.drops[i].amount,
+				Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, dropSpeed)
+		
+	queue_free()
+
+
 func toggleAwareness():
 	$"DetectionRadius/CollisionShape2D".shape.radius = 300
-	$"Awareness".start()
+	$"AwarenessTimer".start()
 	
 	
 func toggleKnockback(body):
 	isKnockback = true
-	var knockback_vector = global_position.direction_to(body.global_position) * -1 * body.knockback
-	velocity = knockback_vector
+	
+	var knockback: float = 0
+	if body.has_method("isWeapon"):
+		knockback = body.weapon.knockback * -1
+	else:
+		knockback -= body.knockback
+
+	var knockback_vector = global_position.direction_to(body.global_position) * knockback
+	velocity = lerp(velocity, knockback_vector, 0.75)
 	await get_tree().create_timer(0.2).timeout
 	isKnockback = false
-	
-	
-func attack(body):
-	attackState = true
-	await get_tree().create_timer(0.5).timeout
-	attackState = false
+
 
 func isEnemy():
 	pass
@@ -92,3 +138,7 @@ func isEnemy():
 
 func _on_awareness_timeout():
 	$"DetectionRadius/CollisionShape2D".shape.radius = 120
+
+
+func _on_immunity_frames_timeout():
+	immunityFramesActive = false

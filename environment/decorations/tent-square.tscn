@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlfesfs142y0g"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_u42o1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smx0b"]
+size = Vector2(200, 164.85)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bekgm"]
+polygon = PackedVector2Array(-83, -58, -43, -54, 2, -63, 44, -55, 84, -60, 73, 6, 87, 67, 54, 61, 6, 70, -39, 62, -84, 69, -80, 5)
+
+[node name="TentSquare" type="Node2D"]
+script = ExtResource("1_u42o1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_smx0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_bekgm")
+occluder_light_mask = 2

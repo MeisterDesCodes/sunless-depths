@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://xbb1mnn8v7hy"]
+[gd_scene load_steps=11 format=3 uid="uid://xbb1mnn8v7hy"]
 
-[ext_resource type="Script" path="res://Entities/Player.gd" id="1_22f2w"]
-[ext_resource type="Texture2D" uid="uid://jq0iq5elsxnp" path="res://Assets/player.png" id="2_8qrmb"]
-[ext_resource type="Script" path="res://Entities/Marker2D.gd" id="2_82qry"]
-[ext_resource type="Resource" uid="uid://cy88i2vhdf0i6" path="res://Inventory/playerInventory.tres" id="2_qutlf"]
-[ext_resource type="Texture2D" uid="uid://cjcsy6l33diqw" path="res://Entities/flashlight.png" id="5_wnue4"]
-[ext_resource type="PackedScene" uid="uid://ckh0etq8rdsn" path="res://combat/sword.tscn" id="6_yhl4j"]
-[ext_resource type="PackedScene" uid="uid://cv3bpvq157a7c" path="res://combat/crossbow.tscn" id="7_qqdmr"]
+[ext_resource type="Script" path="res://entities/player.gd" id="1_22f2w"]
+[ext_resource type="Texture2D" uid="uid://jq0iq5elsxnp" path="res://assets/entities/player.png" id="2_8qrmb"]
+[ext_resource type="Script" path="res://entities/Marker2D.gd" id="2_82qry"]
+[ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://UI/inventory/player-inventory.tres" id="2_qutlf"]
+[ext_resource type="Texture2D" uid="uid://cjcsy6l33diqw" path="res://assets/other/flashlight.png" id="5_wa422"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqlct"]
 radius = 22.0227
@@ -55,6 +53,7 @@ _data = {
 collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_22f2w")
+moveSpeed = 150.0
 inventory = ExtResource("2_qutlf")
 
 [node name="RotationPoint" type="Marker2D" parent="."]
@@ -67,25 +66,19 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_8qrmb")
 
 [node name="Flashlight" type="PointLight2D" parent="RotationPoint"]
-position = Vector2(29.425, 0)
+position = Vector2(25.8705, -0.335449)
 rotation = -3.14159
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.552842, 0.552842)
 color = Color(0.94902, 0.74902, 0.360784, 1)
+energy = 0.5
 blend_mode = 2
 shadow_enabled = true
 shadow_filter = 2
-texture = ExtResource("5_wnue4")
+shadow_item_cull_mask = 3
+texture = ExtResource("5_wa422")
 offset = Vector2(-363.185, -4.515)
 
 [node name="Weapons" type="Node2D" parent="RotationPoint"]
-
-[node name="Sword" parent="RotationPoint/Weapons" instance=ExtResource("6_yhl4j")]
-position = Vector2(5, 12)
-rotation = 1.43641
-
-[node name="Crossbow" parent="RotationPoint/Weapons" instance=ExtResource("7_qqdmr")]
-position = Vector2(11, 17)
-rotation = 0.958186
 
 [node name="Hitbox" type="Area2D" parent="RotationPoint"]
 collision_layer = 0
@@ -93,7 +86,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationPoint/Hitbox"]
 shape = SubResource("CircleShape2D_iqlct")
-debug_color = Color(0.921569, 0, 0.694118, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_016k8")
@@ -108,7 +100,14 @@ libraries = {
 [node name="ImmunityFrames" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="StaminaRestore" type="Timer" parent="."]
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="RotationPoint/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="RotationPoint/Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="ImmunityFrames" to="." method="_on_immunity_frames_timeout"]
+[connection signal="timeout" from="StaminaRestore" to="." method="_on_stamina_restore_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjw85nwae6j0u"]
+
+[ext_resource type="Texture2D" uid="uid://bc7l4frd0lvey" path="res://assets/particles/cirlce.png" id="1_5j8yd"]
+
+[sub_resource type="Gradient" id="Gradient_8cb5l"]
+offsets = PackedFloat32Array(0.18, 0.626667, 1)
+colors = PackedColorArray(0.752941, 0.101961, 0.141176, 0.780392, 1, 0.505882, 0.168627, 0.654902, 1, 0.8, 0.168627, 0.545098)
+
+[node name="TorchParticles" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+amount = 25
+lifetime = 0.5
+speed_scale = 0.25
+randomness = 0.18
+draw_order = 1
+texture = ExtResource("1_5j8yd")
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+color_ramp = SubResource("Gradient_8cb5l")
