@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://djn87dm42kuxu"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_76fmy"]
+[ext_resource type="Texture2D" uid="uid://dd1f6h3smhm0x" path="res://assets/resources/Improvised Explosives.png" id="2_ctrhl"]
+
+[resource]
+script = ExtResource("1_76fmy")
+name = "Improvised Explosives"
+texture = ExtResource("2_ctrhl")
+rarity = 0

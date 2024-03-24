@@ -1,77 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://c550n0t3ll3mg"]
+[gd_scene load_steps=3 format=3 uid="uid://buvdhtxsdft4p"]
 
-[ext_resource type="Script" path="res://UI/dialogs/dialog-control.gd" id="1_wkunw"]
+[ext_resource type="Script" path="res://UI/dialogs/dialog.gd" id="1_nkmvh"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_i4rxf"]
 
-[node name="DialogUI" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Dialog" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -78.5
+offset_right = 325.0
+offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wkunw")
+script = ExtResource("1_nkmvh")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.167969
-anchor_top = 0.128858
-anchor_right = 0.887587
-anchor_bottom = 0.934414
-offset_left = -16.5
-offset_top = -15.5
-offset_right = -16.5
-offset_bottom = -15.5
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="LocationContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 177.0
-offset_top = 68.0
-offset_right = 1006.0
-offset_bottom = 590.0
-
-[node name="MarginTitle" type="MarginContainer" parent="LocationContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_bottom = 25
+texture = ExtResource("2_i4rxf")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="LocationContainer/MarginTitle"]
+[node name="LocationDialogContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="LocationTitle" type="Label" parent="LocationContainer/MarginTitle/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Location"
-
-[node name="MarginDialog" type="MarginContainer" parent="LocationContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 130
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 130
-
-[node name="LocationDialogContainer" type="VBoxContainer" parent="LocationContainer/MarginDialog"]
-layout_mode = 2
-
-[node name="TitleContainer" type="PanelContainer" parent="LocationContainer/MarginDialog/LocationDialogContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="LocationContainer/MarginDialog/LocationDialogContainer/TitleContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "xxx"
+theme_override_constants/separation = 30
 
-[node name="DescriptionContainer" type="PanelContainer" parent="LocationContainer/MarginDialog/LocationDialogContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="LocationDialogContainer"]
 layout_mode = 2
 
-[node name="Description" type="Label" parent="LocationContainer/MarginDialog/LocationDialogContainer/DescriptionContainer"]
+[node name="TitleContainer" type="PanelContainer" parent="LocationDialogContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="LocationDialogContainer/TitleContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DescriptionContainer" type="PanelContainer" parent="LocationDialogContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="LocationDialogContainer/DescriptionContainer"]
+custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "xxx"
+autowrap_mode = 2
 
-[node name="ChoiceFrame" type="VBoxContainer" parent="LocationContainer/MarginDialog/LocationDialogContainer"]
+[node name="DialogResources" type="VBoxContainer" parent="LocationDialogContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="ChoiceFrame" type="VBoxContainer" parent="LocationDialogContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="LocationDialogContainer"]
 layout_mode = 2

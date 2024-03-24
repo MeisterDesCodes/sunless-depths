@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fvvlo7poxdkl"]
+
+[ext_resource type="Script" path="res://entities/states/chase.gd" id="1_ita5u"]
+
+[node name="Chase" type="Node2D"]
+script = ExtResource("1_ita5u")
+
+[node name="FollowTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="FollowTimer" to="." method="_on_follow_timer_timeout"]

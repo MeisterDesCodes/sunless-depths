@@ -6,7 +6,13 @@
 radius = 24.0208
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_77cu7")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 0.0980392, 0.0980392, 1)
+position = Vector2(2, 2)
+scale = Vector2(0.05, 0.05)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)

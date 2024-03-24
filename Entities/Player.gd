@@ -5,20 +5,18 @@ signal healthModified
 
 @export var moveSpeed: float
 @export var inventory: Inventory
+@export var availableWeapons: Array[Weapon]
 
 @export var supplyDrainBase: float = 0.75
 @export var oxygenDrainBase: float = 0.5
 @export var staminaDrainBase: float = 0
 @export var staminaRestoreBase: float = 15
 
-@onready var rubble: InventoryResource = preload("res://items/resources/rubble.tres")
-@onready var planks: InventoryResource = preload("res://items/resources/planks.tres")
-@onready var caveshroom: InventoryResource = preload("res://items/resources/caveshroom.tres")
 @onready var weapons: Array
 @onready var animations = $"AnimationPlayer"
 @onready var hitboxCollision = $"RotationPoint/Hitbox/CollisionShape2D"
 @onready var hitbox = $"RotationPoint/Hitbox"
-@onready var HudUI = get_tree().current_scene.get_node("CanvasLayer/UIControl/HudUI")
+@onready var HudUI = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/HudUI")
 
 var attackState: bool = false
 var attackOnCooldown: bool = false
@@ -32,10 +30,10 @@ var isKnockback: bool = false
 var isSprinting: bool = false
 var isDashing: bool = false
 var canDash: bool = true
+var isInDialog: bool = false
 
 var lanceScene = preload("res://weapons/lance.tscn")
 var crossbowScene = preload("res://weapons/crossbow.tscn")
-var availableWeapons: AllWeapons = preload("res://weapons/resources/all-weapons.tres")
 var currentWeaponScene: StaticBody2D
 
 var supplyDrain: float = supplyDrainBase
@@ -46,7 +44,7 @@ var dashStaminaCost: float = 20
 
 
 func _ready():
-	for weapon in availableWeapons.weapons:
+	for weapon in availableWeapons:
 		var weaponInstance: StaticBody2D
 		match weapon.type:
 			Enums.weaponTypes.LANCE:
@@ -62,46 +60,55 @@ func _ready():
 		$"RotationPoint/Weapons".add_child(weaponInstance)
 			
 	weapons = $"RotationPoint/Weapons".get_children()
-	currentWeaponScene = weapons[1]
-	updateWeapons()
+	if weapons.size() > 0:
+		currentWeaponScene = weapons[1]
+		updateWeapons()
 
 
 func _process(delta):
+	if isInDialog:
+		return
+	
 	if Input.is_action_just_pressed("dash"):
-		if (canDash && HudUI.stamina.value > dashStaminaCost):
+		if (canDash && !isKnockback && HudUI.stamina.value > dashStaminaCost):
 			canDash = false
 			isDashing = true
+			HudUI.onDash()
 			updateHud.emit(2, dashStaminaCost, 0.5)
-			var dash_vector = global_position.direction_to(get_global_mouse_position()) * 500
+			var dash_vector = global_position.direction_to(get_global_mouse_position()) * 400
 			velocity = lerp(velocity, dash_vector, 0.5)
 			$"DashTimer".start()
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.3).timeout
 			isDashing = false
-
-
+	
 	if Input.is_action_just_pressed("interact"):
 		pass
 	
 	if Input.is_action_just_pressed("switch"):
 		switchToNextWeapon()
-		
+	
 	if Input.get_action_strength("attack"):
 		if HudUI.stamina.value >= currentWeaponScene.weapon.staminaCost:
 			attack()
-		
+	
 	if Input.get_action_strength("sprint") && HudUI.stamina.value > 0:
 		isSprinting = true
+		HudUI.onSprint()
 		supplyDrain = supplyDrainBase + 1.25
 		staminaDrain = 10
 		staminaRestore = 0
 		$"StaminaRestore".start()
 	else:
 		isSprinting = false
+		HudUI.onWalk()
 		supplyDrain = supplyDrainBase
 		staminaDrain = staminaDrainBase
 
 
 func _physics_process(_delta):
+	if isInDialog:
+		return
+	
 	if !isKnockback && !isDashing:
 		var direction = Vector2(
 			Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -201,3 +208,4 @@ func _on_stamina_restore_timeout():
 
 func _on_dash_timer_timeout():
 	canDash = true
+	HudUI.onDashCooldown()

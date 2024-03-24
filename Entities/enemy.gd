@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+
+@export var enemy: Enemy
+
+@onready var player = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var navigationHandler = $"NavigationAgent2D"
 @onready var animations = $"AnimationPlayer"
 @onready var attackCollision = $"DamageRadius/CollisionShape2D"
@@ -7,11 +11,7 @@ extends CharacterBody2D
 @onready var hitParticles = $"HitParticles"
 @onready var hitbox = $"Hitbox"
 @onready var resourceSpawner = $"ResourceSpawner"
-
-var seesPlayer = false
-var player = null
-
-@export var enemy: Enemy
+@onready var stateMachine = $"States"
 
 var maxHealth: float
 var health: float
@@ -27,6 +27,11 @@ var attackState: bool = false
 var immunityFramesActive: bool = false
 
 
+func _ready():
+	bloodParticles.visible = false
+	update()
+
+
 func update():
 	maxHealth = enemy.maxHealth
 	health = enemy.maxHealth
@@ -36,41 +41,33 @@ func update():
 	$"Sprite2D".texture = enemy.texture
 
 
-func _ready():
-	bloodParticles.visible = false
-	update()
-
-
 func _physics_process(delta):
-	
-	if seesPlayer:
-		look_at(player.global_position)
+	if player.isInDialog:
+		return
 	
 	if !isKnockback:
-		var direction = navigationHandler.get_next_path_position() - global_position
-		direction = direction.normalized()
-		velocity = lerp(velocity, direction * moveSpeed, 0.15)
-		
+		var nextPoint = navigationHandler.get_next_path_position()
+		if nextPoint.distance_to(global_position) > 10:
+			var direction = nextPoint - global_position
+			direction = direction.normalized()
+			velocity = lerp(velocity, direction * moveSpeed, 0.15)
+			look_at(nextPoint)
+		else:
+			velocity = Vector2.ZERO
+	
 	move_and_slide()
 	
 	var bodies = hitbox.get_overlapping_bodies()
 	for body in bodies:
 		processIncomingAttack(body)
-	
-	
-	
-func _on_timer_timeout():
-	if player != null && seesPlayer:
-		navigationHandler.target_position = player.global_position
-	
+
+
 func _on_detection_radius_body_entered(body):
-	seesPlayer = true
-	player = body
+	stateMachine.onChange(stateMachine.currentState, stateMachine.states["chase"])
 
 
 func _on_detection_radius_body_exited(body):
-	seesPlayer = false
-	player = null
+	stateMachine.onChange(stateMachine.currentState, stateMachine.states["idle"])
 
 
 func _on_hitbox_body_entered(body):
@@ -104,16 +101,14 @@ func processIncomingAttack(body):
 
 
 func entityKilled():
-	for i in enemy.drops.size():
-		if enemy.drops[i].dropChance > randf():
-			resourceSpawner.spawnResources(enemy.drops[i].resource, enemy.drops[i].amount,
-				Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, dropSpeed)
+	resourceSpawner.spawnResources(enemy.drops, Enums.resourceSpawnType.DROP,
+		global_position, Vector2.DOWN, dropSpeed)
 		
 	queue_free()
 
 
 func toggleAwareness():
-	$"DetectionRadius/CollisionShape2D".shape.radius = 300
+	$"DetectionRadius/CollisionShape2D".shape.radius = 450
 	$"AwarenessTimer".start()
 	
 	
@@ -137,7 +132,7 @@ func isEnemy():
 
 
 func _on_awareness_timeout():
-	$"DetectionRadius/CollisionShape2D".shape.radius = 120
+	$"DetectionRadius/CollisionShape2D".shape.radius = 150
 
 
 func _on_immunity_frames_timeout():

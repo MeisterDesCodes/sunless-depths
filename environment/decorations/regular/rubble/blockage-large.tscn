@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://brnp7l0rmv45w"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_w8wfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxuio"]
+size = Vector2(90, 46)
+
+[node name="BlockageLarge" type="Node2D"]
+script = ExtResource("1_w8wfs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_sxuio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)

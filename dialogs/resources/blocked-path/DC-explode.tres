@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://cxuxyss8scst8"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_3f70r"]
+
+[resource]
+script = ExtResource("1_3f70r")
+title = "Explosives"
+description = ""
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+goBack = 0

@@ -6,13 +6,13 @@ extends Node2D
 var lifetime: int = 3
 
 func _ready():
-	interaction.entered.connect(enter)
+	interaction.onEnter.connect(enter)
 
 
 func enter(body):
 	if lifetime > 0:
-		interaction.dropResources([preload("res://items/resources/rubble.tres"),
-			preload("res://items/resources/planks.tres")], 1, 3, 250, body)
+		interaction.dropResources([preload("res://inventory-resource/resources/rubble.tres"),
+			preload("res://inventory-resource/resources/planks.tres")], 1, 3, 250, body)
 		lifetime -= 1
 		if lifetime == 0:
 			queue_free()

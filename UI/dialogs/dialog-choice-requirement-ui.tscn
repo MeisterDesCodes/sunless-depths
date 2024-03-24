@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1dtnbm0uujml"]
+
+[ext_resource type="Texture2D" uid="uid://8y0d4c6i0urd" path="res://assets/UI/Frame 22.png" id="1_2fnaj"]
+[ext_resource type="Script" path="res://UI/dialogs/dialog-choice-requirement-ui.gd" id="1_b7o1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2kfm"]
+
+[node name="DialogChoiceRequirement" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -51.0
+offset_right = 51.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u2kfm")
+script = ExtResource("1_b7o1q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_2fnaj")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Amount" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -33.0
+offset_right = 2.0
+offset_bottom = 17.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Resource" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

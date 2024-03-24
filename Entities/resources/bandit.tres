@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://edy1s5u5u2ne"]
 
-[ext_resource type="Resource" uid="uid://dw3c08scupvvv" path="res://items/resources/planks.tres" id="1_am3se"]
+[ext_resource type="Resource" uid="uid://dw3c08scupvvv" path="res://inventory-resource/resources/planks.tres" id="1_am3se"]
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_ph5yf"]
-[ext_resource type="Script" path="res://items/drop-resource.gd" id="2_4jewg"]
-[ext_resource type="Resource" uid="uid://cdllvsw3wtvli" path="res://items/resources/rubble.tres" id="2_cjr4a"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="2_4jewg"]
+[ext_resource type="Resource" uid="uid://cdllvsw3wtvli" path="res://inventory-resource/resources/rubble.tres" id="2_cjr4a"]
 [ext_resource type="Texture2D" uid="uid://bk3pjyonqnau7" path="res://assets/entities/bandit.png" id="2_e7sts"]
 
 [sub_resource type="Resource" id="Resource_kp0md"]

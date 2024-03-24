@@ -1,22 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://mty0elomxwg6"]
+[gd_scene load_steps=6 format=3 uid="uid://mty0elomxwg6"]
 
+[ext_resource type="Texture2D" uid="uid://hlp85qqcfy2l" path="res://assets/environment/interactions/Curiosity.png" id="2_aaiyn"]
 [ext_resource type="Script" path="res://environment/curiosities/curiosity.gd" id="2_egl2p"]
-[ext_resource type="Texture2D" uid="uid://hlp85qqcfy2l" path="res://assets/environment/interactions/curiosity.png" id="2_hkkm5"]
+[ext_resource type="PackedScene" uid="uid://ujngla653jpi" path="res://environment/decorations/particles/curiosity-particle.tscn" id="4_cx4y6"]
+[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="4_pdv0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwgc1"]
-radius = 42.0
+radius = 36.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Curiosity" type="Node2D"]
 script = ExtResource("2_egl2p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hkkm5")
+scale = Vector2(0.174863, 0.174863)
+texture = ExtResource("2_aaiyn")
 
 [node name="DetectionRadius" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
 shape = SubResource("CircleShape2D_nwgc1")
+
+[node name="LightSource" parent="." instance=ExtResource("4_pdv0a")]
+
+[node name="CuriosityParticles" parent="." instance=ExtResource("4_cx4y6")]
+
+[node name="FollowTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]

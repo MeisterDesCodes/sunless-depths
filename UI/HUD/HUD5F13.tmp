@@ -1,0 +1,220 @@
+[gd_scene load_steps=8 format=3 uid="uid://snd70w6whqbn"]
+
+[ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_o31jx"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_nn0qi"]
+[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/Frame 19.png" id="3_fgdyr"]
+[ext_resource type="Texture2D" uid="uid://mo65hrfu6vsc" path="res://assets/UI/prograss-bar.png" id="4_durg7"]
+[ext_resource type="Texture2D" uid="uid://dn0ew5y7wh1r4" path="res://assets/resources/Supplies.png" id="5_02mpq"]
+[ext_resource type="Texture2D" uid="uid://bcuj2ieijlf7e" path="res://assets/resources/Oxygen.png" id="6_gs55c"]
+[ext_resource type="Texture2D" uid="uid://c4cwkgwb1uaso" path="res://assets/resources/Stamina.png" id="7_r1qo1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o31jx")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nn0qi")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -90.0
+offset_right = 254.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Health" type="TextureProgressBar" parent="NinePatchRect/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+step = 0.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("3_fgdyr")
+texture_over = ExtResource("3_fgdyr")
+texture_progress = ExtResource("4_durg7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_nn0qi")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer/NinePatchRect"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_02mpq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Supplies" type="TextureProgressBar" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("3_fgdyr")
+texture_over = ExtResource("3_fgdyr")
+texture_progress = ExtResource("4_durg7")
+
+[node name="SuppliesLabel" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.239216, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_nn0qi")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2/NinePatchRect"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_gs55c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Oxygen" type="TextureProgressBar" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("3_fgdyr")
+texture_over = ExtResource("3_fgdyr")
+texture_progress = ExtResource("4_durg7")
+
+[node name="OxygenLabel" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.239216, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_nn0qi")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3/NinePatchRect"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_r1qo1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Stamina" type="TextureProgressBar" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+step = 0.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("3_fgdyr")
+texture_over = ExtResource("3_fgdyr")
+texture_progress = ExtResource("4_durg7")
+
+[node name="StaminaLabel" type="Label" parent="NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.239216, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="SuppliesTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="SuppliesTimer" to="." method="_on_supplies_timer_timeout"]

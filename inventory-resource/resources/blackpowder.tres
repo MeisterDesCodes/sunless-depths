@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://d2p47v81b2wqo"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_4441q"]
+[ext_resource type="Texture2D" uid="uid://cu5iubtvjmr64" path="res://assets/resources/Blackpowder.png" id="2_gv7x7"]
+
+[resource]
+script = ExtResource("1_4441q")
+name = "Blackpowder"
+texture = ExtResource("2_gv7x7")
+rarity = 0

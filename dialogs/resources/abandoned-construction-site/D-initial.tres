@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://c2vwqem35u55w"]
+
+[ext_resource type="Resource" uid="uid://c3wyqfdtacbg1" path="res://dialogs/resources/abandoned-construction-site/DC-scavenge.tres" id="1_oekk1"]
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="2_6cirn"]
+[ext_resource type="Resource" uid="uid://cbj2ojglyo8ig" path="res://dialogs/resources/abandoned-construction-site/DC-loot.tres" id="2_s0jk7"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_dh42a"]
+
+[resource]
+script = ExtResource("3_dh42a")
+title = "Left in a hurry"
+description = "Emerging into a cavernous chamber, you find yourself amidst the remnants of an abandoned construction site. Crumbling scaffolds reach towards the ceiling, their metal frames corroded with age. Piles of debris litter the ground, testament to the site's long-forgotten purpose."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_oekk1"), ExtResource("2_s0jk7"), ExtResource("2_6cirn")])

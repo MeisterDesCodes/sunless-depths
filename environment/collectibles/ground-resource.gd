@@ -28,7 +28,7 @@ func _physics_process(delta):
 func setup(groundResource: InventoryResource):
 	resource = groundResource
 	$"Sprite2D".texture = resource.texture
-
+	$"Shadow".texture = resource.texture
 
 func _on_timer_timeout():
 	isMoving = false

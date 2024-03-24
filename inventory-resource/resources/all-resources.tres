@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AllResources" load_steps=8 format=3 uid="uid://c72t24ntwb7be"]
+
+[ext_resource type="Script" path="res://inventory-resource/all-resources.gd" id="1_d7yk6"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/supplies.tres" id="1_p0542"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/oxygen.tres" id="2_3d47u"]
+[ext_resource type="Resource" uid="uid://dlx7uvkhbfvnc" path="res://inventory-resource/resources/stamina.tres" id="3_1snga"]
+[ext_resource type="Resource" uid="uid://dw3c08scupvvv" path="res://inventory-resource/resources/planks.tres" id="5_o0lkh"]
+[ext_resource type="Resource" uid="uid://cdllvsw3wtvli" path="res://inventory-resource/resources/rubble.tres" id="6_01rb3"]
+[ext_resource type="Resource" uid="uid://doutrnnc21duh" path="res://inventory-resource/resources/cave-shroom.tres" id="7_dmlq6"]
+
+[resource]
+script = ExtResource("1_d7yk6")
+resources = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("1_p0542"), ExtResource("2_3d47u"), ExtResource("3_1snga"), ExtResource("5_o0lkh"), ExtResource("6_01rb3"), ExtResource("7_dmlq6")])

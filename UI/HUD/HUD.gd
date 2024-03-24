@@ -1,15 +1,18 @@
 extends Control
 
-@onready var player = get_tree().current_scene.get_node("Entities/Player")
-@onready var supplies = $"NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer".get_child(0)
-@onready var oxygen = $"NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer".get_child(0)
-@onready var stamina = $"NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer".get_child(0)
-@onready var suppliesLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer".get_child(1)
-@onready var oxygenLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer".get_child(1)
-@onready var staminaLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer".get_child(1)
+@onready var player = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var supplies = $"NinePatchRect/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer".get_child(0)
+@onready var oxygen = $"NinePatchRect/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer".get_child(0)
+@onready var stamina = $"NinePatchRect/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer".get_child(0)
+@onready var suppliesLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer".get_child(1)
+@onready var oxygenLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer".get_child(1)
+@onready var staminaLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer".get_child(1)
 @onready var health = $"NinePatchRect/HBoxContainer/VBoxContainer2/Health"
 
-@onready var allResources = preload("res://items/resources/all-resources.tres")
+@onready var sprintIcon = get_node("NinePatchRect/HBoxContainer/VBoxContainer2/HBoxContainer/RunIcon")
+@onready var dashIcon = get_node("NinePatchRect/HBoxContainer/VBoxContainer2/HBoxContainer/DashIcon")
+
+@onready var allResources = preload("res://inventory-resource/resources/all-resources.tres")
 
 var suppliesBeingRestocked = false
 
@@ -22,9 +25,13 @@ func _ready():
 	oxygen.value = 100
 	stamina.value = 100
 	updateLabels()
+	sprintIcon.visible = false
 
 
 func _process(delta):
+	if player.isInDialog:
+		return
+	
 	player.health += player.healthRegeneration
 	healthModified()
 	supplies.value -= delta * player.supplyDrain
@@ -42,6 +49,23 @@ func _process(delta):
 	if (stamina.value <= 0):
 		pass
 
+
+func onSprint():
+	sprintIcon.visible = true
+
+
+func onWalk():
+	sprintIcon.visible = false
+
+
+func onDash():
+	dashIcon.visible = false
+
+
+func onDashCooldown():
+	dashIcon.visible = true
+
+
 func updateHud(suppliesValue, staminaValue, oxygenValue):
 	if !suppliesBeingRestocked:
 		get_tree().create_tween().tween_property(supplies, "value", supplies.value - suppliesValue, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
@@ -54,9 +78,9 @@ func healthModified():
 
 
 func updateLabels():
-	suppliesLabel.text = str(player.inventory.getResource(allResources.resources[0]))
-	oxygenLabel.text = str(player.inventory.getResource(allResources.resources[1]))
-	staminaLabel.text = str(player.inventory.getResource(allResources.resources[2])) 
+	suppliesLabel.text = str(player.inventory.getResourceAmount(allResources.resources[0]))
+	oxygenLabel.text = str(player.inventory.getResourceAmount(allResources.resources[1]))
+	staminaLabel.text = str(player.inventory.getResourceAmount(allResources.resources[2])) 
 
 
 func _on_supplies_timer_timeout():

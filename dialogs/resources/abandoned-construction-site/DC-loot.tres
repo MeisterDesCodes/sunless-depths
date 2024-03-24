@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://cbj2ojglyo8ig"]
+
+[ext_resource type="Resource" uid="uid://tmwurmle4x07" path="res://dialogs/resources/shared/D-placeholder.tres" id="1_gbfms"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_hvcgd"]
+
+[resource]
+script = ExtResource("3_hvcgd")
+title = "Approach the box"
+description = "You see a peculiar looking metal toolbox below a metal beam"
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialog = ExtResource("1_gbfms")
+optionalMoveBackwards = -1

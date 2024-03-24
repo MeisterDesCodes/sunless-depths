@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6cogporqnswb"]
+
+[ext_resource type="Script" path="res://environment/curiosities/merchant.gd" id="1_m0phi"]
+[ext_resource type="PackedScene" uid="uid://mty0elomxwg6" path="res://environment/curiosities/curiosity.tscn" id="2_a6rla"]
+
+[node name="Merchant" type="Node2D"]
+script = ExtResource("1_m0phi")
+
+[node name="Curiosity" parent="." instance=ExtResource("2_a6rla")]
+modulate = Color(0.360784, 0.847059, 0.380392, 1)

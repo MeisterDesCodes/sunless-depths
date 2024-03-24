@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hlp85qqcfy2l"
-path="res://.godot/imported/curiosity.png-bacb6fbe244fad5c412375c443e49e83.ctex"
+path="res://.godot/imported/Curiosity.png-8774766338761d57af586e528a1a86c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/interactions/curiosity.png"
-dest_files=["res://.godot/imported/curiosity.png-bacb6fbe244fad5c412375c443e49e83.ctex"]
+source_file="res://assets/environment/interactions/Curiosity.png"
+dest_files=["res://.godot/imported/Curiosity.png-8774766338761d57af586e528a1a86c2.ctex"]
 
 [params]
 

@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpr3at4hehmur"]
+[gd_scene load_steps=7 format=3 uid="uid://dpr3at4hehmur"]
 
 [ext_resource type="Script" path="res://weapons/arrow.gd" id="1_fjms7"]
 [ext_resource type="Texture2D" uid="uid://d3y5lj33cvb26" path="res://assets/weapons/arrow.png" id="2_7expt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cylg2"]
 radius = 5.0
+
+[sub_resource type="Curve" id="Curve_q0ki2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t703m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iues5"]
 radius = 5.0
@@ -18,6 +24,12 @@ script = ExtResource("1_fjms7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, -2)
 shape = SubResource("CircleShape2D_cylg2")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-15, -2, -38, -2)
+width = 4.0
+width_curve = SubResource("Curve_q0ki2")
+gradient = SubResource("Gradient_t703m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

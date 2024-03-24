@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://10vgkrej1sdb"]
+
+[ext_resource type="Script" path="res://UI/dialogs/dialog-choice-ui.gd" id="1_w0whr"]
+[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/Frame 19.png" id="2_7jok7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wuhj"]
+
+[node name="DialogChoice" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -93.0
+offset_right = 325.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w0whr")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_7jok7")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="LocationChoiceContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="LocationChoiceContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="LocationChoiceContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="LocationChoiceContainer/PanelContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="LocationChoiceContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="LocationChoiceContainer/PanelContainer2"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "These rocks do n't move one bit. Mayb e s ome explo sive s could brin g them down. Th ese rocks don 't move one bit. Ma ybe some explosives could bring them down."
+autowrap_mode = 2
+
+[node name="ChoiceRequirements" type="HBoxContainer" parent="LocationChoiceContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="LocationChoiceContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6wuhj")
