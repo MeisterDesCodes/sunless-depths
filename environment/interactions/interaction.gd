@@ -5,36 +5,30 @@ signal onEnter
 @export var sprite: Texture2D
 @export var id: String
 
-@onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
 @onready var resourceSpawner = $"ResourceSpawner"
 
 var player = null
 var playerInRange = false
 var completed = false
+var approachLabel: Control  
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact") && playerInRange:
-		completed = true
+	if Input.is_action_just_pressed("interact") && playerInRange && !completed:
 		onEnter.emit(player)
-		leave()
 
 
 func _on_detection_radius_body_entered(body):
+	approachLabel = UILoaderS.loadUIScene(preload("res://UI/other/dialog_approach.tscn"))
 	if body.has_method("isPlayer") && !completed:
 		player = body
 		playerInRange = true
-		approachLabel.visible = true
-		approachLabel.text = "(E) to interact"
+		approachLabel.setup("(E) to interact")
 
 
 func _on_detection_radius_body_exited(body):
-	leave()
-
-
-func leave():
 	playerInRange = false
-	approachLabel.visible = false
+	approachLabel.queue_free()
 
 
 func dropResources(resources: Array[DropResource], speed: float, body: CharacterBody2D):

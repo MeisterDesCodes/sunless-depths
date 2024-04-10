@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://jhv3y3rx0ofc"]
+
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="1_aarfp"]
+
+[resource]
+script = ExtResource("1_aarfp")
+name = "Bleed"
+strength = 2.0
+duration = 3.0

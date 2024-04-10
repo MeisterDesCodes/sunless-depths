@@ -1,14 +1,27 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://cbj2ojglyo8ig"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=8 format=3 uid="uid://cbj2ojglyo8ig"]
 
-[ext_resource type="Resource" uid="uid://tmwurmle4x07" path="res://dialogs/resources/shared/D-placeholder.tres" id="1_gbfms"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="1_fl4sn"]
+[ext_resource type="Resource" uid="uid://dlg83af5a8eiv" path="res://inventory-resource/resources/blueprints/BP-improvised-explosives.tres" id="1_x6vdh"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_hvcgd"]
+[ext_resource type="Resource" uid="uid://bhfo3v05n6mbh" path="res://dialogs/resources/abandoned-construction-site/D-toolbox.tres" id="3_lyks1"]
+[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/blackpowder.tres" id="3_yo6vb"]
+
+[sub_resource type="Resource" id="Resource_ns5md"]
+script = ExtResource("1_fl4sn")
+resource = ExtResource("1_x6vdh")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_3ti0r"]
+script = ExtResource("1_fl4sn")
+resource = ExtResource("3_yo6vb")
+amount = 10
 
 [resource]
 script = ExtResource("3_hvcgd")
 title = "Approach the box"
-description = "You see a peculiar looking metal toolbox below a metal beam"
-requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-nextDialog = ExtResource("1_gbfms")
+description = "You see a peculiar looking metal toolbox below a metal beam."
+requiredResources = Array[ExtResource("1_fl4sn")]([])
+addedResources = Array[ExtResource("1_fl4sn")]([SubResource("Resource_ns5md"), SubResource("Resource_3ti0r")])
+removedResources = Array[ExtResource("1_fl4sn")]([])
+nextDialog = ExtResource("3_lyks1")
 optionalMoveBackwards = -1

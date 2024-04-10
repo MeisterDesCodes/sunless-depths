@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var player = null
+var playerScene = null
 var resource = null
 var isMoving: bool = true
 var canBePickedUp: bool = false
@@ -20,8 +20,8 @@ func _physics_process(delta):
 	if canBePickedUp:
 		var bodies = $"Area2D".get_overlapping_bodies()
 		for body in bodies:
-			player = body
-			player.inventory.addResource(resource, 1)
+			playerScene = body
+			playerScene.inventory.addResource(resource, 1)
 			queue_free()
 
 

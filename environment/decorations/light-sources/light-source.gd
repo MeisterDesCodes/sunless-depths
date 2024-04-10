@@ -20,5 +20,5 @@ func _ready():
 func _process(delta):
 	x += 2
 	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	light.energy = (noise.get_noise_1d(x) / 2 + 1)
+	light.energy = (noise.get_noise_1d(x) * 0.75 + 1)
 

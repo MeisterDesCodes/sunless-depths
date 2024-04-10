@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bwiu2kgkgw4ns"]
+
+[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://maps/area-1.tscn" id="1_ipw3p"]
+[ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player.tscn" id="2_bqi1q"]
+[ext_resource type="Resource" uid="uid://cljxdit5k3u13" path="res://weapons/resources/basic-lance.tres" id="3_82o0d"]
+[ext_resource type="Script" path="res://weapons/weapon.gd" id="4_fx42o"]
+[ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy.tscn" id="5_hqvxm"]
+[ext_resource type="Texture2D" uid="uid://dn8mvsly0g18o" path="res://assets/weapons/crossbow.png" id="5_jl3g3"]
+[ext_resource type="Resource" uid="uid://b4p4p2jhetnf7" path="res://entities/resources/giant-rat.tres" id="6_yjwkh"]
+[ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/HUD/HUD.tscn" id="58_isjnl"]
+
+[sub_resource type="Resource" id="Resource_0ec55"]
+script = ExtResource("4_fx42o")
+name = "Basic Crossbow"
+texture = ExtResource("5_jl3g3")
+type = 1
+attackDelay = 0.5
+knockback = 10.0
+staminaCost = 15.0
+
+[sub_resource type="Gradient" id="Gradient_g0pcc"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_shq6o"]
+gradient = SubResource("Gradient_g0pcc")
+
+[node name="Game" type="Node2D"]
+
+[node name="Area-1" parent="." instance=ExtResource("1_ipw3p")]
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
+top_level = true
+position = Vector2(1753, -1166)
+availableWeapons = Array[ExtResource("4_fx42o")]([ExtResource("3_82o0d"), SubResource("Resource_0ec55")])
+
+[node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
+remote_path = NodePath("../../../FollowCamera")
+
+[node name="Enemy" parent="Entities" instance=ExtResource("5_hqvxm")]
+position = Vector2(1571, -1192)
+enemy = ExtResource("6_yjwkh")
+
+[node name="Enemy2" parent="Entities" instance=ExtResource("5_hqvxm")]
+position = Vector2(1165, -1078)
+enemy = ExtResource("6_yjwkh")
+
+[node name="FollowCamera" type="Camera2D" parent="."]
+position = Vector2(1753, -1166)
+zoom = Vector2(1.75, 1.75)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -1341.0
+offset_top = -2004.0
+offset_right = 3630.0
+offset_bottom = 2286.0
+texture = SubResource("GradientTexture1D_shq6o")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-133, -36)
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 0.999945
+anchor_bottom = 0.95
+offset_right = 0.0878906
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HudUI" parent="CanvasLayer/UIControl" instance=ExtResource("58_isjnl")]
+z_index = 1
+layout_mode = 1

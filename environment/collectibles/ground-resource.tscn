@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://environment/collectibles/ground-resource.gd" id="1_77cu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mpfqw"]
-radius = 24.0208
+radius = 31.3333
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_77cu7")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0.0980392, 0.0980392, 0.0980392, 1)
+self_modulate = Color(0.0980392, 0.0980392, 0.0980392, 1)
 position = Vector2(2, 2)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

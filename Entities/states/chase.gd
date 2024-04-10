@@ -3,23 +3,24 @@ extends State
 
 class_name ChaseState
 
-@onready var player = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 
 @export var entity: CharacterBody2D
 
+@onready var timer = get_node("FollowTimer")
+
 
 func enter():
-	$FollowTimer.start()
+	timer.start()
 
 
 func exit():
-	$FollowTimer.stop()
+	timer.stop()
 
 
 func update(delta):
-	return
-	entity.navigationHandler.target_position = player.global_position
+	entity.moveToPath(entity.moveSpeed)
 
 
 func _on_follow_timer_timeout():
-	entity.navigationHandler.target_position = player.global_position
+	entity.navigationHandler.target_position = playerScene.global_position

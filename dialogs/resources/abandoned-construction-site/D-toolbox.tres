@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://bhfo3v05n6mbh"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/abandoned-construction-site/DC-return.tres" id="1_2c0pg"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_g5dm6"]
+
+[resource]
+script = ExtResource("4_g5dm6")
+title = "Violent Expertise"
+description = "Inside the box you find a collection of old blueprints, worn out over the years and barely readable anymore. However, some details can still be identified. They seem to be instructions on assembling rudimentary explosives. This might clear the blockage encoutered ealier."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_2c0pg")])

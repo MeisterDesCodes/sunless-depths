@@ -13,22 +13,27 @@ func enter():
 
 
 func exit():
-	pass
+	timer.stop()
 
 
 func update(delta):
-	pass
+	entity.moveToPath(entity.moveSpeed * 0.5)
 
 
 func getDirection():
-	var distance = entity.moveSpeed * 1.5
-	var randX = randf_range(distance, distance * 2) * randomModifier()
-	var randY = randf_range(distance, distance * 2) * randomModifier()
-	var position = Vector2(randX, randY) + entity.global_position
-	if (entity.navigationHandler):
-		entity.navigationHandler.target_position = position
+	var distance = entity.moveSpeed * 2
+	var randX = randf_range(-distance, distance)
+	var randY = randf_range(-distance, distance)
+	var destination = Vector2(randX, randY)
 	
-	timer.wait_time = randf_range(4, 6)
+	if entity.global_position.distance_to(destination + entity.global_position) < 100:
+		destination *= 1.5
+	destination += entity.global_position
+	
+	if (entity.navigationHandler):
+		entity.navigationHandler.target_position = destination
+	
+	timer.wait_time = randf_range(3, 5)
 	timer.start()
 
 

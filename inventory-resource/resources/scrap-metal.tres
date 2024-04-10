@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://bwnv114jyttus"]
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://b5ja2tybxkl4t"]
 
-[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_2t74m"]
-[ext_resource type="Texture2D" uid="uid://b7gvv3g83evmf" path="res://assets/resources/Scrap Metal.png" id="2_decrg"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_csaua"]
+[ext_resource type="Texture2D" uid="uid://x5mhtwnc6aay" path="res://assets/resources/Scrap Metal.png" id="2_decrg"]
 
 [resource]
-script = ExtResource("1_2t74m")
+script = ExtResource("1_csaua")
 name = "Scrap Metal"
 texture = ExtResource("2_decrg")
-rarity = 0
+rarity = 1
+type = 0

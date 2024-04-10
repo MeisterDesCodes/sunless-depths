@@ -4,14 +4,20 @@ extends Node
 class_name Enums
 
 
-enum weaponTypes {LANCE, CROSSBOW}
+enum weaponTypes {MELEE, RANGED}
 
 enum resourceSpawnType {DASH, DROP}
 
-enum dialogResourceType {REQUIRE, ADD, REMOVE}
-
-enum resourceRarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
+enum resourceRarity {PRIMARY, COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 
 enum curiosityType {DIALOG, MERCHANT}
 
 enum merchantMode {BUY, SELL}
+
+enum dialogResourceType {ADD, REMOVE}
+
+enum resourceType {RESOURCE, MATERIAL, WEAPON, BLUEPRINT, USABLE}
+
+enum weaponAttackType {BASIC_MELEE_SWING_FRONT, BASIC_MELEE_SWING_BACK, BASIC_MELEE_STAB, BASIC_RANGED}
+
+enum enemyStates {IDLE, CHASE, DASH, KEEP_DISTANCE, LAUNCH_PROJECTILE}

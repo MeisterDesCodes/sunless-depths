@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var player = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var MerchantWindow = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/Merchant")
 @onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
 
@@ -12,16 +12,7 @@ var currentDialog: PanelContainer = null
 var dialogTree: Array[Dialog] = []
 
 
-func _ready():
-	toggleDialogMenu()
-
-
-func toggleDialogMenu():
-	visible = !visible
-
-
 func setup(location):
-	toggleDialogMenu()
 	locationTitle.text = location.title
 	
 	for child in locationDialogs.get_children():
@@ -60,9 +51,9 @@ func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource]):
 func generateResources(dialog: PanelContainer, choiceResources: Array[ChoiceResource]):
 	for resource in choiceResources:
 		if resource.type == Enums.dialogResourceType.ADD:
-			player.inventory.addResource(resource.resource, resource.amount)
+			playerScene.inventory.addResource(resource.resource, resource.amount)
 		else:
-			player.inventory.removeResource(resource.resource, resource.amount)
+			playerScene.inventory.removeResource(resource.resource, resource.amount)
 		
 		var dialogResource = preload("res://UI/dialogs/dialog-resource.tscn").instantiate()
 		dialog.dialogResources.add_child(dialogResource)
@@ -70,8 +61,8 @@ func generateResources(dialog: PanelContainer, choiceResources: Array[ChoiceReso
 
 
 func leave():
-	toggleDialogMenu()
-	player.isInDialog = false
+	queue_free()
+	playerScene.isInDialog = false
 
 
 func _on_leave_pressed():

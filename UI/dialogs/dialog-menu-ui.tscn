@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_lnrq7"]
 
 [node name="DialogMenuUI" type="Control"]
-top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

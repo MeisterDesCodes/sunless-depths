@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2udn5n4jvrxi"]
+
+[ext_resource type="Script" path="res://shared/projectile-spawner.gd" id="1_wo4ko"]
+
+[node name="ProjectileSpawner" type="Node2D"]
+script = ExtResource("1_wo4ko")

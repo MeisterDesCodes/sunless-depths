@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=19 format=3 uid="uid://btn5dob4qrwk5"]
+
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/primary/supplies.tres" id="1_mh34j"]
+[ext_resource type="Script" path="res://UI/inventory/inventory-slot.gd" id="2_a7ysp"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/primary/oxygen.tres" id="3_0dhd3"]
+[ext_resource type="Resource" uid="uid://dlx7uvkhbfvnc" path="res://inventory-resource/resources/primary/stamina.tres" id="4_v4rc5"]
+[ext_resource type="Script" path="res://inventory-resource/inventory.gd" id="6_s3erd"]
+[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/crossbow.tres" id="7_chjm2"]
+[ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/branch.tres" id="7_qmqiu"]
+[ext_resource type="Resource" uid="uid://kab6p5onm82t" path="res://weapons/resources/lance.tres" id="8_f8peb"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/primary/gold.tres" id="8_r2vlu"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/primary/experience.tres" id="9_bbk1v"]
+
+[sub_resource type="Resource" id="Resource_cbtrd"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("1_mh34j")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_6qn3x"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("4_v4rc5")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_bjhhi"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("3_0dhd3")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_snsg2"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("7_qmqiu")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_tkxcu"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("7_chjm2")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_kyyxu"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("8_f8peb")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_v5pbr"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("8_r2vlu")
+amount = 5000
+
+[sub_resource type="Resource" id="Resource_81c8y"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("9_bbk1v")
+amount = 3000
+
+[resource]
+script = ExtResource("6_s3erd")
+resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_cbtrd"), SubResource("Resource_6qn3x"), SubResource("Resource_bjhhi"), SubResource("Resource_snsg2"), SubResource("Resource_tkxcu"), SubResource("Resource_kyyxu"), SubResource("Resource_v5pbr"), SubResource("Resource_81c8y")])

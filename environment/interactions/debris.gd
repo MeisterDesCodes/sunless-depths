@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@export var dropResources: Array[DropResource]
+
 @onready var interaction = $"Interaction"
 
 var lifetime: int = 3
@@ -11,8 +13,8 @@ func _ready():
 
 func enter(body):
 	if lifetime > 0:
-		interaction.dropResources([preload("res://inventory-resource/resources/rubble.tres"),
-			preload("res://inventory-resource/resources/planks.tres")], 1, 3, 250, body)
+		interaction.dropResources(dropResources, 250, body)
 		lifetime -= 1
 		if lifetime == 0:
-			queue_free()
+			interaction.completed = true
+			interaction.approachLabel.visible = false

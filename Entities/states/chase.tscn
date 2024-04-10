@@ -6,6 +6,6 @@
 script = ExtResource("1_ita5u")
 
 [node name="FollowTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.25
 
 [connection signal="timeout" from="FollowTimer" to="." method="_on_follow_timer_timeout"]

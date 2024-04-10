@@ -3,11 +3,12 @@ extends PanelContainer
 
 signal purchasedResourcesUpdate
 
-@onready var player = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var texture: TextureRect = get_node("NinePatchRect/HBoxContainer/HBoxContainer/Texture")
 @onready var description: Label = get_node("NinePatchRect/HBoxContainer/HBoxContainer/Name")
 @onready var cost: Label = get_node("NinePatchRect/HBoxContainer/HBoxContainer2/Cost")
 @onready var purchaseAmount: Label = get_node("NinePatchRect/HBoxContainer/HBoxContainer3/PurchaseAmount")
+@onready var inventoryContainer: HBoxContainer = get_node("NinePatchRect/HBoxContainer/HBoxContainer4")
 @onready var inventoryAmount: Label = get_node("NinePatchRect/HBoxContainer/HBoxContainer4/InventoryAmount")
 
 var resource: InventoryResource
@@ -16,35 +17,39 @@ var merchantMode = Enums.merchantMode.BUY
 var priceModifier: float = 1
 
 
-func setup(merchantResource: InventoryResource, mode: Enums.merchantMode, price: float):
-	resource = merchantResource
-	merchantMode = mode
-	priceModifier = price
+func setup(_resource: InventoryResource, _merchantMode: Enums.merchantMode, _priceModifier: float):
+	resource = _resource
+	merchantMode = _merchantMode
+	priceModifier = _priceModifier
 	texture.texture = resource.texture
 	description.text = resource.name
-	cost.text = str(calculateResourceCost(resource))
+	UtilsS.updateResource(resource)
+	cost.text = str(calculateResourceCost())
 	purchaseAmount.text = "00"
-	inventoryAmount.text = str(player.inventory.getResourceAmount(resource))
+	inventoryAmount.text = str(playerScene.inventory.getResourceAmount(resource))
+	if merchantMode == Enums.merchantMode.BUY:
+		inventoryContainer.visible = false
 
 
-func calculateResourceCost(resource: InventoryResource):
+func calculateResourceCost():
 	match resource.rarity:
 		Enums.resourceRarity.UNCOMMON:
-			1.25
+			priceModifier = 1.5
 		Enums.resourceRarity.RARE:
-			1.75
+			priceModifier = 2.25
 		Enums.resourceRarity.EPIC:
-			2.5
+			priceModifier = 3.5
 		Enums.resourceRarity.LEGENDARY:
-			3.5
+			priceModifier = 5.5
 	
+	var baseCost = 10 if resource.type == Enums.resourceType.MATERIAL else 150
 	var sellModifier = 1 if merchantMode == Enums.merchantMode.BUY else 0.35
-	return 100 * priceModifier * sellModifier
+	return round(baseCost * priceModifier * sellModifier)
 
 
 func reset():
 	selectedAmount = 0
-	inventoryAmount.text = str(player.inventory.getResourceAmount(resource))
+	inventoryAmount.text = str(playerScene.inventory.getResourceAmount(resource))
 	updateAmount()
 
 
@@ -66,6 +71,9 @@ func _on_less_button_pressed():
 
 
 func _on_more_button_pressed():
-	if selectedAmount < 99 && (merchantMode == Enums.merchantMode.BUY || selectedAmount < player.inventory.getResourceAmount(resource)):
+	if selectedAmount > 0 && resource.type == Enums.resourceType.WEAPON:
+		return
+	
+	if selectedAmount < 99 && (merchantMode == Enums.merchantMode.BUY || selectedAmount < playerScene.inventory.getResourceAmount(resource)):
 		selectedAmount += 1
 		updateAmount()

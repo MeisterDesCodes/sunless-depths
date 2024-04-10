@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Player" load_steps=3 format=3 uid="uid://bunurwyxgx0ax"]
+
+[ext_resource type="Script" path="res://entities/resources/classes/player.gd" id="1_7shrn"]
+[ext_resource type="Texture2D" uid="uid://ddo537ghvks2b" path="res://assets/entities/player.png" id="2_papex"]
+
+[resource]
+script = ExtResource("1_7shrn")
+supplyDrain = 0.75
+oxygenDrain = 0.5
+staminaDrain = 0.0
+staminaRestore = 15.0
+name = "Player"
+texture = ExtResource("2_papex")
+maxHealth = 100.0
+moveSpeed = 150.0
+ferocity = 2.0
+perseverance = 2.0
+agility = 2.0
+perception = 2.0

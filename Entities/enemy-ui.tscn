@@ -1,0 +1,189 @@
+[gd_scene load_steps=22 format=3 uid="uid://ca0d7whibvanw"]
+
+[ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
+[ext_resource type="Resource" uid="uid://b3efrfoxd6rk7" path="res://entities/resources/turtleneck.tres" id="2_quipj"]
+[ext_resource type="Script" path="res://entities/states/state-machine.gd" id="3_fbfho"]
+[ext_resource type="PackedScene" uid="uid://c30m4otyx5tja" path="res://shared/resource-spawner.tscn" id="3_rnx55"]
+[ext_resource type="PackedScene" uid="uid://fkdvi0lmlkno" path="res://entities/states/idle.tscn" id="4_3b136"]
+[ext_resource type="Texture2D" uid="uid://bc7l4frd0lvey" path="res://assets/particles/basic-particle.png" id="4_3hcrm"]
+[ext_resource type="PackedScene" uid="uid://fvvlo7poxdkl" path="res://entities/states/chase.tscn" id="5_avrlx"]
+[ext_resource type="PackedScene" uid="uid://cooro488a6s8h" path="res://entities/states/dash.tscn" id="6_e5s4b"]
+[ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver.tscn" id="6_vf118"]
+[ext_resource type="PackedScene" uid="uid://byhgk6jja038" path="res://entities/states/launch-projectile.tscn" id="7_813tm"]
+[ext_resource type="PackedScene" uid="uid://bibqyv7bymwus" path="res://entities/components/contact-damage-component.tscn" id="7_ghee7"]
+[ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
+[ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
+radius = 120.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8ae5"]
+radius = 27.0
+
+[sub_resource type="Gradient" id="Gradient_3e6f1"]
+offsets = PackedFloat32Array(0.22, 1)
+colors = PackedColorArray(1, 0.117647, 0, 0.580392, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_t3c7q"]
+_data = [Vector2(0.134831, 1), 0.0, 0.0, 0, 0, Vector2(0.921348, 0.153846), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_3bes3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_shkm4"]
+resource_name = "damage-received"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.717647, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4oud"]
+_data = {
+"RESET": SubResource("Animation_3bes3"),
+"damage-received": SubResource("Animation_shkm4")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_tud5h")
+entityResource = ExtResource("2_quipj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 4.71239
+scale = Vector2(0.13, 0.13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uwt41")
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_6eh1t")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_s8ae5")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("entityScene", "initialState")]
+script = ExtResource("3_fbfho")
+entityScene = NodePath("..")
+initialState = NodePath("Idle")
+
+[node name="Idle" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("4_3b136")]
+entity = NodePath("../..")
+
+[node name="Chase" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("5_avrlx")]
+entity = NodePath("../..")
+
+[node name="Dash" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("6_e5s4b")]
+entity = NodePath("../..")
+
+[node name="Keep_Distance" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("8_p7ty3")]
+entity = NodePath("../..")
+
+[node name="Launch_Projectile" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("7_813tm")]
+entity = NodePath("../..")
+
+[node name="ContactDamageComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("7_ghee7")]
+entityScene = NodePath("..")
+
+[node name="DamageReceiver" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("6_vf118")]
+entity = NodePath("..")
+
+[node name="StatusEffectComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("9_0gbff")]
+entityScene = NodePath("..")
+
+[node name="ResourceSpawner" parent="." instance=ExtResource("3_rnx55")]
+
+[node name="BloodParticles" type="CPUParticles2D" parent="."]
+amount = 1
+lifetime = 0.75
+explosiveness = 0.17
+randomness = 0.12
+draw_order = 1
+texture = ExtResource("4_3hcrm")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 56.14
+initial_velocity_max = 56.14
+scale_amount_min = 0.15
+scale_amount_max = 0.3
+color = Color(1, 0.0313726, 0, 1)
+color_ramp = SubResource("Gradient_3e6f1")
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
+position = Vector2(4, -12)
+emitting = false
+amount = 5
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.8
+randomness = 0.12
+draw_order = 1
+texture = ExtResource("4_3hcrm")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.35
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_t3c7q")
+color_ramp = SubResource("Gradient_3e6f1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f4oud")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="AwarenessTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="ImmunityFrames" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ChaseAfterTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="AwarenessTimer" to="." method="_on_awareness_timeout"]
+[connection signal="timeout" from="ImmunityFrames" to="." method="_on_immunity_frames_timeout"]
+[connection signal="timeout" from="ChaseAfterTimer" to="." method="_on_chase_after_timer_timeout"]

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://doutrnnc21duh"]
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://bk6a4xitfdkqe"]
 
-[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_vmqf0"]
-[ext_resource type="Texture2D" uid="uid://b2urctidwndin" path="res://assets/resources/Cave Shroom.png" id="2_4ecn1"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_a2nnh"]
+[ext_resource type="Texture2D" uid="uid://dgh80wpa5oaig" path="res://assets/resources/Cave Shroom.png" id="2_4ecn1"]
 
 [resource]
-script = ExtResource("1_vmqf0")
+script = ExtResource("1_a2nnh")
 name = "Cave Shroom"
 texture = ExtResource("2_4ecn1")
-rarity = 0
+rarity = 1
+type = 0

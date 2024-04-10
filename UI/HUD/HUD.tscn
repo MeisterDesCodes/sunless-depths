@@ -1,15 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://snd70w6whqbn"]
+[gd_scene load_steps=13 format=3 uid="uid://snd70w6whqbn"]
 
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_o31jx"]
 [ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_nn0qi"]
 [ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/Frame 19.png" id="3_fgdyr"]
 [ext_resource type="Texture2D" uid="uid://mo65hrfu6vsc" path="res://assets/UI/prograss-bar.png" id="4_durg7"]
-[ext_resource type="Texture2D" uid="uid://dn0ew5y7wh1r4" path="res://assets/resources/Supplies.png" id="5_02mpq"]
 [ext_resource type="Texture2D" uid="uid://8y0d4c6i0urd" path="res://assets/UI/Frame 22.png" id="5_qwegi"]
-[ext_resource type="Texture2D" uid="uid://bcuj2ieijlf7e" path="res://assets/resources/Oxygen.png" id="6_gs55c"]
-[ext_resource type="Texture2D" uid="uid://bypvgn54u8tf8" path="res://assets/UI/icons/Dash.png" id="6_nvt5t"]
-[ext_resource type="Texture2D" uid="uid://8oe5jt0jf7ey" path="res://assets/UI/icons/Run.png" id="6_peb48"]
-[ext_resource type="Texture2D" uid="uid://c4cwkgwb1uaso" path="res://assets/resources/Stamina.png" id="7_r1qo1"]
+[ext_resource type="Theme" uid="uid://dei2svi60wej7" path="res://assets/UI/themes/UI-elements/round-panel-2.tres" id="6_m6cr4"]
+[ext_resource type="Theme" uid="uid://bmj3854823hk4" path="res://assets/UI/themes/UI-elements/round-panel-1.tres" id="7_cwmg4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qmntt"]
+load_path = "res://.godot/imported/Run.png-9f1adbb2628751fba0e6215738b89ca3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2e3ff"]
+load_path = "res://.godot/imported/Dash.png-f765e0ec7d66f342089726cafd9492d7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sq1f5"]
+load_path = "res://.godot/imported/Supplies.png-bb6309db2261f8c2c3cf59ab7354c59f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t84ke"]
+load_path = "res://.godot/imported/Oxygen.png-f1f8fa7eac48a369bfec24c1a00fafa9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a04uw"]
+load_path = "res://.godot/imported/Stamina.png-9d83d6de1632c77f8c710f4c0107ee19.ctex"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -97,7 +109,7 @@ offset_right = 15.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_peb48")
+texture = SubResource("CompressedTexture2D_qmntt")
 expand_mode = 2
 
 [node name="DashIcon" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/VBoxContainer2/HBoxContainer"]
@@ -120,7 +132,7 @@ offset_right = 15.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_nvt5t")
+texture = SubResource("CompressedTexture2D_2e3ff")
 expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer"]
@@ -147,7 +159,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_02mpq")
+texture = SubResource("CompressedTexture2D_sq1f5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer/SuppliesWindow"]
 layout_mode = 2
@@ -193,7 +205,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_gs55c")
+texture = SubResource("CompressedTexture2D_t84ke")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer/OxygenWindow"]
 layout_mode = 2
@@ -239,7 +251,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_r1qo1")
+texture = SubResource("CompressedTexture2D_a04uw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/VBoxContainer/StaminaWindow"]
 layout_mode = 2
@@ -264,6 +276,98 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.239216, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
+
+[node name="Weapons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = -326.0
+offset_right = -118.0
+offset_bottom = -108.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+
+[node name="Panel4" type="Panel" parent="Weapons"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 78.0
+offset_right = 169.0
+offset_bottom = 182.0
+theme = ExtResource("6_m6cr4")
+
+[node name="Panel" type="Panel" parent="Weapons"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 36.0
+offset_right = 160.0
+offset_bottom = 118.0
+theme = ExtResource("7_cwmg4")
+
+[node name="ActiveWeapon" type="TextureRect" parent="Weapons/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="Panel3" type="Panel" parent="Weapons"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 133.0
+offset_right = 195.0
+offset_bottom = 192.0
+theme = ExtResource("7_cwmg4")
+
+[node name="ReserveWeapon1" type="TextureRect" parent="Weapons/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -21.5
+offset_right = 21.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="Panel2" type="Panel" parent="Weapons"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 131.0
+offset_right = 99.0
+offset_bottom = 190.0
+theme = ExtResource("7_cwmg4")
+
+[node name="ReserveWeapon2" type="TextureRect" parent="Weapons/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -21.5
+offset_right = 21.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
 
 [node name="SuppliesTimer" type="Timer" parent="."]
 wait_time = 0.25

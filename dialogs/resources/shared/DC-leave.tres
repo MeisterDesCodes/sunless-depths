@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_kufen")
-title = ""
-description = ""
+title = "Leave this place"
+description = "There is noting left for you to do here."
 requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-goBack = 0
+optionalMoveBackwards = -1

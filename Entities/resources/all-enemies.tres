@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="AllEnemies" load_steps=5 format=3 uid="uid://bwqr7rxdb2c82"]
+[gd_resource type="Resource" script_class="AllEnemies" load_steps=3 format=3 uid="uid://bm3ea4iltxsvr"]
 
-[ext_resource type="Resource" uid="uid://edy1s5u5u2ne" path="res://entities/resources/bandit.tres" id="1_ierty"]
-[ext_resource type="Resource" uid="uid://dw50wr63ie873" path="res://entities/resources/ravager.tres" id="2_s40tl"]
-[ext_resource type="Resource" uid="uid://csy2q4hml6dj0" path="res://entities/resources/turtleneck.tres" id="3_vq3ct"]
+[ext_resource type="Resource" uid="uid://egkn5f1g2uuv" path="res://entities/resources/giant-rat.tres" id="1_drybc"]
 [ext_resource type="Script" path="res://entities/all-enemies.gd" id="4_ucn3a"]
 
 [resource]
 script = ExtResource("4_ucn3a")
-enemies = Array[Resource("res://entities/entity.gd")]([ExtResource("1_ierty"), ExtResource("2_s40tl"), ExtResource("3_vq3ct")])
+enemies = Array[Resource("res://entities/resources/classes/entity.gd")]([ExtResource("1_drybc")])

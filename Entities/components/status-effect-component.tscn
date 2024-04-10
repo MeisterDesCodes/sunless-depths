@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfgabtoewjrre"]
+
+[ext_resource type="Script" path="res://entities/components/status-effect-component.gd" id="1_h65kr"]
+
+[node name="StatusEffectComponent" type="Node2D"]
+script = ExtResource("1_h65kr")
+
+[node name="StatusEffectApply" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="StatusEffectApply" to="." method="_on_status_effect_apply_timeout"]

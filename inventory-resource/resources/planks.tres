@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://dw3c08scupvvv"]
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://0ksteuiaw44v"]
 
-[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_57t53"]
-[ext_resource type="Texture2D" uid="uid://8wnosl67uuix" path="res://assets/resources/Planks.png" id="2_kk6do"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_cnpe1"]
+[ext_resource type="Texture2D" uid="uid://da7ss57cdpn21" path="res://assets/resources/Planks.png" id="2_kk6do"]
 
 [resource]
-script = ExtResource("1_57t53")
+script = ExtResource("1_cnpe1")
 name = "Planks"
 texture = ExtResource("2_kk6do")
-rarity = 0
+rarity = 1
+type = 0

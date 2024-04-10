@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c23eyxxgg81kv"]
+
+[ext_resource type="Script" path="res://environment/interactions/old-log.gd" id="1_1n6xo"]
+[ext_resource type="Texture2D" uid="uid://cglyjguk6qg08" path="res://assets/environment/interactions/old_log.png" id="2_uyiet"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction.tscn" id="3_2toq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqlev"]
+size = Vector2(30, 172)
+
+[node name="OldLog" type="Node2D"]
+script = ExtResource("1_1n6xo")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vqlev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_uyiet")
+
+[node name="Interaction" parent="." instance=ExtResource("3_2toq4")]

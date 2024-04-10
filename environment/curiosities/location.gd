@@ -4,7 +4,6 @@ extends Node2D
 @export var title: String
 @export var initialDialog: Dialog
 
-@onready var dialogMenuUI = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogMenuUI")
 @onready var curiosity = get_node("Curiosity")
 
 
@@ -13,4 +12,5 @@ func _ready():
 
 
 func onEnter():
-	dialogMenuUI.setup(self)
+	var scene = UILoaderS.loadUIScene(preload("res://UI/dialogs/dialog-menu-ui.tscn"))
+	scene.setup(self)

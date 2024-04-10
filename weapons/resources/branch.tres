@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MeleeWeapon" load_steps=3 format=3 uid="uid://d1cv8jecgulhu"]
+
+[ext_resource type="Script" path="res://weapons/melee-weapon.gd" id="1_qgno7"]
+[ext_resource type="Texture2D" uid="uid://bbdlx1rwjr6g1" path="res://assets/weapons/branch.png" id="2_14f5w"]
+
+[resource]
+script = ExtResource("1_qgno7")
+damage = 3.0
+knockback = 15.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 0.5
+staminaCost = 15.0
+animations = Array[int]([0, 1])
+name = "Branch"
+texture = ExtResource("2_14f5w")
+rarity = 1

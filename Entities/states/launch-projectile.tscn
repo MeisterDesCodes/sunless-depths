@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://byhgk6jja038"]
+
+[ext_resource type="Script" path="res://entities/states/launch-projectile.gd" id="1_hl5mg"]
+[ext_resource type="PackedScene" uid="uid://b2udn5n4jvrxi" path="res://shared/projectile-spawner.tscn" id="2_2ncgg"]
+
+[node name="LaunchProjectile" type="Node2D"]
+script = ExtResource("1_hl5mg")
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("2_2ncgg")]
+
+[node name="ProjectileCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="ProjectileCooldown" to="." method="_on_projectile_cooldown_timeout"]
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

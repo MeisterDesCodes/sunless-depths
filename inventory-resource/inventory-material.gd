@@ -1,0 +1,3 @@
+extends InventoryResource
+
+class_name InventoryMaterial

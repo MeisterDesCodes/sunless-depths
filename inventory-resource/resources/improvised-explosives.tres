@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://djn87dm42kuxu"]
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://4b2ral4g0uup"]
 
-[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_76fmy"]
-[ext_resource type="Texture2D" uid="uid://dd1f6h3smhm0x" path="res://assets/resources/Improvised Explosives.png" id="2_ctrhl"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_erpn1"]
+[ext_resource type="Texture2D" uid="uid://bqlnk5q2sprae" path="res://assets/resources/Improvised Explosives.png" id="2_xt0vh"]
 
 [resource]
-script = ExtResource("1_76fmy")
+script = ExtResource("1_erpn1")
 name = "Improvised Explosives"
-texture = ExtResource("2_ctrhl")
-rarity = 0
+texture = ExtResource("2_xt0vh")
+rarity = 2
+type = 0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="1_58ekr"]
 [ext_resource type="Script" path="res://UI/merchants/merchant-ui.gd" id="1_hmfgh"]
-[ext_resource type="Texture2D" uid="uid://b45tne1j27r55" path="res://assets/resources/Gold.png" id="6_urcq8"]
+[ext_resource type="Texture2D" uid="uid://c5efwq8xwq1dj" path="res://assets/resources/Gold.png" id="6_urcq8"]
 
 [node name="MerchantUI" type="Control"]
 layout_mode = 3
@@ -76,6 +76,20 @@ flat = true
 layout_mode = 2
 text = "Sell"
 flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/LocationContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("6_urcq8")
+expand_mode = 2
+
+[node name="TotalGold" type="Label" parent="NinePatchRect/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/LocationContainer"]
 custom_minimum_size = Vector2(800, 400)

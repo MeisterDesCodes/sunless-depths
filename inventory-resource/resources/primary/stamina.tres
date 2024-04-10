@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://dlx7uvkhbfvnc"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_cw3if"]
+[ext_resource type="Texture2D" uid="uid://cbeyoho1tujoo" path="res://assets/resources/Stamina.png" id="2_gh4au"]
+
+[resource]
+script = ExtResource("1_cw3if")
+name = "Stamina"
+texture = ExtResource("2_gh4au")
+rarity = 0
+type = 1

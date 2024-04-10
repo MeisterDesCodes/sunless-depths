@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=3 format=3 uid="uid://cdllvsw3wtvli"]
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://djb7stj3mgohy"]
 
-[ext_resource type="Script" path="res://inventory-resource/inventory-resource.gd" id="1_5q3em"]
-[ext_resource type="Texture2D" uid="uid://etnkly6uflkg" path="res://assets/resources/Rubble.png" id="2_ks35n"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_2yh6f"]
+[ext_resource type="Texture2D" uid="uid://tq35j7ns0ttc" path="res://assets/resources/Rubble.png" id="2_ks35n"]
 
 [resource]
-script = ExtResource("1_5q3em")
+script = ExtResource("1_2yh6f")
 name = "Rubble"
 texture = ExtResource("2_ks35n")
-rarity = 0
+rarity = 1
+type = 0

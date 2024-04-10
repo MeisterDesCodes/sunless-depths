@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cooro488a6s8h"]
+
+[ext_resource type="Script" path="res://entities/states/dash.gd" id="1_vhcl4"]
+
+[node name="Dash" type="Node2D"]
+script = ExtResource("1_vhcl4")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="DashCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

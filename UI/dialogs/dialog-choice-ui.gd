@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var player = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var dialogMenu = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogMenuUI")
 @onready var title = get_node("LocationChoiceContainer/PanelContainer/Title")
 @onready var description = get_node("LocationChoiceContainer/PanelContainer2/Description")
@@ -11,12 +11,12 @@ func setup(choice: DialogChoice):
 	title.text = choice.title
 	description.text = choice.description
 	button.connect("pressed", dialogMenu.clickChoice.bind(choice, determineNextDialog(choice)))
-	if !player.inventory.hasResources(choice.requiredResources):
+	if !playerScene.inventory.hasResources(choice.requiredResources):
 		button.disabled = true
 	for requirement in choice.requiredResources:
 		var requirementScene = preload("res://UI/dialogs/dialog-choice-requirement-ui.tscn").instantiate()
 		requirements.add_child(requirementScene)
-		requirementScene.setup(requirement, true)
+		requirementScene.setup(requirement, true, true)
 
 
 func determineNextDialog(choice: DialogChoice):

@@ -1,13 +1,18 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://csy2q4hml6dj0"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://b3efrfoxd6rk7"]
 
-[ext_resource type="Script" path="res://entities/entity.gd" id="1_jjeb1"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="1_wwgny"]
 [ext_resource type="Texture2D" uid="uid://xxiiw3grkn56" path="res://assets/entities/turtleneck.png" id="2_bdbwx"]
 
 [resource]
-script = ExtResource("1_jjeb1")
-name = "Ravager"
+script = ExtResource("1_wwgny")
+attacks = Array[Resource("res://entities/resources/classes/enemy-attack.gd")]([])
+states = Array[int]([0, 1, 2])
+drops = Array[Resource("res://inventory-resource/drop-resource.gd")]([])
+name = "Turtleneck"
 texture = ExtResource("2_bdbwx")
-maxHealth = 1000.0
-knockbackStrength = 500.0
-damage = 40.0
-moveSpeed = 50.0
+maxHealth = 300.0
+moveSpeed = 60.0
+ferocity = 0.0
+perseverance = 0.0
+agility = 0.0
+perception = 0.0

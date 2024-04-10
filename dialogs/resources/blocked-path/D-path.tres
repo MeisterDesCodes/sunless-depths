@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://bp61rc4bdl0me"]
+
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="2_b82im"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_17ko3"]
+
+[resource]
+script = ExtResource("3_17ko3")
+title = "A cleared path"
+description = "The explosion if deafening. In retrospect, a couple of step backwards wouldn't have hurt. But the experiment worked, a path is now free, just large enough for you to fit through."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("2_b82im")])

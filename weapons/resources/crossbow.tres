@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=4 format=3 uid="uid://bnm0u18wx7tpo"]
+
+[ext_resource type="Script" path="res://weapons/ranged-weapon.gd" id="1_frw33"]
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://weapons/resources/projectile/wooden-arrow.tres" id="1_he6h3"]
+[ext_resource type="Texture2D" uid="uid://bp32nscfaajql" path="res://assets/weapons/crossbow.png" id="2_nq4ji"]
+
+[resource]
+script = ExtResource("1_frw33")
+damageModifier = 1.1
+speedModifier = 1.25
+knockbackModifier = 1.0
+spread = 20.0
+projectile = ExtResource("1_he6h3")
+attackDelay = 0.25
+staminaCost = 5.0
+animations = Array[int]([3])
+name = "Crossbow"
+texture = ExtResource("2_nq4ji")
+rarity = 1
