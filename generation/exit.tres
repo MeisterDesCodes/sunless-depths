@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Exit" load_steps=2 format=3 uid="uid://wg5u6edofwd2"]
+
+[ext_resource type="Script" path="res://generation/exit.gd" id="1_0oyyp"]
+
+[resource]
+script = ExtResource("1_0oyyp")
+position = Vector2(0, 0)
+direction = 0
+completed = false

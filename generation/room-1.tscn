@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://b2i0nmla8talm"]
+[gd_scene load_steps=35 format=3 uid="uid://2h8k4als3wte"]
 
+[ext_resource type="Script" path="res://generation/room.gd" id="1_hukec"]
 [ext_resource type="Texture2D" uid="uid://dxqqqlxxlkwio" path="res://assets/environment/tilesets/tileset-64-export.png" id="1_imors"]
 [ext_resource type="Script" path="res://maps/map.gd" id="2_2bf4v"]
 
@@ -463,19 +464,47 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_1sotx")
 
-[node name="Room-1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qwnn"]
+size = Vector2(414, 408)
+
+[node name="Room - 1" type="Node2D"]
+script = ExtResource("1_hukec")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 0,
+"position": Vector2(3, 0)
+}, {
+"completed": false,
+"direction": 1,
+"position": Vector2(6, 3)
+}, {
+"completed": false,
+"direction": 2,
+"position": Vector2(3, 6)
+}, {
+"completed": false,
+"direction": 3,
+"position": Vector2(0, 3)
+}])
 
 [node name="Map" type="TileMap" parent="."]
-position = Vector2(-174, 101)
 tile_set = SubResource("TileSet_275dl")
 rendering_quadrant_size = 64
 format = 2
 layer_0/name = "Walls"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131082, 131074, 1, 131083, 131074, 1, 131084, 131074, 1, 131085, 131074, 1, 131086, 131074, 1, 196623, 131074, 1, 196624, 131074, 1, 262160, 131074, 1, 458768, 131074, 1, 524304, 131074, 1, 524303, 131074, 1, 524302, 131074, 1, 589838, 131074, 1, 589837, 131074, 1, 589836, 131074, 1, 589835, 131074, 1, 589834, 131074, 1, 524298, 131074, 1, 524297, 131074, 1, 458761, 131074, 1, 393225, 131074, 1, 131081, 131074, 1, 196617, 131074, 1, 589833, 131074, 1, 589839, 131074, 1, 589840, 131074, 1, 131088, 131074, 1, 131087, 131074, 1, 458769, 131074, 1, 524305, 131074, 1, 589841, 131074, 1, 262161, 131074, 1, 196625, 131074, 1, 131089, 131074, 1, 131080, 131074, 1, 196616, 131074, 1, 393224, 131074, 1, 458760, 131074, 1, 524296, 131074, 1, 589832, 131074, 1)
+layer_0/tile_data = PackedInt32Array(0, 458754, 7, 65536, 458754, 7, 131072, 458754, 7, 262144, 458754, 7, 327680, 458754, 7, 393216, 458754, 7, 1, 458754, 7, 393217, 458754, 7, 2, 458754, 7, 393218, 458754, 7, 4, 458754, 7, 393220, 458754, 7, 5, 458754, 7, 393221, 458754, 7, 6, 458754, 7, 65542, 458754, 7, 131078, 458754, 7, 262150, 458754, 7, 327686, 458754, 7, 393222, 458754, 7)
 layer_1/name = "Ground"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Overlay"
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("2_2bf4v")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(224, 221)
+shape = SubResource("RectangleShape2D_0qwnn")
