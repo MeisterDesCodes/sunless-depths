@@ -21,3 +21,4 @@ extends Node2D
 	"direction": Enums.exitDirection.LEFT,
 	"completed": false
 }]
+@export var type: Enums.segmentType

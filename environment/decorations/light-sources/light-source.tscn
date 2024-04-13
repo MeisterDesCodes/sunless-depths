@@ -18,5 +18,4 @@ color = Color(1, 1, 1, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(3.25, 3.25)
-shadow_enabled = true
 texture = SubResource("GradientTexture2D_ww04t")

@@ -4,28 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://juwvdb6ah8xw" path="res://generation/corridors/corridor-1/corridor-1-template.tscn" id="2_oi3dv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
-size = Vector2(930, 1055)
+size = Vector2(929, 1117)
 
 [node name="Corridor - 2" type="Node2D"]
-rotation = 3.14159
 script = ExtResource("1_k0qxy")
 exits = Array[Dictionary]([{
 "completed": false,
-"direction": 0,
-"position": Vector2(2, 16)
+"direction": 1,
+"position": Vector2(14, 3)
 }, {
 "completed": false,
-"direction": 1,
-"position": Vector2(16, 2)
+"direction": 2,
+"position": Vector2(3, 16)
 }])
+type = 1
 
 [node name="Map" parent="." instance=ExtResource("2_oi3dv")]
-layer_0/tile_data = PackedInt32Array(-262159, 131074, 1, -65551, 131074, 1, -262158, 131074, 1, -65550, 131074, 1, -14, 131074, 1, -327693, 131074, 1, -262157, 131074, 1, -13, 131074, 1, -393228, 131074, 1, -327692, 131074, 1, -12, 131074, 1, -458763, 131074, 1, -393227, 131074, 1, -11, 131074, 1, -524298, 131074, 1, -458762, 131074, 1, -196618, 131074, 1, -131082, 131074, 1, -10, 131074, 1, -589833, 131074, 1, -524297, 131074, 1, -262153, 131074, 1, -196617, 131074, 1, -9, 131074, 1, -720904, 131074, 1, -655368, 131074, 1, -589832, 131074, 1, -262152, 131074, 1, -8, 131074, 1, -917511, 131074, 1, -851975, 131074, 1, -786439, 131074, 1, -720903, 131074, 1, -7, 131074, 1, -1048582, 131074, 1, -983046, 131074, 1, -917510, 131074, 1, -524294, 131074, 1, -458758, 131074, 1, -65542, 131074, 1, -6, 131074, 1, -524293, 131074, 1, -458757, 131074, 1, -65541, 131074, 1, -65540, 131074, 1, -1048579, 131074, 1, -983043, 131074, 1, -917507, 131074, 1, -851971, 131074, 1, -131075, 131074, 1, -65539, 131074, 1, -851970, 131074, 1, -786434, 131074, 1, -720898, 131074, 1, -655362, 131074, 1, -458754, 131074, 1, -262146, 131074, 1, -196610, 131074, 1, -655361, 131074, 1, -589825, 131074, 1, -524289, 131074, 1, -458753, 131074, 1, -393217, 131074, 1, -327681, 131074, 1, -262145, 131074, 1)
+position = Vector2(960, 1152)
+rotation = 3.14159
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-480, -544)
+visible = false
+position = Vector2(482.5, 576)
 shape = SubResource("RectangleShape2D_m2ub1")

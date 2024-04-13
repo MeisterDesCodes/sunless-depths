@@ -72,9 +72,10 @@ rotation = 4.71239
 scale = Vector2(0.140875, 0.140875)
 
 [node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
-scale = Vector2(2, 2)
-energy = 1.0
+scale = Vector2(1.5, 1.5)
+energy = 1.5
 color = Color(0.988235, 0.87451, 0.67451, 1)
+shadow = true
 
 [node name="Weapons" type="Node2D" parent="RotationPoint"]
 z_index = 1

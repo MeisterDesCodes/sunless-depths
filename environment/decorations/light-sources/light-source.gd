@@ -3,6 +3,7 @@ extends Node2D
 
 @export var energy: float
 @export var color: Color
+@export var shadow: bool
 
 @onready var light = $"PointLight2D"
 
@@ -15,6 +16,7 @@ func _ready():
 	light.energy = energy
 	RandomNumberGenerator.new().randomize()
 	x = randi_range(0, 100)
+	light.shadow_enabled = shadow
 
 
 func _process(delta):
