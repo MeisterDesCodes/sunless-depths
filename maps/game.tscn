@@ -15,7 +15,6 @@ gradient = SubResource("Gradient_g0pcc")
 script = ExtResource("1_xvjr7")
 
 [node name="CaveGenerator" parent="." instance=ExtResource("1_7p5h0")]
-iterations = 4
 
 [node name="Entities" type="Node2D" parent="."]
 

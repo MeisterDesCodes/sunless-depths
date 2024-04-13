@@ -15,7 +15,7 @@ exits = Array[Dictionary]([{
 }, {
 "completed": false,
 "direction": 2,
-"position": Vector2(3, 16)
+"position": Vector2(4, 16)
 }])
 type = 1
 

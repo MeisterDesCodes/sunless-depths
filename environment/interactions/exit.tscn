@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp6mp20tnrb6q"]
+
+[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="1_5b5qa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ho5v"]
+radius = 37.054
+
+[node name="Exit" type="Node2D"]
+
+[node name="LightSource" parent="." instance=ExtResource("1_5b5qa")]
+scale = Vector2(2, 2)
+energy = 20.0
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4ho5v")

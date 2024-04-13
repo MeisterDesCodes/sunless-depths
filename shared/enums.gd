@@ -24,7 +24,7 @@ enum enemyStates {IDLE, CHASE, DASH, KEEP_DISTANCE, LAUNCH_PROJECTILE}
 
 enum exitDirection {TOP, RIGHT, DOWN, LEFT}
 
-enum segmentType {ROOM, CORRIDOR}
+enum segmentType {ROOM, CORRIDOR, DEAD_END, EXIT}
 
 
 

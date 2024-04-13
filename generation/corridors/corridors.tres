@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Rooms" load_steps=10 format=3 uid="uid://cpcepgxydpcd1"]
+[gd_resource type="Resource" script_class="Segment" load_steps=10 format=3 uid="uid://cpcepgxydpcd1"]
 
 [ext_resource type="Script" path="res://generation/segments.gd" id="1_olgkv"]
 [ext_resource type="PackedScene" uid="uid://bsdfyqdtryy0a" path="res://generation/corridors/corridor-1/corridor-1-0.tscn" id="1_xd0me"]

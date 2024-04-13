@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdnf4c8ko2v1w"]
+
+[ext_resource type="Script" path="res://generation/room.gd" id="1_3na2g"]
+[ext_resource type="PackedScene" uid="uid://d3jvqy14idd56" path="res://generation/dead-ends/dead-end-1/dead-end-1-template.tscn" id="2_xxhs2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
+size = Vector2(240, 50.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mxeh"]
+radius = 358.006
+
+[node name="DeadEnd - 1" type="Node2D"]
+script = ExtResource("1_3na2g")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 2,
+"position": Vector2(1, 0)
+}])
+type = 2
+
+[node name="Map" parent="." instance=ExtResource("2_xxhs2")]
+position = Vector2(0, 64)
+rotation = 4.71239
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(127, 32.75)
+shape = SubResource("RectangleShape2D_m2ub1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(34, 123)
+shape = SubResource("CircleShape2D_5mxeh")

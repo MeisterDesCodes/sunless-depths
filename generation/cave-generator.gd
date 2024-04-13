@@ -11,6 +11,7 @@ extends Node2D
 
 var rooms: Array[PackedScene] = preload("res://generation/rooms/rooms.tres").allSegments
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
+var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 
 var currentRooms: Array[Node2D]
 var tileSize = 64
@@ -40,8 +41,8 @@ func generateRoot():
 		currentRooms.append(root)
 
 
-func generateFittingRoom(exit):
-	for n in 5:
+func generateFittingRoom(exit, roomType):
+	for n in 1:
 		var direction: Enums.exitDirection
 		match exit.direction:
 			Enums.exitDirection.TOP:
@@ -56,16 +57,20 @@ func generateFittingRoom(exit):
 		var type = getRoomFromExit(exit).type
 		var chance = randf()
 		var segments
-		var chanceThreshold = 0.2
+		var chanceThreshold = 0.1
 		if type == Enums.segmentType.CORRIDOR:
 			segments = rooms if chance > chanceThreshold else corridors
 		else:
 			segments = corridors if chance > chanceThreshold else rooms
-		var newRoom = segments.filter(func(room): return segmentHasDirection(room, direction)).pick_random().instantiate().duplicate()
-		cave.add_child(newRoom)
 		
+		if roomType == Enums.segmentType.DEAD_END:
+			segments = dead_ends
+		
+		var newRoom = segments.filter(func(room): return segmentHasDirection(room, direction)).pick_random().instantiate().duplicate()
+		print(newRoom)
+		cave.add_child(newRoom)
 		setRoomPosition(newRoom, exit)
-		if !checkForCollisions(newRoom):
+		if !checkForCollisions(newRoom) || roomType == Enums.segmentType.DEAD_END:
 		#if true:
 			return newRoom
 		else:
@@ -151,16 +156,21 @@ func calculateRoomExit(room, exit):
 
 func generateRooms():
 	for n in iterations:
-		var remainingExits: Array = getRemainingExits()
-		for exit in remainingExits:
-			var room = generateFittingRoom(exit)
+		for exit in getRemainingExits():
+			var room = generateFittingRoom(exit, Enums.segmentType.ROOM)
 			if room:
 				exit.completed = true
 				calculateRoomExit(room, exit).completed = true
-				print(room.global_position)
+				#print(room.global_position)
 				#cave.add_child(room)
 				#setRoomPosition(room, exit)
 				currentRooms.append(room)
+	
+	print(getRemainingExits())
+	for exit in getRemainingExits():
+		var room = generateFittingRoom(exit, Enums.segmentType.DEAD_END)
+		if room:
+			currentRooms.append(room)
 
 
 func getRemainingExits():
@@ -173,7 +183,10 @@ func getRemainingExits():
 
 
 func getRoomFromExit(exit):
-	return currentRooms.filter(func(room): return exit in room.exits)[0]
+	#Bug
+	var test = currentRooms.filter(func(room): return exit in room.exits)
+	print(test)
+	return test[0]
 
 
 func findExit(room, direction):

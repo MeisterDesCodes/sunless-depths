@@ -11,11 +11,11 @@ script = ExtResource("1_rnyyw")
 exits = Array[Dictionary]([{
 "completed": false,
 "direction": 0,
-"position": Vector2(2, 0)
+"position": Vector2(3, 0)
 }, {
 "completed": false,
 "direction": 1,
-"position": Vector2(16, 10)
+"position": Vector2(17, 9)
 }])
 type = 1
 

@@ -15,7 +15,7 @@ exits = Array[Dictionary]([{
 }, {
 "completed": false,
 "direction": 1,
-"position": Vector2(0, 4)
+"position": Vector2(8, 4)
 }])
 
 [node name="Map" parent="." instance=ExtResource("2_coe0x")]
@@ -27,5 +27,6 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(288, 320)
 shape = SubResource("RectangleShape2D_m2ub1")
