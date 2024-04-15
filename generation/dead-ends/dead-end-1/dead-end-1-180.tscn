@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ug7h8p2bf6sc"]
+[gd_scene load_steps=4 format=3 uid="uid://ug7h8p2bf6sc"]
 
-[ext_resource type="Script" path="res://generation/room.gd" id="1_g1x7p"]
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_g1x7p"]
 [ext_resource type="PackedScene" uid="uid://d3jvqy14idd56" path="res://generation/dead-ends/dead-end-1/dead-end-1-template.tscn" id="2_lu5il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
 size = Vector2(50, 241)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ukpxp"]
-radius = 358.006
 
 [node name="DeadEnd - 1" type="Node2D"]
 script = ExtResource("1_g1x7p")
@@ -30,7 +27,3 @@ collision_mask = 256
 visible = false
 position = Vector2(32, 130.5)
 shape = SubResource("RectangleShape2D_m2ub1")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(34, 123)
-shape = SubResource("CircleShape2D_ukpxp")

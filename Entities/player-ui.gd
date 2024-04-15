@@ -8,6 +8,9 @@ signal healthModified
 @export var inventory: Inventory
 @export var equippedWeapons: Array[Weapon]  = [null, null, null]
 
+@export var backgroundMusic: AudioStreamPlayer
+@export var sfx: AudioStreamPlayer
+
 @onready var animations = $"AnimationPlayer"
 @onready var hitboxCollision = $"RotationPoint/Hitbox/CollisionShape2D"
 @onready var hitbox = $"RotationPoint/Hitbox"
@@ -17,6 +20,7 @@ signal healthModified
 @onready var damageReceiver = get_node("DamageReceiver")
 @onready var statusEffectComponent = get_node("StatusEffectComponent")
 @onready var lightSource = get_node("RotationPoint/LightSource")
+@onready var camera = get_tree().get_root().get_node("Game/FollowCamera")
 
 var fistWeapon = preload("res://weapons/resources/fists.tres")
 
@@ -30,6 +34,8 @@ var level: int
 var immunityFramesActive: bool = false
 var isKnockback: bool = false
 var knockbackVector: Vector2 = Vector2.ZERO
+var currentMoveSpeed: float
+var isWalking: bool = false
 var isSprinting: bool = false
 var isDashing: bool = false
 var canDash: bool = true
@@ -41,6 +47,10 @@ var currentStaminaDrain: float
 var currentStaminaRestore: float
 var dashStaminaCost: float = 20
 
+var baseZoom: float = 2
+var currentZoom: int = 0
+var maxZoom: int = 4
+
 
 func _ready():
 	$"RotationPoint/Image".texture = entityResource.texture
@@ -49,6 +59,7 @@ func _ready():
 	inventory.updateInventory()
 	var sizeIncrease = 1 / UtilsS.getScalingValue(entityResource.perception * 0.5)
 	lightSource.scale = Vector2(sizeIncrease, sizeIncrease)
+	camera.zoom = Vector2(baseZoom, baseZoom)
 
 
 func updateStats():
@@ -62,7 +73,13 @@ func _physics_process(_delta):
 	
 	if !isKnockback && !isDashing:
 		var direction = getDirection()
-		var currentMoveSpeed = entityResource.moveSpeed
+		
+		if direction != Vector2.ZERO:
+			isWalking = true
+		else:
+			isWalking = false
+		
+		currentMoveSpeed = entityResource.moveSpeed
 		if (direction.x != 0 && direction.y != 0):
 			currentMoveSpeed /= pow(2, 0.5)
 		
@@ -124,6 +141,11 @@ func processIncomingAttack(attack: Attack):
 	if !immunityFramesActive:
 		damageReceiver.receiveAttack(attack)
 		healthModified.emit()
+
+func zoom():
+	currentZoom = (currentZoom + 1) % maxZoom
+	var zoom: float = baseZoom - 0.25 * currentZoom
+	get_tree().create_tween().tween_property(camera, "zoom", Vector2(zoom, zoom), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func entityKilled():

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsjpf7bhql4f3" path="res://generation/rooms/room-2/room-2-90.tscn" id="6_1k8ut"]
 [ext_resource type="PackedScene" uid="uid://bjhfbnn5vc3y8" path="res://generation/rooms/room-2/room-2-180.tscn" id="7_yep4y"]
 [ext_resource type="PackedScene" uid="uid://da8btnue5tu7c" path="res://generation/rooms/room-2/room-2-270.tscn" id="8_7ocas"]
-[ext_resource type="Script" path="res://generation/segments.gd" id="9_cjym1"]
+[ext_resource type="Script" path="res://generation/segment.gd" id="9_cjym1"]
 [ext_resource type="PackedScene" uid="uid://kpqoikaeysl0" path="res://generation/rooms/room-3/room-3-0.tscn" id="9_rwjk7"]
 [ext_resource type="PackedScene" uid="uid://dqa7wcs2u54ws" path="res://generation/rooms/room-3/room-3-90.tscn" id="10_yatk8"]
 [ext_resource type="PackedScene" uid="uid://qihh3od1baor" path="res://generation/rooms/room-3/room-3-180.tscn" id="11_ei5ac"]

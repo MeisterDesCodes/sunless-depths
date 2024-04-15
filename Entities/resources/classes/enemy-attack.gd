@@ -6,3 +6,4 @@ class_name EnemyAttack
 @export var knockback: float
 @export var statusEffects: Array[StatusEffect]
 @export var projectile: Projectile
+@export var attackDelay: float

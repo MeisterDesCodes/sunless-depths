@@ -1,7 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://30xbmhu0qsg1"]
+[gd_scene load_steps=38 format=3 uid="uid://30xbmhu0qsg1"]
 
 [ext_resource type="Texture2D" uid="uid://dxqqqlxxlkwio" path="res://assets/environment/tilesets/tileset-64-export.png" id="1_wpe6a"]
 [ext_resource type="Script" path="res://maps/map.gd" id="2_jhm1k"]
+[ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="3_nxiep"]
+[ext_resource type="Texture2D" uid="uid://c0euu6eh304aj" path="res://assets/environment/decorations/light-sources/lantern-1.png" id="4_34rn4"]
+[ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="5_bpa5i"]
+[ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="6_ehkk5"]
+[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch.png" id="7_wklpp"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nqeet"]
 polygon = PackedVector2Array(22.5, 13.5, 23.5, -32, 32, -32, 32, 32, -32, 32, -32, 24, 1.5, 24)
@@ -476,3 +481,85 @@ layer_2/name = "Overlay"
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(524288, 458754, 7, 524289, 458754, 7, 589825, 458754, 7, 589826, 458754, 7, 589827, 458754, 7, 655363, 458754, 7, 655364, 458754, 7, 655365, 458754, 7, 589829, 458754, 7, 589830, 458754, 7, 589831, 458754, 7, 589832, 458754, 7, 524296, 458754, 7, 524297, 458754, 7, 589833, 458754, 7, 589834, 458754, 7, 589835, 458754, 7, 655371, 458754, 7, 655372, 458754, 7, 720908, 458754, 7, 720909, 458754, 7, 786445, 458754, 7, 786446, 458754, 7, 786447, 458754, 7, 786448, 458754, 7, 786449, 458754, 7, 786450, 458754, 7, 720914, 458754, 7, 720915, 458754, 7, 786451, 458754, 7, 786452, 458754, 7, 786453, 458754, 7, 786454, 458754, 7, 720918, 458754, 7, 720919, 458754, 7, 720920, 458754, 7, 786456, 458754, 7, 786455, 458754, 7, 458776, 458754, 7, 524312, 458754, 7, 524311, 458754, 7, 589847, 458754, 7, 589846, 458754, 7, 524310, 458754, 7, 524309, 458754, 7, 458773, 458754, 7, 458772, 458754, 7, 393236, 458754, 7, 393235, 458754, 7, 327699, 458754, 7, 327698, 458754, 7, 327697, 458754, 7, 327696, 458754, 7, 262160, 458754, 7, 262159, 458754, 7, 262158, 458754, 7, 196622, 458754, 7, 196621, 458754, 7, 131085, 458754, 7, 65549, 458754, 7, 65548, 458754, 7, 12, 458754, 7, 9, 458754, 7, 65545, 458754, 7, 65544, 458754, 7, 131080, 458754, 7, 196616, 458754, 7, 262152, 458754, 7, 262153, 458754, 7, 327689, 458754, 7, 196615, 458754, 7, 196614, 458754, 7, 262150, 458754, 7, 262149, 458754, 7, 262148, 458754, 7, 262147, 458754, 7, 327683, 458754, 7, 327682, 458754, 7, 327681, 458754, 7, 327680, 458754, 7, 524290, 589826, 8, 524295, 655362, 8, 524298, 589826, 8, 589836, 589826, 8, 655373, 589826, 8, 720910, 589826, 8, 720913, 655362, 8, 720917, 655362, 8, 720916, 589826, 8, 589845, 655362, 7, 524308, 655362, 7, 458771, 655362, 7, 393234, 655362, 7, 327695, 655362, 7, 262157, 655362, 7, 131084, 655362, 7, 131081, 589826, 7, 196617, 589826, 8, 262151, 786434, 8, 327684, 589826, 7, 327688, 655362, 7, 393225, 458754, 8, 327690, 524290, 7, 262154, 524290, 7, 327685, 65538, 8, 327686, 131074, 8, 393219, 458754, 8, 393218, 458754, 8, 393217, 458754, 8, 393216, 458754, 8, 524291, 458754, 6, 458753, 458754, 6, 458752, 458754, 6, 458754, 524290, 6, 524292, 786434, 6, 589828, 786434, 9, 524293, 458754, 6, 524294, 458754, 6, 458760, 458754, 6, 458761, 458754, 6, 458759, 393218, 6, 458762, 524290, 6, 524300, 524290, 6, 524299, 458754, 6, 589837, 393218, 9, 655374, 393218, 9, 589838, 655362, 7, 655375, 458754, 8, 655376, 458754, 8, 524301, 393218, 7, 458765, 393218, 7, 393229, 393218, 6, 393230, 458754, 6, 393231, 393218, 9, 458767, 589826, 8, 458768, 458754, 6, 458769, 524290, 6, 524305, 524290, 7, 589841, 524290, 7, 655377, 458754, 9, 524304, 458754, 7, 589840, 458754, 7, 589839, 458754, 7, 524303, 458754, 7, 524302, 458754, 7, 458766, 458754, 7, 720911, 458754, 6, 720912, 458754, 6, 655378, 458754, 6, 655379, 458754, 6, 655380, 524290, 6, 655382, 393218, 11, 655383, 393218, 11, 589848, 589826, 7, 655384, 131074, 9, 655381, 786434, 5, 589844, 393218, 8, 524307, 393218, 8, 458770, 393218, 8, 393233, 458754, 8, 393232, 458754, 8, 327694, 458754, 8, 327693, 393218, 8, 262156, 393218, 8, 196620, 393218, 7, 65547, 393218, 7, 11, 393218, 7, 10, 524290, 7, 65546, 524290, 7, 131082, 524290, 8, 131083, 393218, 8, 196618, 524290, 6, 393226, 524290, 8, 327687, 786434, 7, 393220, 524290, 8, 458756, 917506, 8, 327691, 917506, 8, 458764, 917506, 8, 393222, 524290, 7, 393221, 393218, 7, 458758, 524290, 8, 458757, 393218, 8, 393224, 393218, 8, 589843, 917506, 8, 13, 458754, 7)
 script = ExtResource("2_jhm1k")
+
+[node name="EnvironmentalObjects" type="Node2D" parent="."]
+position = Vector2(-174, 101)
+
+[node name="Interactions" type="Node2D" parent="EnvironmentalObjects"]
+
+[node name="Loot" type="Node2D" parent="EnvironmentalObjects/Interactions"]
+
+[node name="ResourceNodes" type="Node2D" parent="EnvironmentalObjects/Interactions"]
+
+[node name="Curiosities" type="Node2D" parent="EnvironmentalObjects"]
+
+[node name="Decorations" type="Node2D" parent="EnvironmentalObjects"]
+
+[node name="Ground" type="Node2D" parent="EnvironmentalObjects/Decorations"]
+
+[node name="LightSources" type="Node2D" parent="EnvironmentalObjects/Decorations"]
+
+[node name="Lantern" parent="EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("3_nxiep")]
+position = Vector2(497.744, 266.496)
+texture = ExtResource("4_34rn4")
+
+[node name="Lantern2" parent="EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("3_nxiep")]
+position = Vector2(800.809, 88.0241)
+texture = ExtResource("4_34rn4")
+
+[node name="Lantern5" parent="EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("3_nxiep")]
+position = Vector2(1141.21, 262.424)
+texture = ExtResource("4_34rn4")
+
+[node name="Lantern3" parent="EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("3_nxiep")]
+position = Vector2(608.868, 420.273)
+texture = ExtResource("4_34rn4")
+
+[node name="Lantern4" parent="EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("3_nxiep")]
+position = Vector2(1513.57, 615.581)
+texture = ExtResource("4_34rn4")
+
+[node name="Regular" type="Node2D" parent="EnvironmentalObjects/Decorations"]
+
+[node name="Overlays" type="Node2D" parent="EnvironmentalObjects/Decorations"]
+
+[node name="Walls" type="Node2D" parent="EnvironmentalObjects/Decorations"]
+z_index = 1
+
+[node name="LightSources" type="Node2D" parent="EnvironmentalObjects/Decorations/Walls"]
+position = Vector2(-16, 17)
+
+[node name="Torch2" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_bpa5i")]
+position = Vector2(1287, 381)
+rotation = 2.09439
+texture = ExtResource("6_ehkk5")
+
+[node name="Torch5" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_bpa5i")]
+position = Vector2(598, 277)
+rotation = 3.14159
+texture = ExtResource("6_ehkk5")
+
+[node name="Torch3" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_bpa5i")]
+position = Vector2(928, 436)
+rotation = 1.57079
+texture = ExtResource("6_ehkk5")
+
+[node name="Torch4" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_bpa5i")]
+position = Vector2(401, 436)
+rotation = 1.57079
+texture = ExtResource("6_ehkk5")
+
+[node name="Torch8" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_bpa5i")]
+position = Vector2(850, 163)
+rotation = 2.87979
+texture = ExtResource("7_wklpp")
+
+[node name="Torch9" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_bpa5i")]
+position = Vector2(1144, 539)
+rotation = 5.23598
+texture = ExtResource("7_wklpp")
+
+[node name="Regular" type="Node2D" parent="EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
+[node name="Spawners" type="Node2D" parent="EnvironmentalObjects"]

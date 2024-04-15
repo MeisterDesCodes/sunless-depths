@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://ca0d7whibvanw"]
+[gd_scene load_steps=21 format=3 uid="uid://ca0d7whibvanw"]
 
 [ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
-[ext_resource type="Resource" uid="uid://b3efrfoxd6rk7" path="res://entities/resources/turtleneck.tres" id="2_quipj"]
 [ext_resource type="Script" path="res://entities/states/state-machine.gd" id="3_fbfho"]
 [ext_resource type="PackedScene" uid="uid://c30m4otyx5tja" path="res://shared/resource-spawner.tscn" id="3_rnx55"]
 [ext_resource type="PackedScene" uid="uid://fkdvi0lmlkno" path="res://entities/states/idle.tscn" id="4_3b136"]
@@ -15,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
-radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
 radius = 120.0
@@ -72,7 +70,6 @@ _data = {
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_tud5h")
-entityResource = ExtResource("2_quipj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 4.71239
@@ -184,6 +181,8 @@ wait_time = 0.1
 [node name="ChaseAfterTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
 [connection signal="timeout" from="AwarenessTimer" to="." method="_on_awareness_timeout"]
 [connection signal="timeout" from="ImmunityFrames" to="." method="_on_immunity_frames_timeout"]
 [connection signal="timeout" from="ChaseAfterTimer" to="." method="_on_chase_after_timer_timeout"]

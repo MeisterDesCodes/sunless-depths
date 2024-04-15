@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsdfyqdtryy0a"]
 
-[ext_resource type="Script" path="res://generation/room.gd" id="1_ale2e"]
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_8stbb"]
 [ext_resource type="PackedScene" uid="uid://juwvdb6ah8xw" path="res://generation/corridors/corridor-1/corridor-1-template.tscn" id="2_ij3si"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
 size = Vector2(930, 1119)
 
 [node name="Corridor - 2" type="Node2D"]
-script = ExtResource("1_ale2e")
+script = ExtResource("1_8stbb")
 exits = Array[Dictionary]([{
 "completed": false,
 "direction": 0,

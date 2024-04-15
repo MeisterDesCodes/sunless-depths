@@ -9,6 +9,6 @@ name = "Wooden Arrow"
 texture = ExtResource("2_ne4pk")
 damage = 5.0
 knockback = 25.0
-speed = 500.0
+speed = 600.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 isPiercing = true

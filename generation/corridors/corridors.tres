@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Segment" load_steps=10 format=3 uid="uid://cpcepgxydpcd1"]
 
-[ext_resource type="Script" path="res://generation/segments.gd" id="1_olgkv"]
+[ext_resource type="Script" path="res://generation/segment.gd" id="1_olgkv"]
 [ext_resource type="PackedScene" uid="uid://bsdfyqdtryy0a" path="res://generation/corridors/corridor-1/corridor-1-0.tscn" id="1_xd0me"]
 [ext_resource type="PackedScene" uid="uid://cdai3c6j840d7" path="res://generation/corridors/corridor-1/corridor-1-90.tscn" id="2_vk3b7"]
 [ext_resource type="PackedScene" uid="uid://dxot2fsclcini" path="res://generation/corridors/corridor-1/corridor-1-180.tscn" id="3_6dopq"]

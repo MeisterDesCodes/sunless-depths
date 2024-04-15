@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp6mp20tnrb6q"]
+[gd_scene load_steps=6 format=3 uid="uid://dp6mp20tnrb6q"]
 
+[ext_resource type="Script" path="res://environment/interactions/exit.gd" id="1_1b0lg"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="1_5b5qa"]
+[ext_resource type="PackedScene" uid="uid://b5mwqxfb8xc6b" path="res://environment/decorations/particles/exit-particle.tscn" id="2_jbx05"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction.tscn" id="3_ry3ao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ho5v"]
-radius = 37.054
+radius = 30.0
 
 [node name="Exit" type="Node2D"]
+script = ExtResource("1_1b0lg")
 
 [node name="LightSource" parent="." instance=ExtResource("1_5b5qa")]
 scale = Vector2(2, 2)
 energy = 20.0
+
+[node name="ExitParticles" parent="." instance=ExtResource("2_jbx05")]
+position = Vector2(-50, 0)
+scale = Vector2(2, 2)
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(2, 2)
@@ -18,3 +26,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_4ho5v")
+
+[node name="Interaction" parent="." instance=ExtResource("3_ry3ao")]

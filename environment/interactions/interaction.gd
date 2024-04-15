@@ -5,7 +5,7 @@ signal onEnter
 @export var sprite: Texture2D
 @export var id: String
 
-@onready var resourceSpawner = $"ResourceSpawner"
+@onready var resourceSpawner = get_node("ResourceSpawner")
 
 var player = null
 var playerInRange = false

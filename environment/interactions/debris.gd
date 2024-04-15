@@ -3,9 +3,10 @@ extends Node2D
 
 @export var dropResources: Array[DropResource]
 
-@onready var interaction = $"Interaction"
+@onready var interaction = get_node("Interaction")
 
 var lifetime: int = 3
+
 
 func _ready():
 	interaction.onEnter.connect(enter)

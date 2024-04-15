@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://xvs63raay20g"]
+[gd_scene load_steps=36 format=3 uid="uid://xvs63raay20g"]
 
 [ext_resource type="Texture2D" uid="uid://dxqqqlxxlkwio" path="res://assets/environment/tilesets/tileset-64-export.png" id="1_c1epp"]
 [ext_resource type="Script" path="res://maps/map.gd" id="2_5isqm"]
@@ -464,6 +464,12 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_1sotx")
 
+[sub_resource type="Gradient" id="Gradient_jhan1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_newhl"]
+gradient = SubResource("Gradient_jhan1")
+
 [node name="Map" type="TileMap"]
 tile_set = SubResource("TileSet_275dl")
 rendering_quadrant_size = 64
@@ -474,7 +480,7 @@ layer_0/tile_data = PackedInt32Array(131072, 131074, 1, 327680, 131074, 1, 13107
 layer_1/name = "Ground"
 layer_1/tile_data = PackedInt32Array(196608, 458754, 2, 262144, 458754, 2, 262145, 458754, 2, 262146, 458754, 2, 327682, 458754, 2, 327683, 458754, 2, 262147, 458754, 2, 262148, 458754, 2, 196612, 458754, 2, 196613, 458754, 2, 196614, 458754, 2, 131078, 458754, 2, 131077, 458754, 2, 131079, 458754, 2, 65543, 458754, 2, 65544, 458754, 2, 196611, 458754, 2, 196610, 458754, 2, 196609, 458754, 2)
 layer_2/name = "Overlay"
-layer_2/z_index = 2
+layer_2/z_index = 3
 layer_2/tile_data = PackedInt32Array(327680, 458754, 7, 327681, 458754, 7, 393217, 458754, 7, 393218, 458754, 7, 393219, 458754, 7, 393220, 458754, 7, 327684, 458754, 7, 327685, 458754, 7, 262149, 458754, 7, 262150, 458754, 7, 262151, 458754, 7, 196615, 458754, 7, 196616, 458754, 7, 131080, 458754, 7, 131081, 458754, 7, 65545, 458754, 7, 9, 458754, 7, 8, 458754, 7, 7, 458754, 7, 6, 458754, 7, 65542, 458754, 7, 65541, 458754, 7, 65540, 458754, 7, 131076, 458754, 7, 131075, 458754, 7, 131074, 458754, 7, 131073, 458754, 7, 131072, 458754, 7, 327682, 589826, 8, 327683, 655362, 8, 262148, 655362, 8, 196614, 655362, 8, 131079, 655362, 10, 262145, 458754, 6, 262146, 524290, 6, 196608, 458754, 8, 196609, 458754, 8, 196610, 458754, 8, 196611, 458754, 8, 196612, 65538, 8, 262144, 458754, 6, 262147, 393218, 6, 196613, 131074, 9, 131077, 589826, 7, 131078, 65538, 8, 65543, 589826, 9, 65544, 917506, 9)
 script = ExtResource("2_5isqm")
 
@@ -489,7 +495,8 @@ position = Vector2(-174, 101)
 
 [node name="Exit" parent="EnvironmentalObjects/Interactions" instance=ExtResource("3_hy5jl")]
 z_index = 1
-position = Vector2(670, 8)
+position = Vector2(680, 2)
+rotation = 2.61799
 
 [node name="Curiosities" type="Node2D" parent="EnvironmentalObjects"]
 
@@ -512,3 +519,16 @@ z_index = 1
 z_index = 1
 
 [node name="Spawners" type="Node2D" parent="EnvironmentalObjects"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
+offset_left = 629.0
+offset_top = 157.0
+offset_right = 922.0
+offset_bottom = 319.0
+rotation = 2.69304
+texture = SubResource("GradientTexture1D_newhl")
+expand_mode = 1
+
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(381.022, 193.238)

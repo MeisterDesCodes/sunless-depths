@@ -28,5 +28,6 @@ func getScalingValue(value: float):
 	return 100 / (value + 100)
 
 
-
+func generateRandomRange(value: float):
+	return randf_range(0.75 * value, 1.25 * value)
 

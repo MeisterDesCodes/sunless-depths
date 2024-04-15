@@ -65,8 +65,11 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE) && canLaunchProjectile:
+	if stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE) && canLaunchProjectile && stateMachine.currentState != stateMachine.getState(Enums.enemyStates.IDLE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE))
+
+	if stateMachine.getState(Enums.enemyStates.DASH) && canLaunchProjectile && canDash && global_position.distance_to(playerScene.global_position) <= baseVisionRange * 0.75:
+		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.DASH))
 
 
 func getDistanceThreshold(distance: float):
@@ -88,7 +91,11 @@ func moveToPath(speed: float):
 		velocity = Vector2.ZERO
 
 
-func changeToNormalState():
+func changeToLastState():
+	stateMachine.onChange(stateMachine.currentState, stateMachine.lastState)
+
+
+func changeToAggressiveStage():
 	if stateMachine.getState(Enums.enemyStates.CHASE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.CHASE))
 	if stateMachine.getState(Enums.enemyStates.KEEP_DISTANCE):
@@ -96,7 +103,7 @@ func changeToNormalState():
 
 
 func _on_detection_radius_body_entered(body):
-	changeToNormalState()
+	changeToAggressiveStage()
 	chaseAfterTimer.stop()
 
 

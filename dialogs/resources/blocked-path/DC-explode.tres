@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_3f70r"]
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="1_6drv5"]
 [ext_resource type="Resource" uid="uid://bp61rc4bdl0me" path="res://dialogs/resources/blocked-path/D-path.tres" id="1_hogli"]
-[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/improvised-explosives.tres" id="1_u6lrk"]
+[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/improvised-explosives.tres" id="1_u6lrk"]
 
 [sub_resource type="Resource" id="Resource_5uysa"]
 script = ExtResource("1_6drv5")

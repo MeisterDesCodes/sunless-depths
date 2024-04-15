@@ -1,13 +1,13 @@
 extends Control
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var supplies = $"NinePatchRect/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer".get_child(0)
-@onready var oxygen = $"NinePatchRect/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer".get_child(0)
-@onready var stamina = $"NinePatchRect/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer".get_child(0)
+@onready var suppliesBar = $"NinePatchRect/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer".get_child(0)
+@onready var oxygenBar = $"NinePatchRect/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer".get_child(0)
+@onready var staminaBar = $"NinePatchRect/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer".get_child(0)
 @onready var suppliesLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer".get_child(1)
 @onready var oxygenLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer".get_child(1)
 @onready var staminaLabel = $"NinePatchRect/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer".get_child(1)
-@onready var health = $"NinePatchRect/HBoxContainer/VBoxContainer2/Health"
+@onready var healthBar = $"NinePatchRect/HBoxContainer/VBoxContainer2/Health"
 
 @onready var sprintIcon = get_node("NinePatchRect/HBoxContainer/VBoxContainer2/HBoxContainer/RunIcon")
 @onready var dashIcon = get_node("NinePatchRect/HBoxContainer/VBoxContainer2/HBoxContainer/DashIcon")
@@ -18,6 +18,10 @@ extends Control
 @onready var reserveWeapon1 = get_node("Weapons/Panel3/ReserveWeapon1")
 @onready var reserveWeapon2 = get_node("Weapons/Panel2/ReserveWeapon2")
 
+var supplies = preload("res://inventory-resource/resources/primary/supplies.tres")
+var oxygen = preload("res://inventory-resource/resources/primary/oxygen.tres")
+var stamina = preload("res://inventory-resource/resources/primary/stamina.tres")
+
 var suppliesBeingRestocked = false
 var survivalNeedModifier: float
 
@@ -26,10 +30,10 @@ func _ready():
 	playerScene.inventory.update.connect(updateLabels)
 	playerScene.updateHud.connect(updateHud)
 	playerScene.healthModified.connect(healthModified)
-	health.value = 100
-	supplies.value = 100
-	oxygen.value = 100
-	stamina.value = 100
+	healthBar.value = 100
+	suppliesBar.value = 100
+	oxygenBar.value = 100
+	staminaBar.value = 100
 	updateLabels()
 	sprintIcon.visible = false
 	setupWeaponTextures()
@@ -56,19 +60,19 @@ func _process(delta):
 		playerScene.health += playerScene.entityResource.maxHealth * playerScene.healthRegeneration / 60
 		healthModified()
 	
-	supplies.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
-	oxygen.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier
-	stamina.value -= delta * (playerScene.currentStaminaDrain - playerScene.currentStaminaRestore)
-	if (supplies.value <= 0 && !suppliesBeingRestocked):
+	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
+	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier
+	staminaBar.value -= delta * (playerScene.currentStaminaDrain - playerScene.currentStaminaRestore)
+	if (suppliesBar.value <= 0 && !suppliesBeingRestocked):
 		suppliesBeingRestocked = true
 		$"SuppliesTimer".start()
-		playerScene.inventory.removeResource(allResources.resources[0], 1)
+		playerScene.inventory.removeResource(supplies, 1)
 		updateLabels()
-		get_tree().create_tween().tween_property(supplies, "value", 100, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+		get_tree().create_tween().tween_property(suppliesBar, "value", 100, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
-	if (oxygen.value <= 0):
+	if (oxygenBar.value <= 0):
 		pass
-	if (stamina.value <= 0):
+	if (staminaBar.value <= 0):
 		pass
 
 
@@ -90,19 +94,19 @@ func onDashCooldown():
 
 func updateHud(suppliesValue, staminaValue, oxygenValue):
 	if !suppliesBeingRestocked:
-		get_tree().create_tween().tween_property(supplies, "value", supplies.value - suppliesValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	get_tree().create_tween().tween_property(oxygen, "value", oxygen.value - oxygenValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	get_tree().create_tween().tween_property(stamina, "value", stamina.value - staminaValue, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		get_tree().create_tween().tween_property(suppliesBar, "value", suppliesBar.value - suppliesValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func healthModified():
-	get_tree().create_tween().tween_property(health, "value", playerScene.health / playerScene.entityResource.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	get_tree().create_tween().tween_property(healthBar, "value", playerScene.health / playerScene.entityResource.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func updateLabels():
-	suppliesLabel.text = str(playerScene.inventory.getResourceAmount(allResources.resources[0]))
-	oxygenLabel.text = str(playerScene.inventory.getResourceAmount(allResources.resources[1]))
-	staminaLabel.text = str(playerScene.inventory.getResourceAmount(allResources.resources[2])) 
+	suppliesLabel.text = str(playerScene.inventory.getResourceAmount(supplies))
+	oxygenLabel.text = str(playerScene.inventory.getResourceAmount(oxygen))
+	staminaLabel.text = str(playerScene.inventory.getResourceAmount(stamina))
 
 
 func _on_supplies_timer_timeout():

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d0vx7ordrtom2" path="res://generation/dead-ends/dead-end-1/dead-end-1-90.tscn" id="2_jcsvf"]
 [ext_resource type="PackedScene" uid="uid://ug7h8p2bf6sc" path="res://generation/dead-ends/dead-end-1/dead-end-1-180.tscn" id="3_ank6i"]
 [ext_resource type="PackedScene" uid="uid://cdnf4c8ko2v1w" path="res://generation/dead-ends/dead-end-1/dead-end-1-270.tscn" id="4_0agse"]
-[ext_resource type="Script" path="res://generation/segments.gd" id="5_yecq4"]
+[ext_resource type="Script" path="res://generation/segment.gd" id="5_yecq4"]
 
 [resource]
 script = ExtResource("5_yecq4")

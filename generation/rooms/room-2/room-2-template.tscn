@@ -519,7 +519,6 @@ texture = ExtResource("4_mrjel")
 z_index = 1
 
 [node name="LightSources" type="Node2D" parent="EnvironmentalObjects/Decorations/Walls"]
-z_index = 1
 
 [node name="Torch" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_q4pl3")]
 position = Vector2(1497, 771)
@@ -567,6 +566,11 @@ texture = ExtResource("7_o1n0x")
 
 [node name="Torch10" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_q4pl3")]
 position = Vector2(1816, 849)
+texture = ExtResource("6_xocei")
+
+[node name="Torch13" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_q4pl3")]
+position = Vector2(2017, 425)
+rotation = -0.785397
 texture = ExtResource("6_xocei")
 
 [node name="Torch11" parent="EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("5_q4pl3")]

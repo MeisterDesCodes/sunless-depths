@@ -8,6 +8,7 @@ class_name StateMachine
 
 var states: Dictionary = {}
 var currentState: State
+var lastState: State
 
 
 func _ready():
@@ -31,6 +32,7 @@ func _process(delta):
 func onChange(oldState: State, newState: State):
 	oldState.exit()
 	newState.enter()
+	lastState = oldState
 	currentState = newState
 
 

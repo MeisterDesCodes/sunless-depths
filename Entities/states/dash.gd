@@ -19,7 +19,7 @@ func enter():
 	entity.isDashing = true
 	dashTimer.start()
 	RandomNumberGenerator.new().randomize()
-	dashCooldown.wait_time = randf_range(1, 3)
+	dashCooldown.wait_time = UtilsS.generateRandomRange(entity.currentAttack.attackDelay)
 	dashCooldown.start()
 	direction = entity.global_position.direction_to(playerScene.global_position).normalized()
 	entity.velocity = Vector2.ZERO
@@ -42,7 +42,7 @@ func update(delta):
 
 func _on_dash_timer_timeout():
 	entity.isDashing = false
-	entity.changeToNormalState()
+	entity.changeToLastState()
 
 
 func _on_dash_cooldown_timeout():

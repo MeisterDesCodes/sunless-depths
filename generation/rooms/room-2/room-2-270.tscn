@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://da8btnue5tu7c"]
 
-[ext_resource type="Script" path="res://generation/room.gd" id="1_it54k"]
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_it54k"]
 [ext_resource type="PackedScene" uid="uid://de6h8ikhliwxd" path="res://generation/rooms/room-2/room-2-template.tscn" id="2_svf6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]

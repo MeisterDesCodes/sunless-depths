@@ -12,7 +12,7 @@ class_name ProjectileState
 
 func enter():
 	projectileTimer.start()
-	projectileCooldown.wait_time = randf_range(2, 3)
+	projectileCooldown.wait_time = UtilsS.generateRandomRange(entity.currentAttack.attackDelay)
 	projectileCooldown.start()
 	entity.canLaunchProjectile = false
 	projectileSpawner.spawnProjectiles(entity, entity.currentAttack.projectile, entity.global_position, entity.global_position.direction_to(playerScene.global_position), 20, 5)
@@ -31,4 +31,4 @@ func _on_projectile_cooldown_timeout():
 
 
 func _on_projectile_timer_timeout():
-	entity.changeToNormalState()
+	entity.changeToLastState()

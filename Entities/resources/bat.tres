@@ -18,6 +18,7 @@ damage = 15.0
 knockback = 50.0
 statusEffects = Array[ExtResource("3_wu33r")]([SubResource("Resource_fwmki")])
 projectile = ExtResource("1_ne8sw")
+attackDelay = 1.0
 
 [resource]
 script = ExtResource("4_67nwx")

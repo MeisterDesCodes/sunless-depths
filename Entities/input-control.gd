@@ -17,13 +17,16 @@ func _process(delta):
 		return
 	
 	if Input.is_action_just_pressed("dash"):
-		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.stamina.value > playerScene.dashStaminaCost):
+		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > playerScene.dashStaminaCost):
 			playerScene.canDash = false
 			playerScene.isDashing = true
 			playerScene.hudUI.onDash()
 			playerScene.updateHud.emit(1, playerScene.dashStaminaCost, 2)
-			var dash_vector = global_position.direction_to(get_global_mouse_position()) * 400
-			playerScene.velocity = lerp(playerScene.velocity, dash_vector, 0.5)
+			var direction: Vector2 = playerScene.getDirection()
+			if direction == Vector2.ZERO:
+				direction = playerScene.global_position.direction_to(get_global_mouse_position())
+			var speed: float = 150 + playerScene.entityResource.moveSpeed * 1.5
+			playerScene.velocity = lerp(playerScene.velocity, direction * speed, 0.5)
 			$"../DashTimer".start()
 			await get_tree().create_timer(0.3).timeout
 			playerScene.isDashing = false
@@ -37,11 +40,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("switch-down"):
 		playerScene.switchToNextWeapon(1)
 	
+	if Input.is_action_just_pressed("zoom"):
+		playerScene.zoom()
+	
 	if Input.get_action_strength("attack"):
-		if playerScene.hudUI.stamina.value >= playerScene.weaponInstance.weapon.staminaCost:
+		if playerScene.hudUI.staminaBar.value >= playerScene.weaponInstance.weapon.staminaCost:
 			playerScene.attack()
 	
-	if Input.get_action_strength("sprint") && playerScene.hudUI.stamina.value > 0:
+	if Input.get_action_strength("sprint") && playerScene.hudUI.staminaBar.value > 0:
 		playerScene.isSprinting = true
 		playerScene.hudUI.onSprint()
 		playerScene.currentSupplyDrain = playerScene.entityResource.supplyDrain + 1.25
