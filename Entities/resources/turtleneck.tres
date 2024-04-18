@@ -1,11 +1,19 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://b3efrfoxd6rk7"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://b3efrfoxd6rk7"]
 
+[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_agx4j"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="1_wwgny"]
 [ext_resource type="Texture2D" uid="uid://xxiiw3grkn56" path="res://assets/entities/turtleneck.png" id="2_bdbwx"]
 
+[sub_resource type="Resource" id="Resource_ijjxu"]
+script = ExtResource("1_agx4j")
+damage = 30.0
+knockback = 50.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 3.0
+
 [resource]
 script = ExtResource("1_wwgny")
-attacks = Array[Resource("res://entities/resources/classes/enemy-attack.gd")]([])
+attacks = Array[ExtResource("1_agx4j")]([SubResource("Resource_ijjxu")])
 states = Array[int]([0, 1, 2])
 drops = Array[Resource("res://inventory-resource/drop-resource.gd")]([])
 name = "Turtleneck"

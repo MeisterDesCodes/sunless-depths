@@ -8,7 +8,7 @@ extends Node2D
 @onready var walkTimer = get_node("WalkTimer")
 
 
-var steps: Array[AudioStreamMP3] = [preload("res://assets/SFX/step-1.mp3"), preload("res://assets/SFX/step-2.mp3"),
+var steps: Array[AudioStreamMP3] = [preload("res://assets/SFX/step-2.mp3"),
 	preload("res://assets/SFX/step-3.mp3"), preload("res://assets/SFX/step-4.mp3")]
 var currentStep = 0
 
@@ -25,7 +25,7 @@ func _on_walk_timer_timeout():
 		currentStep += 1
 	else:
 		currentStep = 0
-		resetWalkTime()
+		#resetWalkTime()
 
 
 func updateWalkTime():
@@ -33,7 +33,7 @@ func updateWalkTime():
 
 
 func resetWalkTime():
-	walkTimer.wait_time = 0
+	walkTimer.wait_time = 1
 
 
 

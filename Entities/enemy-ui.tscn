@@ -13,13 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
 radius = 120.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8ae5"]
 radius = 27.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
+radius = 8.0
 
 [sub_resource type="Gradient" id="Gradient_3e6f1"]
 offsets = PackedFloat32Array(0.22, 1)
@@ -67,6 +68,7 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D"]
+z_index = 10
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_tud5h")
@@ -74,9 +76,6 @@ script = ExtResource("1_tud5h")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 4.71239
 scale = Vector2(0.13, 0.13)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uwt41")
 
 [node name="DetectionRadius" type="Area2D" parent="."]
 collision_layer = 0
@@ -91,6 +90,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_s8ae5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uwt41")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("entityScene", "initialState")]
 script = ExtResource("3_fbfho")

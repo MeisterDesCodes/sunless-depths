@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
 size = Vector2(562, 626)
 
-[node name="Room - 1" type="Node2D"]
+[node name="Room - 3" type="Node2D"]
 script = ExtResource("1_acmtl")
 exits = Array[Dictionary]([{
 "completed": false,

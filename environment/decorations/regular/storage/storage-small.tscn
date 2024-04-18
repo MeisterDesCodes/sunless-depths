@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://kxkrkgjqovq2"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_msf2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqses"]
+radius = 26.0
+
+[node name="StorageSmall" type="Node2D"]
+script = ExtResource("1_msf2j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_pqses")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)

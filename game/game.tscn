@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
-[ext_resource type="Script" path="res://maps/game.gd" id="1_xvjr7"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
-[ext_resource type="Script" path="res://maps/SoundHandler.gd" id="4_rr2vr"]
+[ext_resource type="Script" path="res://game/SoundHandler.gd" id="4_rr2vr"]
 [ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/HUD/HUD.tscn" id="58_isjnl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
@@ -29,7 +29,6 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 position = Vector2(-174, 101)
-iterations = 5
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -40,6 +39,8 @@ sfx = NodePath("../../SoundHandler/SFX")
 
 [node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../FollowCamera")
+
+[node name="Enemies" type="Node2D" parent="Entities"]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -52,7 +53,6 @@ player = NodePath("../Entities/Player")
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundHandler"]
 stream = ExtResource("4_kdv1t")
 volume_db = -20.0
-autoplay = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="SoundHandler"]
 volume_db = -10.0
@@ -61,6 +61,7 @@ volume_db = -10.0
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 z_index = -1
 offset_left = -5919.0
 offset_top = -5955.0
@@ -69,6 +70,7 @@ offset_bottom = 6237.0
 texture = SubResource("GradientTexture1D_shq6o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 position = Vector2(-133, -36)
 color = Color(0, 0, 0, 1)
 

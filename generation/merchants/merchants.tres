@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Segment" load_steps=6 format=3 uid="uid://bhreyv16elhba"]
+
+[ext_resource type="Script" path="res://generation/segment.gd" id="1_ktgha"]
+[ext_resource type="PackedScene" uid="uid://dcwjrgd1oubav" path="res://generation/merchants/merchant-1/merchant-1-0.tscn" id="1_vg84l"]
+[ext_resource type="PackedScene" uid="uid://dkl3c6yclla06" path="res://generation/merchants/merchant-1/merchant-1-90.tscn" id="2_iheby"]
+[ext_resource type="PackedScene" uid="uid://i7jpm57ogh2f" path="res://generation/merchants/merchant-1/merchant-1-180.tscn" id="3_8jedo"]
+[ext_resource type="PackedScene" uid="uid://ctlxo7yd7hdmg" path="res://generation/merchants/merchant-1/merchant-1-270.tscn" id="4_qam2i"]
+
+[resource]
+script = ExtResource("1_ktgha")
+allSegments = Array[PackedScene]([ExtResource("1_vg84l"), ExtResource("2_iheby"), ExtResource("3_8jedo"), ExtResource("4_qam2i")])

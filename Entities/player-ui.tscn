@@ -17,6 +17,7 @@
 radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_016k8"]
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_pjfrc"]
 length = 0.001

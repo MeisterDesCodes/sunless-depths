@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 
+signal onDeath
+
 @export var entityResource: Entity
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
@@ -86,6 +88,7 @@ func moveToPath(speed: float):
 	if nextPoint.distance_to(global_position) > 10:
 		var direction = nextPoint - global_position
 		moveInDirection(direction, speed)
+		#Bug
 		rotation = lerp_angle(rotation, global_position.direction_to(navigationHandler.get_next_path_position()).normalized().angle(), 0.05)
 	else:
 		velocity = Vector2.ZERO
@@ -120,7 +123,9 @@ func entityKilled():
 	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP,
 		global_position, Vector2.DOWN, dropSpeed)
 		
+	onDeath.emit(self)
 	queue_free()
+
 
 
 func toggleAwareness():

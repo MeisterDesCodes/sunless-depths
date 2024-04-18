@@ -6,3 +6,8 @@ extends Node2D
 	set(value):
 		texture = value
 		$"Sprite2D".texture = texture
+@export var collision: bool = true:
+	set(value):
+		collision = value
+		$"StaticBody2D/CollisionShape2D".disabled = !value
+	

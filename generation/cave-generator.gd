@@ -9,12 +9,14 @@ signal spawnPlayer
 		generateCave()
 @export var iterations: int
 
+@onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
 @onready var cave = get_node("Cave")
 
 var rooms: Array[PackedScene] = preload("res://generation/rooms/rooms.tres").allSegments
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
 var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
+var merchants: Array[PackedScene] = preload("res://generation/merchants/merchants.tres").allSegments
 
 var currentRooms: Array[Node2D]
 var tileSize = 64
@@ -23,17 +25,22 @@ var availableDirections: Array[Enums.exitDirection] = [Enums.exitDirection.TOP,
 	Enums.exitDirection.RIGHT, Enums.exitDirection.DOWN, Enums.exitDirection.LEFT]
 var initialDirection: Enums.exitDirection = Enums.exitDirection.TOP
 
+var enemies = preload("res://entities/resources/enemies.tres").allEnemies
+
 
 func generateCave():
 	clearCave()
 	generateRoot()
 	generateRooms()
+	setSpawners()
 
 
 func clearCave():
 	currentRooms = []
 	for child in cave.get_children():
 		cave.remove_child(child)
+	for enemy in enemiesScene.get_children():
+		enemiesScene.remove_child(enemy)
 
 
 func instanceRoom():
@@ -64,11 +71,14 @@ func generateFittingRoom(exit, roomType):
 		var type = exit.room.type
 		var chance = randf()
 		var segments
-		var chanceThreshold = 0.1
+		var repeatingRoomChance = 0.1
+		var specialRoomChance = 0.25
 		if type == Enums.segmentType.CORRIDOR:
-			segments = rooms if chance > chanceThreshold else corridors
+			segments = corridors if chance < repeatingRoomChance else rooms
+			if chance < specialRoomChance:
+				segments = merchants
 		else:
-			segments = corridors if chance > chanceThreshold else rooms
+			segments = rooms if chance < repeatingRoomChance else corridors
 		
 		if roomType == Enums.segmentType.DEAD_END:
 			segments = dead_ends
@@ -76,13 +86,15 @@ func generateFittingRoom(exit, roomType):
 		if roomType == Enums.segmentType.EXIT:
 			segments = exits
 		
-		var newRoom = segments.filter(func(room): return segmentHasDirection(room, direction)).pick_random().instantiate().duplicate()
-		cave.add_child(newRoom)
-		setRoomPosition(newRoom, exit)
-		if !checkForCollisions(newRoom) || roomType == Enums.segmentType.DEAD_END:
-			return newRoom
-		else:
-			cave.remove_child(newRoom)
+		var filteredSegments = segments.filter(func(segment): return segmentHasDirection(segment, direction))
+		if !filteredSegments.is_empty():
+			var newRoom = filteredSegments.pick_random().instantiate().duplicate()
+			cave.add_child(newRoom)
+			setRoomPosition(newRoom, exit)
+			if !checkForCollisions(newRoom) || roomType == Enums.segmentType.DEAD_END:
+				return newRoom
+			else:
+				cave.remove_child(newRoom)
 	
 	return null
 
@@ -211,7 +223,6 @@ func exitGlobalPosition(exit):
 
 func generateDeadEnds():
 	for exit in getRemainingExits():
-		print(getRemainingExits())
 		var room = generateFittingRoom(exit, Enums.segmentType.DEAD_END)
 		if room:
 			currentRooms.append(room)
@@ -231,7 +242,17 @@ func findExit(room, direction):
 	return room.exits.filter(func(exit): return exit.direction == direction)[0]
 
 
-
+func setSpawners():
+	for room in currentRooms:
+		var spawners: Node2D = room.get_child(0).get_node("Map/EnvironmentalObjects/Spawners")
+		for spawner in spawners.get_children():
+			var spawnerScene = preload("res://entities/entity-spawner.tscn").instantiate()
+			spawnerScene.enemies = enemies
+			spawnerScene.spawnDelay = 25
+			spawnerScene.global_position = spawner.global_position
+			spawners.add_child(spawnerScene)
+			spawnerScene.setup(room.get_child(0))
+			spawnerScene.spawnEntity()
 
 
 

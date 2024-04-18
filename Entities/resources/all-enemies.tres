@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="AllEnemies" load_steps=3 format=3 uid="uid://bm3ea4iltxsvr"]
-
-[ext_resource type="Resource" uid="uid://egkn5f1g2uuv" path="res://entities/resources/giant-rat.tres" id="1_drybc"]
-[ext_resource type="Script" path="res://entities/all-enemies.gd" id="4_ucn3a"]
-
-[resource]
-script = ExtResource("4_ucn3a")
-enemies = Array[Resource("res://entities/resources/classes/entity.gd")]([ExtResource("1_drybc")])

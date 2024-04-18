@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_frw33")
-damageModifier = 1.1
+damageModifier = 5.0
 speedModifier = 1.25
 knockbackModifier = 1.0
 spread = 20.0
