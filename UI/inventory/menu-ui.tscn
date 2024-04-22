@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0um87rc8bl77"]
+
+[ext_resource type="Script" path="res://UI/inventory/menu-ui.gd" id="1_2cm1r"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel.png" id="1_wf4k4"]
+[ext_resource type="Texture2D" uid="uid://bnwkcoxeeo174" path="res://assets/UI/icons/Inventory.png" id="3_4508c"]
+[ext_resource type="Texture2D" uid="uid://dqulph4hdnkof" path="res://assets/UI/icons/Map.png" id="4_b33fp"]
+
+[node name="MenuUI" type="Control"]
+z_index = 3
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(800, 400)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2cm1r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -385.0
+offset_right = 500.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PanelContainer2"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+texture = ExtResource("1_wf4k4")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 150
+
+[node name="Panel4" type="PanelContainer" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Panel4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_4508c")
+expand_mode = 2
+
+[node name="Inventory" type="Button" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Panel4"]
+layout_mode = 2
+flat = true
+
+[node name="Panel5" type="PanelContainer" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Panel5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("4_b33fp")
+expand_mode = 2
+
+[node name="Map" type="Button" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Panel5"]
+layout_mode = 2
+flat = true
+
+[node name="Body" type="PanelContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("1_wf4k4")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Perhaps not"
+
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Panel4/Inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Panel5/Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer3/MarginContainer/Button" to="." method="_on_button_pressed"]

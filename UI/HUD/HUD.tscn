@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://snd70w6whqbn"]
 
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_o31jx"]
-[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_nn0qi"]
-[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/Frame 19.png" id="3_fgdyr"]
-[ext_resource type="Texture2D" uid="uid://mo65hrfu6vsc" path="res://assets/UI/prograss-bar.png" id="4_durg7"]
-[ext_resource type="Texture2D" uid="uid://8y0d4c6i0urd" path="res://assets/UI/Frame 22.png" id="5_qwegi"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel.png" id="2_nn0qi"]
+[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/components/Frame 19.png" id="3_fgdyr"]
+[ext_resource type="Texture2D" uid="uid://mo65hrfu6vsc" path="res://assets/UI/components/prograss-bar.png" id="4_durg7"]
+[ext_resource type="Texture2D" uid="uid://8y0d4c6i0urd" path="res://assets/UI/components/Frame 22.png" id="5_qwegi"]
 [ext_resource type="Theme" uid="uid://dei2svi60wej7" path="res://assets/UI/themes/UI-elements/round-panel-2.tres" id="6_m6cr4"]
 [ext_resource type="Theme" uid="uid://bmj3854823hk4" path="res://assets/UI/themes/UI-elements/round-panel-1.tres" id="7_cwmg4"]
 
@@ -372,4 +372,10 @@ expand_mode = 2
 [node name="SuppliesTimer" type="Timer" parent="."]
 wait_time = 0.25
 
+[connection signal="mouse_entered" from="Weapons/Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Weapons/Panel" to="." method="_on_panel_mouse_exited"]
+[connection signal="mouse_entered" from="Weapons/Panel3" to="." method="_on_panel_3_mouse_entered"]
+[connection signal="mouse_exited" from="Weapons/Panel3" to="." method="_on_panel_3_mouse_exited"]
+[connection signal="mouse_entered" from="Weapons/Panel2" to="." method="_on_panel_2_mouse_entered"]
+[connection signal="mouse_exited" from="Weapons/Panel2" to="." method="_on_panel_2_mouse_exited"]
 [connection signal="timeout" from="SuppliesTimer" to="." method="_on_supplies_timer_timeout"]

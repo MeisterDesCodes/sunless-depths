@@ -22,6 +22,7 @@ var supplies = preload("res://inventory-resource/resources/primary/supplies.tres
 var oxygen = preload("res://inventory-resource/resources/primary/oxygen.tres")
 var stamina = preload("res://inventory-resource/resources/primary/stamina.tres")
 
+var popup: Control = null
 var suppliesBeingRestocked = false
 var survivalNeedModifier: float
 
@@ -111,3 +112,27 @@ func updateLabels():
 
 func _on_supplies_timer_timeout():
 	suppliesBeingRestocked = false
+
+
+func _on_panel_mouse_entered():
+	popup = UILoaderS.loadUIPopup(activeWeapon, playerScene.equippedWeapons[0])
+
+
+func _on_panel_mouse_exited():
+	UILoaderS.closeUIPopup(popup)
+
+
+func _on_panel_3_mouse_entered():
+	popup = UILoaderS.loadUIPopup(reserveWeapon1, playerScene.equippedWeapons[1])
+
+
+func _on_panel_3_mouse_exited():
+	UILoaderS.closeUIPopup(popup)
+
+
+func _on_panel_2_mouse_entered():
+	popup = UILoaderS.loadUIPopup(reserveWeapon2, playerScene.equippedWeapons[2])
+
+
+func _on_panel_2_mouse_exited():
+	UILoaderS.closeUIPopup(popup)

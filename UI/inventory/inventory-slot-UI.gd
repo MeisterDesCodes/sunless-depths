@@ -9,7 +9,8 @@ extends PanelContainer
 @onready var weaponSlotsContainer: HBoxContainer = get_node("NinePatchRect/MarginContainer/WeaponSlots")
 
 var slot: InventorySlot = null
-var popup: PanelContainer = null
+var popup: Control = null
+var mouseOnContainer: bool = false
 
 
 func _ready():
@@ -41,17 +42,17 @@ func update(slot: InventorySlot):
 	icon.texture = slot.resource.texture
 
 
-func _on_craft_button_mouse_entered():
-	popup = UILoaderS.loadUIScene(preload("res://UI/inventory/blueprint-popup.tscn"))
-	var snapPosition = craftContainer.global_position + Vector2(craftContainer.size.x / 2, 0)
-	snapPosition.x -= popup.size.x / 2
-	snapPosition.y -= popup.size.y + 20
-	popup.setup(slot.resource, snapPosition)
-	popup.visible = true
+func _on_mouse_entered():
+	if !mouseOnContainer:
+		popup = UILoaderS.loadUIPopup(self, slot.resource)
 
 
-func _on_craft_button_mouse_exited():
-	popup.queue_free()
+func _on_mouse_exited():
+	if !UtilsS.checkIfMouseOverElement(craftContainer, get_global_mouse_position()):
+		UILoaderS.closeUIPopup(popup)
+		mouseOnContainer = false
+	else:
+		mouseOnContainer = true
 
 
 func _on_craft_button_pressed():

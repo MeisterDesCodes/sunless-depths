@@ -2,9 +2,6 @@ extends Node2D
 
 signal onEnter
 
-@export var sprite: Texture2D
-@export var id: String
-
 @onready var resourceSpawner = get_node("ResourceSpawner")
 
 var player = null
@@ -19,7 +16,7 @@ func _process(delta):
 
 
 func _on_detection_radius_body_entered(body):
-	approachLabel = UILoaderS.loadUIScene(preload("res://UI/other/dialog_approach.tscn"))
+	approachLabel = UILoaderS.loadUILabel(preload("res://UI/shared/dialog-approach.tscn"))
 	if body.has_method("isPlayer") && !completed:
 		player = body
 		playerInRange = true

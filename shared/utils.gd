@@ -31,3 +31,21 @@ func getScalingValue(value: float):
 func getRandomRange(value: float):
 	return randf_range(0.75 * value, 1.25 * value)
 
+
+func checkIfMouseOverElement(element, mousePosition):
+	return mousePosition.x >= element.global_position.x && \
+		mousePosition.x <= element.global_position.x + element.size.x && \
+		mousePosition.y >= element.global_position.y && \
+		mousePosition.y <= element.global_position.y + element.size.y
+
+
+
+
+
+
+
+
+
+
+
+

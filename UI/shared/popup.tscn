@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1m1q6gnsimr3"]
+
+[ext_resource type="Script" path="res://UI/shared/popup.gd" id="1_osbky"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel.png" id="2_7riey"]
+[ext_resource type="Texture2D" uid="uid://b7ylbo7ubafqk" path="res://assets/UI/icons/Arrow Down.png" id="3_7yg1s"]
+
+[node name="Control" type="Control"]
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_osbky")
+
+[node name="BlueprintPopup" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 362.0
+offset_bottom = 236.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BlueprintPopup"]
+layout_mode = 2
+texture = ExtResource("2_7riey")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="BlueprintPopup"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BlueprintPopup/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="BlueprintPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="BlueprintPopup/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="BlueprintPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="BlueprintPopup/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Blueprint" type="VBoxContainer" parent="BlueprintPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="InputResources" type="HBoxContainer" parent="BlueprintPopup/MarginContainer/VBoxContainer/Blueprint"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="BlueprintPopup/MarginContainer/VBoxContainer/Blueprint"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="BlueprintPopup/MarginContainer/VBoxContainer/Blueprint/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("3_7yg1s")
+expand_mode = 2
+
+[node name="OutputResources" type="HBoxContainer" parent="BlueprintPopup/MarginContainer/VBoxContainer/Blueprint"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

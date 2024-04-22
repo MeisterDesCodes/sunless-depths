@@ -4,35 +4,34 @@ extends Control
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var inventory: Inventory = preload("res://inventory-resource/resources/player/player-inventory.tres")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/primary/experience.tres")
-@onready var resourceWindow: VBoxContainer = get_node("HBoxContainer/VBoxContainer/ScrollContainer/Resources")
+@onready var resourceWindow: VBoxContainer = get_node("NinePatchRect2/HBoxContainer/VBoxContainer/ScrollContainer/Resources")
 
-@onready var playerName: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Name")
-@onready var background: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Background")
-@onready var level: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Level")
-@onready var ambition: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Ambition")
+@onready var playerName: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Name")
+@onready var background: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Background")
+@onready var level: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Level")
+@onready var ambition: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Ambition")
 
-@onready var ferocity: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/Ferocity")
-@onready var perseverance: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2/Perseverance")
-@onready var agility: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3/Agility")
-@onready var perception: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer4/Perception")
+@onready var ferocity: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/Ferocity")
+@onready var perseverance: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2/Perseverance")
+@onready var agility: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3/Agility")
+@onready var perception: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer4/Perception")
 
-@onready var currentExperienceLabel: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/HBoxContainer/CurrentExperience")
-@onready var experienceCostLabel: Label = get_node("HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/LevelUp/ExperienceCost")
-@onready var levelUpContainer: VBoxContainer = get_node("HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/LevelUp")
-@onready var levelUpButton: TextureButton = get_node("HBoxContainer/VBoxContainer2/HBoxContainer3/Experience/LevelUpButton")
+@onready var currentExperienceLabel: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/HBoxContainer/CurrentExperience")
+@onready var experienceCostLabel: Label = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/LevelUp/ExperienceCost")
+@onready var levelUpContainer: VBoxContainer = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/LevelUp")
+@onready var levelUpButton: TextureButton = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer3/Experience/LevelUpButton")
 
 
 func _ready():
 	inventory.update.connect(updateAssets)
-	playerScene.isInDialog = true
 	updateAssets(Enums.resourceType.RESOURCE)
 	updateLabels()
 	updateExperience()
 
-func _process(delta):
-	if playerScene.getDirection() != Vector2(0, 0):
-		playerScene.isInDialog = false
-		queue_free()
+
+func toggleTab():
+	pass
+
 
 func updateLabels():
 	playerName.text = playerScene.name
@@ -105,5 +104,17 @@ func _on_all_bluprints_pressed():
 	updateAssets(Enums.resourceType.BLUEPRINT)
 
 
+func _on_all_usables_pressed():
+	updateAssets(Enums.resourceType.USABLE)
+
+
 func _on_level_up_button_pressed():
 	levelUp()
+
+
+
+
+
+
+
+

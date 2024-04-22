@@ -1,33 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjw85nwae6j0u"]
+[gd_scene load_steps=7 format=3 uid="uid://bjw85nwae6j0u"]
 
-[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/20220922182354-8570c122.png" id="1_xi2td"]
+[ext_resource type="Texture2D" uid="uid://boj5ulpb5kub6" path="res://assets/particles/20220922182354-b2057151.png" id="2_0mqh3"]
 
-[sub_resource type="Curve" id="Curve_10i5i"]
-_data = [Vector2(0, 0.516483), 0.0, 0.0, 0, 0, Vector2(0.594262, 0.813187), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Gradient" id="Gradient_p4oek"]
+offsets = PackedFloat32Array(0, 0.271186, 0.59322, 1)
+colors = PackedColorArray(0.93, 0.93, 0.93, 1, 0.978731, 0.913049, 0.410457, 1, 0.784635, 0.448966, 0.167979, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bcqq6"]
+gradient = SubResource("Gradient_p4oek")
+
+[sub_resource type="Curve" id="Curve_4u675"]
+_data = [Vector2(0, 0.417582), 0.0, 0.0, 0, 0, Vector2(0.589041, 0.736264), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_8cb5l"]
-offsets = PackedFloat32Array(0.18, 0.626667, 1)
-colors = PackedColorArray(0.752941, 0.101961, 0.141176, 0.780392, 1, 0.505882, 0.168627, 0.654902, 1, 0.8, 0.168627, 0.545098)
+[sub_resource type="CurveTexture" id="CurveTexture_u7qng"]
+curve = SubResource("Curve_4u675")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pomt6"]
+lifetime_randomness = 0.32
+particle_flag_align_y = true
+spread = 180.0
+radial_velocity_min = 4.0
+radial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.04
+scale_max = 0.06
+scale_curve = SubResource("CurveTexture_u7qng")
+color_ramp = SubResource("GradientTexture1D_bcqq6")
 
 [node name="TorchParticles" type="Node2D"]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 15
-lifetime = 0.5
-speed_scale = 0.5
-explosiveness = 0.3
-randomness = 0.24
-draw_order = 1
-texture = ExtResource("1_xi2td")
-particle_flag_align_y = true
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 15.0
-orbit_velocity_min = 1.0
-orbit_velocity_max = 1.0
-scale_amount_min = 0.03
-scale_amount_max = 0.05
-scale_amount_curve = SubResource("Curve_10i5i")
-color_ramp = SubResource("Gradient_8cb5l")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_pomt6")
+texture = ExtResource("2_0mqh3")
+lifetime = 1.5
+explosiveness = 0.15
+randomness = 0.22
+fixed_fps = 60

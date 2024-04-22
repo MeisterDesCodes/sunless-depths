@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf5ykmh3rdrbk"
-path="res://.godot/imported/asset-slot.png-1ef6ddae85e5a896d13663ead874b124.ctex"
+uid="uid://du2sn8xojyt7a"
+path="res://.godot/imported/brush-stroke.png-8ed5e8163124e0a0e84813042e2ed5a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/asset-slot.png"
-dest_files=["res://.godot/imported/asset-slot.png-1ef6ddae85e5a896d13663ead874b124.ctex"]
+source_file="res://assets/UI/icons/brush-stroke.png"
+dest_files=["res://.godot/imported/brush-stroke.png-8ed5e8163124e0a0e84813042e2ed5a3.ctex"]
 
 [params]
 

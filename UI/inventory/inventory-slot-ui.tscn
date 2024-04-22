@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bp5qf8wxxydse"]
 
 [ext_resource type="Script" path="res://UI/inventory/inventory-slot-ui.gd" id="1_g3atm"]
-[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/Frame 19.png" id="2_u2xqx"]
+[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/components/Frame 19.png" id="2_u2xqx"]
 [ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button.tres" id="3_dxubl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wav32"]
@@ -57,6 +57,7 @@ layout_mode = 2
 
 [node name="Amount" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 10
 
 [node name="WeaponSlots" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
@@ -119,9 +120,8 @@ layout_mode = 2
 flat = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/WeaponSlots/WeaponSlot1/AssignSlot1" to="." method="_on_assign_slot_1_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/WeaponSlots/WeaponSlot2/AssignSlot2" to="." method="_on_assign_slot_2_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/WeaponSlots/WeaponSlot3/AssignSlot3" to="." method="_on_assign_slot_3_pressed"]
-[connection signal="mouse_entered" from="NinePatchRect/MarginContainer/Craft/CraftButton" to="." method="_on_craft_button_mouse_entered"]
-[connection signal="mouse_exited" from="NinePatchRect/MarginContainer/Craft/CraftButton" to="." method="_on_craft_button_mouse_exited"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/Craft/CraftButton" to="." method="_on_craft_button_pressed"]

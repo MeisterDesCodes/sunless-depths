@@ -250,6 +250,7 @@ func setSpawners():
 			spawnerScene.enemies = enemies
 			spawnerScene.spawnDelay = 25
 			spawnerScene.global_position = spawner.global_position
+			spawner.queue_free()
 			spawners.add_child(spawnerScene)
 			spawnerScene.setup(room.get_child(0))
 			spawnerScene.spawnEntity()

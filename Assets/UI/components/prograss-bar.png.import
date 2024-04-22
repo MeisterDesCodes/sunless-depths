@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mo65hrfu6vsc"
-path="res://.godot/imported/prograss-bar.png-38e569b69e513b76f16ccd18f0128904.ctex"
+path="res://.godot/imported/prograss-bar.png-f41b12cb97ae8b504a52c1bd52921885.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/prograss-bar.png"
-dest_files=["res://.godot/imported/prograss-bar.png-38e569b69e513b76f16ccd18f0128904.ctex"]
+source_file="res://assets/UI/components/prograss-bar.png"
+dest_files=["res://.godot/imported/prograss-bar.png-f41b12cb97ae8b504a52c1bd52921885.ctex"]
 
 [params]
 

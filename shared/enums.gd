@@ -26,7 +26,6 @@ enum exitDirection {TOP, RIGHT, DOWN, LEFT}
 
 enum segmentType {ROOM, CORRIDOR, DEAD_END, EXIT}
 
-
-
+enum menuType {INVENTORY, MAP}
 
 

@@ -18,8 +18,9 @@ run/low_processor_mode_sleep_usec=8000
 
 [autoload]
 
-UILoaderS="*res://shared/UI-loader.gd"
+UILoaderS="*res://shared/ui-loader.gd"
 UtilsS="*res://shared/utils.gd"
+AnimationsS="*res://shared/animations.gd"
 
 [dialogic]
 

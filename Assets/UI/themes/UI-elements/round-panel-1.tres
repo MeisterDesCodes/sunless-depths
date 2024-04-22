@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://bmj3854823hk4"]
 
-[ext_resource type="Texture2D" uid="uid://dk34b5m04vtju" path="res://assets/UI/Ellipse 44.png" id="1_ckpno"]
+[ext_resource type="Texture2D" uid="uid://dk34b5m04vtju" path="res://assets/UI/components/Ellipse 44.png" id="1_ckpno"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
 

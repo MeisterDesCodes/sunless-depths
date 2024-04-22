@@ -27,7 +27,7 @@ func generateBuyResources():
 
 func generateSellResources():
 	var resources: Array[InventoryResource] = []
-	for slot in playerScene.inventory.resourceSlots:
+	for slot in playerScene.inventory.resourceSlots.filter(func(slot): return slot.resource.rarity != Enums.resourceRarity.PRIMARY):
 		resources.append(slot.resource)
 	generateResources(resources, Enums.merchantMode.SELL)
 
@@ -75,6 +75,9 @@ func sell():
 		if merchantResource.selectedAmount > 0:
 			playerScene.inventory.removeResource(merchantResource.resource, merchantResource.selectedAmount)
 			merchantResource.reset()
+			if merchantResource.resource in playerScene.equippedWeapons:
+				playerScene.equippedWeapons[playerScene.equippedWeapons.find(merchantResource.resource, 0)] = null
+				playerScene.hudUI.setupWeaponTextures()
 
 
 func _on_purchase_pressed():
@@ -86,8 +89,7 @@ func _on_purchase_pressed():
 
 
 func _on_leave_pressed():
-	queue_free()
-	playerScene.isInDialog = false
+	UILoaderS.closeUIScene(self)
 
 
 func _on_buy_pressed():
@@ -100,3 +102,10 @@ func _on_sell_pressed():
 	merchantMode = Enums.merchantMode.SELL
 	purchaseButton.text = "Sell"
 	generateSellResources()
+	
+	
+	
+	
+	
+	
+	

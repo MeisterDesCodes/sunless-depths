@@ -14,7 +14,7 @@ func setup(choice: DialogChoice):
 	if !playerScene.inventory.hasResources(choice.requiredResources):
 		button.disabled = true
 	for requirement in choice.requiredResources:
-		var requirementScene = preload("res://UI/dialogs/dialog-choice-requirement-ui.tscn").instantiate()
+		var requirementScene = preload("res://UI/shared/resource-icon-ui.tscn").instantiate()
 		requirements.add_child(requirementScene)
 		requirementScene.setup(requirement, true, true)
 

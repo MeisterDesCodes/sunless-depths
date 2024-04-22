@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du2sn8xojyt7a"
-path="res://.godot/imported/brush-stroke.png-50f13bbf8c8dd7d37887c44f51333de4.ctex"
+uid="uid://bmw5w0b76rnby"
+path="res://.godot/imported/panel.png-9544eb87ba69f5ce533ef66575fd6ac6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/brush-stroke.png"
-dest_files=["res://.godot/imported/brush-stroke.png-50f13bbf8c8dd7d37887c44f51333de4.ctex"]
+source_file="res://assets/UI/components/panel.png"
+dest_files=["res://.godot/imported/panel.png-9544eb87ba69f5ce533ef66575fd6ac6.ctex"]
 
 [params]
 

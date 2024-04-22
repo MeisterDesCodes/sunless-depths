@@ -61,8 +61,7 @@ func generateResources(dialog: PanelContainer, choiceResources: Array[ChoiceReso
 
 
 func leave():
-	queue_free()
-	playerScene.isInDialog = false
+	UILoaderS.closeUIScene(self)
 
 
 func _on_leave_pressed():

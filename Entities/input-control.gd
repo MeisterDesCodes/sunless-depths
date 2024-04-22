@@ -5,17 +5,13 @@ extends Node2D
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("inventory"):
-		var scene = preload("res://UI/inventory/inventory-ui.tscn")
-		if !UILoaderS.isSceneOpen(scene):
-			UILoaderS.loadUIScene(scene)
-		else:
-			UILoaderS.closeUIScene(scene)
-			playerScene.isInDialog = false
-	
 	if playerScene.isInDialog:
 		return
 	
+	if Input.is_action_just_pressed("inventory"):
+		var scene = preload("res://UI/inventory/menu-ui.tscn")
+		UILoaderS.loadUIScene(scene)
+
 	if Input.is_action_just_pressed("dash"):
 		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > playerScene.dashStaminaCost):
 			playerScene.canDash = false

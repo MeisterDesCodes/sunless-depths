@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://buvdhtxsdft4p"]
 
 [ext_resource type="Script" path="res://UI/dialogs/dialog.gd" id="1_nkmvh"]
-[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_i4rxf"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel.png" id="2_i4rxf"]
 
 [node name="Dialog" type="PanelContainer"]
 anchors_preset = 8

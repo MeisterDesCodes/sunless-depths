@@ -675,8 +675,6 @@ texture = ExtResource("60_r6ix3")
 
 [node name="EntitySpawner" parent="NavigationRegion2D/EnvironmentalObjects/Spawners" instance=ExtResource("53_jthgv")]
 position = Vector2(1453.11, -1176.71)
-range = 300.0
-cooldown = 1.0
 
 [node name="ResourceNodeSpawner" parent="NavigationRegion2D/EnvironmentalObjects/Spawners" instance=ExtResource("73_gb3vf")]
 position = Vector2(898.792, -549.698)

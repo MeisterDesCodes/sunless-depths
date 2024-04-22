@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://dei2svi60wej7"]
 
-[ext_resource type="Texture2D" uid="uid://dk34b5m04vtju" path="res://assets/UI/Ellipse 44.png" id="1_o8g18"]
-[ext_resource type="Texture2D" uid="uid://dhk85cala33e7" path="res://assets/UI/Ellipse 41.png" id="2_1jy8q"]
+[ext_resource type="Texture2D" uid="uid://dk34b5m04vtju" path="res://assets/UI/components/Ellipse 44.png" id="1_o8g18"]
+[ext_resource type="Texture2D" uid="uid://dhk85cala33e7" path="res://assets/UI/components/Ellipse 41.png" id="2_1jy8q"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
 

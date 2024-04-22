@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b465sei327g5c"]
 
 [ext_resource type="Script" path="res://UI/merchants/merchant-resource-ui.gd" id="1_5dpjm"]
-[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/panel.png" id="2_yjkvo"]
+[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel.png" id="2_yjkvo"]
 [ext_resource type="Texture2D" uid="uid://c5efwq8xwq1dj" path="res://assets/resources/Gold.png" id="3_2742o"]
-[ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/Inventory.png" id="4_b2y4f"]
+[ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/Storage.png" id="4_b2y4f"]
 [ext_resource type="Texture2D" uid="uid://ckapk1e64g3or" path="res://assets/other/left-arrow.png" id="5_jeafn"]
 [ext_resource type="Texture2D" uid="uid://bntfyai5m73if" path="res://assets/other/right-arrow.png" id="6_4y25c"]
 
