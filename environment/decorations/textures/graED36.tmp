@@ -1,0 +1,253 @@
+[gd_scene load_steps=24 format=3 uid="uid://cd8iqjms7aj8y"]
+
+[ext_resource type="Texture2D" uid="uid://ba7i8dr11788u" path="res://assets/environment/textures/highlights/grass/root-1.png" id="1_eluyf"]
+[ext_resource type="Script" path="res://environment/decorations/textures/grass-texture.gd" id="1_q8j3w"]
+[ext_resource type="Shader" path="res://assets/environment/textures/shaders/grass.gdshader" id="1_u3xmv"]
+[ext_resource type="Texture2D" uid="uid://ck2f38c0f2qvg" path="res://assets/environment/textures/highlights/grass/root-2.png" id="2_0vjpu"]
+[ext_resource type="Texture2D" uid="uid://ms54f8n6qv4o" path="res://assets/environment/textures/materials/grass.png" id="2_tr0lf"]
+[ext_resource type="Texture2D" uid="uid://deskf17gv141f" path="res://assets/environment/textures/highlights/grass/root-3.png" id="3_7rotu"]
+[ext_resource type="Texture2D" uid="uid://dps8o735evmqb" path="res://assets/environment/textures/noise/noise1.tres" id="3_tv1ux"]
+[ext_resource type="Texture2D" uid="uid://c8l3rynl1ievx" path="res://assets/environment/textures/highlights/grass/plant-1.png" id="4_yayvx"]
+[ext_resource type="Texture2D" uid="uid://bve4ot5qychnf" path="res://assets/environment/textures/highlights/grass/plant-2.png" id="5_m6pa2"]
+[ext_resource type="Texture2D" uid="uid://cn3l6jvag8rxh" path="res://assets/environment/textures/highlights/grass/plant-3.png" id="6_2hk0j"]
+[ext_resource type="Texture2D" uid="uid://b8l656twn3qkb" path="res://assets/environment/textures/highlights/grass/grass-boulder.png" id="7_o1pjo"]
+[ext_resource type="Texture2D" uid="uid://cdtmbk28mojma" path="res://assets/environment/textures/materials/grass-overlay.png" id="9_rpbln"]
+[ext_resource type="Texture2D" uid="uid://ce7bkl0makpj3" path="res://assets/environment/textures/highlights/grass/plant-patch-1.png" id="11_voaf8"]
+[ext_resource type="Texture2D" uid="uid://esy623a5onw6" path="res://assets/environment/textures/highlights/grass/grass-patch.png" id="12_fxmsj"]
+[ext_resource type="Shader" path="res://assets/environment/textures/shaders/stone-shards.gdshader" id="12_m3rj3"]
+[ext_resource type="Texture2D" uid="uid://cb50hhpmvr0kq" path="res://assets/environment/textures/materials/vine-overlay.png" id="13_83oco"]
+[ext_resource type="Texture2D" uid="uid://cw1pnj4wo23q3" path="res://assets/environment/textures/highlights/grass/grass-patch-2.png" id="13_njt7q"]
+[ext_resource type="Texture2D" uid="uid://8737n84tkwj2" path="res://assets/environment/textures/highlights/grass/grass-patch-3.png" id="14_7ycn7"]
+[ext_resource type="Texture2D" uid="uid://d4nmk8cdjwwpb" path="res://assets/environment/textures/noise/noise2.tres" id="14_dobqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7amt"]
+shader = ExtResource("1_u3xmv")
+shader_parameter/display_texture = ExtResource("2_tr0lf")
+shader_parameter/noise_texture = ExtResource("3_tv1ux")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bipm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67pvs"]
+shader = ExtResource("1_u3xmv")
+shader_parameter/display_texture = ExtResource("9_rpbln")
+shader_parameter/noise_texture = ExtResource("3_tv1ux")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fakmv"]
+shader = ExtResource("12_m3rj3")
+shader_parameter/display_texture = ExtResource("13_83oco")
+shader_parameter/noise_texture = ExtResource("14_dobqf")
+
+[node name="GrassTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_q8j3w")
+
+[node name="Underlays" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.686275)
+
+[node name="root" type="Sprite2D" parent="Underlays"]
+position = Vector2(-9.97546, 4.38187)
+rotation = -1.0472
+scale = Vector2(0.432348, 0.432348)
+texture = ExtResource("1_eluyf")
+
+[node name="root2" type="Sprite2D" parent="Underlays"]
+position = Vector2(104.715, -96.1113)
+rotation = -1.7098
+scale = Vector2(0.350742, 0.350742)
+texture = ExtResource("2_0vjpu")
+
+[node name="root5" type="Sprite2D" parent="Underlays"]
+position = Vector2(21.4209, 194.123)
+rotation = -1.83259
+scale = Vector2(0.505245, 0.438364)
+texture = ExtResource("2_0vjpu")
+
+[node name="root3" type="Sprite2D" parent="Underlays"]
+position = Vector2(179, 98.9996)
+rotation = -2.35619
+scale = Vector2(0.244371, 0.244371)
+texture = ExtResource("3_7rotu")
+
+[node name="root4" type="Sprite2D" parent="Underlays"]
+position = Vector2(-136.372, -51.4754)
+rotation = -5.49778
+scale = Vector2(0.244371, 0.244371)
+texture = ExtResource("3_7rotu")
+
+[node name="plant" type="Sprite2D" parent="Underlays"]
+position = Vector2(138.918, 8.81259)
+rotation = -0.523589
+scale = Vector2(0.144152, 0.144152)
+texture = ExtResource("4_yayvx")
+
+[node name="plant2" type="Sprite2D" parent="Underlays"]
+position = Vector2(-97.0815, 32.8126)
+rotation = 0.523598
+scale = Vector2(0.144152, 0.144152)
+texture = ExtResource("4_yayvx")
+
+[node name="plant3" type="Sprite2D" parent="Underlays"]
+position = Vector2(-25.3196, 236.679)
+rotation = -0.261799
+scale = Vector2(0.341583, 0.341583)
+texture = ExtResource("5_m6pa2")
+
+[node name="plant4" type="Sprite2D" parent="Underlays"]
+position = Vector2(76.2712, -121.321)
+rotation = -0.785397
+scale = Vector2(0.231339, 0.231339)
+texture = ExtResource("5_m6pa2")
+
+[node name="plant5" type="Sprite2D" parent="Underlays"]
+position = Vector2(-130.647, -121.321)
+rotation = 1.04721
+scale = Vector2(0.323839, 0.323839)
+texture = ExtResource("5_m6pa2")
+
+[node name="plant6" type="Sprite2D" parent="Underlays"]
+position = Vector2(-216.73, 83.9764)
+rotation = 2.09439
+scale = Vector2(0.240743, 0.240743)
+texture = ExtResource("6_2hk0j")
+
+[node name="plant7" type="Sprite2D" parent="Underlays"]
+position = Vector2(259.202, 87.3311)
+rotation = 0.523598
+scale = Vector2(0.157855, 0.157855)
+texture = ExtResource("6_2hk0j")
+
+[node name="plant8" type="Sprite2D" parent="Underlays"]
+position = Vector2(-98.7978, -206.669)
+rotation = -0.523598
+scale = Vector2(0.157855, 0.157855)
+texture = ExtResource("6_2hk0j")
+
+[node name="boulder" type="Sprite2D" parent="Underlays"]
+position = Vector2(-106.798, 147.331)
+rotation = 1.57079
+scale = Vector2(0.157855, 0.157855)
+texture = ExtResource("7_o1pjo")
+
+[node name="boulder2" type="Sprite2D" parent="Underlays"]
+position = Vector2(-181.595, -137.432)
+rotation = 2.87979
+scale = Vector2(0.115966, 0.115966)
+texture = ExtResource("7_o1pjo")
+
+[node name="boulder3" type="Sprite2D" parent="Underlays"]
+position = Vector2(4.82007, -29.328)
+rotation = 1.0472
+scale = Vector2(0.203653, 0.203653)
+texture = ExtResource("7_o1pjo")
+
+[node name="Textures" type="Node2D" parent="."]
+
+[node name="TextureRect8" type="TextureRect" parent="Textures"]
+material = SubResource("ShaderMaterial_x7amt")
+offset_left = -314.0
+offset_top = -282.0
+offset_right = 326.0
+offset_bottom = 358.0
+texture = SubResource("PlaceholderTexture2D_2bipm")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect9" type="TextureRect" parent="Textures"]
+material = SubResource("ShaderMaterial_67pvs")
+offset_left = -374.0
+offset_top = -38.0004
+offset_right = 162.0
+offset_bottom = 498.0
+rotation = -0.523598
+texture = SubResource("PlaceholderTexture2D_2bipm")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect10" type="TextureRect" parent="Textures"]
+material = SubResource("ShaderMaterial_fakmv")
+offset_left = -244.0
+offset_top = -50.0003
+offset_right = 56.0
+offset_bottom = 250.0
+rotation = -0.261799
+texture = SubResource("PlaceholderTexture2D_2bipm")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect11" type="TextureRect" parent="Textures"]
+material = SubResource("ShaderMaterial_fakmv")
+offset_left = 88.0
+offset_top = -278.0
+offset_right = 388.0
+offset_bottom = 21.9996
+rotation = 1.0472
+texture = SubResource("PlaceholderTexture2D_2bipm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Overlays" type="Node2D" parent="."]
+
+[node name="plant-patch" type="Sprite2D" parent="Overlays"]
+modulate = Color(0.658824, 0.607843, 0.101961, 0.486275)
+position = Vector2(-60.6471, 130.679)
+rotation = 2.09439
+scale = Vector2(0.323839, 0.323839)
+texture = ExtResource("11_voaf8")
+
+[node name="plant-patch2" type="Sprite2D" parent="Overlays"]
+modulate = Color(0.658824, 0.607843, 0.101961, 0.486275)
+position = Vector2(120.292, 63.7391)
+rotation = -0.785397
+scale = Vector2(0.258538, 0.258538)
+texture = ExtResource("11_voaf8")
+
+[node name="plant-patch3" type="Sprite2D" parent="Overlays"]
+modulate = Color(0.658824, 0.607843, 0.101961, 0.486275)
+position = Vector2(206.293, -86.261)
+rotation = -2.61799
+scale = Vector2(0.258538, 0.258538)
+texture = ExtResource("11_voaf8")
+
+[node name="plant-patch4" type="Sprite2D" parent="Overlays"]
+modulate = Color(0.658824, 0.607843, 0.101961, 0.486275)
+position = Vector2(-59.7075, -96.261)
+rotation = -3.66519
+scale = Vector2(0.258538, 0.258538)
+texture = ExtResource("11_voaf8")
+
+[node name="plant-patch5" type="Sprite2D" parent="Overlays"]
+modulate = Color(0.658824, 0.607843, 0.101961, 0.486275)
+position = Vector2(122.054, 216.46)
+rotation = -3.66519
+scale = Vector2(0.213741, 0.213741)
+texture = ExtResource("11_voaf8")
+
+[node name="Grass-patch" type="Sprite2D" parent="Overlays"]
+position = Vector2(-23, 71.9996)
+rotation = 1.0472
+texture = ExtResource("12_fxmsj")
+
+[node name="Grass-patch2" type="Sprite2D" parent="Overlays"]
+position = Vector2(-22.0001, -73.0004)
+rotation = 2.87979
+texture = ExtResource("12_fxmsj")
+
+[node name="Grass-patch3" type="Sprite2D" parent="Overlays"]
+position = Vector2(183, -83.0004)
+rotation = -1.83259
+texture = ExtResource("13_njt7q")
+
+[node name="Grass-patch4" type="Sprite2D" parent="Overlays"]
+position = Vector2(120, 141)
+rotation = 1.309
+texture = ExtResource("13_njt7q")
+
+[node name="Grass-patch5" type="Sprite2D" parent="Overlays"]
+position = Vector2(-72.3984, 205.555)
+rotation = -2.35619
+texture = ExtResource("14_7ycn7")
+
+[node name="Grass-patch6" type="Sprite2D" parent="Overlays"]
+position = Vector2(-113, -150)
+rotation = -0.261799
+texture = ExtResource("14_7ycn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(866, -74)
+texture = ExtResource("3_tv1ux")

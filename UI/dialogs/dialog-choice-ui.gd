@@ -7,10 +7,13 @@ extends PanelContainer
 @onready var requirements = get_node("LocationChoiceContainer/ChoiceRequirements")
 @onready var button = get_node("Button")
 
-func setup(choice: DialogChoice):
+var choice: DialogChoice
+
+
+func setup(_choice: DialogChoice):
+	choice = _choice
 	title.text = choice.title
 	description.text = choice.description
-	button.connect("pressed", dialogMenu.clickChoice.bind(choice, determineNextDialog(choice)))
 	if !playerScene.inventory.hasResources(choice.requiredResources):
 		button.disabled = true
 	for requirement in choice.requiredResources:
@@ -30,3 +33,7 @@ func determineNextDialog(choice: DialogChoice):
 
 func onCompletion():
 	button.disabled = true
+
+
+func _on_button_pressed():
+	dialogMenu.clickChoice(choice, determineNextDialog(choice))

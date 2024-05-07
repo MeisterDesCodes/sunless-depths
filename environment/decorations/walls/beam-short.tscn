@@ -14,5 +14,4 @@ script = ExtResource("1_kgx3p")
 shape = SubResource("RectangleShape2D_o4a8c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
 scale = Vector2(0.30303, 0.30303)

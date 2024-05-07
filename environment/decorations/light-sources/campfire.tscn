@@ -20,6 +20,7 @@ scale = Vector2(0.25, 0.25)
 
 [node name="LightSource" parent="." instance=ExtResource("2_huqr5")]
 position = Vector2(-2, 2)
+size = 3.5
 
 [node name="TorchParticles" parent="." instance=ExtResource("3_a2x4h")]
 scale = Vector2(2, 2)

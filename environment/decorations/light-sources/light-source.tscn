@@ -17,5 +17,5 @@ energy = 2.0
 color = Color(1, 1, 1, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(3.25, 3.25)
+scale = Vector2(3, 3)
 texture = SubResource("GradientTexture2D_ww04t")

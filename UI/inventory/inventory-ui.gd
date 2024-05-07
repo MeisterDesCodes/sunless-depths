@@ -21,6 +21,8 @@ extends Control
 @onready var levelUpContainer: VBoxContainer = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/LevelUp")
 @onready var levelUpButton: TextureButton = get_node("NinePatchRect2/HBoxContainer/VBoxContainer2/HBoxContainer3/Experience/LevelUpButton")
 
+var currentFilter: Enums.resourceType
+
 
 func _ready():
 	inventory.update.connect(updateAssets)
@@ -78,6 +80,7 @@ func increaseStats():
 
 
 func updateAssets(filter: Enums.resourceType):
+	currentFilter = filter
 	for resourceSlot in resourceWindow.get_children():
 		resourceSlot.queue_free()
 	
@@ -86,6 +89,7 @@ func updateAssets(filter: Enums.resourceType):
 		var inventoryResource = preload("res://UI/inventory/inventory-slot-ui.tscn").instantiate()
 		resourceWindow.add_child(inventoryResource)
 		inventoryResource.setup(resourceSlot)
+		inventoryResource.updateInventory.connect(updateAssets.bind(currentFilter))
 
 
 func _on_all_items_pressed():

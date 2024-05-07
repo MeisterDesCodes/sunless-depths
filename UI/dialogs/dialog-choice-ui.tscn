@@ -69,3 +69,5 @@ layout_mode = 2
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6wuhj")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

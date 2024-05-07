@@ -2,18 +2,14 @@ extends Node2D
 
 
 @export var dropResources: Array[DropResource]
+@export var lifetime: int
 
-@onready var interaction = $"Interaction"
+@onready var interaction = get_node("Interaction")
 
-var lifetime: int = 1
 
 func _ready():
 	interaction.onEnter.connect(enter)
 
 
 func enter(body):
-	if lifetime > 0:
-		interaction.dropResources(dropResources, 150, body)
-		lifetime -= 1
-		if lifetime == 0:
-			pass
+	interaction.dropResources(dropResources, 250, body)

@@ -25,3 +25,4 @@ addedResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_8wcwg")])
 removedResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_54ek5")])
 nextDialog = ExtResource("1_744xh")
 optionalMoveBackwards = 0
+oneTimeUse = false

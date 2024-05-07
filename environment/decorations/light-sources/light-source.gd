@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@export var size: float
 @export var energy: float
 @export var color: Color
 @export var shadow: bool
@@ -12,6 +13,7 @@ var x = 0
 
 
 func _ready():
+	light.scale = Vector2(size, size)
 	light.color = color
 	light.energy = energy
 	RandomNumberGenerator.new().randomize()

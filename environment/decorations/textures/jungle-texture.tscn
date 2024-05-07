@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd8iqjms7aj8y"]
+
+[ext_resource type="Texture2D" uid="uid://4ngkoe4crvua" path="res://assets/environment/textures/materials/jungle-texture.png" id="1_5ov4b"]
+
+[node name="JungleTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -292.0
+offset_top = -326.0
+offset_right = 354.0
+offset_bottom = 348.0
+texture = ExtResource("1_5ov4b")
+expand_mode = 1

@@ -12,5 +12,6 @@ attackDelay = 1.0
 staminaCost = 30.0
 animations = Array[int]([2])
 name = "Fists"
+description = ""
 texture = ExtResource("2_ns43f")
 rarity = 0

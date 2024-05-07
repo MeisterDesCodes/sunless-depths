@@ -29,7 +29,12 @@ func clickChoice(choice: DialogChoice, nextDialog: Dialog):
 		resource.type = Enums.dialogResourceType.REMOVE
 	combinedResources.append_array(choice.addedResources)
 	combinedResources.append_array(choice.removedResources)
+	
+	if choice.oneTimeUse:
+		currentDialog.dialog.choices.remove_at(currentDialog.dialog.choices.find(choice))
+	
 	pushDialog(nextDialog, combinedResources)
+
 
 
 func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource]):
@@ -38,6 +43,7 @@ func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource]):
 			currentDialog.completed = true
 			for choice in currentDialog.choices.get_children():
 				choice.onCompletion()
+		
 		dialogTree.append(dialog)
 		var dialogWindow = preload("res://UI/dialogs/dialog.tscn").instantiate()
 		locationDialogs.add_child(dialogWindow)

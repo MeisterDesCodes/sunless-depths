@@ -12,5 +12,6 @@ attackDelay = 0.75
 staminaCost = 20.0
 animations = Array[int]([2])
 name = "Lance"
+description = ""
 texture = ExtResource("2_sret4")
 rarity = 1

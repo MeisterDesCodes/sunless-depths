@@ -88,7 +88,6 @@ func moveToPath(speed: float):
 	if nextPoint.distance_to(global_position) > 10:
 		var direction = nextPoint - global_position
 		moveInDirection(direction, speed)
-		#Bug
 		rotation = lerp_angle(rotation, global_position.direction_to(navigationHandler.get_next_path_position()).normalized().angle(), 0.05)
 	else:
 		velocity = Vector2.ZERO

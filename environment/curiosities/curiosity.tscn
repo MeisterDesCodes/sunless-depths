@@ -22,6 +22,7 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_nwgc1")
 
 [node name="LightSource" parent="." instance=ExtResource("4_pdv0a")]
+size = 3.0
 
 [node name="CuriosityParticles" parent="." instance=ExtResource("4_cx4y6")]
 

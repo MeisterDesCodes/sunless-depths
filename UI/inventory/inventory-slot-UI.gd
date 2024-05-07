@@ -1,6 +1,8 @@
 extends PanelContainer
 
 
+signal updateInventory
+
 @onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var nameLabel: Label = get_node("NinePatchRect/MarginContainer/HBoxContainer/Name")
 @onready var amountLabel: Label = get_node("NinePatchRect/MarginContainer/HBoxContainer/Amount")
@@ -10,7 +12,6 @@ extends PanelContainer
 
 var slot: InventorySlot = null
 var popup: Control = null
-var mouseOnContainer: bool = false
 
 
 func _ready():
@@ -19,8 +20,8 @@ func _ready():
 	weaponSlotsContainer.visible = false
 
 
-func setup(inventorySlot: InventorySlot):
-	slot = inventorySlot
+func setup(_slot: InventorySlot):
+	slot = _slot
 	match slot.resource.type:
 		Enums.resourceType.MATERIAL:
 			amountLabel.visible = true
@@ -30,8 +31,7 @@ func setup(inventorySlot: InventorySlot):
 			weaponSlotsContainer.visible = true
 		Enums.resourceType.BLUEPRINT:
 			craftContainer.visible = true
-			if !playerScene.inventory.hasResources(inventorySlot.resource.inputResources):
-				craftContainer.get_children()[1].disabled = true
+			updateCraftButton()
 		
 	update(slot)
 
@@ -42,17 +42,19 @@ func update(slot: InventorySlot):
 	icon.texture = slot.resource.texture
 
 
+func updateCraftButton():
+	if !playerScene.inventory.hasResources(slot.resource.inputResources):
+		craftContainer.get_children()[1].disabled = true
+	else:
+		craftContainer.get_children()[1].disabled = false 
+
+
 func _on_mouse_entered():
-	if !mouseOnContainer:
-		popup = UILoaderS.loadUIPopup(self, slot.resource)
+	popup = UILoaderS.loadUIPopup(self, slot.resource, false)
 
 
 func _on_mouse_exited():
-	if !UtilsS.checkIfMouseOverElement(craftContainer, get_global_mouse_position()):
-		UILoaderS.closeUIPopup(popup)
-		mouseOnContainer = false
-	else:
-		mouseOnContainer = true
+	UILoaderS.closeUIPopup(popup)
 
 
 func _on_craft_button_pressed():
@@ -60,6 +62,9 @@ func _on_craft_button_pressed():
 		playerScene.inventory.removeResource(inputResource.resource, inputResource.amount)
 	for outputResource in slot.resource.outputResources:
 		playerScene.inventory.addResource(outputResource.resource, outputResource.amount)
+	updateCraftButton()
+	updateInventory.emit()
+	popup.update()
 
 
 func equipWeapon(index: int):
@@ -81,3 +86,11 @@ func _on_assign_slot_2_pressed():
 
 func _on_assign_slot_3_pressed():
 	equipWeapon(2)
+
+
+func _on_craft_button_mouse_entered():
+	popup = UILoaderS.loadUIPopup(self, slot.resource, true)
+
+
+func _on_craft_button_mouse_exited():
+	UILoaderS.closeUIPopup(popup)

@@ -1,29 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://ujngla653jpi"]
+[gd_scene load_steps=5 format=3 uid="uid://ujngla653jpi"]
 
-[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/20220922182354-8570c122.png" id="1_qg74a"]
+[ext_resource type="Texture2D" uid="uid://12uwdu501j2t" path="res://assets/particles/spore.png" id="1_sjbks"]
 
-[sub_resource type="Curve" id="Curve_aqjou"]
-_data = [Vector2(0.202479, 0.43956), 0.0, 0.957362, 0, 0, Vector2(0.512397, 0.857143), 0.0, 0.0, 0, 0, Vector2(0.987603, 0.10989), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_ob301"]
+_data = [Vector2(0, 0.703297), 0.0, 0.0, 0, 0, Vector2(0.55157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_s62of"]
+curve = SubResource("Curve_ob301")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8aek"]
+lifetime_randomness = 0.26
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.15
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_s62of")
+color = Color(1, 1, 1, 0.6)
 
 [node name="CuriosityParticles" type="Node2D"]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 25
-lifetime = 2.0
-explosiveness = 0.09
-randomness = 0.27
-lifetime_randomness = 0.32
-texture = ExtResource("1_qg74a")
-emission_shape = 1
-emission_sphere_radius = 15.0
-particle_flag_align_y = true
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 15.0
-initial_velocity_max = 20.0
-orbit_velocity_min = 0.25
-orbit_velocity_max = 0.25
-scale_amount_min = 0.05
-scale_amount_max = 0.1
-scale_amount_curve = SubResource("Curve_aqjou")
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_w8aek")
+texture = ExtResource("1_sjbks")
+lifetime = 2.5
+explosiveness = 0.1
+randomness = 0.15
+fixed_fps = 60

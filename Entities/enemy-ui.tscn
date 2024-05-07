@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ca0d7whibvanw"]
+[gd_scene load_steps=22 format=3 uid="uid://ca0d7whibvanw"]
 
 [ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
 [ext_resource type="Script" path="res://entities/states/state-machine.gd" id="3_fbfho"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bibqyv7bymwus" path="res://entities/components/contact-damage-component.tscn" id="7_ghee7"]
 [ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
+[ext_resource type="Texture2D" uid="uid://dqwgjrepip3co" path="res://assets/particles/blood.png" id="12_5w07s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
 radius = 120.0
@@ -22,13 +23,13 @@ radius = 27.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
 radius = 8.0
 
-[sub_resource type="Gradient" id="Gradient_3e6f1"]
-offsets = PackedFloat32Array(0.22, 1)
-colors = PackedColorArray(1, 0.117647, 0, 0.580392, 1, 1, 1, 0)
-
 [sub_resource type="Curve" id="Curve_t3c7q"]
 _data = [Vector2(0.134831, 1), 0.0, 0.0, 0, 0, Vector2(0.921348, 0.153846), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_3e6f1"]
+offsets = PackedFloat32Array(0.22, 1)
+colors = PackedColorArray(1, 0.117647, 0, 0.580392, 1, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_3bes3"]
 length = 0.001
@@ -125,13 +126,15 @@ entityScene = NodePath("..")
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("3_rnx55")]
 
+[node name="BloodParticles3" type="GPUParticles2D" parent="."]
+
 [node name="BloodParticles" type="CPUParticles2D" parent="."]
 amount = 1
 lifetime = 0.75
 explosiveness = 0.17
 randomness = 0.12
 draw_order = 1
-texture = ExtResource("4_3hcrm")
+texture = ExtResource("12_5w07s")
 emission_shape = 1
 emission_sphere_radius = 10.0
 direction = Vector2(0, -1)
@@ -141,8 +144,6 @@ initial_velocity_min = 56.14
 initial_velocity_max = 56.14
 scale_amount_min = 0.15
 scale_amount_max = 0.3
-color = Color(1, 0.0313726, 0, 1)
-color_ramp = SubResource("Gradient_3e6f1")
 
 [node name="HitParticles" type="CPUParticles2D" parent="."]
 position = Vector2(4, -12)

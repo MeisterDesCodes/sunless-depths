@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@export var lifetime: int
+
 @onready var interaction = get_node("Interaction")
 
 

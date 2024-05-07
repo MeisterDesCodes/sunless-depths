@@ -7,6 +7,7 @@ extends Node2D
 
 
 func _ready():
+	return
 	caveGenerator.spawnPlayer.connect(spawnPlayer)
 	caveGenerator.generateCave()
 	navigationRegion.bake_navigation_polygon()

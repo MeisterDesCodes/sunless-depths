@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
 
-var playerScene = null
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var pickupRange = get_node("PickupRange")
+@onready var detectionRange = get_node("DetectionRange")
+
 var resource = null
 var isMoving: bool = true
 var canBePickedUp: bool = false
@@ -18,17 +21,18 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if canBePickedUp:
-		var bodies = $"Area2D".get_overlapping_bodies()
-		for body in bodies:
-			playerScene = body
-			playerScene.inventory.addResource(resource, 1)
+		for area in detectionRange.get_overlapping_areas():
+			global_position += global_position.direction_to(playerScene.global_position) * 2
+		
+		for area in pickupRange.get_overlapping_areas():
+			playerScene.inventory.addResource(resource, resource.pickupAmount)
 			queue_free()
 
 
 func setup(groundResource: InventoryResource):
 	resource = groundResource
 	$"Sprite2D".texture = resource.texture
-	$"Shadow".texture = resource.texture
+
 
 func _on_timer_timeout():
 	isMoving = false

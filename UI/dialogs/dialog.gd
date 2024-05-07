@@ -8,9 +8,11 @@ extends PanelContainer
 @onready var dialogResources = get_node("LocationDialogContainer/DialogResources")
 
 var completed = false
+var dialog: Dialog
 
 
-func setup(dialog: Dialog):
+func setup(_dialog: Dialog):
+	dialog = _dialog
 	title.text = dialog.title
 	description.text = dialog.description
 	for choice in dialog.choices:

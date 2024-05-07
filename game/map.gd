@@ -1,7 +1,13 @@
 extends TileMap
 
 
+@export var removeRandomObjects: bool
+
+
 func _ready():
+	if !removeRandomObjects:
+		return
+	
 	var lightSourceRemovalChance: float = 0
 	var spawnerRemovalChance: float = 0
 	for object in $"EnvironmentalObjects/Decorations/LightSources".get_children():

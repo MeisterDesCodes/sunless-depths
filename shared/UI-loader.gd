@@ -24,32 +24,35 @@ func loadUILabel(scene: PackedScene):
 	return sceneInstance
 
 
-func loadUIPopup(container, element):
+func loadUIPopup(container, element, showAdditionalInfo: bool):
 	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
 	var popupInstance = preload("res://UI/shared/popup.tscn").instantiate()
 	canvasLayer.add_child(popupInstance)
+	popupInstance.setup(element, showAdditionalInfo)
 	
 	var snapPosition: Vector2
 	var offsetX: float = 30
 	var offsetY: float = 50
 	if container.global_position.x + popupInstance.get_child(0).size.x <= get_viewport().get_visible_rect().size.x:
-		snapPosition = container.global_position + Vector2(container.size.x + offsetX, -offsetY)
+		snapPosition = container.global_position + Vector2(container.size.x + offsetX, 0)
 	else:
-		snapPosition = container.global_position - Vector2(popupInstance.get_child(0).size.x + offsetX, -offsetY)
+		snapPosition = container.global_position - Vector2(popupInstance.get_child(0).size.x + offsetX, 0)
 	
 	var diff: float = container.global_position.y + popupInstance.get_child(0).size.y - get_viewport().get_visible_rect().size.y
-	if diff + offsetY * 2 > 0:
-		snapPosition -= Vector2(0, diff + offsetY * 2)
+	if diff + offsetY > 0:
+		snapPosition -= Vector2(0, diff + offsetY)
 	
-	popupInstance.setup(element)
 	popupInstance.global_position = snapPosition
 	
 	AnimationsS.fadeInHeight(popupInstance, fadeTime)
 	return popupInstance
 
 
+func closeUILabel(popupInstance):
+	popupInstance.queue_free()
+
+
 func closeUIPopup(popupInstance):
-	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
 	AnimationsS.fadeOutHeight(popupInstance, fadeTime)
 	await get_tree().create_timer(fadeTime).timeout
 	popupInstance.queue_free()
@@ -57,7 +60,6 @@ func closeUIPopup(popupInstance):
 
 func closeUIScene(sceneInstance):
 	playerScene.isInDialog = false
-	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
 	AnimationsS.fadeOutHeight(sceneInstance, fadeTime)
 	await get_tree().create_timer(fadeTime).timeout
 	sceneInstance.queue_free()

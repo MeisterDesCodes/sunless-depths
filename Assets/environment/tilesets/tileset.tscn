@@ -443,6 +443,6 @@ layer_0/z_index = 1
 layer_1/name = "Ground"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Overlay"
-layer_2/z_index = 2
+layer_2/z_index = 3
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("2_ou1tj")

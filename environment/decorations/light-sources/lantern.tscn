@@ -19,3 +19,4 @@ scale = Vector2(0.30303, 0.30303)
 texture = ExtResource("2_2aapc")
 
 [node name="LightSource" parent="." instance=ExtResource("2_f3ffv")]
+size = 3.0

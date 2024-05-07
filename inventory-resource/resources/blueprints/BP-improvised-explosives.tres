@@ -27,5 +27,6 @@ script = ExtResource("1_03qo3")
 inputResources = Array[ExtResource("1_d8hfj")]([SubResource("Resource_xtk5x"), SubResource("Resource_g43u8")])
 outputResources = Array[ExtResource("1_d8hfj")]([SubResource("Resource_4dyvn")])
 name = "Improvised Explosives - Blueprint"
+description = ""
 texture = ExtResource("6_jip0g")
 rarity = 1

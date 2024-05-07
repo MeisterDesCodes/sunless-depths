@@ -115,7 +115,7 @@ func _on_supplies_timer_timeout():
 
 
 func _on_panel_mouse_entered():
-	popup = UILoaderS.loadUIPopup(activeWeapon, playerScene.equippedWeapons[0])
+	popup = UILoaderS.loadUIPopup(activeWeapon, playerScene.equippedWeapons[0], true)
 
 
 func _on_panel_mouse_exited():
@@ -123,7 +123,7 @@ func _on_panel_mouse_exited():
 
 
 func _on_panel_3_mouse_entered():
-	popup = UILoaderS.loadUIPopup(reserveWeapon1, playerScene.equippedWeapons[1])
+	popup = UILoaderS.loadUIPopup(reserveWeapon1, playerScene.equippedWeapons[1], true)
 
 
 func _on_panel_3_mouse_exited():
@@ -131,7 +131,7 @@ func _on_panel_3_mouse_exited():
 
 
 func _on_panel_2_mouse_entered():
-	popup = UILoaderS.loadUIPopup(reserveWeapon2, playerScene.equippedWeapons[2])
+	popup = UILoaderS.loadUIPopup(reserveWeapon2, playerScene.equippedWeapons[2], true)
 
 
 func _on_panel_2_mouse_exited():

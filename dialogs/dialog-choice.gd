@@ -10,3 +10,4 @@ class_name DialogChoice
 @export var removedResources: Array[ChoiceResource]
 @export var nextDialog: Dialog
 @export var optionalMoveBackwards: int = -1
+@export var oneTimeUse: bool = false

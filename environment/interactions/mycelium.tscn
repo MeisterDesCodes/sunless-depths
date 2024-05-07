@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx6j0un24peas"]
+
+[ext_resource type="Script" path="res://environment/interactions/mycelium.gd" id="1_5lhds"]
+[ext_resource type="Texture2D" uid="uid://bqes0y60boixe" path="res://assets/environment/interactions/mycelium.png" id="2_xk8ri"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_ir6id"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
+radius = 51.0098
+
+[node name="Mycelium" type="Node2D"]
+script = ExtResource("1_5lhds")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_mdnsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.138714, 0.138714)
+texture = ExtResource("2_xk8ri")
+
+[node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("3_ir6id")]
+interaction = NodePath("..")

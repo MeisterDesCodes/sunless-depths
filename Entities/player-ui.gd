@@ -47,7 +47,7 @@ var currentStaminaDrain: float
 var currentStaminaRestore: float
 var dashStaminaCost: float = 20
 
-var baseZoom: float = 2
+var baseZoom: float = 2.25
 var currentZoom: int = 0
 var maxZoom: int = 4
 

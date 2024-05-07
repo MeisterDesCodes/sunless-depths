@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6l0hu4wpfg66"]
+
+[ext_resource type="Texture2D" uid="uid://d0lqpiclv6jh7" path="res://assets/environment/textures/materials/cave-texture.png" id="1_b5cd0"]
+
+[node name="CaveTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -370.0
+offset_top = -407.0
+offset_right = 432.0
+offset_bottom = 430.0
+texture = ExtResource("1_b5cd0")
+expand_mode = 1
