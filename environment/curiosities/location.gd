@@ -11,6 +11,6 @@ func _ready():
 	curiosity.onEnter.connect(onEnter)
 
 
-func onEnter():
+func onEnter(body):
 	var scene = UILoaderS.loadUIScene(preload("res://UI/dialogs/dialog-menu-ui.tscn"))
 	scene.setup(self)

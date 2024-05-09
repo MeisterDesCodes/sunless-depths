@@ -6,18 +6,21 @@ extends Node2D
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var interactionComponent = get_node("InteractionConponent")
 
+var menuScene
+
 
 func _ready():
-	interactionComponent.onEnter.connect(enter)
+	interactionComponent.onInteract.connect(interact)
 
 
-func enter(body):
+func interact(body):
 	if playerScene.atLocation:
 		playerScene.atLocation = false
 		playerScene.atExit = true
-		var scene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
-		scene._on_map_pressed()
+		menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
+		menuScene._on_map_pressed()
+		playerScene.currentExit = self
 	else:
 		playerScene.atLocation = true
-		#Load new Location
+		LocationLoaderS.loadArea(LocationLoaderS.nextLocation)
 

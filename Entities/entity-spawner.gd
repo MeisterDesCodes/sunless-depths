@@ -5,7 +5,7 @@ extends Node2D
 @export var spawnDelay: float
 
 @onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
-@onready var spawnTimer: Timer = $"SpawnTimer"
+@onready var spawnTimer: Timer = get_node("SpawnTimer")
 
 var room: Node2D
 var tilemap: TileMap

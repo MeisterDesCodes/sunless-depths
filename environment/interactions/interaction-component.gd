@@ -1,6 +1,6 @@
 extends Node2D
 
-signal onEnter
+signal onInteract
 
 @export var interaction: Node2D
 
@@ -16,7 +16,7 @@ var approachLabel: Control
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && playerInRange && !completed:
 		if interaction.lifetime > 0:
-			onEnter.emit(player)
+			onInteract.emit(player)
 			interaction.lifetime -= 1
 			if interaction.lifetime == 0:
 				completed = true

@@ -24,9 +24,9 @@ gradient = SubResource("Gradient_g0pcc")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xvjr7")
 
-[node name="CurrentScene" type="Node2D" parent="."]
+[node name="CurrentLocation" type="Node2D" parent="."]
 
-[node name="APastForgotten" parent="CurrentScene" instance=ExtResource("2_d7sxa")]
+[node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("2_d7sxa")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ssy1a")

@@ -8,8 +8,8 @@ extends Node2D
 
 
 func _ready():
-	interaction.onEnter.connect(enter)
+	interaction.onInteract.connect(interact)
 
 
-func enter(body):
+func interact(body):
 	interaction.dropResources(dropResources, 250, body)

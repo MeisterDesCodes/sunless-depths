@@ -3,7 +3,7 @@ extends Node2D
 
 signal onEnter
 
-var approachLabel: Control  
+var approachLabel: Control
 
 var playerInRange = false
 var playerScene = null

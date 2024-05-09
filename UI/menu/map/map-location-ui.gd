@@ -1,6 +1,5 @@
 extends Control
 
-signal locationEntered
 
 @export var type: Enums.locationType
 @export var attributes: Array[Enums.locationAttribute]
@@ -55,7 +54,6 @@ func _on_button_mouse_exited():
 
 
 func _on_button_pressed():
-	#locationEntered.emit(self)
 	findPathway()
 	game.caveGenerator.iterations = 2
 	game.generateCave()

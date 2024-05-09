@@ -60,6 +60,7 @@ func _on_button_mouse_exited():
 func _on_button_pressed():
 	if playerScene.atExit:
 		findPathway()
+		UILoaderS.closeUIScene(playerScene.currentExit.menuScene)
 
 
 func findPathway():
@@ -67,18 +68,30 @@ func findPathway():
 	var foundPathway
 	var direction
 	for pathway in pathways:
-		if pathway.locationFrom == game.currentLocation && pathway.locationTo == location:
+		print(pathway.locationFrom.to_lower())
+		print(LocationLoaderS.currentLocation.to_lower())
+		print(pathway.locationTo.to_lower())
+		print(pathway.locationFrom.to_lower())
+		if pathway.locationFrom.to_lower() == LocationLoaderS.currentLocation.to_lower() && \
+			pathway.locationTo.to_lower() == location.to_lower():
 			foundPathway = pathway
 			direction = foundPathway.travelDirections[0]
-		if pathway.locationTo == game.currentLocation && pathway.locationFrom == location:
+		if pathway.locationTo.to_lower() == LocationLoaderS.currentLocation.to_lower() && \
+			pathway.locationFrom.to_lower() == location.to_lower():
 			foundPathway = pathway
 			direction = foundPathway.travelDirections[1]
 		
-		if foundPathway:
-			game.caveGenerator.iterations = foundPathway.iterations
-			game.caveGenerator.initialDirection = direction
-			game.caveGenerator.availableDirections = foundPathway.travelDirections
-			game.generateCave()
+	if foundPathway:
+		LocationLoaderS.nextLocation = location
+		LocationLoaderS.caveGenerator.iterations = foundPathway.iterations
+		LocationLoaderS.caveGenerator.initialDirection = direction
+		LocationLoaderS.caveGenerator.availableDirections = foundPathway.travelDirections
+		LocationLoaderS.generateCave()
+
+
+func getNameFromScene(scene: PackedScene):
+	return scene.instantiate().name.to_lower()
+
 
 
 

@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwiu2kgkgw4ns"]
+
+[ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
+[ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
+[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="2_d7sxa"]
+[ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
+[ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
+[ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/HUD/HUD.tscn" id="58_isjnl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
+vertices = PackedVector2Array(7755, -5599, 7719, 6114, -5855, 6138, -5923, -5684)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5929, -5690, 7761, -5604, 7724, 6119, -5860, 6144)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_g0pcc"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_shq6o"]
+gradient = SubResource("Gradient_g0pcc")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_xvjr7")
+
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="APastForgotten" parent="CurrentScene" instance=ExtResource("2_d7sxa")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ssy1a")
+
+[node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" node_paths=PackedStringArray("backgroundMusic", "sfx") instance=ExtResource("2_bqi1q")]
+top_level = true
+position = Vector2(6169.12, 1837.62)
+backgroundMusic = NodePath("../../SoundHandler/BackgroundMusic")
+sfx = NodePath("../../SoundHandler/SFX")
+
+[node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
+remote_path = NodePath("../../../FollowCamera")
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+
+[node name="FollowCamera" type="Camera2D" parent="."]
+position = Vector2(6169.12, 1837.62)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="SoundHandler" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("4_rr2vr")
+player = NodePath("../Entities/Player")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundHandler"]
+stream = ExtResource("4_kdv1t")
+volume_db = -20.0
+
+[node name="SFX" type="AudioStreamPlayer" parent="SoundHandler"]
+volume_db = -10.0
+
+[node name="WalkTimer" type="Timer" parent="SoundHandler"]
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11394.0
+offset_top = -7672.0
+offset_right = 11394.0
+offset_bottom = 7672.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_shq6o")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 0.999945
+anchor_bottom = 0.95
+offset_right = 0.0878906
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HudUI" parent="CanvasLayer/UIControl" instance=ExtResource("58_isjnl")]
+z_index = 1
+layout_mode = 1
+
+[connection signal="timeout" from="SoundHandler/WalkTimer" to="SoundHandler" method="_on_walk_timer_timeout"]

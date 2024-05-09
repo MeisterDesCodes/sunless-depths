@@ -15,11 +15,11 @@ extends Node2D
 
 
 func _ready():
-	interaction.onEnter.connect(enter)
+	interaction.onInteract.connect(interact)
 	$"Sprite2D".texture = closedTexture
 
 
-func enter(body):
+func interact(body):
 	$"Sprite2D".texture = openedTexture
 	if openedTexture.get_size().y > closedTexture.get_size().y:
 		global_position -= Vector2(0, 10).rotated(deg_to_rad(get_rotation_degrees()))
