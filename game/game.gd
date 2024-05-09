@@ -6,11 +6,11 @@ extends Node2D
 @onready var caveGenerator = get_node("NavigationRegion2D/CaveGenerator")
 @onready var currentScene = get_node("CurrentScene")
 
-var currentLocation: PackedScene
-
+var currentLocation: String
+var nextLocation: String
 
 func _ready():
-	currentLocation = preload("res://game/areas/a-past-forgotten.tscn")
+	currentLocation = "Past"
 
 
 func generateCave():

@@ -1,6 +1,7 @@
 extends Control
 
 
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var body: PanelContainer = get_node("VBoxContainer/Body")
 
 var inventoryUI: PackedScene = preload("res://UI/menu/inventory/inventory-ui.tscn")
@@ -26,4 +27,5 @@ func loadUIComponent(scene: PackedScene):
 
 
 func _on_button_pressed():
+	playerScene.atExit = false
 	UILoaderS.closeUIScene(self)

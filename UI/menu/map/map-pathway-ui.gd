@@ -2,5 +2,6 @@ extends PanelContainer
 
 
 @export var iterations: int
-@export var locationFrom: PackedScene
-@export var locationTo: PackedScene
+@export var locationFrom: String
+@export var locationTo: String
+@export var travelDirections: Array[Enums.exitDirection]

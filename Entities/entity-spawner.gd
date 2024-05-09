@@ -34,14 +34,10 @@ func spawnEntity():
 	var enemyScene = preload("res://entities/enemy-ui.tscn").instantiate()
 	enemyScene.entityResource = enemy
 	enemyScene.global_position = getSpawnPosition().rotated(room.rotation) + room.global_position
-	print(tilemap.global_position)
 	enemiesScene.add_child(enemyScene)
-	print(rad_to_deg(room.rotation))
-	print(rad_to_deg(enemyScene.rotation))
 	setTimer()
 	currentEnemies.append(enemyScene)
 	enemyScene.onDeath.connect(removeEnemy)
-	print(enemy)
 
 
 func getSpawnPosition():

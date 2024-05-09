@@ -45,9 +45,12 @@ var currentStaminaDrain: float
 var currentStaminaRestore: float
 var dashStaminaCost: float = 20
 
-var baseZoom: float = 2
+var baseZoom: float = 0.1
 var currentZoom: int = 0
 var maxZoom: int = 4
+
+var atExit: bool = false
+var atLocation: bool = true
 
 
 func _ready():

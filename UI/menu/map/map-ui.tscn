@@ -46,6 +46,7 @@ offset_right = 113.0
 offset_bottom = 74.4745
 type = 1
 attributes = Array[int]([2])
+location = "Past"
 
 [node name="MapLocationIUI2" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
 offset_left = 308.0
@@ -53,6 +54,7 @@ offset_top = 168.475
 offset_right = 308.0
 offset_bottom = 168.475
 attributes = Array[int]([0, 3])
+location = "Settle"
 
 [node name="Pathways" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
 
@@ -62,6 +64,10 @@ offset_top = 82.0
 offset_right = 304.0
 offset_bottom = 97.0
 rotation = 0.447077
+iterations = 2
+locationFrom = "Past"
+locationTo = "Settle"
+travelDirections = Array[int]([3, 1])
 
 [node name="MapLocationUI8" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 321.0
