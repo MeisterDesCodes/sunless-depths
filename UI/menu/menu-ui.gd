@@ -3,8 +3,8 @@ extends Control
 
 @onready var body: PanelContainer = get_node("VBoxContainer/Body")
 
-var inventoryUI: PackedScene = preload("res://UI/inventory/inventory-ui.tscn")
-var mapUI: PackedScene = preload("res://UI/inventory/map-ui.tscn")
+var inventoryUI: PackedScene = preload("res://UI/menu/inventory/inventory-ui.tscn")
+var mapUI: PackedScene = preload("res://UI/menu/map/map-ui.tscn")
 
 
 func _ready():

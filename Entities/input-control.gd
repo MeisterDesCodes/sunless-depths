@@ -9,7 +9,7 @@ func _process(delta):
 		return
 	
 	if Input.is_action_just_pressed("inventory"):
-		var scene = preload("res://UI/inventory/menu-ui.tscn")
+		var scene = preload("res://UI/menu/menu-ui.tscn")
 		UILoaderS.loadUIScene(scene)
 
 	if Input.is_action_just_pressed("dash"):

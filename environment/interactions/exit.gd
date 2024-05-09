@@ -11,5 +11,5 @@ func _ready():
 
 
 func enter(body):
-	var scene = UILoaderS.loadUIScene(preload("res://UI/inventory/menu-ui.tscn"))
+	var scene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 	scene._on_map_pressed()

@@ -82,7 +82,7 @@ func updateAssets(filter: Enums.resourceType):
 	
 	var resourceSlots = inventory.resourceSlots if filter == Enums.resourceType.RESOURCE else inventory.resourceSlots.filter(func(slot): return slot.resource.type == filter)
 	for resourceSlot in resourceSlots:
-		var inventoryResource = preload("res://UI/inventory/inventory-slot-ui.tscn").instantiate()
+		var inventoryResource = preload("res://UI/menu/inventory/inventory-slot-ui.tscn").instantiate()
 		resourceWindow.add_child(inventoryResource)
 		inventoryResource.setup(resourceSlot)
 		inventoryResource.updateInventory.connect(updateAssets.bind(currentFilter))
