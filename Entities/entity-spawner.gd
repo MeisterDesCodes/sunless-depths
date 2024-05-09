@@ -36,7 +36,6 @@ func spawnEntity():
 	enemyScene.global_position = getSpawnPosition().rotated(room.rotation) + room.global_position
 	print(tilemap.global_position)
 	enemiesScene.add_child(enemyScene)
-	tilemap.add_child(enemyScene)
 	print(rad_to_deg(room.rotation))
 	print(rad_to_deg(enemyScene.rotation))
 	setTimer()

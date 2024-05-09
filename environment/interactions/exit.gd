@@ -3,15 +3,13 @@ extends Node2D
 
 @export var lifetime: int
 
-@onready var interaction = get_node("Interaction")
+@onready var interactionComponent = get_node("InteractionConponent")
 
 
 func _ready():
-	interaction.onEnter.connect(enter)
+	interactionComponent.onEnter.connect(enter)
 
 
 func enter(body):
-	interaction.completed = true
-	interaction.approachLabel.visible = false
-	body.global_position = Vector2(490, 355)
-	get_tree().get_root().get_node("Game")._ready()
+	var scene = UILoaderS.loadUIScene(preload("res://UI/inventory/menu-ui.tscn"))
+	scene._on_map_pressed()

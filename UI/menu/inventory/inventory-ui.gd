@@ -31,10 +31,6 @@ func _ready():
 	updateExperience()
 
 
-func toggleTab():
-	pass
-
-
 func updateLabels():
 	playerName.text = playerScene.name
 	background.text = ""

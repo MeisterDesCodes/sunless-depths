@@ -12,8 +12,6 @@ signal healthModified
 @export var sfx: AudioStreamPlayer
 
 @onready var animations = $"AnimationPlayer"
-@onready var hitboxCollision = $"RotationPoint/Hitbox/CollisionShape2D"
-@onready var hitbox = $"RotationPoint/Hitbox"
 @onready var hudUI = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/HudUI")
 @onready var weaponInstance = get_node("RotationPoint/Weapons/Weapon")
 @onready var immunityFramesTimer = get_node("ImmunityFrames")
@@ -47,7 +45,7 @@ var currentStaminaDrain: float
 var currentStaminaRestore: float
 var dashStaminaCost: float = 20
 
-var baseZoom: float = 2.25
+var baseZoom: float = 2
 var currentZoom: int = 0
 var maxZoom: int = 4
 

@@ -17,7 +17,6 @@ signal onDeath
 @onready var immunityFramesTimer = get_node("ImmunityFrames")
 @onready var chaseAfterTimer = get_node("ChaseAfterTimer")
 @onready var awarenessTimer = get_node("AwarenessTimer")
-@onready var statusEffectTimer = get_node("StatusEffectApply")
 @onready var damageReceiver = get_node("DamageReceiver")
 @onready var statusEffectComponent = get_node("StatusEffectComponent")
 

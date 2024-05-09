@@ -5,6 +5,7 @@ signal onEnter
 @export var interaction: Node2D
 
 @onready var resourceSpawner = get_node("ResourceSpawner")
+@onready var particles = get_node("InteractionParticle")
 
 var player = null
 var playerInRange = false
@@ -14,11 +15,15 @@ var approachLabel: Control
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && playerInRange && !completed:
-		useInteraction()
-		if interaction.lifetime == 0:
-			completed = true
-			UILoaderS.closeUILabel(approachLabel)
-			approachLabel = null
+		print(interaction.lifetime)
+		if interaction.lifetime > 0:
+			onEnter.emit(player)
+			interaction.lifetime -= 1
+			if interaction.lifetime == 0:
+				completed = true
+				particles.get_child(0).emitting = false
+				UILoaderS.closeUILabel(approachLabel)
+				approachLabel = null
 
 
 func _on_detection_radius_body_entered(body):
@@ -33,15 +38,6 @@ func _on_detection_radius_body_exited(body):
 	playerInRange = false
 	if approachLabel:
 		UILoaderS.closeUILabel(approachLabel)
-
-
-func useInteraction():
-	if interaction.lifetime > 0:
-		onEnter.emit(player)
-		interaction.lifetime -= 1
-		if interaction.lifetime == 0:
-			completed = true
-			approachLabel.visible = false
 
 
 func dropResources(resources: Array[DropResource], speed: float, body: CharacterBody2D):

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bek0jddx7ueh8"]
+
+[ext_resource type="Texture2D" uid="uid://dk34b5m04vtju" path="res://assets/UI/components/Ellipse 44.png" id="1_qre28"]
+[ext_resource type="Texture2D" uid="uid://d1j3wtskf5k6p" path="res://assets/UI/components/Frame 29.png" id="3_dt7t5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x14wt"]
+texture = ExtResource("1_qre28")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcqel"]
+texture = ExtResource("3_dt7t5")
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+/styles/texture = SubResource("StyleBoxTexture_x14wt")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_tcqel")

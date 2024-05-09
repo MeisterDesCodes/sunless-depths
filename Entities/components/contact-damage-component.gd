@@ -4,7 +4,6 @@ extends Node2D
 @export var entityScene: CharacterBody2D
 
 @onready var damageRadius = get_node("Area2D")
-@onready var damageDealerConponent = get_node("DamageDealerComponent")
 
 
 func _process(delta):

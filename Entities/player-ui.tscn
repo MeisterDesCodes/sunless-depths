@@ -73,7 +73,7 @@ rotation = 4.71239
 scale = Vector2(0.140875, 0.140875)
 
 [node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
-size = 2.0
+size = 3.0
 energy = 1.0
 color = Color(0.988235, 0.87451, 0.67451, 1)
 shadow = true

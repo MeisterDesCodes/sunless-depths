@@ -1,17 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cyed3wn1agc37"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cyed3wn1agc37"]
 
-[ext_resource type="Texture2D" uid="uid://dk34b5m04vtju" path="res://assets/UI/components/Ellipse 44.png" id="1_dc03y"]
-[ext_resource type="Texture2D" uid="uid://8y0d4c6i0urd" path="res://assets/UI/components/Frame 22.png" id="2_bo80g"]
+[ext_resource type="Texture2D" uid="uid://d1j3wtskf5k6p" path="res://assets/UI/components/Frame 29.png" id="1_kkj87"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x14wt"]
-texture = ExtResource("1_dc03y")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pknco"]
-texture = ExtResource("2_bo80g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r73su"]
+texture = ExtResource("1_kkj87")
 
 [resource]
-/icons/background = SubResource("ViewportTexture_shwku")
-/styles/texture = SubResource("StyleBoxTexture_x14wt")
-Panel/styles/panel = SubResource("StyleBoxTexture_pknco")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_r73su")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bp5qf8wxxydse"]
 
-[ext_resource type="Script" path="res://UI/inventory/inventory-slot-ui.gd" id="1_g3atm"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot-ui.gd" id="1_g3atm"]
 [ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/components/Frame 19.png" id="2_u2xqx"]
 [ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button.tres" id="3_dxubl"]
 

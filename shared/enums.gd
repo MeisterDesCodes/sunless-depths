@@ -28,4 +28,11 @@ enum segmentType {ROOM, CORRIDOR, DEAD_END, EXIT}
 
 enum menuType {INVENTORY, MAP}
 
+enum locationType {MYSTERY, SETTLEMENT, RUINS, RETREAT}
+
+enum locationAttribute {DANGER, DARKNESS, EXPOSURE, INFESTATION}
+
+
+
+
 

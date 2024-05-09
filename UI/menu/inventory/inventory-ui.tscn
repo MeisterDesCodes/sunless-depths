@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bb27qu6ntkrki"]
 
-[ext_resource type="Script" path="res://UI/inventory/inventory-ui.gd" id="1_15exu"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-ui.gd" id="1_15exu"]
 [ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel.png" id="2_8x4k6"]
 [ext_resource type="Texture2D" uid="uid://c8nkwlfeoomvr" path="res://assets/UI/icons/Usables.png" id="3_3iblj"]
 [ext_resource type="Theme" uid="uid://cyed3wn1agc37" path="res://assets/UI/themes/UI-elements/round-panel-3.tres" id="4_r3qie"]

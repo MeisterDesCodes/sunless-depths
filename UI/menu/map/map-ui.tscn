@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://g15kf5157lvj"]
 
-[ext_resource type="Script" path="res://UI/inventory/map-ui.gd" id="1_c4myw"]
+[ext_resource type="Script" path="res://UI/menu/map/map-ui.gd" id="1_c4myw"]
 [ext_resource type="Texture2D" uid="uid://com0pfpci8ju" path="res://assets/UI/images/Group 178.png" id="2_p6thc"]
-[ext_resource type="PackedScene" uid="uid://yu7wmx3anplp" path="res://UI/inventory/map-location-ui.tscn" id="3_tww2g"]
-[ext_resource type="PackedScene" uid="uid://l81lxelhto0l" path="res://UI/inventory/map-pathway-ui.tscn" id="4_mf3og"]
+[ext_resource type="PackedScene" uid="uid://yu7wmx3anplp" path="res://UI/menu/map/map-location-ui.tscn" id="3_tww2g"]
+[ext_resource type="PackedScene" uid="uid://l81lxelhto0l" path="res://UI/menu/map/map-pathway-ui.tscn" id="4_mf3og"]
 
 [node name="MapUI" type="Control"]
 layout_mode = 3

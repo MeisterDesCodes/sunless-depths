@@ -24,19 +24,20 @@ gradient = SubResource("Gradient_g0pcc")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xvjr7")
 
-[node name="APastForgotten" parent="." instance=ExtResource("2_d7sxa")]
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="APastForgotten" parent="CurrentScene" instance=ExtResource("2_d7sxa")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
-iterations = 0
 
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" node_paths=PackedStringArray("backgroundMusic", "sfx") instance=ExtResource("2_bqi1q")]
 top_level = true
-position = Vector2(1966, -854)
+position = Vector2(6169.12, 1837.62)
 backgroundMusic = NodePath("../../SoundHandler/BackgroundMusic")
 sfx = NodePath("../../SoundHandler/SFX")
 
@@ -46,7 +47,7 @@ remote_path = NodePath("../../../FollowCamera")
 [node name="Enemies" type="Node2D" parent="Entities"]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(1966, -854)
+position = Vector2(6169.12, 1837.62)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -65,6 +66,7 @@ volume_db = -10.0
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,6 +80,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_shq6o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

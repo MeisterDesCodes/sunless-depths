@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" path="res://environment/interactions/exit.gd" id="1_1b0lg"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="1_5b5qa"]
-[ext_resource type="PackedScene" uid="uid://b5mwqxfb8xc6b" path="res://environment/decorations/particles/exit-particle.tscn" id="2_jbx05"]
+[ext_resource type="PackedScene" uid="uid://5mvbhu1pwt7b" path="res://environment/decorations/particles/exit-particle.tscn" id="3_hts4k"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="4_3rrb5"]
 
 [node name="Exit" type="Node2D"]
 script = ExtResource("1_1b0lg")
+lifetime = 99
 
 [node name="LightSource" parent="." instance=ExtResource("1_5b5qa")]
 scale = Vector2(2, 2)
 size = 4.0
 energy = 3.0
 
-[node name="ExitParticles" parent="." instance=ExtResource("2_jbx05")]
+[node name="ExitParticles" parent="." instance=ExtResource("3_hts4k")]
 position = Vector2(-50, 0)
-scale = Vector2(2, 2)
 
-[node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("4_3rrb5")]
+[node name="InteractionConponent" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("4_3rrb5")]
 interaction = NodePath("..")

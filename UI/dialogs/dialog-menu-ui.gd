@@ -33,8 +33,10 @@ func clickChoice(choice: DialogChoice, nextDialog: Dialog):
 	if choice.oneTimeUse:
 		currentDialog.dialog.choices.remove_at(currentDialog.dialog.choices.find(choice))
 	
+	if choice.function != "":
+		executeFunction(choice.function)
+	
 	pushDialog(nextDialog, combinedResources)
-
 
 
 func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource]):
@@ -64,6 +66,11 @@ func generateResources(dialog: PanelContainer, choiceResources: Array[ChoiceReso
 		var dialogResource = preload("res://UI/dialogs/dialog-resource.tscn").instantiate()
 		dialog.dialogResources.add_child(dialogResource)
 		dialogResource.setup(resource)
+
+
+func executeFunction(identifier: String):
+	var callable = Callable(DialogFunctionsS, identifier)
+	callable.call()
 
 
 func leave():

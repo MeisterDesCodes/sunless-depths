@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://l81lxelhto0l"]
+[gd_scene load_steps=4 format=3 uid="uid://l81lxelhto0l"]
 
+[ext_resource type="Script" path="res://UI/menu/map/map-pathway-ui.gd" id="1_ie07u"]
 [ext_resource type="Texture2D" uid="uid://i47g6pkx2nxr" path="res://assets/UI/components/Frame 30.png" id="1_iiqtr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah50r"]
 
-[node name="MapLocationUI" type="PanelContainer"]
+[node name="MapPathwayUI" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 15)
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,6 +21,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ah50r")
+script = ExtResource("1_ie07u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2

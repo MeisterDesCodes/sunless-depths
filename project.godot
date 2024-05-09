@@ -21,6 +21,7 @@ run/low_processor_mode_sleep_usec=8000
 UILoaderS="*res://shared/ui-loader.gd"
 UtilsS="*res://shared/utils.gd"
 AnimationsS="*res://shared/animations.gd"
+DialogFunctionsS="*res://shared/dialog-functions.gd"
 
 [dialogic]
 

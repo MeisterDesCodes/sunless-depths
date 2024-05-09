@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Inventory" load_steps=21 format=3 uid="uid://btn5dob4qrwk5"]
 
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/primary/supplies.tres" id="1_mh34j"]
-[ext_resource type="Script" path="res://UI/inventory/inventory-slot.gd" id="2_a7ysp"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_a7ysp"]
 [ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/primary/oxygen.tres" id="3_0dhd3"]
 [ext_resource type="Resource" uid="uid://dlx7uvkhbfvnc" path="res://inventory-resource/resources/primary/stamina.tres" id="4_v4rc5"]
 [ext_resource type="Script" path="res://inventory-resource/inventory.gd" id="6_s3erd"]
@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://kab6p5onm82t" path="res://weapons/resources/lance.tres" id="8_f8peb"]
 [ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/primary/gold.tres" id="8_r2vlu"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/primary/experience.tres" id="9_bbk1v"]
-[ext_resource type="Resource" uid="uid://dlg83af5a8eiv" path="res://inventory-resource/resources/blueprints/BP-improvised-explosives.tres" id="10_qp6mr"]
+[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/improvised-explosives.tres" id="10_o4x1o"]
 
 [sub_resource type="Resource" id="Resource_cbtrd"]
 script = ExtResource("2_a7ysp")
@@ -52,11 +52,11 @@ script = ExtResource("2_a7ysp")
 resource = ExtResource("9_bbk1v")
 amount = 3000
 
-[sub_resource type="Resource" id="Resource_q3f7h"]
+[sub_resource type="Resource" id="Resource_5cr3s"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("10_qp6mr")
-amount = 1
+resource = ExtResource("10_o4x1o")
+amount = 3
 
 [resource]
 script = ExtResource("6_s3erd")
-resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_cbtrd"), SubResource("Resource_6qn3x"), SubResource("Resource_bjhhi"), SubResource("Resource_snsg2"), SubResource("Resource_tkxcu"), SubResource("Resource_kyyxu"), SubResource("Resource_v5pbr"), SubResource("Resource_81c8y"), SubResource("Resource_q3f7h")])
+resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_cbtrd"), SubResource("Resource_6qn3x"), SubResource("Resource_bjhhi"), SubResource("Resource_snsg2"), SubResource("Resource_tkxcu"), SubResource("Resource_kyyxu"), SubResource("Resource_v5pbr"), SubResource("Resource_81c8y"), SubResource("Resource_5cr3s")])

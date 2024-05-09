@@ -20,4 +20,5 @@ shape = SubResource("RectangleShape2D_vqlev")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_uyiet")
 
-[node name="Interaction" parent="." instance=ExtResource("3_2toq4")]
+[node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("3_2toq4")]
+interaction = NodePath("..")
