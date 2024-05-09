@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://g15kf5157lvj"]
+[gd_scene load_steps=5 format=3 uid="uid://g15kf5157lvj"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-ui.gd" id="1_c4myw"]
 [ext_resource type="Texture2D" uid="uid://com0pfpci8ju" path="res://assets/UI/images/Group 178.png" id="2_p6thc"]
+[ext_resource type="PackedScene" uid="uid://c572bb7vvyy3u" path="res://UI/menu/map/map-locationI-ui.tscn" id="3_v6jxr"]
 [ext_resource type="PackedScene" uid="uid://l81lxelhto0l" path="res://UI/menu/map/map-pathway-ui.tscn" id="4_mf3og"]
 
 [node name="MapUI" type="Control"]
@@ -36,6 +37,22 @@ layout_mode = 2
 texture = ExtResource("2_p6thc")
 
 [node name="Locations" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
+z_index = 1
+
+[node name="MapLocationIUI" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 113.0
+offset_top = 74.4745
+offset_right = 113.0
+offset_bottom = 74.4745
+type = 1
+attributes = Array[int]([2])
+
+[node name="MapLocationIUI2" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 308.0
+offset_top = 168.475
+offset_right = 308.0
+offset_bottom = 168.475
+attributes = Array[int]([0, 3])
 
 [node name="Pathways" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
 

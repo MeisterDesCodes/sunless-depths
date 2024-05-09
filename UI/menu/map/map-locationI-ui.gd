@@ -30,7 +30,7 @@ func setType():
 
 func setAttributes():
 	for attribute in attributes:
-		var attributeScene = preload("res://UI/menu/map/map-location-ui.tscn").instantiate()
+		var attributeScene = preload("res://UI/menu/map/map-location-icon-ui.tscn").instantiate()
 		attributeContainer.add_child(attributeScene)
 		var texture: Texture
 		match attribute:
@@ -45,11 +45,11 @@ func setAttributes():
 		attributeScene.setup(texture)
 
 
-func _on_panel_container_mouse_entered():
+func _on_button_mouse_entered():
 	AnimationsS.setSize(self, 1.3, 0.15)
 
 
-func _on_panel_container_mouse_exited():
+func _on_button_mouse_exited():
 	AnimationsS.setSize(self, 1, 0.15)
 
 
