@@ -6,6 +6,9 @@ class_name UILoader
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 
 var fadeTime: float = 0.1
+var currentUIScene: Control
+var currentLabelScene: Control
+var currentPopupScene: Control
 
 
 func loadUIScene(scene: PackedScene):
@@ -14,14 +17,16 @@ func loadUIScene(scene: PackedScene):
 	var sceneInstance = scene.instantiate()
 	canvasLayer.add_child(sceneInstance)
 	AnimationsS.fadeInHeight(sceneInstance, fadeTime)
-	return sceneInstance
+	currentUIScene = sceneInstance
+	return currentUIScene
 
 
 func loadUILabel(scene: PackedScene):
 	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
 	var sceneInstance = scene.instantiate()
 	canvasLayer.add_child(sceneInstance)
-	return sceneInstance
+	currentLabelScene = sceneInstance
+	return currentLabelScene
 
 
 func loadUIPopup(container, element, showAdditionalInfo: bool):
@@ -45,7 +50,8 @@ func loadUIPopup(container, element, showAdditionalInfo: bool):
 	popupInstance.global_position = snapPosition
 	
 	AnimationsS.fadeInHeight(popupInstance, fadeTime)
-	return popupInstance
+	currentPopupScene = popupInstance
+	return currentPopupScene
 
 
 func closeUILabel(popupInstance):

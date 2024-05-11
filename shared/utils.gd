@@ -11,7 +11,8 @@ var colorRare = Color("#1E5F9B")
 var colorEpic = Color("#4F2397")
 var colorLegendary = Color("#D3A42B")
 var colorMissing = Color("#B51111")
-
+var colorBlack = Color("#000000")
+var colorTransparent = Color("#FFFFFF", 0)
 
 func updateResource(resource: InventoryResource):
 	if resource is InventoryMaterial:

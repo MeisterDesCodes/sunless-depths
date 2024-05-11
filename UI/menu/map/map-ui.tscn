@@ -56,6 +56,38 @@ offset_bottom = 168.475
 attributes = Array[int]([0, 3])
 location = "Settle"
 
+[node name="MapLocationIUI3" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 481.0
+offset_top = 102.475
+offset_right = 481.0
+offset_bottom = 102.475
+attributes = Array[int]([0, 3])
+location = "Test1"
+
+[node name="MapLocationIUI6" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 661.0
+offset_top = 67.4745
+offset_right = 661.0
+offset_bottom = 67.4745
+attributes = Array[int]([0, 3])
+location = "Test4"
+
+[node name="MapLocationIUI4" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 327.0
+offset_top = 278.475
+offset_right = 327.0
+offset_bottom = 278.475
+attributes = Array[int]([0, 3])
+location = "Test2"
+
+[node name="MapLocationIUI5" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 407.0
+offset_top = 356.475
+offset_right = 407.0
+offset_bottom = 356.475
+attributes = Array[int]([0, 3])
+location = "Test3"
+
 [node name="Pathways" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
 
 [node name="MapLocationUI" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
@@ -64,7 +96,7 @@ offset_top = 82.0
 offset_right = 304.0
 offset_bottom = 97.0
 rotation = 0.447077
-iterations = 1
+iterations = 2
 locationFrom = "Past"
 locationTo = "Settle"
 travelDirections = Array[int]([3, 1])
@@ -75,6 +107,10 @@ offset_top = 197.0
 offset_right = 380.0
 offset_bottom = 212.0
 rotation = 1.3752
+iterations = 1
+locationFrom = "Settle"
+locationTo = "Test2"
+travelDirections = Array[int]([0, 2])
 
 [node name="MapLocationUI9" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 310.0
@@ -89,6 +125,9 @@ offset_top = 293.028
 offset_right = 414.0
 offset_bottom = 308.028
 rotation = 0.785397
+locationFrom = "Test2"
+locationTo = "Test3"
+travelDirections = Array[int]([0, 2])
 
 [node name="MapLocationUI13" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 492.0
@@ -215,6 +254,10 @@ offset_top = 121.475
 offset_right = 591.0
 offset_bottom = 136.475
 rotation = 2.74809
+iterations = 1
+locationFrom = "Settle"
+locationTo = "Test1"
+travelDirections = Array[int]([3, 1])
 
 [node name="MapLocationUI7" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 637.0
@@ -222,6 +265,8 @@ offset_top = 84.4745
 offset_right = 771.0
 offset_bottom = 99.4745
 rotation = 2.97059
+locationFrom = "Test1"
+locationTo = "Test4"
 
 [node name="MapLocationUI35" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 659.0

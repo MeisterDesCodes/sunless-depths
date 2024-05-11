@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
-[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="2_d7sxa"]
+[ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
 [ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
-[ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/HUD/HUD.tscn" id="58_isjnl"]
+[ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/HUD/hud-ui.tscn" id="58_isjnl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
 vertices = PackedVector2Array(7755, -5599, 7719, 6114, -5855, 6138, -5923, -5684)
@@ -26,7 +26,7 @@ script = ExtResource("1_xvjr7")
 
 [node name="CurrentLocation" type="Node2D" parent="."]
 
-[node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("2_d7sxa")]
+[node name="TheSettlement" parent="CurrentLocation" instance=ExtResource("2_rrhun")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ssy1a")
@@ -37,7 +37,7 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 
 [node name="Player" parent="Entities" node_paths=PackedStringArray("backgroundMusic", "sfx") instance=ExtResource("2_bqi1q")]
 top_level = true
-position = Vector2(6169.12, 1837.62)
+position = Vector2(2483.5, 397.913)
 backgroundMusic = NodePath("../../SoundHandler/BackgroundMusic")
 sfx = NodePath("../../SoundHandler/SFX")
 
@@ -47,7 +47,7 @@ remote_path = NodePath("../../../FollowCamera")
 [node name="Enemies" type="Node2D" parent="Entities"]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(6169.12, 1837.62)
+position = Vector2(2483.5, 397.913)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -66,7 +66,6 @@ volume_db = -10.0
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,7 +79,6 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_shq6o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

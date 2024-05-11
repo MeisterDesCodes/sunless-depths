@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://xvs63raay20g"]
+[gd_scene load_steps=6 format=3 uid="uid://xvs63raay20g"]
 
+[ext_resource type="Script" path="res://generation/exits/exit-1/exit-template.gd" id="1_10wmj"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_6juiv"]
 [ext_resource type="PackedScene" uid="uid://dp6mp20tnrb6q" path="res://environment/interactions/exit.tscn" id="3_42dit"]
 
@@ -10,6 +11,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_jhan1")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_10wmj")
 
 [node name="Map" parent="." instance=ExtResource("3_6juiv")]
 layer_0/tile_data = PackedInt32Array(131072, 131074, 1, 196608, 131074, 2, 262144, 131074, 0, 327680, 131074, 1, 131073, 131074, 1, 196609, 131074, 2, 262145, 131074, 0, 327681, 131074, 1, 393217, 131074, 1, 131074, 131074, 1, 196610, 131074, 2, 262146, 196610, 0, 327682, 262146, 2, 393218, 131074, 1, 131075, 131074, 1, 196611, 131074, 2, 262147, 65538, 0, 327683, 327682, 2, 393219, 131074, 1, 65540, 131074, 1, 131076, 131074, 1, 196612, 65538, 6, 262148, 327682, 2, 327684, 131074, 1, 393220, 131074, 1, 65541, 131074, 1, 131077, 262146, 1, 196613, 131074, 7, 262149, 131074, 1, 327685, 131074, 1, 6, 131074, 1, 65542, 131074, 1, 131078, 65538, 6, 196614, 327682, 2, 262150, 131074, 1, 7, 131074, 1, 65543, 393218, 4, 131079, 458754, 5, 196615, 131074, 1, 262151, 131074, 1, 8, 131074, 1, 65544, 720898, 2, 131080, 131074, 1, 196616, 131074, 1, 9, 131074, 1, 65545, 131074, 1, 131081, 131074, 1)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq7ukrb8onntg"]
+
+[ext_resource type="Texture2D" uid="uid://yb6tvgbmop1e" path="res://assets/environment/textures/materials/farm-texture.png" id="1_kji3j"]
+
+[node name="FarmTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -288.0
+offset_top = -300.0
+offset_right = 358.0
+offset_bottom = 374.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kji3j")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -38.0
+offset_top = -298.0
+offset_right = 608.0
+offset_bottom = 376.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kji3j")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -290.0
+offset_top = -32.0
+offset_right = 356.0
+offset_bottom = 642.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kji3j")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 606.0
+offset_bottom = 644.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kji3j")
+expand_mode = 1

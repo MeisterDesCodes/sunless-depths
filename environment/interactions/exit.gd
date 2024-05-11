@@ -6,6 +6,7 @@ extends Node2D
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var interactionComponent = get_node("InteractionConponent")
 
+var direction: Enums.exitDirection
 var menuScene
 
 
@@ -14,6 +15,9 @@ func _ready():
 
 
 func interact(body):
+	if !playerScene.atLocation && direction == LocationLoaderS.currentFromDirection:
+		return
+	
 	if playerScene.atLocation:
 		playerScene.atLocation = false
 		playerScene.atExit = true

@@ -136,7 +136,7 @@ func attack():
 		$"AttackDelay".wait_time = weaponInstance.weapon.attackDelay * UtilsS.getScalingValue(entityResource.agility * 0.35)
 		$"AttackDelay".start()
 		weaponInstance.attack(weaponInstance.global_position.direction_to(get_global_mouse_position()))
-		updateHud.emit(0.5, weaponInstance.weapon.staminaCost, 1)
+		updateHud.emit(0.5, 1, weaponInstance.weapon.staminaCost)
 
 
 func processIncomingAttack(attack: Attack):

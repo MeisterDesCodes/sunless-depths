@@ -7,7 +7,7 @@
 
 [node name="Exit" type="Node2D"]
 script = ExtResource("1_1b0lg")
-lifetime = 99
+lifetime = -1
 
 [node name="LightSource" parent="." instance=ExtResource("1_5b5qa")]
 scale = Vector2(2, 2)

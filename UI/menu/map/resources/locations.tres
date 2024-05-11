@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="1_2wh7b"]
 [ext_resource type="Script" path="res://UI/menu/map/resources/locations.gd" id="1_x5pud"]
-[ext_resource type="PackedScene" uid="uid://sokoc5ar5h24" path="res://game/areas/the-settlement.tscn" id="2_8ss7o"]
+[ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_254lm"]
 
 [resource]
 script = ExtResource("1_x5pud")
-allLocations = Array[PackedScene]([ExtResource("1_2wh7b"), ExtResource("2_8ss7o")])
+allLocations = Array[PackedScene]([ExtResource("1_2wh7b"), ExtResource("2_254lm")])

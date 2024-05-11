@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ig4iq65ax7ox"
-path="res://.godot/imported/market.png-29989e6179552c7617281d2c7a98218b.ctex"
+uid="uid://c8mqr7qe7sunu"
+path="res://.godot/imported/market-3.png-c03a792906ad98251e087954c1ecbf05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/decorations/regular/market.png"
-dest_files=["res://.godot/imported/market.png-29989e6179552c7617281d2c7a98218b.ctex"]
+source_file="res://assets/environment/decorations/regular/market-3.png"
+dest_files=["res://.godot/imported/market-3.png-c03a792906ad98251e087954c1ecbf05.ctex"]
 
 [params]
 

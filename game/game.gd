@@ -8,4 +8,4 @@ extends Node2D
 
 func _ready():
 	LocationLoaderS.removeCurrentLocation()
-	LocationLoaderS.loadArea("Past")
+	LocationLoaderS.loadArea("Settle")

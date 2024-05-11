@@ -9,6 +9,9 @@ extends Control
 @onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var typeContainer: TextureRect = get_node("VBoxContainer/PanelContainer/TextureRect")
 @onready var attributeContainer: HBoxContainer = get_node("VBoxContainer/HBoxContainer")
+@onready var allPathways = self.get_parent().get_parent().get_child(1).get_children()
+
+var canBeVisited: bool = false
 
 
 func _ready():
@@ -48,45 +51,54 @@ func setAttributes():
 
 
 func _on_button_mouse_entered():
-	if playerScene.atExit:
+	if buttonActive():
 		AnimationsS.setSize(self, 1.3, 0.15)
 
 
 func _on_button_mouse_exited():
-	if playerScene.atExit:
+	if buttonActive():
 		AnimationsS.setSize(self, 1, 0.15)
 
 
 func _on_button_pressed():
-	if playerScene.atExit:
-		findPathway()
+	if buttonActive():
+		playerScene.atExit = false
+		var pathwayObject = findPathway(LocationLoaderS.currentLocation, location)
+		setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
 		UILoaderS.closeUIScene(playerScene.currentExit.menuScene)
 
 
-func findPathway():
-	var pathways = self.get_parent().get_parent().get_child(1).get_children()
+func buttonActive():
+	return playerScene.atExit && location != LocationLoaderS.currentLocation && canBeVisited
+
+
+func findPathway(source: String, destination: String):
 	var foundPathway
-	var direction
-	for pathway in pathways:
-		print(pathway.locationFrom.to_lower())
-		print(LocationLoaderS.currentLocation.to_lower())
-		print(pathway.locationTo.to_lower())
-		print(pathway.locationFrom.to_lower())
-		if pathway.locationFrom.to_lower() == LocationLoaderS.currentLocation.to_lower() && \
-			pathway.locationTo.to_lower() == location.to_lower():
+	var fromDirection
+	var toDirection
+	for pathway in allPathways:
+		if pathway.locationFrom.to_lower() == source.to_lower() && \
+			pathway.locationTo.to_lower() == destination.to_lower():
 			foundPathway = pathway
-			direction = foundPathway.travelDirections[0]
-		if pathway.locationTo.to_lower() == LocationLoaderS.currentLocation.to_lower() && \
-			pathway.locationFrom.to_lower() == location.to_lower():
+			fromDirection = foundPathway.travelDirections[0]
+			toDirection = foundPathway.travelDirections[1]
+		if pathway.locationTo.to_lower() == source.to_lower() && \
+			pathway.locationFrom.to_lower() == destination.to_lower():
 			foundPathway = pathway
-			direction = foundPathway.travelDirections[1]
-		
-	if foundPathway:
-		LocationLoaderS.nextLocation = location
-		LocationLoaderS.caveGenerator.iterations = foundPathway.iterations
-		LocationLoaderS.caveGenerator.initialDirection = direction
-		LocationLoaderS.caveGenerator.availableDirections = foundPathway.travelDirections
-		LocationLoaderS.generateCave()
+			fromDirection = foundPathway.travelDirections[1]
+			toDirection = foundPathway.travelDirections[0]
+	
+	return { "PW": foundPathway, "FD": fromDirection, "TD": toDirection }
+
+
+func setupCaveGeneration(foundPathway, fromDirection, toDirection):
+	LocationLoaderS.nextLocation = location
+	LocationLoaderS.caveGenerator.iterations = foundPathway.iterations
+	LocationLoaderS.caveGenerator.initialDirection = fromDirection
+	LocationLoaderS.caveGenerator.availableDirections = foundPathway.travelDirections
+	LocationLoaderS.currentFromDirection = fromDirection
+	LocationLoaderS.currentToDirection = toDirection
+	LocationLoaderS.generateCave()
 
 
 func getNameFromScene(scene: PackedScene):

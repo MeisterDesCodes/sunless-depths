@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ceyk8mxkdgl5s" path="res://environment/decorations/light-sources/campfire.tscn" id="3_fco1n"]
 [ext_resource type="Texture2D" uid="uid://u16j3130at2r" path="res://assets/environment/decorations/light-sources/campfire-3.png" id="4_hd2pw"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="5_55835"]
-[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch.png" id="6_vb2t0"]
+[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="6_vb2t0"]
 [ext_resource type="PackedScene" uid="uid://dsjokrvb0vmde" path="res://entities/entity-spawner.tscn" id="7_a7mls"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="7_gsg35"]
 

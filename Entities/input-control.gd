@@ -17,7 +17,7 @@ func _process(delta):
 			playerScene.canDash = false
 			playerScene.isDashing = true
 			playerScene.hudUI.onDash()
-			playerScene.updateHud.emit(1, playerScene.dashStaminaCost, 2)
+			playerScene.updateHud.emit(1, 2, playerScene.dashStaminaCost)
 			var direction: Vector2 = playerScene.getDirection()
 			if direction == Vector2.ZERO:
 				direction = playerScene.global_position.direction_to(get_global_mouse_position())

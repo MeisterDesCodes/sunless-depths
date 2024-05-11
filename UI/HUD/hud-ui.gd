@@ -23,7 +23,8 @@ var oxygen = preload("res://inventory-resource/resources/primary/oxygen.tres")
 var stamina = preload("res://inventory-resource/resources/primary/stamina.tres")
 
 var popup: Control = null
-var suppliesBeingRestocked = false
+var suppliesIsRestocked = false
+var oxygenIsRestocked = false
 var survivalNeedModifier: float
 
 
@@ -32,8 +33,8 @@ func _ready():
 	playerScene.updateHud.connect(updateHud)
 	playerScene.healthModified.connect(healthModified)
 	healthBar.value = 100
-	suppliesBar.value = 100
-	oxygenBar.value = 100
+	suppliesBar.value = 5
+	oxygenBar.value = 5
 	staminaBar.value = 100
 	updateLabels()
 	sprintIcon.visible = false
@@ -64,17 +65,27 @@ func _process(delta):
 	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
 	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier
 	staminaBar.value -= delta * (playerScene.currentStaminaDrain - playerScene.currentStaminaRestore)
-	if (suppliesBar.value <= 0 && !suppliesBeingRestocked):
-		suppliesBeingRestocked = true
-		$"SuppliesTimer".start()
-		playerScene.inventory.removeResource(supplies, 1)
-		updateLabels()
-		get_tree().create_tween().tween_property(suppliesBar, "value", 100, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	if (suppliesBar.value <= 0 && !suppliesIsRestocked):
+		restockSupplies()
 
 	if (oxygenBar.value <= 0):
 		pass
 	if (staminaBar.value <= 0):
 		pass
+
+
+func restockSupplies():
+	suppliesIsRestocked = true
+	$"SuppliesTimer".start()
+	playerScene.inventory.removeResource(supplies, 1)
+	updateLabels()
+	get_tree().create_tween().tween_property(suppliesBar, "value", 100, 0.3).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func restockOxygen():
+	oxygenIsRestocked = true
+	$"OxygenTimer".start()
+	get_tree().create_tween().tween_property(oxygenBar, "value", 100, 2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
 
 func onSprint():
@@ -93,10 +104,11 @@ func onDashCooldown():
 	dashIcon.visible = true
 
 
-func updateHud(suppliesValue, staminaValue, oxygenValue):
-	if !suppliesBeingRestocked:
+func updateHud(suppliesValue, oxygenValue, staminaValue):
+	if !suppliesIsRestocked:
 		get_tree().create_tween().tween_property(suppliesBar, "value", suppliesBar.value - suppliesValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	if !oxygenIsRestocked:
+		get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
@@ -111,7 +123,12 @@ func updateLabels():
 
 
 func _on_supplies_timer_timeout():
-	suppliesBeingRestocked = false
+	suppliesIsRestocked = false
+
+
+func _on_oxygen_timer_timeout():
+	oxygenIsRestocked = false
+
 
 
 func _on_panel_mouse_entered():

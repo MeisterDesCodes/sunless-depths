@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_u42o1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smx0b"]
-size = Vector2(200, 164.85)
+size = Vector2(190, 144)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bekgm"]
 polygon = PackedVector2Array(-83, -58, -43, -54, 2, -63, 44, -55, 84, -60, 73, 6, 87, 67, 54, 61, 6, 70, -39, 62, -84, 69, -80, 5)

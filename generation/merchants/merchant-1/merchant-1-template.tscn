@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crlc6dhyk5ivq" path="res://environment/decorations/regular/structures/market.tscn" id="4_24jiv"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="4_b2hl5"]
 [ext_resource type="PackedScene" uid="uid://bnkbhwysl6liv" path="res://environment/decorations/regular/storage/pot.tscn" id="5_c6diw"]
-[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch.png" id="5_t6551"]
+[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="5_t6551"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="6_0l0nn"]
 [ext_resource type="Texture2D" uid="uid://dsyj45ruv4cve" path="res://assets/environment/decorations/regular/pot-4.png" id="6_twwcm"]
 [ext_resource type="Texture2D" uid="uid://bdh2keo3efrtp" path="res://assets/environment/decorations/regular/pot-3.png" id="7_4rojv"]

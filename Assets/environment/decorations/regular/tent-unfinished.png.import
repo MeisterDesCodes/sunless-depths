@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db22u6nl7yith"
-path="res://.godot/imported/torch.png-68c5e6a29468cb5010561cc1fa1d4095.ctex"
+uid="uid://c6gd8lndbicih"
+path="res://.godot/imported/tent-unfinished.png-8f08c4dc4140fdf0d715a55600856bf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/decorations/light-sources/torch.png"
-dest_files=["res://.godot/imported/torch.png-68c5e6a29468cb5010561cc1fa1d4095.ctex"]
+source_file="res://assets/environment/decorations/regular/tent-unfinished.png"
+dest_files=["res://.godot/imported/tent-unfinished.png-8f08c4dc4140fdf0d715a55600856bf6.ctex"]
 
 [params]
 

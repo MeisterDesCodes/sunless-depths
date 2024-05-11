@@ -6,11 +6,17 @@ extends Node
 
 var currentLocation: String
 var nextLocation: String
+var currentFromDirection: Enums.exitDirection
+var currentToDirection: Enums.exitDirection
+
+var visitedLocations: Array[String]
 
 
 func loadArea(location: String):
 	removeCurrentCave()
 	currentLocation = location
+	nextLocation = ""
+	visitedLocations.append(location)
 	game.currentLocation.add_child(LocationLoaderS.getSceneFromName(location).instantiate())
 
 

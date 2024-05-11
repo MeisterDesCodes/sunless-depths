@@ -1,6 +1,6 @@
 [gd_scene load_steps=89 format=3 uid="uid://con0pdy4padqm"]
 
-[ext_resource type="Script" path="res://game/areas/a-past-forgotten.gd" id="1_0a2iq"]
+[ext_resource type="Script" path="res://game/areas/area.gd" id="1_18te6"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_aatu0"]
 [ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="1_qtktf"]
 [ext_resource type="Resource" uid="uid://egkn5f1g2uuv" path="res://entities/resources/giant-rat.tres" id="2_6ywtg"]
@@ -46,8 +46,9 @@
 [ext_resource type="Texture2D" uid="uid://bedabxj81i1it" path="res://assets/environment/decorations/regular/rubble/scrap-3.png" id="38_0g5eb"]
 [ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/root-2.png" id="38_8vcpf"]
 [ext_resource type="Texture2D" uid="uid://bwnmnqssrfugw" path="res://assets/environment/decorations/regular/rubble/scrap-4.png" id="39_v10ya"]
-[ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/top-level/20210623114636-46f9e70b.png" id="40_chcfc"]
-[ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/top-level/20210623122938-b753b082-me.png" id="41_ieoke"]
+[ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/20210623114636-46f9e70b.png" id="40_chcfc"]
+[ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/20210623122938-b753b082-me.png" id="41_ieoke"]
+[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="42_d1adk"]
 [ext_resource type="PackedScene" uid="uid://coeg6372ucsp" path="res://environment/decorations/regular/plants/plant.tscn" id="48_qbahq"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="49_4rqkd"]
 [ext_resource type="Texture2D" uid="uid://cvsx1770twdv5" path="res://assets/environment/decorations/walls/mushroom-3.png" id="50_36rkw"]
@@ -62,7 +63,6 @@
 [ext_resource type="Texture2D" uid="uid://cxj00d4bv0k0b" path="res://assets/environment/decorations/regular/bench.png" id="60_nu8jg"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="61_alper"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="64_1h5yh"]
-[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch.png" id="65_uw2oy"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="66_66qae"]
 [ext_resource type="PackedScene" uid="uid://lxbf3dyjyqj5" path="res://environment/decorations/walls/beam-long.tscn" id="67_0dit6"]
 [ext_resource type="Texture2D" uid="uid://bxguc4dorowl" path="res://assets/environment/decorations/walls/beam-long-1.png" id="68_mnayq"]
@@ -150,7 +150,7 @@ amount = 4
 dropChance = 0.5
 
 [node name="APastForgotten" type="Node2D"]
-script = ExtResource("1_0a2iq")
+script = ExtResource("1_18te6")
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -1042,22 +1042,22 @@ z_index = 1
 [node name="Torch9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(1876, 634)
 rotation = 2.61799
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch10" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(1916, 144)
 rotation = -1.03673
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(2232, 844)
 rotation = -0.785397
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch18" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(5294, 1919)
 rotation = -0.261799
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch12" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(1942, 821)
@@ -1072,27 +1072,27 @@ texture = ExtResource("66_66qae")
 [node name="Torch19" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(4424, 1719)
 rotation = 4.45058
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch13" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(2044, -880)
 rotation = -0.84823
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch16" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(2041, -551)
 rotation = 1.62839
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch21" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(2041, -551)
 rotation = 1.62839
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch17" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(2369, -659)
 rotation = 1.83259
-texture = ExtResource("65_uw2oy")
+texture = ExtResource("42_d1adk")
 
 [node name="Torch14" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(1908, -854)

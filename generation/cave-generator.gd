@@ -214,7 +214,9 @@ func generateExitInDirection(exits, direction):
 					
 	var room = placeRoom(foundExit, Enums.segmentType.EXIT)
 	if room && direction == initialDirection:
-		spawnPlayer.emit(room.get_child(0).get_child(2).global_position)
+		var foundExitTemplate = room.get_child(0)
+		foundExitTemplate.exit.direction = direction
+		spawnPlayer.emit(foundExitTemplate.get_child(2).global_position)
 
 
 func exitGlobalPosition(exit):
