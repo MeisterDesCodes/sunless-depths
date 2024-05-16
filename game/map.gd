@@ -1,14 +1,14 @@
 extends TileMap
 
 
-@export var removeRandomObjects: bool
+@export var removeRandomObjects: bool = true
 
 
 func _ready():
 	if !removeRandomObjects:
 		return
 	
-	var lightSourceRemovalChance: float = 0
+	var lightSourceRemovalChance: float = 0.5
 	var spawnerRemovalChance: float = 0
 	for object in $"EnvironmentalObjects/Decorations/LightSources".get_children():
 		if lightSourceRemovalChance > randf():

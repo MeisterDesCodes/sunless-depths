@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ujngla653jpi"]
 
-[ext_resource type="Texture2D" uid="uid://12uwdu501j2t" path="res://assets/particles/spore.png" id="1_sjbks"]
+[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light.png" id="1_cb8d2"]
 
 [sub_resource type="Curve" id="Curve_ob301"]
 _data = [Vector2(0, 0.703297), 0.0, 0.0, 0, 0, Vector2(0.55157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -31,7 +31,7 @@ color = Color(1, 1, 1, 0.6)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_w8aek")
-texture = ExtResource("1_sjbks")
+texture = ExtResource("1_cb8d2")
 lifetime = 2.5
 explosiveness = 0.1
 randomness = 0.15

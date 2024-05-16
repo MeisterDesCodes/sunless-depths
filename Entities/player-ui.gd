@@ -45,9 +45,9 @@ var currentStaminaDrain: float
 var currentStaminaRestore: float
 var dashStaminaCost: float = 20
 
-var baseZoom: float = 2
+var baseZoom: float = 2.5
 var currentZoom: int = 0
-var maxZoom: int = 4
+var maxZoom: int = 10
 
 var atExit: bool = false
 var atLocation: bool = true
@@ -146,7 +146,7 @@ func processIncomingAttack(attack: Attack):
 
 func zoom():
 	currentZoom = (currentZoom + 1) % maxZoom
-	var zoom: float = baseZoom - 0.25 * currentZoom
+	var zoom: float = baseZoom - 0.2 * currentZoom
 	get_tree().create_tween().tween_property(camera, "zoom", Vector2(zoom, zoom), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 

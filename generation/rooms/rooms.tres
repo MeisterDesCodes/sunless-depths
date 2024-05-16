@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Segment" load_steps=14 format=3 uid="uid://b3co7yrvqfyvx"]
+[gd_resource type="Resource" script_class="Segment" load_steps=18 format=3 uid="uid://b3co7yrvqfyvx"]
 
 [ext_resource type="PackedScene" uid="uid://ca24koh4kamxx" path="res://generation/rooms/room-1/room-1-0.tscn" id="1_jl7qi"]
 [ext_resource type="PackedScene" uid="uid://du2kb7w35m6cx" path="res://generation/rooms/room-1/room-1-90.tscn" id="2_86aci"]
@@ -13,7 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dqa7wcs2u54ws" path="res://generation/rooms/room-3/room-3-90.tscn" id="10_yatk8"]
 [ext_resource type="PackedScene" uid="uid://qihh3od1baor" path="res://generation/rooms/room-3/room-3-180.tscn" id="11_ei5ac"]
 [ext_resource type="PackedScene" uid="uid://bsxjve7p05rs" path="res://generation/rooms/room-3/room-3-270.tscn" id="12_2n76w"]
+[ext_resource type="PackedScene" uid="uid://sbujm11ealkd" path="res://generation/rooms/room-4/room-4-0.tscn" id="13_xosvi"]
+[ext_resource type="PackedScene" uid="uid://c628t7i4qpdgg" path="res://generation/rooms/room-4/room-4-90.tscn" id="14_01ojq"]
+[ext_resource type="PackedScene" uid="uid://h3skkt6006ln" path="res://generation/rooms/room-4/room-4-180.tscn" id="15_ev3d7"]
+[ext_resource type="PackedScene" uid="uid://dapy7k0h02h8" path="res://generation/rooms/room-4/room-4-270.tscn" id="16_1y6lr"]
 
 [resource]
 script = ExtResource("9_cjym1")
-allSegments = Array[PackedScene]([ExtResource("1_jl7qi"), ExtResource("2_86aci"), ExtResource("3_7jpel"), ExtResource("4_pwuxy"), ExtResource("5_qe2fv"), ExtResource("6_1k8ut"), ExtResource("7_yep4y"), ExtResource("8_7ocas"), ExtResource("9_rwjk7"), ExtResource("10_yatk8"), ExtResource("11_ei5ac"), ExtResource("12_2n76w")])
+allSegments = Array[PackedScene]([ExtResource("1_jl7qi"), ExtResource("2_86aci"), ExtResource("3_7jpel"), ExtResource("4_pwuxy"), ExtResource("5_qe2fv"), ExtResource("6_1k8ut"), ExtResource("7_yep4y"), ExtResource("8_7ocas"), ExtResource("9_rwjk7"), ExtResource("10_yatk8"), ExtResource("11_ei5ac"), ExtResource("12_2n76w"), ExtResource("13_xosvi"), ExtResource("14_01ojq"), ExtResource("15_ev3d7"), ExtResource("16_1y6lr")])

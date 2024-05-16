@@ -1,8 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://xvs63raay20g"]
+[gd_scene load_steps=21 format=3 uid="uid://xvs63raay20g"]
 
 [ext_resource type="Script" path="res://generation/exits/exit-1/exit-template.gd" id="1_10wmj"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_6juiv"]
 [ext_resource type="PackedScene" uid="uid://dp6mp20tnrb6q" path="res://environment/interactions/exit.tscn" id="3_42dit"]
+[ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_caobl"]
+[ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/cave-sand-texture.tscn" id="5_jyj8n"]
+[ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="6_wesml"]
+[ext_resource type="PackedScene" uid="uid://cd8iqjms7aj8y" path="res://environment/decorations/textures/jungle-texture.tscn" id="7_7ad6y"]
+[ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="7_s2wsx"]
+[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="8_4t2w7"]
+[ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="9_3fg5g"]
+[ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="10_rw1o5"]
+[ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="11_htrg6"]
+[ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="12_naous"]
+[ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="13_fq2s5"]
+[ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="14_ogdy2"]
+[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/root-2.png" id="15_0mx78"]
+[ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="16_joci4"]
+[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="17_ocoe6"]
 
 [sub_resource type="Gradient" id="Gradient_jhan1"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -20,6 +35,122 @@ layer_2/tile_data = PackedInt32Array(131072, 458754, 7, 196608, 458754, 8, 26214
 
 [node name="EnvironmentalObjects" type="Node2D" parent="Map"]
 
+[node name="Decorations" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Textures" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="RockTexture3" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("4_caobl")]
+position = Vector2(462, 151)
+rotation = -2.35619
+scale = Vector2(0.36, 0.36)
+
+[node name="CaveSandTexture4" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("5_jyj8n")]
+position = Vector2(124, 291)
+rotation = 0.261799
+
+[node name="MudTexture" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("6_wesml")]
+position = Vector2(181, 178)
+rotation = 0.261799
+
+[node name="JungleTexture4" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("7_7ad6y")]
+position = Vector2(339, 312)
+rotation = 0.785397
+
+[node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="BlockageLargeRemove1" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("7_s2wsx")]
+position = Vector2(139, 212)
+rotation = 0.523598
+texture = ExtResource("8_4t2w7")
+
+[node name="BlockageLargeRemove2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("7_s2wsx")]
+position = Vector2(213, 365)
+rotation = -0.261799
+texture = ExtResource("8_4t2w7")
+
+[node name="BlockageSmall" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("9_3fg5g")]
+position = Vector2(409, 220)
+rotation = -2.35619
+texture = ExtResource("10_rw1o5")
+
+[node name="BlockageSmall2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("9_3fg5g")]
+position = Vector2(192, 216)
+rotation = -5.23598
+texture = ExtResource("10_rw1o5")
+
+[node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+z_index = 3
+
+[node name="Overlay21" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(468, 213)
+rotation = 8.63937
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("12_naous")
+
+[node name="Overlay55" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(91, 245)
+rotation = 2.09439
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("13_fq2s5")
+
+[node name="Overlay56" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(104, 259)
+rotation = 1.57079
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("13_fq2s5")
+
+[node name="Overlay53" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(263, 320)
+rotation = -1.57079
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("14_ogdy2")
+
+[node name="Overlay54" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(276, 203)
+rotation = -2.87979
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("14_ogdy2")
+
+[node name="Overlay58" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(347, 250)
+rotation = -3.66519
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("14_ogdy2")
+
+[node name="Overlay57" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(296, 205)
+rotation = -1.83259
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("14_ogdy2")
+
+[node name="Overlay39" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("11_htrg6")]
+position = Vector2(306.49, 291.109)
+rotation = 1.83259
+scale = Vector2(0.328, 0.328)
+texture = ExtResource("15_0mx78")
+
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+z_index = 1
+
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+
+[node name="Torch18" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("16_joci4")]
+position = Vector2(60, 211)
+rotation = -1.83259
+texture = ExtResource("17_ocoe6")
+
+[node name="Torch19" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("16_joci4")]
+position = Vector2(136, 304)
+rotation = -4.18878
+texture = ExtResource("17_ocoe6")
+
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
@@ -32,24 +163,6 @@ position = Vector2(503.536, 105.675)
 rotation = 2.61799
 
 [node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
-
-[node name="Decorations" type="Node2D" parent="Map/EnvironmentalObjects"]
-
-[node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
-
-[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
-
-[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
-
-[node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
-
-[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
-z_index = 1
-
-[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
-
-[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
-z_index = 1
 
 [node name="Spawners" type="Node2D" parent="Map/EnvironmentalObjects"]
 

@@ -5,7 +5,8 @@ extends Node2D
 @export var texture: Texture2D:
 	set(value):
 		texture = value
-		$"Sprite2D".texture = texture
+		if $Sprite2D:
+			$"Sprite2D".texture = texture
 @export var collision: bool = true:
 	set(value):
 		collision = value

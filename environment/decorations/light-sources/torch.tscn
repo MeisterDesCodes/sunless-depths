@@ -22,5 +22,6 @@ scale = Vector2(0.30303, 0.30303)
 [node name="LightSource" parent="." instance=ExtResource("3_fpgdl")]
 scale = Vector2(1.5, 1.5)
 size = 2.5
+energy = 1.0
 
 [node name="TorchParticles" parent="." instance=ExtResource("2_bmalg")]

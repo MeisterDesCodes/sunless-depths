@@ -1,31 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3jvqy14idd56"]
+[gd_scene load_steps=7 format=3 uid="uid://d3jvqy14idd56"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_0v7cg"]
+[ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="3_2m771"]
+[ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="4_2nf1l"]
+[ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_jt6pi"]
+[ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="5_eqnhw"]
+[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="6_cg1x4"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("3_0v7cg")]
-layer_0/tile_data = PackedInt32Array(0, 131074, 1, 65536, 327682, 1, 131072, 327682, 2, 196608, 131074, 1)
+layer_0/tile_data = PackedInt32Array(0, 131074, 1, 65536, 327682, 1, 131072, 327682, 2, 196608, 131074, 1, 1, 131074, 1, 65537, 131074, 1, 131073, 131074, 1, 196609, 131074, 1)
 layer_1/tile_data = PackedInt32Array(65536, 458754, 2, 131072, 458754, 2)
-layer_2/tile_data = PackedInt32Array(0, 458754, 7, 65536, 655362, 7, 131072, 655362, 8, 196608, 458754, 7)
+layer_2/tile_data = PackedInt32Array(0, 458754, 7, 65536, 655362, 7, 131072, 655362, 8, 196608, 458754, 7, 1, 458754, 7, 65537, 458754, 7, 131073, 458754, 7, 196609, 458754, 7)
 
 [node name="EnvironmentalObjects" type="Node2D" parent="Map"]
 
-[node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
-
-[node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
-
-[node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
-
-[node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
-
 [node name="Decorations" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Textures" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+position = Vector2(-3, 1)
+
+[node name="RockTexture2" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("4_jt6pi")]
+position = Vector2(49, 125)
+scale = Vector2(0.24, 0.24)
 
 [node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
 [node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="BlockageSmall" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("3_2m771")]
+position = Vector2(5, 160)
+rotation = -2.09439
+texture = ExtResource("4_2nf1l")
+
+[node name="BlockageLarge" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("5_eqnhw")]
+position = Vector2(59, 119)
+rotation = 1.57079
+scale = Vector2(1.27, 1.27)
+texture = ExtResource("6_cg1x4")
 
 [node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
@@ -36,5 +51,13 @@ z_index = 1
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
+
+[node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Spawners" type="Node2D" parent="Map/EnvironmentalObjects"]

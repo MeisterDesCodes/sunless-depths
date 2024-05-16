@@ -20,3 +20,4 @@ texture = ExtResource("2_2aapc")
 
 [node name="LightSource" parent="." instance=ExtResource("2_f3ffv")]
 size = 3.0
+energy = 1.0

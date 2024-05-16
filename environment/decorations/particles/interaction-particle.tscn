@@ -20,8 +20,8 @@ spread = 180.0
 initial_velocity_min = 10.0
 initial_velocity_max = 15.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.02
-scale_max = 0.03
+scale_min = 0.1
+scale_max = 0.15
 scale_curve = SubResource("CurveTexture_pdkqn")
 color = Color(1, 1, 0.745098, 0.682353)
 

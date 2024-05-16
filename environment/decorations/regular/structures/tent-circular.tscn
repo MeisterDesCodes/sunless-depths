@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://s068tliviiio"]
+[gd_scene load_steps=3 format=3 uid="uid://s068tliviiio"]
 
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_sh4ek"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
 radius = 70.0
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l2n2l"]
-polygon = PackedVector2Array(1.07527, -25.448, 10.0358, -20.4301, 18.9964, -18.2796, 22.5806, -8.24373, 26.1649, -0.358423, 21.8638, 10.0358, 19.3548, 17.5627, 13.2616, 20.7885, 7.16846, 13.6201, 7.8853, 23.2975, 1.43369, 24.7312, -6.09319, 21.5054, -16.4875, 17.9211, -19.3548, 8.60215, -25, 0, -19.3548, -8.60215, -18, -18, -7.16846, -21.147)
 
 [node name="TentCircular" type="Node2D"]
 script = ExtResource("1_sh4ek")
@@ -18,9 +15,3 @@ shape = SubResource("CircleShape2D_mdnsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.30303, 0.30303)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
-scale = Vector2(2.79, 2.79)
-occluder = SubResource("OccluderPolygon2D_l2n2l")
-occluder_light_mask = 2

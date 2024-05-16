@@ -23,6 +23,7 @@ shape = SubResource("CircleShape2D_nwgc1")
 
 [node name="LightSource" parent="." instance=ExtResource("4_pdv0a")]
 size = 3.0
+energy = 1.0
 
 [node name="CuriosityParticles" parent="." instance=ExtResource("4_cx4y6")]
 

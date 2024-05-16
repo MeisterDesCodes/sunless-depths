@@ -13,7 +13,7 @@ var x = 0
 
 
 func _ready():
-	light.scale = Vector2(size, size)
+	light.scale = light.scale * size
 	light.color = color
 	light.energy = energy
 	RandomNumberGenerator.new().randomize()

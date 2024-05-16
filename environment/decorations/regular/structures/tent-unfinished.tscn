@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://10dx0j5hg2h8"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_g73kk"]
+[ext_resource type="Texture2D" uid="uid://c6gd8lndbicih" path="res://assets/environment/decorations/regular/tent-unfinished.png" id="2_wijc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23gly"]
+size = Vector2(48, 106)
+
+[node name="TentUnfinished" type="Node2D"]
+script = ExtResource("1_g73kk")
+texture = ExtResource("2_wijc8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_23gly")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.30303, 0.30303)
+texture = ExtResource("2_wijc8")

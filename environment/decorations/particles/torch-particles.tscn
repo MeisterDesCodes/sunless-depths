@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjw85nwae6j0u"]
 
-[ext_resource type="Texture2D" uid="uid://boj5ulpb5kub6" path="res://assets/particles/20220922182354-b2057151.png" id="2_0mqh3"]
+[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light.png" id="1_kadv7"]
 
 [sub_resource type="Gradient" id="Gradient_p4oek"]
 offsets = PackedFloat32Array(0, 0.271186, 0.59322, 1)
@@ -23,18 +23,17 @@ spread = 180.0
 radial_velocity_min = 4.0
 radial_velocity_max = 6.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.04
-scale_max = 0.06
+scale_min = 0.2
+scale_max = 0.3
 scale_curve = SubResource("CurveTexture_u7qng")
 color_ramp = SubResource("GradientTexture1D_bcqq6")
 
 [node name="TorchParticles" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 30
+amount = 20
 process_material = SubResource("ParticleProcessMaterial_pomt6")
-texture = ExtResource("2_0mqh3")
+texture = ExtResource("1_kadv7")
 lifetime = 1.5
-explosiveness = 0.15
-randomness = 0.22
+randomness = 0.15
 fixed_fps = 60

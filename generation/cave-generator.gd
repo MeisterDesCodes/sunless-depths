@@ -27,20 +27,27 @@ var initialDirection: Enums.exitDirection = Enums.exitDirection.TOP
 
 var enemies = preload("res://entities/resources/enemies.tres").allEnemies
 
+var generatedSpecialRooms: Array[Node2D] = []
+var generatedExits: Array[Node2D] = []
+
 
 func generateCave():
 	clearCave()
 	generateRoot()
 	generateRooms()
 	setSpawners()
+	validateCave()
 
 
 func clearCave():
-	currentRooms = []
+	currentRooms.clear()
+	generatedSpecialRooms.clear()
+	generatedExits.clear()
 	for child in cave.get_children():
 		cave.remove_child(child)
 	for enemy in enemiesScene.get_children():
 		enemiesScene.remove_child(enemy)
+
 
 
 func instanceRoom():
@@ -56,7 +63,7 @@ func generateRoot():
 
 
 func generateFittingRoom(exit, roomType):
-	for n in 1:
+	for n in 10:
 		var direction: Enums.exitDirection
 		match exit.direction:
 			Enums.exitDirection.TOP:
@@ -191,7 +198,7 @@ func generateExits():
 	for direction in availableDirections:
 		generateExitInDirection(getRemainingExits(), direction)
 
-
+var counter = 0
 func generateExitInDirection(exits, direction):
 	if exits.is_empty():
 		return
@@ -213,10 +220,12 @@ func generateExitInDirection(exits, direction):
 					foundExit = exit
 					
 	var room = placeRoom(foundExit, Enums.segmentType.EXIT)
-	if room && direction == initialDirection:
-		var foundExitTemplate = room.get_child(0)
-		foundExitTemplate.exit.direction = direction
-		spawnPlayer.emit(foundExitTemplate.get_child(2).global_position)
+	if room:
+		generatedExits.append(room)
+		if direction == initialDirection:
+			var foundExitTemplate = room.get_child(0)
+			foundExitTemplate.exit.direction = direction
+			spawnPlayer.emit(foundExitTemplate.get_child(2).global_position)
 
 
 func exitGlobalPosition(exit):
@@ -225,9 +234,13 @@ func exitGlobalPosition(exit):
 
 func generateDeadEnds():
 	for exit in getRemainingExits():
-		var room = generateFittingRoom(exit, Enums.segmentType.DEAD_END)
-		if room:
-			currentRooms.append(room)
+		generateDeadEnd(exit)
+
+
+func generateDeadEnd(exit):
+	var room = generateFittingRoom(exit, Enums.segmentType.DEAD_END)
+	if room:
+		currentRooms.append(room)
 
 
 func getRemainingExits():
@@ -256,6 +269,13 @@ func setSpawners():
 			spawners.add_child(spawnerScene)
 			spawnerScene.setup(room.get_child(0))
 			spawnerScene.spawnEntity()
+
+
+func validateCave():
+	if generatedExits.size() < availableDirections.size():
+		generateCave()
+
+
 
 
 
