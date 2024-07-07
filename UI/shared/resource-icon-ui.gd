@@ -13,16 +13,4 @@ func setup(requirement, showLabel: bool, isRequirement: bool):
 	if isRequirement && requirement.amount > playerScene.inventory.getResourceAmount(requirement.resource):
 		resourceContainer.self_modulate = UtilsS.colorMissing
 	else:
-		match requirement.resource.rarity:
-			Enums.resourceRarity.PRIMARY:
-				resourceContainer.self_modulate = UtilsS.colorPrimary
-			Enums.resourceRarity.COMMON:
-				resourceContainer.self_modulate = UtilsS.colorCommon
-			Enums.resourceRarity.UNCOMMON:
-				resourceContainer.self_modulate = UtilsS.colorUncommon
-			Enums.resourceRarity.RARE:
-				resourceContainer.self_modulate = UtilsS.colorRare
-			Enums.resourceRarity.EPIC:
-				resourceContainer.self_modulate = UtilsS.colorEpic
-			Enums.resourceRarity.LEGENDARY:
-				resourceContainer.self_modulate = UtilsS.colorLegendary
+		resourceContainer.self_modulate = UtilsS.getRarityColor(requirement.resource.rarity)

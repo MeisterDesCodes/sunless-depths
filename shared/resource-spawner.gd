@@ -1,8 +1,8 @@
 extends Node2D
 
 
-var gold = preload("res://inventory-resource/resources/primary/gold.tres")
-var experience = preload("res://inventory-resource/resources/primary/experience.tres")
+var gold = preload("res://inventory-resource/resources/material/primary/gold.tres")
+var experience = preload("res://inventory-resource/resources/material/primary/experience.tres")
 var goldThresholds: Array[int] = [1, 5, 10, 20, 50, 100]
 var experienceThresholds: Array[int] = [1, 10, 20, 50, 100, 200]
 
@@ -59,9 +59,9 @@ func getResourceDistribution(resources, thresholds):
 		var newResource
 		match(resource.resource.name):
 			gold.name:
-				newResource = preload("res://inventory-resource/resources/primary/gold.tres").duplicate()
+				newResource = preload("res://inventory-resource/resources/material/primary/gold.tres").duplicate()
 			experience.name:
-				newResource = preload("res://inventory-resource/resources/primary/experience.tres").duplicate()
+				newResource = preload("res://inventory-resource/resources/material/primary/experience.tres").duplicate()
 		
 		newResource.pickupAmount = amount
 		newResources.append(newResource)

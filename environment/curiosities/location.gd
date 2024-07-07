@@ -12,5 +12,5 @@ func _ready():
 
 
 func onEnter(body):
-	var scene = UILoaderS.loadUIScene(preload("res://UI/dialogs/dialog-menu-ui.tscn"))
+	var scene = UILoaderS.loadUIScene(preload("res://UI/dialog/dialog-menu-ui.tscn"))
 	scene.setup(self)

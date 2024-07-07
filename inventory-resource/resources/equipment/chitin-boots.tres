@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://dflg1ijapyoox"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_vxipo"]
+[ext_resource type="Texture2D" uid="uid://yyh4pjw7oprx" path="res://assets/resources/equipment/Boots.png" id="2_35m1g"]
+
+[resource]
+script = ExtResource("1_vxipo")
+equipmentType = 3
+ferocityModifier = 0
+perseveranceModifier = 6
+agilityModifier = -1
+perceptionModifier = -1
+name = "Chitin Boots"
+description = ""
+texture = ExtResource("2_35m1g")
+rarity = 1

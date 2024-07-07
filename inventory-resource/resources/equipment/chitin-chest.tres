@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://c3icmx820j0x4"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_hdu5c"]
+[ext_resource type="Texture2D" uid="uid://muiyll3gg3oq" path="res://assets/resources/equipment/Chest.png" id="2_j6ifh"]
+
+[resource]
+script = ExtResource("1_hdu5c")
+equipmentType = 1
+ferocityModifier = 0
+perseveranceModifier = 6
+agilityModifier = -1
+perceptionModifier = -1
+name = "Chitin Chest"
+description = ""
+texture = ExtResource("2_j6ifh")
+rarity = 1

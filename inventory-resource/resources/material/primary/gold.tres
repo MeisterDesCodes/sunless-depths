@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://hlcaa6t6k6kc"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_o7wjo"]
+[ext_resource type="Texture2D" uid="uid://c5efwq8xwq1dj" path="res://assets/resources/material/Gold.png" id="2_eerdk"]
+
+[resource]
+script = ExtResource("1_o7wjo")
+name = "Gold"
+description = "Rare currency found in the depths, used to purchase vital supplies and equipment from underground traders."
+texture = ExtResource("2_eerdk")
+rarity = 0

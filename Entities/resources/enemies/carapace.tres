@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://jq1oi7xmfhrq"]
+
+[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_3r6mu"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="2_k1u2q"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_p82yk"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_jdib3"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="4_kd7tg"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="5_cyq6k"]
+[ext_resource type="Texture2D" uid="uid://bsbqjysd6hg2c" path="res://assets/entities/Carapace.png" id="7_qj8s6"]
+
+[sub_resource type="Resource" id="Resource_me523"]
+script = ExtResource("2_p82yk")
+name = ""
+strength = 2.0
+duration = 1.0
+
+[sub_resource type="Resource" id="Resource_o5h46"]
+script = ExtResource("1_3r6mu")
+damage = 15.0
+knockback = 30.0
+statusEffects = Array[ExtResource("2_p82yk")]([SubResource("Resource_me523")])
+attackDelay = 2.5
+
+[sub_resource type="Resource" id="Resource_w862f"]
+script = ExtResource("3_jdib3")
+resource = ExtResource("2_k1u2q")
+amount = 4
+dropChance = 0.75
+
+[sub_resource type="Resource" id="Resource_awibb"]
+script = ExtResource("3_jdib3")
+resource = ExtResource("4_kd7tg")
+amount = 8
+dropChance = 1.0
+
+[resource]
+script = ExtResource("5_cyq6k")
+attacks = Array[ExtResource("1_3r6mu")]([SubResource("Resource_o5h46")])
+states = Array[int]([0, 1, 2])
+drops = Array[ExtResource("3_jdib3")]([SubResource("Resource_w862f"), SubResource("Resource_awibb")])
+name = "Carapace"
+texture = ExtResource("7_qj8s6")
+maxHealth = 40.0
+moveSpeed = 60.0
+ferocity = 4.0
+perseverance = 12.0
+agility = 2.0
+perception = 2.0

@@ -8,7 +8,7 @@ signal onDeath
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var navigationHandler = get_node("NavigationAgent2D")
 @onready var animations = get_node("AnimationPlayer")
-@onready var bloodParticles = get_node("BloodParticles")
+@onready var bloodParticles = get_node("BloodParticles").get_child(0)
 @onready var hitParticles = get_node("HitParticles")
 @onready var hitbox = get_node("Hitbox")
 @onready var resourceSpawner = get_node("ResourceSpawner")
@@ -45,9 +45,10 @@ var canLaunchProjectile = true
 var isAttacking = true
 var currentAttack: EnemyAttack
 
+var isDying: bool = false
+
 
 func _ready():
-	bloodParticles.visible = false
 	maxHealth = entityResource.maxHealth
 	health = entityResource.maxHealth
 	moveSpeed = entityResource.moveSpeed
@@ -58,7 +59,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if playerScene.isInDialog:
+	if !playerScene.canAct():
 		return
 	
 	if isKnockback:
@@ -118,9 +119,10 @@ func processIncomingAttack(attack: Attack):
 
 
 func entityKilled():
+	isDying = true
 	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP,
 		global_position, Vector2.DOWN, dropSpeed)
-		
+	
 	onDeath.emit(self)
 	queue_free()
 

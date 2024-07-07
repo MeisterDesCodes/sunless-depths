@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://xttesm4el1dg"]
+
+[ext_resource type="Script" path="res://UI/menu/inventory/resources-ui.gd" id="1_15s3g"]
+[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-1.tres" id="2_udnbg"]
+[ext_resource type="Texture2D" uid="uid://bt0sd6524ds34" path="res://assets/UI/icons/menu/inventory/All Items.png" id="3_7pkxf"]
+[ext_resource type="Texture2D" uid="uid://c8nkwlfeoomvr" path="res://assets/UI/icons/menu/inventory/Usables.png" id="3_14e2w"]
+[ext_resource type="Texture2D" uid="uid://bjpb2l71q326o" path="res://assets/UI/icons/menu/inventory/Resources.png" id="4_4xnhc"]
+[ext_resource type="Texture2D" uid="uid://dda5moqtu6oan" path="res://assets/UI/icons/menu/inventory/Equipment.png" id="4_bq3c6"]
+[ext_resource type="Texture2D" uid="uid://baaxea56gnea3" path="res://assets/UI/icons/menu/inventory/Blueprints.png" id="6_vglu4"]
+[ext_resource type="Texture2D" uid="uid://d0yvfjmya7pbf" path="res://assets/UI/icons/menu/inventory/Weapons.png" id="7_81jl7"]
+[ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Amunition.png" id="8_nfy4b"]
+
+[node name="ResourcesUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15s3g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="AllItems" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("3_7pkxf")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AllMaterials" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("4_4xnhc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AllUsables" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("3_14e2w")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AllBluprints" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("6_vglu4")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AllWeapons" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("7_81jl7")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AllAmmunition" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("8_nfy4b")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AllEquipment" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_udnbg")
+icon = ExtResource("4_bq3c6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Resources" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllItems" to="." method="_on_all_items_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllMaterials" to="." method="_on_all_materials_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllUsables" to="." method="_on_all_usables_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllBluprints" to="." method="_on_all_bluprints_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllWeapons" to="." method="_on_all_weapons_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllAmmunition" to="." method="_on_all_ammunition_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllEquipment" to="." method="_on_all_equipment_pressed"]

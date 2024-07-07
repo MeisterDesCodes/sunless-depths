@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://b6fud0iopr3my"]
+
+[ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_6mbni"]
+[ext_resource type="Texture2D" uid="uid://1wotbt3rrogc" path="res://assets/resources/weapons/longbow.png" id="2_3633a"]
+
+[resource]
+script = ExtResource("1_6mbni")
+damageModifier = 1.2
+speedModifier = 1.3
+knockbackModifier = 1.5
+spread = 25.0
+attackDelay = 2.0
+staminaCost = 20.0
+animations = Array[int]([3])
+name = "Crossbow"
+description = ""
+texture = ExtResource("2_3633a")
+rarity = 1

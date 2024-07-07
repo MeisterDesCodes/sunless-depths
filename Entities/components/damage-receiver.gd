@@ -17,9 +17,9 @@ func receiveAttack(attack: Attack):
 	var damageModifier = 1
 	var difference
 	if attack.type == Enums.weaponTypes.MELEE:
-		difference = attacker.ferocity - entity.entityResource.perseverance
+		difference = UtilsS.calculateMeleeScaling(attacker) - entity.entityResource.perseverance
 	else:
-		difference = attacker.ferocity * 0.5 + attacker.perception * 0.5 - entity.entityResource.agility
+		difference = UtilsS.calculateRangedScaling(attacker) - entity.entityResource.agility
 	
 	if difference > 0:
 		damageModifier += difference * 0.05
@@ -36,7 +36,7 @@ func receiveAttack(attack: Attack):
 func receiveDamage(damage):
 	entity.health -= damage
 	showDamage(damage)
-	if entity.health <= 0:
+	if entity.health <= 0 && !entity.isDying:
 		entity.entityKilled()
 
 
@@ -73,7 +73,7 @@ func playHitAnimation(_position: Vector2):
 		entity.hitParticles.restart()
 		entity.hitParticles.direction = entity.global_position.direction_to(_position).rotated(-rotation) * -1
 		if entity.health < entity.maxHealth / 2:
-			entity.bloodParticles.visible = true
+			entity.bloodParticles.emitting = true
 			entity.bloodParticles.amount = (entity.maxHealth / 2 - entity.health) / entity.maxHealth / 2 * 200
 
 

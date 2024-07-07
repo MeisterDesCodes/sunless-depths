@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bibqyv7bymwus" path="res://entities/components/contact-damage-component.tscn" id="7_ghee7"]
 [ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
-[ext_resource type="Texture2D" uid="uid://dqwgjrepip3co" path="res://assets/particles/blood.png" id="12_5w07s"]
+[ext_resource type="PackedScene" uid="uid://0cyf58x7bswu" path="res://environment/decorations/particles/blood-particle.tscn" id="12_m3rlm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
 radius = 120.0
@@ -69,7 +69,6 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D"]
-z_index = 10
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_tud5h")
@@ -126,24 +125,7 @@ entityScene = NodePath("..")
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("3_rnx55")]
 
-[node name="BloodParticles3" type="GPUParticles2D" parent="."]
-
-[node name="BloodParticles" type="CPUParticles2D" parent="."]
-amount = 1
-lifetime = 0.75
-explosiveness = 0.17
-randomness = 0.12
-draw_order = 1
-texture = ExtResource("12_5w07s")
-emission_shape = 1
-emission_sphere_radius = 10.0
-direction = Vector2(0, -1)
-spread = 90.0
-gravity = Vector2(0, 200)
-initial_velocity_min = 56.14
-initial_velocity_max = 56.14
-scale_amount_min = 0.15
-scale_amount_max = 0.3
+[node name="BloodParticles" parent="." instance=ExtResource("12_m3rlm")]
 
 [node name="HitParticles" type="CPUParticles2D" parent="."]
 position = Vector2(4, -12)
@@ -173,7 +155,6 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="AwarenessTimer" type="Timer" parent="."]
 wait_time = 5.0

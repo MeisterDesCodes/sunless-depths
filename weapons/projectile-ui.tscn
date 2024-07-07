@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpr3at4hehmur"]
 
 [ext_resource type="Script" path="res://weapons/projectile-ui.gd" id="1_1chbn"]
-[ext_resource type="Texture2D" uid="uid://d3y5lj33cvb26" path="res://assets/weapons/arrow.png" id="2_uhsn4"]
+[ext_resource type="Texture2D" uid="uid://d3y5lj33cvb26" path="res://assets/resources/weapons/ammunition/arrow.png" id="2_uhsn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cylg2"]
 radius = 5.0

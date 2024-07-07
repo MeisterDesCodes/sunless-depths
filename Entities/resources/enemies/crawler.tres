@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://dum4ni3lxgxqv"]
+
+[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="2_r35pu"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="3_kb283"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="4_bc52s"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="5_mmn2q"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="6_3d8ug"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="7_xnhxc"]
+[ext_resource type="Texture2D" uid="uid://bllnnk8x50e86" path="res://assets/entities/crawler.png" id="8_62wbg"]
+
+[sub_resource type="Resource" id="Resource_fwmki"]
+script = ExtResource("3_kb283")
+name = "Poison"
+strength = 0.5
+duration = 3.0
+
+[sub_resource type="Resource" id="Resource_o5h46"]
+script = ExtResource("2_r35pu")
+damage = 2.0
+knockback = 20.0
+statusEffects = Array[ExtResource("3_kb283")]([SubResource("Resource_fwmki")])
+attackDelay = 4.0
+
+[sub_resource type="Resource" id="Resource_w862f"]
+script = ExtResource("5_mmn2q")
+resource = ExtResource("4_bc52s")
+amount = 1
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_awibb"]
+script = ExtResource("5_mmn2q")
+resource = ExtResource("6_3d8ug")
+amount = 3
+dropChance = 1.0
+
+[resource]
+script = ExtResource("7_xnhxc")
+attacks = Array[ExtResource("2_r35pu")]([SubResource("Resource_o5h46")])
+states = Array[int]([0, 1, 2])
+drops = Array[ExtResource("5_mmn2q")]([SubResource("Resource_w862f"), SubResource("Resource_awibb")])
+name = "Crawler"
+texture = ExtResource("8_62wbg")
+maxHealth = 22.0
+moveSpeed = 75.0
+ferocity = 2.0
+perseverance = 1.0
+agility = 3.0
+perception = 1.0

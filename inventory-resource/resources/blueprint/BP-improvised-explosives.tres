@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://nxyeych8udio"]
+
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/scrap-metal.tres" id="1_ov8rw"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_m4kxc"]
+[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/blackpowder.tres" id="3_mcvry"]
+[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/improvised-explosives.tres" id="4_vwpfg"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_oarb8"]
+[ext_resource type="Texture2D" uid="uid://bqlnk5q2sprae" path="res://assets/resources/usable/Improvised Explosives.png" id="6_xcia4"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_m4kxc")
+resource = ExtResource("1_ov8rw")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_g43u8"]
+script = ExtResource("2_m4kxc")
+resource = ExtResource("3_mcvry")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_m4kxc")
+resource = ExtResource("4_vwpfg")
+amount = 1
+
+[resource]
+script = ExtResource("5_oarb8")
+inputResources = Array[ExtResource("2_m4kxc")]([SubResource("Resource_xtk5x"), SubResource("Resource_g43u8")])
+outputResources = Array[ExtResource("2_m4kxc")]([SubResource("Resource_4dyvn")])
+name = "Improvised Explosives - Blueprint"
+description = ""
+texture = ExtResource("6_xcia4")
+rarity = 1

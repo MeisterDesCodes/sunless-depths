@@ -5,14 +5,14 @@
 
 [resource]
 script = ExtResource("1_7shrn")
-supplyDrain = 0.75
-oxygenDrain = 0.5
+supplyDrain = 1.0
+oxygenDrain = 0.25
 staminaDrain = 0.0
-staminaRestore = 15.0
+staminaRestore = 20.0
 name = "Player"
 texture = ExtResource("2_papex")
-maxHealth = 100.0
-moveSpeed = 250.0
+maxHealth = 30.0
+moveSpeed = 125.0
 ferocity = 2.0
 perseverance = 2.0
 agility = 2.0

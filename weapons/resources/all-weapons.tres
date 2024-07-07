@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AllWeapons" load_steps=4 format=3 uid="uid://dctykrsh8is5c"]
-
-[ext_resource type="Script" path="res://weapons/all-weapons.gd" id="1_sl5ud"]
-[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/crossbow.tres" id="2_4tw41"]
-[ext_resource type="Resource" uid="uid://kab6p5onm82t" path="res://weapons/resources/lance.tres" id="2_fjkl0"]
-
-[resource]
-script = ExtResource("1_sl5ud")
-weapons = Array[Resource("res://weapons/weapon.gd")]([ExtResource("2_fjkl0"), ExtResource("2_4tw41")])

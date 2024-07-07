@@ -1,0 +1,264 @@
+[gd_scene load_steps=13 format=3 uid="uid://evwwxpphrv2f"]
+
+[ext_resource type="Script" path="res://UI/menu/inventory/player-stats-ui.gd" id="1_yem5b"]
+[ext_resource type="Texture2D" uid="uid://ddo537ghvks2b" path="res://assets/entities/player.png" id="2_itxv7"]
+[ext_resource type="Texture2D" uid="uid://jb4iqplcwjyj" path="res://assets/UI/icons/player/stats/Ferocity.png" id="4_hciwx"]
+[ext_resource type="Texture2D" uid="uid://c4bc5s1o4qa72" path="res://assets/UI/icons/player/stats/Perseverance.png" id="5_epqw1"]
+[ext_resource type="Theme" uid="uid://blt1eyj3xshax" path="res://assets/UI/themes/UI-elements/standard-container-2.tres" id="5_nd6g7"]
+[ext_resource type="Texture2D" uid="uid://bej8d5jd1it7r" path="res://assets/UI/icons/player/stats/Agility.png" id="6_wut3j"]
+[ext_resource type="Texture2D" uid="uid://y7hxr8hq5k2e" path="res://assets/UI/icons/player/stats/Perception.png" id="7_72qyy"]
+[ext_resource type="Texture2D" uid="uid://dywyo62njeexp" path="res://assets/UI/components/panel-container-round-3.png" id="8_yqf31"]
+[ext_resource type="Texture2D" uid="uid://dl1y4v7wi262c" path="res://assets/UI/components/progress-bar-circular-1.png" id="9_e40vo"]
+[ext_resource type="Theme" uid="uid://lkf3mb4llx74" path="res://assets/UI/themes/text/text-large-highlight.tres" id="10_81mck"]
+[ext_resource type="Theme" uid="uid://b18tu8eqd6rjk" path="res://assets/UI/themes/text/text-small-highlight.tres" id="11_cv104"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lje58"]
+
+[node name="PlayerStatsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yem5b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lje58")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_itxv7")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Label1" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Name
+"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Background"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Level"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Ambition"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Background" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Level" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Ambition" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+self_modulate = Color(0.709804, 0.0666667, 0.0666667, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_nd6g7")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Panel"]
+self_modulate = Color(0.709804, 0.0666667, 0.0666667, 1)
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_hciwx")
+expand_mode = 2
+
+[node name="Ferocity" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+self_modulate = Color(0.329412, 0.639216, 0.184314, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_nd6g7")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/Panel"]
+self_modulate = Color(0.329412, 0.639216, 0.184314, 1)
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_epqw1")
+expand_mode = 2
+
+[node name="Perseverance" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+self_modulate = Color(0.827451, 0.643137, 0.168627, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_nd6g7")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/Panel3"]
+self_modulate = Color(0.827451, 0.643137, 0.168627, 1)
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_wut3j")
+expand_mode = 2
+
+[node name="Agility" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel4" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
+self_modulate = Color(0.117647, 0.372549, 0.607843, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_nd6g7")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/Panel4"]
+self_modulate = Color(0.117647, 0.372549, 0.607843, 1)
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_72qyy")
+expand_mode = 2
+
+[node name="Perception" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Experience" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+step = 0.0
+fill_mode = 4
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_over = ExtResource("8_yqf31")
+texture_progress = ExtResource("9_e40vo")
+
+[node name="LevelUpButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3/Experience"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Current Experience:"
+
+[node name="CurrentExperience" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("10_81mck")
+
+[node name="LevelUp" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/LevelUp"]
+layout_mode = 2
+text = "Ready to level up!"
+
+[node name="ExperienceCost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/LevelUp"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("11_cv104")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Experience/LevelUpButton" to="." method="_on_level_up_button_pressed"]

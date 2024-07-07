@@ -10,7 +10,7 @@ var playerScene = null
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("approach-curiosity") && playerInRange && !playerScene.isInDialog:
+	if Input.is_action_just_pressed("approach-curiosity") && playerInRange && playerScene.canAct():
 		onEnter.emit()
 
 

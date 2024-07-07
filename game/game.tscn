@@ -6,12 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
 [ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
-[ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/HUD/hud-ui.tscn" id="58_isjnl"]
+[ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/hud/hud-ui.tscn" id="58_isjnl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
-vertices = PackedVector2Array(7755, -5599, 7719, 6114, -5855, 6138, -5923, -5684)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-5929, -5690, 7761, -5604, 7724, 6119, -5860, 6144)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-11901, -8054, 11857, -8054, 12017, 8361, -11630, 8555)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 5.0
 
@@ -35,11 +33,9 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 
 [node name="Entities" type="Node2D" parent="."]
 
-[node name="Player" parent="Entities" node_paths=PackedStringArray("backgroundMusic", "sfx") instance=ExtResource("2_bqi1q")]
+[node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
 top_level = true
-position = Vector2(3790.32, 759.745)
-backgroundMusic = NodePath("../../SoundHandler/BackgroundMusic")
-sfx = NodePath("../../SoundHandler/SFX")
+position = Vector2(444.164, 531.381)
 
 [node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../FollowCamera")
@@ -47,7 +43,7 @@ remote_path = NodePath("../../../FollowCamera")
 [node name="Enemies" type="Node2D" parent="Entities"]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(3790.32, 759.745)
+position = Vector2(444.164, 531.381)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -67,13 +63,15 @@ autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -11394.0
-offset_top = -7672.0
-offset_right = 11394.0
-offset_bottom = 7672.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12719.0
+offset_top = -9196.0
+offset_right = 12719.0
+offset_bottom = 9196.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_shq6o")

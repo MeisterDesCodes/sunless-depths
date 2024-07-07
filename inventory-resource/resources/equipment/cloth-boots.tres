@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://clcx6r0d0mnyc"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_gu3ti"]
+[ext_resource type="Texture2D" uid="uid://yyh4pjw7oprx" path="res://assets/resources/equipment/Boots.png" id="2_jea0p"]
+
+[resource]
+script = ExtResource("1_gu3ti")
+equipmentType = 3
+ferocityModifier = 0
+perseveranceModifier = 2
+agilityModifier = 1
+perceptionModifier = 0
+name = "Cloth Boots"
+description = ""
+texture = ExtResource("2_jea0p")
+rarity = 1

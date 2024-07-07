@@ -12,7 +12,7 @@ radius = 36.0
 script = ExtResource("2_egl2p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.174863, 0.174863)
+scale = Vector2(0.153005, 0.153005)
 texture = ExtResource("2_aaiyn")
 
 [node name="DetectionRadius" type="Area2D" parent="."]

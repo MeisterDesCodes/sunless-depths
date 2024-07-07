@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://dmj3bm2m1ibsi"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_f4itd"]
+[ext_resource type="Texture2D" uid="uid://b6gm8myx8bbbg" path="res://assets/resources/material/Experience.png" id="2_setcy"]
+
+[resource]
+script = ExtResource("1_f4itd")
+name = "Experience"
+description = "Gained through surviving, killing and exploring, it can be spent to level up, or used as a resource for certain events."
+texture = ExtResource("2_setcy")
+rarity = 0

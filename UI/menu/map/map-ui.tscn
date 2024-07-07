@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://g15kf5157lvj"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-ui.gd" id="1_c4myw"]
-[ext_resource type="Texture2D" uid="uid://com0pfpci8ju" path="res://assets/UI/images/Group 178.png" id="2_p6thc"]
-[ext_resource type="PackedScene" uid="uid://c572bb7vvyy3u" path="res://UI/menu/map/map-locationI-ui.tscn" id="3_v6jxr"]
+[ext_resource type="Texture2D" uid="uid://com0pfpci8ju" path="res://assets/UI/images/map.png" id="2_ealbo"]
+[ext_resource type="PackedScene" uid="uid://c572bb7vvyy3u" path="res://UI/menu/map/map-location-ui.tscn" id="3_v6jxr"]
 [ext_resource type="PackedScene" uid="uid://l81lxelhto0l" path="res://UI/menu/map/map-pathway-ui.tscn" id="4_mf3og"]
 
 [node name="MapUI" type="Control"]
@@ -34,7 +34,7 @@ ratio = 1.57
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="AspectRatioContainer"]
 layout_mode = 2
-texture = ExtResource("2_p6thc")
+texture = ExtResource("2_ealbo")
 
 [node name="Locations" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
 z_index = 1
@@ -111,6 +111,7 @@ iterations = 1
 locationFrom = "Settle"
 locationTo = "Test2"
 travelDirections = Array[int]([0, 2])
+tier = 1
 
 [node name="MapLocationUI9" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 310.0
@@ -258,6 +259,7 @@ iterations = 1
 locationFrom = "Settle"
 locationTo = "Test1"
 travelDirections = Array[int]([3, 1])
+tier = 1
 
 [node name="MapLocationUI7" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
 offset_left = 637.0

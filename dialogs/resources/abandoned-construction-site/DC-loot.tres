@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DialogChoice" load_steps=8 format=3 uid="uid://cbj2ojglyo8ig"]
 
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="1_fl4sn"]
-[ext_resource type="Resource" uid="uid://dlg83af5a8eiv" path="res://inventory-resource/resources/blueprints/BP-improvised-explosives.tres" id="1_x6vdh"]
+[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="1_x6vdh"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_hvcgd"]
 [ext_resource type="Resource" uid="uid://bhfo3v05n6mbh" path="res://dialogs/resources/abandoned-construction-site/D-toolbox.tres" id="3_lyks1"]
 [ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/blackpowder.tres" id="3_yo6vb"]

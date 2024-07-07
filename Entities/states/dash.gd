@@ -9,7 +9,8 @@ class_name DashState
 @onready var dashTimer = get_node("DashTimer")
 @onready var dashCooldown = get_node("DashCooldown")
 
-var dashSpeedModifier = 1.75
+var baseDashSpeed = 200
+var dashSpeedModifier = 1.5
 var direction: Vector2
 var pause = true
 
@@ -23,7 +24,7 @@ func enter():
 	dashCooldown.start()
 	direction = entity.global_position.direction_to(playerScene.global_position).normalized()
 	entity.velocity = Vector2.ZERO
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.15).timeout
 	pause = false
 
 
@@ -35,7 +36,7 @@ func exit():
 
 func update(delta):
 	if !pause:
-		entity.velocity = lerp(entity.velocity, direction * 300, 0.25)
+		entity.velocity = lerp(entity.velocity, direction * (baseDashSpeed + entity.entityResource.moveSpeed * dashSpeedModifier), 0.25)
 	else:
 		entity.look_at(playerScene.global_position)
 

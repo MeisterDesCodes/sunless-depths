@@ -5,6 +5,7 @@ extends PanelContainer
 @export var locationFrom: String
 @export var locationTo: String
 @export var travelDirections: Array[Enums.exitDirection]
+@export var tier: int
 
 
 func _ready():

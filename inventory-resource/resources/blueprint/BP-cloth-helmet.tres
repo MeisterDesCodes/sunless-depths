@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=8 format=3 uid="uid://ckosiivxdqc2m"]
+
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/cloth.tres" id="1_wxuy7"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_6egiy"]
+[ext_resource type="Resource" uid="uid://km4uquf4rkwe" path="res://inventory-resource/resources/equipment/cloth-helmet.tres" id="3_vht6u"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_st7g3"]
+[ext_resource type="Texture2D" uid="uid://b33yk2q2454ka" path="res://assets/resources/equipment/Helmet.png" id="5_eqssa"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_6egiy")
+resource = ExtResource("1_wxuy7")
+amount = 6
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_6egiy")
+resource = ExtResource("3_vht6u")
+amount = 1
+
+[resource]
+script = ExtResource("4_st7g3")
+inputResources = Array[ExtResource("2_6egiy")]([SubResource("Resource_xtk5x")])
+outputResources = Array[ExtResource("2_6egiy")]([SubResource("Resource_4dyvn")])
+name = "Cloth Helmet - Blueprint"
+description = ""
+texture = ExtResource("5_eqssa")
+rarity = 1

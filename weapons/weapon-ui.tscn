@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ckh0etq8rdsn"]
 
 [ext_resource type="Script" path="res://weapons/weapon-ui.gd" id="1_bqajw"]
-[ext_resource type="Texture2D" uid="uid://bkad0keidjebc" path="res://assets/weapons/lance.png" id="2_l42rh"]
+[ext_resource type="Texture2D" uid="uid://bkad0keidjebc" path="res://assets/resources/weapons/lance.png" id="2_l42rh"]
 [ext_resource type="PackedScene" uid="uid://b2udn5n4jvrxi" path="res://shared/projectile-spawner.tscn" id="3_yqk5q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdqcw"]

@@ -23,7 +23,6 @@ func interact(body):
 		playerScene.atExit = true
 		menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 		menuScene._on_map_pressed()
-		playerScene.currentExit = self
 	else:
 		playerScene.atLocation = true
 		LocationLoaderS.loadArea(LocationLoaderS.nextLocation)

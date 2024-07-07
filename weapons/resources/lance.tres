@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MeleeWeapon" load_steps=3 format=3 uid="uid://kab6p5onm82t"]
 
-[ext_resource type="Script" path="res://weapons/melee-weapon.gd" id="1_2f53d"]
-[ext_resource type="Texture2D" uid="uid://bkad0keidjebc" path="res://assets/weapons/lance.png" id="2_sret4"]
+[ext_resource type="Script" path="res://inventory-resource/melee-weapon.gd" id="1_2f53d"]
+[ext_resource type="Texture2D" uid="uid://bkad0keidjebc" path="res://assets/resources/weapons/lance.png" id="2_sret4"]
 
 [resource]
 script = ExtResource("1_2f53d")

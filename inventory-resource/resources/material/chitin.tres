@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://cp5wmmeqrheb3"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_07rjt"]
+[ext_resource type="Texture2D" uid="uid://c8id2msnttufi" path="res://assets/resources/material/Chitin.png" id="2_tlang"]
+
+[resource]
+script = ExtResource("1_07rjt")
+name = "Chitin"
+description = ""
+texture = ExtResource("2_tlang")
+rarity = 2

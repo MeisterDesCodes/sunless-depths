@@ -1,62 +1,61 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=21 format=3 uid="uid://btn5dob4qrwk5"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=20 format=3 uid="uid://btn5dob4qrwk5"]
 
-[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/primary/supplies.tres" id="1_mh34j"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_mh34j"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_a7ysp"]
-[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/primary/oxygen.tres" id="3_0dhd3"]
-[ext_resource type="Resource" uid="uid://dlx7uvkhbfvnc" path="res://inventory-resource/resources/primary/stamina.tres" id="4_v4rc5"]
+[ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/branch.tres" id="3_vc5xn"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="4_5bqy2"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/cloth.tres" id="5_1xbpx"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="6_oyeaj"]
 [ext_resource type="Script" path="res://inventory-resource/inventory.gd" id="6_s3erd"]
-[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/crossbow.tres" id="7_chjm2"]
-[ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/branch.tres" id="7_qmqiu"]
-[ext_resource type="Resource" uid="uid://kab6p5onm82t" path="res://weapons/resources/lance.tres" id="8_f8peb"]
-[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/primary/gold.tres" id="8_r2vlu"]
-[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/primary/experience.tres" id="9_bbk1v"]
-[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/improvised-explosives.tres" id="10_o4x1o"]
+[ext_resource type="Resource" uid="uid://cbbibscb4wiy1" path="res://inventory-resource/resources/blueprint/BP-cloth-boots.tres" id="7_xkm5v"]
+[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/refined_crossbow.tres" id="8_ggh0b"]
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/amunition/wooden-arrow.tres" id="9_uwijk"]
 
 [sub_resource type="Resource" id="Resource_cbtrd"]
 script = ExtResource("2_a7ysp")
 resource = ExtResource("1_mh34j")
 amount = 5
 
-[sub_resource type="Resource" id="Resource_6qn3x"]
+[sub_resource type="Resource" id="Resource_fpqv4"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("4_v4rc5")
+resource = ExtResource("3_vc5xn")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_bjhhi"]
+[sub_resource type="Resource" id="Resource_lmu2s"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("3_0dhd3")
-amount = 0
+resource = ExtResource("4_5bqy2")
+amount = 17
 
-[sub_resource type="Resource" id="Resource_snsg2"]
+[sub_resource type="Resource" id="Resource_qfibf"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("7_qmqiu")
-amount = 0
+resource = ExtResource("5_1xbpx")
+amount = 50
 
-[sub_resource type="Resource" id="Resource_tkxcu"]
+[sub_resource type="Resource" id="Resource_0ueoo"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("7_chjm2")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_kyyxu"]
-script = ExtResource("2_a7ysp")
-resource = ExtResource("8_f8peb")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_v5pbr"]
-script = ExtResource("2_a7ysp")
-resource = ExtResource("8_r2vlu")
+resource = ExtResource("6_oyeaj")
 amount = 5000
 
-[sub_resource type="Resource" id="Resource_81c8y"]
+[sub_resource type="Resource" id="Resource_jlxau"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("9_bbk1v")
-amount = 3000
+resource = ExtResource("7_xkm5v")
+amount = 1
 
-[sub_resource type="Resource" id="Resource_5cr3s"]
+[sub_resource type="Resource" id="Resource_e3n0t"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("10_o4x1o")
-amount = 3
+resource = ExtResource("8_ggh0b")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_7d02b"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("9_uwijk")
+amount = 20
+
+[sub_resource type="Resource" id="Resource_qkiv4"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("8_ggh0b")
+amount = 0
 
 [resource]
 script = ExtResource("6_s3erd")
-resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_cbtrd"), SubResource("Resource_6qn3x"), SubResource("Resource_bjhhi"), SubResource("Resource_snsg2"), SubResource("Resource_tkxcu"), SubResource("Resource_kyyxu"), SubResource("Resource_v5pbr"), SubResource("Resource_81c8y"), SubResource("Resource_5cr3s")])
+resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_lmu2s"), SubResource("Resource_qfibf"), SubResource("Resource_0ueoo"), SubResource("Resource_jlxau"), SubResource("Resource_e3n0t"), SubResource("Resource_7d02b"), SubResource("Resource_qkiv4")])

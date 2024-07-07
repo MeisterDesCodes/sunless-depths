@@ -1,13 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://xbb1mnn8v7hy"]
+[gd_scene load_steps=15 format=3 uid="uid://xbb1mnn8v7hy"]
 
 [ext_resource type="Script" path="res://entities/player-ui.gd" id="1_22f2w"]
 [ext_resource type="Resource" uid="uid://bunurwyxgx0ax" path="res://entities/resources/player/player.tres" id="2_ecqal"]
 [ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="2_qutlf"]
 [ext_resource type="Script" path="res://entities/rotation-point.gd" id="3_qyr1b"]
-[ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/branch.tres" id="4_5xlfa"]
-[ext_resource type="Resource" uid="uid://kab6p5onm82t" path="res://weapons/resources/lance.tres" id="6_d4a4u"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="6_glmfw"]
-[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/crossbow.tres" id="6_inlvs"]
 [ext_resource type="Script" path="res://entities/input-control.gd" id="7_0y48q"]
 [ext_resource type="PackedScene" uid="uid://ckh0etq8rdsn" path="res://weapons/weapon-ui.tscn" id="8_o73pc"]
 [ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver.tscn" id="8_p7uws"]
@@ -59,10 +56,10 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 motion_mode = 1
+safe_margin = 5.0
 script = ExtResource("1_22f2w")
 entityResource = ExtResource("2_ecqal")
 inventory = ExtResource("2_qutlf")
-equippedWeapons = Array[Resource("res://weapons/weapon.gd")]([ExtResource("4_5xlfa"), ExtResource("6_d4a4u"), ExtResource("6_inlvs")])
 
 [node name="RotationPoint" type="Marker2D" parent="."]
 script = ExtResource("3_qyr1b")

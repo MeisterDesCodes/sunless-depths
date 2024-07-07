@@ -21,22 +21,20 @@ var merchants: Array[PackedScene] = preload("res://generation/merchants/merchant
 var currentRooms: Array[Node2D]
 var tileSize = 64
 
-var availableDirections: Array[Enums.exitDirection] = [Enums.exitDirection.TOP,
-	Enums.exitDirection.RIGHT, Enums.exitDirection.DOWN, Enums.exitDirection.LEFT]
+var availableDirections: Array[Enums.exitDirection] = [Enums.exitDirection.RIGHT, Enums.exitDirection.LEFT]
 var initialDirection: Enums.exitDirection = Enums.exitDirection.TOP
-
-var enemies = preload("res://entities/resources/enemies.tres").allEnemies
 
 var generatedSpecialRooms: Array[Node2D] = []
 var generatedExits: Array[Node2D] = []
 
 
 func generateCave():
-	clearCave()
-	generateRoot()
-	generateRooms()
-	setSpawners()
-	validateCave()
+	if iterations > 0:
+		clearCave()
+		generateRoot()
+		generateRooms()
+		setSpawners()
+		validateCave()
 
 
 func clearCave():
@@ -55,11 +53,10 @@ func instanceRoom():
 
 
 func generateRoot():
-	if iterations > 0:
-		var root = instanceRoom()
-		cave.add_child(root)
-		root.global_position = Vector2.ZERO
-		currentRooms.append(root)
+	var root = instanceRoom()
+	cave.add_child(root)
+	root.global_position = Vector2.ZERO
+	currentRooms.append(root)
 
 
 func generateFittingRoom(exit, roomType):
@@ -198,7 +195,7 @@ func generateExits():
 	for direction in availableDirections:
 		generateExitInDirection(getRemainingExits(), direction)
 
-var counter = 0
+
 func generateExitInDirection(exits, direction):
 	if exits.is_empty():
 		return
@@ -207,16 +204,16 @@ func generateExitInDirection(exits, direction):
 	for exit in exits:
 		match direction:
 			Enums.exitDirection.TOP:
-				if !foundExit || exitGlobalPosition(exit).y < exitGlobalPosition(foundExit).y:
+				if !foundExit || exitGlobalPosition(exit).y < 0:
 					foundExit = exit
 			Enums.exitDirection.RIGHT:
-				if !foundExit || exitGlobalPosition(exit).x > exitGlobalPosition(foundExit).x:
+				if !foundExit || exitGlobalPosition(exit).x > 0:
 					foundExit = exit
 			Enums.exitDirection.DOWN:
-				if !foundExit || exitGlobalPosition(exit).y > exitGlobalPosition(foundExit).y:
+				if !foundExit || exitGlobalPosition(exit).y > 0:
 					foundExit = exit
 			Enums.exitDirection.LEFT:
-				if !foundExit || exitGlobalPosition(exit).x < exitGlobalPosition(foundExit).x:
+				if !foundExit || exitGlobalPosition(exit).x < 0:
 					foundExit = exit
 					
 	var room = placeRoom(foundExit, Enums.segmentType.EXIT)
@@ -262,7 +259,6 @@ func setSpawners():
 		var spawners: Node2D = room.get_child(0).get_node("Map/EnvironmentalObjects/Spawners")
 		for spawner in spawners.get_children():
 			var spawnerScene = preload("res://entities/entity-spawner.tscn").instantiate()
-			spawnerScene.enemies = enemies
 			spawnerScene.spawnDelay = 25
 			spawnerScene.global_position = spawner.global_position
 			spawner.queue_free()

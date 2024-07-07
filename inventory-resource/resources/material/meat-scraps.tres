@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://d8khmuxxyed7"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_basc8"]
+[ext_resource type="Texture2D" uid="uid://bfj0twefl5slf" path="res://assets/resources/material/Meat Scraps.png" id="2_8hnl3"]
+
+[resource]
+script = ExtResource("1_basc8")
+name = "Meat Scraps"
+description = "Small bits of flesh, providing some nourishment in the harsh underground world. They don't look so good, but with some help, can be turned into supplies."
+texture = ExtResource("2_8hnl3")
+rarity = 1

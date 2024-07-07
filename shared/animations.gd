@@ -15,3 +15,11 @@ func fadeOutHeight(element, duration: float):
 
 func setSize(element, size: float, duration: float):
 	get_tree().create_tween().tween_property(element, "scale", Vector2(size, size), duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+
+func fadeInVisible(element, duration: float):
+	get_tree().create_tween().tween_property(element, "modulate", Color(element.modulate.r, element.modulate.g, element.modulate.b, 1), duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+
+func fadeOutVisible(element, duration: float):
+	get_tree().create_tween().tween_property(element, "modulate", Color(element.modulate.r, element.modulate.g, element.modulate.b, 0), duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)

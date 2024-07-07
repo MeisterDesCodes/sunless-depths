@@ -7,12 +7,12 @@ var direction: Vector2 = Vector2.ZERO
 var caster: CharacterBody2D
 var enemyAttack: EnemyAttack
 var resource: Entity
-var projectile: Projectile
-var weapon = Weapon
+var projectile: InventoryAmmunition
+var weapon: InventoryWeapon
 var isPlayer: bool
 
 
-func setup(_caster: CharacterBody2D, _projectile: Projectile, _position: Vector2, _direction: Vector2):
+func setup(_caster: CharacterBody2D, _projectile: InventoryAmmunition, _position: Vector2, _direction: Vector2):
 	caster = _caster
 	resource = caster.entityResource
 	projectile = _projectile
@@ -50,7 +50,7 @@ func _on_detection_area_area_entered(area):
 	hitEntities.append(area)
 	var attack: Attack
 	if isPlayer:
-		attack = Attack.new(global_position, resource, weapon.damageModifier * weapon.projectile.damage, weapon.knockbackModifier * weapon.projectile.knockback, Enums.weaponTypes.RANGED, weapon.projectile.statusEffects)
+		attack = Attack.new(global_position, resource, weapon.damageModifier * weapon.ammunition.damage, weapon.knockbackModifier * weapon.ammunition.knockback, Enums.weaponTypes.RANGED, weapon.ammunition.statusEffects)
 	else:
 		attack = Attack.new(global_position, resource, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects)
 	if projectile.isPiercing:

@@ -2,14 +2,15 @@ extends Resource
 
 class_name Inventory
 
-signal update
+signal updateInventory
 
 @export var resourceSlots: Array[InventorySlot]
 
 
 func addResource(tempResource: InventoryResource, amount: int):
 	var foundAssetSlots = resourceSlots.filter(func(slot): return slot.resource.name == tempResource.name)
-	if !foundAssetSlots.is_empty() && foundAssetSlots[0].resource.type != Enums.resourceType.WEAPON:
+	if !foundAssetSlots.is_empty() && foundAssetSlots[0].resource.type != Enums.resourceType.WEAPON \
+		&& foundAssetSlots[0].resource.type != Enums.resourceType.EQUIPMENT:
 		foundAssetSlots[0].amount += amount
 	else:
 		var newSlot = InventorySlot.new()
@@ -17,8 +18,8 @@ func addResource(tempResource: InventoryResource, amount: int):
 		newSlot.amount = amount
 		resourceSlots.append(newSlot)
 	
-	updateInventory()
-	update.emit()
+	updateResourceTypes()
+	updateInventory.emit(Enums.resourceType.NONE)
 
 
 func removeResource(tempResource: InventoryResource, amount: int):
@@ -26,9 +27,9 @@ func removeResource(tempResource: InventoryResource, amount: int):
 	if !foundResourceSlots.is_empty():
 		foundResourceSlots[0].amount -= amount
 		if foundResourceSlots[0].amount <= 0:
-			resourceSlots.remove_at(resourceSlots.find(foundResourceSlots[0], 0))
+			resourceSlots.remove_at(resourceSlots.find(foundResourceSlots[0]))
 	
-	update.emit()
+	updateInventory.emit(Enums.resourceType.NONE)
 
 
 func hasResources(resourceContainers: Array):
@@ -39,13 +40,13 @@ func getResourceAmount(tempResource: InventoryResource):
 	var foundResourceSlots = resourceSlots.filter(func(slot): return slot.resource.name == tempResource.name)
 	if !foundResourceSlots.is_empty():
 		var resourceSlot = foundResourceSlots[0]
-		return 1 if resourceSlot.resource is Weapon else resourceSlot.amount
+		return 1 if resourceSlot.resource is InventoryWeapon else resourceSlot.amount
 	else:
 		return 0
 
 
-func updateInventory():
+func updateResourceTypes():
 	for resourceSlot in resourceSlots:
-		UtilsS.updateResource(resourceSlot.resource)
+		UtilsS.updateResourceType(resourceSlot.resource)
 
 

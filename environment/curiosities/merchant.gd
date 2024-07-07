@@ -2,8 +2,8 @@ extends Node2D
 
 
 @export var title: String
-@export var merchantResources: Array[InventoryResource]
-@export var priceModifier: float = 1
+@export var availableBlueprints: Array[InventoryResource]
+@export var priceModifier: float
 
 @onready var curiosity = get_node("Curiosity")
 
@@ -13,5 +13,5 @@ func _ready():
 
 
 func onEnter():
-	var scene = UILoaderS.loadUIScene(preload("res://UI/merchants/merchant-ui.tscn"))
+	var scene = UILoaderS.loadUIScene(preload("res://UI/merchant/merchant-ui.tscn"))
 	scene.setup(self)

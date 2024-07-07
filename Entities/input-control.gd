@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _process(delta):
-	if playerScene.isInDialog:
+	if !playerScene.canAct():
 		return
 	
 	if Input.is_action_just_pressed("inventory"):
@@ -46,8 +46,8 @@ func _process(delta):
 	if Input.get_action_strength("sprint") && playerScene.hudUI.staminaBar.value > 0:
 		playerScene.isSprinting = true
 		playerScene.hudUI.onSprint()
-		playerScene.currentSupplyDrain = playerScene.entityResource.supplyDrain + 1.25
-		playerScene.currentOxygenDrain = playerScene.entityResource.supplyDrain + 0.75
+		playerScene.currentSupplyDrain = playerScene.entityResource.supplyDrain * 1.25
+		playerScene.currentOxygenDrain = playerScene.entityResource.supplyDrain * 1.5
 		playerScene.currentStaminaDrain = 10
 		playerScene.currentStaminaRestore = 0
 		$"../StaminaRestore".start()

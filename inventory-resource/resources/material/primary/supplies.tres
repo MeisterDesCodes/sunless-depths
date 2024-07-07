@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://kjfua18msrf6"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_e0uxh"]
+[ext_resource type="Texture2D" uid="uid://84ye3gaj0elj" path="res://assets/resources/material/Supplies.png" id="2_ncb6a"]
+
+[resource]
+script = ExtResource("1_e0uxh")
+name = "Supplies"
+description = "Crucial for survival in the sewers, keeping you alive and well. If you run out, things will go down south quickly."
+texture = ExtResource("2_ncb6a")
+rarity = 0

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://c572bb7vvyy3u"]
+
+[ext_resource type="Script" path="res://UI/menu/map/map-location-ui.gd" id="1_5e0v6"]
+[ext_resource type="Theme" uid="uid://bek0jddx7ueh8" path="res://assets/UI/themes/UI-elements/round-container-4.tres" id="2_n1ghj"]
+
+[node name="MapLocationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5e0v6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -22.5
+offset_right = 17.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_n1ghj")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+flat = true
+
+[connection signal="mouse_entered" from="VBoxContainer/PanelContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/PanelContainer/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/Button" to="." method="_on_button_pressed"]

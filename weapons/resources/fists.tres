@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="MeleeWeapon" load_steps=3 format=3 uid="uid://bp437lt7ymavk"]
 
-[ext_resource type="Script" path="res://weapons/melee-weapon.gd" id="1_671m5"]
-[ext_resource type="Texture2D" uid="uid://d126wp606dif7" path="res://assets/weapons/fists.png" id="2_ns43f"]
+[ext_resource type="Script" path="res://inventory-resource/melee-weapon.gd" id="1_671m5"]
+[ext_resource type="Texture2D" uid="uid://b802sq0m8ikyl" path="res://assets/resources/weapons/fists.png" id="2_ns43f"]
 
 [resource]
 script = ExtResource("1_671m5")
 damage = 2.0
 knockback = 10.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
-attackDelay = 1.0
-staminaCost = 30.0
+attackDelay = 0.5
+staminaCost = 25.0
 animations = Array[int]([2])
 name = "Fists"
 description = ""
