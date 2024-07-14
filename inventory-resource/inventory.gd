@@ -36,11 +36,26 @@ func hasResources(resourceContainers: Array):
 	return resourceContainers.all(func(resourceContainer): return getResourceAmount(resourceContainer.resource) >= resourceContainer.amount)
 
 
-func getResourceAmount(tempResource: InventoryResource):
+func getResourceSlot(tempResource: InventoryResource):
 	var foundResourceSlots = resourceSlots.filter(func(slot): return slot.resource.name == tempResource.name)
 	if !foundResourceSlots.is_empty():
-		var resourceSlot = foundResourceSlots[0]
-		return 1 if resourceSlot.resource is InventoryWeapon else resourceSlot.amount
+		return foundResourceSlots[0]
+	else:
+		return null
+
+
+func getResource(tempResource: InventoryResource):
+	var foundResourceSlot = getResourceSlot(tempResource)
+	if foundResourceSlot:
+		return foundResourceSlot.resource
+	else:
+		return null
+
+
+func getResourceAmount(tempResource: InventoryResource):
+	var foundResourceSlot = getResourceSlot(tempResource)
+	if foundResourceSlot:
+		return 1 if foundResourceSlot.resource is InventoryWeapon else foundResourceSlot.amount
 	else:
 		return 0
 
@@ -48,5 +63,12 @@ func getResourceAmount(tempResource: InventoryResource):
 func updateResourceTypes():
 	for resourceSlot in resourceSlots:
 		UtilsS.updateResourceType(resourceSlot.resource)
+
+
+
+
+
+
+
 
 

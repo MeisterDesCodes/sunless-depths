@@ -5,22 +5,22 @@ extends Node
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var caveGenerator = get_tree().get_root().get_node("Game/NavigationRegion2D/CaveGenerator")
 
-var currentLocation: String
-var nextLocation: String
+var currentLocation: Enums.locations
+var nextLocation: Enums.locations
 var currentFromDirection: Enums.exitDirection
 var currentToDirection: Enums.exitDirection
 var currentTier: int
 
-var visitedLocations: Array[String]
+var visitedLocations: Array[Enums.locations]
 
 
-func loadArea(location: String):
+func loadArea(location: Enums.locations):
 	await startAreaTransition()
 	removeCurrentCave()
 	currentLocation = location
-	nextLocation = ""
+	nextLocation = -1
 	visitedLocations.append(location)
-	game.currentLocation.add_child(LocationLoaderS.getSceneFromName(location).instantiate())
+	game.currentLocation.add_child(getSceneFromId(location).instantiate())
 	finishAreaTransition()
 
 
@@ -29,6 +29,10 @@ func loadCave():
 	caveGenerator.spawnPlayer.connect(spawnPlayer)
 	removeCurrentLocation()
 	caveGenerator.generateCave()
+	
+	#TODO Monitor
+	await get_tree().process_frame
+	
 	game.navigationRegion.bake_navigation_polygon()
 	finishAreaTransition()
 
@@ -61,7 +65,8 @@ func spawnPlayer(_position: Vector2):
 	game.playerScene.global_position = _position
 
 
-func getSceneFromName(name: String):
+func getSceneFromId(location: Enums.locations):
+	var locationName = UtilsS.getEnumValue(Enums.locations, location).to_lower().replace("_", "")
 	var allLocations: Array[PackedScene] = preload("res://UI/menu/map/resources/locations.tres").allLocations
-	var filteredLocations = allLocations.filter(func(location): return name.to_lower() in location.instantiate().name.to_lower())
-	return filteredLocations[0]
+	var foundLocations = allLocations.filter(func(location): return location.instantiate().name.to_lower() == locationName)
+	return foundLocations[0]

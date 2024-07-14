@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://10vgkrej1sdb"]
+[gd_scene load_steps=6 format=3 uid="uid://10vgkrej1sdb"]
 
+[ext_resource type="Theme" uid="uid://blt1eyj3xshax" path="res://assets/UI/themes/UI-elements/panel-container-secondary.tres" id="1_cissl"]
 [ext_resource type="Script" path="res://UI/dialog/dialog-choice-ui.gd" id="1_w0whr"]
-[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/components/panel-container-2.png" id="2_7jok7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upvqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2hue"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wuhj"]
 
@@ -17,29 +21,27 @@ offset_right = 325.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_cissl")
 script = ExtResource("1_w0whr")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-texture = ExtResource("2_7jok7")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="LocationChoiceContainer" type="VBoxContainer" parent="."]
+[node name="LocationChoiceContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="LocationChoiceContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/LocationChoiceContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_upvqm")
 
-[node name="PanelContainer" type="PanelContainer" parent="LocationChoiceContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="LocationChoiceContainer/PanelContainer"]
+[node name="Title" type="Label" parent="MarginContainer/LocationChoiceContainer/PanelContainer"]
 custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -48,23 +50,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="LocationChoiceContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/LocationChoiceContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j2hue")
 
-[node name="Description" type="Label" parent="LocationChoiceContainer/PanelContainer2"]
+[node name="Description" type="Label" parent="MarginContainer/LocationChoiceContainer/PanelContainer2"]
 custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "These rocks do n't move one bit. Mayb e s ome explo sive s could brin g them down. Th ese rocks don 't move one bit. Ma ybe some explosives could bring them down."
 autowrap_mode = 2
 
-[node name="ChoiceRequirements" type="HBoxContainer" parent="LocationChoiceContainer"]
+[node name="ChoiceRequirements" type="HBoxContainer" parent="MarginContainer/LocationChoiceContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="LocationChoiceContainer"]
-layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

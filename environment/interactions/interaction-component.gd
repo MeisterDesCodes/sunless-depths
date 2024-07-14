@@ -14,7 +14,7 @@ var approachLabel: Control
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact") && playerInRange && !completed:
+	if Input.is_action_just_pressed("interact") && playerInRange && !completed && !player.isInDialog:
 		onInteract.emit(player)
 		if interaction.lifetime >= 0:
 			interaction.lifetime -= 1

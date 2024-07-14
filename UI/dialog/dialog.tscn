@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://buvdhtxsdft4p"]
+[gd_scene load_steps=5 format=3 uid="uid://buvdhtxsdft4p"]
 
+[ext_resource type="Theme" uid="uid://blt1eyj3xshax" path="res://assets/UI/themes/UI-elements/panel-container-secondary.tres" id="1_6slyw"]
 [ext_resource type="Script" path="res://UI/dialog/dialog.gd" id="1_nkmvh"]
-[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel-container-1.png" id="2_i4rxf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a010e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gje2y"]
 
 [node name="Dialog" type="PanelContainer"]
 anchors_preset = 8
@@ -15,29 +19,29 @@ offset_right = 325.0
 offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_6slyw")
 script = ExtResource("1_nkmvh")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-texture = ExtResource("2_i4rxf")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="LocationDialogContainer" type="VBoxContainer" parent="."]
+[node name="LocationDialogContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="TitleContainer" type="PanelContainer" parent="MarginContainer/LocationDialogContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/separation = 30
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a010e")
 
-[node name="MarginContainer" type="MarginContainer" parent="LocationDialogContainer"]
-layout_mode = 2
-
-[node name="TitleContainer" type="PanelContainer" parent="LocationDialogContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="LocationDialogContainer/TitleContainer"]
+[node name="Title" type="Label" parent="MarginContainer/LocationDialogContainer/TitleContainer"]
 custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -46,24 +50,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="DescriptionContainer" type="PanelContainer" parent="LocationDialogContainer"]
+[node name="DescriptionContainer" type="PanelContainer" parent="MarginContainer/LocationDialogContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gje2y")
 
-[node name="Description" type="Label" parent="LocationDialogContainer/DescriptionContainer"]
+[node name="Description" type="Label" parent="MarginContainer/LocationDialogContainer/DescriptionContainer"]
 custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 0
 autowrap_mode = 2
 
-[node name="DialogResources" type="VBoxContainer" parent="LocationDialogContainer"]
+[node name="DialogResources" type="VBoxContainer" parent="MarginContainer/LocationDialogContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 10
 
-[node name="ChoiceFrame" type="VBoxContainer" parent="LocationDialogContainer"]
-custom_minimum_size = Vector2(700, 0)
+[node name="ChoiceFrame" type="VBoxContainer" parent="MarginContainer/LocationDialogContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
-
-[node name="MarginContainer2" type="MarginContainer" parent="LocationDialogContainer"]
-layout_mode = 2

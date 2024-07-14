@@ -12,7 +12,7 @@ script = ExtResource("1_sok7w")
 damage = 12.0
 knockback = 20.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
-attackDelay = 2.5
+attackDelay = 2.0
 
 [sub_resource type="Resource" id="Resource_w862f"]
 script = ExtResource("3_0ptsu")
@@ -34,8 +34,8 @@ drops = Array[ExtResource("3_0ptsu")]([SubResource("Resource_w862f"), SubResourc
 name = "Froglin"
 texture = ExtResource("6_rvccn")
 maxHealth = 27.0
-moveSpeed = 75.0
+moveSpeed = 70.0
 ferocity = 2.0
 perseverance = 4.0
-agility = 1.0
+agility = 3.0
 perception = 3.0

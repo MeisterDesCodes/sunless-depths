@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1dtnbm0uujml"]
+[gd_scene load_steps=3 format=3 uid="uid://b1dtnbm0uujml"]
 
 [ext_resource type="Script" path="res://UI/shared/resource-icon-ui.gd" id="1_afo4q"]
-[ext_resource type="Texture2D" uid="uid://8y0d4c6i0urd" path="res://assets/UI/components/panel-container-round-1.png" id="2_8omad"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2kfm"]
+[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/panel-container-secondary-circular.tres" id="1_qbkdj"]
 
 [node name="ResourceIcon" type="PanelContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -20,42 +18,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxEmpty_u2kfm")
+theme = ExtResource("1_qbkdj")
 script = ExtResource("1_afo4q")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-texture = ExtResource("2_8omad")
-patch_margin_left = 1
-patch_margin_top = 1
-patch_margin_right = 1
-patch_margin_bottom = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
 
-[node name="Amount" type="Label" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = -33.0
-offset_right = 2.0
-offset_bottom = 17.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="Amount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="Resource" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-expand_mode = 2

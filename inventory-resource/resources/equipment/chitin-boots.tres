@@ -5,11 +5,13 @@
 
 [resource]
 script = ExtResource("1_vxipo")
-equipmentType = 3
+equipmentType = 5
 ferocityModifier = 0
 perseveranceModifier = 6
 agilityModifier = -1
 perceptionModifier = -1
+lightRadius = 0.0
+oxygenCapacity = 0.0
 name = "Chitin Boots"
 description = ""
 texture = ExtResource("2_35m1g")

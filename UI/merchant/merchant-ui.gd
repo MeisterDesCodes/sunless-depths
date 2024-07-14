@@ -4,12 +4,12 @@ extends Control
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var gold = preload("res://inventory-resource/resources/material/primary/gold.tres")
 @onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
-@onready var merchantTitle = get_node("NinePatchRect/MarginContainer/LocationContainer/PanelContainer/Title")
+@onready var merchantTitle = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer/Title")
 
-@onready var resourcesWindow = get_node("NinePatchRect/MarginContainer/LocationContainer/ScrollContainer/Resources")
-@onready var totalCostsLabel = get_node("NinePatchRect/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2/TotalCost")
-@onready var purchaseButton = get_node("NinePatchRect/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Purchase")
-@onready var totalGold = get_node("NinePatchRect/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2/TotalGold")
+@onready var resourcesWindow = get_node("PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources")
+@onready var totalCostsLabel = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2/TotalCost")
+@onready var purchaseButton = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Purchase")
+@onready var totalGold = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2/TotalGold")
 
 var merchant = null
 var merchantMode = Enums.merchantMode.BUY
@@ -77,7 +77,7 @@ func sell():
 			merchantResource.reset()
 			if merchantResource.resource in playerScene.equippedWeapons:
 				playerScene.equippedWeapons[playerScene.equippedWeapons.find(merchantResource.resource)] = null
-				playerScene.hudUI.setupWeaponTextures()
+				playerScene.updateWeapons()
 
 
 func _on_purchase_pressed():
@@ -102,10 +102,3 @@ func _on_sell_pressed():
 	merchantMode = Enums.merchantMode.SELL
 	purchaseButton.text = "Sell"
 	generateSellResources()
-	
-	
-	
-	
-	
-	
-	

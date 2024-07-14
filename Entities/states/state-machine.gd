@@ -13,7 +13,7 @@ var lastState: State
 
 func _ready():
 	for state in get_children():
-		if entityScene.entityResource.states.filter(func(stateKey): return Enums.enemyStates.keys()[stateKey].to_lower() == state.name.to_lower()).is_empty():
+		if entityScene.entityResource.states.filter(func(stateKey): return UtilsS.getEnumValue(Enums.enemyStates,stateKey).to_lower() == state.name.to_lower()).is_empty():
 			state.get_parent().remove_child(state)
 	
 	for state in get_children():
@@ -37,5 +37,5 @@ func onChange(oldState: State, newState: State):
 
 
 func getState(state: Enums.enemyStates):
-	var stateString: String = Enums.enemyStates.keys()[state].to_lower()
-	return states[stateString] if states.has(stateString) else null
+	var stateString: String = UtilsS.getEnumValue(Enums.enemyStates, state).to_lower()
+	return states[stateString] if stateString in states else null

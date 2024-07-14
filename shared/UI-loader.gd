@@ -4,6 +4,7 @@ extends Node
 class_name UILoader
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var popupInstance: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/PopupUI")
 
 var fadeTime: float = 0.1
 var fadeTimeLoadingScreen: float = 0.5
@@ -41,13 +42,14 @@ func loadUILabel(scene: PackedScene):
 
 
 func loadUIPopup(container, element, showAdditionalInfo: bool):
-	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
-	var popupInstance = preload("res://UI/shared/popup-ui.tscn").instantiate()
-	canvasLayer.add_child(popupInstance)
+	popupInstance.visible = true
 	popupInstance.setup(element, showAdditionalInfo)
+	
+	await get_tree().process_frame
 	
 	var snapPosition: Vector2
 	var offset: float = 10
+	var hasXOverflow: bool = false
 	
 	snapPosition = container.global_position
 	snapPosition.x += container.size.x + offset
@@ -55,12 +57,17 @@ func loadUIPopup(container, element, showAdditionalInfo: bool):
 	var endXPosition = container.global_position.x + container.size.x + popupInstance.get_child(0).size.x
 	var screenWidth = get_viewport().get_visible_rect().size.x
 	if endXPosition > (screenWidth - offset * 2):
+		hasXOverflow = true
 		snapPosition.x -= (endXPosition - screenWidth + offset * 2)
 		
+	var test = popupInstance.get_child(0).custom_minimum_size.y
 	var endYPosition = container.global_position.y + popupInstance.get_child(0).size.y
 	var screenHeight = get_viewport().get_visible_rect().size.y
 	if endYPosition > (screenHeight - offset * 2):
-		snapPosition.y -= (popupInstance.get_child(0).size.y + offset * 2)
+		if hasXOverflow:
+			snapPosition.y -= (popupInstance.get_child(0).size.y + offset * 2)
+		else:
+			snapPosition.y -= (endYPosition - screenHeight) + offset * 2
 	
 	popupInstance.global_position = snapPosition
 	
@@ -81,11 +88,12 @@ func closeLoadingScreen(sceneInstance):
 	currentLoadingScene = null
 
 
-func closeUIPopup(popupInstance):
+func closeUIPopup():
+	currentPopupScene = null
 	AnimationsS.fadeOutHeight(popupInstance, fadeTime)
 	await get_tree().create_timer(fadeTime).timeout
-	popupInstance.queue_free()
-	currentPopupScene = null
+	if !currentPopupScene:
+		popupInstance.visible = false
 
 
 func closeUIScene(sceneInstance):

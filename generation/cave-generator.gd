@@ -259,11 +259,10 @@ func setSpawners():
 		var spawners: Node2D = room.get_child(0).get_node("Map/EnvironmentalObjects/Spawners")
 		for spawner in spawners.get_children():
 			var spawnerScene = preload("res://entities/entity-spawner.tscn").instantiate()
-			spawnerScene.spawnDelay = 25
 			spawnerScene.global_position = spawner.global_position
 			spawner.queue_free()
 			spawners.add_child(spawnerScene)
-			spawnerScene.setup(room.get_child(0))
+			spawnerScene.setup(room.get_child(0), 30, 3)
 			spawnerScene.spawnEntity()
 
 

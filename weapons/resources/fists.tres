@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="MeleeWeapon" load_steps=3 format=3 uid="uid://bp437lt7ymavk"]
 
 [ext_resource type="Script" path="res://inventory-resource/melee-weapon.gd" id="1_671m5"]
-[ext_resource type="Texture2D" uid="uid://b802sq0m8ikyl" path="res://assets/resources/weapons/fists.png" id="2_ns43f"]
+[ext_resource type="Texture2D" uid="uid://c7i6drkhpnbxv" path="res://assets/resources/weapons/fists.png" id="2_ns43f"]
 
 [resource]
 script = ExtResource("1_671m5")
 damage = 2.0
-knockback = 10.0
+knockback = 30.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 attackDelay = 0.5
 staminaCost = 25.0
 animations = Array[int]([2])
 name = "Fists"
-description = ""
+description = "Unarmed strikes are a straightforward yet effective method in close-quarters combat, however, they drain stamina very quickly."
 texture = ExtResource("2_ns43f")
 rarity = 0

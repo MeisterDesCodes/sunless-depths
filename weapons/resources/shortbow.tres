@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://c07lwuwv6wilc"]
 
 [ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_7wiha"]
-[ext_resource type="Texture2D" uid="uid://c4g77gwv8me6u" path="res://assets/resources/weapons/shortbow.png" id="2_1nb2e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_csnp3"]
+load_path = "res://.godot/imported/shortbow.png-b9631a693cb8d27ca0ba10cfb641f79d.ctex"
 
 [resource]
 script = ExtResource("1_7wiha")
@@ -9,10 +11,12 @@ damageModifier = 0.9
 speedModifier = 1.15
 knockbackModifier = 0.8
 spread = 20.0
+projectileAmount = 1
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 attackDelay = 1.2
 staminaCost = 5.0
 animations = Array[int]([3])
-name = "Crossbow"
+name = "Shortbow"
 description = ""
-texture = ExtResource("2_1nb2e")
+texture = SubResource("CompressedTexture2D_csnp3")
 rarity = 1

@@ -23,7 +23,7 @@ func interact(body):
 	$"Sprite2D".texture = openedTexture
 	if openedTexture.get_size().y > closedTexture.get_size().y:
 		global_position -= Vector2(0, 10).rotated(deg_to_rad(get_rotation_degrees()))
-	interaction.dropResources(resources, 150, body)
+	interaction.dropResources(resources, UtilsS.resourceDropSpeed, body)
 
 
 

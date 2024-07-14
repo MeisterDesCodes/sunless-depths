@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://djucwyhoiu8us"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_igw6s"]
+[ext_resource type="Texture2D" uid="uid://bf87lsk2g2stp" path="res://assets/resources/material/Fiber.png" id="2_ov2b2"]
+
+[resource]
+script = ExtResource("1_igw6s")
+name = "Fiber"
+description = "Harvested from wild plants and creatures, it is indispensable for weaving sturdy fabrics and combining resilient resources."
+texture = ExtResource("2_ov2b2")
+rarity = 1

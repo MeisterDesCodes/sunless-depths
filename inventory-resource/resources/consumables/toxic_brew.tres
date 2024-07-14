@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=5 format=3 uid="uid://cl0nx60su06vv"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-consumable.gd" id="1_ox3r7"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_unvp3"]
+[ext_resource type="Texture2D" uid="uid://vtbcdxr54xli" path="res://assets/resources/consumables/Potion.png" id="3_gsyeo"]
+
+[sub_resource type="Resource" id="Resource_okjso"]
+script = ExtResource("2_unvp3")
+type = 1
+strength = 2.0
+duration = 6.0
+appliesTo = 0
+
+[resource]
+script = ExtResource("1_ox3r7")
+cooldown = 20.0
+remainingCooldown = 0.0
+statusEffects = Array[ExtResource("2_unvp3")]([SubResource("Resource_okjso")])
+name = "Toxic Brew"
+description = "Brewed from deadly herbs and poisonous substances, it can be used to poison creatures."
+texture = ExtResource("3_gsyeo")
+rarity = 1

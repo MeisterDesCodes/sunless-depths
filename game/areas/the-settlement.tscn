@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cigdfxhhfn6bk"]
+[gd_scene load_steps=72 format=3 uid="uid://cigdfxhhfn6bk"]
 
 [ext_resource type="Script" path="res://game/areas/area.gd" id="1_1btye"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_2rmuk"]
@@ -62,13 +62,15 @@
 [ext_resource type="Texture2D" uid="uid://crbrundjy28o2" path="res://assets/environment/decorations/regular/chair.png" id="55_52wjm"]
 [ext_resource type="Texture2D" uid="uid://xvbk2i3l6tk7" path="res://assets/environment/decorations/light-sources/torch-3.png" id="55_a5fa5"]
 [ext_resource type="Texture2D" uid="uid://byffbaflddxri" path="res://assets/environment/decorations/regular/stove.png" id="56_ncnr2"]
-[ext_resource type="PackedScene" uid="uid://dpeouf3oiul7j" path="res://environment/decorations/regular/furniture/chair.tscn" id="57_03i4s"]
+[ext_resource type="PackedScene" uid="uid://dpeouf3oiul7j" path="res://environment/decorations/regular/furniture/chair.tscn" id="57_hfsm1"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="63_ar7wi"]
 [ext_resource type="Resource" uid="uid://ckosiivxdqc2m" path="res://inventory-resource/resources/blueprint/BP-cloth-helmet.tres" id="65_clfn1"]
 [ext_resource type="Resource" uid="uid://dlg83af5a8eiv" path="res://inventory-resource/resources/blueprint/BP-supplies.tres" id="65_d8qwl"]
 [ext_resource type="Resource" uid="uid://bplfvwn337fia" path="res://inventory-resource/resources/blueprint/BP-cloth-chest.tres" id="66_ix713"]
 [ext_resource type="Resource" uid="uid://4eyug7kv033f" path="res://inventory-resource/resources/blueprint/BP-cloth-pants.tres" id="67_5k6ox"]
 [ext_resource type="Resource" uid="uid://cbbibscb4wiy1" path="res://inventory-resource/resources/blueprint/BP-cloth-boots.tres" id="68_1004c"]
 [ext_resource type="PackedScene" uid="uid://dfsnscs4bf0tc" path="res://environment/curiosities/crafting-station.tscn" id="68_ak5py"]
+[ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/BP-mushroom-brew.tres" id="70_ukeje"]
 
 [node name="TheSettlement" type="Node2D"]
 script = ExtResource("1_1btye")
@@ -682,56 +684,56 @@ rotation = 0.87559
 scale = Vector2(0.835, 0.835)
 texture = ExtResource("56_ncnr2")
 
-[node name="Bench6" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
-position = Vector2(3142, 622)
-rotation = -2.618
-scale = Vector2(0.765, 0.765)
-texture = ExtResource("54_1c1ui")
-
-[node name="Chair9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
+[node name="Chair9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
 position = Vector2(3146, 545)
 rotation = -0.523598
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("55_52wjm")
 
-[node name="Chair10" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
+[node name="Chair10" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
 position = Vector2(3174, 539)
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("55_52wjm")
 
-[node name="Chair11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
+[node name="Chair11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
 position = Vector2(3193, 603)
 rotation = 2.61799
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("55_52wjm")
 
-[node name="Chair12" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
+[node name="Chair12" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
 position = Vector2(1985, 1681)
 rotation = 3.66519
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("55_52wjm")
 
-[node name="Chair14" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
+[node name="Chair14" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
 position = Vector2(2007, 1560)
 rotation = 6.28318
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("55_52wjm")
 
-[node name="Chair13" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
+[node name="Chair13" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
 position = Vector2(1966, 1659)
 rotation = 4.18878
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("55_52wjm")
 
-[node name="Bench" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
-position = Vector2(2078, 1656)
-rotation = -4.03734
+[node name="Bench3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
+position = Vector2(3144, 622)
+rotation = -2.87979
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("54_1c1ui")
 
-[node name="Bench2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_03i4s")]
-position = Vector2(1941, 1704)
-rotation = -2.61799
+[node name="Bench4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
+position = Vector2(2079, 1655)
+rotation = -4.18878
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("54_1c1ui")
+
+[node name="Bench5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_hfsm1")]
+position = Vector2(1945, 1698)
+rotation = -2.87979
 scale = Vector2(0.595, 0.595)
 texture = ExtResource("54_1c1ui")
 
@@ -908,6 +910,7 @@ scale = Vector2(0.735, 0.735)
 [node name="Merchant" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("6_f7u02")]
 position = Vector2(1983, 1798)
 title = "Merchant 123"
+availableBlueprints = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("63_ar7wi")])
 priceModifier = 1.0
 
 [node name="Location2" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("9_svwkp")]
@@ -921,6 +924,6 @@ availableBlueprints = Array[Resource("res://inventory-resource/inventory-resourc
 [node name="CraftingStation2" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("68_ak5py")]
 position = Vector2(3164, 582)
 title = "Cooking Station"
-availableBlueprints = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("65_d8qwl")])
+availableBlueprints = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("65_d8qwl"), ExtResource("70_ukeje")])
 
 [node name="Spawners" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://ddl8nsf6tgkdm"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_1b817"]
+[ext_resource type="Texture2D" uid="uid://itc3ntjw22eu" path="res://assets/resources/equipment/lights/Blazing Torch.png" id="2_il0bx"]
+
+[resource]
+script = ExtResource("1_1b817")
+equipmentType = 0
+ferocityModifier = 2
+perseveranceModifier = 0
+agilityModifier = 0
+perceptionModifier = 4
+lightRadius = 1.5
+oxygenCapacity = 0.0
+name = "Blazing Torch"
+description = ""
+texture = ExtResource("2_il0bx")
+rarity = 1

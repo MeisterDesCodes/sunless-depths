@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dang7tjw4gkgi"]
 
 [ext_resource type="Script" path="res://UI/crafting-station/crafting-station-ui.gd" id="1_t2ta2"]
-[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/standard-container-1.tres" id="2_as66b"]
+[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/panel-container-primary.tres" id="2_as66b"]
 [ext_resource type="PackedScene" uid="uid://xttesm4el1dg" path="res://UI/menu/inventory/resources-ui.tscn" id="2_retwm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gy2tt"]

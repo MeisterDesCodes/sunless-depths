@@ -5,12 +5,14 @@
 
 [resource]
 script = ExtResource("1_65uwc")
-equipmentType = 2
+equipmentType = 4
 ferocityModifier = 0
 perseveranceModifier = 2
 agilityModifier = 1
 perceptionModifier = 0
+lightRadius = 0.0
+oxygenCapacity = 0.0
 name = "Cloth Pants"
-description = ""
+description = "Light and durable, this piece of equipment offers a little suporrt in surviving the harsh depths around here."
 texture = ExtResource("2_t5k5i")
 rarity = 1

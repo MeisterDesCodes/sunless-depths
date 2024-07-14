@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://con0pdy4padqm"]
+[gd_scene load_steps=98 format=3 uid="uid://con0pdy4padqm"]
 
 [ext_resource type="Script" path="res://game/areas/area.gd" id="1_18te6"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_aatu0"]
@@ -54,13 +54,14 @@
 [ext_resource type="Texture2D" uid="uid://cvsx1770twdv5" path="res://assets/environment/decorations/walls/mushroom-3.png" id="50_36rkw"]
 [ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="51_6gyi1"]
 [ext_resource type="Texture2D" uid="uid://beffiwjbmjdys" path="res://assets/environment/decorations/walls/mushroom-2.png" id="51_8dm3w"]
-[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="51_kp17f"]
 [ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/rubble.tres" id="52_feuwq"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/debris.tscn" id="56_s8rjt"]
 [ext_resource type="Texture2D" uid="uid://crbrundjy28o2" path="res://assets/environment/decorations/regular/chair.png" id="58_8kcm0"]
 [ext_resource type="Texture2D" uid="uid://cxj00d4bv0k0b" path="res://assets/environment/decorations/regular/bench.png" id="60_nu8jg"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="61_alper"]
+[ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="62_rmiaa"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="64_1h5yh"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/cave-mushroom.tres" id="65_10jca"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="66_66qae"]
 [ext_resource type="Texture2D" uid="uid://da7ss57cdpn21" path="res://assets/resources/material/Planks.png" id="66_xumnx"]
 [ext_resource type="PackedScene" uid="uid://lxbf3dyjyqj5" path="res://environment/decorations/walls/beam-long.tscn" id="67_0dit6"]
@@ -71,10 +72,26 @@
 [ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/mycelium.tscn" id="71_el3oa"]
 [ext_resource type="Texture2D" uid="uid://br12hq2006j5t" path="res://assets/environment/decorations/walls/beam-short-1.png" id="71_tlmby"]
 [ext_resource type="PackedScene" uid="uid://cis7vlfa2x477" path="res://environment/decorations/walls/beam-medium.tscn" id="72_eu64o"]
-[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/cave-shroom.tres" id="72_mg1dv"]
 [ext_resource type="Texture2D" uid="uid://qd050bnwr5kc" path="res://assets/environment/decorations/walls/beam-medium-2.png" id="73_83hlq"]
 [ext_resource type="Texture2D" uid="uid://c13g4prs1w36a" path="res://assets/environment/decorations/walls/beam-medium-1.png" id="74_0h17w"]
 [ext_resource type="Texture2D" uid="uid://cbcllohb57dbb" path="res://assets/environment/decorations/walls/beam-short-2.png" id="75_n3esi"]
+
+[sub_resource type="Resource" id="Resource_wfrfj"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("51_6gyi1")
+amount = 65
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_t5pkp"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("69_2hwqr")
+amount = 4
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_qfwq5"]
+script = ExtResource("7_of1ps")
+amount = 0
+dropChance = 0.0
 
 [sub_resource type="Resource" id="Resource_ox0a4"]
 script = ExtResource("7_of1ps")
@@ -82,29 +99,77 @@ resource = ExtResource("10_fnkix")
 amount = 5
 dropChance = 1.0
 
+[sub_resource type="Resource" id="Resource_ckgnf"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("10_fnkix")
+amount = 3
+dropChance = 1.0
+
 [sub_resource type="Resource" id="Resource_5gbjp"]
 script = ExtResource("7_of1ps")
 resource = ExtResource("51_6gyi1")
-amount = 267
+amount = 50
 dropChance = 1.0
 
 [sub_resource type="Resource" id="Resource_7syg6"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("69_2hwqr")
+amount = 5
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_xsbd5"]
 script = ExtResource("7_of1ps")
 resource = ExtResource("52_feuwq")
 amount = 3
 dropChance = 1.0
 
-[sub_resource type="Resource" id="Resource_fba1f"]
+[sub_resource type="Resource" id="Resource_dhxyg"]
 script = ExtResource("7_of1ps")
-resource = ExtResource("51_kp17f")
-amount = 142
+resource = ExtResource("51_6gyi1")
+amount = 35
 dropChance = 1.0
 
-[sub_resource type="Resource" id="Resource_6mcqj"]
+[sub_resource type="Resource" id="Resource_8rwdb"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("62_rmiaa")
+amount = 2
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_jtr71"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("51_6gyi1")
+amount = 25
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_ys4r8"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("69_2hwqr")
+amount = 6
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_by8ep"]
 script = ExtResource("7_of1ps")
 resource = ExtResource("10_fnkix")
-amount = 5
+amount = 2
 dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_ffku4"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("65_10jca")
+amount = 2
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_7cwmc"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("10_fnkix")
+amount = 1
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_wtpg6"]
+script = ExtResource("7_of1ps")
+resource = ExtResource("65_10jca")
+amount = 3
+dropChance = 0.5
 
 [sub_resource type="Resource" id="Resource_aupyj"]
 script = ExtResource("5_7er8a")
@@ -139,7 +204,7 @@ dropChance = 1.0
 
 [sub_resource type="Resource" id="Resource_5qr4s"]
 script = ExtResource("7_of1ps")
-resource = ExtResource("72_mg1dv")
+resource = ExtResource("65_10jca")
 amount = 4
 dropChance = 0.5
 
@@ -150,12 +215,12 @@ script = ExtResource("1_18te6")
 
 [node name="Enemies" type="Node2D" parent="Entities"]
 
-[node name="Enemy" parent="Entities/Enemies" instance=ExtResource("1_qtktf")]
-position = Vector2(1872.16, -762.591)
+[node name="Rat 1" parent="Entities/Enemies" instance=ExtResource("1_qtktf")]
+position = Vector2(1881.18, -795.353)
 entityResource = ExtResource("3_w6aky")
 
-[node name="Enemy2" parent="Entities/Enemies" instance=ExtResource("1_qtktf")]
-position = Vector2(2077.07, -673.501)
+[node name="Rat 2" parent="Entities/Enemies" instance=ExtResource("1_qtktf")]
+position = Vector2(2094.11, -700.859)
 entityResource = ExtResource("3_w6aky")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -477,7 +542,7 @@ scale = Vector2(0.88, 0.88)
 texture = ExtResource("31_q307v")
 
 [node name="BlockageLarge3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
-position = Vector2(1966.64, 388.501)
+position = Vector2(1968.64, 392.501)
 rotation = 2.09439
 scale = Vector2(1.13, 1.13)
 texture = ExtResource("31_q307v")
@@ -489,8 +554,8 @@ scale = Vector2(0.83, 0.83)
 texture = ExtResource("32_yktes")
 
 [node name="BlockageSmall" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("33_s2q4y")]
-position = Vector2(1877, 384)
-rotation = -0.523598
+position = Vector2(1876, 375)
+rotation = 0.261799
 texture = ExtResource("34_yrdeb")
 
 [node name="BlockageSmall5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("33_s2q4y")]
@@ -1108,11 +1173,6 @@ position = Vector2(2041, -551)
 rotation = 1.62839
 texture = ExtResource("42_d1adk")
 
-[node name="Torch21" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
-position = Vector2(2041, -551)
-rotation = 1.62839
-texture = ExtResource("42_d1adk")
-
 [node name="Torch17" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(2369, -659)
 rotation = 1.83259
@@ -1311,6 +1371,7 @@ position = Vector2(1343, 245)
 rotation = -0.275762
 closedTexture = ExtResource("3_ci84i")
 openedTexture = ExtResource("4_c4ssq")
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_wfrfj"), SubResource("Resource_t5pkp"), SubResource("Resource_qfwq5")])
 lifetime = 1
 
 [node name="Basket" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
@@ -1320,6 +1381,7 @@ scale = Vector2(0.635, 0.635)
 closedTexture = ExtResource("8_5nxgd")
 openedTexture = ExtResource("9_x22x4")
 resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_ox0a4")])
+lifetime = 1
 
 [node name="Basket2" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
 position = Vector2(114, 190)
@@ -1327,7 +1389,7 @@ rotation = 0.549779
 scale = Vector2(0.635, 0.635)
 closedTexture = ExtResource("8_5nxgd")
 openedTexture = ExtResource("9_x22x4")
-resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_ox0a4")])
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_ckgnf")])
 lifetime = 1
 
 [node name="Chest3" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
@@ -1335,7 +1397,7 @@ position = Vector2(335, 175)
 rotation = 0.785397
 closedTexture = ExtResource("3_ci84i")
 openedTexture = ExtResource("4_c4ssq")
-resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_5gbjp"), SubResource("Resource_7syg6"), SubResource("Resource_fba1f")])
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_5gbjp"), SubResource("Resource_7syg6"), SubResource("Resource_xsbd5")])
 lifetime = 1
 
 [node name="Chest4" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
@@ -1343,7 +1405,7 @@ position = Vector2(114, 331)
 rotation = -2.09439
 closedTexture = ExtResource("3_ci84i")
 openedTexture = ExtResource("4_c4ssq")
-resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_5gbjp"), SubResource("Resource_7syg6")])
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_dhxyg"), SubResource("Resource_8rwdb")])
 lifetime = 1
 
 [node name="Chest5" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
@@ -1352,7 +1414,7 @@ rotation = -3.66519
 scale = Vector2(0.735, 0.735)
 closedTexture = ExtResource("3_ci84i")
 openedTexture = ExtResource("4_c4ssq")
-resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_5gbjp"), SubResource("Resource_7syg6")])
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_jtr71"), SubResource("Resource_ys4r8")])
 lifetime = 1
 
 [node name="Basket3" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
@@ -1361,7 +1423,7 @@ rotation = 0.549779
 scale = Vector2(0.445, 0.445)
 closedTexture = ExtResource("8_5nxgd")
 openedTexture = ExtResource("9_x22x4")
-resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_6mcqj")])
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_by8ep"), SubResource("Resource_ffku4")])
 lifetime = 1
 
 [node name="Basket4" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("2_66hs1")]
@@ -1369,7 +1431,7 @@ position = Vector2(1936.37, -625.578)
 scale = Vector2(0.445, 0.445)
 closedTexture = ExtResource("8_5nxgd")
 openedTexture = ExtResource("9_x22x4")
-resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_6mcqj")])
+resources = Array[ExtResource("7_of1ps")]([SubResource("Resource_7cwmc"), SubResource("Resource_wtpg6")])
 lifetime = 1
 
 [node name="ResourceNodes" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
@@ -1381,12 +1443,12 @@ dropResources = Array[ExtResource("7_of1ps")]([SubResource("Resource_3glmw"), Su
 lifetime = 1
 
 [node name="Debris" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("56_s8rjt")]
-position = Vector2(1892.25, 735.836)
+position = Vector2(1896, 731)
 dropResources = Array[ExtResource("7_of1ps")]([SubResource("Resource_0txpg"), SubResource("Resource_mq23c")])
 lifetime = 2
 
 [node name="Debris2" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("56_s8rjt")]
-position = Vector2(2073, 730)
+position = Vector2(2067, 739)
 rotation = 0.523598
 dropResources = Array[ExtResource("7_of1ps")]([SubResource("Resource_0txpg"), SubResource("Resource_mq23c")])
 lifetime = 2

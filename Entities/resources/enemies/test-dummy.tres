@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dlv0qcm8b73n5"]
+
+[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_i2ilf"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="5_qt5ef"]
+[ext_resource type="Texture2D" uid="uid://dnl6yp8gkfp40" path="res://assets/entities/giant-rat.png" id="6_6r2bo"]
+
+[sub_resource type="Resource" id="Resource_24rk2"]
+script = ExtResource("1_i2ilf")
+damage = 0.0
+knockback = 0.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 0.0
+
+[resource]
+script = ExtResource("5_qt5ef")
+attacks = Array[ExtResource("1_i2ilf")]([SubResource("Resource_24rk2")])
+states = Array[int]([])
+drops = Array[Resource("res://inventory-resource/drop-resource.gd")]([])
+name = "Test Dummy"
+texture = ExtResource("6_6r2bo")
+maxHealth = 30.0
+moveSpeed = 0.0
+ferocity = 0.0
+perseverance = 0.0
+agility = 0.0
+perception = 0.0

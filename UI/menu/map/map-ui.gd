@@ -6,47 +6,50 @@ extends Node
 
 
 func _ready():
-	for location in allLocations:
-		if !isOuterRing(location.location):
-			location.modulate = UtilsS.colorTransparent
-		if isOuterRing(location.location):
-			location.modulate = UtilsS.colorBlack
-		if isInnerRing(location.location):
-			location.modulate = UtilsS.colorCommon
-			location.canBeVisited = true
-		if isVisited(location.location):
-			location.modulate = UtilsS.colorPrimary
-	
-		var connectedLocations: Array[String]
-		for visitedLocation in LocationLoaderS.visitedLocations:
-			connectedLocations.append_array(getSurroudingLocations(visitedLocation))
+	for locationInstance in allLocations:
+		if locationInstance.locationResource:
+			if !isOuterRing(locationInstance.locationResource.location):
+				locationInstance.modulate = UtilsS.colorTransparent
+			if isOuterRing(locationInstance.locationResource.location):
+				locationInstance.modulate = UtilsS.colorBlack
+			if isInnerRing(locationInstance.locationResource.location):
+				locationInstance.modulate = UtilsS.colorCommon
+				locationInstance.canBeVisited = true
+			if isVisited(locationInstance.locationResource.location):
+				locationInstance.modulate = UtilsS.colorPrimary
 		
-		for pathway in allPathways:
-			if !(pathway.locationFrom in connectedLocations) && !(pathway.locationTo in connectedLocations):
-				pathway.modulate = UtilsS.colorTransparent
+			var connectedLocations: Array[Enums.locations]
+			for visitedLocation in LocationLoaderS.visitedLocations:
+				connectedLocations.append_array(getSurroudingLocations(visitedLocation))
+			
+			for pathwayInstance in allPathways:
+				if pathwayInstance.pathwayResource:
+					if !(pathwayInstance.pathwayResource.locationFrom in connectedLocations) && !(pathwayInstance.pathwayResource.locationTo in connectedLocations):
+						pathwayInstance.queue_free()
 
 
-func isVisited(location: String):
+func isVisited(location: Enums.locations):
 	return location in LocationLoaderS.visitedLocations
 
 
-func isInnerRing(location: String):
+func isInnerRing(location: Enums.locations):
 	return location in getSurroudingLocations(LocationLoaderS.currentLocation)
 
 
-func isOuterRing(location: String):
-	var outerRing: Array[String]
+func isOuterRing(location: Enums.locations):
+	var outerRing: Array[Enums.locations]
 	var innerRing = getSurroudingLocations(LocationLoaderS.currentLocation)
 	for innerLocation in innerRing:
 		outerRing.append_array(getSurroudingLocations(innerLocation))
 	return location in outerRing
 
 
-func getSurroudingLocations(location: String):
-	var surroudingLocations: Array[String]
-	for pathway in allPathways:
-		if pathway.locationFrom == location:
-			surroudingLocations.append(pathway.locationTo)
-		if pathway.locationTo == location:
-			surroudingLocations.append(pathway.locationFrom)
+func getSurroudingLocations(location: Enums.locations):
+	var surroudingLocations: Array[Enums.locations]
+	for pathwayInstance in allPathways:
+		if pathwayInstance.pathwayResource:
+			if pathwayInstance.pathwayResource.locationFrom == location:
+				surroudingLocations.append(pathwayInstance.pathwayResource.locationTo)
+			if pathwayInstance.pathwayResource.locationTo == location:
+				surroudingLocations.append(pathwayInstance.pathwayResource.locationFrom)
 	return surroudingLocations

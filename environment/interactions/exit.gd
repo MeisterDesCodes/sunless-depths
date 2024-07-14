@@ -15,15 +15,15 @@ func _ready():
 
 
 func interact(body):
-	if !playerScene.atLocation && direction == LocationLoaderS.currentFromDirection:
+	if playerScene.isInCave && direction == LocationLoaderS.currentFromDirection:
 		return
 	
-	if playerScene.atLocation:
-		playerScene.atLocation = false
+	if !playerScene.isInCave:
+		#TODO Fix line below
 		playerScene.atExit = true
 		menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 		menuScene._on_map_pressed()
 	else:
-		playerScene.atLocation = true
+		playerScene.isInCave = false
 		LocationLoaderS.loadArea(LocationLoaderS.nextLocation)
 

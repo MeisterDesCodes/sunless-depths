@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://dbkg631rrrrdc"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_nvncw"]
+[ext_resource type="Texture2D" uid="uid://bsn0e3puprjn3" path="res://assets/resources/equipment/tanks/Improved Oxygen Tank.png" id="2_scvhv"]
+
+[resource]
+script = ExtResource("1_nvncw")
+equipmentType = 1
+ferocityModifier = 0
+perseveranceModifier = 3
+agilityModifier = -2
+perceptionModifier = 0
+lightRadius = 0.0
+oxygenCapacity = 125.0
+name = "Improved Oxygen Tank"
+description = ""
+texture = ExtResource("2_scvhv")
+rarity = 1

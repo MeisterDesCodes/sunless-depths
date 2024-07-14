@@ -70,7 +70,6 @@ rotation = 4.71239
 scale = Vector2(0.140875, 0.140875)
 
 [node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
-size = 3.0
 energy = 1.0
 color = Color(0.988235, 0.87451, 0.67451, 1)
 shadow = true
@@ -114,13 +113,23 @@ libraries = {
 wait_time = 0.5
 
 [node name="StaminaRestore" type="Timer" parent="."]
+one_shot = true
+
+[node name="StaminaExhaustRestore" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="ConsumeTimer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="ImmunityFrames" to="." method="_on_immunity_frames_timeout"]
 [connection signal="timeout" from="StaminaRestore" to="." method="_on_stamina_restore_timeout"]
+[connection signal="timeout" from="StaminaExhaustRestore" to="." method="_on_stamina_exhaust_restore_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="ConsumeTimer" to="." method="_on_consume_timer_timeout"]

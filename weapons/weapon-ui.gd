@@ -26,17 +26,17 @@ func _process(delta):
 				hitEntities.append(area)
 				var damage: float = weapon.damage * 1.25 if entityScene.isDashing else weapon.damage
 				var knockback: float = weapon.knockback * 1.5 if entityScene.isDashing else weapon.knockback
-				var attack = Attack.new(global_position, entityScene.entityResource, damage, knockback, Enums.weaponTypes.MELEE, weapon.statusEffects)
+				var attack = Attack.new(global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, weapon.statusEffects)
 				area.get_parent().processIncomingAttack(attack)
 
 
 func attack(attackDirection: Vector2):
 	var animationIndex = currentAnimationFrame % weapon.animations.size()
-	var animation = Enums.weaponAttackType.keys()[weapon.animations[animationIndex]]
+	var animation = UtilsS.getEnumValue(Enums.weaponAttackType, weapon.animations[animationIndex]).to_upper()
 	if weapon is MeleeWeapon:
 		meleeAttack(animation)
 	if weapon is RangedWeapon:
-		rangedAttack(animation, attackDirection, 1)
+		rangedAttack(animation, attackDirection)
 	currentAnimationFrame += 1
 
 
@@ -50,7 +50,7 @@ func meleeAttack(animationType: String):
 	entityScene.isAttacking = false
 
 
-func rangedAttack(animation: String, attackDirection: Vector2, projectileAmount: int):
+func rangedAttack(animation: String, attackDirection: Vector2):
 	playerScene.inventory.removeResource(weapon.ammunition, 1)
 	
 	if animations.is_playing():
@@ -58,7 +58,7 @@ func rangedAttack(animation: String, attackDirection: Vector2, projectileAmount:
 	animations.play(animation)
 	
 	var spawnPosition = global_position + Vector2(30, 5).rotated(attackDirection.angle())
-	projectileSpawner.spawnProjectiles(entityScene, weapon.ammunition, spawnPosition, attackDirection, weapon.spread, 3)
+	projectileSpawner.spawnProjectiles(entityScene, weapon.ammunition, spawnPosition, attackDirection, weapon.spread, weapon.projectileAmount)
 	
 	if playerScene.inventory.getResourceAmount(weapon.ammunition) == 0:
 		weapon.ammunition = null

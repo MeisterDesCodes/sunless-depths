@@ -13,19 +13,8 @@ func _process(delta):
 		UILoaderS.loadUIScene(scene)
 
 	if Input.is_action_just_pressed("dash"):
-		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > playerScene.dashStaminaCost):
-			playerScene.canDash = false
-			playerScene.isDashing = true
-			playerScene.hudUI.onDash()
-			playerScene.updateHud.emit(1, 2, playerScene.dashStaminaCost)
-			var direction: Vector2 = playerScene.getDirection()
-			if direction == Vector2.ZERO:
-				direction = playerScene.global_position.direction_to(get_global_mouse_position())
-			var speed: float = 150 + playerScene.entityResource.moveSpeed * 1.5
-			playerScene.velocity = lerp(playerScene.velocity, direction * speed, 0.5)
-			$"../DashTimer".start()
-			await get_tree().create_timer(0.3).timeout
-			playerScene.isDashing = false
+		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > 0):
+			playerScene.dash()
 	
 	if Input.is_action_just_pressed("interact"):
 		pass
@@ -40,20 +29,10 @@ func _process(delta):
 		playerScene.zoom()
 	
 	if Input.get_action_strength("attack"):
-		if playerScene.hudUI.staminaBar.value >= playerScene.weaponInstance.weapon.staminaCost:
+		if playerScene.hudUI.staminaBar.value > 0:
 			playerScene.attack()
 	
 	if Input.get_action_strength("sprint") && playerScene.hudUI.staminaBar.value > 0:
-		playerScene.isSprinting = true
-		playerScene.hudUI.onSprint()
-		playerScene.currentSupplyDrain = playerScene.entityResource.supplyDrain * 1.25
-		playerScene.currentOxygenDrain = playerScene.entityResource.supplyDrain * 1.5
-		playerScene.currentStaminaDrain = 10
-		playerScene.currentStaminaRestore = 0
-		$"../StaminaRestore".start()
+		playerScene.sprint()
 	else:
-		playerScene.isSprinting = false
-		playerScene.hudUI.onWalk()
-		playerScene.currentSupplyDrain = playerScene.entityResource.supplyDrain
-		playerScene.currentOxygenDrain = playerScene.entityResource.oxygenDrain
-		playerScene.currentStaminaDrain = playerScene.entityResource.staminaDrain
+		playerScene.walk()

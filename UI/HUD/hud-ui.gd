@@ -84,7 +84,7 @@ func _process(delta):
 		healthModified()
 	
 	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
-	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier
+	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100)
 	staminaBar.value -= delta * (playerScene.currentStaminaDrain - playerScene.currentStaminaRestore)
 	if (suppliesBar.value <= 0 && !suppliesIsRestocked):
 		restockSupplies()
@@ -130,7 +130,7 @@ func updateHud(suppliesValue, oxygenValue, staminaValue):
 	if !suppliesIsRestocked:
 		get_tree().create_tween().tween_property(suppliesBar, "value", suppliesBar.value - suppliesValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	if !oxygenIsRestocked:
-		get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100), 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
@@ -151,48 +151,48 @@ func _on_oxygen_timer_timeout():
 
 
 func _on_panel_container_mouse_entered():
-	popup = UILoaderS.loadUIPopup(activeWeapon.get_parent(), playerScene.equippedWeapons[0], true)
+	UILoaderS.loadUIPopup(activeWeapon.get_parent(), playerScene.equippedWeapons[0], true)
 
 
 func _on_panel_container_mouse_exited():
-	UILoaderS.closeUIPopup(popup)
+	UILoaderS.closeUIPopup()
 
 
 func _on_panel_container_2_mouse_entered():
-	popup = UILoaderS.loadUIPopup(reserveWeapon1.get_parent(), playerScene.equippedWeapons[1], true)
+	UILoaderS.loadUIPopup(reserveWeapon1.get_parent(), playerScene.equippedWeapons[1], true)
 
 
 func _on_panel_container_2_mouse_exited():
-	UILoaderS.closeUIPopup(popup)
+	UILoaderS.closeUIPopup()
 
 
 func _on_panel_container_3_mouse_entered():
-	popup = UILoaderS.loadUIPopup(reserveWeapon2.get_parent(), playerScene.equippedWeapons[2], true)
+	UILoaderS.loadUIPopup(reserveWeapon2.get_parent(), playerScene.equippedWeapons[2], true)
 
 
 func _on_panel_container_3_mouse_exited():
-	UILoaderS.closeUIPopup(popup)
+	UILoaderS.closeUIPopup()
 
 
 func _on_panel_container_ammunition_1_mouse_entered():
-	popup = UILoaderS.loadUIPopup(ammunitionActive.get_parent(), playerScene.equippedWeapons[0].ammunition, true)
+	UILoaderS.loadUIPopup(ammunitionActive.get_parent(), playerScene.equippedWeapons[0].ammunition, true)
 
 
 func _on_panel_container_ammunition_1_mouse_exited():
-	UILoaderS.closeUIPopup(popup)
+	UILoaderS.closeUIPopup()
 
 
 func _on_panel_container_ammunition_2_mouse_entered():
-	popup = UILoaderS.loadUIPopup(ammunitionReserve1.get_parent(), playerScene.equippedWeapons[1].ammunition, true)
+	UILoaderS.loadUIPopup(ammunitionReserve1.get_parent(), playerScene.equippedWeapons[1].ammunition, true)
 
 
 func _on_panel_container_ammunition_2_mouse_exited():
-	UILoaderS.closeUIPopup(popup)
+	UILoaderS.closeUIPopup()
 
 
 func _on_panel_container_ammunition_3_mouse_entered():
-	popup = UILoaderS.loadUIPopup(ammunitionReserve2.get_parent(), playerScene.equippedWeapons[2].ammunition, true)
+	UILoaderS.loadUIPopup(ammunitionReserve2.get_parent(), playerScene.equippedWeapons[2].ammunition, true)
 
 
 func _on_panel_container_ammunition_3_mouse_exited():
-	UILoaderS.closeUIPopup(popup)
+	UILoaderS.closeUIPopup()

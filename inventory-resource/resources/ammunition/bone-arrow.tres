@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryAmmunition" load_steps=3 format=3 uid="uid://dofa7y7m64hb7"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="1_4b37e"]
+[ext_resource type="Texture2D" uid="uid://bcp4s4ankxdla" path="res://assets/resources/weapons/ammunition/Bone Arrow.png" id="2_jop4y"]
+
+[resource]
+script = ExtResource("1_4b37e")
+damage = 8.0
+knockback = 10.0
+speed = 700.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+isPiercing = true
+name = "Bone Arrow"
+description = ""
+texture = ExtResource("2_jop4y")
+rarity = 1

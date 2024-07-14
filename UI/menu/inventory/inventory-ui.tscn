@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb27qu6ntkrki"]
+[gd_scene load_steps=6 format=3 uid="uid://bb27qu6ntkrki"]
 
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-ui.gd" id="1_15exu"]
-[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel-container-1.png" id="2_8x4k6"]
 [ext_resource type="PackedScene" uid="uid://xttesm4el1dg" path="res://UI/menu/inventory/resources-ui.tscn" id="3_6n8lb"]
 [ext_resource type="PackedScene" uid="uid://evwwxpphrv2f" path="res://UI/menu/inventory/player-stats-ui.tscn" id="4_5ah6p"]
 
@@ -27,7 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
-texture = ExtResource("2_8x4k6")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10

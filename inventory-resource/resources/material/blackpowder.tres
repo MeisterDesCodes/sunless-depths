@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_4cax7")
 name = "Blackpowder"
+description = "Meticulously blended from volatile ingredients, it is vital for creating explosive devices and powering primitive firearms."
 texture = ExtResource("2_gv7x7")
 rarity = 1
-type = 0

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryAmmunition" load_steps=3 format=3 uid="uid://c2yqclqnhrapf"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="1_cfty5"]
+[ext_resource type="Texture2D" uid="uid://cy4vmcvg1st8u" path="res://assets/resources/weapons/ammunition/Wooden Arrow.png" id="2_7vpf0"]
+
+[resource]
+script = ExtResource("1_cfty5")
+damage = 5.0
+knockback = 15.0
+speed = 600.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+isPiercing = false
+name = "Wooden Arrow"
+description = "Crafted from sturdy hardwood and feathered with fletching, are essential for ranged combat, capable of piercing through armor and delivering precise strikes."
+texture = ExtResource("2_7vpf0")
+rarity = 1

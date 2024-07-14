@@ -4,6 +4,7 @@ extends Node
 class_name Utils
 
 
+var colorBackground = Color("#161616")
 var colorPrimary = Color("#E14F21")
 var colorCommon = Color("#FFFFFF")
 var colorUncommon = Color("#54A32F")
@@ -15,12 +16,14 @@ var colorBlack = Color("#000000")
 var colorGrey = Color("#404040")
 var colorTransparent = Color("#FFFFFF", 0)
 
+var resourceDropSpeed: float = 150
+
 
 func updateResourceType(resource: InventoryResource):
 	if resource is InventoryMaterial:
 		resource.type = Enums.resourceType.MATERIAL
-	if resource is InventoryUsable:
-		resource.type = Enums.resourceType.USABLE
+	if resource is InventoryConsumable:
+		resource.type = Enums.resourceType.CONSUMABLE
 	if resource is InventoryBlueprint:
 		resource.type = Enums.resourceType.BLUEPRINT
 	if resource is InventoryWeapon:
@@ -68,6 +71,55 @@ func calculateMeleeScaling(attacker: Entity):
 func calculateRangedScaling(attacker: Entity):
 	return attacker.ferocity * 0.5 + attacker.perception * 0.5
 
+
+func applyStatusEffects(source: CharacterBody2D, target: CharacterBody2D, statusEffects: Array[StatusEffect]):
+	for effect in statusEffects:
+		if effect.appliesTo == Enums.statusEffectReceiver.SELF:
+			source.statusEffectComponent.statusEffects.append(effect.duplicate())
+		if effect.appliesTo == Enums.statusEffectReceiver.TARGET:
+			target.statusEffectComponent.statusEffects.append(effect.duplicate())
+
+
+func unequipItem(entityScene, item, index):
+	entityScene.entityResource.ferocity -= item.ferocityModifier
+	entityScene.entityResource.perseverance -= item.perseveranceModifier
+	entityScene.entityResource.agility -= item.agilityModifier
+	entityScene.entityResource.perception -= item.perceptionModifier
+	entityScene.entityResource.lightRadius -= item.lightRadius
+	entityScene.entityResource.oxygenCapacity -= item.oxygenCapacity
+	entityScene.equippedGear[index] = null
+	entityScene.setupLightSource()
+
+
+func equipItem(entityScene, item, index):
+	entityScene.entityResource.ferocity += item.ferocityModifier
+	entityScene.entityResource.perseverance += item.perseveranceModifier
+	entityScene.entityResource.agility += item.agilityModifier
+	entityScene.entityResource.perception += item.perceptionModifier
+	entityScene.entityResource.lightRadius += item.lightRadius
+	entityScene.entityResource.oxygenCapacity += item.oxygenCapacity
+	entityScene.equippedGear[index] = item
+	entityScene.setupLightSource()
+
+
+func enumArrayToString(_enum, array):
+	var text: String = ""
+	for element in array:
+		text += getEnumValue(_enum, element)
+		if array.find(element) < array.size() - 1:
+			text += ", "
+	
+	return text
+
+
+func nameArrayToString(array):
+	var text: String = ""
+	for element in array:
+		text += element.resource.name
+		if array.find(element) < array.size() - 1:
+			text += ", "
+	
+	return text
 
 
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://bk6a4xitfdkqe"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_wdbyb"]
+[ext_resource type="Texture2D" uid="uid://dgh80wpa5oaig" path="res://assets/resources/material/Cave Shroom.png" id="2_trxue"]
+
+[resource]
+script = ExtResource("1_wdbyb")
+name = "Cave Mushroom"
+description = "Gathered from the depths of dark caverns, it is crucial for brewing potent potions and enhancing alchemical recipes. With more knowledge, they could also be turned into supplies."
+texture = ExtResource("2_trxue")
+rarity = 1

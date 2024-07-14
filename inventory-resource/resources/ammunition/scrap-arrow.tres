@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="InventoryAmmunition" load_steps=5 format=3 uid="uid://cmh04mkgurn5p"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="1_xqnli"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_65ujr"]
+[ext_resource type="Texture2D" uid="uid://dwk0d5kvf1ie6" path="res://assets/resources/weapons/ammunition/Scrap Arrow.png" id="3_oj4sf"]
+
+[sub_resource type="Resource" id="Resource_gk8eg"]
+script = ExtResource("2_65ujr")
+type = null
+strength = 5.0
+duration = 2.0
+appliesTo = 0
+
+[resource]
+script = ExtResource("1_xqnli")
+damage = 12.0
+knockback = 25.0
+speed = 450.0
+statusEffects = Array[ExtResource("2_65ujr")]([SubResource("Resource_gk8eg")])
+isPiercing = false
+name = "Scrap Arrow"
+description = ""
+texture = ExtResource("3_oj4sf")
+rarity = 1

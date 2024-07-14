@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=8 format=3 uid="uid://bplfvwn337fia"]
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://bplfvwn337fia"]
 
-[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/cloth.tres" id="1_1poth"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_1poth"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_5ex24"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/cloth.tres" id="3_lc46h"]
 [ext_resource type="Resource" uid="uid://wugbhvbrjiso" path="res://inventory-resource/resources/equipment/cloth-chest.tres" id="3_x3k3k"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_f6ssi"]
 [ext_resource type="Texture2D" uid="uid://muiyll3gg3oq" path="res://assets/resources/equipment/Chest.png" id="5_0mjuj"]
@@ -9,7 +10,12 @@
 [sub_resource type="Resource" id="Resource_xtk5x"]
 script = ExtResource("2_5ex24")
 resource = ExtResource("1_1poth")
-amount = 6
+amount = 8
+
+[sub_resource type="Resource" id="Resource_wa7sh"]
+script = ExtResource("2_5ex24")
+resource = ExtResource("3_lc46h")
+amount = 5
 
 [sub_resource type="Resource" id="Resource_4dyvn"]
 script = ExtResource("2_5ex24")
@@ -18,7 +24,7 @@ amount = 1
 
 [resource]
 script = ExtResource("4_f6ssi")
-inputResources = Array[ExtResource("2_5ex24")]([SubResource("Resource_xtk5x")])
+inputResources = Array[ExtResource("2_5ex24")]([SubResource("Resource_xtk5x"), SubResource("Resource_wa7sh")])
 outputResources = Array[ExtResource("2_5ex24")]([SubResource("Resource_4dyvn")])
 name = "Cloth Chest - Blueprint"
 description = ""

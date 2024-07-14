@@ -5,7 +5,7 @@ class_name Attack
 
 
 var position: Vector2
-var caster: Entity
+var caster: CharacterBody2D
 var damage: float
 var knockback: float
 var type: Enums.weaponTypes

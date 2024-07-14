@@ -12,5 +12,5 @@ func _process(delta):
 		var targetEntityScene = area.get_parent()
 		var damage: float = entityScene.currentAttack.damage * 1.25 if entityScene.isDashing else entityScene.currentAttack.damage
 		var knockback: float = entityScene.currentAttack.knockback * 1.5 if entityScene.isDashing else entityScene.currentAttack.knockback
-		var attack = Attack.new(global_position, entityScene.entityResource, damage, knockback, Enums.weaponTypes.MELEE, entityScene.currentAttack.statusEffects)
+		var attack = Attack.new(global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, entityScene.currentAttack.statusEffects)
 		targetEntityScene.processIncomingAttack(attack)

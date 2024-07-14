@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_csaua")
 name = "Scrap Metal"
-description = "Scrap metal is perfect for crafting better gear and makeshift explosives. It is an essential component for upgrading workstations."
+description = "Salvaged from abandoned ruins and euipment, it is essential for forging crude weapons and crafting sturdy tools."
 texture = ExtResource("2_decrg")
-rarity = 1
+rarity = 2

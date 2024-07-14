@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c550n0t3ll3mg"]
+[gd_scene load_steps=4 format=3 uid="uid://c550n0t3ll3mg"]
 
 [ext_resource type="Script" path="res://UI/dialog/dialog-menu-ui.gd" id="1_wkunw"]
-[ext_resource type="Texture2D" uid="uid://bmw5w0b76rnby" path="res://assets/UI/components/panel-container-1.png" id="2_lnrq7"]
+[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/panel-container-primary.tres" id="2_cl6sh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0w50"]
 
 [node name="DialogMenuUI" type="Control"]
 z_index = 3
@@ -14,7 +16,7 @@ grow_vertical = 2
 pivot_offset = Vector2(800, 400)
 script = ExtResource("1_wkunw")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,53 +29,48 @@ offset_right = 502.0
 offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lnrq7")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
+theme = ExtResource("2_cl6sh")
 
-[node name="LocationContainer" type="VBoxContainer" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -418.0
-offset_top = -294.0
-offset_right = 418.0
-offset_bottom = 294.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LocationContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="PanelContainer" type="PanelContainer" parent="NinePatchRect/LocationContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="NinePatchRect/MarginContainer/LocationContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p0w50")
 
-[node name="Title" type="Label" parent="NinePatchRect/LocationContainer/PanelContainer"]
+[node name="Title" type="Label" parent="NinePatchRect/MarginContainer/LocationContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/LocationContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/LocationContainer"]
 custom_minimum_size = Vector2(800, 450)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 horizontal_scroll_mode = 0
 
-[node name="LocationDialogs" type="VBoxContainer" parent="NinePatchRect/LocationContainer/ScrollContainer"]
+[node name="LocationDialogs" type="VBoxContainer" parent="NinePatchRect/MarginContainer/LocationContainer/ScrollContainer"]
 custom_minimum_size = Vector2(800, 450)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 30
 
-[node name="Leave" type="Button" parent="NinePatchRect/LocationContainer"]
+[node name="Leave" type="Button" parent="NinePatchRect/MarginContainer/LocationContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Perhaps not"
 flat = true
 
-[connection signal="pressed" from="NinePatchRect/LocationContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/LocationContainer/Leave" to="." method="_on_leave_pressed"]

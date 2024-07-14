@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c572bb7vvyy3u"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-location-ui.gd" id="1_5e0v6"]
-[ext_resource type="Theme" uid="uid://bek0jddx7ueh8" path="res://assets/UI/themes/UI-elements/round-container-4.tres" id="2_n1ghj"]
+[ext_resource type="Theme" uid="uid://bek0jddx7ueh8" path="res://assets/UI/themes/UI-elements/location.tres" id="2_78gi7"]
 
 [node name="MapLocationUI" type="Control"]
 layout_mode = 3
@@ -40,7 +40,7 @@ custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_n1ghj")
+theme = ExtResource("2_78gi7")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(20, 20)

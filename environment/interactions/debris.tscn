@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_m77nl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
-radius = 51.0098
+radius = 32.0
 
 [node name="Debris" type="Node2D"]
 script = ExtResource("1_hijtm")
@@ -18,7 +18,7 @@ lifetime = null
 shape = SubResource("CircleShape2D_mdnsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.19, 0.19)
 texture = ExtResource("2_v276m")
 
 [node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("3_m77nl")]

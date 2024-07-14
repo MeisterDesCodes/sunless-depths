@@ -8,6 +8,8 @@ signal updateResources
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 @onready var resourceContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/ScrollContainer/Resources")
 
+@onready var filterContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer")
+
 var currentFilter: Enums.resourceType
 
 
@@ -23,19 +25,27 @@ func updateAssets(filter: Enums.resourceType):
 	if filter != Enums.resourceType.NONE:
 		currentFilter = filter
 	
+	updateSelection()
+	
 	for resourceSlot in resourceContainer.get_children():
 		resourceSlot.queue_free()
 	
 	var resourceSlots = inventory.resourceSlots if currentFilter == Enums.resourceType.RESOURCE else inventory.resourceSlots.filter(func(slot): return slot.resource.type == currentFilter)
 	for resourceSlot in resourceSlots:
-		var inventoryResource = preload("res://UI/menu/inventory/inventory-slot-ui.tscn").instantiate()
-		resourceContainer.add_child(inventoryResource)
-		inventoryResource.setup(resourceSlot)
-		inventoryResource.updateSlot.connect(update)
+		var resourceSlotInstance = preload("res://UI/menu/inventory/inventory-slot-ui.tscn").instantiate()
+		resourceContainer.add_child(resourceSlotInstance)
+		resourceSlotInstance.setup(resourceSlot)
+		resourceSlotInstance.updateSlot.connect(update)
 
 
 func update():
 	updateResources.emit()
+
+
+func updateSelection():
+	for filter in filterContainer.get_children():
+		filter.theme = preload("res://assets/UI/themes/UI-elements/button-regular.tres")
+	filterContainer.get_child(currentFilter).theme = preload("res://assets/UI/themes/UI-elements/button-selected.tres")
 
 
 func _on_all_items_pressed():
@@ -46,8 +56,8 @@ func _on_all_materials_pressed():
 	updateAssets(Enums.resourceType.MATERIAL)
 
 
-func _on_all_usables_pressed():
-	updateAssets(Enums.resourceType.USABLE)
+func _on_all_consumables_pressed():
+	updateAssets(Enums.resourceType.CONSUMABLE)
 
 
 func _on_all_bluprints_pressed():

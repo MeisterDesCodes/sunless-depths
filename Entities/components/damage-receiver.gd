@@ -11,9 +11,9 @@ func receiveAttack(attack: Attack):
 	entity.immunityFramesTimer.start()
 	playHitAnimation(attack.position)
 	toggleKnockback(attack.position, attack.knockback)
-	applyStatusEffects(attack.statusEffects)
+	UtilsS.applyStatusEffects(attack.caster, entity, attack.statusEffects)
 	
-	var attacker = attack.caster
+	var attacker = attack.caster.entityResource
 	var damageModifier = 1
 	var difference
 	if attack.type == Enums.weaponTypes.MELEE:
@@ -30,31 +30,37 @@ func receiveAttack(attack: Attack):
 		damageModifier = 0.3
 	
 	var finalDamage = attack.damage * randf_range(0.75, 1.25) * damageModifier
-	receiveDamage(finalDamage)
+	receiveDamage(finalDamage, null)
 
 
-func receiveDamage(damage):
+func receiveHealing(amount: float, statusEffect):
+	entity.health += amount
+	showHealthChange(amount, false, statusEffect)
+	if entity.health >= entity.entityResource.maxHealth:
+		entity.health = entity.entityResource.maxHealth
+
+
+func receiveDamage(damage, statusEffect):
 	entity.health -= damage
-	showDamage(damage)
+	showHealthChange(damage, true, statusEffect)
 	if entity.health <= 0 && !entity.isDying:
 		entity.entityKilled()
 
 
-func showDamage(damage: float):
+func showHealthChange(amount: float, isDamage: bool, statusEffect):
 	var damageIndicator = preload("res://entities/damage-indicator.tscn").instantiate()
-	if entity.has_method("isPlayer"):
+	if isDamage:
 		damageIndicator.modulate = UtilsS.colorMissing
 	else:
 		damageIndicator.modulate = UtilsS.colorUncommon
 	
-	var size = damage / entity.entityResource.maxHealth * 10
-	if size < 0.75:
-		size = 0.75
+	var percentage = amount / entity.entityResource.maxHealth * 0.5
+	var size = 0.75 + percentage
 	if size > 1.25:
 		size = 1.25
 	damageIndicator.scale = Vector2(size, size)
 	get_tree().get_root().add_child(damageIndicator)
-	damageIndicator.setup(global_position, damage)
+	damageIndicator.setup(global_position, amount, isDamage, statusEffect)
 
 
 func toggleKnockback(_position, knockback: float):
@@ -75,11 +81,6 @@ func playHitAnimation(_position: Vector2):
 		if entity.health < entity.maxHealth / 2:
 			entity.bloodParticles.emitting = true
 			entity.bloodParticles.amount = (entity.maxHealth / 2 - entity.health) / entity.maxHealth / 2 * 200
-
-
-func applyStatusEffects(statusEffects: Array[StatusEffect]):
-	for effect in statusEffects:
-		entity.statusEffectComponent.statusEffects.append(effect.duplicate())
 
 
 

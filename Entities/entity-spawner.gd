@@ -9,12 +9,14 @@ var tilemap: TileMap
 var currentEnemies: Array[CharacterBody2D] = []
 
 var enemies = preload("res://entities/resources/enemies.tres")
-var maxEnemies = 3
 var spawnDelay: float
+var maxEnemies: int
 
 
-func setup(_room: Node2D):
+func setup(_room: Node2D, _spawnDealy: float, _maxEnemies: int):
 	room = _room
+	spawnDelay = _spawnDealy
+	maxEnemies = _maxEnemies
 	tilemap = _room.get_child(0)
 	setTimer()
 
@@ -31,7 +33,7 @@ func _on_spawn_timer_timeout():
 
 func spawnEntity():
 	var enemyScene = preload("res://entities/enemy-ui.tscn").instantiate()
-	enemyScene.entityResource = pickEntity()#
+	enemyScene.entityResource = pickEntity()
 	enemyScene.global_position = getSpawnPosition().rotated(room.rotation) + room.global_position
 	enemiesScene.add_child(enemyScene)
 	setTimer()

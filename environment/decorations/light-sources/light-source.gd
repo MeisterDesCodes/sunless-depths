@@ -13,12 +13,16 @@ var x = 0
 
 
 func _ready():
-	light.scale = light.scale * size
+	update(size)
 	light.color = color
 	light.energy = energy
 	RandomNumberGenerator.new().randomize()
 	x = randi_range(0, 100)
 	light.shadow_enabled = shadow
+
+
+func update(size: float):
+	light.scale = Vector2(size, size)
 
 
 func _process(delta):

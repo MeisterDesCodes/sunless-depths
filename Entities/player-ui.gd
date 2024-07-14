@@ -7,7 +7,7 @@ signal healthModified
 
 @export var inventory: Inventory
 
-@onready var animations = $"AnimationPlayer"
+@onready var animations =  get_node("AnimationPlayer")
 @onready var hudUI = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/HudUI")
 @onready var weaponInstance = get_node("RotationPoint/Weapons/Weapon")
 @onready var immunityFramesTimer = get_node("ImmunityFrames")
@@ -16,9 +16,14 @@ signal healthModified
 @onready var lightSource = get_node("RotationPoint/LightSource")
 @onready var camera = get_tree().get_root().get_node("Game/FollowCamera")
 
+@onready var staminaRestoreTimer: Timer = get_node("StaminaRestore")
+@onready var staminaRestoreExhaustTimer: Timer = get_node("StaminaExhaustRestore")
+@onready var dashTimer: Timer = get_node("DashTimer")
+@onready var consumeTimer: Timer = get_node("ConsumeTimer")
+
 var fistWeapon = preload("res://weapons/resources/fists.tres")
 var equippedWeapons: Array[InventoryWeapon]  = [fistWeapon, fistWeapon, fistWeapon]
-var equippedGear: Array[InventoryEquipment]  = [null, null, null, null]
+var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, null]
 
 var isAttacking: bool = false
 var attackOnCooldown: bool = false
@@ -44,28 +49,37 @@ var currentOxygenDrain: float
 var currentStaminaDrain: float
 var currentStaminaRestore: float
 var dashStaminaCost: float = 20
+var exhaustionPenalty: float = 75
 
 var baseZoom: float = 2.5
 var currentZoom: int = 0
 var maxZoom: int = 5
 
 var atExit: bool = false
-var atLocation: bool = true
+var isInCave: bool = false
 
 
 func _ready():
 	$"RotationPoint/Image".texture = entityResource.texture
+	initializePlayer()
 	updateActiveWeapon()
-	updateStats()
+	updateWepaonTypes()
+	setupLightSource()
 	inventory.updateResourceTypes()
-	var sizeIncrease = 1 / UtilsS.getScalingValue(entityResource.perception * 0.5)
-	lightSource.scale = Vector2(sizeIncrease, sizeIncrease)
 	camera.zoom = Vector2(baseZoom, baseZoom)
 
 
-func updateStats():
+func initializePlayer():
 	health = entityResource.maxHealth
 	currentStaminaRestore = entityResource.staminaRestore
+	equipInitialItem(preload("res://inventory-resource/resources/equipment/rusty-tank.tres"))
+	equipInitialItem(preload("res://inventory-resource/resources/equipment/old-torch.tres"))
+
+
+func equipInitialItem(equipment: InventoryEquipment):
+	var slot = inventory.getResourceSlot(equipment)
+	if slot:
+		UtilsS.equipItem(self, slot.resource, slot.resource.equipmentType)
 
 
 func _physics_process(_delta):
@@ -105,8 +119,25 @@ func getDirection():
 		Input.get_action_strength("down") - Input.get_action_strength("up"))
 
 
+func setupLightSource():
+	var size = entityResource.lightRadius
+	var sizeIncrease = 1 / UtilsS.getScalingValue(entityResource.perception * 0.5)
+	lightSource.update(size * sizeIncrease)
+
+
+func updateWeapons():
+	updateActiveWeapon()
+	updateWepaonTypes()
+	hudUI.setupWeaponTextures()
+
+
 func updateActiveWeapon():
 	weaponInstance.setup(self, equippedWeapons[0])
+
+
+func updateWepaonTypes():
+	for weapon in equippedWeapons:
+		UtilsS.updateResourceType(weapon)
 
 
 func switchToNextWeapon(modifier: int):
@@ -122,7 +153,52 @@ func switchToNextWeapon(modifier: int):
 		equippedWeapons.remove_at(equippedWeapons.size() - 1)
 		equippedWeapons.push_front(nextWeapon)
 	
-	hudUI.setupWeaponTextures()
+	updateWeapons()
+
+
+func useStamina(staminaCost):
+	currentStaminaRestore = 0
+	staminaRestoreTimer.stop()
+	if hudUI.staminaBar.value - staminaCost > 0:
+		staminaRestoreTimer.start()
+	else:
+		if staminaRestoreExhaustTimer.time_left == 0:
+			entityResource.moveSpeed -= exhaustionPenalty
+		staminaRestoreExhaustTimer.start()
+
+
+func sprint():
+	isSprinting = true
+	hudUI.onSprint()
+	currentSupplyDrain = entityResource.supplyDrain * 1.25
+	currentOxygenDrain = entityResource.supplyDrain * 1.5
+	currentStaminaDrain = 10
+	useStamina(1)
+
+
+func walk():
+	isSprinting = false
+	hudUI.onWalk()
+	currentSupplyDrain = entityResource.supplyDrain
+	currentOxygenDrain = entityResource.oxygenDrain
+	currentStaminaDrain = entityResource.staminaDrain
+
+
+func dash():
+	canDash = false
+	isDashing = true
+	hudUI.onDash()
+	updateHud.emit(1, 2, dashStaminaCost)
+	var direction: Vector2 = getDirection()
+	if direction == Vector2.ZERO:
+		direction = global_position.direction_to(get_global_mouse_position())
+	var speed: float = 150 + entityResource.moveSpeed * 1.5
+	velocity = lerp(velocity, direction * speed, 0.5)
+	useStamina(dashStaminaCost)
+	
+	dashTimer.start()
+	await get_tree().create_timer(0.3).timeout
+	isDashing = false
 
 
 func attack():
@@ -132,7 +208,8 @@ func attack():
 		$"AttackDelay".start()
 		weaponInstance.attack(Vector2.RIGHT.rotated(weaponInstance.get_parent().get_parent().rotation))
 		updateHud.emit(0.5, 1, weaponInstance.weapon.staminaCost)
-		hudUI.setupWeaponTextures()
+		updateWeapons()
+		useStamina(weaponInstance.weapon.staminaCost)
 
 
 func canAttack():
@@ -149,6 +226,14 @@ func zoom():
 	currentZoom = (currentZoom + 1) % maxZoom
 	var zoom: float = baseZoom - 0.2 * currentZoom
 	get_tree().create_tween().tween_property(camera, "zoom", Vector2(zoom, zoom), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+
+func reduceConsumableCooldowns():
+	for resourceSlot in inventory.resourceSlots:
+		if resourceSlot.resource is InventoryConsumable && resourceSlot.resource.isOnCooldown:
+			resourceSlot.resource.remainingCooldown -= consumeTimer.wait_time
+			if resourceSlot.resource.remainingCooldown <= 0:
+				resourceSlot.resource.isOnCooldown = false
 
 
 func entityKilled():
@@ -171,14 +256,19 @@ func _on_stamina_restore_timeout():
 	currentStaminaRestore = entityResource.staminaRestore
 
 
+func _on_stamina_exhaust_restore_timeout():
+	currentStaminaRestore = entityResource.staminaRestore
+	entityResource.moveSpeed += exhaustionPenalty
+
+
 func _on_dash_timer_timeout():
 	canDash = true
 	hudUI.onDashCooldown()
+
 
 func canAct():
 	return !isInDialog && !isInLoadingScreen
 
 
-
-
-
+func _on_consume_timer_timeout():
+	reduceConsumableCooldowns()

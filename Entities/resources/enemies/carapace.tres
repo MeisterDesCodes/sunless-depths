@@ -1,24 +1,17 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://jq1oi7xmfhrq"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=10 format=3 uid="uid://jq1oi7xmfhrq"]
 
 [ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_3r6mu"]
 [ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="2_k1u2q"]
-[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_p82yk"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_jdib3"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="4_kd7tg"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="5_cyq6k"]
 [ext_resource type="Texture2D" uid="uid://bsbqjysd6hg2c" path="res://assets/entities/Carapace.png" id="7_qj8s6"]
 
-[sub_resource type="Resource" id="Resource_me523"]
-script = ExtResource("2_p82yk")
-name = ""
-strength = 2.0
-duration = 1.0
-
 [sub_resource type="Resource" id="Resource_o5h46"]
 script = ExtResource("1_3r6mu")
 damage = 15.0
 knockback = 30.0
-statusEffects = Array[ExtResource("2_p82yk")]([SubResource("Resource_me523")])
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 attackDelay = 2.5
 
 [sub_resource type="Resource" id="Resource_w862f"]

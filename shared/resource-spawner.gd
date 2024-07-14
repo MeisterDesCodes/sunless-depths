@@ -42,7 +42,6 @@ func spawnResources(resources: Array[DropResource], spawnType: Enums.resourceSpa
 
 
 func getResourceDistribution(resources, thresholds):
-	#Bug with experience
 	if resources.is_empty():
 		return []
 	

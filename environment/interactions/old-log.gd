@@ -12,4 +12,4 @@ func _ready():
 
 
 func interact(body):
-	interaction.dropResources(dropResources, 250, body)
+	interaction.dropResources(dropResources, UtilsS.resourceDropSpeed, body)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://oxobputpmy6u"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_g633l"]
+[ext_resource type="Texture2D" uid="uid://d0hp22jfy03ah" path="res://assets/resources/material/Venom.png" id="2_htdsc"]
+
+[resource]
+script = ExtResource("1_g633l")
+name = "Venom"
+description = "Harvested from dangerous creatures, it is crucial for concocting deadly poisons and enhancing toxic weaponry."
+texture = ExtResource("2_htdsc")
+rarity = 2

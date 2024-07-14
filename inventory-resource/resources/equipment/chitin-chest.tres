@@ -5,11 +5,13 @@
 
 [resource]
 script = ExtResource("1_hdu5c")
-equipmentType = 1
+equipmentType = 3
 ferocityModifier = 0
 perseveranceModifier = 6
 agilityModifier = -1
 perceptionModifier = -1
+lightRadius = 0.0
+oxygenCapacity = 0.0
 name = "Chitin Chest"
 description = ""
 texture = ExtResource("2_j6ifh")

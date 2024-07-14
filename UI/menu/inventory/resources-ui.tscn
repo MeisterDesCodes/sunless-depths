@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://xttesm4el1dg"]
 
 [ext_resource type="Script" path="res://UI/menu/inventory/resources-ui.gd" id="1_15s3g"]
-[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-1.tres" id="2_udnbg"]
+[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-regular.tres" id="2_udnbg"]
 [ext_resource type="Texture2D" uid="uid://bt0sd6524ds34" path="res://assets/UI/icons/menu/inventory/All Items.png" id="3_7pkxf"]
 [ext_resource type="Texture2D" uid="uid://c8nkwlfeoomvr" path="res://assets/UI/icons/menu/inventory/Usables.png" id="3_14e2w"]
 [ext_resource type="Texture2D" uid="uid://bjpb2l71q326o" path="res://assets/UI/icons/menu/inventory/Resources.png" id="4_4xnhc"]
@@ -57,7 +57,7 @@ icon = ExtResource("4_4xnhc")
 icon_alignment = 1
 expand_icon = true
 
-[node name="AllUsables" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="AllConsumables" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("2_udnbg")
@@ -110,7 +110,7 @@ theme_override_constants/separation = 10
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllItems" to="." method="_on_all_items_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllMaterials" to="." method="_on_all_materials_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllUsables" to="." method="_on_all_usables_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllConsumables" to="." method="_on_all_consumables_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllBluprints" to="." method="_on_all_bluprints_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllWeapons" to="." method="_on_all_weapons_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllAmmunition" to="." method="_on_all_ammunition_pressed"]

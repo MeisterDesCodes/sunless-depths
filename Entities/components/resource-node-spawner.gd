@@ -4,6 +4,7 @@ extends Node2D
 var range: float = 200
 var size = 0.6
 
+
 func _on_spawn_timer_timeout():
 	var node = preload("res://environment/interactions/debris.tscn").instantiate()
 	var x = randi_range(global_position.x - range, global_position.x + range)

@@ -5,11 +5,13 @@
 
 [resource]
 script = ExtResource("1_voqss")
-equipmentType = 0
+equipmentType = 2
 ferocityModifier = 0
 perseveranceModifier = 6
 agilityModifier = -1
 perceptionModifier = -1
+lightRadius = 0.0
+oxygenCapacity = 0.0
 name = "Chitin Helmet"
 description = ""
 texture = ExtResource("2_icr4a")

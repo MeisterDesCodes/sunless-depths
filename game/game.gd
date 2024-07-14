@@ -9,5 +9,5 @@ extends Node2D
 func _ready():
 	visible = false
 	LocationLoaderS.removeCurrentLocation()
-	LocationLoaderS.loadArea("Settle")
+	LocationLoaderS.loadArea(Enums.locations.THE_SETTLEMENT)
 	visible = true

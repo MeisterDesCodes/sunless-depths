@@ -26,7 +26,6 @@ var knockbackStrength: float
 var damage: float
 var moveSpeed: float
 
-var dropSpeed: float = 100
 var baseVisionRange: float
 
 var isKnockback: bool = false
@@ -120,8 +119,7 @@ func processIncomingAttack(attack: Attack):
 
 func entityKilled():
 	isDying = true
-	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP,
-		global_position, Vector2.DOWN, dropSpeed)
+	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, UtilsS.resourceDropSpeed * 0.5)
 	
 	onDeath.emit(self)
 	queue_free()

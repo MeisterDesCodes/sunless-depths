@@ -1,17 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://snd70w6whqbn"]
+[gd_scene load_steps=18 format=3 uid="uid://snd70w6whqbn"]
 
 [ext_resource type="Script" path="res://UI/hud/hud-ui.gd" id="1_o31jx"]
-[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/standard-container-1.tres" id="2_f2cjn"]
-[ext_resource type="Texture2D" uid="uid://cwxmk72a60l62" path="res://assets/UI/components/panel-container-2.png" id="3_fgdyr"]
-[ext_resource type="Texture2D" uid="uid://mo65hrfu6vsc" path="res://assets/UI/components/prograss-bar-1.png" id="4_durg7"]
+[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/panel-container-primary.tres" id="2_ltjv3"]
+[ext_resource type="Texture2D" uid="uid://1phh1rk1dd40" path="res://assets/UI/components/panel-container-secondary-background.png" id="3_hcxgh"]
+[ext_resource type="Texture2D" uid="uid://dwnt6s4680v4w" path="res://assets/UI/components/panel-container-secondary.png" id="5_4f6ib"]
+[ext_resource type="Theme" uid="uid://c7532tr8gavyv" path="res://assets/UI/themes/UI-elements/panel-container-secondary.circular-background.tres" id="6_brdkq"]
 [ext_resource type="Texture2D" uid="uid://84ye3gaj0elj" path="res://assets/resources/material/Supplies.png" id="6_gs1gf"]
-[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/standard-container-round-1.tres" id="7_5sqt2"]
+[ext_resource type="Texture2D" uid="uid://glw8a24610cs" path="res://assets/UI/components/progress-bar-primary.png" id="6_p47sk"]
 [ext_resource type="Texture2D" uid="uid://cq8ior3ocgh67" path="res://assets/resources/material/Oxygen.png" id="7_hei8a"]
 [ext_resource type="Texture2D" uid="uid://cbeyoho1tujoo" path="res://assets/resources/material/Stamina.png" id="8_6lvbm"]
 [ext_resource type="Theme" uid="uid://btdvschxvt4e5" path="res://assets/UI/themes/text/text-regular-highlight.tres" id="8_cwr15"]
-[ext_resource type="Theme" uid="uid://blt1eyj3xshax" path="res://assets/UI/themes/UI-elements/standard-container-2.tres" id="8_dw3dw"]
 [ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="8_x3qky"]
 [ext_resource type="Theme" uid="uid://csssnpr3oiscv" path="res://assets/UI/themes/text/text-small.tres" id="9_dluhm"]
+[ext_resource type="Theme" uid="uid://fgodnto8y6st" path="res://assets/UI/themes/UI-elements/standard-container-2-backrground.tres" id="10_oklce"]
+[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/panel-container-secondary-circular.tres" id="12_hfdgr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h34k2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qmntt"]
 load_path = "res://.godot/imported/Run.png-9f1adbb2628751fba0e6215738b89ca3.ctex"
@@ -46,7 +50,8 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme = ExtResource("2_f2cjn")
+theme = ExtResource("2_ltjv3")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h34k2")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -64,6 +69,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 20
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -77,9 +83,9 @@ size_flags_vertical = 0
 step = 0.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_under = ExtResource("3_fgdyr")
-texture_over = ExtResource("3_fgdyr")
-texture_progress = ExtResource("4_durg7")
+texture_under = ExtResource("3_hcxgh")
+texture_over = ExtResource("5_4f6ib")
+texture_progress = ExtResource("6_p47sk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -91,7 +97,7 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("7_5sqt2")
+theme = ExtResource("6_brdkq")
 
 [node name="SprintIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(30, 30)
@@ -106,7 +112,7 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("7_5sqt2")
+theme = ExtResource("6_brdkq")
 
 [node name="DashIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer2"]
 custom_minimum_size = Vector2(30, 30)
@@ -130,6 +136,7 @@ theme_override_constants/separation = 5
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("10_oklce")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/PanelContainer"]
 custom_minimum_size = Vector2(25, 25)
@@ -143,19 +150,19 @@ expand_mode = 2
 layout_mode = 2
 
 [node name="Supplies" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer"]
-custom_minimum_size = Vector2(400, 10)
+custom_minimum_size = Vector2(400, 15)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 step = 0.0
 nine_patch_stretch = true
-stretch_margin_left = 8
-stretch_margin_top = 8
-stretch_margin_right = 8
-stretch_margin_bottom = 8
-texture_under = ExtResource("3_fgdyr")
-texture_over = ExtResource("3_fgdyr")
-texture_progress = ExtResource("4_durg7")
+stretch_margin_left = 10
+stretch_margin_top = 1
+stretch_margin_right = 10
+stretch_margin_bottom = 1
+texture_under = ExtResource("3_hcxgh")
+texture_over = ExtResource("5_4f6ib")
+texture_progress = ExtResource("6_p47sk")
 
 [node name="SuppliesLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer"]
 layout_mode = 2
@@ -172,6 +179,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme = ExtResource("10_oklce")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/PanelContainer"]
 custom_minimum_size = Vector2(25, 25)
@@ -186,19 +194,19 @@ expand_mode = 2
 layout_mode = 2
 
 [node name="Oxygen" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 15)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 step = 0.0
 nine_patch_stretch = true
-stretch_margin_left = 8
-stretch_margin_top = 8
-stretch_margin_right = 8
-stretch_margin_bottom = 8
-texture_under = ExtResource("3_fgdyr")
-texture_over = ExtResource("3_fgdyr")
-texture_progress = ExtResource("4_durg7")
+stretch_margin_left = 10
+stretch_margin_top = 1
+stretch_margin_right = 10
+stretch_margin_bottom = 1
+texture_under = ExtResource("3_hcxgh")
+texture_over = ExtResource("5_4f6ib")
+texture_progress = ExtResource("6_p47sk")
 
 [node name="OxygenLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer"]
 layout_mode = 2
@@ -212,6 +220,7 @@ size_flags_vertical = 0
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
 layout_mode = 2
 size_flags_vertical = 0
+theme = ExtResource("10_oklce")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/PanelContainer"]
 custom_minimum_size = Vector2(25, 25)
@@ -225,19 +234,19 @@ expand_mode = 2
 layout_mode = 2
 
 [node name="Stamina" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 15)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 step = 0.0
 nine_patch_stretch = true
-stretch_margin_left = 8
-stretch_margin_top = 8
-stretch_margin_right = 8
-stretch_margin_bottom = 8
-texture_under = ExtResource("3_fgdyr")
-texture_over = ExtResource("3_fgdyr")
-texture_progress = ExtResource("4_durg7")
+stretch_margin_left = 10
+stretch_margin_top = 1
+stretch_margin_right = 10
+stretch_margin_bottom = 1
+texture_under = ExtResource("3_hcxgh")
+texture_over = ExtResource("5_4f6ib")
+texture_progress = ExtResource("6_p47sk")
 
 [node name="StaminaLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer"]
 layout_mode = 2
@@ -254,7 +263,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("8_dw3dw")
+theme = ExtResource("10_oklce")
 
 [node name="ActiveWeapon" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -266,10 +275,13 @@ custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme = ExtResource("7_5sqt2")
+theme = ExtResource("12_hfdgr")
 
 [node name="AmmunitionActive" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/PanelContainerAmmunition1"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 expand_mode = 2
 stretch_mode = 5
 
@@ -284,7 +296,7 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("8_dw3dw")
+theme = ExtResource("10_oklce")
 
 [node name="ReserveWeapon1" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
@@ -296,10 +308,13 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme = ExtResource("7_5sqt2")
+theme = ExtResource("12_hfdgr")
 
 [node name="AmmunitionReserve1" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer2/PanelContainerAmmunition2"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 expand_mode = 2
 stretch_mode = 5
 
@@ -313,7 +328,7 @@ theme = ExtResource("9_dluhm")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 8
-theme = ExtResource("8_dw3dw")
+theme = ExtResource("10_oklce")
 
 [node name="ReserveWeapon2" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer3"]
 layout_mode = 2
@@ -325,10 +340,13 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme = ExtResource("7_5sqt2")
+theme = ExtResource("12_hfdgr")
 
 [node name="AmmunitionReserve2" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer3/PanelContainerAmmunition3"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 expand_mode = 2
 stretch_mode = 5
 

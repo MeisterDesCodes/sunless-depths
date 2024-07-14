@@ -5,8 +5,8 @@ extends Control
 @onready var MerchantWindow = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/Merchant")
 @onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
 
-@onready var locationTitle = get_node("NinePatchRect/LocationContainer/PanelContainer/Title")
-@onready var locationDialogs = get_node("NinePatchRect/LocationContainer/ScrollContainer/LocationDialogs")
+@onready var locationTitle = get_node("NinePatchRect/MarginContainer/LocationContainer/PanelContainer/Title")
+@onready var locationDialogs = get_node("NinePatchRect/MarginContainer/LocationContainer/ScrollContainer/LocationDialogs")
 
 var currentDialog: PanelContainer = null
 var dialogTree: Array[Dialog] = []
@@ -43,7 +43,7 @@ func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource]):
 	if dialog != null:
 		if currentDialog != null:
 			currentDialog.completed = true
-			for choice in currentDialog.choices.get_children():
+			for choice in currentDialog.choiceContainer.get_children():
 				choice.onCompletion()
 		
 		dialogTree.append(dialog)

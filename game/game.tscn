@@ -1,14 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwiu2kgkgw4ns"]
+[gd_scene load_steps=13 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
+[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="2_6whuv"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
 [ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
+[ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-ui.tscn" id="9_75ykn"]
 [ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/hud/hud-ui.tscn" id="58_isjnl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
+vertices = PackedVector2Array(12011, 8356, -11625, 8549, -11896, -8049, 11852, -8049)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-11901, -8054, 11857, -8054, 12017, 8361, -11630, 8555)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 5.0
@@ -22,7 +26,20 @@ gradient = SubResource("Gradient_g0pcc")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xvjr7")
 
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
+position = Vector2(3873.39, 701.942)
+
+[node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
+remote_path = NodePath("../../../FollowCamera")
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+
 [node name="CurrentLocation" type="Node2D" parent="."]
+
+[node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("2_6whuv")]
+visible = false
 
 [node name="TheSettlement" parent="CurrentLocation" instance=ExtResource("2_rrhun")]
 
@@ -31,19 +48,8 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 
-[node name="Entities" type="Node2D" parent="."]
-
-[node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
-top_level = true
-position = Vector2(444.164, 531.381)
-
-[node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
-remote_path = NodePath("../../../FollowCamera")
-
-[node name="Enemies" type="Node2D" parent="Entities"]
-
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(444.164, 531.381)
+position = Vector2(3873.39, 701.942)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -77,7 +83,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_shq6o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -92,5 +98,7 @@ metadata/_edit_use_anchors_ = true
 [node name="HudUI" parent="CanvasLayer/UIControl" instance=ExtResource("58_isjnl")]
 z_index = 1
 layout_mode = 1
+
+[node name="PopupUI" parent="CanvasLayer/UIControl" instance=ExtResource("9_75ykn")]
 
 [connection signal="timeout" from="SoundHandler/WalkTimer" to="SoundHandler" method="_on_walk_timer_timeout"]

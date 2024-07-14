@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://buco1qws0fm6y"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_x7wlg"]
+[ext_resource type="Texture2D" uid="uid://dg56rfdn5lr1c" path="res://assets/resources/equipment/lights/Old Torch.png" id="2_rm61f"]
+
+[resource]
+script = ExtResource("1_x7wlg")
+equipmentType = 0
+ferocityModifier = 0
+perseveranceModifier = 0
+agilityModifier = 0
+perceptionModifier = 1
+lightRadius = 1.0
+oxygenCapacity = 0.0
+name = "Old Torch"
+description = "Fashioned from weathered wood and wrapped with frayed cloth, serves as a reliable light source and can be wielded as a makeshift weapon."
+texture = ExtResource("2_rm61f")
+rarity = 1

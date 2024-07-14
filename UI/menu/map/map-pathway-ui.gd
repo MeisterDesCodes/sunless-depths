@@ -1,12 +1,17 @@
 extends PanelContainer
 
 
-@export var iterations: int
-@export var locationFrom: String
-@export var locationTo: String
-@export var travelDirections: Array[Enums.exitDirection]
-@export var tier: int
+@export var pathwayResource: MapPathway
 
 
 func _ready():
-	pass
+	if !pathwayResource:
+		queue_free()
+
+
+func _on_button_mouse_entered():
+	UILoaderS.loadUIPopup(self, pathwayResource, true)
+
+
+func _on_button_mouse_exited():
+	UILoaderS.closeUIPopup()

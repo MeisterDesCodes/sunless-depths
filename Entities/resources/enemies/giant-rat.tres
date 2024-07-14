@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_o5h46"]
 script = ExtResource("1_igf4x")
-damage = 6.0
+damage = 3.0
 knockback = 15.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 attackDelay = 3.0
@@ -34,7 +34,7 @@ drops = Array[ExtResource("4_4sxbu")]([SubResource("Resource_w862f"), SubResourc
 name = "Giant Rat"
 texture = ExtResource("2_5cuxh")
 maxHealth = 15.0
-moveSpeed = 100.0
+moveSpeed = 85.0
 ferocity = 1.0
 perseverance = 1.0
 agility = 1.0
