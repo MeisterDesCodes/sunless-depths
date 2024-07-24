@@ -23,6 +23,9 @@ func _ready():
 
 func update(size: float):
 	light.scale = Vector2(size, size)
+	var body = light.get_parent().get_parent().get_parent()
+	if body.has_method("isPlayer"):
+		light.scale *= body.sightRadiusModifier
 
 
 func _process(delta):

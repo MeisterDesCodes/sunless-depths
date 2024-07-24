@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwiu2kgkgw4ns"]
+[gd_scene load_steps=15 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="2_6whuv"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
+[ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="3_k17nm"]
+[ext_resource type="Resource" uid="uid://dlv0qcm8b73n5" path="res://entities/resources/enemies/test-dummy.tres" id="4_0ycc7"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
 [ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
 [ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-ui.tscn" id="9_75ykn"]
@@ -29,12 +31,16 @@ script = ExtResource("1_xvjr7")
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
-position = Vector2(3873.39, 701.942)
+position = Vector2(3811.11, 738.145)
 
 [node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../FollowCamera")
 
 [node name="Enemies" type="Node2D" parent="Entities"]
+
+[node name="Enemy" parent="Entities/Enemies" instance=ExtResource("3_k17nm")]
+position = Vector2(3752.18, 750.492)
+entityResource = ExtResource("4_0ycc7")
 
 [node name="CurrentLocation" type="Node2D" parent="."]
 
@@ -49,7 +55,7 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(3873.39, 701.942)
+position = Vector2(3811.11, 738.145)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -93,7 +99,6 @@ anchor_right = 0.999945
 anchor_bottom = 0.95
 offset_right = 0.0878906
 offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
 
 [node name="HudUI" parent="CanvasLayer/UIControl" instance=ExtResource("58_isjnl")]
 z_index = 1

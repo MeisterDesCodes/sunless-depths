@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://ckf7i0p03pukf"]
+
+[ext_resource type="Texture2D" uid="uid://b0da3oh7n6i51" path="res://assets/UI/icons/entities/player/stats/Attack_Delay.png" id="1_sl0dq"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/level-up-card.gd" id="2_2qc7k"]
+[ext_resource type="Resource" uid="uid://d07qv8wjqw5y1" path="res://UI/menu/inventory/level-up/resources/card-attack-delay-1.tres" id="2_pmx18"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/card-resource.gd" id="3_0eows"]
+
+[sub_resource type="Resource" id="Resource_tdhbv"]
+script = ExtResource("3_0eows")
+resource = 2
+amount = 3
+
+[sub_resource type="Resource" id="Resource_abo1a"]
+script = ExtResource("3_0eows")
+resource = 0
+amount = 2
+
+[resource]
+script = ExtResource("2_2qc7k")
+name = "Attack Delay"
+description = "Reduces $ by"
+icon = ExtResource("1_sl0dq")
+requirements = Array[ExtResource("2_2qc7k")]([ExtResource("2_pmx18")])
+type = 2
+value = 5.0
+value2 = 0.0
+stats = Array[ExtResource("3_0eows")]([SubResource("Resource_tdhbv"), SubResource("Resource_abo1a")])
+tier = 2

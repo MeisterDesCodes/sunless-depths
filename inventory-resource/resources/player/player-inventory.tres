@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=21 format=3 uid="uid://btn5dob4qrwk5"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=23 format=3 uid="uid://btn5dob4qrwk5"]
 
 [ext_resource type="Resource" uid="uid://buco1qws0fm6y" path="res://inventory-resource/resources/equipment/old-torch.tres" id="1_53e86"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_mh34j"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="9_uwijk"]
 [ext_resource type="Resource" uid="uid://c07lwuwv6wilc" path="res://weapons/resources/shortbow.tres" id="10_45xqr"]
 [ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="10_vctix"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="11_gams0"]
 
 [sub_resource type="Resource" id="Resource_rpcen"]
 script = ExtResource("2_a7ysp")
@@ -57,6 +58,11 @@ script = ExtResource("2_a7ysp")
 resource = ExtResource("10_vctix")
 amount = 1
 
+[sub_resource type="Resource" id="Resource_dq6h5"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("11_gams0")
+amount = 500000
+
 [resource]
 script = ExtResource("6_s3erd")
-resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_kqwes"), SubResource("Resource_ycbnj"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7")])
+resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_kqwes"), SubResource("Resource_ycbnj"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5")])

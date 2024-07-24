@@ -65,15 +65,16 @@ func getRarityColor(rarity: Enums.resourceRarity):
 
 
 func calculateMeleeScaling(attacker: Entity):
-	return attacker.ferocity
+	return attacker.ferocity + attacker.agility * 0.5
 
 
 func calculateRangedScaling(attacker: Entity):
-	return attacker.ferocity * 0.5 + attacker.perception * 0.5
+	return attacker.agility * 0.5 + attacker.perception * 0.5
 
 
 func applyStatusEffects(source: CharacterBody2D, target: CharacterBody2D, statusEffects: Array[StatusEffect]):
 	for effect in statusEffects:
+		effect.strength *= source.effectStrengthModifier
 		if effect.appliesTo == Enums.statusEffectReceiver.SELF:
 			source.statusEffectComponent.statusEffects.append(effect.duplicate())
 		if effect.appliesTo == Enums.statusEffectReceiver.TARGET:
@@ -89,6 +90,7 @@ func unequipItem(entityScene, item, index):
 	entityScene.entityResource.oxygenCapacity -= item.oxygenCapacity
 	entityScene.equippedGear[index] = null
 	entityScene.setupLightSource()
+	entityScene.updateMaxHealth()
 
 
 func equipItem(entityScene, item, index):
@@ -100,6 +102,7 @@ func equipItem(entityScene, item, index):
 	entityScene.entityResource.oxygenCapacity += item.oxygenCapacity
 	entityScene.equippedGear[index] = item
 	entityScene.setupLightSource()
+	entityScene.updateMaxHealth()
 
 
 func enumArrayToString(_enum, array):
@@ -112,7 +115,7 @@ func enumArrayToString(_enum, array):
 	return text
 
 
-func nameArrayToString(array):
+func resourceNameArrayToString(array):
 	var text: String = ""
 	for element in array:
 		text += element.resource.name
@@ -120,6 +123,13 @@ func nameArrayToString(array):
 			text += ", "
 	
 	return text
+
+
+func round(value: float, decimals: int):
+	return round(value * pow(10, decimals)) / pow(10, decimals)
+
+
+
 
 
 

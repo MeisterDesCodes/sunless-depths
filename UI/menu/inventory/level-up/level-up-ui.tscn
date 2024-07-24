@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://chc4i5lrdd25t"]
+
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/level-up-ui.gd" id="1_hir7w"]
+[ext_resource type="Theme" uid="uid://bpno2y3d4rqlk" path="res://assets/UI/themes/text/text-huge-highlight.tres" id="2_4dgey"]
+
+[node name="LevelUpUI" type="Control"]
+z_index = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hir7w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 41.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme = ExtResource("2_4dgey")
+text = "Choose one Augment"
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 375
+alignment = 1

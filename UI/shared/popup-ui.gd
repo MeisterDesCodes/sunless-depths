@@ -55,50 +55,50 @@ func showAdditionalInformation():
 	match element.type:
 		Enums.resourceType.BLUEPRINT:
 			blueprintContainer.visible = true
-			description.text = "This blueprint can be used to craft: " + UtilsS.nameArrayToString(element.outputResources)
-			for resource in element.inputResources:
+			description.text = "This blueprint can be used to craft: " + UtilsS.resourceNameArrayToString(element.outputResources)
+			for inputResource in element.inputResources:
 				var resourceIcon = preload("res://UI/shared/resource-icon-ui.tscn").instantiate()
 				inputResources.add_child(resourceIcon)
-				resourceIcon.setup(resource, true, true)
+				resourceIcon.setup(inputResource.resource, inputResource.amount, inputResource.resource.texture, true)
 				
-			for resource in element.outputResources:
+			for outputResource in element.outputResources:
 				var resourceIcon = preload("res://UI/shared/resource-icon-ui.tscn").instantiate()
 				outputResources.add_child(resourceIcon)
-				resourceIcon.setup(resource, true, false)
+				resourceIcon.setup(outputResource.resource, outputResource.amount, outputResource.resource.texture, false)
 		
 		Enums.resourceType.WEAPON:
 			statsContainer.visible = true
 			if element is MeleeWeapon:
-				var damageValue: float = element.damage * (1 + UtilsS.calculateMeleeScaling(playerScene.entityResource) * 0.05)
+				var damageValue: float = element.damage * (1 + UtilsS.calculateMeleeScaling(playerScene.entityResource) * 0.05) * playerScene.meleeDamageModifier
 				var damage: String = str(round(0.75 * damageValue)) + " - " + str(round(1.25 * damageValue))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Damage.png"), "Damage", damage)
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Attack_Delay.png"), "Attack Delay", str(element.attackDelay))
+				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Attack_Delay.png"), "Attack Delay", str(UtilsS.round(element.attackDelay * playerScene.attackDelayModifier, 2)))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Knockback.png"), "Knockback", str(element.knockback))
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Stamina_Cost.png"), "Stamina Cost", str(element.staminaCost))
+				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Stamina_Cost.png"), "Stamina Cost", str(element.staminaCost * playerScene.staminaCostModifier))
 			
 			if element is RangedWeapon:
 				var damage: String = ""
 				if element.ammunition:
-					var damageValue: float = element.damageModifier * element.ammunition.damage * (1 + UtilsS.calculateRangedScaling(playerScene.entityResource) * 0.05)
+					var damageValue: float = element.damageModifier * element.ammunition.damage * (1 + UtilsS.calculateRangedScaling(playerScene.entityResource) * 0.05) * playerScene.rangedDamageModifier
 					damage = str(round(0.75 * damageValue)) + " - " + str(round(1.25 * damageValue))
 				else:
 					damage = "No Ammo"
 				
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Damage.png"), "Damage with Ammunition", damage)
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Damage.png"), "Damage Modifier", str(element.damageModifier))
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Attack_Delay.png"), "Attack Delay", str(element.attackDelay))
+				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Attack_Delay.png"), "Attack Delay", str(UtilsS.round(element.attackDelay * playerScene.attackDelayModifier, 2)))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Speed.png"), "Speed Modifier", str(element.speedModifier))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Knockback.png"), "Knockback Modifier", str(element.knockbackModifier))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Spread.png"), "Spread", str(element.spread))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Number of Projectiles.png"), "Number of Projectiles", str(element.projectileAmount))
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Stamina_Cost.png"), "Stamina Cost", str(element.staminaCost))
+				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Stamina_Cost.png"), "Stamina Cost", str(element.staminaCost * playerScene.staminaCostModifier))
 			
 			addEmptyElement()
 			addStatusEffectDecriptions()
 		
 		Enums.resourceType.AMMUNITION:
 			statsContainer.visible = true
-			var damageValue: float = element.damage * (1 + UtilsS.calculateRangedScaling(playerScene.entityResource) * 0.05)
+			var damageValue: float = element.damage * (1 + UtilsS.calculateRangedScaling(playerScene.entityResource) * 0.05) * playerScene.rangedDamageModifier
 			var damage: String = str(round(0.75 * damageValue)) + " - " + str(round(1.25 * damageValue))
 			addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Damage.png"), "Damage", damage)
 			addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Speed.png"), "Speed", str(element.speed))
@@ -144,7 +144,7 @@ func showAdditionalInformation():
 func addStatusEffectDecriptions():
 	if !element.statusEffects.is_empty():
 		for effect in element.statusEffects:
-			var description: String = str(effect.strength) + " / s for " + str(effect.duration) + " seconds"
+			var description: String = str(round(effect.strength * playerScene.effectStrengthModifier)) + " / s for " + str(effect.duration) + " seconds"
 			addStatsElement(load("res://assets/UI/icons/entities/status-effects/" + UtilsS.getEnumValue(Enums.statusEffectType, effect.type) + ".png"), \
 				"Applies " + UtilsS.getEnumValue(Enums.statusEffectType, effect.type) + " to " + UtilsS.getEnumValue(Enums.statusEffectReceiver, effect.appliesTo), description)
 

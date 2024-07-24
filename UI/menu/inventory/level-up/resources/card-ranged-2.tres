@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://dsl3wpmyab5wi"]
+
+[ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Ammunition.png" id="1_mptfm"]
+[ext_resource type="Resource" uid="uid://dk4pxtjyldmu7" path="res://UI/menu/inventory/level-up/resources/card-ranged-1.tres" id="2_yhpni"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/level-up-card.gd" id="2_yv7h7"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/card-resource.gd" id="3_2frjr"]
+
+[sub_resource type="Resource" id="Resource_ujkh0"]
+script = ExtResource("3_2frjr")
+resource = 2
+amount = 3
+
+[sub_resource type="Resource" id="Resource_yc75v"]
+script = ExtResource("3_2frjr")
+resource = 3
+amount = 2
+
+[resource]
+script = ExtResource("2_yv7h7")
+name = "Ranged Damage"
+description = "Increases $ by"
+icon = ExtResource("1_mptfm")
+requirements = Array[ExtResource("2_yv7h7")]([ExtResource("2_yhpni")])
+type = 1
+value = 5.0
+value2 = 0.0
+stats = Array[ExtResource("3_2frjr")]([SubResource("Resource_ujkh0"), SubResource("Resource_yc75v")])
+tier = 2

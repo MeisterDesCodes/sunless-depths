@@ -28,6 +28,7 @@ var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, nu
 var isAttacking: bool = false
 var attackOnCooldown: bool = false
 
+var maxHealth: float
 var health: float
 var healthRegeneration = 0.01
 var level: int
@@ -51,6 +52,18 @@ var currentStaminaRestore: float
 var dashStaminaCost: float = 20
 var exhaustionPenalty: float = 75
 
+var selectedCards: Array[LevelUpCard]
+
+var meleeDamageModifier: float = 1
+var rangedDamageModifier: float = 1
+var attackDelayModifier: float = 1
+var healthModifier: float = 1
+var movementSpeedModifier: float = 1
+var sightRadiusModifier: float = 1
+var lootModifier: float = 1
+var effectStrengthModifier: float = 1
+var staminaCostModifier: float = 1
+
 var baseZoom: float = 2.5
 var currentZoom: int = 0
 var maxZoom: int = 5
@@ -70,10 +83,17 @@ func _ready():
 
 
 func initializePlayer():
-	health = entityResource.maxHealth
 	currentStaminaRestore = entityResource.staminaRestore
 	equipInitialItem(preload("res://inventory-resource/resources/equipment/rusty-tank.tres"))
 	equipInitialItem(preload("res://inventory-resource/resources/equipment/old-torch.tres"))
+	updateMaxHealth()
+	health = maxHealth
+
+
+func updateMaxHealth():
+	maxHealth = (entityResource.maxHealth + entityResource.perseverance) * 1 / UtilsS.getScalingValue(entityResource.perseverance * 2) * healthModifier
+	if health > maxHealth:
+		health = maxHealth
 
 
 func equipInitialItem(equipment: InventoryEquipment):
@@ -104,7 +124,7 @@ func _physics_process(_delta):
 		if isAttacking:
 			currentMoveSpeed *= 0.5
 		
-		currentMoveSpeed *= 1 / UtilsS.getScalingValue(entityResource.agility * 0.25)
+		currentMoveSpeed *= 1 / UtilsS.getScalingValue(entityResource.agility * 0.5) * movementSpeedModifier
 		velocity = lerp(velocity, direction * currentMoveSpeed, 0.15)
 	
 	if isKnockback:
@@ -159,7 +179,7 @@ func switchToNextWeapon(modifier: int):
 func useStamina(staminaCost):
 	currentStaminaRestore = 0
 	staminaRestoreTimer.stop()
-	if hudUI.staminaBar.value - staminaCost > 0:
+	if hudUI.staminaBar.value - (staminaCost * staminaCostModifier) > 0:
 		staminaRestoreTimer.start()
 	else:
 		if staminaRestoreExhaustTimer.time_left == 0:
@@ -204,7 +224,7 @@ func dash():
 func attack():
 	if canAttack():
 		attackOnCooldown = true
-		$"AttackDelay".wait_time = weaponInstance.weapon.attackDelay * UtilsS.getScalingValue(entityResource.agility * 0.35)
+		$"AttackDelay".wait_time = weaponInstance.weapon.attackDelay * UtilsS.getScalingValue(entityResource.agility * 0.35) * attackDelayModifier
 		$"AttackDelay".start()
 		weaponInstance.attack(Vector2.RIGHT.rotated(weaponInstance.get_parent().get_parent().rotation))
 		updateHud.emit(0.5, 1, weaponInstance.weapon.staminaCost)

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://xym1semtg8ht"]
+
+[ext_resource type="Texture2D" uid="uid://bd5ybw71f8cii" path="res://assets/UI/icons/entities/player/stats/Damage.png" id="1_1x3du"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/level-up-card.gd" id="2_pect4"]
+[ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up/resources/card-melee-2.tres" id="2_qjfed"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/card-resource.gd" id="3_2qqfo"]
+
+[sub_resource type="Resource" id="Resource_x3ub6"]
+script = ExtResource("3_2qqfo")
+resource = 0
+amount = 3
+
+[sub_resource type="Resource" id="Resource_t5chu"]
+script = ExtResource("3_2qqfo")
+resource = 1
+amount = 2
+
+[resource]
+script = ExtResource("2_pect4")
+name = "Melee Damage"
+description = "Increases $ by"
+icon = ExtResource("1_1x3du")
+requirements = Array[ExtResource("2_pect4")]([ExtResource("2_qjfed")])
+type = 0
+value = 10.0
+value2 = 0.0
+stats = Array[ExtResource("3_2qqfo")]([SubResource("Resource_x3ub6"), SubResource("Resource_t5chu")])
+tier = 3

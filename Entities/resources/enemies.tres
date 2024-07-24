@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Enemies" load_steps=9 format=3 uid="uid://bm3ea4iltxsvr"]
+[gd_resource type="Resource" script_class="Enemies" load_steps=11 format=3 uid="uid://bm3ea4iltxsvr"]
 
 [ext_resource type="Script" path="res://entities/resources/enemy-spawn-container.gd" id="1_8cmwc"]
 [ext_resource type="Resource" uid="uid://egkn5f1g2uuv" path="res://entities/resources/enemies/giant-rat.tres" id="1_gwjrc"]
 [ext_resource type="Script" path="res://entities/resources/enemies.gd" id="2_0libn"]
 [ext_resource type="Resource" uid="uid://dum4ni3lxgxqv" path="res://entities/resources/enemies/crawler.tres" id="2_w15yg"]
 [ext_resource type="Resource" uid="uid://cwaapu5hqbqij" path="res://entities/resources/enemies/bat.tres" id="3_2c8ya"]
+[ext_resource type="Resource" uid="uid://jq1oi7xmfhrq" path="res://entities/resources/enemies/carapace.tres" id="5_j36qe"]
 
 [sub_resource type="Resource" id="Resource_wgjaw"]
 script = ExtResource("1_8cmwc")
@@ -21,10 +22,15 @@ script = ExtResource("1_8cmwc")
 enemy = ExtResource("3_2c8ya")
 chance = 1
 
+[sub_resource type="Resource" id="Resource_7dk2q"]
+script = ExtResource("1_8cmwc")
+enemy = ExtResource("5_j36qe")
+chance = 1
+
 [resource]
 script = ExtResource("2_0libn")
 allEnemiesTier0 = Array[ExtResource("1_8cmwc")]([SubResource("Resource_wgjaw"), SubResource("Resource_35vj1"), SubResource("Resource_q3so7")])
-allEnemiesTier1 = Array[ExtResource("1_8cmwc")]([])
+allEnemiesTier1 = Array[ExtResource("1_8cmwc")]([SubResource("Resource_7dk2q")])
 allEnemiesTier2 = Array[ExtResource("1_8cmwc")]([])
 allEnemiesTier3 = Array[ExtResource("1_8cmwc")]([])
 allEnemiesTier4 = Array[ExtResource("1_8cmwc")]([])

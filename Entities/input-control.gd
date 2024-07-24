@@ -9,8 +9,7 @@ func _process(delta):
 		return
 	
 	if Input.is_action_just_pressed("inventory"):
-		var scene = preload("res://UI/menu/menu-ui.tscn")
-		UILoaderS.loadUIScene(scene)
+		UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 
 	if Input.is_action_just_pressed("dash"):
 		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > 0):

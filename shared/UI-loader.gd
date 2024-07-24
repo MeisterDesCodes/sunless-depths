@@ -10,6 +10,7 @@ var fadeTime: float = 0.1
 var fadeTimeLoadingScreen: float = 0.5
 var currentUIScenes: Array[Control]
 var currentLoadingScene: Control
+var currentBlockerScene: Control
 var currentLabelScene: Control
 var currentPopupScene: Control
 
@@ -21,6 +22,18 @@ func loadUIScene(scene: PackedScene):
 	canvasLayer.add_child(sceneInstance)
 	AnimationsS.fadeInHeight(sceneInstance, fadeTime)
 	currentUIScenes.append(sceneInstance)
+	if currentBlockerScene:
+		closeUIBlocker(currentBlockerScene)
+	loadUIBlocker(preload("res://UI/menu/blocker-ui.tscn"), sceneInstance.z_index - 1)
+	return sceneInstance
+
+
+func loadUIBlocker(scene: PackedScene, index: int):
+	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
+	var sceneInstance = scene.instantiate()
+	canvasLayer.add_child(sceneInstance)
+	sceneInstance.setup(index)
+	currentBlockerScene = sceneInstance
 	return sceneInstance
 
 
@@ -98,10 +111,19 @@ func closeUIPopup():
 
 func closeUIScene(sceneInstance):
 	playerScene.isInDialog = false
+	if currentUIScenes.size() == 1:
+		closeUIBlocker(currentBlockerScene)
+	else:
+		currentBlockerScene.z_index = currentUIScenes[currentUIScenes.size() - 2].z_index - 1
 	AnimationsS.fadeOutHeight(sceneInstance, fadeTime)
 	await get_tree().create_timer(fadeTime).timeout
 	sceneInstance.queue_free()
 	currentUIScenes.remove_at(currentUIScenes.find(sceneInstance))
+
+
+func closeUIBlocker(sceneInstance):
+	sceneInstance.queue_free()
+	currentBlockerScene = null
 
 
 func closeAllUIScenes():
@@ -109,3 +131,5 @@ func closeAllUIScenes():
 	for UIScene in currentUIScenes:
 		UIScene.queue_free()
 	currentUIScenes.clear()
+	if currentBlockerScene:
+		closeUIBlocker(currentBlockerScene)

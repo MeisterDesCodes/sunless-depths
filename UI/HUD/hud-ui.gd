@@ -79,13 +79,13 @@ func _process(delta):
 	if !playerScene.canAct():
 		return
 	
-	if playerScene.health < playerScene.entityResource.maxHealth:
-		playerScene.health += playerScene.entityResource.maxHealth * playerScene.healthRegeneration / 60
+	if playerScene.health < playerScene.maxHealth:
+		playerScene.health += playerScene.maxHealth * playerScene.healthRegeneration / 60
 		healthModified()
 	
 	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
 	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100)
-	staminaBar.value -= delta * (playerScene.currentStaminaDrain - playerScene.currentStaminaRestore)
+	staminaBar.value -= delta * (playerScene.currentStaminaDrain * playerScene.staminaCostModifier - playerScene.currentStaminaRestore)
 	if (suppliesBar.value <= 0 && !suppliesIsRestocked):
 		restockSupplies()
 
@@ -131,11 +131,11 @@ func updateHud(suppliesValue, oxygenValue, staminaValue):
 		get_tree().create_tween().tween_property(suppliesBar, "value", suppliesBar.value - suppliesValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	if !oxygenIsRestocked:
 		get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100), 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue * playerScene.staminaCostModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func healthModified():
-	get_tree().create_tween().tween_property(healthBar, "value", playerScene.health / playerScene.entityResource.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	get_tree().create_tween().tween_property(healthBar, "value", playerScene.health / playerScene.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func updateLabels():

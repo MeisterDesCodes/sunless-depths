@@ -44,6 +44,10 @@ var canLaunchProjectile = true
 var isAttacking = true
 var currentAttack: EnemyAttack
 
+var meleeDamageModifier: float = 1
+var rangedDamageModifier: float = 1
+var effectStrengthModifier: float = 1
+
 var isDying: bool = false
 
 

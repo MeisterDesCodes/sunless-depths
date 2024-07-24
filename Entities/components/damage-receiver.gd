@@ -13,13 +13,15 @@ func receiveAttack(attack: Attack):
 	toggleKnockback(attack.position, attack.knockback)
 	UtilsS.applyStatusEffects(attack.caster, entity, attack.statusEffects)
 	
-	var attacker = attack.caster.entityResource
 	var damageModifier = 1
-	var difference
+	var damageTypeModifier: float
+	var difference: float
 	if attack.type == Enums.weaponTypes.MELEE:
-		difference = UtilsS.calculateMeleeScaling(attacker) - entity.entityResource.perseverance
+		difference = UtilsS.calculateMeleeScaling(attack.caster.entityResource) - entity.entityResource.perseverance
+		damageTypeModifier = attack.caster.meleeDamageModifier
 	else:
-		difference = UtilsS.calculateRangedScaling(attacker) - entity.entityResource.agility
+		difference = UtilsS.calculateRangedScaling(attack.caster.entityResource) - entity.entityResource.agility
+		damageTypeModifier = attack.caster.rangedDamageModifier
 	
 	if difference > 0:
 		damageModifier += difference * 0.05
@@ -29,7 +31,7 @@ func receiveAttack(attack: Attack):
 	if damageModifier < 0.3:
 		damageModifier = 0.3
 	
-	var finalDamage = attack.damage * randf_range(0.75, 1.25) * damageModifier
+	var finalDamage = attack.damage * randf_range(0.75, 1.25) * damageModifier * damageTypeModifier
 	receiveDamage(finalDamage, null)
 
 

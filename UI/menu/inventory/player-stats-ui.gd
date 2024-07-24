@@ -21,6 +21,8 @@ extends Control
 @onready var levelUpContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/LevelUp")
 @onready var levelUpButton: Button = get_node("MarginContainer/VBoxContainer/HBoxContainer3/Experience/LevelUpButton")
 
+var scene
+
 
 func _ready():
 	updateLabels()
@@ -36,6 +38,7 @@ func updateLabels():
 	perseverance.text = str(round(playerScene.entityResource.perseverance))
 	agility.text = str(round(playerScene.entityResource.agility))
 	perception.text = str(round(playerScene.entityResource.perception))
+	playerScene.updateMaxHealth()
 
 
 func updateExperience():
@@ -58,12 +61,14 @@ func levelUpCost():
 func levelUp():
 	playerScene.inventory.removeResource(experience, levelUpCost())
 	playerScene.level += 1
-	increaseStats()
 	updateExperience()
 	updateLabels()
+	scene = UILoaderS.loadUIScene(preload("res://UI/menu/inventory/level-up/level-up-ui.tscn"))
+	scene.cardSelected.connect(updateLabels)
 
 
 func increaseStats():
+	#Remove
 	var statIncrease = pow(1.1, playerScene.level)
 	playerScene.entityResource.maxHealth += statIncrease * 3
 	playerScene.entityResource.ferocity += statIncrease

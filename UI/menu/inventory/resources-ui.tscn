@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dda5moqtu6oan" path="res://assets/UI/icons/menu/inventory/Equipment.png" id="4_bq3c6"]
 [ext_resource type="Texture2D" uid="uid://baaxea56gnea3" path="res://assets/UI/icons/menu/inventory/Blueprints.png" id="6_vglu4"]
 [ext_resource type="Texture2D" uid="uid://d0yvfjmya7pbf" path="res://assets/UI/icons/menu/inventory/Weapons.png" id="7_81jl7"]
-[ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Amunition.png" id="8_nfy4b"]
+[ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Ammunition.png" id="8_nfy4b"]
 
 [node name="ResourcesUI" type="Control"]
 layout_mode = 3

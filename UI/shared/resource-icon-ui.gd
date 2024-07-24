@@ -6,11 +6,20 @@ extends PanelContainer
 @onready var amount: Label = get_node("Amount")
 
 
-func setup(requirement, showLabel: bool, isRequirement: bool):
-	icon.texture = requirement.resource.texture
-	if showLabel:
-		amount.text = str(requirement.amount)
-	if isRequirement && requirement.amount > playerScene.inventory.getResourceAmount(requirement.resource):
-		self_modulate = UtilsS.colorMissing
-	else:
-		self_modulate = UtilsS.getRarityColor(requirement.resource.rarity)
+func setup(_resource, _amount, _texture, isRequirement: bool):
+	icon.texture = _texture
+	if _amount > 0:
+		amount.text = str(_amount)
+	if _resource && isRequirement:
+		if _amount > playerScene.inventory.getResourceAmount(_resource):
+			changeFrameColor(UtilsS.colorMissing)
+		else:
+			changeFrameColor(UtilsS.getRarityColor(_resource.rarity))
+
+
+func changeIconColor(color: Color):
+	icon.self_modulate = color
+
+
+func changeFrameColor(color: Color):
+	self_modulate = color

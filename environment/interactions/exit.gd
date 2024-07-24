@@ -19,7 +19,6 @@ func interact(body):
 		return
 	
 	if !playerScene.isInCave:
-		#TODO Fix line below
 		playerScene.atExit = true
 		menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 		menuScene._on_map_pressed()
