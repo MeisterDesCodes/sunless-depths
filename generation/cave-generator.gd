@@ -16,7 +16,8 @@ var rooms: Array[PackedScene] = preload("res://generation/rooms/rooms.tres").all
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
 var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
-var merchants: Array[PackedScene] = preload("res://generation/merchants/merchants.tres").allSegments
+var specialRooms: Array[PackedScene] = preload("res://generation/special/special-rooms.tres").allSegments
+var specialRoomsDeadEnd: Array[PackedScene] = preload("res://generation/special/special-rooms-dead-end.tres").allSegments
 
 var currentRooms: Array[Node2D]
 var tileSize = 64
@@ -26,6 +27,12 @@ var initialDirection: Enums.exitDirection = Enums.exitDirection.TOP
 
 var generatedSpecialRooms: Array[Node2D] = []
 var generatedExits: Array[Node2D] = []
+
+var placedSpecialRooms: int = 0
+var placedSpecialRoomsDeadEnd: int = 0
+
+var maxSpecialRooms: int = 2
+var maxSpecialRoomsDeadEnd: int = 1
 
 
 func generateCave():
@@ -38,9 +45,13 @@ func generateCave():
 
 
 func clearCave():
+	placedSpecialRooms = 0
+	placedSpecialRoomsDeadEnd = 0
+	
 	currentRooms.clear()
 	generatedSpecialRooms.clear()
 	generatedExits.clear()
+	
 	for child in cave.get_children():
 		cave.remove_child(child)
 	for enemy in enemiesScene.get_children():
@@ -75,12 +86,12 @@ func generateFittingRoom(exit, roomType):
 		var type = exit.room.type
 		var chance = randf()
 		var segments
-		var repeatingRoomChance = 0.1
-		var specialRoomChance = 0.25
+		var repeatingRoomChance = 0.2
+		var specialRoomChance = 0.15
 		if type == Enums.segmentType.CORRIDOR:
 			segments = corridors if chance < repeatingRoomChance else rooms
-			if chance < specialRoomChance:
-				segments = merchants
+			if chance < specialRoomChance && placedSpecialRooms < maxSpecialRooms:
+				segments = specialRooms
 		else:
 			segments = rooms if chance < repeatingRoomChance else corridors
 		
@@ -89,6 +100,9 @@ func generateFittingRoom(exit, roomType):
 		
 		if roomType == Enums.segmentType.EXIT:
 			segments = exits
+		
+		if roomType == Enums.segmentType.SPECIAL_ROOM_DEAD_END:
+			segments = specialRoomsDeadEnd
 		
 		var filteredSegments = segments.filter(func(segment): return segmentHasDirection(segment, direction))
 		if !filteredSegments.is_empty():
@@ -178,8 +192,9 @@ func generateRooms():
 			placeRoom(exit, Enums.segmentType.ROOM)
 	
 	generateExits()
+	generateDeadEndSpecialRooms()
 	generateDeadEnds()
-
+	
 
 func placeRoom(exit, type: Enums.segmentType):
 	var room = generateFittingRoom(exit, type)
@@ -231,11 +246,19 @@ func exitGlobalPosition(exit):
 
 func generateDeadEnds():
 	for exit in getRemainingExits():
-		generateDeadEnd(exit)
+		generateDeadEnd(exit, Enums.segmentType.DEAD_END)
 
 
-func generateDeadEnd(exit):
-	var room = generateFittingRoom(exit, Enums.segmentType.DEAD_END)
+func generateDeadEndSpecialRooms():
+	var specialRoomsDeadEndChance: float = 1
+	for exit in getRemainingExits():
+		if randf() < specialRoomsDeadEndChance && placedSpecialRoomsDeadEnd < maxSpecialRoomsDeadEnd:
+			if placeRoom(exit, Enums.segmentType.SPECIAL_ROOM_DEAD_END):
+				placedSpecialRoomsDeadEnd += 1
+
+
+func generateDeadEnd(exit, type: Enums.segmentType):
+	var room = generateFittingRoom(exit, type)
 	if room:
 		currentRooms.append(room)
 
@@ -262,7 +285,7 @@ func setSpawners():
 			spawnerScene.global_position = spawner.global_position
 			spawner.queue_free()
 			spawners.add_child(spawnerScene)
-			spawnerScene.setup(room.get_child(0), 30, 3)
+			spawnerScene.setup(room.get_child(0), 45, 2)
 			spawnerScene.spawnEntity()
 
 

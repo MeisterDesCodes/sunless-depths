@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=13 format=3 uid="uid://0myeb2s1m2xs"]
+
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_inpjj"]
+[ext_resource type="Script" path="res://environment/interactions/loot-table.gd" id="1_nh2rd"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="2_1asrg"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/cloth.tres" id="3_m1d1e"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="5_mvx5v"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="5_psxhh"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/cave-mushroom.tres" id="5_umfxr"]
+
+[sub_resource type="Resource" id="Resource_yx2d8"]
+script = ExtResource("2_1asrg")
+resource = ExtResource("1_inpjj")
+amount = 8
+dropChance = 0.75
+
+[sub_resource type="Resource" id="Resource_fadn4"]
+script = ExtResource("2_1asrg")
+resource = ExtResource("5_mvx5v")
+amount = 4
+dropChance = 0.75
+
+[sub_resource type="Resource" id="Resource_klxn3"]
+script = ExtResource("2_1asrg")
+resource = ExtResource("3_m1d1e")
+amount = 3
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_jmmou"]
+script = ExtResource("2_1asrg")
+resource = ExtResource("5_umfxr")
+amount = 4
+dropChance = 0.25
+
+[sub_resource type="Resource" id="Resource_lrmlj"]
+script = ExtResource("2_1asrg")
+resource = ExtResource("5_psxhh")
+amount = 1
+dropChance = 0.25
+
+[resource]
+script = ExtResource("1_nh2rd")
+resources = Array[ExtResource("2_1asrg")]([SubResource("Resource_yx2d8"), SubResource("Resource_fadn4"), SubResource("Resource_klxn3"), SubResource("Resource_jmmou"), SubResource("Resource_lrmlj")])

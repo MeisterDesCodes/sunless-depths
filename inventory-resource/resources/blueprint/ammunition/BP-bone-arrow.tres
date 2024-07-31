@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://bfn3r12b4g5kj"]
+
+[ext_resource type="Resource" uid="uid://cct8ajp56qlgm" path="res://inventory-resource/resources/material/bone.tres" id="1_tpwmy"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_bw2v8"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="3_5hm74"]
+[ext_resource type="Resource" uid="uid://dofa7y7m64hb7" path="res://inventory-resource/resources/ammunition/bone-arrow.tres" id="4_anuoh"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_amgnt"]
+[ext_resource type="Texture2D" uid="uid://bcp4s4ankxdla" path="res://assets/resources/weapons/ammunition/Bone Arrow.png" id="6_xj5id"]
+
+[sub_resource type="Resource" id="Resource_ndo7o"]
+script = ExtResource("2_bw2v8")
+resource = ExtResource("3_5hm74")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_bw2v8")
+resource = ExtResource("1_tpwmy")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_bw2v8")
+resource = ExtResource("4_anuoh")
+amount = 10
+
+[resource]
+script = ExtResource("5_amgnt")
+inputResources = Array[ExtResource("2_bw2v8")]([SubResource("Resource_ndo7o"), SubResource("Resource_xtk5x")])
+outputResources = Array[ExtResource("2_bw2v8")]([SubResource("Resource_4dyvn")])
+name = "Bone Arrow - Blueprint"
+description = ""
+texture = ExtResource("6_xj5id")
+rarity = 2

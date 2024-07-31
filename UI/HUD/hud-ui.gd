@@ -1,18 +1,18 @@
 extends Control
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var healthBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Health")
-@onready var suppliesBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/Supplies")
-@onready var oxygenBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/Oxygen")
-@onready var staminaBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/Stamina")
+@onready var healthBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Health")
+@onready var suppliesBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/Supplies")
+@onready var oxygenBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/Oxygen")
+@onready var staminaBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/Stamina")
 
-@onready var suppliesLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/SuppliesLabel")
-@onready var oxygenLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/OxygenLabel")
-@onready var staminaLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/StaminaLabel")
+@onready var suppliesLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/SuppliesLabel")
+@onready var oxygenLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/OxygenLabel")
+@onready var staminaLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/StaminaLabel")
 
 
-@onready var sprintIcon: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer")
-@onready var dashIcon: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer2")
+@onready var sprintIcon: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer")
+@onready var dashIcon: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer2")
 
 @onready var allResources = preload("res://inventory-resource/resources/all-resources.tres")
 
@@ -27,6 +27,8 @@ extends Control
 @onready var ammunitionActiveLabel = get_node("MarginContainer/HBoxContainer/PanelContainer/PanelContainerAmmunition1/AmmunitionActiveAmount")
 @onready var ammunitionReserve1Label = get_node("MarginContainer/HBoxContainer/PanelContainer2/PanelContainerAmmunition2/AmmunitionReserve1Amount")
 @onready var ammunitionReserve2Label = get_node("MarginContainer/HBoxContainer/PanelContainer3/PanelContainerAmmunition3/AmmunitionReserve2Amount")
+
+@onready var statusEffectsContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer//StatusEffects")
 
 @onready var weaponSlots: Array = [activeWeapon, reserveWeapon1, reserveWeapon2]
 @onready var ammunitionSlots: Array = [ammunitionActive, ammunitionReserve1, ammunitionReserve2]
@@ -96,6 +98,18 @@ func _process(delta):
 		pass
 
 
+func addStatusEffect(effect: StatusEffect):
+	var effectInstance = preload("res://entities/components/status-effect-icon.tscn").instantiate()
+	statusEffectsContainer.add_child(effectInstance)
+	effectInstance.setup(effect)
+
+
+func updateStatusEffects():
+	for effect in playerScene.statusEffectComponent.statusEffects:
+		var index = playerScene.statusEffectComponent.statusEffects.find(effect)
+		statusEffectsContainer.get_child(index).update(effect)
+
+
 func restockSupplies():
 	suppliesIsRestocked = true
 	$"SuppliesTimer".start()
@@ -151,7 +165,7 @@ func _on_oxygen_timer_timeout():
 
 
 func _on_panel_container_mouse_entered():
-	UILoaderS.loadUIPopup(activeWeapon.get_parent(), playerScene.equippedWeapons[0], true)
+	UILoaderS.loadUIPopup(activeWeapon.get_parent(), playerScene.equippedWeapons[0])
 
 
 func _on_panel_container_mouse_exited():
@@ -159,7 +173,7 @@ func _on_panel_container_mouse_exited():
 
 
 func _on_panel_container_2_mouse_entered():
-	UILoaderS.loadUIPopup(reserveWeapon1.get_parent(), playerScene.equippedWeapons[1], true)
+	UILoaderS.loadUIPopup(reserveWeapon1.get_parent(), playerScene.equippedWeapons[1])
 
 
 func _on_panel_container_2_mouse_exited():
@@ -167,7 +181,7 @@ func _on_panel_container_2_mouse_exited():
 
 
 func _on_panel_container_3_mouse_entered():
-	UILoaderS.loadUIPopup(reserveWeapon2.get_parent(), playerScene.equippedWeapons[2], true)
+	UILoaderS.loadUIPopup(reserveWeapon2.get_parent(), playerScene.equippedWeapons[2])
 
 
 func _on_panel_container_3_mouse_exited():
@@ -175,7 +189,7 @@ func _on_panel_container_3_mouse_exited():
 
 
 func _on_panel_container_ammunition_1_mouse_entered():
-	UILoaderS.loadUIPopup(ammunitionActive.get_parent(), playerScene.equippedWeapons[0].ammunition, true)
+	UILoaderS.loadUIPopup(ammunitionActive.get_parent(), playerScene.equippedWeapons[0].ammunition)
 
 
 func _on_panel_container_ammunition_1_mouse_exited():
@@ -183,7 +197,7 @@ func _on_panel_container_ammunition_1_mouse_exited():
 
 
 func _on_panel_container_ammunition_2_mouse_entered():
-	UILoaderS.loadUIPopup(ammunitionReserve1.get_parent(), playerScene.equippedWeapons[1].ammunition, true)
+	UILoaderS.loadUIPopup(ammunitionReserve1.get_parent(), playerScene.equippedWeapons[1].ammunition)
 
 
 func _on_panel_container_ammunition_2_mouse_exited():
@@ -191,7 +205,7 @@ func _on_panel_container_ammunition_2_mouse_exited():
 
 
 func _on_panel_container_ammunition_3_mouse_entered():
-	UILoaderS.loadUIPopup(ammunitionReserve2.get_parent(), playerScene.equippedWeapons[2].ammunition, true)
+	UILoaderS.loadUIPopup(ammunitionReserve2.get_parent(), playerScene.equippedWeapons[2].ammunition)
 
 
 func _on_panel_container_ammunition_3_mouse_exited():

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfvnld3afkrmh"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_rjanw"]
+[ext_resource type="Texture2D" uid="uid://cm8h8ahhqa5ad" path="res://assets/environment/decorations/regular/prison/chain-medium.png" id="2_i7ejj"]
+[ext_resource type="PackedScene" uid="uid://5iahhgkt3jmk" path="res://environment/interactions/object-contact-damage-component.tscn" id="3_l7kvn"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="4_e8otn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsayu"]
+size = Vector2(22, 18)
+
+[sub_resource type="Resource" id="Resource_ja6qg"]
+script = ExtResource("4_e8otn")
+effectType = 5
+strength = 40.0
+duration = 6.0
+appliesTo = 1
+isStackable = false
+
+[node name="PrisonChainMedium" type="Node2D"]
+script = ExtResource("1_rjanw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_jsayu")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(27, 8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_i7ejj")
+
+[node name="ObjectContactDamageComponent" parent="." instance=ExtResource("3_l7kvn")]
+damage = 3.0
+statusEffects = Array[ExtResource("4_e8otn")]([SubResource("Resource_ja6qg")])

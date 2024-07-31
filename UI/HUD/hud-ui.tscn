@@ -62,20 +62,29 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StatusEffects" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="Health" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -87,19 +96,19 @@ texture_under = ExtResource("3_hcxgh")
 texture_over = ExtResource("5_4f6ib")
 texture_progress = ExtResource("6_p47sk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("6_brdkq")
 
-[node name="SprintIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer"]
+[node name="SprintIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -107,14 +116,14 @@ size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_qmntt")
 expand_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("6_brdkq")
 
-[node name="DashIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer2"]
+[node name="DashIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer2"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -122,23 +131,23 @@ size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_2e3ff")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SuppliesWindow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="SuppliesWindow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("10_oklce")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/PanelContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -146,10 +155,10 @@ size_flags_vertical = 4
 texture = ExtResource("6_gs1gf")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow"]
 layout_mode = 2
 
-[node name="Supplies" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer"]
+[node name="Supplies" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer"]
 custom_minimum_size = Vector2(400, 15)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -164,24 +173,24 @@ texture_under = ExtResource("3_hcxgh")
 texture_over = ExtResource("5_4f6ib")
 texture_progress = ExtResource("6_p47sk")
 
-[node name="SuppliesLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer"]
+[node name="SuppliesLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("8_cwr15")
 text = "12"
 
-[node name="OxygenWindow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="OxygenWindow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("10_oklce")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/PanelContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -190,10 +199,10 @@ theme = ExtResource("8_cwr15")
 texture = ExtResource("7_hei8a")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow"]
 layout_mode = 2
 
-[node name="Oxygen" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer"]
+[node name="Oxygen" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer"]
 custom_minimum_size = Vector2(400, 15)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -208,21 +217,21 @@ texture_under = ExtResource("3_hcxgh")
 texture_over = ExtResource("5_4f6ib")
 texture_progress = ExtResource("6_p47sk")
 
-[node name="OxygenLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer"]
+[node name="OxygenLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_cwr15")
 
-[node name="StaminaWindow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="StaminaWindow" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("10_oklce")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/PanelContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -230,10 +239,10 @@ size_flags_vertical = 4
 texture = ExtResource("8_6lvbm")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
 layout_mode = 2
 
-[node name="Stamina" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer"]
+[node name="Stamina" type="TextureProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer"]
 custom_minimum_size = Vector2(400, 15)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -248,7 +257,7 @@ texture_under = ExtResource("3_hcxgh")
 texture_over = ExtResource("5_4f6ib")
 texture_progress = ExtResource("6_p47sk")
 
-[node name="StaminaLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer"]
+[node name="StaminaLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_cwr15")
 

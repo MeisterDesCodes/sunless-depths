@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Cards" load_steps=2 format=3 uid="uid://bbit6vn4thnu4"]
+
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up/cards.gd" id="34_1j1eo"]
+
+[resource]
+script = ExtResource("34_1j1eo")
+allCards = Array[Resource("res://UI/menu/inventory/level-up/level-up-card.gd")]([])

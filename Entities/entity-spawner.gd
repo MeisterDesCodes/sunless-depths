@@ -34,11 +34,16 @@ func _on_spawn_timer_timeout():
 func spawnEntity():
 	var enemyScene = preload("res://entities/enemy-ui.tscn").instantiate()
 	enemyScene.entityResource = pickEntity()
-	enemyScene.global_position = getSpawnPosition().rotated(room.rotation) + room.global_position
+	#TODO
+	#enemyScene.global_position = getSpawnPosition().rotated(room.rotation) + room.global_position
+	var _position = Vector2(global_position.x + randf_range(-20, 20), global_position.y + randf_range(-20, 20))
+	enemyScene.global_position = _position
 	enemiesScene.add_child(enemyScene)
 	setTimer()
 	currentEnemies.append(enemyScene)
 	enemyScene.onDeath.connect(removeEnemy)
+	
+	return enemyScene
 
 
 func pickEntity():

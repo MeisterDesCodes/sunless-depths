@@ -11,7 +11,6 @@ extends Control
 @onready var statsContainer: VBoxContainer = get_node("PanelContainer/MarginContainer/VBoxContainer/Stats")
 
 var element
-var showAdditionalInfo
 
 
 func _ready():
@@ -19,21 +18,17 @@ func _ready():
 	resetElements()
 
 
-func setup(_element, _showAdditionalInfo: bool):
+func setup(_element):
 	element = _element
-	showAdditionalInfo = _showAdditionalInfo
-	title.text = element.name
-	description.text = element.description
-	
 	resetElements()
-	
-	if showAdditionalInfo:
-		showAdditionalInformation()
+	showAdditionalInformation()
 
 
 func resetElements():
 	type.text = ""
 	rarity.text = ""
+	type.self_modulate = Color.WHITE
+	rarity.self_modulate = Color.WHITE
 	
 	for stat in statsContainer.get_children():
 		stat.queue_free()
@@ -47,10 +42,15 @@ func resetElements():
 
 
 func showAdditionalInformation():
+	if "name" in element:
+		title.text = element.name
+	if "description" in element:
+		description.text = element.description
+	
 	if element is InventoryResource:
 		type.text = UtilsS.getEnumValue(Enums.resourceType, element.type) + " / "
 		rarity.text = UtilsS.getEnumValue(Enums.resourceRarity, element.rarity)
-		rarity.modulate = UtilsS.getRarityColor(element.rarity)
+		rarity.self_modulate = UtilsS.getRarityColor(element.rarity)
 	
 	match element.type:
 		Enums.resourceType.BLUEPRINT:
@@ -59,12 +59,12 @@ func showAdditionalInformation():
 			for inputResource in element.inputResources:
 				var resourceIcon = preload("res://UI/shared/resource-icon-ui.tscn").instantiate()
 				inputResources.add_child(resourceIcon)
-				resourceIcon.setup(inputResource.resource, inputResource.amount, inputResource.resource.texture, true)
+				resourceIcon.setup(inputResource.resource, inputResource.amount, inputResource.resource.texture, true, true)
 				
 			for outputResource in element.outputResources:
 				var resourceIcon = preload("res://UI/shared/resource-icon-ui.tscn").instantiate()
 				outputResources.add_child(resourceIcon)
-				resourceIcon.setup(outputResource.resource, outputResource.amount, outputResource.resource.texture, false)
+				resourceIcon.setup(outputResource.resource, outputResource.amount, outputResource.resource.texture, true, false)
 		
 		Enums.resourceType.WEAPON:
 			statsContainer.visible = true
@@ -125,12 +125,19 @@ func showAdditionalInformation():
 		Enums.resourceType.CONSUMABLE:
 			statsContainer.visible = true
 			addStatusEffectDecriptions()
-			
+		
+		Enums.resourceType.STATUS_EFFECT:
+			title.text = UtilsS.getEnumValue(Enums.statusEffectType, element.effectType)
+			description.text = UtilsS.getStatutusEffectDescription(element)
+			type.text = "Strength: " + str(element.strength)
+			rarity.text = " / Remaining Duration: " + str(element.remainingDuration)
+			type.self_modulate = UtilsS.colorPrimary
+		
 		Enums.resourceType.MAP_LOCATION:
 			statsContainer.visible = true
 			type.text = "Information about this Area: "
 			rarity.text = UtilsS.getEnumValue(Enums.locationType, element.locationType)
-			rarity.modulate = UtilsS.colorPrimary
+			rarity.self_modulate = UtilsS.colorPrimary
 			if !element.attributes.is_empty():
 				addStatsElement(preload("res://assets/UI/icons/menu/Hazards.png"), "Hazards present", UtilsS.enumArrayToString(Enums.locationAttribute, element.attributes))
 			
@@ -138,15 +145,15 @@ func showAdditionalInformation():
 			statsContainer.visible = true
 			type.text = "Danger Level: "
 			rarity.text = str(element.tier)
-			rarity.modulate = UtilsS.colorPrimary
+			rarity.self_modulate = UtilsS.colorPrimary
 
 
 func addStatusEffectDecriptions():
 	if !element.statusEffects.is_empty():
 		for effect in element.statusEffects:
 			var description: String = str(round(effect.strength * playerScene.effectStrengthModifier)) + " / s for " + str(effect.duration) + " seconds"
-			addStatsElement(load("res://assets/UI/icons/entities/status-effects/" + UtilsS.getEnumValue(Enums.statusEffectType, effect.type) + ".png"), \
-				"Applies " + UtilsS.getEnumValue(Enums.statusEffectType, effect.type) + " to " + UtilsS.getEnumValue(Enums.statusEffectReceiver, effect.appliesTo), description)
+			addStatsElement(load("res://assets/UI/icons/entities/status-effects/" + UtilsS.getEnumValue(Enums.statusEffectType, effect.effectType) + ".png"), \
+				"Applies " + UtilsS.getEnumValue(Enums.statusEffectType, effect.effectType) + " to " + UtilsS.getEnumValue(Enums.statusEffectReceiver, effect.appliesTo), description)
 
 
 func addEmptyElement():
@@ -162,7 +169,7 @@ func addStatsElement(icon: Texture2D, stat: String, description: String):
 
 func update():
 	resetElements()
-	setup(element, showAdditionalInfo)
+	setup(element)
 
 
 

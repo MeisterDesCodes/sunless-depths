@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://cct8ajp56qlgm"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_3gsli"]
+[ext_resource type="Texture2D" uid="uid://b4gxn3vxa07mu" path="res://assets/resources/material/Bone.png" id="2_78txd"]
+
+[resource]
+script = ExtResource("1_3gsli")
+name = "Planks"
+description = "Salvaged from the surface, they are essential for crafting primitive equipment and combined resources."
+texture = ExtResource("2_78txd")
+rarity = 1

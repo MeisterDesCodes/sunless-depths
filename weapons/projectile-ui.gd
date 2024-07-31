@@ -48,6 +48,7 @@ func _on_detection_area_area_entered(area):
 	hitEntities.append(area)
 	var attack: Attack
 	if isPlayer:
+		#Bug with last arrow
 		attack = Attack.new(global_position, caster, weapon.damageModifier * weapon.ammunition.damage, weapon.knockbackModifier * weapon.ammunition.knockback, Enums.weaponTypes.RANGED, weapon.ammunition.statusEffects)
 	else:
 		attack = Attack.new(global_position, caster, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects)

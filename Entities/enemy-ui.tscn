@@ -156,6 +156,7 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="AwarenessTimer" type="Timer" parent="."]
 wait_time = 5.0

@@ -23,7 +23,7 @@ signal healthModified
 
 var fistWeapon = preload("res://weapons/resources/fists.tres")
 var equippedWeapons: Array[InventoryWeapon]  = [fistWeapon, fistWeapon, fistWeapon]
-var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, null]
+var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, null, null]
 
 var isAttacking: bool = false
 var attackOnCooldown: bool = false
@@ -61,10 +61,11 @@ var healthModifier: float = 1
 var movementSpeedModifier: float = 1
 var sightRadiusModifier: float = 1
 var lootModifier: float = 1
-var effectStrengthModifier: float = 1
+var effectStrengthModifier: float = 3
 var staminaCostModifier: float = 1
+var criticalDamageModifier: float = 1
 
-var baseZoom: float = 2.5
+var baseZoom: float = 0.5
 var currentZoom: int = 0
 var maxZoom: int = 5
 

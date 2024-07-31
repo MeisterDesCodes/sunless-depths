@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbgwcs1e6472"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_go5d8"]
+
+[node name="ObjectDecoration" type="Node2D"]
+script = ExtResource("1_go5d8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)

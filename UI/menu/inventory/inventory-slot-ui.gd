@@ -96,7 +96,7 @@ func updateCraftButton():
 
 
 func _on_mouse_entered():
-	UILoaderS.loadUIPopup(self, slot.resource, true)
+	UILoaderS.loadUIPopup(self, slot.resource)
 
 
 func _on_mouse_exited():
@@ -185,7 +185,7 @@ func _on_assign_ammunition_slot_3_pressed():
 
 
 func _on_assign_weapon_slot_1_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[0], true)
+	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[0])
 
 
 func _on_assign_weapon_slot_1_mouse_exited():
@@ -193,7 +193,7 @@ func _on_assign_weapon_slot_1_mouse_exited():
 
 
 func _on_assign_weapon_slot_2_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[1], true)
+	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[1])
 
 
 func _on_assign_weapon_slot_2_mouse_exited():
@@ -201,7 +201,7 @@ func _on_assign_weapon_slot_2_mouse_exited():
 
 
 func _on_assign_weapon_slot_3_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[2], true)
+	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[2])
 
 
 func _on_assign_weapon_slot_3_mouse_exited():
@@ -209,7 +209,7 @@ func _on_assign_weapon_slot_3_mouse_exited():
 
 
 func _on_assign_ammunition_slot_1_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[0], true)
+	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[0])
 
 
 func _on_assign_ammunition_slot_1_mouse_exited():
@@ -217,7 +217,7 @@ func _on_assign_ammunition_slot_1_mouse_exited():
 
 
 func _on_assign_ammunition_slot_2_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[1], true)
+	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[1])
 
 
 func _on_assign_ammunition_slot_2_mouse_exited():
@@ -225,7 +225,7 @@ func _on_assign_ammunition_slot_2_mouse_exited():
 
 
 func _on_assign_ammunition_slot_3_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[2], true)
+	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[2])
 
 
 func _on_assign_ammunition_slot_3_mouse_exited():

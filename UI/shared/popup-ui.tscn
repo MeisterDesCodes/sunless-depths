@@ -22,7 +22,7 @@ script = ExtResource("1_ffj85")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 325.0
-offset_bottom = 278.0
+offset_bottom = 187.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_hc2j5")

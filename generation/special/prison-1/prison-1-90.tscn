@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0g4abf1x8an6"]
+
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_0eik8"]
+[ext_resource type="PackedScene" uid="uid://c74c5fedk7y08" path="res://generation/special/prison-1/prison-1-template.tscn" id="2_s1ug3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
+size = Vector2(2207, 2971)
+
+[node name="Room - 1" type="Node2D"]
+script = ExtResource("1_0eik8")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 0,
+"position": Vector2(16, 0)
+}])
+
+[node name="Map" parent="." instance=ExtResource("2_s1ug3")]
+position = Vector2(2240, 0)
+rotation = 1.5708
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(1120.5, 1502.5)
+shape = SubResource("RectangleShape2D_m2ub1")

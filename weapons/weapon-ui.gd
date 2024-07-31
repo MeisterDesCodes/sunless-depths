@@ -32,7 +32,7 @@ func _process(delta):
 
 func attack(attackDirection: Vector2):
 	var animationIndex = currentAnimationFrame % weapon.animations.size()
-	var animation = UtilsS.getEnumValue(Enums.weaponAttackType, weapon.animations[animationIndex]).to_upper()
+	var animation = UtilsS.getEnumValue(Enums.weaponAttackType, weapon.animations[animationIndex])
 	if weapon is MeleeWeapon:
 		meleeAttack(animation)
 	if weapon is RangedWeapon:

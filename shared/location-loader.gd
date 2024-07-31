@@ -66,7 +66,7 @@ func spawnPlayer(_position: Vector2):
 
 
 func getSceneFromId(location: Enums.locations):
-	var locationName = UtilsS.getEnumValue(Enums.locations, location).to_lower().replace("_", "")
+	var locationName = UtilsS.getEnumValue(Enums.locations, location).to_lower().replace(" ", "")
 	var allLocations: Array[PackedScene] = preload("res://UI/menu/map/resources/locations.tres").allLocations
 	var foundLocations = allLocations.filter(func(location): return location.instantiate().name.to_lower() == locationName)
 	return foundLocations[0]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0eslbro4mcd0"]
+[gd_scene load_steps=24 format=3 uid="uid://c0eslbro4mcd0"]
 
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_4afll"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_8sae3"]
@@ -12,15 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="6_bmtgp"]
 [ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="7_brmel"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="7_vkdkj"]
-[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/root-2.png" id="8_40gjv"]
+[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="8_40gjv"]
 [ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="8_cl1cc"]
 [ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="9_3p2cy"]
-[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/root-3.png" id="9_vg0td"]
-[ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/root-1.png" id="10_20odn"]
+[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="9_vg0td"]
+[ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/nature/root-1.png" id="10_20odn"]
 [ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="10_hi3nd"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="10_iqjhe"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="11_ow2g7"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="12_nv02b"]
+[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/old-log.tscn" id="21_uycfp"]
+[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/debris.tscn" id="22_n8pgf"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -245,6 +247,13 @@ z_index = 1
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="OldLog" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("21_uycfp")]
+position = Vector2(306, 339)
+rotation = 2.09439
+
+[node name="Debris" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("22_n8pgf")]
+position = Vector2(456, 149)
 
 [node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 

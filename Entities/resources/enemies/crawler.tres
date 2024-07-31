@@ -11,10 +11,11 @@
 
 [sub_resource type="Resource" id="Resource_fwmki"]
 script = ExtResource("3_kb283")
-type = 1
+effectType = 0
 strength = 1.0
 duration = 6.0
 appliesTo = 1
+isStackable = true
 
 [sub_resource type="Resource" id="Resource_o5h46"]
 script = ExtResource("2_r35pu")

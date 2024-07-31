@@ -1,14 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx6j0un24peas"]
+[gd_scene load_steps=10 format=3 uid="uid://dx6j0un24peas"]
 
 [ext_resource type="Script" path="res://environment/interactions/mycelium.gd" id="1_5lhds"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/cave-mushroom.tres" id="2_me3kh"]
 [ext_resource type="Texture2D" uid="uid://bqes0y60boixe" path="res://assets/environment/interactions/mycelium.png" id="2_xk8ri"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_0slle"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_ir6id"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="4_bx62n"]
+
+[sub_resource type="Resource" id="Resource_5rwvy"]
+script = ExtResource("3_0slle")
+resource = ExtResource("2_me3kh")
+amount = 3
+dropChance = 0.6
+
+[sub_resource type="Resource" id="Resource_18prq"]
+script = ExtResource("3_0slle")
+resource = ExtResource("4_bx62n")
+amount = 2
+dropChance = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
 radius = 31.0161
 
 [node name="Mycelium" type="Node2D"]
 script = ExtResource("1_5lhds")
+dropResources = Array[ExtResource("3_0slle")]([SubResource("Resource_5rwvy"), SubResource("Resource_18prq")])
+lifetime = 3
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

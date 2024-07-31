@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bd7qdgfoapc2g"]
 
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_ordvx"]
-[ext_resource type="Texture2D" uid="uid://bgmveqjd3k2wj" path="res://assets/environment/decorations/regular/fence.png" id="2_yxi55"]
+[ext_resource type="Texture2D" uid="uid://bgmveqjd3k2wj" path="res://assets/environment/decorations/regular/town/fence.png" id="2_yxi55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru25u"]
 size = Vector2(94, 12)

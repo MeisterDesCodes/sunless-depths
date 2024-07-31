@@ -43,9 +43,14 @@ func getRandomRange(value: float):
 
 
 func getEnumValue(_enum, _key):
-	var value = _enum.keys()[_key].to_lower()
-	value = value[0].to_upper() + value.substr(1,-1)
-	return value
+	var text: String
+	var enumValue = _enum.keys()[_key].to_lower()
+	var array = enumValue.split("_")
+	for value in array:
+		text += value[0].to_upper() + value.substr(1,-1) + " "
+	text = text.left(text.length() - 1)
+	
+	return text
 
 
 func getRarityColor(rarity: Enums.resourceRarity):
@@ -74,11 +79,26 @@ func calculateRangedScaling(attacker: Entity):
 
 func applyStatusEffects(source: CharacterBody2D, target: CharacterBody2D, statusEffects: Array[StatusEffect]):
 	for effect in statusEffects:
-		effect.strength *= source.effectStrengthModifier
 		if effect.appliesTo == Enums.statusEffectReceiver.SELF:
-			source.statusEffectComponent.statusEffects.append(effect.duplicate())
+			applyStatusEffect(source, source, effect)
 		if effect.appliesTo == Enums.statusEffectReceiver.TARGET:
-			target.statusEffectComponent.statusEffects.append(effect.duplicate())
+			applyStatusEffect(source, target, effect)
+
+
+func applyStatusEffect(source: CharacterBody2D, target: CharacterBody2D, _effect: StatusEffect):
+	var entityEffect = getStatusEffect(target, _effect)
+	if !_effect.isStackable && entityEffect:
+		if entityEffect.remainingDuration < _effect.duration:
+			entityEffect.remainingDuration = _effect.duration
+		return
+	
+	var effect = _effect.duplicate()
+	effect.strength *= source.effectStrengthModifier
+	effect.remainingDuration = effect.duration
+	target.statusEffectComponent.statusEffects.append(effect)
+	effect.onApply(target)
+	if target.has_method("isPlayer"):
+		target.hudUI.addStatusEffect(effect)
 
 
 func unequipItem(entityScene, item, index):
@@ -129,7 +149,21 @@ func round(value: float, decimals: int):
 	return round(value * pow(10, decimals)) / pow(10, decimals)
 
 
+func getStatutusEffectDescription(effect: StatusEffect):
+	match effect.effectType:
+		Enums.statusEffectType.BLEED:
+			return "Takes " + str(effect.strength) + " bleed damage every second"
+		Enums.statusEffectType.POISON:
+			return "Takes " + str(effect.strength) + " poison damage every second"
+		Enums.statusEffectType.BLEED:
+			return "Takes " + str(effect.strength) + " burn damage every second"
+		Enums.statusEffectType.HEAL:
+			return "Restores " + str(effect.strength) + " health every second"
+		Enums.statusEffectType.STAMINA_COST_REDUCTION:
+			return "Overall stamina costs are reduced by " + str(effect.strength) + " %"
+	return ""
 
 
-
-
+func getStatusEffect(target: CharacterBody2D, _effect: StatusEffect):
+	var effects = target.statusEffectComponent.statusEffects.filter(func(effect): return effect.effectType == _effect.effectType)
+	return effects[0] if !effects.is_empty() else null

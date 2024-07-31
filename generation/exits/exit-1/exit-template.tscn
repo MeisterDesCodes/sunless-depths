@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://xvs63raay20g"]
+[gd_scene load_steps=22 format=3 uid="uid://xvs63raay20g"]
 
 [ext_resource type="Script" path="res://generation/exits/exit-1/exit-template.gd" id="1_10wmj"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_6juiv"]
@@ -15,9 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="12_naous"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="13_fq2s5"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="14_ogdy2"]
-[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/root-2.png" id="15_0mx78"]
+[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="15_0mx78"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="16_joci4"]
 [ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="17_ocoe6"]
+[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/debris.tscn" id="18_6lrlr"]
 
 [sub_resource type="Gradient" id="Gradient_jhan1"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -154,6 +155,10 @@ z_index = 1
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="Debris2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("18_6lrlr")]
+position = Vector2(157, 340)
+rotation = -0.785397
 
 [node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 

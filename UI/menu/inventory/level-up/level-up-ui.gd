@@ -6,7 +6,7 @@ signal cardSelected
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var cardsContainer: HBoxContainer = get_node("Cards")
 
-var allCards = preload("res://UI/menu/inventory/level-up/resources/cards.tres").allCards
+var allCards = preload("res://UI/menu/inventory/level-up/resources/cards-tier-1.tres").allCards
 var amount: int = 4
 var pickedCards: Array[LevelUpCard]
 

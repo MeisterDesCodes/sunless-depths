@@ -8,6 +8,7 @@ size = Vector2(50, 36)
 
 [node name="Chest" type="Node2D"]
 script = ExtResource("1_v1ybh")
+lifetime = 1
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

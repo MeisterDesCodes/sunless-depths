@@ -30,7 +30,7 @@ func setup(_card: LevelUpCard):
 	for stat in card.stats:
 		var instance = preload("res://UI/shared/resource-icon-ui.tscn").instantiate()
 		statsContainer.add_child(instance)
-		instance.setup(null, stat.amount, statIcons[stat.resource], false)
+		instance.setup(null, stat.amount, statIcons[stat.resource], true, false)
 		
 		var colors = [UtilsS.colorMissing, UtilsS.colorUncommon, UtilsS.colorLegendary, UtilsS.colorRare]
 		instance.changeIconColor(colors[stat.resource])
@@ -84,6 +84,12 @@ func gainModifiers():
 			playerScene.effectStrengthModifier += value
 		Enums.cardType.STAMINA_COST:
 			playerScene.staminaCostModifier -= value
+		Enums.cardType.CRITICAL_DAMAGE:
+			playerScene.criticalDamageModifier += value
+		Enums.cardType.DANGER:
+			playerScene.healthModifier -= value
+			playerScene.meleeDamageModifier -= value
+			playerScene.rangedDamageModifier -= value
 
 
 func gainStats():

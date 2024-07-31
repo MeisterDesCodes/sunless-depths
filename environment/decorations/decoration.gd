@@ -2,6 +2,8 @@
 extends Node2D
 
 
+@onready var collisionShape: CollisionShape2D = get_node("StaticBody2D/CollisionShape2D")
+
 @export var texture: Texture2D:
 	set(value):
 		texture = value
@@ -10,5 +12,5 @@ extends Node2D
 @export var collision: bool = true:
 	set(value):
 		collision = value
-		$"StaticBody2D/CollisionShape2D".disabled = !value
-	
+		if collisionShape:
+			collisionShape.disabled = !value

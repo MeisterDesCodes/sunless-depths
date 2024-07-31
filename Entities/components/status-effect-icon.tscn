@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr35kcxsgdkij"]
+
+[ext_resource type="Script" path="res://entities/components/status-effect-icon.gd" id="1_h5gvx"]
+[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/panel-container-secondary-circular.tres" id="2_vliuv"]
+[ext_resource type="Texture2D" uid="uid://doseim605jxin" path="res://assets/UI/components/progress-bar-secondary-circular.png.png" id="4_o2y5g"]
+[ext_resource type="Texture2D" uid="uid://dxqdujxkbpw7f" path="res://assets/UI/components/progress-bar-primary-circular.png" id="5_r1dxa"]
+
+[node name="StatusEffectIcon" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_vliuv")
+script = ExtResource("1_h5gvx")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+step = 0.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("4_o2y5g")
+texture_progress = ExtResource("5_r1dxa")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

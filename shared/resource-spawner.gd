@@ -12,7 +12,7 @@ var experienceThresholds: Array[int] = [1, 10, 20, 50, 100, 200]
 func spawnResources(resources: Array[DropResource], spawnType: Enums.resourceSpawnType,
 						spawnPosition: Vector2, direction: Vector2, speed: float):
 	
-	for resource in resources:
+	for resource in resources.duplicate():
 		resource.amount = round(resource.amount * playerScene.lootModifier)
 	
 	var goldResources = getResourceDistribution(resources.filter(func(resource): return resource.resource.name == gold.name), goldThresholds)

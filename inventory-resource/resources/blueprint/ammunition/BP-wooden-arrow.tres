@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://diu5kdjsa0tyx"]
+
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="1_my5h6"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_cu2wn"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="3_olhus"]
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="4_yn242"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_7tsuv"]
+[ext_resource type="Texture2D" uid="uid://cy4vmcvg1st8u" path="res://assets/resources/weapons/ammunition/Wooden Arrow.png" id="6_pk4qk"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_cu2wn")
+resource = ExtResource("1_my5h6")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_ndo7o"]
+script = ExtResource("2_cu2wn")
+resource = ExtResource("3_olhus")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_cu2wn")
+resource = ExtResource("4_yn242")
+amount = 10
+
+[resource]
+script = ExtResource("5_7tsuv")
+inputResources = Array[ExtResource("2_cu2wn")]([SubResource("Resource_xtk5x"), SubResource("Resource_ndo7o")])
+outputResources = Array[ExtResource("2_cu2wn")]([SubResource("Resource_4dyvn")])
+name = "Wooden Arrow - Blueprint"
+description = ""
+texture = ExtResource("6_pk4qk")
+rarity = 1

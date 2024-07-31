@@ -6,9 +6,9 @@ extends PanelContainer
 @onready var amount: Label = get_node("Amount")
 
 
-func setup(_resource, _amount, _texture, isRequirement: bool):
+func setup(_resource, _amount, _texture, showNumber: bool, isRequirement: bool):
 	icon.texture = _texture
-	if _amount > 0:
+	if showNumber && !(_resource is InventoryWeapon) && !(_resource is InventoryEquipment):
 		amount.text = str(_amount)
 	if _resource && isRequirement:
 		if _amount > playerScene.inventory.getResourceAmount(_resource):

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="2_6whuv"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
-[ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="3_k17nm"]
-[ext_resource type="Resource" uid="uid://dlv0qcm8b73n5" path="res://entities/resources/enemies/test-dummy.tres" id="4_0ycc7"]
+[ext_resource type="Resource" uid="uid://bunurwyxgx0ax" path="res://entities/resources/player/player.tres" id="3_wronf"]
+[ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="4_axcb5"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
 [ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
 [ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-ui.tscn" id="9_75ykn"]
@@ -31,16 +31,14 @@ script = ExtResource("1_xvjr7")
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
-position = Vector2(3811.11, 738.145)
+position = Vector2(4707.88, 1337.31)
+entityResource = ExtResource("3_wronf")
+inventory = ExtResource("4_axcb5")
 
 [node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../FollowCamera")
 
 [node name="Enemies" type="Node2D" parent="Entities"]
-
-[node name="Enemy" parent="Entities/Enemies" instance=ExtResource("3_k17nm")]
-position = Vector2(3752.18, 750.492)
-entityResource = ExtResource("4_0ycc7")
 
 [node name="CurrentLocation" type="Node2D" parent="."]
 
@@ -55,7 +53,7 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(3811.11, 738.145)
+position = Vector2(4707.88, 1337.31)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -89,6 +87,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_shq6o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

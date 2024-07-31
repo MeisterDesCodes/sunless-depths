@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://de6h8ikhliwxd"]
+[gd_scene load_steps=32 format=3 uid="uid://de6h8ikhliwxd"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_w81mp"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_kuwvt"]
@@ -16,15 +16,21 @@
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="10_5smxo"]
 [ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="10_6atmx"]
 [ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="11_mpc13"]
-[ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/root-1.png" id="11_s7po6"]
-[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/root-2.png" id="12_808x4"]
+[ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/nature/root-1.png" id="11_s7po6"]
+[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="12_808x4"]
 [ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="12_ryidj"]
 [ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="13_misny"]
-[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/root-3.png" id="13_qlhdj"]
-[ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/root-4.png" id="14_k6y2j"]
+[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="13_qlhdj"]
+[ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/nature/root-4.png" id="14_k6y2j"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="15_uayex"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="16_ml1pp"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="17_4s10f"]
+[ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/mycelium.tscn" id="25_5ic0w"]
+[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/old-log.tscn" id="26_hjy6b"]
+[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/chest.tscn" id="27_2o36a"]
+[ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="28_s3dit"]
+[ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="29_1odu8"]
+[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/debris.tscn" id="30_ckusb"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -436,6 +442,30 @@ z_index = 1
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="Mycelium" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("25_5ic0w")]
+position = Vector2(1344, 298)
+
+[node name="Mycelium2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("25_5ic0w")]
+position = Vector2(1490, 421)
+
+[node name="OldLog" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("26_hjy6b")]
+position = Vector2(1269, 1057)
+rotation = -0.523598
+
+[node name="OldLog2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("26_hjy6b")]
+position = Vector2(241.146, 297.103)
+rotation = -1.43025
+
+[node name="Chest" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_2o36a")]
+position = Vector2(758, 184)
+rotation = -0.261799
+closedTexture = ExtResource("28_s3dit")
+openedTexture = ExtResource("29_1odu8")
+
+[node name="Debris2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("30_ckusb")]
+position = Vector2(363, 572)
+rotation = -0.785397
 
 [node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 

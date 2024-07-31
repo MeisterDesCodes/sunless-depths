@@ -26,15 +26,15 @@ var knockbackStrength: float
 var damage: float
 var moveSpeed: float
 
-var baseVisionRange: float
-
 var isKnockback: bool = false
 var knockbackVector: Vector2 = Vector2.ZERO
 var immunityFramesActive: bool = false
 var isAware = false
 
-var visionRangeModifier = 0.5
+var baseVisionRange: float
+var visionRangeSpeedModifier = 0.5
 var visionRangeAttackedModifier = 2
+var visionRangeModifier = 1
 
 var canDash = true
 var isDashing = false
@@ -56,9 +56,8 @@ func _ready():
 	health = entityResource.maxHealth
 	moveSpeed = entityResource.moveSpeed
 	$"Sprite2D".texture = entityResource.texture
-	baseVisionRange = 150 + entityResource.moveSpeed * visionRangeModifier
-	visionRange.shape.radius = baseVisionRange
 	currentAttack = entityResource.attacks[0]
+	updateVisionRange()
 
 
 func _physics_process(delta):
@@ -135,6 +134,11 @@ func toggleAwareness():
 	if !isAware:
 		isAware = true
 		visionRange.shape.radius = baseVisionRange * visionRangeAttackedModifier
+
+
+func updateVisionRange():
+	baseVisionRange = (150 + entityResource.moveSpeed * visionRangeSpeedModifier) * visionRangeModifier
+	visionRange.shape.radius = baseVisionRange
 
 
 func isEnemy():

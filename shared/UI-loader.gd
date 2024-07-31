@@ -54,9 +54,9 @@ func loadUILabel(scene: PackedScene):
 	return currentLabelScene
 
 
-func loadUIPopup(container, element, showAdditionalInfo: bool):
+func loadUIPopup(container, element):
 	popupInstance.visible = true
-	popupInstance.setup(element, showAdditionalInfo)
+	popupInstance.setup(element)
 	
 	await get_tree().process_frame
 	
@@ -110,8 +110,8 @@ func closeUIPopup():
 
 
 func closeUIScene(sceneInstance):
-	playerScene.isInDialog = false
 	if currentUIScenes.size() == 1:
+		playerScene.isInDialog = false
 		closeUIBlocker(currentBlockerScene)
 	else:
 		currentBlockerScene.z_index = currentUIScenes[currentUIScenes.size() - 2].z_index - 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Segment" load_steps=6 format=3 uid="uid://cj36rwo5cci7g"]
+
+[ext_resource type="PackedScene" uid="uid://wul3ismpixf1" path="res://generation/special/prison-1/prison-1-0.tscn" id="5_gtvh0"]
+[ext_resource type="PackedScene" uid="uid://d0g4abf1x8an6" path="res://generation/special/prison-1/prison-1-90.tscn" id="6_abuef"]
+[ext_resource type="PackedScene" uid="uid://chvhu8ee361gm" path="res://generation/special/prison-1/prison-1-180.tscn" id="7_up0lf"]
+[ext_resource type="PackedScene" uid="uid://cpafqsi3sc56i" path="res://generation/special/prison-1/prison-1-270.tscn" id="8_dd6uw"]
+[ext_resource type="Script" path="res://generation/segment.gd" id="9_ssubs"]
+
+[resource]
+script = ExtResource("9_ssubs")
+allSegments = Array[PackedScene]([ExtResource("5_gtvh0"), ExtResource("6_abuef"), ExtResource("7_up0lf"), ExtResource("8_dd6uw")])

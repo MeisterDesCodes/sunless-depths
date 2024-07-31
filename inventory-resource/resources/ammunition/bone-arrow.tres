@@ -13,4 +13,4 @@ isPiercing = true
 name = "Bone Arrow"
 description = ""
 texture = ExtResource("2_jop4y")
-rarity = 1
+rarity = 2

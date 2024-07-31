@@ -1,14 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://c23eyxxgg81kv"]
+[gd_scene load_steps=10 format=3 uid="uid://c23eyxxgg81kv"]
 
 [ext_resource type="Script" path="res://environment/interactions/old-log.gd" id="1_1n6xo"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="2_gujpp"]
 [ext_resource type="Texture2D" uid="uid://cglyjguk6qg08" path="res://assets/environment/interactions/old_log.png" id="2_uyiet"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_2toq4"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_plctn"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="4_1fod0"]
+
+[sub_resource type="Resource" id="Resource_dlqcf"]
+script = ExtResource("3_plctn")
+resource = ExtResource("4_1fod0")
+amount = 3
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_radqk"]
+script = ExtResource("3_plctn")
+resource = ExtResource("2_gujpp")
+amount = 2
+dropChance = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqlev"]
 size = Vector2(30, 172)
 
 [node name="OldLog" type="Node2D"]
 script = ExtResource("1_1n6xo")
+dropResources = Array[ExtResource("3_plctn")]([SubResource("Resource_dlqcf"), SubResource("Resource_radqk")])
+lifetime = 3
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

@@ -64,6 +64,7 @@ theme_override_constants/margin_bottom = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/BlueprintIcon/MarginContainer"]
 layout_mode = 2
+texture = ExtResource("4_lsb1e")
 expand_mode = 2
 
 [node name="Name" type="Label" parent="MarginContainer/HBoxContainer"]

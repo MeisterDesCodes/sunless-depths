@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_button_mouse_entered():
-	UILoaderS.loadUIPopup(self, pathwayResource, true)
+	UILoaderS.loadUIPopup(self, pathwayResource)
 
 
 func _on_button_mouse_exited():

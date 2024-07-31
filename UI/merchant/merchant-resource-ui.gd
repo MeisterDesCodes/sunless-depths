@@ -101,7 +101,7 @@ func _on_more_button_pressed():
 
 
 func _on_mouse_entered():
-	UILoaderS.loadUIPopup(self, resource, true)
+	UILoaderS.loadUIPopup(self, resource)
 
 
 func _on_mouse_exited():

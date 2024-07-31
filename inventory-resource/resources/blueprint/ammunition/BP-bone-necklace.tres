@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://4t8k42ko4tk5"]
+
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_0egbf"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_xgg5o"]
+[ext_resource type="Resource" uid="uid://cct8ajp56qlgm" path="res://inventory-resource/resources/material/bone.tres" id="3_ieb4q"]
+[ext_resource type="Resource" uid="uid://dpo73j42k6sbn" path="res://inventory-resource/resources/equipment/bone-necklace.tres" id="4_f6eqa"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_vbd65"]
+[ext_resource type="Texture2D" uid="uid://blsjdt1wpqk06" path="res://assets/resources/equipment/accessories/Bone Necklace.png" id="6_b1w63"]
+
+[sub_resource type="Resource" id="Resource_ndo7o"]
+script = ExtResource("2_xgg5o")
+resource = ExtResource("1_0egbf")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_xgg5o")
+resource = ExtResource("3_ieb4q")
+amount = 6
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_xgg5o")
+resource = ExtResource("4_f6eqa")
+amount = 1
+
+[resource]
+script = ExtResource("5_vbd65")
+inputResources = Array[ExtResource("2_xgg5o")]([SubResource("Resource_ndo7o"), SubResource("Resource_xtk5x")])
+outputResources = Array[ExtResource("2_xgg5o")]([SubResource("Resource_4dyvn")])
+name = "Bone Necklace - Blueprint"
+description = ""
+texture = ExtResource("6_b1w63")
+rarity = 2

@@ -1,16 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkyapdnubk1ph"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyapdnubk1ph"]
 
 [ext_resource type="Script" path="res://environment/interactions/debris.gd" id="1_hijtm"]
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/rubble.tres" id="2_o6rrp"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="2_rq5c8"]
 [ext_resource type="Texture2D" uid="uid://cfgfddu12t3pl" path="res://assets/environment/interactions/debris.png" id="2_v276m"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_m77nl"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="4_utj17"]
+
+[sub_resource type="Resource" id="Resource_h3cml"]
+script = ExtResource("2_rq5c8")
+resource = ExtResource("2_o6rrp")
+amount = 3
+dropChance = 0.75
+
+[sub_resource type="Resource" id="Resource_l8ayr"]
+script = ExtResource("2_rq5c8")
+resource = ExtResource("4_utj17")
+amount = 2
+dropChance = 0.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
 radius = 32.0
 
 [node name="Debris" type="Node2D"]
 script = ExtResource("1_hijtm")
-dropResources = null
-lifetime = null
+dropResources = Array[ExtResource("2_rq5c8")]([SubResource("Resource_h3cml"), SubResource("Resource_l8ayr")])
+lifetime = 2
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

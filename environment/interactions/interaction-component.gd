@@ -3,6 +3,7 @@ extends Node2D
 signal onInteract
 
 @export var interaction: Node2D
+@export var triggersAutomatically: bool = false
 
 @onready var resourceSpawner = get_node("ResourceSpawner")
 @onready var particles = get_node("InteractionParticle")
@@ -11,6 +12,11 @@ var player = null
 var playerInRange = false
 var completed = false
 var approachLabel: Control  
+
+
+func _ready():
+	if triggersAutomatically:
+		particles.queue_free()
 
 
 func _process(delta):
@@ -26,6 +32,10 @@ func _process(delta):
 
 
 func _on_detection_radius_body_entered(body):
+	if triggersAutomatically:
+		onInteract.emit(player)
+		return
+	
 	approachLabel = UILoaderS.loadUILabel(preload("res://UI/shared/dialog-approach.tscn"))
 	if body.has_method("isPlayer") && !completed:
 		player = body

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=5 format=3 uid="uid://dxgdtyxnrmnic"]
+[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=6 format=3 uid="uid://dxgdtyxnrmnic"]
 
 [ext_resource type="Script" path="res://inventory-resource/inventory-consumable.gd" id="1_wips3"]
 [ext_resource type="Script" path="res://combat/status-effect.gd" id="2_2xxqe"]
@@ -6,16 +6,25 @@
 
 [sub_resource type="Resource" id="Resource_okjso"]
 script = ExtResource("2_2xxqe")
-type = 3
-strength = 2.0
-duration = 6.0
+effectType = 3
+strength = 1.0
+duration = 12.0
 appliesTo = 0
+isStackable = true
+
+[sub_resource type="Resource" id="Resource_3qpli"]
+script = ExtResource("2_2xxqe")
+effectType = 4
+strength = 20.0
+duration = 45.0
+appliesTo = 0
+isStackable = true
 
 [resource]
 script = ExtResource("1_wips3")
-cooldown = 30.0
+cooldown = 5.0
 remainingCooldown = 0.0
-statusEffects = Array[ExtResource("2_2xxqe")]([SubResource("Resource_okjso")])
+statusEffects = Array[ExtResource("2_2xxqe")]([SubResource("Resource_okjso"), SubResource("Resource_3qpli")])
 name = "Mushroom Brew"
 description = "Distilled from underground fungi, it is essential for concocting basic potions, providing basic improvements of stats."
 texture = ExtResource("2_tk0dd")

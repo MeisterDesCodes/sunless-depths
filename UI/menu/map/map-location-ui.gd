@@ -47,13 +47,13 @@ func setAttributes():
 				texture = preload("res://assets/UI/icons/locations/Exposure.png")
 			Enums.locationAttribute.INFESTATION:
 				texture = preload("res://assets/UI/icons/locations/Infestation.png")
-			Enums.locationAttribute.COLLAPSE_RISK:
+			Enums.locationAttribute.ROCK_SLIDES:
 				texture = preload("res://assets/UI/icons/locations/Collapse Risk.png")
 		attributeScene.setup(texture)
 
 
 func _on_button_mouse_entered():
-	UILoaderS.loadUIPopup(button, locationResource, true)
+	UILoaderS.loadUIPopup(button, locationResource)
 	if buttonActive():
 		AnimationsS.setSize(self, 1.3, 0.15)
 

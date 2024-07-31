@@ -55,7 +55,7 @@ func updateExperience():
 
 
 func levelUpCost():
-	return round(pow(5 * (playerScene.level + 1), 1.35))
+	return round((8 + 12 * playerScene.level) * pow(1.125, playerScene.level))
 
 
 func levelUp():
@@ -65,16 +65,6 @@ func levelUp():
 	updateLabels()
 	scene = UILoaderS.loadUIScene(preload("res://UI/menu/inventory/level-up/level-up-ui.tscn"))
 	scene.cardSelected.connect(updateLabels)
-
-
-func increaseStats():
-	#Remove
-	var statIncrease = pow(1.1, playerScene.level)
-	playerScene.entityResource.maxHealth += statIncrease * 3
-	playerScene.entityResource.ferocity += statIncrease
-	playerScene.entityResource.perseverance += statIncrease
-	playerScene.entityResource.agility += statIncrease
-	playerScene.entityResource.perception += statIncrease
 
 
 func _on_level_up_button_pressed():

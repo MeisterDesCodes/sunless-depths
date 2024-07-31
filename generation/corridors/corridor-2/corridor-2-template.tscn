@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://30xbmhu0qsg1"]
+[gd_scene load_steps=24 format=3 uid="uid://30xbmhu0qsg1"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_m0cl6"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_eqnmr"]
@@ -15,10 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="9_qw62p"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="10_1xsmi"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="11_klvdo"]
-[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/root-2.png" id="12_blgm3"]
-[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/root-3.png" id="13_cbch6"]
-[ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/root-4.png" id="14_t34he"]
+[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="12_blgm3"]
+[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="13_cbch6"]
+[ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/nature/root-4.png" id="14_t34he"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="15_vsgra"]
+[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/old-log.tscn" id="19_nnfhv"]
+[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/chest.tscn" id="20_gp843"]
+[ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="21_ihhrf"]
+[ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basked-empty-1.png" id="22_lhnai"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -265,6 +269,30 @@ z_index = 1
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="OldLog" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("19_nnfhv")]
+position = Vector2(694, 536)
+rotation = 1.309
+
+[node name="OldLog2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("19_nnfhv")]
+position = Vector2(799, 221)
+rotation = -0.201423
+
+[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("20_gp843")]
+position = Vector2(650, 170)
+rotation = -2.99867
+scale = Vector2(0.575, 0.575)
+closedTexture = ExtResource("21_ihhrf")
+openedTexture = ExtResource("22_lhnai")
+type = 1
+
+[node name="Chest4" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("20_gp843")]
+position = Vector2(907, 364)
+rotation = -3.40339
+scale = Vector2(0.575, 0.575)
+closedTexture = ExtResource("21_ihhrf")
+openedTexture = ExtResource("22_lhnai")
+type = 1
 
 [node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 
