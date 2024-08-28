@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqg23ir8fxfji"]
+[gd_scene load_steps=7 format=3 uid="uid://bqg23ir8fxfji"]
 
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_ypqdk"]
 [ext_resource type="PackedScene" uid="uid://5iahhgkt3jmk" path="res://environment/interactions/object-contact-damage-component.tscn" id="2_2bcdh"]
 [ext_resource type="Texture2D" uid="uid://cvk4emwoq2f1x" path="res://assets/environment/decorations/regular/prison/prison-fence.png" id="2_k6xuy"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="4_ntnno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4a8c"]
 size = Vector2(100, 20)
+
+[sub_resource type="Resource" id="Resource_ev0xm"]
+script = ExtResource("4_ntnno")
+effectType = 0
+strength = 2.0
+duration = 4.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
 
 [node name="PrisonFenceMedium" type="Node2D"]
 script = ExtResource("1_ypqdk")
@@ -20,3 +31,5 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_k6xuy")
 
 [node name="ObjectContactDamageComponent" parent="." instance=ExtResource("2_2bcdh")]
+damage = 5.0
+statusEffects = Array[ExtResource("4_ntnno")]([SubResource("Resource_ev0xm")])

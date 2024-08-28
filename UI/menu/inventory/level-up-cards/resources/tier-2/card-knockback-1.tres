@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://crxngwa2ib05j"]
+
+[ext_resource type="Texture2D" uid="uid://dvnruis7wjf5e" path="res://assets/UI/icons/entities/player/stats/Blunt Force.png" id="1_yka6t"]
+[ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="2_gfh0n"]
+[ext_resource type="Resource" uid="uid://cxti20ilue81m" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-health-1.tres" id="3_np1ne"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_ehr0t"]
+
+[resource]
+script = ExtResource("4_ehr0t")
+name = "Blunt Force"
+description = "Increases knockback by"
+icon = ExtResource("1_yka6t")
+requirements = Array[ExtResource("4_ehr0t")]([ExtResource("2_gfh0n"), ExtResource("3_np1ne")])
+type = 13
+value = 25.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

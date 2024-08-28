@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://bf6502hoq4wo"]
+
+[ext_resource type="Texture2D" uid="uid://bg7tgnqgdyiym" path="res://assets/UI/icons/entities/player/stats/Effect Strength.png" id="1_74uvl"]
+[ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="2_6aqod"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="3_2xr82"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="4_ghckq"]
+
+[sub_resource type="Resource" id="Resource_yc75v"]
+script = ExtResource("4_ghckq")
+resource = 1
+amount = 3
+
+[sub_resource type="Resource" id="Resource_85ipj"]
+script = ExtResource("4_ghckq")
+resource = 3
+amount = 2
+
+[resource]
+script = ExtResource("3_2xr82")
+name = "Effect Strength"
+description = "Increases $ by"
+icon = ExtResource("1_74uvl")
+requirements = Array[ExtResource("3_2xr82")]([ExtResource("2_6aqod")])
+type = 8
+value = 10.0
+value2 = 0.0
+stats = Array[ExtResource("4_ghckq")]([SubResource("Resource_yc75v"), SubResource("Resource_85ipj")])
+tier = 3

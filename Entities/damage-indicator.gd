@@ -11,7 +11,10 @@ var angle: float = 30
 
 func setup(spawnPosition: Vector2, damage: float, isDamage: bool, statusEffect):
 	global_position = spawnPosition
-	damageAmount.text = str(round(damage))
+	if damage < 1:
+		damageAmount.text = "< 1"
+	else:
+		damageAmount.text = str(round(damage))
 	angle = deg_to_rad(randf_range(-angle, angle))
 	if statusEffect:
 		icon.texture = load("res://assets/UI/icons/entities/status-effects/" + UtilsS.getEnumValue(Enums.statusEffectType, statusEffect.effectType) + ".png")

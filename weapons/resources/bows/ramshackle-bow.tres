@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://bx3w34ioc0w4j"]
+
+[ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_8dpyd"]
+[ext_resource type="Texture2D" uid="uid://6786hr1kqqxv" path="res://assets/resources/weapons/ramshackle-bow.png" id="2_kq5hy"]
+
+[resource]
+script = ExtResource("1_8dpyd")
+damageModifier = 0.7
+speedModifier = 0.9
+knockbackModifier = 1.0
+spread = 25.0
+projectileAmount = 1
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 1.75
+staminaCost = 20.0
+animations = Array[int]([3])
+name = "Ramshackle Bow"
+description = ""
+texture = ExtResource("2_kq5hy")
+rarity = 1

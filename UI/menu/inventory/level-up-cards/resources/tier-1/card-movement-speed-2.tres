@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://dcdm3cxjfht88"]
+
+[ext_resource type="Texture2D" uid="uid://bhcdxq5bedr0d" path="res://assets/UI/icons/entities/player/Dash.png" id="1_mqahm"]
+[ext_resource type="Resource" uid="uid://cqx4hn68gfddw" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-1.tres" id="2_ht4wv"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="3_ub55k"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="4_4numh"]
+
+[sub_resource type="Resource" id="Resource_tdhbv"]
+script = ExtResource("4_4numh")
+resource = 2
+amount = 3
+
+[sub_resource type="Resource" id="Resource_yxrk8"]
+script = ExtResource("4_4numh")
+resource = 3
+amount = 2
+
+[resource]
+script = ExtResource("3_ub55k")
+name = "Movement Speed"
+description = "Increases $ by"
+icon = ExtResource("1_mqahm")
+requirements = Array[ExtResource("3_ub55k")]([ExtResource("2_ht4wv")])
+type = 4
+value = 5.0
+value2 = 0.0
+stats = Array[ExtResource("4_4numh")]([SubResource("Resource_tdhbv"), SubResource("Resource_yxrk8")])
+tier = 2

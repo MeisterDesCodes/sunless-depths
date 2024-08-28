@@ -8,8 +8,7 @@ signal onDeath
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var navigationHandler = get_node("NavigationAgent2D")
 @onready var animations = get_node("AnimationPlayer")
-@onready var bloodParticles = get_node("BloodParticles").get_child(0)
-@onready var hitParticles = get_node("HitParticles")
+@onready var particleComponent = get_node("ParticleComponent")
 @onready var hitbox = get_node("Hitbox")
 @onready var resourceSpawner = get_node("ResourceSpawner")
 @onready var stateMachine = get_node("StateMachine")
@@ -19,6 +18,9 @@ signal onDeath
 @onready var awarenessTimer = get_node("AwarenessTimer")
 @onready var damageReceiver = get_node("DamageReceiver")
 @onready var statusEffectComponent = get_node("StatusEffectComponent")
+@onready var image: Sprite2D = get_node("Sprite2D")
+
+var awarenessEffect = preload("res://entities/resources/status-effects/awareness-combat.tres")
 
 var maxHealth: float
 var health: float
@@ -29,7 +31,6 @@ var moveSpeed: float
 var isKnockback: bool = false
 var knockbackVector: Vector2 = Vector2.ZERO
 var immunityFramesActive: bool = false
-var isAware = false
 
 var baseVisionRange: float
 var visionRangeSpeedModifier = 0.5
@@ -44,11 +45,26 @@ var canLaunchProjectile = true
 var isAttacking = true
 var currentAttack: EnemyAttack
 
+var isDying: bool = false
+
+
+var attackCounter: int = 1
+
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
 var effectStrengthModifier: float = 1
+var movementSpeedModifier: float = 1
+var knockbackModifier: float = 1
+var projectileSpeedModifier: float = 1
+var projectileSpreadModifier: float = 1
+var effectDurationRandomModifier: float = 1
+var effectTakenStrengthModifier: float = 1
+var effectTakenDurationModifier: float = 1
 
-var isDying: bool = false
+var rangedDamageAfterMeleeAttack: float = 0
+var meleeDamageAfterRangedAttack: float = 0
+var thirdAttackDamage: float = 0
+var sightRadiusEntryEffect: float = 0
 
 
 func _ready():
@@ -72,7 +88,7 @@ func _physics_process(delta):
 	if stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE) && canLaunchProjectile && stateMachine.currentState != stateMachine.getState(Enums.enemyStates.IDLE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE))
 
-	if stateMachine.getState(Enums.enemyStates.DASH) && canLaunchProjectile && canDash && global_position.distance_to(playerScene.global_position) <= baseVisionRange * 0.75:
+	if stateMachine.getState(Enums.enemyStates.DASH) && canDash && global_position.distance_to(playerScene.global_position) <= (100 + moveSpeed) * movementSpeedModifier:
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.DASH))
 
 
@@ -82,7 +98,7 @@ func getDistanceThreshold(distance: float):
 
 func moveInDirection(direction: Vector2, speed: float):
 	direction = direction.normalized()
-	velocity = lerp(velocity, direction * speed, 0.15)
+	velocity = lerp(velocity, direction * speed * movementSpeedModifier, 0.15)
 
 
 func moveToPath(speed: float):
@@ -121,6 +137,18 @@ func processIncomingAttack(attack: Attack):
 
 
 func entityKilled():
+	if playerScene.attackDelayAfterKill != 0:
+		UtilsS.applyStatusEffect(playerScene, playerScene, UtilsS.setupEffect(preload("res://entities/resources/status-effects/kill-attack-delay.tres"), \
+			playerScene.attackDelayAfterKill))
+	
+	if playerScene.movementSpeedAfterKill != 0:
+		UtilsS.applyStatusEffect(playerScene, playerScene, UtilsS.setupEffect(preload("res://entities/resources/status-effects/kill-movement-speed.tres"), \
+			playerScene.movementSpeedAfterKill))
+	
+	if playerScene.staminaGainAfterKill != 0:
+		UtilsS.applyStatusEffect(playerScene, playerScene, UtilsS.setupEffect(preload("res://entities/resources/status-effects/kill-stamina-gain.tres"), \
+			playerScene.staminaGainAfterKill))
+	
 	isDying = true
 	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, UtilsS.resourceDropSpeed * 0.5)
 	
@@ -130,10 +158,7 @@ func entityKilled():
 
 
 func toggleAwareness():
-	awarenessTimer.start()
-	if !isAware:
-		isAware = true
-		visionRange.shape.radius = baseVisionRange * visionRangeAttackedModifier
+	UtilsS.applyStatusEffect(self, self, awarenessEffect)
 
 
 func updateVisionRange():
@@ -143,11 +168,6 @@ func updateVisionRange():
 
 func isEnemy():
 	pass
-
-
-func _on_awareness_timeout():
-	isAware = false
-	visionRange.shape.radius = baseVisionRange
 
 
 func _on_immunity_frames_timeout():

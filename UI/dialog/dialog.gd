@@ -2,10 +2,10 @@ extends PanelContainer
 
 
 @onready var dialogMenu = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogMenuUI")
-@onready var title = get_node("MarginContainer/LocationDialogContainer/TitleContainer/Title")
-@onready var description = get_node("MarginContainer/LocationDialogContainer/DescriptionContainer/Description")
+@onready var title = get_node("MarginContainer/LocationDialogContainer/Title")
+@onready var description = get_node("MarginContainer/LocationDialogContainer/Description")
 @onready var dialogResources = get_node("MarginContainer/LocationDialogContainer/DialogResources")
-@onready var choiceContainer = get_node("MarginContainer/LocationDialogContainer/ChoiceFrame")
+@onready var choiceContainer = get_node("MarginContainer/LocationDialogContainer/ChoiceContainer")
 
 var completed = false
 var dialog: Dialog

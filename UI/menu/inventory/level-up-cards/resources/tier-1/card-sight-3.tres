@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://ie0p3hah2f7n"]
+
+[ext_resource type="Texture2D" uid="uid://dlknf4t6cv1p4" path="res://assets/UI/icons/entities/player/stats/Light Radius.png" id="1_1es11"]
+[ext_resource type="Resource" uid="uid://cf235tqhxwypn" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-sight-2.tres" id="2_hd6he"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="3_n1lyc"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="4_s1knr"]
+
+[sub_resource type="Resource" id="Resource_tdhbv"]
+script = ExtResource("4_s1knr")
+resource = 3
+amount = 5
+
+[resource]
+script = ExtResource("3_n1lyc")
+name = "Sight"
+description = "Increases $ radius by"
+icon = ExtResource("1_1es11")
+requirements = Array[ExtResource("3_n1lyc")]([ExtResource("2_hd6he")])
+type = 6
+value = 10.0
+value2 = 0.0
+stats = Array[ExtResource("4_s1knr")]([SubResource("Resource_tdhbv")])
+tier = 3

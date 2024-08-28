@@ -43,7 +43,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_5rwc2")
 [node name="Stat" type="Label" parent="PanelContainer2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("2_r5ry2")
+autowrap_mode = 2
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 2

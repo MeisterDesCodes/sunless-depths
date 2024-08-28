@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://1ms3510wxh1r"]
+
+[ext_resource type="Texture2D" uid="uid://4dv5wiy65usr" path="res://assets/UI/components/location-pathway.png" id="1_ad4s6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4or3s"]
+texture = ExtResource("1_ad4s6")
+texture_margin_left = 20.0
+texture_margin_top = 5.0
+texture_margin_right = 20.0
+texture_margin_bottom = 5.0
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4or3s")

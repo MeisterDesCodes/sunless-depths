@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1hn3floafrun"]
+
+[ext_resource type="Theme" uid="uid://c5p4ydg6kooyc" path="res://assets/UI/themes/UI-elements/button-exit.tres" id="1_8gsjj"]
+[ext_resource type="Script" path="res://UI/shared/exit-button.gd" id="1_wjl4u"]
+[ext_resource type="Theme" uid="uid://ct6ax5ic4d7tk" path="res://assets/UI/themes/text/text-large.tres" id="3_5jwhv"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(400, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -35.0
+offset_right = 200.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(197, 49)
+theme = ExtResource("1_8gsjj")
+script = ExtResource("1_wjl4u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -14.0
+offset_right = 58.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_5jwhv")
+text = "Perhaps not"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

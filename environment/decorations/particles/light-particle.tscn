@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtny1upneb7yc"]
+
+[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light-particle.png" id="1_4i7sj"]
+
+[sub_resource type="Curve" id="Curve_sjvdm"]
+_data = [Vector2(0, 0.054945), 0.0, 0.0, 0, 0, Vector2(0.376682, 0.648352), 0.0, 0.0, 0, 0, Vector2(0.847534, 0.659341), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_pdkqn"]
+curve = SubResource("Curve_sjvdm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0p8mg"]
+lifetime_randomness = 0.35
+direction = Vector3(100, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.03
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_pdkqn")
+color = Color(1, 1, 1, 0.682353)
+
+[node name="LightParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_0p8mg")
+texture = ExtResource("1_4i7sj")
+lifetime = 2.0
+randomness = 0.15
+fixed_fps = 60

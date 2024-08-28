@@ -37,14 +37,15 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -502.0
-offset_right = 502.0
+offset_left = -635.0
+offset_right = 635.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="NinePatchRect2/HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_36mql")
 
 [node name="ResourcesUI" parent="NinePatchRect2/HBoxContainer/PanelContainer" instance=ExtResource("3_6n8lb")]
@@ -53,6 +54,7 @@ layout_mode = 2
 [node name="PanelContainer2" type="PanelContainer" parent="NinePatchRect2/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_453e7")
 
 [node name="PlayerStatsUI" parent="NinePatchRect2/HBoxContainer/PanelContainer2" instance=ExtResource("4_5ah6p")]

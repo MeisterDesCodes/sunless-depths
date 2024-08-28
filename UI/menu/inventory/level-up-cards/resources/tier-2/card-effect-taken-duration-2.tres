@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://bylh5jvyvf8ke"]
+
+[ext_resource type="Texture2D" uid="uid://c5h443vphp0u1" path="res://assets/UI/icons/entities/player/stats/Resilience.png" id="1_levpo"]
+[ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="2_usj88"]
+[ext_resource type="Resource" uid="uid://bhklu3vom8utu" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-health-2.tres" id="3_7q7og"]
+[ext_resource type="Resource" uid="uid://cjmqn85048i88" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-effect-taken-duration-1.tres" id="4_8t5nb"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_hxkqm"]
+
+[resource]
+script = ExtResource("4_hxkqm")
+name = "Resilience"
+description = "Decrease the duration of harmful effects taken by"
+icon = ExtResource("1_levpo")
+requirements = Array[ExtResource("4_hxkqm")]([ExtResource("2_usj88"), ExtResource("3_7q7og"), ExtResource("4_8t5nb")])
+type = 22
+value = 5.0
+value2 = 10.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 2

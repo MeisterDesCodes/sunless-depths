@@ -4,12 +4,12 @@
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_mh34j"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_a7ysp"]
 [ext_resource type="Resource" uid="uid://bvsi7quqj0cr6" path="res://inventory-resource/resources/equipment/rusty-tank.tres" id="3_nxfx0"]
-[ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/branch.tres" id="3_vc5xn"]
+[ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="5_otneo"]
+[ext_resource type="Resource" uid="uid://d1jvo271qbw3x" path="res://weapons/resources/bows/ancient-bow.tres" id="6_5ibdi"]
 [ext_resource type="Script" path="res://inventory-resource/inventory.gd" id="6_s3erd"]
 [ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/improvised-explosives.tres" id="8_nxp1w"]
 [ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="9_ofh8q"]
 [ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="9_uwijk"]
-[ext_resource type="Resource" uid="uid://c07lwuwv6wilc" path="res://weapons/resources/shortbow.tres" id="10_45xqr"]
 [ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="10_vctix"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="11_gams0"]
 
@@ -26,16 +26,16 @@ amount = 1
 [sub_resource type="Resource" id="Resource_cbtrd"]
 script = ExtResource("2_a7ysp")
 resource = ExtResource("1_mh34j")
-amount = 5
+amount = 50
 
 [sub_resource type="Resource" id="Resource_fpqv4"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("3_vc5xn")
+resource = ExtResource("5_otneo")
 amount = 1
 
 [sub_resource type="Resource" id="Resource_qkiv4"]
 script = ExtResource("2_a7ysp")
-resource = ExtResource("10_45xqr")
+resource = ExtResource("6_5ibdi")
 amount = 1
 
 [sub_resource type="Resource" id="Resource_kqwes"]
@@ -51,7 +51,7 @@ amount = 5
 [sub_resource type="Resource" id="Resource_6sixg"]
 script = ExtResource("2_a7ysp")
 resource = ExtResource("9_ofh8q")
-amount = 2
+amount = 5
 
 [sub_resource type="Resource" id="Resource_4a2q7"]
 script = ExtResource("2_a7ysp")

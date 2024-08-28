@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0um87rc8bl77"]
+[gd_scene load_steps=11 format=3 uid="uid://b0um87rc8bl77"]
 
 [ext_resource type="Script" path="res://UI/menu/menu-ui.gd" id="1_2cm1r"]
-[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/panel-container-primary.tres" id="2_8odtr"]
+[ext_resource type="Theme" uid="uid://vkof7lo8jctq" path="res://assets/UI/themes/UI-elements/menu-header.tres" id="2_kwxqd"]
 [ext_resource type="Texture2D" uid="uid://bnwkcoxeeo174" path="res://assets/UI/icons/menu/Inventory.png" id="3_4508c"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="3_w8t0y"]
+[ext_resource type="Theme" uid="uid://cxk4iwl1igdto" path="res://assets/UI/themes/UI-elements/button-large.tres" id="4_31jwt"]
 [ext_resource type="Texture2D" uid="uid://dqulph4hdnkof" path="res://assets/UI/icons/menu/Map.png" id="4_b33fp"]
+[ext_resource type="Theme" uid="uid://bat77wlh5fhmk" path="res://assets/UI/themes/UI-elements/menu.tres" id="5_i3qkj"]
+[ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="7_0i61g"]
+[ext_resource type="PackedScene" uid="uid://b77820xtv0gp7" path="res://environment/decorations/particles/menu-particle.tscn" id="9_wxxk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfupi"]
 
 [node name="MenuUI" type="Control"]
 z_index = 3
@@ -19,87 +26,73 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_2cm1r")
 
+[node name="MenuParticles" parent="." instance=ExtResource("9_wxxk0")]
+position = Vector2(87.5, -10)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1400, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -600.0
-offset_top = -374.0
-offset_right = 600.0
-offset_bottom = 374.0
+offset_left = -712.5
+offset_top = -410.0
+offset_right = 712.5
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = -20
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1425, 100)
 layout_mode = 2
-theme = ExtResource("2_8odtr")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PanelContainer2"]
-custom_minimum_size = Vector2(0, 75)
-layout_mode = 2
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_kwxqd")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer2"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 100
+size_flags_vertical = 4
+theme_override_constants/separation = 50
 
-[node name="Inventory" type="Button" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
+[node name="Inventory" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_w8t0y")]
 layout_mode = 2
-icon = ExtResource("3_4508c")
-flat = true
-icon_alignment = 1
-expand_icon = true
+theme = ExtResource("4_31jwt")
+texture = ExtResource("3_4508c")
+version = 1
+affectedElement = NodePath(".")
 
-[node name="Map" type="Button" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
+[node name="Map" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_w8t0y")]
 layout_mode = 2
-icon = ExtResource("4_b33fp")
-flat = true
-icon_alignment = 1
-expand_icon = true
+theme = ExtResource("4_31jwt")
+texture = ExtResource("4_b33fp")
+version = 1
+affectedElement = NodePath(".")
 
 [node name="Body" type="PanelContainer" parent="VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(0, 600)
-layout_mode = 2
-theme = ExtResource("2_8odtr")
-
-[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_8odtr")
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer3"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer3/MarginContainer"]
+custom_minimum_size = Vector2(1400, 600)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Perhaps not"
+size_flags_vertical = 4
+theme = ExtResource("5_i3qkj")
 
-[node name="Button" type="Button" parent="VBoxContainer/PanelContainer3/MarginContainer"]
+[node name="Padding" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-flat = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wfupi")
+
+[node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("7_0i61g")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+scene = NodePath("../..")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Map" to="." method="_on_map_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer3/MarginContainer/Button" to="." method="_on_button_pressed"]

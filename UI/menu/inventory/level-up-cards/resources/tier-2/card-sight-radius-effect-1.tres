@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://5baibvy6e3jj"]
+
+[ext_resource type="Texture2D" uid="uid://dguuqdega3kss" path="res://assets/UI/icons/entities/player/stats/Bright Sanctuary.png" id="1_cl3if"]
+[ext_resource type="Resource" uid="uid://cxti20ilue81m" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-health-1.tres" id="2_eo2k5"]
+[ext_resource type="Resource" uid="uid://lqpyllnb5amt" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-sight-1.tres" id="3_srk01"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_c14h4"]
+
+[resource]
+script = ExtResource("4_c14h4")
+name = "Bright Sanctuary"
+description = "Slows enemies entering the sight radius by"
+icon = ExtResource("1_cl3if")
+requirements = Array[ExtResource("4_c14h4")]([ExtResource("2_eo2k5"), ExtResource("3_srk01")])
+type = 18
+value = 10.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

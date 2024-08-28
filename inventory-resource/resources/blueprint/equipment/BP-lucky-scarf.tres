@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=11 format=3 uid="uid://bev37k7vnrfi7"]
+
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/cloth.tres" id="1_fwura"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_khhn7"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_ueoqx"]
+[ext_resource type="Resource" uid="uid://cxduwdaay1mpy" path="res://inventory-resource/resources/equipment/lucky-scarf.tres" id="4_77tcm"]
+[ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/silk.tres" id="4_i2el4"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_62t20"]
+
+[sub_resource type="Resource" id="Resource_ndo7o"]
+script = ExtResource("2_ueoqx")
+resource = ExtResource("1_khhn7")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_ueoqx")
+resource = ExtResource("1_fwura")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_gsx6k"]
+script = ExtResource("2_ueoqx")
+resource = ExtResource("4_i2el4")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_ueoqx")
+resource = ExtResource("4_77tcm")
+amount = 1
+
+[resource]
+script = ExtResource("5_62t20")
+inputResources = Array[ExtResource("2_ueoqx")]([SubResource("Resource_ndo7o"), SubResource("Resource_xtk5x"), SubResource("Resource_gsx6k")])
+outputResources = Array[ExtResource("2_ueoqx")]([SubResource("Resource_4dyvn")])
+name = "Lucky Scarf - Blueprint"
+description = ""
+rarity = 2

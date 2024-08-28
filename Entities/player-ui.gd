@@ -13,15 +13,18 @@ signal healthModified
 @onready var immunityFramesTimer = get_node("ImmunityFrames")
 @onready var damageReceiver = get_node("DamageReceiver")
 @onready var statusEffectComponent = get_node("StatusEffectComponent")
+@onready var particleComponent = get_node("ParticleComponent")
 @onready var lightSource = get_node("RotationPoint/LightSource")
+@onready var directionalLight = get_node("RotationPoint/DirectionalLight")
 @onready var camera = get_tree().get_root().get_node("Game/FollowCamera")
+@onready var image: Sprite2D = get_node("RotationPoint/Image")
 
 @onready var staminaRestoreTimer: Timer = get_node("StaminaRestore")
 @onready var staminaRestoreExhaustTimer: Timer = get_node("StaminaExhaustRestore")
 @onready var dashTimer: Timer = get_node("DashTimer")
 @onready var consumeTimer: Timer = get_node("ConsumeTimer")
 
-var fistWeapon = preload("res://weapons/resources/fists.tres")
+var fistWeapon = preload("res://weapons/resources/daggers/fists.tres")
 var equippedWeapons: Array[InventoryWeapon]  = [fistWeapon, fistWeapon, fistWeapon]
 var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, null, null]
 
@@ -37,6 +40,7 @@ var immunityFramesActive: bool = false
 var isKnockback: bool = false
 var knockbackVector: Vector2 = Vector2.ZERO
 var currentMoveSpeed: float
+var isResting: bool = false
 var isWalking: bool = false
 var isSprinting: bool = false
 var isDashing: bool = false
@@ -47,12 +51,19 @@ var isDying: bool = false
 
 var currentSupplyDrain: float
 var currentOxygenDrain: float
-var currentStaminaDrain: float
-var currentStaminaRestore: float
+var baseStaminaRestore: float = 15
+var currentStaminaRestore: float = baseStaminaRestore
+var sprintingStaminaDrain: float = 20
 var dashStaminaCost: float = 20
-var exhaustionPenalty: float = 75
+var exhaustionSpeedPenalty: float = 75
+
+var damageRangeMin: float = 0.75
+var damageRangeMax: float = 1.25
 
 var selectedCards: Array[LevelUpCard]
+
+
+var attackCounter: int = 1
 
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
@@ -61,13 +72,35 @@ var healthModifier: float = 1
 var movementSpeedModifier: float = 1
 var sightRadiusModifier: float = 1
 var lootModifier: float = 1
-var effectStrengthModifier: float = 3
-var staminaCostModifier: float = 1
+var effectStrengthModifier: float = 1
+var staminaCostModifier: float = 0.25
 var criticalDamageModifier: float = 1
 
-var baseZoom: float = 0.5
-var currentZoom: int = 0
-var maxZoom: int = 5
+var knockbackModifier: float = 1
+var projectileSpeedModifier: float = 1
+var projectileSpreadModifier: float = 1
+var exhaustingDamageModifier: float = 1
+var ammunitionConsumeModifier: float = 1
+var effectDurationRandomModifier: float = 1
+var effectTakenStrengthModifier: float = 1
+var effectTakenDurationModifier: float = 1
+var critDamageModifier: float = 1
+
+var rangedDamageAfterMeleeAttack: float = 0
+var meleeDamageAfterRangedAttack: float = 0
+var thirdAttackDamage: float = 0
+var staminaGainAfterKill: float = 0
+var attackDelayAfterKill: float = 0
+var movementSpeedAfterKill: float = 0
+var sightRadiusEntryEffect: float = 0
+var critStatIncrease: float = 0
+var critChance: float = 50
+
+
+var baseZoom: float = 2.5
+var zoomAmount: float = 0.25
+var maxZoomLevels: int = 4
+var currentZoomLevel: int = 0
 
 var atExit: bool = false
 var isInCave: bool = false
@@ -95,6 +128,7 @@ func updateMaxHealth():
 	maxHealth = (entityResource.maxHealth + entityResource.perseverance) * 1 / UtilsS.getScalingValue(entityResource.perseverance * 2) * healthModifier
 	if health > maxHealth:
 		health = maxHealth
+	hudUI.healthModified()
 
 
 func equipInitialItem(equipment: InventoryEquipment):
@@ -144,6 +178,9 @@ func setupLightSource():
 	var size = entityResource.lightRadius
 	var sizeIncrease = 1 / UtilsS.getScalingValue(entityResource.perception * 0.5)
 	lightSource.update(size * sizeIncrease)
+	var directionalLightSize = 1 + (size * 0.2 * sizeIncrease)
+	directionalLight.get_child(0).scale = Vector2(directionalLightSize, directionalLightSize)
+	directionalLight.get_child(0).energy = 1 + directionalLightSize
 
 
 func updateWeapons():
@@ -178,13 +215,13 @@ func switchToNextWeapon(modifier: int):
 
 
 func useStamina(staminaCost):
-	currentStaminaRestore = 0
+	isResting = false
 	staminaRestoreTimer.stop()
 	if hudUI.staminaBar.value - (staminaCost * staminaCostModifier) > 0:
 		staminaRestoreTimer.start()
 	else:
 		if staminaRestoreExhaustTimer.time_left == 0:
-			entityResource.moveSpeed -= exhaustionPenalty
+			entityResource.moveSpeed -= exhaustionSpeedPenalty
 		staminaRestoreExhaustTimer.start()
 
 
@@ -193,7 +230,6 @@ func sprint():
 	hudUI.onSprint()
 	currentSupplyDrain = entityResource.supplyDrain * 1.25
 	currentOxygenDrain = entityResource.supplyDrain * 1.5
-	currentStaminaDrain = 10
 	useStamina(1)
 
 
@@ -202,7 +238,6 @@ func walk():
 	hudUI.onWalk()
 	currentSupplyDrain = entityResource.supplyDrain
 	currentOxygenDrain = entityResource.oxygenDrain
-	currentStaminaDrain = entityResource.staminaDrain
 
 
 func dash():
@@ -234,7 +269,12 @@ func attack():
 
 
 func canAttack():
-	return !attackOnCooldown && (weaponInstance.weapon is MeleeWeapon || weaponInstance.weapon.ammunition)
+	return !attackOnCooldown && (weaponInstance.weapon is MeleeWeapon || hasEnoughAmmunition())
+
+
+func hasEnoughAmmunition():
+	return weaponInstance.weapon.ammunition && \
+		inventory.getResourceAmount(weaponInstance.weapon.ammunition) >= weaponInstance.weapon.projectileAmount
 
 
 func processIncomingAttack(attack: Attack):
@@ -244,12 +284,15 @@ func processIncomingAttack(attack: Attack):
 
 
 func zoom():
-	currentZoom = (currentZoom + 1) % maxZoom
-	var zoom: float = baseZoom - 0.2 * currentZoom
+	currentZoomLevel = (currentZoomLevel + 1) % maxZoomLevels
+	var zoom: float = baseZoom - currentZoomLevel * zoomAmount
 	get_tree().create_tween().tween_property(camera, "zoom", Vector2(zoom, zoom), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func reduceConsumableCooldowns():
+	if isInDialog:
+		return
+	
 	for resourceSlot in inventory.resourceSlots:
 		if resourceSlot.resource is InventoryConsumable && resourceSlot.resource.isOnCooldown:
 			resourceSlot.resource.remainingCooldown -= consumeTimer.wait_time
@@ -274,12 +317,12 @@ func _on_immunity_frames_timeout():
 
 
 func _on_stamina_restore_timeout():
-	currentStaminaRestore = entityResource.staminaRestore
+	isResting = true
 
 
 func _on_stamina_exhaust_restore_timeout():
-	currentStaminaRestore = entityResource.staminaRestore
-	entityResource.moveSpeed += exhaustionPenalty
+	isResting = true
+	entityResource.moveSpeed += exhaustionSpeedPenalty
 
 
 func _on_dash_timer_timeout():

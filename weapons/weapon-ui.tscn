@@ -1,44 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckh0etq8rdsn"]
+[gd_scene load_steps=10 format=3 uid="uid://ckh0etq8rdsn"]
 
 [ext_resource type="Script" path="res://weapons/weapon-ui.gd" id="1_bqajw"]
 [ext_resource type="PackedScene" uid="uid://b2udn5n4jvrxi" path="res://shared/projectile-spawner.tscn" id="3_yqk5q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdqcw"]
-radius = 7.9981
-height = 32.0
-
-[sub_resource type="Animation" id="Animation_5jvio"]
-resource_name = "BASIC_MELEE_SWING_BACK"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-5, -20), Vector2(-10, -10), Vector2(10, 10), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-1.0472, -1.22173, 0.523599, 0.0]
-}
+radius = 6.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_huq5a"]
 resource_name = "Basic Melee Stab"
-length = 0.5
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,7 +18,7 @@ tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(2, 10), Vector2(-6, -30), Vector2(-6, -30), Vector2(0, 0)]
@@ -59,7 +30,7 @@ tracks/1/path = NodePath("..:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.5),
+"times": PackedFloat32Array(0, 0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -0.174533, 0.0]
@@ -125,19 +96,19 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_nk8p5"]
 resource_name = "Basic Ranged"
-length = 0.4
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 5), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 6), Vector2(0, 6), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ocpej"]
@@ -169,7 +140,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k23g1"]
 _data = {
-"BASIC_MELEE_SWING_BACK": SubResource("Animation_5jvio"),
 "Basic Melee Stab": SubResource("Animation_huq5a"),
 "Basic Melee Swing Back": SubResource("Animation_vlp4g"),
 "Basic Melee Swing Front": SubResource("Animation_my5sc"),
@@ -186,15 +156,25 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Area2D" type="Area2D" parent="StaticBody2D"]
+position = Vector2(0, -10)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
-position = Vector2(0, -25)
+[node name="Lance" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_kdqcw")
+
+[node name="Sword" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_kdqcw")
+
+[node name="Dagger" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(0, 27)
 shape = SubResource("CapsuleShape2D_kdqcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(0.26, 0.26)
+position = Vector2(0, 17)
+scale = Vector2(0.15, 0.15)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../StaticBody2D")

@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://bp5qf8wxxydse"]
+
+[ext_resource type="Theme" uid="uid://bw5oquilxwgax" path="res://assets/UI/themes/UI-elements/resource-slot.tres" id="1_rhyo1"]
+[ext_resource type="Script" path="res://UI/menu/inventory/resource-slot-ui.gd" id="2_omeu2"]
+[ext_resource type="Theme" uid="uid://dobbys3uid5er" path="res://assets/UI/themes/UI-elements/resource-icon.tres" id="4_moob4"]
+[ext_resource type="Texture2D" uid="uid://b3opfj120sgb6" path="res://assets/UI/icons/menu/inventory/Craft.png" id="4_xdy42"]
+[ext_resource type="Texture2D" uid="uid://yyxnduijymmo" path="res://assets/UI/icons/menu/inventory/Consume.png" id="6_0lsik"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="6_cemff"]
+[ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/menu/inventory/Storage.png" id="7_1y86g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u7vf"]
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(600, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -30.0
+offset_right = 300.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme = ExtResource("1_rhyo1")
+script = ExtResource("2_omeu2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4u7vf")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="BlueprintIcon" type="PanelContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 1
+theme = ExtResource("4_moob4")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/BlueprintIcon"]
+custom_minimum_size = Vector2(7, 7)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_xdy42")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Amount" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+horizontal_alignment = 1
+
+[node name="WeaponSlots" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="AssignWeaponSlot1" parent="MarginContainer/WeaponSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+affectedElement = NodePath(".")
+
+[node name="AssignWeaponSlot2" parent="MarginContainer/WeaponSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+affectedElement = NodePath(".")
+
+[node name="AssignWeaponSlot3" parent="MarginContainer/WeaponSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+affectedElement = NodePath(".")
+
+[node name="AmmunitionSlots" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="AssignAmmunitionSlot1" parent="MarginContainer/AmmunitionSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+affectedElement = NodePath(".")
+
+[node name="AssignAmmunitionSlot2" parent="MarginContainer/AmmunitionSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+affectedElement = NodePath(".")
+
+[node name="AssignAmmunitionSlot3" parent="MarginContainer/AmmunitionSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+affectedElement = NodePath(".")
+
+[node name="CraftButton" parent="MarginContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 1
+texture = ExtResource("4_xdy42")
+affectedElement = NodePath(".")
+
+[node name="EquipButton" parent="MarginContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 1
+texture = ExtResource("7_1y86g")
+affectedElement = NodePath(".")
+
+[node name="ConsumeButton" parent="MarginContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 1
+texture = ExtResource("6_0lsik")
+affectedElement = NodePath(".")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/WeaponSlots/AssignWeaponSlot1" to="." method="_on_assign_weapon_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/WeaponSlots/AssignWeaponSlot1" to="." method="_on_assign_weapon_slot_1_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/WeaponSlots/AssignWeaponSlot1" to="." method="_on_assign_weapon_slot_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/WeaponSlots/AssignWeaponSlot2" to="." method="_on_assign_weapon_slot_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/WeaponSlots/AssignWeaponSlot2" to="." method="_on_assign_weapon_slot_2_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/WeaponSlots/AssignWeaponSlot2" to="." method="_on_assign_weapon_slot_2_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/WeaponSlots/AssignWeaponSlot3" to="." method="_on_assign_weapon_slot_3_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/WeaponSlots/AssignWeaponSlot3" to="." method="_on_assign_weapon_slot_3_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/WeaponSlots/AssignWeaponSlot3" to="." method="_on_assign_weapon_slot_3_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot1" to="." method="_on_assign_ammunition_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot1" to="." method="_on_assign_ammunition_slot_1_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot1" to="." method="_on_assign_ammunition_slot_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot2" to="." method="_on_assign_ammunition_slot_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot2" to="." method="_on_assign_ammunition_slot_2_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot2" to="." method="_on_assign_ammunition_slot_2_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot3" to="." method="_on_assign_ammunition_slot_3_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot3" to="." method="_on_assign_ammunition_slot_3_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot3" to="." method="_on_assign_ammunition_slot_3_pressed"]
+[connection signal="pressed" from="MarginContainer/CraftButton" to="." method="_on_craft_button_pressed"]
+[connection signal="pressed" from="MarginContainer/EquipButton" to="." method="_on_equip_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ConsumeButton" to="." method="_on_consume_button_pressed"]

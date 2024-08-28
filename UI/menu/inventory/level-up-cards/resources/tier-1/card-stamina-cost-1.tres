@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://jwx3knrang51"]
+
+[ext_resource type="Texture2D" uid="uid://c5gunm72fw55b" path="res://assets/UI/icons/entities/status-effects/Stamina Cost Reduction.png" id="1_dpv7k"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="2_bxqty"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="3_tcgc2"]
+
+[sub_resource type="Resource" id="Resource_tdhbv"]
+script = ExtResource("3_tcgc2")
+resource = 1
+amount = 3
+
+[sub_resource type="Resource" id="Resource_ghqfi"]
+script = ExtResource("3_tcgc2")
+resource = 2
+amount = 2
+
+[resource]
+script = ExtResource("2_bxqty")
+name = "Stamina Cost"
+description = "Reduces $ by"
+icon = ExtResource("1_dpv7k")
+requirements = Array[ExtResource("2_bxqty")]([])
+type = 5
+value = 5.0
+value2 = 0.0
+stats = Array[ExtResource("3_tcgc2")]([SubResource("Resource_tdhbv"), SubResource("Resource_ghqfi")])
+tier = 1

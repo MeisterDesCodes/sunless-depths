@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://tblt32bny18g"]
+
+[ext_resource type="Texture2D" uid="uid://dd4sicccqae6d" path="res://assets/UI/icons/entities/player/stats/Last Grasp.png" id="1_7x6hp"]
+[ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="2_5r3ft"]
+[ext_resource type="Resource" uid="uid://bl8y1afeercjb" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-stamina-cost-2.tres" id="3_6eb64"]
+[ext_resource type="Resource" uid="uid://ciuufcghw28nc" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-exhausting-attack-1.tres" id="4_0w44n"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_ao4ta"]
+
+[resource]
+script = ExtResource("4_ao4ta")
+name = "Last Grasp"
+description = "Exhausting attacks have their damage increased by"
+icon = ExtResource("1_7x6hp")
+requirements = Array[ExtResource("4_ao4ta")]([ExtResource("2_5r3ft"), ExtResource("3_6eb64"), ExtResource("4_0w44n")])
+type = 17
+value = 20.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 2

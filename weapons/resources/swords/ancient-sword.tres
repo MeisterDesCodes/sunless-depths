@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="MeleeWeapon" load_steps=5 format=3 uid="uid://f8qw5d2druo8"]
+
+[ext_resource type="Script" path="res://inventory-resource/melee-weapon.gd" id="1_x746j"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_0v1w7"]
+[ext_resource type="Texture2D" uid="uid://dixiuetc43ks8" path="res://assets/resources/weapons/branch.png" id="3_31ycb"]
+
+[sub_resource type="Resource" id="Resource_70rk3"]
+script = ExtResource("2_0v1w7")
+effectType = 7
+strength = 20.0
+duration = 5.0
+appliesTo = 0
+isStackable = false
+
+[resource]
+script = ExtResource("1_x746j")
+damage = 7.0
+knockback = 15.0
+statusEffects = Array[ExtResource("2_0v1w7")]([SubResource("Resource_70rk3")])
+meleeWeaponType = 1
+attackDelay = 0.75
+staminaCost = 10.0
+animations = Array[int]([2])
+name = "Ancient Sword"
+description = "xxx"
+texture = ExtResource("3_31ycb")
+rarity = 3

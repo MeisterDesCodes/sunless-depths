@@ -17,23 +17,34 @@ var approachLabel: Control
 func _ready():
 	if triggersAutomatically:
 		particles.queue_free()
+	
+	if interaction.lifetime == 0:
+		#deactivateInteraction()
+		pass
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && playerInRange && !completed && !player.isInDialog:
 		onInteract.emit(player)
-		if interaction.lifetime >= 0:
+		if interaction.lifetime > 0:
 			interaction.lifetime -= 1
 			if interaction.lifetime == 0:
-				completed = true
-				particles.get_child(0).emitting = false
-				UILoaderS.closeUILabel(approachLabel)
-				approachLabel = null
+				deactivateInteraction()
+
+
+func deactivateInteraction():
+	completed = true
+	particles.get_child(0).emitting = false
+	if approachLabel:
+		UILoaderS.closeUILabel(approachLabel)
+		approachLabel = null
 
 
 func _on_detection_radius_body_entered(body):
 	if triggersAutomatically:
-		onInteract.emit(player)
+		if interaction.lifetime > 0:
+			onInteract.emit(player)
+			interaction.lifetime -= 1
 		return
 	
 	approachLabel = UILoaderS.loadUILabel(preload("res://UI/shared/dialog-approach.tscn"))

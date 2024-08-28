@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cw4pbxbtsdmnt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh531"]
+bg_color = Color(0, 0, 0, 0.392157)
+skew = Vector2(1, 0)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy6kg"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(1, 0)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+/styles/texture = null
+ProgressBar/styles/background = SubResource("StyleBoxFlat_dh531")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jy6kg")

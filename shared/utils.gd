@@ -6,6 +6,7 @@ class_name Utils
 
 var colorBackground = Color("#161616")
 var colorPrimary = Color("#E14F21")
+var colorPrimaryBright = Color("#FF794E")
 var colorCommon = Color("#FFFFFF")
 var colorUncommon = Color("#54A32F")
 var colorRare = Color("#1E5F9B")
@@ -13,10 +14,16 @@ var colorEpic = Color("#4F2397")
 var colorLegendary = Color("#D3A42B")
 var colorMissing = Color("#B51111")
 var colorBlack = Color("#000000")
-var colorGrey = Color("#404040")
+var colorWhite = Color("#FFFFFF")
+var colorDisabled = Color("#959595")
 var colorTransparent = Color("#FFFFFF", 0)
 
+var colorCanvasModulate = Color("#040404")
+
 var resourceDropSpeed: float = 150
+
+var randomRangeMin: float = 0.75
+var randomRangeMax: float = 1.25
 
 
 func updateResourceType(resource: InventoryResource):
@@ -39,7 +46,7 @@ func getScalingValue(value: float):
 
 
 func getRandomRange(value: float):
-	return randf_range(0.75 * value, 1.25 * value)
+	return randf_range(randomRangeMin * value, randomRangeMax * value)
 
 
 func getEnumValue(_enum, _key):
@@ -77,23 +84,36 @@ func calculateRangedScaling(attacker: Entity):
 	return attacker.agility * 0.5 + attacker.perception * 0.5
 
 
+func setupEffect(_effect: StatusEffect, strength: float):
+	var effect = _effect.duplicate()
+	effect.strength = strength
+	return effect
+
+
 func applyStatusEffects(source: CharacterBody2D, target: CharacterBody2D, statusEffects: Array[StatusEffect]):
 	for effect in statusEffects:
-		if effect.appliesTo == Enums.statusEffectReceiver.SELF:
-			applyStatusEffect(source, source, effect)
-		if effect.appliesTo == Enums.statusEffectReceiver.TARGET:
-			applyStatusEffect(source, target, effect)
+		applyStatusEffect(source, target, effect)
 
 
 func applyStatusEffect(source: CharacterBody2D, target: CharacterBody2D, _effect: StatusEffect):
-	var entityEffect = getStatusEffect(target, _effect)
-	if !_effect.isStackable && entityEffect:
-		if entityEffect.remainingDuration < _effect.duration:
+	if _effect.appliesTo == Enums.statusEffectReceiver.SELF:
+		target = source
+	
+	var entityEffects = getStatusEffectsByType(target, _effect)
+	if !_effect.isStackable && !entityEffects.is_empty():
+		var entityEffect = entityEffects[0]
+		if entityEffect.remainingDuration <= _effect.duration && entityEffect.strength <= _effect.strength:
 			entityEffect.remainingDuration = _effect.duration
+			entityEffect.strength = _effect.strength
+		return
+	
+	if _effect.stackLimit > 0 && _effect.stackLimit <= entityEffects.size():
 		return
 	
 	var effect = _effect.duplicate()
-	effect.strength *= source.effectStrengthModifier
+	effect.strength *= source.effectStrengthModifier * target.effectTakenStrengthModifier
+	effect.duration *= (1 + (randf() * (source.effectDurationRandomModifier - 1))) * target.effectTakenDurationModifier
+	effect.accumulatedStrength = effect.strength
 	effect.remainingDuration = effect.duration
 	target.statusEffectComponent.statusEffects.append(effect)
 	effect.onApply(target)
@@ -149,7 +169,7 @@ func round(value: float, decimals: int):
 	return round(value * pow(10, decimals)) / pow(10, decimals)
 
 
-func getStatutusEffectDescription(effect: StatusEffect):
+func getStatusEffectDescription(effect: StatusEffect):
 	match effect.effectType:
 		Enums.statusEffectType.BLEED:
 			return "Takes " + str(effect.strength) + " bleed damage every second"
@@ -164,6 +184,24 @@ func getStatutusEffectDescription(effect: StatusEffect):
 	return ""
 
 
-func getStatusEffect(target: CharacterBody2D, _effect: StatusEffect):
+func getStatusEffectsByType(target: CharacterBody2D, _effect: StatusEffect):
 	var effects = target.statusEffectComponent.statusEffects.filter(func(effect): return effect.effectType == _effect.effectType)
-	return effects[0] if !effects.is_empty() else null
+	return effects
+
+
+func checkForCrit(entity: CharacterBody2D):
+	var isCrit: bool = false
+	if randf() <= entity.critChance / 100:
+		isCrit = true
+	
+	return isCrit
+
+
+
+
+
+
+
+
+
+

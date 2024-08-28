@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bs6h0yav1a7gr"]
+
+[ext_resource type="Texture2D" uid="uid://cb1aakghbsgaj" path="res://assets/UI/components/hud-icon.png" id="1_s2b6q"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcqel"]
+texture = ExtResource("1_s2b6q")
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_tcqel")

@@ -1,20 +1,29 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwiu2kgkgw4ns"]
+[gd_scene load_steps=19 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
-[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="2_6whuv"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
+[ext_resource type="Script" path="res://map/map-location.gd" id="2_x24fo"]
 [ext_resource type="Resource" uid="uid://bunurwyxgx0ax" path="res://entities/resources/player/player.tres" id="3_wronf"]
 [ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="4_axcb5"]
 [ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
 [ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
+[ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="5_dkndk"]
+[ext_resource type="Resource" uid="uid://dlv0qcm8b73n5" path="res://entities/resources/enemies/test-dummy.tres" id="6_jf3fh"]
+[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="7_0gon8"]
 [ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-ui.tscn" id="9_75ykn"]
 [ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/hud/hud-ui.tscn" id="58_isjnl"]
 
+[sub_resource type="Resource" id="Resource_jq2ng"]
+script = ExtResource("2_x24fo")
+name = ""
+description = ""
+locationType = 0
+attributes = Array[int]([])
+location = 2
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
-vertices = PackedVector2Array(12011, 8356, -11625, 8549, -11896, -8049, 11852, -8049)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-11901, -8054, 11857, -8054, 12017, 8361, -11630, 8555)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 5.0
@@ -27,11 +36,12 @@ gradient = SubResource("Gradient_g0pcc")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xvjr7")
+initialLocation = SubResource("Resource_jq2ng")
 
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
-position = Vector2(4707.88, 1337.31)
+position = Vector2(246.055, 659.759)
 entityResource = ExtResource("3_wronf")
 inventory = ExtResource("4_axcb5")
 
@@ -40,9 +50,13 @@ remote_path = NodePath("../../../FollowCamera")
 
 [node name="Enemies" type="Node2D" parent="Entities"]
 
+[node name="Enemy" parent="Entities/Enemies" instance=ExtResource("5_dkndk")]
+position = Vector2(5088.28, 1030.99)
+entityResource = ExtResource("6_jf3fh")
+
 [node name="CurrentLocation" type="Node2D" parent="."]
 
-[node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("2_6whuv")]
+[node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("7_0gon8")]
 visible = false
 
 [node name="TheSettlement" parent="CurrentLocation" instance=ExtResource("2_rrhun")]
@@ -53,9 +67,9 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(4707.88, 1337.31)
+position = Vector2(246.055, 659.759)
 position_smoothing_enabled = true
-rotation_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [node name="SoundHandler" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("4_rr2vr")
@@ -87,17 +101,14 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_shq6o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIControl" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchor_right = 0.999945
-anchor_bottom = 0.95
+anchor_bottom = 1.0
 offset_right = 0.0878906
-offset_bottom = 40.0
 
 [node name="HudUI" parent="CanvasLayer/UIControl" instance=ExtResource("58_isjnl")]
 z_index = 1

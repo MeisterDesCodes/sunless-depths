@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://dfndcayooa4xk"]
+
+[ext_resource type="Texture2D" uid="uid://bg7tgnqgdyiym" path="res://assets/UI/icons/entities/player/stats/Effect Strength.png" id="1_xveb6"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="2_kbyag"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="3_ohyyg"]
+
+[sub_resource type="Resource" id="Resource_ujkh0"]
+script = ExtResource("3_ohyyg")
+resource = 1
+amount = 3
+
+[sub_resource type="Resource" id="Resource_yc75v"]
+script = ExtResource("3_ohyyg")
+resource = 3
+amount = 2
+
+[resource]
+script = ExtResource("2_kbyag")
+name = "Effect Strength"
+description = "Increases $ by"
+icon = ExtResource("1_xveb6")
+requirements = Array[ExtResource("2_kbyag")]([])
+type = 8
+value = 10.0
+value2 = 0.0
+stats = Array[ExtResource("3_ohyyg")]([SubResource("Resource_ujkh0"), SubResource("Resource_yc75v")])
+tier = 1

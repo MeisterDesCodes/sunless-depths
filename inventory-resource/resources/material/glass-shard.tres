@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://drw6g4nfm2221"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_nvr8g"]
+[ext_resource type="Texture2D" uid="uid://buqyvyv6f08o7" path="res://assets/resources/material/Glass Shards.png" id="2_ue1sv"]
+
+[resource]
+script = ExtResource("1_nvr8g")
+name = "Glass Shards"
+description = "xxx"
+texture = ExtResource("2_ue1sv")
+rarity = 2

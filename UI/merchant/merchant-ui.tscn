@@ -1,19 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcsu7f3qetsbf"]
+[gd_scene load_steps=12 format=3 uid="uid://bcsu7f3qetsbf"]
 
 [ext_resource type="Script" path="res://UI/merchant/merchant-ui.gd" id="1_3ga05"]
-[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/panel-container-primary.tres" id="2_i2p71"]
+[ext_resource type="Theme" uid="uid://doff4d8cld34g" path="res://assets/UI/themes/UI-elements/menu-small.tres" id="2_v1q1v"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="3_2r470"]
 [ext_resource type="Texture2D" uid="uid://c5efwq8xwq1dj" path="res://assets/resources/material/Gold.png" id="3_q3cbd"]
+[ext_resource type="PackedScene" uid="uid://b465sei327g5c" path="res://UI/merchant/merchant-resource-ui.tscn" id="4_3ldta"]
+[ext_resource type="Theme" uid="uid://cxk4iwl1igdto" path="res://assets/UI/themes/UI-elements/button-large.tres" id="4_3u2ih"]
+[ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="4_w70lt"]
+[ext_resource type="Texture2D" uid="uid://wsbw7dpy2d4t" path="res://assets/UI/icons/menu/merchant/Buy.png" id="5_34ksj"]
+[ext_resource type="Texture2D" uid="uid://gt41om7xtvei" path="res://assets/UI/icons/menu/merchant/Sell.png" id="6_u4g0l"]
+[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-small.tres" id="9_mhf1r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkjx7"]
 
 [node name="MerchantUI" type="Control"]
 z_index = 3
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(800, 400)
@@ -21,7 +26,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_3ga05")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,119 +34,153 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -314.5
+offset_top = -348.5
 offset_right = 400.0
-offset_bottom = 314.5
+offset_bottom = 348.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_i2p71")
+theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 700)
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 20
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_v1q1v")
 
-[node name="LocationContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/margin_top = 50
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/LocationContainer"]
+[node name="LocationContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nkjx7")
 
-[node name="Title" type="Label" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer"]
+[node name="Title" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "
 "
 
-[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/LocationContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nkjx7")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 35
 
-[node name="Buy" type="Button" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer"]
+[node name="Buy" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
+custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
-text = "Buy"
-flat = true
+theme = ExtResource("4_3u2ih")
+texture = ExtResource("5_34ksj")
+version = 1
+affectedElement = NodePath(".")
 
-[node name="Sell" type="Button" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer"]
+[node name="Sell" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
+custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
-text = "Sell"
-flat = true
+theme = ExtResource("4_3u2ih")
+texture = ExtResource("6_u4g0l")
+version = 1
+affectedElement = NodePath(".")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("3_q3cbd")
 expand_mode = 2
 
-[node name="TotalGold" type="Label" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2"]
+[node name="TotalGold" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/LocationContainer"]
-custom_minimum_size = Vector2(800, 375)
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer"]
+custom_minimum_size = Vector2(625, 350)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 horizontal_scroll_mode = 0
 
-[node name="Resources" type="VBoxContainer" parent="PanelContainer/MarginContainer/LocationContainer/ScrollContainer"]
+[node name="Resources" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 5
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/LocationContainer"]
+[node name="MerchantResourceUI" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources" instance=ExtResource("4_3ldta")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MerchantResourceUI2" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources" instance=ExtResource("4_3ldta")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MerchantResourceUI3" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources" instance=ExtResource("4_3ldta")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MerchantResourceUI4" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources" instance=ExtResource("4_3ldta")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MerchantResourceUI5" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources" instance=ExtResource("4_3ldta")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MerchantResourceUI6" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources" instance=ExtResource("4_3ldta")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nkjx7")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("3_q3cbd")
 expand_mode = 2
 
-[node name="TotalCost" type="Label" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2"]
+[node name="TotalCost" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="Purchase" type="Button" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer"]
+[node name="Purchase" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
+custom_minimum_size = Vector2(80, 65)
 layout_mode = 2
-text = "Purchase"
-flat = true
+theme = ExtResource("9_mhf1r")
+affectedElement = NodePath(".")
 
-[node name="Leave" type="Button" parent="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer"]
+[node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("4_w70lt")]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Perhaps not"
-flat = true
+size_flags_vertical = 4
+scene = NodePath("../..")
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/Buy" to="." method="_on_buy_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Purchase" to="." method="_on_purchase_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Purchase" to="." method="_on_purchase_pressed"]

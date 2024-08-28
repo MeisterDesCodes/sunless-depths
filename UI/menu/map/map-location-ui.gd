@@ -5,10 +5,13 @@ extends Control
 
 @onready var game: Node2D = get_tree().get_root().get_node("Game")
 @onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var typeContainer: TextureRect = get_node("VBoxContainer/PanelContainer/TextureRect")
+@onready var typeContainer: TextureRect = get_node("PanelContainer/TextureRect")
 @onready var attributeContainer: HBoxContainer = get_node("VBoxContainer/HBoxContainer")
-@onready var button: Button = get_node("VBoxContainer/PanelContainer/Button")
+@onready var button: Button = get_node("PanelContainer/Button")
+@onready var locationMarker: PanelContainer = get_node("LocationMarker")
+@onready var locationContainer: PanelContainer = get_node("PanelContainer")
 
+var ringLevel: Enums.locationRingLevel
 var canBeVisited: bool = false
 
 
@@ -17,8 +20,38 @@ func _ready():
 		queue_free()
 		return
 	
+	locationMarker.self_modulate = UtilsS.colorTransparent
+	
 	setType()
 	setAttributes()
+
+
+func updateLocation():
+	match ringLevel:
+		Enums.locationRingLevel.NONE:
+			modulate = UtilsS.colorTransparent
+		Enums.locationRingLevel.OUTER:
+			locationContainer.self_modulate = UtilsS.colorBlack
+			attributeContainer.visible = false
+		Enums.locationRingLevel.INNER:
+			locationContainer.self_modulate = UtilsS.colorCommon
+			canBeVisited = true
+		Enums.locationRingLevel.VISITED:
+			locationContainer.self_modulate = UtilsS.colorPrimary
+			canBeVisited = true
+			button.select()
+		Enums.locationRingLevel.CURRENT:
+			locationContainer.self_modulate = UtilsS.colorPrimary
+			locationMarker.self_modulate = UtilsS.colorWhite
+	
+	if !playerScene.atExit || !canBeVisited:
+		button.disabled = true
+	else:
+		button.disabled = false 
+
+
+func _process(delta):
+	locationMarker.rotation += 0.025
 
 
 func setType():
@@ -52,28 +85,24 @@ func setAttributes():
 		attributeScene.setup(texture)
 
 
+func isOuterRing():
+	return ringLevel == Enums.locationRingLevel.NONE || ringLevel == Enums.locationRingLevel.OUTER
+
+
 func _on_button_mouse_entered():
-	UILoaderS.loadUIPopup(button, locationResource)
-	if buttonActive():
-		AnimationsS.setSize(self, 1.3, 0.15)
+	if !isOuterRing():
+		UILoaderS.loadUIPopup(button, locationResource)
 
 
 func _on_button_mouse_exited():
 	UILoaderS.closeUIPopup()
-	if buttonActive():
-		AnimationsS.setSize(self, 1, 0.15)
 
 
 func _on_button_pressed():
-	if buttonActive():
-		playerScene.atExit = false
-		playerScene.isInCave = true
-		var pathwayObject = findPathway(LocationLoaderS.currentLocation, locationResource.location)
-		setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
-
-
-func buttonActive():
-	return playerScene.atExit && locationResource.location != LocationLoaderS.currentLocation && canBeVisited
+	playerScene.atExit = false
+	playerScene.isInCave = true
+	var pathwayObject = findPathway(LocationLoaderS.currentLocation, locationResource.location)
+	setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
 
 
 func findPathway(source: int, destination: int):
@@ -105,6 +134,7 @@ func setupCaveGeneration(foundPathway, fromDirection, toDirection):
 	LocationLoaderS.currentFromDirection = fromDirection
 	LocationLoaderS.currentToDirection = toDirection
 	LocationLoaderS.currentTier = foundPathway.pathwayResource.tier
+	LocationLoaderS.attributes = foundPathway.pathwayResource.attributes
 	LocationLoaderS.loadCave()
 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://g15kf5157lvj"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-ui.gd" id="1_c4myw"]
-[ext_resource type="Texture2D" uid="uid://com0pfpci8ju" path="res://assets/UI/images/map.png" id="2_ealbo"]
+[ext_resource type="Theme" uid="uid://c08gjo7q0l1re" path="res://assets/UI/themes/UI-elements/map.tres" id="2_v2k7b"]
 [ext_resource type="PackedScene" uid="uid://c572bb7vvyy3u" path="res://UI/menu/map/map-location-ui.tscn" id="3_v6jxr"]
 [ext_resource type="PackedScene" uid="uid://l81lxelhto0l" path="res://UI/menu/map/map-pathway-ui.tscn" id="4_mf3og"]
 [ext_resource type="Script" path="res://map/map-location.gd" id="4_qsxx8"]
@@ -47,6 +47,7 @@ iterations = 1
 locationFrom = 1
 locationTo = 2
 travelDirections = Array[int]([3, 1])
+attributes = Array[int]([])
 tier = 0
 
 [sub_resource type="Resource" id="Resource_ylear"]
@@ -57,6 +58,7 @@ iterations = 2
 locationFrom = 2
 locationTo = 3
 travelDirections = Array[int]([0, 2])
+attributes = Array[int]([])
 tier = 1
 
 [sub_resource type="Resource" id="Resource_0j77k"]
@@ -67,9 +69,11 @@ iterations = 2
 locationFrom = 2
 locationTo = 4
 travelDirections = Array[int]([3, 1])
+attributes = Array[int]([1])
 tier = 1
 
 [node name="MapUI" type="Control"]
+custom_minimum_size = Vector2(1400, 600)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,450 +84,180 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_c4myw")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-custom_minimum_size = Vector2(0, 600)
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -505.0
-offset_top = -328.0
-offset_right = 506.0
-offset_bottom = 317.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-ratio = 1.57
+theme = ExtResource("2_v2k7b")
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="AspectRatioContainer"]
-layout_mode = 2
-texture = ExtResource("2_ealbo")
-
-[node name="Locations" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
+[node name="Locations" type="Node2D" parent="PanelContainer"]
 z_index = 1
 
-[node name="MapLocationIUI" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 92.0
-offset_top = 70.4745
-offset_right = 92.0
-offset_bottom = 70.4745
+[node name="MapLocationIUI" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 82.0
+offset_top = 76.0
+offset_right = 82.0
+offset_bottom = 76.0
 locationResource = SubResource("Resource_j5tkm")
+metadata/_edit_use_anchors_ = true
 
-[node name="MapLocationIUI2" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 201.0
-offset_top = 99.4745
-offset_right = 201.0
-offset_bottom = 99.4745
+[node name="MapLocationIUI2" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 217.0
+offset_top = 126.0
+offset_right = 217.0
+offset_bottom = 126.0
 locationResource = SubResource("Resource_4hajs")
+metadata/_edit_use_anchors_ = true
 
-[node name="MapLocationIUI3" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 373.0
-offset_top = 74.4745
-offset_right = 373.0
-offset_bottom = 74.4745
-locationResource = SubResource("Resource_2wog4")
-
-[node name="MapLocationIUI4" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 219.0
-offset_top = 186.475
-offset_right = 219.0
-offset_bottom = 186.475
-locationResource = SubResource("Resource_rdgy8")
-
-[node name="MapLocationIUI5" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 276.0
-offset_top = 268.475
-offset_right = 276.0
-offset_bottom = 268.475
-
-[node name="MapLocationIUI6" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 178.0
-offset_top = 324.475
-offset_right = 178.0
-offset_bottom = 324.475
-
-[node name="MapLocationIUI7" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 178.0
-offset_top = 324.475
-offset_right = 178.0
-offset_bottom = 324.475
-
-[node name="MapLocationIUI8" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 121.0
-offset_top = 374.475
-offset_right = 121.0
-offset_bottom = 374.475
-
-[node name="MapLocationIUI9" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 92.0
-offset_top = 445.475
-offset_right = 92.0
-offset_bottom = 445.475
-
-[node name="MapLocationIUI10" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 96.0
-offset_top = 522.474
-offset_right = 96.0
-offset_bottom = 522.474
-
-[node name="MapLocationIUI11" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 135.0
-offset_top = 588.474
-offset_right = 135.0
-offset_bottom = 588.474
-
-[node name="MapLocationIUI12" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 329.0
-offset_top = 312.475
-offset_right = 329.0
-offset_bottom = 312.475
-
-[node name="MapLocationIUI19" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 378.0
-offset_top = 482.475
-offset_right = 378.0
-offset_bottom = 482.475
-
-[node name="MapLocationIUI20" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 295.0
-offset_top = 500.475
-offset_right = 295.0
-offset_bottom = 500.475
-
-[node name="MapLocationIUI21" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 232.0
-offset_top = 440.475
-offset_right = 232.0
-offset_bottom = 440.475
-
-[node name="MapLocationIUI15" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 385.0
-offset_top = 389.475
-offset_right = 385.0
-offset_bottom = 389.475
-
-[node name="MapLocationIUI16" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 425.0
-offset_top = 353.475
-offset_right = 425.0
-offset_bottom = 353.475
-
-[node name="MapLocationIUI17" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 461.0
-offset_top = 392.475
-offset_right = 461.0
-offset_bottom = 392.475
-
-[node name="MapLocationIUI22" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 536.0
-offset_top = 378.475
-offset_right = 536.0
-offset_bottom = 378.475
-
-[node name="MapLocationIUI23" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 561.0
-offset_top = 441.475
-offset_right = 561.0
-offset_bottom = 441.475
-
-[node name="MapLocationIUI24" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 603.0
-offset_top = 494.475
-offset_right = 603.0
-offset_bottom = 494.475
-
-[node name="MapLocationIUI25" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 661.0
-offset_top = 527.474
-offset_right = 661.0
-offset_bottom = 527.474
-
-[node name="MapLocationIUI33" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 431.0
-offset_top = 573.474
-offset_right = 431.0
-offset_bottom = 573.474
-
-[node name="MapLocationIUI26" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 579.0
-offset_top = 322.474
-offset_right = 579.0
-offset_bottom = 322.474
-
-[node name="MapLocationIUI28" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 592.0
-offset_top = 252.475
-offset_right = 592.0
-offset_bottom = 252.475
-
-[node name="MapLocationIUI31" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 525.0
-offset_top = 222.475
-offset_right = 525.0
-offset_bottom = 222.475
-
-[node name="MapLocationIUI32" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 393.0
-offset_top = 188.475
-offset_right = 393.0
-offset_bottom = 188.475
-
-[node name="MapLocationIUI29" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 616.0
-offset_top = 185.475
-offset_right = 616.0
-offset_bottom = 185.475
-
-[node name="MapLocationIUI30" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 699.0
-offset_top = 109.475
-offset_right = 699.0
-offset_bottom = 109.475
-
-[node name="MapLocationIUI18" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 422.0
-offset_top = 429.475
-offset_right = 422.0
-offset_bottom = 429.475
-
-[node name="MapLocationIUI13" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 451.0
-offset_top = 70.4745
-offset_right = 451.0
-offset_bottom = 70.4745
-
-[node name="MapLocationIUI14" parent="AspectRatioContainer/NinePatchRect2/Locations" instance=ExtResource("3_v6jxr")]
-offset_left = 517.0
-offset_top = 87.4745
-offset_right = 517.0
-offset_bottom = 87.4745
-
-[node name="Pathways" type="Node2D" parent="AspectRatioContainer/NinePatchRect2"]
-
-[node name="MapLocationUI" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 112.0
-offset_top = 72.0
-offset_right = 186.0
+[node name="MapLocationIUI3" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 415.0
+offset_top = 87.0
+offset_right = 415.0
 offset_bottom = 87.0
-rotation = 0.261799
+locationResource = SubResource("Resource_2wog4")
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI4" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 270.0
+offset_top = 228.0
+offset_right = 270.0
+offset_bottom = 228.0
+locationResource = SubResource("Resource_rdgy8")
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI5" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 395.0
+offset_top = 324.0
+offset_right = 395.0
+offset_bottom = 324.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI8" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 143.0
+offset_top = 388.0
+offset_right = 143.0
+offset_bottom = 388.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI9" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 89.0
+offset_top = 502.0
+offset_right = 89.0
+offset_bottom = 502.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI10" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 104.0
+offset_top = 620.0
+offset_right = 104.0
+offset_bottom = 620.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI11" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 170.0
+offset_top = 723.0
+offset_right = 170.0
+offset_bottom = 723.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI12" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 471.0
+offset_top = 442.0
+offset_right = 471.0
+offset_bottom = 442.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI19" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 586.0
+offset_top = 639.0
+offset_right = 586.0
+offset_bottom = 639.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI20" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 324.0
+offset_top = 620.0
+offset_right = 324.0
+offset_bottom = 620.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI21" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 234.0
+offset_top = 519.0
+offset_right = 234.0
+offset_bottom = 519.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI15" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 576.0
+offset_top = 489.0
+offset_right = 576.0
+offset_bottom = 489.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI16" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 616.0
+offset_top = 453.0
+offset_right = 616.0
+offset_bottom = 453.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI17" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 652.0
+offset_top = 492.0
+offset_right = 652.0
+offset_bottom = 492.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI33" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 466.0
+offset_top = 683.0
+offset_right = 466.0
+offset_bottom = 683.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI18" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 613.0
+offset_top = 529.0
+offset_right = 613.0
+offset_bottom = 529.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapLocationIUI13" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
+offset_left = 559.0
+offset_top = 113.0
+offset_right = 559.0
+offset_bottom = 113.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Pathways" type="Node2D" parent="PanelContainer"]
+
+[node name="MapPathwayUI" parent="PanelContainer/Pathways" instance=ExtResource("4_mf3og")]
+offset_left = 108.0
+offset_top = 72.0
+offset_right = 350.0
+offset_bottom = 132.0
+rotation = 0.346354
+scale = Vector2(0.4, 0.4)
 pathwayResource = SubResource("Resource_w2r5w")
 
-[node name="MapLocationUI8" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 213.0
-offset_top = 121.0
-offset_right = 263.0
-offset_bottom = 136.0
-rotation = 1.3752
+[node name="MapPathwayUI2" parent="PanelContainer/Pathways" instance=ExtResource("4_mf3og")]
+offset_left = 239.0
+offset_top = 142.0
+offset_right = 408.0
+offset_bottom = 202.0
+rotation = 7.40809
+scale = Vector2(0.4, 0.4)
 pathwayResource = SubResource("Resource_ylear")
 
-[node name="MapLocationUI7" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 220.0
-offset_top = 93.4745
-offset_right = 354.0
-offset_bottom = 108.474
-rotation = 6.13427
+[node name="MapPathwayUI3" parent="PanelContainer/Pathways" instance=ExtResource("4_mf3og")]
+offset_left = 238.0
+offset_top = 109.0
+offset_right = 620.0
+offset_bottom = 169.0
+rotation = 6.08509
+scale = Vector2(0.4, 0.4)
 pathwayResource = SubResource("Resource_0j77k")
-
-[node name="MapLocationUI9" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 259.0
-offset_top = 288.475
-offset_right = 329.0
-offset_bottom = 303.475
-rotation = 2.61799
-
-[node name="MapLocationUI12" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 236.0
-offset_top = 203.475
-offset_right = 296.0
-offset_bottom = 218.475
-rotation = 0.979773
-
-[node name="MapLocationUI13" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 404.0
-offset_top = 357.474
-offset_right = 471.0
-offset_bottom = 372.474
-rotation = 3.54508
-
-[node name="MapLocationUI37" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 366.0
-offset_top = 383.0
-offset_right = 422.0
-offset_bottom = 398.0
-rotation = 4.04858
-
-[node name="MapLocationUI16" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 309.0
-offset_top = 310.0
-offset_right = 340.0
-offset_bottom = 325.0
-rotation = 3.87208
-
-[node name="MapLocationUI21" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 130.0
-offset_top = 361.0
-offset_right = 169.0
-offset_bottom = 376.0
-rotation = 5.59339
-
-[node name="MapLocationUI22" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 91.0
-offset_top = 429.474
-offset_right = 130.0
-offset_bottom = 444.474
-rotation = 5.10516
-
-[node name="MapLocationUI23" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 87.0
-offset_top = 508.475
-offset_right = 126.0
-offset_bottom = 523.475
-rotation = 4.64887
-
-[node name="MapLocationUI24" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 118.0
-offset_top = 580.475
-offset_right = 157.0
-offset_bottom = 595.475
-rotation = 4.18878
-
-[node name="MapLocationUI17" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 394.0
-offset_top = 499.0
-offset_right = 461.0
-offset_bottom = 514.0
-rotation = 1.04758
-
-[node name="MapLocationUI14" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 416.0
-offset_top = 376.0
-offset_right = 432.0
-offset_bottom = 391.0
-rotation = 2.39871
-
-[node name="MapLocationUI38" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 453.0
-offset_top = 416.474
-offset_right = 469.0
-offset_bottom = 431.474
-rotation = 2.39871
-
-[node name="MapLocationUI43" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 415.0
-offset_top = 453.0
-offset_right = 445.0
-offset_bottom = 468.0
-rotation = 2.25625
-
-[node name="MapLocationUI44" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 360.0
-offset_top = 498.0
-offset_right = 406.0
-offset_bottom = 513.0
-rotation = 2.92928
-
-[node name="MapLocationUI45" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 275.0
-offset_top = 497.474
-offset_right = 324.0
-offset_bottom = 512.474
-rotation = 3.90744
-
-[node name="MapLocationUI39" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 443.0
-offset_top = 387.475
-offset_right = 459.0
-offset_bottom = 402.475
-rotation = 3.95876
-
-[node name="MapLocationUI40" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 403.0
-offset_top = 424.474
-offset_right = 419.0
-offset_bottom = 439.474
-rotation = 3.95876
-
-[node name="MapLocationUI15" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 477.0
-offset_top = 386.0
-offset_right = 517.0
-offset_bottom = 401.0
-rotation = -0.192831
-
-[node name="MapLocationUI18" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 549.0
-offset_top = 397.474
-offset_right = 579.0
-offset_bottom = 412.474
-rotation = 1.19215
-
-[node name="MapLocationUI19" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 578.0
-offset_top = 455.474
-offset_right = 608.0
-offset_bottom = 470.474
-rotation = 0.910385
-
-[node name="MapLocationUI20" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 622.0
-offset_top = 501.474
-offset_right = 652.0
-offset_bottom = 516.474
-rotation = 0.523598
-
-[node name="MapLocationUI35" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 505.0
-offset_top = 230.0
-offset_right = 605.0
-offset_bottom = 245.0
-rotation = 3.40339
-
-[node name="MapLocationUI41" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 497.0
-offset_top = 93.4745
-offset_right = 528.0
-offset_bottom = 108.475
-rotation = 3.40339
-
-[node name="MapLocationUI42" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 432.0
-offset_top = 83.0
-offset_right = 472.0
-offset_bottom = 98.0
-rotation = 3.09269
-
-[node name="MapLocationUI30" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 690.0
-offset_top = 132.0
-offset_right = 765.0
-offset_bottom = 147.0
-rotation = 2.3991
-
-[node name="MapLocationUI3" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 595.0
-offset_top = 276.0
-offset_right = 629.0
-offset_bottom = 291.0
-rotation = 1.72562
-
-[node name="MapLocationUI6" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 617.0
-offset_top = 210.0
-offset_right = 651.0
-offset_bottom = 225.0
-rotation = 1.91743
-
-[node name="MapLocationUI10" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 572.0
-offset_top = 255.0
-offset_right = 608.0
-offset_bottom = 270.0
-rotation = 3.53553
-
-[node name="MapLocationUI4" parent="AspectRatioContainer/NinePatchRect2/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 541.0
-offset_top = 363.0
-offset_right = 574.0
-offset_bottom = 378.0
-rotation = -0.894384

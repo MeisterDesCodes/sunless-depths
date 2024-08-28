@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://csav5itofofid"]
+
+[ext_resource type="Texture2D" uid="uid://cqtd88the4v6e" path="res://assets/UI/icons/entities/player/stats/Battle Trance.png" id="1_io5mj"]
+[ext_resource type="Resource" uid="uid://bav3gg2tw435w" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-critical-1.tres" id="2_ge5xd"]
+[ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="3_gd0k0"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_xotr2"]
+
+[resource]
+script = ExtResource("4_xotr2")
+name = "Battle Trance"
+description = "Crits increase all primary stats by"
+icon = ExtResource("1_io5mj")
+requirements = Array[ExtResource("4_xotr2")]([ExtResource("2_ge5xd"), ExtResource("3_gd0k0")])
+type = 24
+value = 4.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

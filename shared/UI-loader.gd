@@ -82,6 +82,9 @@ func loadUIPopup(container, element):
 		else:
 			snapPosition.y -= (endYPosition - screenHeight) + offset * 2
 	
+	if element is MapPathway:
+		snapPosition.x -= container.size.x / 2
+	
 	popupInstance.global_position = snapPosition
 	
 	AnimationsS.fadeInHeight(popupInstance, fadeTime)
@@ -89,8 +92,8 @@ func loadUIPopup(container, element):
 	return currentPopupScene
 
 
-func closeUILabel(popupInstance):
-	popupInstance.queue_free()
+func closeUILabel(labelInstance):
+	labelInstance.queue_free()
 	currentLabelScene = null
 
 
@@ -110,6 +113,7 @@ func closeUIPopup():
 
 
 func closeUIScene(sceneInstance):
+	playerScene.atExit = false
 	if currentUIScenes.size() == 1:
 		playerScene.isInDialog = false
 		closeUIBlocker(currentBlockerScene)

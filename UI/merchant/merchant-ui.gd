@@ -4,12 +4,13 @@ extends Control
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var gold = preload("res://inventory-resource/resources/material/primary/gold.tres")
 @onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
-@onready var merchantTitle = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer/Title")
 
-@onready var resourcesWindow = get_node("PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources")
-@onready var totalCostsLabel = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2/TotalCost")
-@onready var purchaseButton = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Purchase")
-@onready var totalGold = get_node("PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2/TotalGold")
+@onready var merchantTitle = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer/Title")
+@onready var resourcesWindow = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources")
+@onready var totalCostsLabel = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2/TotalCost")
+@onready var purchaseButton = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/Purchase")
+@onready var totalGold = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer/HBoxContainer2/TotalGold")
+@onready var buttonContainer = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer")
 
 var merchant = null
 var merchantMode = Enums.merchantMode.BUY
@@ -18,7 +19,7 @@ var merchantMode = Enums.merchantMode.BUY
 func setup(merchantCuriosity):
 	merchant = merchantCuriosity
 	merchantTitle.text = merchant.title
-	generateBuyResources()
+	_on_buy_pressed()
 
 
 func generateBuyResources():
@@ -96,9 +97,18 @@ func _on_buy_pressed():
 	merchantMode = Enums.merchantMode.BUY
 	purchaseButton.text = "Purchase"
 	generateBuyResources()
+	buttonContainer.get_child(0).select()
+	buttonContainer.get_child(1).deselect()
 
 
 func _on_sell_pressed():
 	merchantMode = Enums.merchantMode.SELL
 	purchaseButton.text = "Sell"
 	generateSellResources()
+	buttonContainer.get_child(1).select()
+	buttonContainer.get_child(0).deselect()
+
+
+
+
+

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://bunn6uyaamwyw"]
+
+[ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_nhyhc"]
+[ext_resource type="Texture2D" uid="uid://b12xtmdetgj26" path="res://assets/resources/weapons/refined-bow.png" id="2_b0hjw"]
+
+[resource]
+script = ExtResource("1_nhyhc")
+damageModifier = 0.9
+speedModifier = 1.1
+knockbackModifier = 1.1
+spread = 20.0
+projectileAmount = 1
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 1.5
+staminaCost = 15.0
+animations = Array[int]([3])
+name = "Refined Bow"
+description = ""
+texture = ExtResource("2_b0hjw")
+rarity = 2

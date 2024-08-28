@@ -8,7 +8,7 @@ func _ready():
 	if !removeRandomObjects:
 		return
 	
-	var lightSourceRemovalChance: float = 0.5
+	var lightSourceRemovalChance: float = 0.75
 	var lootRemovalChance: float = 0.75
 	var spawnerRemovalChance: float = 0
 	

@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmx537qedfbtp"]
+
+[ext_resource type="Script" path="res://environment/interactions/sarcophagus.gd" id="1_kprbm"]
+[ext_resource type="Texture2D" uid="uid://c63lbs06y51mp" path="res://assets/environment/interactions/sarcophagus-bottom.png" id="2_i4b60"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="2_u2pnh"]
+[ext_resource type="Texture2D" uid="uid://dasr076tisfqc" path="res://assets/environment/interactions/sarcophagus-top.png" id="3_isd8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p3w1"]
+size = Vector2(50, 36)
+
+[sub_resource type="Animation" id="Animation_lms20"]
+resource_name = "Open Sarcophagus"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_bba65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gka77"]
+_data = {
+"Open Sarcophagus": SubResource("Animation_lms20"),
+"RESET": SubResource("Animation_bba65")
+}
+
+[node name="Sarcophagus" type="Node2D"]
+script = ExtResource("1_kprbm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_2p3w1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_i4b60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_isd8t")
+
+[node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("2_u2pnh")]
+interaction = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_gka77")
+}

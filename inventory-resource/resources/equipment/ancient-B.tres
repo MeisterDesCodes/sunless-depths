@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://b44yjhpkbtd1o"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_ka8aa"]
+[ext_resource type="Texture2D" uid="uid://yyh4pjw7oprx" path="res://assets/resources/equipment/Boots.png" id="2_11wn7"]
+
+[resource]
+script = ExtResource("1_ka8aa")
+equipmentType = 5
+ferocityModifier = 3
+perseveranceModifier = 3
+agilityModifier = 3
+perceptionModifier = 3
+lightRadius = 0.0
+oxygenCapacity = 0.0
+name = "Ancient Boots"
+description = "xxx"
+texture = ExtResource("2_11wn7")
+rarity = 3

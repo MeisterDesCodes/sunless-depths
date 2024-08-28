@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=5 format=3 uid="uid://d1jvo271qbw3x"]
+
+[ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_w44s6"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_autkm"]
+[ext_resource type="Texture2D" uid="uid://dvslb6078pqk" path="res://assets/resources/weapons/ancient-bow.png" id="3_fsqg3"]
+
+[sub_resource type="Resource" id="Resource_tahnm"]
+script = ExtResource("2_autkm")
+effectType = 8
+strength = 10.0
+duration = 5.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 0
+
+[resource]
+script = ExtResource("1_w44s6")
+damageModifier = 1.05
+speedModifier = 1.2
+knockbackModifier = 0.6
+spread = 20.0
+projectileAmount = 1
+statusEffects = Array[ExtResource("2_autkm")]([SubResource("Resource_tahnm")])
+attackDelay = 0.85
+staminaCost = 10.0
+animations = Array[int]([3])
+name = "Ancient Bow"
+description = ""
+texture = ExtResource("3_fsqg3")
+rarity = 3

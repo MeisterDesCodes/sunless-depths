@@ -10,6 +10,7 @@ var nextLocation: Enums.locations
 var currentFromDirection: Enums.exitDirection
 var currentToDirection: Enums.exitDirection
 var currentTier: int
+var attributes: Array[Enums.locationAttribute]
 
 var visitedLocations: Array[Enums.locations]
 
@@ -17,6 +18,7 @@ var visitedLocations: Array[Enums.locations]
 func loadArea(location: Enums.locations):
 	await startAreaTransition()
 	removeCurrentCave()
+	removeAttributes()
 	currentLocation = location
 	nextLocation = -1
 	visitedLocations.append(location)
@@ -29,8 +31,9 @@ func loadCave():
 	caveGenerator.spawnPlayer.connect(spawnPlayer)
 	removeCurrentLocation()
 	caveGenerator.generateCave()
+	setupAttributes()
 	
-	#TODO Monitor
+	#TODO Monitor chase not working
 	await get_tree().process_frame
 	
 	game.navigationRegion.bake_navigation_polygon()
@@ -70,3 +73,20 @@ func getSceneFromId(location: Enums.locations):
 	var allLocations: Array[PackedScene] = preload("res://UI/menu/map/resources/locations.tres").allLocations
 	var foundLocations = allLocations.filter(func(location): return location.instantiate().name.to_lower() == locationName)
 	return foundLocations[0]
+
+
+func setupAttributes():
+	for attribute in LocationLoaderS.attributes:
+		match attribute:
+			Enums.locationAttribute.DARKNESS:
+				game.canvasModulate.color = UtilsS.colorBlack
+
+
+func removeAttributes():
+	game.canvasModulate.color = UtilsS.colorCanvasModulate
+
+
+
+
+
+

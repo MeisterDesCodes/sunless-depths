@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_wwpgw"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_ejb43"]
-[ext_resource type="Resource" uid="uid://dwh4ailce8erj" path="res://inventory-resource/resources/equipment/cloth-pants.tres" id="3_cno6a"]
+[ext_resource type="Resource" uid="uid://dwh4ailce8erj" path="res://inventory-resource/resources/equipment/cloth-P.tres" id="3_cno6a"]
 [ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/cloth.tres" id="3_l7h5i"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_vrlng"]
 [ext_resource type="Texture2D" uid="uid://dbw02f4bjxegg" path="res://assets/resources/equipment/Pants.png" id="5_t06xq"]

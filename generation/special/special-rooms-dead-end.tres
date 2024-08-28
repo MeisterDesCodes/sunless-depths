@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Segment" load_steps=6 format=3 uid="uid://cj36rwo5cci7g"]
+[gd_resource type="Resource" script_class="Segment" load_steps=10 format=3 uid="uid://cj36rwo5cci7g"]
 
 [ext_resource type="PackedScene" uid="uid://wul3ismpixf1" path="res://generation/special/prison-1/prison-1-0.tscn" id="5_gtvh0"]
+[ext_resource type="PackedScene" uid="uid://c88b3efhgbr80" path="res://generation/special/treasure-1/treasure-1-0.tscn" id="5_ka58o"]
 [ext_resource type="PackedScene" uid="uid://d0g4abf1x8an6" path="res://generation/special/prison-1/prison-1-90.tscn" id="6_abuef"]
+[ext_resource type="PackedScene" uid="uid://b4k8itm6ffsic" path="res://generation/special/treasure-1/treasure-1-90.tscn" id="6_vwbs0"]
+[ext_resource type="PackedScene" uid="uid://joiyexn2wopn" path="res://generation/special/treasure-1/treasure-1-180.tscn" id="7_geteg"]
 [ext_resource type="PackedScene" uid="uid://chvhu8ee361gm" path="res://generation/special/prison-1/prison-1-180.tscn" id="7_up0lf"]
 [ext_resource type="PackedScene" uid="uid://cpafqsi3sc56i" path="res://generation/special/prison-1/prison-1-270.tscn" id="8_dd6uw"]
+[ext_resource type="PackedScene" uid="uid://ckvc0yclk0l8u" path="res://generation/special/treasure-1/treasure-1-270.tscn" id="8_ng1ed"]
 [ext_resource type="Script" path="res://generation/segment.gd" id="9_ssubs"]
 
 [resource]
 script = ExtResource("9_ssubs")
-allSegments = Array[PackedScene]([ExtResource("5_gtvh0"), ExtResource("6_abuef"), ExtResource("7_up0lf"), ExtResource("8_dd6uw")])
+allSegments = Array[PackedScene]([ExtResource("5_gtvh0"), ExtResource("6_abuef"), ExtResource("7_up0lf"), ExtResource("8_dd6uw"), ExtResource("5_ka58o"), ExtResource("6_vwbs0"), ExtResource("7_geteg"), ExtResource("8_ng1ed")])

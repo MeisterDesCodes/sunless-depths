@@ -9,9 +9,9 @@ func _ready():
 		queue_free()
 
 
-func _on_button_mouse_entered():
+func _on_mouse_entered():
 	UILoaderS.loadUIPopup(self, pathwayResource)
 
 
-func _on_button_mouse_exited():
+func _on_mouse_exited():
 	UILoaderS.closeUIPopup()

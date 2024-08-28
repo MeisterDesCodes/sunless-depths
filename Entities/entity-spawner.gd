@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@export var spawnAtLocation: bool = false
+
 @onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
 @onready var spawnTimer: Timer = get_node("SpawnTimer")
 
@@ -13,9 +15,9 @@ var spawnDelay: float
 var maxEnemies: int
 
 
-func setup(_room: Node2D, _spawnDealy: float, _maxEnemies: int):
+func setup(_room: Node2D, _spawnDelay: float, _maxEnemies: int):
 	room = _room
-	spawnDelay = _spawnDealy
+	spawnDelay = _spawnDelay
 	maxEnemies = _maxEnemies
 	tilemap = _room.get_child(0)
 	setTimer()
@@ -27,17 +29,21 @@ func setTimer():
 
 
 func _on_spawn_timer_timeout():
-	if currentEnemies.size() < maxEnemies:
+	if currentEnemies.size() < maxEnemies && !spawnAtLocation:
 		spawnEntity()
 
 
 func spawnEntity():
 	var enemyScene = preload("res://entities/enemy-ui.tscn").instantiate()
 	enemyScene.entityResource = pickEntity()
-	#TODO
-	#enemyScene.global_position = getSpawnPosition().rotated(room.rotation) + room.global_position
-	var _position = Vector2(global_position.x + randf_range(-20, 20), global_position.y + randf_range(-20, 20))
+	
+	var _position: Vector2
+	if spawnAtLocation:
+		_position = global_position + Vector2(randf_range(-20, 20), randf_range(-20, 20))
+	else:
+		_position = getSpawnPosition().rotated(room.rotation) + room.global_position
 	enemyScene.global_position = _position
+	
 	enemiesScene.add_child(enemyScene)
 	setTimer()
 	currentEnemies.append(enemyScene)
@@ -70,7 +76,7 @@ func pickEntity():
 	var accumulatedScore: float = 0
 	for entity in entities:
 		if index >= accumulatedScore && index <= accumulatedScore + entity.chance:
-				return entity.enemy
+				return entity.enemy.duplicate()
 		accumulatedScore += entity.chance
 
 

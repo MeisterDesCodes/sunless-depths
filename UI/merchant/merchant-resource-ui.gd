@@ -74,11 +74,7 @@ func updatePurchaseAmount():
 
 
 func updateInventoryAmount():
-	if merchantMode == Enums.merchantMode.BUY:
-		inventoryAmount.get_parent().get_child(0).texture = null
-		inventoryAmount.text = ""
-	else:
-		inventoryAmount.text = str(playerScene.inventory.getResourceAmount(resource))
+	inventoryAmount.text = str(playerScene.inventory.getResourceAmount(resource))
 
 
 func calculateTotalCost():

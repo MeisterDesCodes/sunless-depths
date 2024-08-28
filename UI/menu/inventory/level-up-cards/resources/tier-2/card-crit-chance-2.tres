@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://cjrtfrljn3ach"]
+
+[ext_resource type="Texture2D" uid="uid://chomwtfwojeff" path="res://assets/UI/icons/entities/player/stats/Murderous Intents.png" id="1_27ock"]
+[ext_resource type="Resource" uid="uid://0w0g55m4t2jt" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-critical-2.tres" id="2_v2h4c"]
+[ext_resource type="Resource" uid="uid://48psvlak4wd3" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-2.tres" id="3_c2lm8"]
+[ext_resource type="Resource" uid="uid://kguy22ng64uk" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-crit-chance-1.tres" id="4_2cg2p"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_if4ln"]
+
+[resource]
+script = ExtResource("4_if4ln")
+name = "Murderous Intents"
+description = "Increases overall crit chance by"
+icon = ExtResource("1_27ock")
+requirements = Array[ExtResource("4_if4ln")]([ExtResource("2_v2h4c"), ExtResource("3_c2lm8"), ExtResource("4_2cg2p")])
+type = 23
+value = 5.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 2

@@ -6,24 +6,27 @@
 
 [sub_resource type="Resource" id="Resource_okjso"]
 script = ExtResource("2_2xxqe")
-effectType = 3
+effectType = 4
 strength = 1.0
 duration = 12.0
 appliesTo = 0
 isStackable = true
+stackLimit = 0
+effectApplyType = 1
 
 [sub_resource type="Resource" id="Resource_3qpli"]
 script = ExtResource("2_2xxqe")
-effectType = 4
+effectType = 5
 strength = 20.0
 duration = 45.0
 appliesTo = 0
 isStackable = true
+stackLimit = 0
+effectApplyType = 0
 
 [resource]
 script = ExtResource("1_wips3")
 cooldown = 5.0
-remainingCooldown = 0.0
 statusEffects = Array[ExtResource("2_2xxqe")]([SubResource("Resource_okjso"), SubResource("Resource_3qpli")])
 name = "Mushroom Brew"
 description = "Distilled from underground fungi, it is essential for concocting basic potions, providing basic improvements of stats."

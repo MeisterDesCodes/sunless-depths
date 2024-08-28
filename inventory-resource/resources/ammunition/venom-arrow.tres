@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="InventoryAmmunition" load_steps=5 format=3 uid="uid://cbwqymfiu7tj8"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="1_cqcku"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_75vmh"]
+[ext_resource type="Texture2D" uid="uid://b1um7c6c1oadk" path="res://assets/resources/weapons/ammunition/Venom Arrow.png" id="3_ewln6"]
+
+[sub_resource type="Resource" id="Resource_00adc"]
+script = ExtResource("2_75vmh")
+effectType = 1
+strength = 3.0
+duration = 8.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+
+[resource]
+script = ExtResource("1_cqcku")
+damage = 2.0
+knockback = 0.0
+speed = 800.0
+statusEffects = Array[ExtResource("2_75vmh")]([SubResource("Resource_00adc")])
+isPiercing = false
+name = "Venom Arrow"
+description = ""
+texture = ExtResource("3_ewln6")
+rarity = 2

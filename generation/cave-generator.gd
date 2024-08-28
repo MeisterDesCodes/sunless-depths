@@ -9,6 +9,7 @@ signal spawnPlayer
 		generateCave()
 @export var iterations: int
 
+@onready var game = get_tree().get_root().get_node("Game")
 @onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
 @onready var cave = get_node("Cave")
 
@@ -32,7 +33,7 @@ var placedSpecialRooms: int = 0
 var placedSpecialRoomsDeadEnd: int = 0
 
 var maxSpecialRooms: int = 2
-var maxSpecialRoomsDeadEnd: int = 1
+var maxSpecialRoomsDeadEnd: int = 10
 
 
 func generateCave():
@@ -71,7 +72,7 @@ func generateRoot():
 
 
 func generateFittingRoom(exit, roomType):
-	for n in 10:
+	for n in 5:
 		var direction: Enums.exitDirection
 		match exit.direction:
 			Enums.exitDirection.TOP:
@@ -281,12 +282,8 @@ func setSpawners():
 	for room in currentRooms:
 		var spawners: Node2D = room.get_child(0).get_node("Map/EnvironmentalObjects/Spawners")
 		for spawner in spawners.get_children():
-			var spawnerScene = preload("res://entities/entity-spawner.tscn").instantiate()
-			spawnerScene.global_position = spawner.global_position
-			spawner.queue_free()
-			spawners.add_child(spawnerScene)
-			spawnerScene.setup(room.get_child(0), 45, 2)
-			spawnerScene.spawnEntity()
+			spawner.setup(room.get_child(0), 45, 2)
+			spawner.spawnEntity()
 
 
 func validateCave():

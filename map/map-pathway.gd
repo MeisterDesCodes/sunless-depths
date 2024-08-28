@@ -9,6 +9,7 @@ class_name MapPathway
 @export var locationFrom: Enums.locations
 @export var locationTo: Enums.locations
 @export var travelDirections: Array[Enums.exitDirection]
+@export var attributes: Array[Enums.locationAttribute]
 @export var tier: int
 
 var type = Enums.resourceType.MAP_PATHWAY

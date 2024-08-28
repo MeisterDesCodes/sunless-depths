@@ -1,23 +1,26 @@
 extends Node
 
 
-@onready var allLocations = get_node("AspectRatioContainer/NinePatchRect2/Locations").get_children()
-@onready var allPathways = get_node("AspectRatioContainer/NinePatchRect2/Pathways").get_children()
+@onready var allLocations = get_node("PanelContainer/Locations").get_children()
+@onready var allPathways = get_node("PanelContainer/Pathways").get_children()
 
 
 func _ready():
 	for locationInstance in allLocations:
 		if locationInstance.locationResource:
 			if !isOuterRing(locationInstance.locationResource.location):
-				locationInstance.modulate = UtilsS.colorTransparent
+				locationInstance.ringLevel = Enums.locationRingLevel.NONE
 			if isOuterRing(locationInstance.locationResource.location):
-				locationInstance.modulate = UtilsS.colorBlack
+				locationInstance.ringLevel = Enums.locationRingLevel.OUTER
 			if isInnerRing(locationInstance.locationResource.location):
-				locationInstance.modulate = UtilsS.colorCommon
-				locationInstance.canBeVisited = true
+				locationInstance.ringLevel = Enums.locationRingLevel.INNER
 			if isVisited(locationInstance.locationResource.location):
-				locationInstance.modulate = UtilsS.colorPrimary
-		
+				locationInstance.ringLevel = Enums.locationRingLevel.VISITED
+			if isCurrent(locationInstance.locationResource.location):
+				locationInstance.ringLevel = Enums.locationRingLevel.CURRENT
+			
+			locationInstance.updateLocation()
+			
 			var connectedLocations: Array[Enums.locations]
 			for visitedLocation in LocationLoaderS.visitedLocations:
 				connectedLocations.append_array(getSurroudingLocations(visitedLocation))
@@ -30,6 +33,9 @@ func _ready():
 
 func isVisited(location: Enums.locations):
 	return location in LocationLoaderS.visitedLocations
+
+func isCurrent(location: Enums.locations):
+	return location == LocationLoaderS.currentLocation
 
 
 func isInnerRing(location: Enums.locations):

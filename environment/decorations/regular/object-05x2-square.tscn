@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://daul7wuliryox"]
+
+[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_3ifux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7ro2"]
+size = Vector2(80, 20)
+
+[node name="Object05x2Square" type="Node2D"]
+script = ExtResource("1_3ifux")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_w7ro2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)

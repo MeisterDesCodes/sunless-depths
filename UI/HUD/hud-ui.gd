@@ -1,34 +1,35 @@
 extends Control
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var healthBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Health")
-@onready var suppliesBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/Supplies")
-@onready var oxygenBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/Oxygen")
-@onready var staminaBar: TextureProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/Stamina")
+@onready var healthBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow/VBoxContainer/Health")
+@onready var suppliesBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/Supplies")
+@onready var oxygenBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/Oxygen")
+@onready var staminaBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/Stamina")
 
+@onready var healthLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow/VBoxContainer/HealthLabel")
 @onready var suppliesLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/SuppliesLabel")
 @onready var oxygenLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/OxygenLabel")
 @onready var staminaLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/StaminaLabel")
 
 
-@onready var sprintIcon: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer")
-@onready var dashIcon: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PanelContainer2")
+@onready var sprintContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/PanelContainer")
+@onready var dashContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/PanelContainer2")
 
 @onready var allResources = preload("res://inventory-resource/resources/all-resources.tres")
 
-@onready var activeWeapon = get_node("MarginContainer/HBoxContainer/PanelContainer/ActiveWeapon")
-@onready var reserveWeapon1 = get_node("MarginContainer/HBoxContainer/PanelContainer2/ReserveWeapon1")
-@onready var reserveWeapon2 = get_node("MarginContainer/HBoxContainer/PanelContainer3/ReserveWeapon2")
+@onready var activeWeapon = get_node("MarginContainer/HBoxContainer/PanelContainer/MarginContainer/ActiveWeapon")
+@onready var reserveWeapon1 = get_node("MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/ReserveWeapon1")
+@onready var reserveWeapon2 = get_node("MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/ReserveWeapon2")
 
-@onready var ammunitionActive = get_node("MarginContainer/HBoxContainer/PanelContainer/PanelContainerAmmunition1/AmmunitionActive")
-@onready var ammunitionReserve1 = get_node("MarginContainer/HBoxContainer/PanelContainer2/PanelContainerAmmunition2/AmmunitionReserve1")
-@onready var ammunitionReserve2 = get_node("MarginContainer/HBoxContainer/PanelContainer3/PanelContainerAmmunition3/AmmunitionReserve2")
+@onready var ammunitionActive = get_node("MarginContainer/HBoxContainer/PanelContainer/MarginContainer/PanelContainerAmmunition1/AmmunitionActive")
+@onready var ammunitionReserve1 = get_node("MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/PanelContainerAmmunition2/AmmunitionReserve1")
+@onready var ammunitionReserve2 = get_node("MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/PanelContainerAmmunition3/AmmunitionReserve2")
 
-@onready var ammunitionActiveLabel = get_node("MarginContainer/HBoxContainer/PanelContainer/PanelContainerAmmunition1/AmmunitionActiveAmount")
-@onready var ammunitionReserve1Label = get_node("MarginContainer/HBoxContainer/PanelContainer2/PanelContainerAmmunition2/AmmunitionReserve1Amount")
-@onready var ammunitionReserve2Label = get_node("MarginContainer/HBoxContainer/PanelContainer3/PanelContainerAmmunition3/AmmunitionReserve2Amount")
+@onready var ammunitionActiveLabel = get_node("MarginContainer/HBoxContainer/PanelContainer/MarginContainer/PanelContainerAmmunition1/AmmunitionActiveAmount")
+@onready var ammunitionReserve1Label = get_node("MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/PanelContainerAmmunition2/AmmunitionReserve1Amount")
+@onready var ammunitionReserve2Label = get_node("MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/PanelContainerAmmunition3/AmmunitionReserve2Amount")
 
-@onready var statusEffectsContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer//StatusEffects")
+@onready var statusEffectsContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/StatusEffects")
 
 @onready var weaponSlots: Array = [activeWeapon, reserveWeapon1, reserveWeapon2]
 @onready var ammunitionSlots: Array = [ammunitionActive, ammunitionReserve1, ammunitionReserve2]
@@ -53,7 +54,7 @@ func _ready():
 	oxygenBar.value = 100
 	staminaBar.value = 100
 	updateLabels()
-	sprintIcon.visible = false
+	sprintContainer.visible = false
 	setupWeaponTextures()
 	survivalNeedModifier = UtilsS.getScalingValue(playerScene.entityResource.perseverance * 2)
 
@@ -87,7 +88,15 @@ func _process(delta):
 	
 	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
 	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100)
-	staminaBar.value -= delta * (playerScene.currentStaminaDrain * playerScene.staminaCostModifier - playerScene.currentStaminaRestore)
+	
+	if playerScene.isSprinting:
+		staminaBar.value -= delta * (playerScene.sprintingStaminaDrain * playerScene.staminaCostModifier - playerScene.currentStaminaRestore + playerScene.baseStaminaRestore)
+	
+	if playerScene.isResting:
+		staminaBar.value += delta * playerScene.currentStaminaRestore
+	
+	staminaBar.value += delta * (playerScene.currentStaminaRestore - playerScene.baseStaminaRestore)
+	
 	if (suppliesBar.value <= 0 && !suppliesIsRestocked):
 		restockSupplies()
 
@@ -99,15 +108,45 @@ func _process(delta):
 
 
 func addStatusEffect(effect: StatusEffect):
-	var effectInstance = preload("res://entities/components/status-effect-icon.tscn").instantiate()
-	statusEffectsContainer.add_child(effectInstance)
-	effectInstance.setup(effect)
+	if !getStatusEffectInstance(effect):
+		var effectInstance = preload("res://entities/components/status-effect-icon.tscn").instantiate()
+		statusEffectsContainer.add_child(effectInstance)
+		effectInstance.setup(effect)
+
+
+func getStatusEffectInstance(_effect: StatusEffect):
+	for effectInstance in statusEffectsContainer.get_children():
+		if effectInstance.effect.effectType == _effect.effectType:
+			return effectInstance
+	
+	return null
+
+
+func getMaxDurationEffectInstance(_effect: StatusEffect):
+	var maxDurationEffect: StatusEffect = _effect
+	for effect in playerScene.statusEffectComponent.statusEffects:
+		if effect.effectType == _effect.effectType && effect.remainingDuration / effect.duration \
+			> maxDurationEffect.remainingDuration / maxDurationEffect.duration:
+			maxDurationEffect = effect
+	
+	return maxDurationEffect
+
+
+func getAccumulatedStrength(_effect: StatusEffect):
+	var accumulatedStrength: float = 0
+	for effect in playerScene.statusEffectComponent.statusEffects:
+		if effect.effectType == _effect.effectType:
+			accumulatedStrength += effect.strength
+	
+	return accumulatedStrength
 
 
 func updateStatusEffects():
-	for effect in playerScene.statusEffectComponent.statusEffects:
-		var index = playerScene.statusEffectComponent.statusEffects.find(effect)
-		statusEffectsContainer.get_child(index).update(effect)
+	for effectInstance in statusEffectsContainer.get_children():
+		effectInstance.effect.maxRemainingDuration = getMaxDurationEffectInstance(effectInstance.effect).remainingDuration
+		effectInstance.effect.maxDuration = getMaxDurationEffectInstance(effectInstance.effect).duration
+		effectInstance.effect.accumulatedStrength = getAccumulatedStrength(effectInstance.effect)
+		effectInstance.update(effectInstance.effect)
 
 
 func restockSupplies():
@@ -125,19 +164,19 @@ func restockOxygen():
 
 
 func onSprint():
-	sprintIcon.visible = true
+	sprintContainer.visible = true
 
 
 func onWalk():
-	sprintIcon.visible = false
+	sprintContainer.visible = false
 
 
 func onDash():
-	dashIcon.visible = false
+	dashContainer.visible = false
 
 
 func onDashCooldown():
-	dashIcon.visible = true
+	dashContainer.visible = true
 
 
 func updateHud(suppliesValue, oxygenValue, staminaValue):
@@ -149,11 +188,14 @@ func updateHud(suppliesValue, oxygenValue, staminaValue):
 
 
 func healthModified():
-	get_tree().create_tween().tween_property(healthBar, "value", playerScene.health / playerScene.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	if playerScene:
+		get_tree().create_tween().tween_property(healthBar, "value", playerScene.health / playerScene.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		healthLabel.text = str(round(playerScene.health))
 
 
 func updateLabels():
 	suppliesLabel.text = str(playerScene.inventory.getResourceAmount(supplies))
+	healthLabel.text = str(healthBar.value)
 
 
 func _on_supplies_timer_timeout():

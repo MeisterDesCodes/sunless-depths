@@ -1,29 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://l81lxelhto0l"]
 
+[ext_resource type="Theme" uid="uid://1ms3510wxh1r" path="res://assets/UI/themes/UI-elements/location-pathway.tres" id="1_13y8g"]
 [ext_resource type="Script" path="res://UI/menu/map/map-pathway-ui.gd" id="1_ie07u"]
-[ext_resource type="Theme" uid="uid://dblrj407t3wc3" path="res://assets/UI/themes/UI-elements/pathway.tres" id="2_8c8o0"]
 
 [node name="MapPathwayUI" type="PanelContainer"]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 60)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -7.5
-offset_right = 66.0
-offset_bottom = 7.5
+offset_left = -52.5
+offset_top = -30.0
+offset_right = 52.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_8c8o0")
+theme = ExtResource("1_13y8g")
 script = ExtResource("1_ie07u")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-flat = true
-
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

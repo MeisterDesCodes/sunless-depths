@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1dtnbm0uujml"]
+[gd_scene load_steps=4 format=3 uid="uid://b1dtnbm0uujml"]
 
 [ext_resource type="Script" path="res://UI/shared/resource-icon-ui.gd" id="1_afo4q"]
-[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/panel-container-secondary-circular.tres" id="1_qbkdj"]
+[ext_resource type="Theme" uid="uid://dobbys3uid5er" path="res://assets/UI/themes/UI-elements/resource-icon.tres" id="1_b228w"]
+[ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="3_1vt3a"]
 
 [node name="ResourceIcon" type="PanelContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(40, 40)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,11 +19,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_qbkdj")
+theme = ExtResource("1_b228w")
 script = ExtResource("1_afo4q")
 
 [node name="Icon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -32,6 +33,6 @@ expand_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("3_1vt3a")
 horizontal_alignment = 2
 vertical_alignment = 1

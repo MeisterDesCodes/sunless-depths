@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://bciu16h0f4jju"]
+
+[ext_resource type="Texture2D" uid="uid://bphgut2htshjg" path="res://assets/UI/icons/entities/player/stats/Master of the Hunt.png" id="1_dxctm"]
+[ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="2_1dtxo"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="2_f3us3"]
+[ext_resource type="Resource" uid="uid://dk4pxtjyldmu7" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-1.tres" id="3_kobp5"]
+
+[resource]
+script = ExtResource("2_f3us3")
+name = "Master of the Hunt"
+description = "After dealing melee / ranged damage, the next attack of the opposite type has its damage increased by"
+icon = ExtResource("1_dxctm")
+requirements = Array[ExtResource("2_f3us3")]([ExtResource("2_1dtxo"), ExtResource("3_kobp5")])
+type = 11
+value = 15.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

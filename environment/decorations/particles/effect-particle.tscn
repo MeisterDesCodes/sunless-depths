@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8sm53impkash"]
+
+[ext_resource type="Texture2D" uid="uid://octljxx67xw" path="res://assets/particles/effect-particle.png" id="1_6fbdg"]
+
+[sub_resource type="Gradient" id="Gradient_mx2rv"]
+offsets = PackedFloat32Array(0.560209, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gsl7w"]
+gradient = SubResource("Gradient_mx2rv")
+
+[sub_resource type="Curve" id="Curve_4u675"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u7qng"]
+curve = SubResource("Curve_4u675")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pomt6"]
+lifetime_randomness = 0.27
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_u7qng")
+color_ramp = SubResource("GradientTexture1D_gsl7w")
+
+[node name="EffectParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_pomt6")
+texture = ExtResource("1_6fbdg")
+lifetime = 0.75
+fixed_fps = 60
+local_coords = true

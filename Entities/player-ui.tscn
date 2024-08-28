@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://xbb1mnn8v7hy"]
+[gd_scene load_steps=15 format=3 uid="uid://xbb1mnn8v7hy"]
 
 [ext_resource type="Script" path="res://entities/player-ui.gd" id="1_22f2w"]
 [ext_resource type="Script" path="res://entities/rotation-point.gd" id="3_qyr1b"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="6_glmfw"]
 [ext_resource type="Script" path="res://entities/input-control.gd" id="7_0y48q"]
+[ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="8_ilynh"]
+[ext_resource type="PackedScene" uid="uid://ci0e5bminvf76" path="res://environment/decorations/light-sources/directional-light.tscn" id="8_j54sr"]
 [ext_resource type="PackedScene" uid="uid://ckh0etq8rdsn" path="res://weapons/weapon-ui.tscn" id="8_o73pc"]
-[ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver.tscn" id="8_p7uws"]
+[ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver-component.tscn" id="8_p7uws"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="12_rm3wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqlct"]
@@ -52,31 +54,11 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 3
 motion_mode = 1
 safe_margin = 5.0
 script = ExtResource("1_22f2w")
-
-[node name="RotationPoint" type="Marker2D" parent="."]
-script = ExtResource("3_qyr1b")
-
-[node name="Image" type="Sprite2D" parent="RotationPoint"]
-z_index = 1
-rotation = 4.71239
-scale = Vector2(0.140875, 0.140875)
-
-[node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
-energy = 1.0
-color = Color(0.988235, 0.87451, 0.67451, 1)
-shadow = true
-
-[node name="Weapons" type="Node2D" parent="RotationPoint"]
-z_index = 1
-position = Vector2(-9, 8)
-rotation = 1.5708
-scale = Vector2(0.8, 0.8)
-
-[node name="Weapon" parent="RotationPoint/Weapons" instance=ExtResource("8_o73pc")]
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 8
@@ -97,6 +79,31 @@ entity = NodePath("..")
 
 [node name="StatusEffectComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("12_rm3wq")]
 entityScene = NodePath("..")
+
+[node name="ParticleComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("8_ilynh")]
+entity = NodePath("..")
+
+[node name="RotationPoint" type="Marker2D" parent="."]
+script = ExtResource("3_qyr1b")
+
+[node name="Image" type="Sprite2D" parent="RotationPoint"]
+z_index = 1
+rotation = 4.71239
+scale = Vector2(0.140875, 0.140875)
+
+[node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
+energy = 1.0
+shadow = true
+
+[node name="DirectionalLight" parent="RotationPoint" instance=ExtResource("8_j54sr")]
+
+[node name="Weapons" type="Node2D" parent="RotationPoint"]
+z_index = 1
+position = Vector2(-9, 8)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+
+[node name="Weapon" parent="RotationPoint/Weapons" instance=ExtResource("8_o73pc")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -119,6 +126,7 @@ one_shot = true
 wait_time = 2.0
 
 [node name="ConsumeTimer" type="Timer" parent="."]
+wait_time = 0.25
 autostart = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

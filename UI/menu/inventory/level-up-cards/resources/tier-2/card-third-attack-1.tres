@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://dnkphiu2pkohv"]
+
+[ext_resource type="Texture2D" uid="uid://dw5w2jsg4opvp" path="res://assets/UI/icons/entities/player/stats/Pummel.png" id="1_5k6sw"]
+[ext_resource type="Resource" uid="uid://dk4pxtjyldmu7" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-1.tres" id="2_ria64"]
+[ext_resource type="Resource" uid="uid://d07qv8wjqw5y1" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-attack-delay-1.tres" id="3_3gijm"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_vp5im"]
+
+[resource]
+script = ExtResource("4_vp5im")
+name = "Pummel"
+description = "Every third attack has its damage increased by"
+icon = ExtResource("1_5k6sw")
+requirements = Array[ExtResource("4_vp5im")]([ExtResource("2_ria64"), ExtResource("3_3gijm")])
+type = 12
+value = 20.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

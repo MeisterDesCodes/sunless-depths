@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="6_1buik"]
 [ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="7_r00nr"]
 [ext_resource type="PackedScene" uid="uid://b6cogporqnswb" path="res://environment/curiosities/merchant.tscn" id="8_rqu2r"]
-[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/refined_crossbow.tres" id="9_gvi52"]
+[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/crossbows/refined-crossbow.tres" id="9_gvi52"]
 [ext_resource type="PackedScene" uid="uid://ceyk8mxkdgl5s" path="res://environment/decorations/light-sources/campfire.tscn" id="10_687ug"]
 [ext_resource type="Texture2D" uid="uid://b26hoxy6hbaln" path="res://assets/environment/decorations/light-sources/campfire-1.png" id="11_cwphp"]
 [ext_resource type="Texture2D" uid="uid://bs606vjh8uql4" path="res://assets/environment/decorations/light-sources/campfire-2.png" id="12_w7iln"]

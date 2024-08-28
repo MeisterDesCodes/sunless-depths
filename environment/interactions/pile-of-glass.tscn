@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://btvlprymmvef5"]
+
+[ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_c2eqe"]
+[ext_resource type="Resource" uid="uid://drw6g4nfm2221" path="res://inventory-resource/resources/material/glass-shard.tres" id="2_4grnp"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_lct1a"]
+[ext_resource type="Texture2D" uid="uid://dpupu4mq5lnnr" path="res://assets/environment/interactions/pile-of-glass.png" id="4_erxyr"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="6_ev81y"]
+[ext_resource type="PackedScene" uid="uid://5iahhgkt3jmk" path="res://environment/interactions/object-contact-damage-component.tscn" id="6_ywbtc"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="7_neg82"]
+
+[sub_resource type="Resource" id="Resource_50wsn"]
+script = ExtResource("3_lct1a")
+resource = ExtResource("2_4grnp")
+amount = 2
+dropChance = 0.85
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj27c"]
+size = Vector2(66, 52)
+
+[sub_resource type="Resource" id="Resource_ja6qg"]
+script = ExtResource("7_neg82")
+effectType = 0
+strength = 3.0
+duration = 3.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[node name="PileOfGlass" type="Node2D"]
+script = ExtResource("1_c2eqe")
+dropResources = Array[ExtResource("3_lct1a")]([SubResource("Resource_50wsn")])
+lifetime = 4
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_cj27c")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("4_erxyr")
+
+[node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("6_ev81y")]
+interaction = NodePath("..")
+
+[node name="ObjectContactDamageComponent" parent="." instance=ExtResource("6_ywbtc")]
+damage = 1.0
+statusEffects = Array[ExtResource("7_neg82")]([SubResource("Resource_ja6qg")])

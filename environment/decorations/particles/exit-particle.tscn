@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://5mvbhu1pwt7b"]
 
-[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light.png" id="1_j2o2p"]
+[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light-particle.png" id="1_j2o2p"]
 
 [sub_resource type="Curve" id="Curve_sjvdm"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.686099, 0.703297), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

@@ -28,9 +28,9 @@ func setup(_caster: CharacterBody2D, _projectile: InventoryAmmunition, _position
 func _physics_process(delta):
 	var speed: float
 	if isPlayer:
-		speed = weapon.speedModifier * projectile.speed
+		speed = weapon.speedModifier * projectile.speed * caster.projectileSpeedModifier
 	else:
-		speed = projectile.speed
+		speed = projectile.speed * caster.projectileSpeedModifier
 	global_position += direction * speed * delta
 
 
@@ -48,10 +48,9 @@ func _on_detection_area_area_entered(area):
 	hitEntities.append(area)
 	var attack: Attack
 	if isPlayer:
-		#Bug with last arrow
-		attack = Attack.new(global_position, caster, weapon.damageModifier * weapon.ammunition.damage, weapon.knockbackModifier * weapon.ammunition.knockback, Enums.weaponTypes.RANGED, weapon.ammunition.statusEffects)
+		attack = Attack.new(global_position, caster, weapon.damageModifier * projectile.damage, weapon.knockbackModifier * projectile.knockback, Enums.weaponTypes.RANGED, projectile.statusEffects, UtilsS.checkForCrit(caster))
 	else:
-		attack = Attack.new(global_position, caster, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects)
+		attack = Attack.new(global_position, caster, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects, UtilsS.checkForCrit(caster))
 	if projectile.isPiercing:
 		attack.knockback = 0
 	else:

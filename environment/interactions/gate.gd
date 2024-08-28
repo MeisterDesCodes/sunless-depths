@@ -1,11 +1,11 @@
 extends Node2D
 
 
-@export var dropResources: Array[DropResource]
 @export var lifetime: int
 
 @onready var interaction = get_node("Interaction")
 @onready var animationPlayer = get_node("AnimationPlayer")
+
 
 var isOpen: bool = false
 
@@ -16,8 +16,16 @@ func _ready():
 
 func interact(body):
 	if isOpen:
-		isOpen = false
-		animationPlayer.play("Gate Close")
+		closeGate()
 	else:
-		isOpen = true
-		animationPlayer.play("Gate Open")
+		openGate()
+
+
+func openGate():
+	isOpen = true
+	animationPlayer.play("Gate Open")
+
+
+func closeGate():
+	isOpen = false
+	animationPlayer.play("Gate Close")

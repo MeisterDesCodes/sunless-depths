@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci0e5bminvf76"]
+
+[ext_resource type="Texture2D" uid="uid://bdbljp5whmyhj" path="res://assets/environment/decorations/light-sources/player-light.png" id="1_fd8bw"]
+
+[node name="DirectionalLight" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("1_fd8bw")
+offset = Vector2(70, 0)

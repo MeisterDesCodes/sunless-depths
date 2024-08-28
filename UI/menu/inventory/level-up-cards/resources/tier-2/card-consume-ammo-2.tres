@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=8 format=3 uid="uid://dhklfui38v4hq"]
+
+[ext_resource type="Texture2D" uid="uid://ckjvlfmcgg1bo" path="res://assets/UI/icons/entities/player/stats/Combat Technician.png" id="1_7ttkj"]
+[ext_resource type="Resource" uid="uid://dsl3wpmyab5wi" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-2.tres" id="2_mtn04"]
+[ext_resource type="Resource" uid="uid://48psvlak4wd3" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-2.tres" id="3_ssehx"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_2efsv"]
+[ext_resource type="Resource" uid="uid://bn4lst5vcsblp" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-consume-ammo-1.tres" id="4_fs04b"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_nw535"]
+
+[sub_resource type="Resource" id="Resource_ilciq"]
+script = ExtResource("6_nw535")
+resource = 3
+amount = 8
+
+[resource]
+script = ExtResource("4_2efsv")
+name = "Combat Technician"
+description = "Increases the chance to not consume ammunition by"
+icon = ExtResource("1_7ttkj")
+requirements = Array[ExtResource("4_2efsv")]([ExtResource("2_mtn04"), ExtResource("3_ssehx"), ExtResource("4_fs04b")])
+type = 19
+value = 15.0
+value2 = 0.0
+stats = Array[ExtResource("6_nw535")]([SubResource("Resource_ilciq")])
+tier = 2

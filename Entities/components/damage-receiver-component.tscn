@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://begmikbad6gha"]
+
+[ext_resource type="Script" path="res://entities/components/damage-receiver-component.gd" id="1_o5op1"]
+
+[node name="DamageReceiver" type="Node2D"]
+script = ExtResource("1_o5op1")

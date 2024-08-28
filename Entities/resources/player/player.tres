@@ -7,8 +7,7 @@
 script = ExtResource("1_7shrn")
 supplyDrain = 1.0
 oxygenDrain = 0.15
-staminaDrain = 0.0
-staminaRestore = 20.0
+staminaRestore = 15.0
 lightRadius = 1.0
 oxygenCapacity = 10.0
 name = "Player"

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://vmbewpbo8s0"]
+
+[ext_resource type="Texture2D" uid="uid://dm8xpnewsursb" path="res://assets/UI/components/card-frame.png" id="1_gdf0e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qhv7"]
+texture = ExtResource("1_gdf0e")
+texture_margin_left = 29.0
+texture_margin_top = 22.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+/styles/texture = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_6qhv7")

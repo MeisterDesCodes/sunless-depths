@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://b08nph1gxsv4l"]
+
+[ext_resource type="Texture2D" uid="uid://dswm54q6fveqm" path="res://assets/UI/icons/entities/player/stats/Lucky Strike.png" id="1_2jjgg"]
+[ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="2_8daeg"]
+[ext_resource type="Resource" uid="uid://48psvlak4wd3" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-2.tres" id="3_34e5a"]
+[ext_resource type="Resource" uid="uid://qk72yspymyae" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-damage-range-1.tres" id="4_1utx0"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_l6o3c"]
+
+[resource]
+script = ExtResource("4_l6o3c")
+name = "Lucky Strike"
+description = "Decreases mimimum damage / increases maximum damage by"
+icon = ExtResource("1_2jjgg")
+requirements = Array[ExtResource("4_l6o3c")]([ExtResource("2_8daeg"), ExtResource("3_34e5a"), ExtResource("4_1utx0")])
+type = 20
+value = 5.0
+value2 = 15.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 2

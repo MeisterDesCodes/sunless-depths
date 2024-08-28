@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=8 format=3 uid="uid://bfn7di4ytggl5"]
+
+[ext_resource type="Texture2D" uid="uid://yc1ftjr3ejhs" path="res://assets/UI/icons/menu/map/Hazards.png" id="1_w2ggg"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="2_mr5l5"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="3_q8r31"]
+
+[sub_resource type="Resource" id="Resource_tdhbv"]
+script = ExtResource("3_q8r31")
+resource = 0
+amount = -1
+
+[sub_resource type="Resource" id="Resource_ghqfi"]
+script = ExtResource("3_q8r31")
+resource = 1
+amount = -1
+
+[sub_resource type="Resource" id="Resource_vj1cj"]
+script = ExtResource("3_q8r31")
+resource = 2
+amount = -1
+
+[sub_resource type="Resource" id="Resource_337yo"]
+script = ExtResource("3_q8r31")
+resource = 3
+amount = -1
+
+[resource]
+script = ExtResource("2_mr5l5")
+name = "Danger Level"
+description = "Reduces damage and health by"
+icon = ExtResource("1_w2ggg")
+requirements = Array[ExtResource("2_mr5l5")]([])
+type = 10
+value = 5.0
+value2 = 5.0
+stats = Array[ExtResource("3_q8r31")]([SubResource("Resource_tdhbv"), SubResource("Resource_ghqfi"), SubResource("Resource_vj1cj"), SubResource("Resource_337yo")])
+tier = 1

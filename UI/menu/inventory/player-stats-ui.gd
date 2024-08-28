@@ -63,9 +63,25 @@ func levelUp():
 	playerScene.level += 1
 	updateExperience()
 	updateLabels()
-	scene = UILoaderS.loadUIScene(preload("res://UI/menu/inventory/level-up/level-up-ui.tscn"))
+	scene = UILoaderS.loadUIScene(preload("res://UI/menu/inventory/level-up-cards/level-up-ui.tscn"))
 	scene.cardSelected.connect(updateLabels)
 
 
 func _on_level_up_button_pressed():
 	levelUp()
+
+
+func _on_level_up_button_mouse_entered():
+	if levelUpButton.disabled:
+		return
+	
+	AnimationsS.changeColor(experienceBar, UtilsS.colorPrimaryBright, 0.15)
+	AnimationsS.setSize(experienceBar, 1.025, 0.15)
+
+
+func _on_level_up_button_mouse_exited():
+	if levelUpButton.disabled:
+		return
+	
+	AnimationsS.changeColor(experienceBar, UtilsS.colorWhite, 0.15)
+	AnimationsS.setSize(experienceBar, 1, 0.15)

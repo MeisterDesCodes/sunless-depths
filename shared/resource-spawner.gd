@@ -25,7 +25,7 @@ func spawnResources(resources: Array[DropResource], spawnType: Enums.resourceSpa
 	resources.append_array(otherResources)
 	for resource in resources:
 		if resource.dropChance > randf():
-			var amount = round(randf_range(resource.amount * 0.75, resource.amount * 1.25))
+			var amount = round(randf_range(resource.amount * UtilsS.randomRangeMin, resource.amount * UtilsS.randomRangeMax))
 			
 			for j in amount:
 				var groundResource = preload("res://environment/collectibles/ground-resource.tscn").instantiate()
@@ -42,7 +42,7 @@ func spawnResources(resources: Array[DropResource], spawnType: Enums.resourceSpa
 					Enums.resourceSpawnType.DROP:
 						spreadVector = randf_range(-180, 180)
 					
-				groundResource.moveSpeed = randf_range(speed * 0.75, speed * 1.25)
+				groundResource.moveSpeed = randf_range(speed * UtilsS.randomRangeMin, speed * UtilsS.randomRangeMin)
 				groundResource.direction = direction.rotated(deg_to_rad(spreadVector))
 
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=14 format=3 uid="uid://dum4ni3lxgxqv"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=16 format=3 uid="uid://dum4ni3lxgxqv"]
 
 [ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="2_r35pu"]
 [ext_resource type="Script" path="res://combat/status-effect.gd" id="3_kb283"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="5_mmn2q"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="6_3d8ug"]
 [ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/venom.tres" id="6_sj8oy"]
+[ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/silk.tres" id="7_kiwsx"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="7_xnhxc"]
 [ext_resource type="Texture2D" uid="uid://bllnnk8x50e86" path="res://assets/entities/crawler.png" id="8_62wbg"]
 
@@ -16,6 +17,8 @@ strength = 1.0
 duration = 6.0
 appliesTo = 1
 isStackable = true
+stackLimit = 0
+effectApplyType = 0
 
 [sub_resource type="Resource" id="Resource_o5h46"]
 script = ExtResource("2_r35pu")
@@ -24,29 +27,35 @@ knockback = 20.0
 statusEffects = Array[ExtResource("3_kb283")]([SubResource("Resource_fwmki")])
 attackDelay = 4.0
 
-[sub_resource type="Resource" id="Resource_w862f"]
-script = ExtResource("5_mmn2q")
-resource = ExtResource("4_bc52s")
-amount = 1
-dropChance = 0.5
-
 [sub_resource type="Resource" id="Resource_awibb"]
 script = ExtResource("5_mmn2q")
 resource = ExtResource("6_3d8ug")
 amount = 3
 dropChance = 1.0
 
+[sub_resource type="Resource" id="Resource_w862f"]
+script = ExtResource("5_mmn2q")
+resource = ExtResource("4_bc52s")
+amount = 1
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_xwrtx"]
+script = ExtResource("5_mmn2q")
+resource = ExtResource("7_kiwsx")
+amount = 3
+dropChance = 0.2
+
 [sub_resource type="Resource" id="Resource_4apbp"]
 script = ExtResource("5_mmn2q")
 resource = ExtResource("6_sj8oy")
-amount = 2
+amount = 1
 dropChance = 0.3
 
 [resource]
 script = ExtResource("7_xnhxc")
 attacks = Array[ExtResource("2_r35pu")]([SubResource("Resource_o5h46")])
 states = Array[int]([0, 1, 2])
-drops = Array[ExtResource("5_mmn2q")]([SubResource("Resource_w862f"), SubResource("Resource_awibb"), SubResource("Resource_4apbp")])
+drops = Array[ExtResource("5_mmn2q")]([SubResource("Resource_awibb"), SubResource("Resource_w862f"), SubResource("Resource_xwrtx"), SubResource("Resource_4apbp")])
 name = "Crawler"
 texture = ExtResource("8_62wbg")
 maxHealth = 22.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5mwqxfb8xc6b"]
 
-[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light.png" id="1_j2o2p"]
+[ext_resource type="Texture2D" uid="uid://cch6j410k0y6m" path="res://assets/particles/light-particle.png" id="1_j2o2p"]
 
 [sub_resource type="Curve" id="Curve_sjvdm"]
 _data = [Vector2(0, 0.054945), 0.0, 0.0, 0, 0, Vector2(0.376682, 0.648352), 0.0, 0.0, 0, 0, Vector2(0.847534, 0.659341), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -11,8 +11,6 @@ curve = SubResource("Curve_sjvdm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0p8mg"]
 lifetime_randomness = 0.35
-particle_flag_align_y = true
-particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 20.0
 direction = Vector3(100, 0, 0)
@@ -28,7 +26,7 @@ color = Color(1, 1, 0.745098, 0.682353)
 [node name="InteractionParticle" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 20
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_0p8mg")
 texture = ExtResource("1_j2o2p")
 lifetime = 2.0

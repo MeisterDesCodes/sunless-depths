@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://d1m1q6gnsimr3"]
 
 [ext_resource type="Script" path="res://UI/shared/popup-ui.gd" id="1_ffj85"]
-[ext_resource type="Theme" uid="uid://c1tg160hnf0q8" path="res://assets/UI/themes/UI-elements/panel-container-primary.tres" id="2_hc2j5"]
-[ext_resource type="Texture2D" uid="uid://b7ylbo7ubafqk" path="res://assets/UI/icons/menu/Arrow Down.png" id="3_d5fn4"]
+[ext_resource type="Theme" uid="uid://r3nr6e6s77a1" path="res://assets/UI/themes/UI-elements/popup.tres" id="2_pjr4e"]
+[ext_resource type="Texture2D" uid="uid://b7ylbo7ubafqk" path="res://assets/UI/icons/menu/inventory/Arrow Down.png" id="3_d5fn4"]
 [ext_resource type="Theme" uid="uid://csssnpr3oiscv" path="res://assets/UI/themes/text/text-small.tres" id="3_vqprk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_peqai"]
@@ -20,12 +20,12 @@ size_flags_vertical = 6
 script = ExtResource("1_ffj85")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 325.0
-offset_bottom = 187.0
+layout_mode = 1
+offset_right = 299.0
+offset_bottom = 257.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_hc2j5")
+theme = ExtResource("2_pjr4e")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -88,6 +88,7 @@ autowrap_mode = 3
 [node name="Stats" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="Blueprint" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

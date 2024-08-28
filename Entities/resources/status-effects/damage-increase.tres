@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://dkh08jtcefuh2"]
+
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="1_sisnt"]
+
+[resource]
+script = ExtResource("1_sisnt")
+effectType = 12
+strength = null
+duration = 6.0
+appliesTo = null
+isStackable = true
+stackLimit = null
+effectApplyType = 2

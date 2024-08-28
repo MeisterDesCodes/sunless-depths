@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://bx1amcmmpk1fd"]
+
+[ext_resource type="Texture2D" uid="uid://bdnlj4ptxu5de" path="res://assets/UI/icons/entities/player/stats/Lingering Effects.png" id="1_dehya"]
+[ext_resource type="Resource" uid="uid://dfndcayooa4xk" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-1.tres" id="2_ib3jh"]
+[ext_resource type="Resource" uid="uid://3sa6ybvx6rf6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-1.tres" id="3_tt7nb"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_3600m"]
+
+[resource]
+script = ExtResource("4_3600m")
+name = "Lingering Effects"
+description = "Increases the duration of effects by 0% to"
+icon = ExtResource("1_dehya")
+requirements = Array[ExtResource("4_3600m")]([ExtResource("2_ib3jh"), ExtResource("3_tt7nb")])
+type = 21
+value = 20.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=4 format=3 uid="uid://dy27n6ee5lvct"]
+
+[ext_resource type="Texture2D" uid="uid://dw5w2jsg4opvp" path="res://assets/UI/icons/entities/player/stats/Pummel.png" id="1_lwx12"]
+[ext_resource type="Resource" uid="uid://dnkphiu2pkohv" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-third-attack-1.tres" id="4_iytmq"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="5_rxvkj"]
+
+[resource]
+script = ExtResource("5_rxvkj")
+name = "1"
+description = "1"
+icon = ExtResource("1_lwx12")
+requirements = Array[ExtResource("5_rxvkj")]([ExtResource("4_iytmq")])
+type = 0
+value = 0.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

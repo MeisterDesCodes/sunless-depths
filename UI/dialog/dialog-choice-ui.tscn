@@ -1,72 +1,63 @@
 [gd_scene load_steps=6 format=3 uid="uid://10vgkrej1sdb"]
 
-[ext_resource type="Theme" uid="uid://blt1eyj3xshax" path="res://assets/UI/themes/UI-elements/panel-container-secondary.tres" id="1_cissl"]
+[ext_resource type="Theme" uid="uid://dewfnljg88yw5" path="res://assets/UI/themes/UI-elements/dialog-choice.tres" id="1_gbwvl"]
 [ext_resource type="Script" path="res://UI/dialog/dialog-choice-ui.gd" id="1_w0whr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upvqm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2hue"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wuhj"]
+[ext_resource type="Theme" uid="uid://lkf3mb4llx74" path="res://assets/UI/themes/text/text-large-highlight.tres" id="3_yefmb"]
+[ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="4_syplv"]
+[ext_resource type="Theme" uid="uid://dq788m3px4i4p" path="res://assets/UI/themes/UI-elements/button-no-styling.tres" id="5_t7xj0"]
 
 [node name="DialogChoice" type="PanelContainer"]
+custom_minimum_size = Vector2(700, 100)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -93.0
-offset_right = 325.0
-offset_bottom = 64.0
+offset_left = -350.0
+offset_top = -65.5
+offset_right = 350.0
+offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_cissl")
+pivot_offset = Vector2(350, 67.5)
+theme = ExtResource("1_gbwvl")
 script = ExtResource("1_w0whr")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="LocationChoiceContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/LocationChoiceContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_upvqm")
-
-[node name="Title" type="Label" parent="MarginContainer/LocationChoiceContainer/PanelContainer"]
+[node name="Title" type="Label" parent="MarginContainer/LocationChoiceContainer"]
 custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-horizontal_alignment = 1
-vertical_alignment = 1
+theme = ExtResource("3_yefmb")
 autowrap_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/LocationChoiceContainer"]
+[node name="Description" type="Label" parent="MarginContainer/LocationChoiceContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_j2hue")
-
-[node name="Description" type="Label" parent="MarginContainer/LocationChoiceContainer/PanelContainer2"]
-custom_minimum_size = Vector2(650, 0)
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+theme = ExtResource("4_syplv")
 autowrap_mode = 2
 
 [node name="ChoiceRequirements" type="HBoxContainer" parent="MarginContainer/LocationChoiceContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 alignment = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6wuhj")
+theme = ExtResource("5_t7xj0")
+flat = true
 
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

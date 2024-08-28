@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://dte10oqxcni6i"]
+
+[ext_resource type="Texture2D" uid="uid://cf5ycl6hycjr2" path="res://assets/UI/icons/entities/player/stats/Adrenaline Rush.png" id="1_egk81"]
+[ext_resource type="Resource" uid="uid://d07qv8wjqw5y1" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-attack-delay-1.tres" id="2_5kjux"]
+[ext_resource type="Resource" uid="uid://cqx4hn68gfddw" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-1.tres" id="3_1emx6"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="5_lemmo"]
+
+[resource]
+script = ExtResource("5_lemmo")
+name = "Adrenaline Rush"
+description = "Kills reduce attack delay / increase movement speed by"
+icon = ExtResource("1_egk81")
+requirements = Array[ExtResource("5_lemmo")]([ExtResource("2_5kjux"), ExtResource("3_1emx6")])
+type = 15
+value = 15.0
+value2 = 10.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

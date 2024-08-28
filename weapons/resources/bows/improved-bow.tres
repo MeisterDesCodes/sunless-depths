@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://0e8cyukgduvu"]
+
+[ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_ydt3p"]
+[ext_resource type="Texture2D" uid="uid://dhvpu8bct10pp" path="res://assets/resources/weapons/improved-bow.png" id="2_bj5m4"]
+
+[resource]
+script = ExtResource("1_ydt3p")
+damageModifier = 1.15
+speedModifier = 1.3
+knockbackModifier = 1.25
+spread = 15.0
+projectileAmount = 1
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 1.35
+staminaCost = 15.0
+animations = Array[int]([3])
+name = "Improved Bow"
+description = ""
+texture = ExtResource("2_bj5m4")
+rarity = 3

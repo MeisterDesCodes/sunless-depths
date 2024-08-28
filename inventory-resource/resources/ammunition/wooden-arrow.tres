@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_cfty5")
-damage = 5.0
+damage = 6.0
 knockback = 15.0
 speed = 600.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])

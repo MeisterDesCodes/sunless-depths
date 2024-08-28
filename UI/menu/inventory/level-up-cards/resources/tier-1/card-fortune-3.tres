@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=9 format=3 uid="uid://dpdauc4xebx1n"]
+
+[ext_resource type="Texture2D" uid="uid://3wbfxlkrm08j" path="res://assets/UI/icons/entities/player/stats/Fortune.png" id="1_y2ss3"]
+[ext_resource type="Resource" uid="uid://48psvlak4wd3" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-2.tres" id="2_82x2x"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="3_87lt4"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="4_y814o"]
+
+[sub_resource type="Resource" id="Resource_tdhbv"]
+script = ExtResource("4_y814o")
+resource = 0
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ghqfi"]
+script = ExtResource("4_y814o")
+resource = 1
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ffq2v"]
+script = ExtResource("4_y814o")
+resource = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_kkkwg"]
+script = ExtResource("4_y814o")
+resource = 3
+amount = 1
+
+[resource]
+script = ExtResource("3_87lt4")
+name = "Fortune"
+description = "Increases Loot by"
+icon = ExtResource("1_y2ss3")
+requirements = Array[ExtResource("3_87lt4")]([ExtResource("2_82x2x")])
+type = 7
+value = 10.0
+value2 = 0.0
+stats = Array[ExtResource("4_y814o")]([SubResource("Resource_tdhbv"), SubResource("Resource_ghqfi"), SubResource("Resource_ffq2v"), SubResource("Resource_kkkwg")])
+tier = 3
