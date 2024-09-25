@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Resources" load_steps=12 format=3 uid="uid://ct7pi8uojkpuq"]
+
+[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/common/blackpowder.tres" id="1_akvm5"]
+[ext_resource type="Resource" uid="uid://cct8ajp56qlgm" path="res://inventory-resource/resources/material/common/bone.tres" id="2_cb2kl"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="3_hbfam"]
+[ext_resource type="Resource" uid="uid://cp5wmmeqrheb3" path="res://inventory-resource/resources/material/common/chitin.tres" id="4_ey6lo"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="5_k0qq6"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="6_bq4mj"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="7_410cx"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="8_jyscy"]
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="9_58bsq"]
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="10_snb54"]
+[ext_resource type="Script" path="res://inventory-resource/resources.gd" id="11_yrbwp"]
+
+[resource]
+script = ExtResource("11_yrbwp")
+allResources = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("1_akvm5"), ExtResource("2_cb2kl"), ExtResource("3_hbfam"), ExtResource("4_ey6lo"), ExtResource("5_k0qq6"), ExtResource("6_bq4mj"), ExtResource("7_410cx"), ExtResource("8_jyscy"), ExtResource("9_58bsq"), ExtResource("10_snb54")])

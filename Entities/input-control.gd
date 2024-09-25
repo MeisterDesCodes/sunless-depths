@@ -27,9 +27,23 @@ func _process(delta):
 	if Input.is_action_just_pressed("zoom"):
 		playerScene.zoom()
 	
+	if Input.is_action_just_pressed("use-consumable"):
+		if playerScene.equippedConsumable && !playerScene.equippedConsumable.isOnCooldown:
+			UtilsS.useConsumable(playerScene, playerScene.equippedConsumable)
+			playerScene.hudUI.disableConsumeButton()
+	
+	if Input.is_action_just_pressed("exit"):
+		pass
+	
 	if Input.get_action_strength("attack"):
 		if playerScene.hudUI.staminaBar.value > 0:
 			playerScene.attack()
+	
+	if Input.get_action_strength("save-game"):
+		PersistenceS.saveGame()
+	
+	if Input.get_action_strength("load-game"):
+		PersistenceS.loadGame()
 	
 	if Input.get_action_strength("sprint") && playerScene.hudUI.staminaBar.value > 0:
 		playerScene.sprint()

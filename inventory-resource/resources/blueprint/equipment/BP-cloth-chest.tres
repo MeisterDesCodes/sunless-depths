@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://bplfvwn337fia"]
 
-[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_1poth"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_1poth"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_5ex24"]
-[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/cloth.tres" id="3_lc46h"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="3_lc46h"]
 [ext_resource type="Resource" uid="uid://wugbhvbrjiso" path="res://inventory-resource/resources/equipment/cloth-C.tres" id="3_x3k3k"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_f6ssi"]
 [ext_resource type="Texture2D" uid="uid://muiyll3gg3oq" path="res://assets/resources/equipment/Chest.png" id="5_0mjuj"]

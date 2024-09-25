@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dx6j0un24peas"]
 
 [ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_ayxe0"]
-[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/cave-mushroom.tres" id="2_me3kh"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="2_me3kh"]
 [ext_resource type="Texture2D" uid="uid://bqes0y60boixe" path="res://assets/environment/interactions/mycelium.png" id="2_xk8ri"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_0slle"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_ir6id"]
-[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="4_bx62n"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="4_bx62n"]
 
 [sub_resource type="Resource" id="Resource_8la6k"]
 script = ExtResource("3_0slle")

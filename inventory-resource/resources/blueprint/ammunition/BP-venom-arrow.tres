@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=12 format=3 uid="uid://km0ryr14t54k"]
 
-[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="1_e1xhj"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_e1xhj"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_4ur66"]
-[ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/venom.tres" id="3_70v0b"]
-[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="3_88mra"]
+[ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/uncommon/venom.tres" id="3_70v0b"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="3_88mra"]
 [ext_resource type="Resource" uid="uid://cbwqymfiu7tj8" path="res://inventory-resource/resources/ammunition/venom-arrow.tres" id="4_a247d"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_ihnis"]
 [ext_resource type="Texture2D" uid="uid://b1um7c6c1oadk" path="res://assets/resources/weapons/ammunition/Venom Arrow.png" id="7_ftl4r"]

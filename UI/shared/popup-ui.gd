@@ -69,7 +69,7 @@ func showAdditionalInformation():
 		Enums.resourceType.WEAPON:
 			statsContainer.visible = true
 			if element is MeleeWeapon:
-				var damageValue: float = element.damage * (1 + UtilsS.calculateMeleeScaling(playerScene.entityResource) * 0.05) * playerScene.meleeDamageModifier
+				var damageValue: float = element.damage * (1 + UtilsS.calculateMeleeScaling(playerScene.entityResource) * 0.05) * playerScene.meleeDamageModifier * playerScene.damageModifier
 				var damage: String = str(round(playerScene.damageRangeMin * damageValue)) + " - " + str(round(playerScene.damageRangeMax * damageValue))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Damage.png"), "Damage", damage)
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Attack Delay.png"), "Attack Delay", str(UtilsS.round(element.attackDelay * playerScene.attackDelayModifier, 2)))
@@ -79,7 +79,7 @@ func showAdditionalInformation():
 			if element is RangedWeapon:
 				var damage: String = ""
 				if element.ammunition:
-					var damageValue: float = element.damageModifier * element.ammunition.damage * (1 + UtilsS.calculateRangedScaling(playerScene.entityResource) * 0.05) * playerScene.rangedDamageModifier
+					var damageValue: float = element.damageModifier * element.ammunition.damage * (1 + UtilsS.calculateRangedScaling(playerScene.entityResource) * 0.05) * playerScene.rangedDamageModifier * playerScene.damageModifier
 					damage = str(round(playerScene.damageRangeMin * damageValue)) + " - " + str(round(playerScene.damageRangeMax * damageValue))
 				else:
 					damage = "No Ammo"
@@ -109,18 +109,8 @@ func showAdditionalInformation():
 		
 		Enums.resourceType.EQUIPMENT:
 			statsContainer.visible = true
-			if element.ferocityModifier != 0:
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Ferocity.png"), "Ferocity", "+ " + str(element.ferocityModifier) if element.ferocityModifier > 0 else str(element.ferocityModifier))
-			if element.perseveranceModifier != 0:
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Perseverance.png"), "Perseverance", "+ " + str(element.perseveranceModifier) if element.perseveranceModifier > 0 else str(element.perseveranceModifier))
-			if element.agilityModifier != 0:
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Agility.png"), "Agility", "+ " + str(element.agilityModifier) if element.agilityModifier > 0 else str(element.agilityModifier))
-			if element.perceptionModifier != 0:
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Perception.png"), "Perception", "+ " + str(element.perceptionModifier) if element.perceptionModifier > 0 else str(element.perceptionModifier))
-			if element.lightRadius != 0:
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Light Radius.png"), "Light Radius", "+ " + str(element.lightRadius) if element.lightRadius > 0 else str(element.lightRadius))
-			if element.oxygenCapacity != 0:
-				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Oxygen Capacity.png"), "Oxygen Capacity", "+ " + str(element.oxygenCapacity) if element.oxygenCapacity > 0 else str(element.oxygenCapacity))
+			for modifier in element.modifiers:
+				addStatsElement(load("res://assets/UI/icons/entities/player/stats/" + UtilsS.getEnumValue(Enums.equipmentModifierType, modifier.type) + ".png"), UtilsS.getEnumValue(Enums.equipmentModifierType, modifier.type), "+ " + str(modifier.value))
 		
 		Enums.resourceType.CONSUMABLE:
 			statsContainer.visible = true
@@ -140,7 +130,7 @@ func showAdditionalInformation():
 			rarity.self_modulate = UtilsS.colorPrimary
 			if !element.attributes.is_empty():
 				addStatsElement(preload("res://assets/UI/icons/menu/map/Hazards.png"), "Hazards present", UtilsS.enumArrayToString(Enums.locationAttribute, element.attributes))
-			
+		
 		Enums.resourceType.MAP_PATHWAY:
 			statsContainer.visible = true
 			type.text = "Danger Level: "

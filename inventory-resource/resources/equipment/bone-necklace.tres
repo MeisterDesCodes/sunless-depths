@@ -1,17 +1,23 @@
-[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://dpo73j42k6sbn"]
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=6 format=3 uid="uid://dpo73j42k6sbn"]
 
 [ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_4w4n3"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_t11yr"]
 [ext_resource type="Texture2D" uid="uid://blsjdt1wpqk06" path="res://assets/resources/equipment/accessories/Bone Necklace.png" id="2_6rqx4"]
+
+[sub_resource type="Resource" id="Resource_wvg3i"]
+script = ExtResource("1_t11yr")
+type = 0
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_jbwxf"]
+script = ExtResource("1_t11yr")
+type = 7
+value = 3.0
 
 [resource]
 script = ExtResource("1_4w4n3")
 equipmentType = 6
-ferocityModifier = 3
-perseveranceModifier = 0
-agilityModifier = 1
-perceptionModifier = 0
-lightRadius = 0.0
-oxygenCapacity = 0.0
+modifiers = Array[ExtResource("1_t11yr")]([SubResource("Resource_wvg3i"), SubResource("Resource_jbwxf")])
 name = "Bone Necklace"
 description = "Crafted from the bones of slain beasts, this necklace give a noticable attack boost."
 texture = ExtResource("2_6rqx4")

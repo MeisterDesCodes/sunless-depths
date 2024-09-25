@@ -10,7 +10,9 @@ signal updateSlot
 @onready var blueprintIcon: PanelContainer = get_node("MarginContainer/HBoxContainer/PanelContainer/BlueprintIcon")
 @onready var equipButton: Button = get_node("MarginContainer/EquipButton")
 @onready var craftButton: Button = get_node("MarginContainer/CraftButton")
-@onready var consumeButton: Button = get_node("MarginContainer/ConsumeButton")
+@onready var consumeButton: Button = get_node("MarginContainer/ConsumeSlots/ConsumeButton")
+@onready var consumeEquipButton: Button = get_node("MarginContainer/ConsumeSlots/ConsumeEquipButton")
+@onready var consumeSlotsContainer: HBoxContainer = get_node("MarginContainer/ConsumeSlots")
 @onready var weaponSlotsContainer: HBoxContainer = get_node("MarginContainer/WeaponSlots")
 @onready var ammunitionSlotsConainer: HBoxContainer = get_node("MarginContainer/AmmunitionSlots")
 
@@ -22,7 +24,7 @@ var loaded: bool = false
 
 func _ready():
 	amountLabel.visible = false
-	consumeButton.visible = false
+	consumeSlotsContainer.visible = false
 	craftButton.visible = false
 	equipButton.visible = false
 	weaponSlotsContainer.visible = false
@@ -41,7 +43,7 @@ func setup(_slot: InventorySlot, displayOnly: bool):
 			amountLabel.visible = true
 		Enums.resourceType.CONSUMABLE:
 			amountLabel.visible = true
-			consumeButton.visible = true
+			consumeSlotsContainer.visible = true
 			updateConsumeButton()
 		Enums.resourceType.WEAPON:
 			weaponSlotsContainer.visible = true
@@ -70,10 +72,16 @@ func update(slot: InventorySlot):
 	amountLabel.text = "x" + str(slot.amount)
 	icon.texture = slot.resource.texture
 	
+	if slot.resource == playerScene.equippedConsumable:
+		consumeEquipButton.select()
+	else:
+		consumeEquipButton.deselect()
+	
 	if slot.resource in playerScene.equippedGear:
 		equipButton.select()
 	else:
 		equipButton.deselect()
+	
 	
 	for i in 3:
 		if playerScene.equippedWeapons[i] == slot.resource:
@@ -151,11 +159,14 @@ func equipAmmunition(index: int):
 		updateSlot.emit()
 
 
+func equipConsumable():
+	playerScene.equipConsumable(slot.resource)
+	updateSlot.emit()
+
+
 func useConsumable():
 	disableConsumeButton()
-	UtilsS.applyStatusEffects(playerScene, playerScene, slot.resource.statusEffects)
-	slot.resource.remainingCooldown = slot.resource.cooldown
-	playerScene.inventory.removeResource(slot.resource, 1)
+	UtilsS.useConsumable(playerScene, slot.resource)
 
 
 func _on_equip_button_pressed():
@@ -238,6 +249,10 @@ func _on_consume_button_pressed():
 	useConsumable()
 
 
+func _on_consume_equip_button_pressed():
+	equipConsumable()
+
+
 func updateConsumeButton():
 	if slot.resource.isOnCooldown:
 		disableConsumeButton()
@@ -258,6 +273,7 @@ func disableConsumeButton():
 	consumeButton.disabled = true
 	consumeButton.texture = null
 	consumeButton.text = str(round(slot.resource.remainingCooldown))
+
 
 
 

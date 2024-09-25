@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dasm1al2nwuyi"]
 
-[ext_resource type="Texture2D" uid="uid://tbpvwbcj1mov" path="res://assets/environment/textures/materials/mushroom-texture.png" id="1_5of0e"]
+[ext_resource type="Texture2D" uid="uid://tbpvwbcj1mov" path="res://assets/environment/textures/material/mushroom-texture.png" id="1_5of0e"]
 
 [node name="MushroomTexture" type="Node2D"]
 scale = Vector2(0.5, 0.5)

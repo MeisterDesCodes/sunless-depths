@@ -23,7 +23,6 @@ func setup(_entityScene: CharacterBody2D, _weapon: InventoryWeapon):
 	weapon = _weapon
 	sprite.texture = weapon.texture
 	if _weapon is RangedWeapon:
-		#TODO
 		sprite.rotation = deg_to_rad(-90)
 	else:
 		sprite.rotation = 0

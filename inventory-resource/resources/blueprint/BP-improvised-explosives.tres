@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://nxyeych8udio"]
 
-[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/scrap-metal.tres" id="1_ov8rw"]
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="1_ov8rw"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_m4kxc"]
-[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/blackpowder.tres" id="3_mcvry"]
-[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/improvised-explosives.tres" id="4_vwpfg"]
+[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/common/blackpowder.tres" id="3_mcvry"]
+[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/uncommon/improvised-explosives.tres" id="4_vwpfg"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_oarb8"]
 [ext_resource type="Texture2D" uid="uid://bqlnk5q2sprae" path="res://assets/resources/usable/Improvised Explosives.png" id="6_xcia4"]
 

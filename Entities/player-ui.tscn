@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://xbb1mnn8v7hy"]
+[gd_scene load_steps=18 format=3 uid="uid://xbb1mnn8v7hy"]
 
 [ext_resource type="Script" path="res://entities/player-ui.gd" id="1_22f2w"]
+[ext_resource type="Resource" uid="uid://bunurwyxgx0ax" path="res://entities/resources/player/player.tres" id="2_cu86e"]
+[ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="3_bh5x3"]
 [ext_resource type="Script" path="res://entities/rotation-point.gd" id="3_qyr1b"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="6_glmfw"]
 [ext_resource type="Script" path="res://entities/input-control.gd" id="7_0y48q"]
 [ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="8_ilynh"]
-[ext_resource type="PackedScene" uid="uid://ci0e5bminvf76" path="res://environment/decorations/light-sources/directional-light.tscn" id="8_j54sr"]
+[ext_resource type="PackedScene" uid="uid://rvyc0umohgfj" path="res://environment/decorations/light-sources/directional-light.tscn" id="8_j54sr"]
 [ext_resource type="PackedScene" uid="uid://ckh0etq8rdsn" path="res://weapons/weapon-ui.tscn" id="8_o73pc"]
 [ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver-component.tscn" id="8_p7uws"]
+[ext_resource type="PackedScene" uid="uid://hsibopu7e36h" path="res://entities/entity-sound-component.tscn" id="10_joknd"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="12_rm3wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqlct"]
@@ -59,6 +62,8 @@ collision_layer = 3
 motion_mode = 1
 safe_margin = 5.0
 script = ExtResource("1_22f2w")
+entityResource = ExtResource("2_cu86e")
+inventory = ExtResource("3_bh5x3")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 8
@@ -92,7 +97,7 @@ rotation = 4.71239
 scale = Vector2(0.140875, 0.140875)
 
 [node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
-energy = 1.0
+energy = 2.0
 shadow = true
 
 [node name="DirectionalLight" parent="RotationPoint" instance=ExtResource("8_j54sr")]
@@ -104,6 +109,9 @@ rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 
 [node name="Weapon" parent="RotationPoint/Weapons" instance=ExtResource("8_o73pc")]
+
+[node name="SoundComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("10_joknd")]
+entity = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

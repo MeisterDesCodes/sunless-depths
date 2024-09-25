@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=10 format=3 uid="uid://cwaapu5hqbqij"]
 
-[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="2_2nmfv"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="2_2nmfv"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="2_13c5i"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="2_ivi63"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_xn4f2"]

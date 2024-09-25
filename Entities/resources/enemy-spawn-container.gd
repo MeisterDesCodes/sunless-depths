@@ -4,4 +4,4 @@ class_name EnemySpawnContainer
 
 
 @export var enemy: Enemy
-@export var chance: int
+@export var chance: float

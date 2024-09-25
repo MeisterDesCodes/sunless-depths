@@ -19,6 +19,7 @@ signal onDeath
 @onready var damageReceiver = get_node("DamageReceiver")
 @onready var statusEffectComponent = get_node("StatusEffectComponent")
 @onready var image: Sprite2D = get_node("Sprite2D")
+@onready var soundComponent: Node2D = get_node("SoundComponent")
 
 var awarenessEffect = preload("res://entities/resources/status-effects/awareness-combat.tres")
 
@@ -50,6 +51,7 @@ var isDying: bool = false
 
 var attackCounter: int = 1
 
+var damageModifier: float = 1
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
 var effectStrengthModifier: float = 1
@@ -65,6 +67,9 @@ var rangedDamageAfterMeleeAttack: float = 0
 var meleeDamageAfterRangedAttack: float = 0
 var thirdAttackDamage: float = 0
 var sightRadiusEntryEffect: float = 0
+
+var damageRangeMin: float = 0.75
+var damageRangeMax: float = 1.25
 
 
 func _ready():
@@ -153,6 +158,7 @@ func entityKilled():
 	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, UtilsS.resourceDropSpeed * 0.5)
 	
 	onDeath.emit(self)
+	particleComponent.activateDeathParticles()
 	queue_free()
 
 

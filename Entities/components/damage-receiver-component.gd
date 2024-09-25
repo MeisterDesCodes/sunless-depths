@@ -12,6 +12,7 @@ func receiveAttack(attack: Attack):
 	playHitAnimation(attack.position)
 	toggleKnockback(attack.position, attack.knockback * attack.caster.knockbackModifier)
 	UtilsS.applyStatusEffects(attack.caster, entity, attack.statusEffects)
+	entity.soundComponent.onHit(attack)
 	
 	var damageModifier: float = 1
 	var damageTypeModifier: float = 1
@@ -51,8 +52,8 @@ func receiveAttack(attack: Attack):
 			UtilsS.applyStatusEffect(attack.caster, entity, UtilsS.setupEffect(preload("res://entities/resources/status-effects/crit-stat-increase.tres"), \
 				attack.caster.critStatIncrease))
 	
-	var finalDamage = attack.damage * randf_range(playerScene.damageRangeMin, playerScene.damageRangeMax) \
-		* damageModifier * damageTypeModifier * exhaustionModifier * critModifier
+	var finalDamage = attack.damage * randf_range(attack.caster.damageRangeMin, attack.caster.damageRangeMax) \
+		* damageModifier * damageTypeModifier * exhaustionModifier * critModifier * attack.caster.damageModifier
 	receiveDamage(finalDamage, attack.isCrit, null)
 	applyOnHitEffects(attack.caster, attack, finalDamage)
 

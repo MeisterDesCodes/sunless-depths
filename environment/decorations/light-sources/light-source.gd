@@ -34,7 +34,7 @@ func update(size: float):
 func _process(delta):
 	x += 2
 	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	light.energy = (noise.get_noise_1d(x) * 0.5 + 0.75)
+	light.energy = (noise.get_noise_1d(x) * (energy / 2) + (energy / 1.5))
 
 
 func _on_area_2d_body_entered(body):

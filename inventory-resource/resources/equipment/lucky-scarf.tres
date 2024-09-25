@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://cxduwdaay1mpy"]
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=5 format=3 uid="uid://cxduwdaay1mpy"]
 
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_066uf"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_aek3d"]
 [ext_resource type="Texture2D" uid="uid://cht1djhikkr0a" path="res://assets/resources/equipment/accessories/Lucky Scarf.png" id="2_hbb07"]
+
+[sub_resource type="Resource" id="Resource_ttscw"]
+script = ExtResource("1_066uf")
+type = 2
+value = 3.0
 
 [resource]
 script = ExtResource("1_aek3d")
 equipmentType = 6
-ferocityModifier = 0
-perseveranceModifier = 1
-agilityModifier = 3
-perceptionModifier = 0
-lightRadius = 0.0
-oxygenCapacity = 0.0
+modifiers = Array[ExtResource("1_066uf")]([SubResource("Resource_ttscw")])
 name = "Lucky Scarf"
 description = "xxx"
 texture = ExtResource("2_hbb07")

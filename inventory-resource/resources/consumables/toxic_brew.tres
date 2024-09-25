@@ -17,7 +17,6 @@ effectApplyType = 0
 [resource]
 script = ExtResource("1_ox3r7")
 cooldown = 20.0
-remainingCooldown = 0.0
 statusEffects = Array[ExtResource("2_unvp3")]([SubResource("Resource_okjso")])
 name = "Toxic Brew"
 description = "Brewed from deadly herbs and poisonous substances, it can be used to poison creatures."

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=7 format=3 uid="uid://brce76y3nxw8e"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_3gek3"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="2_5f8uy"]
+[ext_resource type="Texture2D" uid="uid://dbw02f4bjxegg" path="res://assets/resources/equipment/Pants.png" id="3_hj2lo"]
+
+[sub_resource type="Resource" id="Resource_47hgs"]
+script = ExtResource("1_3gek3")
+type = 0
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_5faq4"]
+script = ExtResource("1_3gek3")
+type = 1
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_mdp82"]
+script = ExtResource("1_3gek3")
+type = 7
+value = 3.0
+
+[resource]
+script = ExtResource("2_5f8uy")
+equipmentType = 5
+modifiers = Array[ExtResource("1_3gek3")]([SubResource("Resource_47hgs"), SubResource("Resource_5faq4"), SubResource("Resource_mdp82")])
+name = "Bandit Boots"
+description = "xxx"
+texture = ExtResource("3_hj2lo")
+rarity = 1

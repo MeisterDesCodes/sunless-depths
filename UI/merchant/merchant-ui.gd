@@ -19,7 +19,20 @@ var merchantMode = Enums.merchantMode.BUY
 func setup(merchantCuriosity):
 	merchant = merchantCuriosity
 	merchantTitle.text = merchant.title
+	setupAvailableBlueprints()
 	_on_buy_pressed()
+
+
+func setupAvailableBlueprints():
+	var blueprints: Array[InventoryResource]
+	if merchant.hasAdditionalBlueprints:
+		match merchant.tier:
+			0:
+				blueprints = preload("res://inventory-resource/resources/material/common/0 - materials-common.tres").allResources
+			1:
+				blueprints = preload("res://inventory-resource/resources/material/uncommon/0 - materials-uncommon.tres").allResources
+		
+		merchant.availableBlueprints.append_array(blueprints)
 
 
 func generateBuyResources():

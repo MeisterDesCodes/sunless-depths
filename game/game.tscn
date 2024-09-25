@@ -1,18 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwiu2kgkgw4ns"]
+[gd_scene load_steps=16 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
 [ext_resource type="Script" path="res://map/map-location.gd" id="2_x24fo"]
-[ext_resource type="Resource" uid="uid://bunurwyxgx0ax" path="res://entities/resources/player/player.tres" id="3_wronf"]
-[ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="4_axcb5"]
-[ext_resource type="AudioStream" uid="uid://n73orot5jr55" path="res://assets/music/Main Theme (Agni Kai).mp3" id="4_kdv1t"]
-[ext_resource type="Script" path="res://game/sound-handler.gd" id="4_rr2vr"]
 [ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="5_dkndk"]
 [ext_resource type="Resource" uid="uid://dlv0qcm8b73n5" path="res://entities/resources/enemies/test-dummy.tres" id="6_jf3fh"]
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="7_0gon8"]
 [ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-ui.tscn" id="9_75ykn"]
+[ext_resource type="PackedScene" uid="uid://g3kf8qmks18f" path="res://entities/game-sound-component.tscn" id="9_676h2"]
 [ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/hud/hud-ui.tscn" id="58_isjnl"]
 
 [sub_resource type="Resource" id="Resource_jq2ng"]
@@ -29,7 +26,8 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 5.0
 
 [sub_resource type="Gradient" id="Gradient_g0pcc"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_shq6o"]
 gradient = SubResource("Gradient_g0pcc")
@@ -41,9 +39,7 @@ initialLocation = SubResource("Resource_jq2ng")
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
-position = Vector2(246.055, 659.759)
-entityResource = ExtResource("3_wronf")
-inventory = ExtResource("4_axcb5")
+position = Vector2(138.85, 733.886)
 
 [node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../FollowCamera")
@@ -51,13 +47,12 @@ remote_path = NodePath("../../../FollowCamera")
 [node name="Enemies" type="Node2D" parent="Entities"]
 
 [node name="Enemy" parent="Entities/Enemies" instance=ExtResource("5_dkndk")]
-position = Vector2(5088.28, 1030.99)
+position = Vector2(5945.39, 1316.39)
 entityResource = ExtResource("6_jf3fh")
 
 [node name="CurrentLocation" type="Node2D" parent="."]
 
 [node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("7_0gon8")]
-visible = false
 
 [node name="TheSettlement" parent="CurrentLocation" instance=ExtResource("2_rrhun")]
 
@@ -67,23 +62,13 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(246.055, 659.759)
+position = Vector2(138.85, 733.886)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="SoundHandler" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("4_rr2vr")
-player = NodePath("../Entities/Player")
+[node name="Particles" type="Node2D" parent="."]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundHandler"]
-stream = ExtResource("4_kdv1t")
-volume_db = -20.0
-
-[node name="SFX" type="AudioStreamPlayer" parent="SoundHandler"]
-volume_db = -10.0
-
-[node name="WalkTimer" type="Timer" parent="SoundHandler"]
-autostart = true
+[node name="GameSoundComponent" parent="." instance=ExtResource("9_676h2")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
@@ -115,5 +100,3 @@ z_index = 1
 layout_mode = 1
 
 [node name="PopupUI" parent="CanvasLayer/UIControl" instance=ExtResource("9_75ykn")]
-
-[connection signal="timeout" from="SoundHandler/WalkTimer" to="SoundHandler" method="_on_walk_timer_timeout"]

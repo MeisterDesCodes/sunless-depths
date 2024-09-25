@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://c23eyxxgg81kv"]
 
 [ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_pn7ta"]
-[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="2_gujpp"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="2_gujpp"]
 [ext_resource type="Texture2D" uid="uid://cglyjguk6qg08" path="res://assets/environment/interactions/old_log.png" id="2_uyiet"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_2toq4"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_plctn"]
-[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/fiber.tres" id="4_1fod0"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="4_1fod0"]
 [ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="5_wsbcr"]
 
 [sub_resource type="Resource" id="Resource_qkl11"]

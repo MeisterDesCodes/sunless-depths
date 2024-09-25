@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="2_r35pu"]
 [ext_resource type="Script" path="res://combat/status-effect.gd" id="3_kb283"]
-[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="4_bc52s"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="4_bc52s"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="5_mmn2q"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="6_3d8ug"]
-[ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/venom.tres" id="6_sj8oy"]
-[ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/silk.tres" id="7_kiwsx"]
+[ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/uncommon/venom.tres" id="6_sj8oy"]
+[ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/uncommon/silk.tres" id="7_kiwsx"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="7_xnhxc"]
 [ext_resource type="Texture2D" uid="uid://bllnnk8x50e86" path="res://assets/entities/crawler.png" id="8_62wbg"]
 
 [sub_resource type="Resource" id="Resource_fwmki"]
 script = ExtResource("3_kb283")
-effectType = 0
+effectType = 1
 strength = 1.0
 duration = 6.0
 appliesTo = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://snd70w6whqbn"]
+[gd_scene load_steps=20 format=3 uid="uid://snd70w6whqbn"]
 
 [ext_resource type="Script" path="res://UI/hud/hud-ui.gd" id="1_o31jx"]
 [ext_resource type="Theme" uid="uid://dobbys3uid5er" path="res://assets/UI/themes/UI-elements/resource-icon.tres" id="3_3dcqr"]
@@ -10,8 +10,11 @@
 [ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="8_x3qky"]
 [ext_resource type="Theme" uid="uid://cw4pbxbtsdmnt" path="res://assets/UI/themes/UI-elements/progress-bar.tres" id="9_48kww"]
 [ext_resource type="Theme" uid="uid://csssnpr3oiscv" path="res://assets/UI/themes/text/text-small.tres" id="9_dluhm"]
+[ext_resource type="Theme" uid="uid://ct6ax5ic4d7tk" path="res://assets/UI/themes/text/text-large.tres" id="11_075nt"]
+[ext_resource type="Theme" uid="uid://cwotq50vllwwh" path="res://assets/UI/themes/text/text-huge.tres" id="11_k3m4q"]
 [ext_resource type="Theme" uid="uid://bk8r3d023xyjr" path="res://assets/UI/themes/UI-elements/weapon-slot.tres" id="12_gluqe"]
 [ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="12_hfdgr"]
+[ext_resource type="PackedScene" uid="uid://dkao4jqlrlta" path="res://environment/decorations/particles/projectile-hit-particle.tscn" id="13_0uc02"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omi5o"]
 
@@ -277,6 +280,46 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(85, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("12_hfdgr")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer4"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ActiveConsumable" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer4/MarginContainer2"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ConsumbleAmount" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("11_k3m4q")
+
+[node name="ConsumbleCooldown" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("11_075nt")
+
+[node name="ConsumeParticles" parent="MarginContainer/HBoxContainer/PanelContainer4" instance=ExtResource("13_0uc02")]
+z_index = -1
+position = Vector2(43, 38)
+scale = Vector2(2, 2)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 self_modulate = Color(1, 0.784314, 0.745098, 1)
 custom_minimum_size = Vector2(125, 115)
@@ -411,6 +454,9 @@ wait_time = 0.35
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 2.5
 
+[node name="ConsumableTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/PanelContainerAmmunition1" to="." method="_on_panel_container_ammunition_1_mouse_entered"]
@@ -425,3 +471,4 @@ wait_time = 2.5
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/PanelContainerAmmunition3" to="." method="_on_panel_container_ammunition_3_mouse_exited"]
 [connection signal="timeout" from="SuppliesTimer" to="." method="_on_supplies_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
+[connection signal="timeout" from="ConsumableTimer" to="." method="_on_consumable_timer_timeout"]

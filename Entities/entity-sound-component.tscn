@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://hsibopu7e36h"]
+
+[ext_resource type="Script" path="res://entities/entity-sound-component.gd" id="1_7gf6w"]
+
+[node name="EntitySoundComponent" type="Node2D"]
+script = ExtResource("1_7gf6w")
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
+[node name="Attack" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="Dash" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
+[node name="WalkTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="WalkTimer" to="." method="_on_walk_timer_timeout"]

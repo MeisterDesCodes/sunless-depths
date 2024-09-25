@@ -1,17 +1,23 @@
-[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://dwh4ailce8erj"]
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=6 format=3 uid="uid://dwh4ailce8erj"]
 
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_8ie47"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_65uwc"]
 [ext_resource type="Texture2D" uid="uid://dbw02f4bjxegg" path="res://assets/resources/equipment/Pants.png" id="2_t5k5i"]
+
+[sub_resource type="Resource" id="Resource_47hgs"]
+script = ExtResource("1_8ie47")
+type = 1
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_5faq4"]
+script = ExtResource("1_8ie47")
+type = 2
+value = 1.0
 
 [resource]
 script = ExtResource("1_65uwc")
 equipmentType = 4
-ferocityModifier = 0
-perseveranceModifier = 2
-agilityModifier = 1
-perceptionModifier = 0
-lightRadius = 0.0
-oxygenCapacity = 0.0
+modifiers = Array[ExtResource("1_8ie47")]([SubResource("Resource_47hgs"), SubResource("Resource_5faq4")])
 name = "Cloth Pants"
 description = "Light and durable, this piece of equipment offers a little suporrt in surviving the harsh depths around here."
 texture = ExtResource("2_t5k5i")

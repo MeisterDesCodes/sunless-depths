@@ -18,7 +18,7 @@ var colorWhite = Color("#FFFFFF")
 var colorDisabled = Color("#959595")
 var colorTransparent = Color("#FFFFFF", 0)
 
-var colorCanvasModulate = Color("#040404")
+var colorCanvasModulate = Color("#292929")
 
 var resourceDropSpeed: float = 150
 
@@ -121,28 +121,56 @@ func applyStatusEffect(source: CharacterBody2D, target: CharacterBody2D, _effect
 		target.hudUI.addStatusEffect(effect)
 
 
+func useConsumable(entityScene: CharacterBody2D, consumable: InventoryConsumable):
+	applyStatusEffects(entityScene, entityScene, consumable.statusEffects)
+	consumable.remainingCooldown = consumable.cooldown
+	entityScene.inventory.removeResource(consumable, 1)
+	if entityScene.inventory.getResourceAmount(consumable) <= 0:
+		entityScene.equippedConsumable = null
+	entityScene.hudUI.updateConsumable()
+
+
 func unequipItem(entityScene, item, index):
-	entityScene.entityResource.ferocity -= item.ferocityModifier
-	entityScene.entityResource.perseverance -= item.perseveranceModifier
-	entityScene.entityResource.agility -= item.agilityModifier
-	entityScene.entityResource.perception -= item.perceptionModifier
-	entityScene.entityResource.lightRadius -= item.lightRadius
-	entityScene.entityResource.oxygenCapacity -= item.oxygenCapacity
+	for modifier in item.modifiers:
+		modifyStat(entityScene, modifier, false)
+	
 	entityScene.equippedGear[index] = null
 	entityScene.setupLightSource()
 	entityScene.updateMaxHealth()
 
 
 func equipItem(entityScene, item, index):
-	entityScene.entityResource.ferocity += item.ferocityModifier
-	entityScene.entityResource.perseverance += item.perseveranceModifier
-	entityScene.entityResource.agility += item.agilityModifier
-	entityScene.entityResource.perception += item.perceptionModifier
-	entityScene.entityResource.lightRadius += item.lightRadius
-	entityScene.entityResource.oxygenCapacity += item.oxygenCapacity
+	for modifier in item.modifiers:
+		modifyStat(entityScene, modifier, true)
+	
 	entityScene.equippedGear[index] = item
 	entityScene.setupLightSource()
 	entityScene.updateMaxHealth()
+
+
+func modifyStat(entityScene, modifier: InventoryEquipmentModifier, isEquipped: bool):
+	var value: float = modifier.value
+	if !isEquipped:
+		value = value * -1
+	var adjustedValue: float = value / 100
+	
+	match modifier.type:
+		Enums.equipmentModifierType.FEROCITY:
+			entityScene.entityResource.ferocity += value
+		Enums.equipmentModifierType.PERSEVERANCE:
+			entityScene.entityResource.perseverance += value
+		Enums.equipmentModifierType.AGILITY:
+			entityScene.entityResource.agility += value
+		Enums.equipmentModifierType.PERCEPTION:
+			entityScene.entityResource.perception += value
+		Enums.equipmentModifierType.OXYGEN_CAPACITY:
+			entityScene.entityResource.oxygenCapacity += value
+		Enums.equipmentModifierType.LIGHT_RADIUS:
+			entityScene.entityResource.lightRadius += value
+		Enums.equipmentModifierType.MAX_HEALTH:
+			entityScene.maxHealth += value
+		Enums.equipmentModifierType.DAMAGE:
+			entityScene.damageModifier += adjustedValue
 
 
 func enumArrayToString(_enum, array):
@@ -197,10 +225,113 @@ func checkForCrit(entity: CharacterBody2D):
 	return isCrit
 
 
+func playParticleEffect(particleComponent: Node2D, rotation: float = 0, color: Color = UtilsS.colorWhite):
+	var particle = particleComponent.get_child(0).duplicate()
+	particle.global_position = particleComponent.global_position
+	particle.rotation = rotation
+	particle.modulate = color
+	get_tree().get_root().get_node("Game").particles.add_child(particle)
+	particle.emitting = true
+	
+	await get_tree().create_timer(particle.lifetime * 1.5).timeout
+	
+	get_tree().get_root().get_node("Game").particles.remove_child(particle)
 
 
+func equipCard(entityScene: CharacterBody2D, card: LevelUpCard):
+	gainStats(entityScene, card)
+	gainModifiers(entityScene, card)
 
 
+func gainModifiers(entityScene: CharacterBody2D, card: LevelUpCard):
+	var value: float = card.value / 100
+	var value2: float = card.value2 / 100
+	match card.type:
+		Enums.cardType.MELEE_DAMAGE:
+			entityScene.meleeDamageModifier += value
+		Enums.cardType.RANGED_DAMAGE:
+			entityScene.rangedDamageModifier += value
+		Enums.cardType.ATTACK_DELAY:
+			entityScene.attackDelayModifier -= value
+		Enums.cardType.HEALTH:
+			entityScene.healthModifier += value
+		Enums.cardType.MOVEMENT_SPEED:
+			entityScene.movementSpeedModifier += value
+		Enums.cardType.SIGHT:
+			entityScene.sightRadiusModifier += value
+		Enums.cardType.FORTUNE:
+			entityScene.lootModifier += value
+		Enums.cardType.EFFECT_STRENGTH:
+			entityScene.effectStrengthModifier += value
+		Enums.cardType.STAMINA_COST:
+			entityScene.staminaCostModifier -= value
+		Enums.cardType.CRITICAL_DAMAGE:
+			entityScene.critDamageModifier += value
+		Enums.cardType.DANGER:
+			entityScene.healthModifier -= value
+			entityScene.meleeDamageModifier -= value
+			entityScene.rangedDamageModifier -= value
+		
+		
+		Enums.cardType.MELEE_RANGED:
+			entityScene.rangedDamageAfterMeleeAttack += value * 100
+			entityScene.meleeDamageAfterRangedAttack += value * 100
+		
+		Enums.cardType.THIRD_ATTACK:
+			entityScene.thirdAttackDamage += value * 100
+		
+		Enums.cardType.KNOCKBACK:
+			entityScene.knockbackModifier += value
+		
+		Enums.cardType.PROJECTILE_SPREAD_SPEED:
+			entityScene.projectileSpeedModifier += value
+			entityScene.projectileSpreadModifier -= value2
+		
+		Enums.cardType.KILL_ATTACK_DELAY_SPEED:
+			entityScene.attackDelayAfterKill -= value * 100
+			entityScene.movementSpeedAfterKill += value2 * 100
+		
+		Enums.cardType.KILL_STAMINA:
+			entityScene.staminaGainAfterKill += value * 100
+		
+		Enums.cardType.EXHAUSTING_ATTACK:
+			entityScene.exhaustingDamageModifier += value
+		
+		Enums.cardType.SIGHT_RADIUS_ENTRY:
+			entityScene.sightRadiusEntryEffect += value
+		
+		Enums.cardType.CONSUME_AMMO:
+			entityScene.ammunitionConsumeModifier -= value
+		
+		Enums.cardType.DAMAGE_RANGE:
+			entityScene.damageRangeMin -= value
+			entityScene.damageRangeMax += value2
+		
+		Enums.cardType.EFFECT_DURATION:
+			entityScene.effectDurationRandomModifier += value
+		
+		Enums.cardType.EFFECT_TAKEN_DURATION:
+			entityScene.effectTakenStrengthModifier -= value
+			entityScene.effectTakenDurationModifier -= value2
+		
+		Enums.cardType.CRIT_CHANCE:
+			entityScene.critChance += value * 100
+		
+		Enums.cardType.CRIT_STAT_INCREASE:
+			entityScene.critStatIncrease += value * 100
+
+
+func gainStats(entityScene: CharacterBody2D, card: LevelUpCard):
+	for stat in card.stats:
+		match stat.resource:
+			Enums.statType.FEROCITY:
+				entityScene.entityResource.ferocity += stat.amount
+			Enums.statType.PERSEVERANCE:
+				entityScene.entityResource.perseverance += stat.amount
+			Enums.statType.AGILITY:
+				entityScene.entityResource.agility += stat.amount
+			Enums.statType.PERCEPTION:
+				entityScene.entityResource.perception += stat.amount
 
 
 

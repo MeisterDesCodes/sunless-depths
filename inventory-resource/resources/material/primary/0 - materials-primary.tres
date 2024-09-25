@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Resources" load_steps=5 format=3 uid="uid://deyeln3tkbvyl"]
+
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="1_p1uj4"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="2_ebkmf"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="3_r2w76"]
+[ext_resource type="Script" path="res://inventory-resource/resources.gd" id="5_6t6i1"]
+
+[resource]
+script = ExtResource("5_6t6i1")
+allResources = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("1_p1uj4"), ExtResource("2_ebkmf"), ExtResource("3_r2w76")])

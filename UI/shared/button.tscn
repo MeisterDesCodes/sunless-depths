@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfw7jp1wfuqal"]
+[gd_scene load_steps=3 format=3 uid="uid://bfw7jp1wfuqal"]
 
+[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-small.tres" id="1_cmkvl"]
 [ext_resource type="Script" path="res://UI/shared/button.gd" id="2_xoeby"]
 
 [node name="Button" type="Button"]
@@ -16,6 +17,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(22.5, 20)
+theme = ExtResource("1_cmkvl")
 script = ExtResource("2_xoeby")
 
 [node name="TextureRect" type="TextureRect" parent="."]

@@ -36,13 +36,13 @@ func _ready():
 
 
 func getRandomCard():
-	var filteredCards = allCards.filter(func(card): return isValidCard(card) && !(card in pickedCards) && !(card in playerScene.selectedCards))
+	var filteredCards = allCards.filter(func(card): return isValidCard(card) && !(card in pickedCards) && !(card in playerScene.equippedCards))
 	return filteredCards.pick_random()
 
 
 func isValidCard(card: LevelUpCard):
 	for requirement in card.requirements:
-		if !(requirement in playerScene.selectedCards):
+		if !(requirement in playerScene.equippedCards):
 			return false
 	return true
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gcr3nihe0icm"]
 
-[ext_resource type="Texture2D" uid="uid://cytg5txajdjy1" path="res://assets/environment/textures/materials/treasure-texture.png" id="1_oinl2"]
+[ext_resource type="Texture2D" uid="uid://cytg5txajdjy1" path="res://assets/environment/textures/material/treasure-texture.png" id="1_oinl2"]
 
 [node name="TreasureTexture" type="Node2D"]
 scale = Vector2(0.5, 0.5)

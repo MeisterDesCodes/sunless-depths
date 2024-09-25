@@ -29,6 +29,12 @@ extends Control
 @onready var ammunitionReserve1Label = get_node("MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/PanelContainerAmmunition2/AmmunitionReserve1Amount")
 @onready var ammunitionReserve2Label = get_node("MarginContainer/HBoxContainer/PanelContainer3/MarginContainer/PanelContainerAmmunition3/AmmunitionReserve2Amount")
 
+@onready var consumableContainer = get_node("MarginContainer/HBoxContainer/PanelContainer4")
+@onready var consumableTexture = get_node("MarginContainer/HBoxContainer/PanelContainer4/MarginContainer2/ActiveConsumable")
+@onready var consumableAmount = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumbleAmount")
+@onready var consumableCooldown = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumbleCooldown")
+@onready var consumeParticles = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumeParticles")
+
 @onready var statusEffectsContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/StatusEffects")
 
 @onready var weaponSlots: Array = [activeWeapon, reserveWeapon1, reserveWeapon2]
@@ -57,6 +63,30 @@ func _ready():
 	sprintContainer.visible = false
 	setupWeaponTextures()
 	survivalNeedModifier = UtilsS.getScalingValue(playerScene.entityResource.perseverance * 2)
+
+
+func updateConsumable():
+	consumableTexture.texture = null
+	consumableAmount.text = ""
+	consumableCooldown.text = ""
+	if playerScene.equippedConsumable:
+		if !playerScene.equippedConsumable.isOnCooldown:
+			consumableContainer.self_modulate = UtilsS.colorWhite
+			consumableTexture.texture = playerScene.equippedConsumable.texture
+			consumableAmount.text = str(playerScene.inventory.getResourceAmount(playerScene.equippedConsumable))
+		else:
+			consumableContainer.self_modulate = UtilsS.colorDisabled
+			consumableTexture.texture = null
+			consumableAmount.text = ""
+			consumableCooldown.text = str(round(playerScene.equippedConsumable.remainingCooldown))
+
+
+func disableConsumeButton():
+	if playerScene.equippedConsumable:
+		playerScene.inventory.getResource(playerScene.equippedConsumable).isOnCooldown = true
+		updateConsumable()
+		#TODO
+		UtilsS.playParticleEffect(consumeParticles)
 
 
 func setupWeaponTexture(index: int):
@@ -252,3 +282,7 @@ func _on_panel_container_ammunition_3_mouse_entered():
 
 func _on_panel_container_ammunition_3_mouse_exited():
 	UILoaderS.closeUIPopup()
+
+
+func _on_consumable_timer_timeout():
+	updateConsumable()

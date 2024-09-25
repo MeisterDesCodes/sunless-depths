@@ -6,12 +6,7 @@
 [resource]
 script = ExtResource("1_1b817")
 equipmentType = 0
-ferocityModifier = 2
-perseveranceModifier = 0
-agilityModifier = 0
-perceptionModifier = 4
-lightRadius = 1.5
-oxygenCapacity = 0.0
+modifiers = Array[Resource("res://inventory-resource/inventory-equipment-modifier.gd")]([])
 name = "Blazing Torch"
 description = ""
 texture = ExtResource("2_il0bx")

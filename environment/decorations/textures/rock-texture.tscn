@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dy5s0dodic4ul"]
 
-[ext_resource type="Texture2D" uid="uid://cijdqv5ffvklh" path="res://assets/environment/textures/materials/rock-texture.png" id="1_ykfgn"]
+[ext_resource type="Texture2D" uid="uid://cijdqv5ffvklh" path="res://assets/environment/textures/material/rock-texture.png" id="1_ykfgn"]
 
 [node name="RockTexture" type="Node2D"]
 scale = Vector2(0.5, 0.5)

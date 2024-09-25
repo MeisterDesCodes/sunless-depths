@@ -26,7 +26,7 @@ effectApplyType = 0
 
 [resource]
 script = ExtResource("1_wips3")
-cooldown = 5.0
+cooldown = 2.0
 statusEffects = Array[ExtResource("2_2xxqe")]([SubResource("Resource_okjso"), SubResource("Resource_3qpli")])
 name = "Mushroom Brew"
 description = "Distilled from underground fungi, it is essential for concocting basic potions, providing basic improvements of stats."

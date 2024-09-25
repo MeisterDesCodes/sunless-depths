@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkyapdnubk1ph"]
 
 [ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_nldm4"]
-[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/rubble.tres" id="2_o6rrp"]
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="2_o6rrp"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="2_rq5c8"]
 [ext_resource type="Texture2D" uid="uid://cfgfddu12t3pl" path="res://assets/environment/interactions/debris.png" id="2_v276m"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_m77nl"]
-[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/planks.tres" id="4_utj17"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="4_utj17"]
 
 [sub_resource type="Resource" id="Resource_8j16i"]
 script = ExtResource("2_rq5c8")

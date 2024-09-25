@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5if4qbofp5mc"]
+
+[ext_resource type="Texture2D" uid="uid://vyi5hgsi0sd5" path="res://assets/particles/projectile-particle.png" id="1_q7l7e"]
+
+[sub_resource type="Curve" id="Curve_ob301"]
+_data = [Vector2(0.276836, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s62of"]
+curve = SubResource("Curve_ob301")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8aek"]
+lifetime_randomness = 0.16
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 5.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_s62of")
+color = Color(0.811765, 0.811765, 0.811765, 1)
+turbulence_noise_strength = 9.55
+turbulence_noise_scale = 2.053
+
+[node name="DashParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_w8aek")
+texture = ExtResource("1_q7l7e")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.25
+randomness = 0.25

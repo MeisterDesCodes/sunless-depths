@@ -3,8 +3,8 @@
 [ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="1_j8cl7"]
 [ext_resource type="Script" path="res://environment/interactions/loot-table.gd" id="1_nh2rd"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="2_1asrg"]
-[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/cloth.tres" id="3_m1d1e"]
-[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/scrap-metal.tres" id="4_veb18"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="3_m1d1e"]
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="4_veb18"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="5_psxhh"]
 [ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="6_kcgpp"]
 

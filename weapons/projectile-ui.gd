@@ -1,6 +1,8 @@
 extends StaticBody2D
 
 
+@onready var projectileHitParticle: Node2D = get_node("ProjectileHitParticles")
+
 var hitEntities: Array
 var direction: Vector2 = Vector2.ZERO
 
@@ -60,4 +62,5 @@ func _on_detection_area_area_entered(area):
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("isMap"):
+		UtilsS.playParticleEffect(projectileHitParticle)
 		queue_free()

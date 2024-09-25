@@ -131,12 +131,24 @@ mouse_filter = 1
 texture = ExtResource("7_1y86g")
 affectedElement = NodePath(".")
 
-[node name="ConsumeButton" parent="MarginContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="ConsumeSlots" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="ConsumeButton" parent="MarginContainer/ConsumeSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 1
 texture = ExtResource("6_0lsik")
+affectedElement = NodePath(".")
+
+[node name="ConsumeEquipButton" parent="MarginContainer/ConsumeSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+layout_mode = 2
+mouse_filter = 1
+texture = ExtResource("7_1y86g")
 affectedElement = NodePath(".")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
@@ -161,4 +173,5 @@ affectedElement = NodePath(".")
 [connection signal="pressed" from="MarginContainer/AmmunitionSlots/AssignAmmunitionSlot3" to="." method="_on_assign_ammunition_slot_3_pressed"]
 [connection signal="pressed" from="MarginContainer/CraftButton" to="." method="_on_craft_button_pressed"]
 [connection signal="pressed" from="MarginContainer/EquipButton" to="." method="_on_equip_button_pressed"]
-[connection signal="pressed" from="MarginContainer/ConsumeButton" to="." method="_on_consume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ConsumeSlots/ConsumeButton" to="." method="_on_consume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ConsumeSlots/ConsumeEquipButton" to="." method="_on_consume_equip_button_pressed"]

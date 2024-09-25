@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://g3kf8qmks18f"]
+
+[ext_resource type="Script" path="res://entities/game-sound-component.gd" id="1_wqvq1"]
+
+[node name="GameSoundComponent" type="Node2D"]
+script = ExtResource("1_wqvq1")
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+
+[node name="EffectMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+
+[node name="AmbientTimer" type="Timer" parent="."]
+
+[connection signal="finished" from="AmbientMusic" to="." method="_on_ambient_music_finished"]
+[connection signal="timeout" from="AmbientTimer" to="." method="_on_ambient_timer_timeout"]

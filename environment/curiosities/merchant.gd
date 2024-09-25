@@ -3,6 +3,8 @@ extends Node2D
 
 @export var title: String
 @export var availableBlueprints: Array[InventoryResource]
+@export var hasAdditionalBlueprints: bool
+@export var tier: int
 @export var priceModifier: float
 
 @onready var curiosity = get_node("Curiosity")

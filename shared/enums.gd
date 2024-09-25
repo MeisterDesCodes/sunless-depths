@@ -54,8 +54,7 @@ enum effectApplyType {APPLY, TICK, HIT}
 
 enum locationRingLevel {NONE, OUTER, INNER, VISITED, CURRENT}
 
-
-
+enum equipmentModifierType {FEROCITY, PERSEVERANCE, AGILITY, PERCEPTION, OXYGEN_CAPACITY, LIGHT_RADIUS, MAX_HEALTH, DAMAGE}
 
 
 

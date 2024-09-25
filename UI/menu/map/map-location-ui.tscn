@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c572bb7vvyy3u"]
+[gd_scene load_steps=6 format=3 uid="uid://c572bb7vvyy3u"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-location-ui.gd" id="1_5e0v6"]
 [ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="2_eui46"]
 [ext_resource type="Theme" uid="uid://dt2kmg15mqf2t" path="res://assets/UI/themes/UI-elements/location-marker.tres" id="2_jr7c8"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="3_7trmp"]
+[ext_resource type="Theme" uid="uid://dq788m3px4i4p" path="res://assets/UI/themes/UI-elements/button-no-styling.tres" id="5_88gms"]
 
 [node name="MapLocationUI" type="Control"]
 layout_mode = 3
@@ -84,6 +85,7 @@ expand_mode = 1
 
 [node name="Button" parent="PanelContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_7trmp")]
 layout_mode = 2
+theme = ExtResource("5_88gms")
 flat = true
 version = -1
 affectedElement = NodePath("..")

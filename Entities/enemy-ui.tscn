@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ca0d7whibvanw"]
+[gd_scene load_steps=20 format=3 uid="uid://ca0d7whibvanw"]
 
 [ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
 [ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="2_u0ny8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bibqyv7bymwus" path="res://entities/components/contact-damage-component.tscn" id="7_ghee7"]
 [ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
+[ext_resource type="PackedScene" uid="uid://hsibopu7e36h" path="res://entities/entity-sound-component.tscn" id="13_l4cay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
 radius = 120.0
@@ -114,6 +115,9 @@ entityScene = NodePath("..")
 [node name="ResourceSpawner" parent="." instance=ExtResource("3_rnx55")]
 
 [node name="ParticleComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_u0ny8")]
+entity = NodePath("..")
+
+[node name="SoundComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("13_l4cay")]
 entity = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

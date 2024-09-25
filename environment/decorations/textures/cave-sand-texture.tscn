@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bciduojjrju4"]
 
-[ext_resource type="Texture2D" uid="uid://brtpaf0owyexi" path="res://assets/environment/textures/materials/cave-sand-texture.png" id="1_sbpst"]
+[ext_resource type="Texture2D" uid="uid://brtpaf0owyexi" path="res://assets/environment/textures/material/cave-sand-texture.png" id="1_sbpst"]
 
 [node name="CaveSandTexture" type="Node2D"]
 scale = Vector2(0.5, 0.5)

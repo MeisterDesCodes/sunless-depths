@@ -18,6 +18,8 @@ signal healthModified
 @onready var directionalLight = get_node("RotationPoint/DirectionalLight")
 @onready var camera = get_tree().get_root().get_node("Game/FollowCamera")
 @onready var image: Sprite2D = get_node("RotationPoint/Image")
+@onready var soundComponent: Node2D = get_node("SoundComponent")
+@onready var rotationPoint: Marker2D = get_node("RotationPoint")
 
 @onready var staminaRestoreTimer: Timer = get_node("StaminaRestore")
 @onready var staminaRestoreExhaustTimer: Timer = get_node("StaminaExhaustRestore")
@@ -25,15 +27,18 @@ signal healthModified
 @onready var consumeTimer: Timer = get_node("ConsumeTimer")
 
 var fistWeapon = preload("res://weapons/resources/daggers/fists.tres")
+var rustyTank = preload("res://inventory-resource/resources/equipment/rusty-tank.tres")
+var oldTorch = preload("res://inventory-resource/resources/equipment/old-torch.tres")
 var equippedWeapons: Array[InventoryWeapon]  = [fistWeapon, fistWeapon, fistWeapon]
-var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, null, null]
+var equippedGear: Array[InventoryEquipment]  = [oldTorch, rustyTank, null, null, null, null, null]
+var equippedConsumable: InventoryConsumable = null
 
 var isAttacking: bool = false
 var attackOnCooldown: bool = false
 
 var maxHealth: float
 var health: float
-var healthRegeneration = 0.01
+var healthRegeneration: float
 var level: int
 
 var immunityFramesActive: bool = false
@@ -51,20 +56,21 @@ var isDying: bool = false
 
 var currentSupplyDrain: float
 var currentOxygenDrain: float
-var baseStaminaRestore: float = 15
-var currentStaminaRestore: float = baseStaminaRestore
-var sprintingStaminaDrain: float = 20
-var dashStaminaCost: float = 20
-var exhaustionSpeedPenalty: float = 75
+var baseStaminaRestore: float
+var currentStaminaRestore: float
+var sprintingStaminaDrain: float
+var dashStaminaCost: float
+var exhaustionSpeedPenalty: float
 
 var damageRangeMin: float = 0.75
 var damageRangeMax: float = 1.25
 
-var selectedCards: Array[LevelUpCard]
+var equippedCards: Array[LevelUpCard]
 
 
 var attackCounter: int = 1
 
+var damageModifier: float = 1
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
 var attackDelayModifier: float = 1
@@ -73,7 +79,7 @@ var movementSpeedModifier: float = 1
 var sightRadiusModifier: float = 1
 var lootModifier: float = 1
 var effectStrengthModifier: float = 1
-var staminaCostModifier: float = 0.25
+var staminaCostModifier: float = 1
 var criticalDamageModifier: float = 1
 
 var knockbackModifier: float = 1
@@ -94,7 +100,7 @@ var attackDelayAfterKill: float = 0
 var movementSpeedAfterKill: float = 0
 var sightRadiusEntryEffect: float = 0
 var critStatIncrease: float = 0
-var critChance: float = 50
+var critChance: float = 0
 
 
 var baseZoom: float = 2.5
@@ -106,22 +112,31 @@ var atExit: bool = false
 var isInCave: bool = false
 
 
-func _ready():
+func setup():
 	$"RotationPoint/Image".texture = entityResource.texture
 	initializePlayer()
 	updateActiveWeapon()
 	updateWepaonTypes()
+	updateWeapons()
 	setupLightSource()
 	inventory.updateResourceTypes()
 	camera.zoom = Vector2(baseZoom, baseZoom)
 
 
 func initializePlayer():
+	currentSupplyDrain = entityResource.supplyDrain
+	currentOxygenDrain = entityResource.oxygenDrain
+	baseStaminaRestore = entityResource.staminaRestore
 	currentStaminaRestore = entityResource.staminaRestore
-	equipInitialItem(preload("res://inventory-resource/resources/equipment/rusty-tank.tres"))
-	equipInitialItem(preload("res://inventory-resource/resources/equipment/old-torch.tres"))
+	sprintingStaminaDrain = entityResource.sprintingStaminaDrain
+	dashStaminaCost = entityResource.dashStaminaCost
+	exhaustionSpeedPenalty = entityResource.exhaustionSpeedPenalty
+	currentMoveSpeed = entityResource.moveSpeed
 	updateMaxHealth()
 	health = maxHealth
+	healthRegeneration = entityResource.healthRegeneration
+	equipInitialItems()
+	equipInitialCards()
 
 
 func updateMaxHealth():
@@ -131,10 +146,15 @@ func updateMaxHealth():
 	hudUI.healthModified()
 
 
-func equipInitialItem(equipment: InventoryEquipment):
-	var slot = inventory.getResourceSlot(equipment)
-	if slot:
-		UtilsS.equipItem(self, slot.resource, slot.resource.equipmentType)
+func equipInitialItems():
+	for item in equippedGear:
+		if item:
+			UtilsS.equipItem(self, item, item.equipmentType)
+
+
+func equipInitialCards():
+	for card in equippedCards:
+		UtilsS.equipCard(self, card)
 
 
 func _physics_process(_delta):
@@ -175,18 +195,28 @@ func getDirection():
 
 
 func setupLightSource():
-	var size = entityResource.lightRadius
+	var size = 2 + entityResource.lightRadius * 0.5
 	var sizeIncrease = 1 / UtilsS.getScalingValue(entityResource.perception * 0.5)
-	lightSource.update(size * sizeIncrease)
-	var directionalLightSize = 1 + (size * 0.2 * sizeIncrease)
-	directionalLight.get_child(0).scale = Vector2(directionalLightSize, directionalLightSize)
-	directionalLight.get_child(0).energy = 1 + directionalLightSize
+	var totalSize: float = size * sizeIncrease
+	lightSource.update(totalSize)
+	
+	var totaldirectionalSize: float = 1 + totalSize * 0.2
+	directionalLight.get_child(0).scale = Vector2(totaldirectionalSize, totaldirectionalSize * 1.5)
+	directionalLight.get_child(0).energy = 0.5 * totalSize / 2
 
 
 func updateWeapons():
 	updateActiveWeapon()
 	updateWepaonTypes()
 	hudUI.setupWeaponTextures()
+
+
+func equipConsumable(consumable: InventoryConsumable):
+	if equippedConsumable == consumable:
+		equippedConsumable = null
+	else:
+		equippedConsumable = consumable
+	hudUI.updateConsumable()
 
 
 func updateActiveWeapon():
@@ -251,6 +281,8 @@ func dash():
 	var speed: float = 150 + entityResource.moveSpeed * 1.5
 	velocity = lerp(velocity, direction * speed, 0.5)
 	useStamina(dashStaminaCost)
+	particleComponent.activateDashParticles()
+	soundComponent.onDash()
 	
 	dashTimer.start()
 	await get_tree().create_timer(0.3).timeout
@@ -266,6 +298,7 @@ func attack():
 		updateHud.emit(0.5, 1, weaponInstance.weapon.staminaCost)
 		updateWeapons()
 		useStamina(weaponInstance.weapon.staminaCost)
+		soundComponent.onAttack(weaponInstance.weapon)
 
 
 func canAttack():

@@ -41,6 +41,8 @@ func scroll(element, amount: float, duration: float):
 	get_tree().create_tween().tween_property(element, "scroll_vertical", amount, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 
 
+func fadeSound(element, amount: float, duration: float):
+	get_tree().create_tween().tween_property(element, "volume_db", amount, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 
 
 

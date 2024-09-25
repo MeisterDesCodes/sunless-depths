@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpr3at4hehmur"]
+[gd_scene load_steps=9 format=3 uid="uid://dpr3at4hehmur"]
 
 [ext_resource type="Script" path="res://weapons/projectile-ui.gd" id="1_1chbn"]
 [ext_resource type="Texture2D" uid="uid://d3y5lj33cvb26" path="res://assets/resources/weapons/ammunition/arrow.png" id="2_uhsn4"]
+[ext_resource type="PackedScene" uid="uid://dgic8f1brmy72" path="res://environment/decorations/particles/projectile-particle.tscn" id="3_xrhlk"]
+[ext_resource type="PackedScene" uid="uid://dkao4jqlrlta" path="res://environment/decorations/particles/projectile-hit-particle.tscn" id="4_u6xhs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cylg2"]
 radius = 5.0
@@ -44,6 +46,14 @@ collision_mask = 13
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(10, -2)
 shape = SubResource("CircleShape2D_iues5")
+
+[node name="ProjectileParticles" parent="." instance=ExtResource("3_xrhlk")]
+position = Vector2(-15, -2)
+rotation = 3.14159
+
+[node name="ProjectileHitParticles" parent="." instance=ExtResource("4_u6xhs")]
+position = Vector2(10, -2)
+rotation = 3.14159
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

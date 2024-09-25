@@ -17,18 +17,21 @@ var visitedLocations: Array[Enums.locations]
 
 func loadArea(location: Enums.locations):
 	await startAreaTransition()
+	removeCurrentLocation()
 	removeCurrentCave()
 	removeAttributes()
 	currentLocation = location
 	nextLocation = -1
 	visitedLocations.append(location)
 	game.currentLocation.add_child(getSceneFromId(location).instantiate())
+	game.gameSoundComponent.playSettlementAmbient()
 	finishAreaTransition()
 
 
 func loadCave():
 	await startAreaTransition()
 	caveGenerator.spawnPlayer.connect(spawnPlayer)
+	removeCurrentCave()
 	removeCurrentLocation()
 	caveGenerator.generateCave()
 	setupAttributes()
@@ -37,6 +40,7 @@ func loadCave():
 	await get_tree().process_frame
 	
 	game.navigationRegion.bake_navigation_polygon()
+	game.gameSoundComponent.playCaveAmbient()
 	finishAreaTransition()
 
 

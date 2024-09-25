@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=8 format=3 uid="uid://islfv5he1wk2"]
 
-[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/cave-mushroom.tres" id="1_y501s"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="1_y501s"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_av115"]
 [ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="3_o0gk2"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_tbe84"]

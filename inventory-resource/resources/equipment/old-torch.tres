@@ -1,17 +1,23 @@
-[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://buco1qws0fm6y"]
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=6 format=3 uid="uid://buco1qws0fm6y"]
 
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_e62a1"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_x7wlg"]
 [ext_resource type="Texture2D" uid="uid://dg56rfdn5lr1c" path="res://assets/resources/equipment/lights/Old Torch.png" id="2_rm61f"]
+
+[sub_resource type="Resource" id="Resource_6lsw1"]
+script = ExtResource("1_e62a1")
+type = 5
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_hsjcd"]
+script = ExtResource("1_e62a1")
+type = 3
+value = 1.0
 
 [resource]
 script = ExtResource("1_x7wlg")
 equipmentType = 0
-ferocityModifier = 0
-perseveranceModifier = 0
-agilityModifier = 0
-perceptionModifier = 1
-lightRadius = 1.0
-oxygenCapacity = 0.0
+modifiers = Array[ExtResource("1_e62a1")]([SubResource("Resource_6lsw1"), SubResource("Resource_hsjcd")])
 name = "Old Torch"
 description = "Fashioned from weathered wood and wrapped with frayed cloth, serves as a reliable light source and can be wielded as a makeshift weapon."
 texture = ExtResource("2_rm61f")

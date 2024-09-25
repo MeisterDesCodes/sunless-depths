@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_igf4x"]
 [ext_resource type="Texture2D" uid="uid://dnl6yp8gkfp40" path="res://assets/entities/giant-rat.png" id="2_5cuxh"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="4_4sxbu"]
-[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/meat-scraps.tres" id="4_bv0hn"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="4_bv0hn"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="4_rpyqr"]
-[ext_resource type="Resource" uid="uid://cct8ajp56qlgm" path="res://inventory-resource/resources/material/bone.tres" id="5_ne3cm"]
+[ext_resource type="Resource" uid="uid://cct8ajp56qlgm" path="res://inventory-resource/resources/material/common/bone.tres" id="5_ne3cm"]
 
 [sub_resource type="Resource" id="Resource_o5h46"]
 script = ExtResource("1_igf4x")
