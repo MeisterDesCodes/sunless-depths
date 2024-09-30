@@ -16,7 +16,7 @@ var currentPopupScene: Control
 
 
 func loadUIScene(scene: PackedScene):
-	playerScene.isInDialog = true
+	playerScene.isInUIScene = true
 	var canvasLayer: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl")
 	var sceneInstance = scene.instantiate()
 	canvasLayer.add_child(sceneInstance)
@@ -115,7 +115,7 @@ func closeUIPopup():
 func closeUIScene(sceneInstance):
 	playerScene.atExit = false
 	if currentUIScenes.size() == 1:
-		playerScene.isInDialog = false
+		playerScene.isInUIScene = false
 		closeUIBlocker(currentBlockerScene)
 	else:
 		currentBlockerScene.z_index = currentUIScenes[currentUIScenes.size() - 2].z_index - 1
@@ -131,7 +131,7 @@ func closeUIBlocker(sceneInstance):
 
 
 func closeAllUIScenes():
-	playerScene.isInDialog = false
+	playerScene.isInUIScene = false
 	for UIScene in currentUIScenes:
 		UIScene.queue_free()
 	currentUIScenes.clear()

@@ -35,6 +35,7 @@ func playCaveEffect():
 
 
 func playMusic(player: AudioStreamPlayer, musicArray: Array[AudioStreamMP3]):
+	return
 	if !player.playing:
 		AnimationsS.fadeSound(player, -30, 2)
 		await get_tree().create_timer(2).timeout

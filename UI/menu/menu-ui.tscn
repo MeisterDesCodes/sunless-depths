@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0um87rc8bl77"]
+[gd_scene load_steps=10 format=3 uid="uid://b0um87rc8bl77"]
 
 [ext_resource type="Script" path="res://UI/menu/menu-ui.gd" id="1_2cm1r"]
 [ext_resource type="Theme" uid="uid://vkof7lo8jctq" path="res://assets/UI/themes/UI-elements/menu-header.tres" id="2_kwxqd"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dqulph4hdnkof" path="res://assets/UI/icons/menu/Map.png" id="4_b33fp"]
 [ext_resource type="Theme" uid="uid://bat77wlh5fhmk" path="res://assets/UI/themes/UI-elements/menu.tres" id="5_i3qkj"]
 [ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="7_0i61g"]
-[ext_resource type="PackedScene" uid="uid://b77820xtv0gp7" path="res://environment/decorations/particles/menu-particle.tscn" id="9_wxxk0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfupi"]
 
@@ -25,9 +24,6 @@ pivot_offset = Vector2(800, 400)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_2cm1r")
-
-[node name="MenuParticles" parent="." instance=ExtResource("9_wxxk0")]
-position = Vector2(87.5, -10)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(1400, 0)
@@ -64,6 +60,7 @@ theme_override_constants/separation = 50
 [node name="Inventory" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_w8t0y")]
 layout_mode = 2
 theme = ExtResource("4_31jwt")
+flat = false
 texture = ExtResource("3_4508c")
 version = 1
 affectedElement = NodePath(".")
@@ -71,6 +68,7 @@ affectedElement = NodePath(".")
 [node name="Map" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_w8t0y")]
 layout_mode = 2
 theme = ExtResource("4_31jwt")
+flat = false
 texture = ExtResource("4_b33fp")
 version = 1
 affectedElement = NodePath(".")

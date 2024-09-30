@@ -67,7 +67,7 @@ func updateTotalCosts():
 	for merchantResource in resourcesWindow.get_children():
 		totalCosts += merchantResource.calculateTotalCost()
 	totalCostsLabel.text = str(totalCosts)
-	if totalCosts > playerScene.inventory.getResourceAmount(gold) && merchantMode == Enums.merchantMode.BUY:
+	if (totalCosts > playerScene.inventory.getResourceAmount(gold) && merchantMode == Enums.merchantMode.BUY) || totalCosts == 0:
 		purchaseButton.disabled = true
 	else:
 		purchaseButton.disabled = false
@@ -107,6 +107,7 @@ func _on_leave_pressed():
 
 
 func _on_buy_pressed():
+	#TODO
 	merchantMode = Enums.merchantMode.BUY
 	purchaseButton.text = "Purchase"
 	generateBuyResources()

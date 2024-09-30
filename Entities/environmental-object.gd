@@ -4,8 +4,12 @@ extends CharacterBody2D
 @export var entityResource: Entity
 
 
+var damageRangeMin: float = 0.75
+var damageRangeMax: float = 1.25
+
 var attackCounter: int = 0
 
+var damageModifier: float = 1
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
 var attackDelayModifier: float = 1

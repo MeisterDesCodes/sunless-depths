@@ -61,6 +61,6 @@ func _on_detection_area_area_entered(area):
 
 
 func _on_detection_area_body_entered(body):
-	if body.has_method("isMap"):
+	if body.has_method("isMap") || body.get_parent().has_method("isMap"):
 		UtilsS.playParticleEffect(projectileHitParticle)
 		queue_free()

@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b77820xtv0gp7"]
+[gd_scene load_steps=7 format=3 uid="uid://b77820xtv0gp7"]
 
 [ext_resource type="Texture2D" uid="uid://pqwv0cbt8ksw" path="res://assets/particles/hit-particle.png" id="1_b3od6"]
 
+[sub_resource type="Gradient" id="Gradient_m8l2v"]
+offsets = PackedFloat32Array(0.114094, 0.503356, 0.879195)
+colors = PackedColorArray(0.215686, 0.215686, 0.215686, 1, 0.282353, 0.282353, 0.282353, 1, 0.215686, 0.215686, 0.215686, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mv8wu"]
+gradient = SubResource("Gradient_m8l2v")
+
 [sub_resource type="Curve" id="Curve_ob301"]
-_data = [Vector2(0.949152, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0.296703), 0.0, 0.0, 0, 0, Vector2(0.101695, 1), 0.0, 0.0, 0, 0, Vector2(0.915254, 0.989011), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_s62of"]
 curve = SubResource("Curve_ob301")
@@ -21,7 +28,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.15
 scale_max = 0.25
 scale_curve = SubResource("CurveTexture_s62of")
-color = Color(0.313726, 0.313726, 0.313726, 1)
+color_ramp = SubResource("GradientTexture1D_mv8wu")
 turbulence_noise_strength = 9.55
 turbulence_noise_scale = 2.053
 
@@ -33,5 +40,6 @@ amount = 600
 process_material = SubResource("ParticleProcessMaterial_w8aek")
 texture = ExtResource("1_b3od6")
 lifetime = 10.0
+explosiveness = 0.5
 randomness = 0.25
 fixed_fps = 60

@@ -6,7 +6,7 @@ extends Button
 	set(value):
 		texture = value
 		$"TextureRect".texture = texture
-@export var version: int:
+@export var version: int = -1:
 	set(value):
 		version = value
 		_ready()
@@ -31,6 +31,12 @@ func _ready():
 		theme = preload("res://assets/UI/themes/UI-elements/button-large.tres")
 		flat = false
 		$"TextureRect".custom_minimum_size = Vector2(30, 30)
+	if version == 2:
+		theme = preload("res://assets/UI/themes/UI-elements/button-menu.tres")
+		flat = false
+		$"TextureRect".custom_minimum_size = Vector2(50, 20)
+	
+	pivot_offset = Vector2(size.x / 2, size.y / 2)
 
 
 func setSize():

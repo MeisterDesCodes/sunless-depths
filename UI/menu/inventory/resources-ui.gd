@@ -19,7 +19,7 @@ func _ready():
 
 
 func updateAssets(filter: Enums.resourceType):
-	if !playerScene.isInDialog:
+	if !playerScene.isInUIScene:
 		return
 	
 	if filter != Enums.resourceType.NONE:

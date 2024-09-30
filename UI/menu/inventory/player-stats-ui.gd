@@ -27,6 +27,7 @@ var scene
 func _ready():
 	updateLabels()
 	updateExperience()
+	experienceBar.pivot_offset = Vector2(experienceBar.size.x / 2, experienceBar.size.y / 2)
 
 
 func updateLabels():
@@ -65,6 +66,7 @@ func levelUp():
 	updateLabels()
 	scene = UILoaderS.loadUIScene(preload("res://UI/menu/inventory/level-up-cards/level-up-ui.tscn"))
 	scene.cardSelected.connect(updateLabels)
+	playerScene.canExitUIScene = false
 
 
 func _on_level_up_button_pressed():

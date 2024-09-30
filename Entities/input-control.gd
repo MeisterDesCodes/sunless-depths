@@ -5,7 +5,17 @@ extends Node2D
 
 
 func _process(delta):
-	if !playerScene.canAct():
+	if playerScene.isInLoadingScreen:
+		return
+	
+	if Input.is_action_just_pressed("exit"):
+		if !playerScene.isInUIScene:
+			UILoaderS.loadUIScene(preload("res://UI/pause-menu/pause-menu-ui.tscn"))
+		else:
+			if playerScene.canExitUIScene:
+				UILoaderS.closeAllUIScenes()
+	
+	if playerScene.isInUIScene:
 		return
 	
 	if Input.is_action_just_pressed("inventory"):
@@ -31,9 +41,6 @@ func _process(delta):
 		if playerScene.equippedConsumable && !playerScene.equippedConsumable.isOnCooldown:
 			UtilsS.useConsumable(playerScene, playerScene.equippedConsumable)
 			playerScene.hudUI.disableConsumeButton()
-	
-	if Input.is_action_just_pressed("exit"):
-		pass
 	
 	if Input.get_action_strength("attack"):
 		if playerScene.hudUI.staminaBar.value > 0:

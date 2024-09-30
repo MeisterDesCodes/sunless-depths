@@ -17,6 +17,7 @@ class_name SavedData
 @export_subgroup("Assets")
 @export var inventory: Array[InventorySlot]
 @export var equippedWeapons: Array[InventoryWeapon]
+@export var equippedAmmunitions: Array[InventoryAmmunition]
 @export var equippedGear: Array[InventoryEquipment]
 @export var equippedConsumable: InventoryConsumable
 @export var equippedCards: Array[LevelUpCard]

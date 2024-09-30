@@ -50,5 +50,6 @@ func isValidCard(card: LevelUpCard):
 func closeScreen():
 	cardSelected.emit()
 	UILoaderS.closeUIScene(UILoaderS.currentUIScenes[UILoaderS.currentUIScenes.size() - 1])
+	playerScene.canExitUIScene = true
 
 

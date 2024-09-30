@@ -14,3 +14,7 @@ extends Node2D
 		collision = value
 		if collisionShape:
 			collisionShape.disabled = !value
+
+
+func isMap():
+	pass

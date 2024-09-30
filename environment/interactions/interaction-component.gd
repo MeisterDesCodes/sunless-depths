@@ -24,7 +24,7 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact") && playerInRange && !completed && !player.isInDialog:
+	if Input.is_action_just_pressed("interact") && playerInRange && !completed && !player.isInUIScene:
 		onInteract.emit(player)
 		if interaction.lifetime > 0:
 			interaction.lifetime -= 1

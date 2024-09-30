@@ -14,10 +14,11 @@ extends Node2D
 func _ready():
 	canvasModulate.color = UtilsS.colorCanvasModulate
 	
+	visible = false
 	PersistenceS.loadGame()
 	playerScene.setup()
-	
-	#visible = false
+	visible = true
+
 	#LocationLoaderS.removeCurrentLocation()
 	#LocationLoaderS.loadArea(initialLocation.location)
-	#visible = true
+

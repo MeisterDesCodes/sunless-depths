@@ -50,7 +50,8 @@ var isWalking: bool = false
 var isSprinting: bool = false
 var isDashing: bool = false
 var canDash: bool = true
-var isInDialog: bool = false
+var isInUIScene: bool = false
+var canExitUIScene: bool = true
 var isInLoadingScreen: bool = false
 var isDying: bool = false
 
@@ -323,7 +324,7 @@ func zoom():
 
 
 func reduceConsumableCooldowns():
-	if isInDialog:
+	if isInUIScene:
 		return
 	
 	for resourceSlot in inventory.resourceSlots:
@@ -364,7 +365,7 @@ func _on_dash_timer_timeout():
 
 
 func canAct():
-	return !isInDialog && !isInLoadingScreen
+	return !isInUIScene && !isInLoadingScreen
 
 
 func _on_consume_timer_timeout():

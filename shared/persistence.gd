@@ -19,6 +19,12 @@ func saveGame():
 	
 	savedData.inventory = playerScene.inventory.resourceSlots
 	savedData.equippedWeapons = playerScene.equippedWeapons
+	for i in playerScene.equippedWeapons.size():
+		if playerScene.equippedWeapons[i] is RangedWeapon && playerScene.equippedWeapons[i].ammunition:
+			savedData.equippedAmmunitions.append(playerScene.equippedWeapons[i].ammunition)
+		else:
+			savedData.equippedAmmunitions.append(null)
+	
 	savedData.equippedGear = playerScene.equippedGear
 	savedData.equippedConsumable = playerScene.equippedConsumable
 	savedData.equippedCards = playerScene.equippedCards
@@ -40,6 +46,10 @@ func loadGame():
 	
 	playerScene.inventory.resourceSlots = savedData.inventory
 	playerScene.equippedWeapons = savedData.equippedWeapons
+	for i in savedData.equippedAmmunitions.size():
+		if savedData.equippedAmmunitions[i]:
+			playerScene.equippedWeapons[i].ammunition = savedData.equippedAmmunitions[i]
+	
 	playerScene.equippedGear = savedData.equippedGear
 	playerScene.equippedConsumable = savedData.equippedConsumable
 	playerScene.equippedCards = savedData.equippedCards

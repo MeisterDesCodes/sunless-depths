@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="4_w70lt"]
 [ext_resource type="Texture2D" uid="uid://wsbw7dpy2d4t" path="res://assets/UI/icons/menu/merchant/Buy.png" id="5_34ksj"]
 [ext_resource type="Texture2D" uid="uid://gt41om7xtvei" path="res://assets/UI/icons/menu/merchant/Sell.png" id="6_u4g0l"]
-[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-small.tres" id="9_mhf1r"]
+[ext_resource type="Theme" uid="uid://25bwyxl2sixn" path="res://assets/UI/themes/UI-elements/button-menu.tres" id="9_o3tve"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkjx7"]
 
@@ -83,6 +83,7 @@ theme_override_constants/separation = 35
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("4_3u2ih")
+flat = false
 texture = ExtResource("5_34ksj")
 version = 1
 affectedElement = NodePath(".")
@@ -91,11 +92,13 @@ affectedElement = NodePath(".")
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("4_3u2ih")
+flat = false
 texture = ExtResource("6_u4g0l")
 version = 1
 affectedElement = NodePath(".")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -156,6 +159,7 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -170,9 +174,11 @@ expand_mode = 2
 layout_mode = 2
 
 [node name="Purchase" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
-custom_minimum_size = Vector2(80, 65)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme = ExtResource("9_mhf1r")
+theme = ExtResource("9_o3tve")
+flat = false
+version = 2
 affectedElement = NodePath(".")
 
 [node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("4_w70lt")]

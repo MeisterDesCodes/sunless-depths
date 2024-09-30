@@ -33,7 +33,7 @@ extends Control
 @onready var consumableTexture = get_node("MarginContainer/HBoxContainer/PanelContainer4/MarginContainer2/ActiveConsumable")
 @onready var consumableAmount = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumbleAmount")
 @onready var consumableCooldown = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumbleCooldown")
-@onready var consumeParticles = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumeParticles")
+@onready var consumeParticles = get_node("ConsumeParticles")
 
 @onready var statusEffectsContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/StatusEffects")
 
