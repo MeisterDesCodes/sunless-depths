@@ -15,7 +15,7 @@ func _ready():
 	canvasModulate.color = UtilsS.colorCanvasModulate
 	
 	visible = false
-	PersistenceS.loadGame()
+	#PersistenceS.loadGame()
 	playerScene.setup()
 	visible = true
 

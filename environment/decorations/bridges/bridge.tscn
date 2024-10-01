@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bih0wc87kkrmi"]
+
+[ext_resource type="Texture2D" uid="uid://027k3knn47i8" path="res://assets/environment/decorations/bridges/20230421103504-a9017952-me.png" id="1_3r56f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8aom"]
+size = Vector2(320, 10)
+
+[node name="Bridge" type="Node2D"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(306, -1)
+rotation = 1.57079
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3r56f")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(224, -2.91038e-11)
+rotation = 1.57079
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3r56f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(142, -1)
+rotation = 1.57079
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3r56f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(61, -2.02363e-11)
+rotation = 1.57079
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3r56f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(170, 37)
+shape = SubResource("RectangleShape2D_u8aom")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(170, -37)
+shape = SubResource("RectangleShape2D_u8aom")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://1yvhjy3jwhtg"]
+
+[ext_resource type="Texture2D" uid="uid://cnpmfigmdowxf" path="res://assets/environment/textures/material/settlement-texture.png" id="1_lm8l4"]
+
+[node name="SettlementTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -370.0
+offset_top = -407.0
+offset_right = 432.0
+offset_bottom = 430.0
+texture = ExtResource("1_lm8l4")
+expand_mode = 1
