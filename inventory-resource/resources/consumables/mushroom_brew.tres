@@ -10,7 +10,7 @@ effectType = 4
 strength = 1.0
 duration = 12.0
 appliesTo = 0
-isStackable = true
+isStackable = false
 stackLimit = 0
 effectApplyType = 1
 
@@ -20,7 +20,7 @@ effectType = 5
 strength = 20.0
 duration = 45.0
 appliesTo = 0
-isStackable = true
+isStackable = false
 stackLimit = 0
 effectApplyType = 0
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=27 format=3 uid="uid://btn5dob4qrwk5"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=33 format=3 uid="uid://btn5dob4qrwk5"]
 
 [ext_resource type="Resource" uid="uid://buco1qws0fm6y" path="res://inventory-resource/resources/equipment/old-torch.tres" id="1_53e86"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_mh34j"]
@@ -7,13 +7,16 @@
 [ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="5_otneo"]
 [ext_resource type="Resource" uid="uid://d1jvo271qbw3x" path="res://weapons/resources/bows/ancient-bow.tres" id="6_5ibdi"]
 [ext_resource type="Script" path="res://inventory-resource/inventory.gd" id="6_s3erd"]
-[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/uncommon/improvised-explosives.tres" id="8_l6yem"]
 [ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="9_ofh8q"]
 [ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="9_uwijk"]
 [ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="10_vctix"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="11_gams0"]
 [ext_resource type="Resource" uid="uid://dpo73j42k6sbn" path="res://inventory-resource/resources/equipment/bone-necklace.tres" id="12_e0jrd"]
 [ext_resource type="Resource" uid="uid://cxduwdaay1mpy" path="res://inventory-resource/resources/equipment/lucky-scarf.tres" id="13_bvlfh"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="14_e1hhe"]
+[ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/BP-mushroom-brew.tres" id="15_qsnm3"]
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="16_q1gbv"]
+[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/common/blackpowder.tres" id="17_olbq2"]
 
 [sub_resource type="Resource" id="Resource_rpcen"]
 script = ExtResource("2_a7ysp")
@@ -45,11 +48,6 @@ script = ExtResource("2_a7ysp")
 resource = ExtResource("9_uwijk")
 amount = 20
 
-[sub_resource type="Resource" id="Resource_ycbnj"]
-script = ExtResource("2_a7ysp")
-resource = ExtResource("8_l6yem")
-amount = 5
-
 [sub_resource type="Resource" id="Resource_6sixg"]
 script = ExtResource("2_a7ysp")
 resource = ExtResource("9_ofh8q")
@@ -75,6 +73,26 @@ script = ExtResource("2_a7ysp")
 resource = ExtResource("13_bvlfh")
 amount = 1
 
+[sub_resource type="Resource" id="Resource_p4sq8"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("14_e1hhe")
+amount = 20
+
+[sub_resource type="Resource" id="Resource_u0jd2"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("15_qsnm3")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_v0e83"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("16_q1gbv")
+amount = 50
+
+[sub_resource type="Resource" id="Resource_uk7hu"]
+script = ExtResource("2_a7ysp")
+resource = ExtResource("17_olbq2")
+amount = 50
+
 [resource]
 script = ExtResource("6_s3erd")
-resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_kqwes"), SubResource("Resource_ycbnj"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc")])
+resourceSlots = Array[ExtResource("2_a7ysp")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_kqwes"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_p4sq8"), SubResource("Resource_u0jd2"), SubResource("Resource_v0e83"), SubResource("Resource_uk7hu")])

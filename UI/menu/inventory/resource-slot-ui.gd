@@ -59,15 +59,19 @@ func setup(_slot: InventorySlot, displayOnly: bool):
 	
 	if displayOnly:
 		consumeButton.visible = false
+		consumeEquipButton.visible = false
 		craftButton.visible = false
 		equipButton.visible = false
 		weaponSlotsContainer.visible = false
 		ammunitionSlotsConainer.visible = false
 	
-	update(slot)
+	update()
 
 
-func update(slot: InventorySlot):
+func update():
+	if slot.amount == 0:
+		queue_free()
+	
 	nameLabel.text = slot.resource.name
 	amountLabel.text = "x" + str(slot.amount)
 	icon.texture = slot.resource.texture
@@ -82,27 +86,27 @@ func update(slot: InventorySlot):
 	else:
 		equipButton.deselect()
 	
-	
 	for i in 3:
 		if playerScene.equippedWeapons[i] == slot.resource:
 			weaponSlotsContainer.get_child(i).select()
 		else:
 			weaponSlotsContainer.get_child(i).deselect()
-		#weaponSlotsContainer.get_child(i).get_child(0).texture = playerScene.equippedWeapons[i].texture
+		
+		weaponSlotsContainer.get_child(i).get_child(0).texture = playerScene.equippedWeapons[i].texture
 		
 		if slot.resource is InventoryAmmunition:
 			if playerScene.equippedWeapons[i] is RangedWeapon && playerScene.equippedWeapons[i].ammunition == slot.resource:
 				ammunitionSlotsConainer.get_child(i).select()
+				ammunitionSlotsConainer.get_child(i).get_child(0).texture = playerScene.equippedWeapons[i].ammunition.texture
 			else:
 				ammunitionSlotsConainer.get_child(i).deselect()
-			#ammunitionSlotsConainer.get_child(i).get_child(0).texture = playerScene.equippedWeapons[i].texture
 
 
 func updateCraftButton():
 	if !playerScene.inventory.hasResources(slot.resource.inputResources):
-		craftButton.disabled = true
+		craftButton.disable()
 	else:
-		craftButton.disabled = false
+		craftButton.enable()
 
 
 func _on_mouse_entered():
@@ -118,8 +122,11 @@ func _on_craft_button_pressed():
 		playerScene.inventory.removeResource(inputResource.resource, inputResource.amount)
 	for outputResource in slot.resource.outputResources:
 		playerScene.inventory.addResource(outputResource.resource, outputResource.amount)
+	
 	updateCraftButton()
+	updateSlot.emit()
 	UILoaderS.currentPopupScene.update()
+	playerScene.soundComponent.onCraft()
 
 
 func equipWeapon(index: int):
@@ -138,6 +145,7 @@ func equipWeapon(index: int):
 	
 	playerScene.updateWeapons()
 	updateSlot.emit()
+	playerScene.soundComponent.onEquip(slot.resource)
 
 
 func equipGear():
@@ -150,6 +158,7 @@ func equipGear():
 		UtilsS.equipItem(playerScene, slot.resource, index)
 		
 	updateSlot.emit()
+	playerScene.soundComponent.onEquip(slot.resource)
 
 
 func equipAmmunition(index: int):
@@ -157,16 +166,20 @@ func equipAmmunition(index: int):
 		playerScene.equippedWeapons[index].ammunition = slot.resource
 		playerScene.updateWeapons()
 		updateSlot.emit()
+		playerScene.soundComponent.onEquip(slot.resource)
 
 
 func equipConsumable():
 	playerScene.equipConsumable(slot.resource)
 	updateSlot.emit()
+	playerScene.soundComponent.onEquip(slot.resource)
 
 
 func useConsumable():
-	disableConsumeButton()
 	UtilsS.useConsumable(playerScene, slot.resource)
+	disableConsumeButton()
+	updateSlot.emit()
+	playerScene.soundComponent.onConsume()
 
 
 func _on_equip_button_pressed():
@@ -222,7 +235,8 @@ func _on_assign_weapon_slot_3_mouse_exited():
 
 
 func _on_assign_ammunition_slot_1_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[0])
+	if playerScene.equippedWeapons[0] is RangedWeapon && playerScene.equippedWeapons[0].ammunition:
+		UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[0].ammunition)
 
 
 func _on_assign_ammunition_slot_1_mouse_exited():
@@ -230,7 +244,8 @@ func _on_assign_ammunition_slot_1_mouse_exited():
 
 
 func _on_assign_ammunition_slot_2_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[1])
+	if playerScene.equippedWeapons[1] is RangedWeapon && playerScene.equippedWeapons[1].ammunition:
+		UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[1].ammunition)
 
 
 func _on_assign_ammunition_slot_2_mouse_exited():
@@ -238,7 +253,8 @@ func _on_assign_ammunition_slot_2_mouse_exited():
 
 
 func _on_assign_ammunition_slot_3_mouse_entered():
-	UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[2])
+	if playerScene.equippedWeapons[2] is RangedWeapon && playerScene.equippedWeapons[2].ammunition:
+		UILoaderS.loadUIPopup(self, playerScene.equippedWeapons[2].ammunition)
 
 
 func _on_assign_ammunition_slot_3_mouse_exited():
@@ -262,7 +278,7 @@ func updateConsumeButton():
 
 func enableConsumeButton():
 	playerScene.inventory.getResource(slot.resource).isOnCooldown = false
-	consumeButton.disabled = false
+	consumeButton.enable()
 	slot.resource.remainingCooldown = 0
 	consumeButton.texture = consumeTexture
 	consumeButton.text = ""
@@ -270,7 +286,7 @@ func enableConsumeButton():
 
 func disableConsumeButton():
 	playerScene.inventory.getResource(slot.resource).isOnCooldown = true
-	consumeButton.disabled = true
+	consumeButton.disable()
 	consumeButton.texture = null
 	consumeButton.text = str(round(slot.resource.remainingCooldown))
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://evwwxpphrv2f"]
+[gd_scene load_steps=21 format=3 uid="uid://evwwxpphrv2f"]
 
 [ext_resource type="Script" path="res://UI/menu/inventory/player-stats-ui.gd" id="1_yem5b"]
 [ext_resource type="Texture2D" uid="uid://ddo537ghvks2b" path="res://assets/entities/player.png" id="2_itxv7"]
@@ -14,9 +14,18 @@
 [ext_resource type="Theme" uid="uid://b18tu8eqd6rjk" path="res://assets/UI/themes/text/text-small-highlight.tres" id="11_cv104"]
 [ext_resource type="Texture2D" uid="uid://bbdh0rhsv0fiy" path="res://assets/UI/components/status-effect-fill.png" id="11_tkxfv"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="12_syd1x"]
-[ext_resource type="Theme" uid="uid://dq788m3px4i4p" path="res://assets/UI/themes/UI-elements/button-no-styling.tres" id="12_wkrj6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lje58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq17o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6642d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6bg6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1t6c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne6mt"]
 
 [node name="PlayerStatsUI" type="Control"]
 layout_mode = 3
@@ -248,7 +257,11 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(50, 50)
-theme = ExtResource("12_wkrj6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rq17o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6642d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p6bg6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l1t6c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ne6mt")
 affectedElement = NodePath("..")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]

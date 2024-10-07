@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfw7jp1wfuqal"]
+[gd_scene load_steps=3 format=3 uid="uid://bfw7jp1wfuqal"]
 
+[ext_resource type="PackedScene" uid="uid://dkao4jqlrlta" path="res://environment/decorations/particles/projectile-hit-particle.tscn" id="2_igq4t"]
 [ext_resource type="Script" path="res://UI/shared/button.gd" id="2_xoeby"]
 
-[node name="Button" type="Button"]
+[node name="Button" type="Button" node_paths=PackedStringArray("affectedElement")]
 custom_minimum_size = Vector2(10, 10)
 anchors_preset = 8
 anchor_left = 0.5
@@ -15,10 +16,12 @@ offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(5, 5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 flat = true
 script = ExtResource("2_xoeby")
+affectedElement = NodePath(".")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 50)
@@ -37,5 +40,9 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ClickParticles" parent="." instance=ExtResource("2_igq4t")]
+z_index = 10
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -36,6 +36,7 @@ z_index = 3
 z_index = 1
 
 [node name="LightSources" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
 
 [node name="Regular" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1

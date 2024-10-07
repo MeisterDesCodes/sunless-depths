@@ -103,6 +103,7 @@ func _on_button_pressed():
 	playerScene.isInCave = true
 	var pathwayObject = findPathway(LocationLoaderS.currentLocation, locationResource.location)
 	setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
+	game.gameSoundComponent.playDiscovery()
 
 
 func findPathway(source: int, destination: int):

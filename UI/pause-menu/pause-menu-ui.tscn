@@ -58,41 +58,37 @@ text = "Pause Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Continue" parent="PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("1_2x0sc")]
+[node name="Continue" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_2x0sc")]
 custom_minimum_size = Vector2(225, 45)
 layout_mode = 2
 theme = ExtResource("2_mjrbk")
 text = "Continue"
 flat = false
 version = 2
-affectedElement = NodePath(".")
 
-[node name="SaveGame" parent="PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("1_2x0sc")]
+[node name="SaveGame" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_2x0sc")]
 custom_minimum_size = Vector2(225, 45)
 layout_mode = 2
 theme = ExtResource("2_mjrbk")
 text = "Save Game"
 flat = false
 version = 2
-affectedElement = NodePath(".")
 
-[node name="LoadGame" parent="PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("1_2x0sc")]
+[node name="LoadGame" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_2x0sc")]
 custom_minimum_size = Vector2(225, 45)
 layout_mode = 2
 theme = ExtResource("2_mjrbk")
 text = "Load Game"
 flat = false
 version = 2
-affectedElement = NodePath(".")
 
-[node name="Exit" parent="PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("1_2x0sc")]
+[node name="Exit" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_2x0sc")]
 custom_minimum_size = Vector2(225, 45)
 layout_mode = 2
 theme = ExtResource("2_mjrbk")
 text = "Exit"
 flat = false
 version = 2
-affectedElement = NodePath(".")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SaveGame" to="." method="_on_save_game_pressed"]

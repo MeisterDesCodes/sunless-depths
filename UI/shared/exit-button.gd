@@ -3,10 +3,13 @@ extends Button
 
 @export var scene: Control
 
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
+
 
 func _on_mouse_entered():
 	AnimationsS.changeColor(self, UtilsS.colorPrimaryBright, 0.15)
 	AnimationsS.setSize(self, 1.05, 0.15)
+	playerScene.soundComponent.onHover()
 
 
 func _on_mouse_exited():
@@ -15,4 +18,5 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
+	playerScene.soundComponent.onClick()
 	UILoaderS.closeUIScene(scene)

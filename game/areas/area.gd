@@ -9,7 +9,6 @@ extends Node2D
 
 
 func _ready():
-	return
 	for exit in exits:
 		if exit.exits[0].direction == LocationLoaderS.currentToDirection:
 			LocationLoaderS.spawnPlayer(exit.get_child(0).get_child(2).global_position)

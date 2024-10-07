@@ -14,23 +14,20 @@ var craftingStation = null
 func setup(_craftingStation):
 	craftingStation = _craftingStation
 	title.text = craftingStation.title
-	resourcesUI.displayOnly = true
-	resourcesUI.updateAssets(Enums.resourceType.RESOURCE)
-	showBlueprints()
+	displayBlueprints()
 
 
-func showBlueprints():
-	clearResources()
+func displayBlueprints():
 	for blueprint in craftingStation.availableBlueprints:
 		var blueprintScene = preload("res://UI/menu/inventory/resource-slot-ui.tscn").instantiate()
 		resourcesContainer.add_child(blueprintScene)
 		var blueprintSlot = InventorySlot.new()
 		blueprintSlot.resource = blueprint
+		blueprintSlot.amount = 1
 		blueprintSlot.resource.type = Enums.resourceType.BLUEPRINT
 		blueprintScene.setup(blueprintSlot, false)
+		blueprintScene.updateSlot.connect(updateResourceSlots)
 
 
-func clearResources():
-	for resource in resourcesContainer.get_children():
-		resource.get_parent().remove_child(resource)
-		resource.queue_free()
+func updateResourceSlots():
+	resourcesUI.updateResourceSlots()

@@ -42,7 +42,7 @@ func scroll(element, amount: float, duration: float):
 
 
 func fadeSound(element, amount: float, duration: float):
-	get_tree().create_tween().tween_property(element, "volume_db", amount, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	get_tree().create_tween().tween_property(element, "volume_db", amount, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 

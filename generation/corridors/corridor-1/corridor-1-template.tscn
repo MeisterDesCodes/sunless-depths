@@ -215,6 +215,7 @@ texture = ExtResource("12_uucb5")
 z_index = 1
 
 [node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
 
 [node name="Torch" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_ych7l")]
 position = Vector2(306, 819)

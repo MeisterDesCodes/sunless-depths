@@ -19,7 +19,7 @@ func addResource(tempResource: InventoryResource, amount: int):
 		resourceSlots.append(newSlot)
 	
 	updateResourceTypes()
-	updateInventory.emit(Enums.resourceType.NONE)
+	updateInventory.emit()
 
 
 func removeResource(tempResource: InventoryResource, amount: int):
@@ -29,7 +29,7 @@ func removeResource(tempResource: InventoryResource, amount: int):
 		if foundResourceSlots[0].amount <= 0:
 			resourceSlots.remove_at(resourceSlots.find(foundResourceSlots[0]))
 	
-	updateInventory.emit(Enums.resourceType.NONE)
+	updateInventory.emit()
 
 
 func hasResources(resourceContainers: Array):

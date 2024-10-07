@@ -48,6 +48,7 @@ theme_override_constants/margin_top = 10
 
 [node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("2_retwm")]
 layout_mode = 2
+displayOnly = true
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(700, 600)

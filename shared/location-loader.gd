@@ -66,6 +66,9 @@ func removeCurrentLocation():
 func removeCurrentCave():
 	for child in caveGenerator.get_child(0).get_children():
 		caveGenerator.get_child(0).remove_child(child)
+	
+	for enemy in game.enemies.get_children():
+		enemy.queue_free()
 
 
 func spawnPlayer(_position: Vector2):

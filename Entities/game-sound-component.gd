@@ -5,6 +5,7 @@ extends Node2D
 @onready var ambientPlayer = get_node("AmbientMusic")
 @onready var effectPlayer = get_node("EffectMusic")
 @onready var ambientTimer = get_node("AmbientTimer")
+@onready var fadeoutTimer = get_node("FadeoutTimer")
 
 var ambientCaveMusic: Array[AudioStreamMP3] = [preload("res://assets/music/ambient/cave-ambient.mp3"),
 	preload("res://assets/music/ambient/cave-ambient-2.mp3")]
@@ -13,6 +14,7 @@ var effectMusic: Array[AudioStreamMP3] = [preload("res://assets/music/effect/wat
 	preload("res://assets/music/effect/eerie-sound.mp3"), preload("res://assets/music/effect/abyss.mp3"),
 	preload("res://assets/music/effect/devil-laugther.mp3"), preload("res://assets/music/effect/scream.mp3"),
 	preload("res://assets/music/effect/alien-sound.mp3")]
+var discoveryMusic: AudioStreamMP3 = preload("res://assets/music/effect/discorvery.mp3")
 
 var effectDelay: float = 30
 
@@ -34,12 +36,16 @@ func playCaveEffect():
 	playMusic(effectPlayer, effectMusic)
 
 
+func playDiscovery():
+	playMusic(effectPlayer, [discoveryMusic])
+
+
 func playMusic(player: AudioStreamPlayer, musicArray: Array[AudioStreamMP3]):
-	return
-	if !player.playing:
-		AnimationsS.fadeSound(player, -30, 2)
-		await get_tree().create_timer(2).timeout
-	AnimationsS.fadeSound(player, -10, 2)
+	#if !player.playing:
+	#	AnimationsS.fadeSound(player, -30, 1)
+	#	await get_tree().create_timer(1).timeout
+	AnimationsS.fadeSound(player, -10, 1)
+	player.stop()
 	player.stream = musicArray[randi_range(0, musicArray.size() - 1)]
 	player.play()
 
@@ -55,3 +61,10 @@ func _on_ambient_music_finished():
 		playCaveAmbient()
 	else:
 		playSettlementAmbient()
+
+
+func _on_fadeout_timer_timeout():
+	if effectPlayer.stream:
+		var remainingTime = effectPlayer.stream.get_length() - effectPlayer.get_playback_position()
+		if remainingTime < 1:
+			AnimationsS.fadeSound(effectPlayer, -30, 1)

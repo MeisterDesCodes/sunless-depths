@@ -225,9 +225,12 @@ func checkForCrit(entity: CharacterBody2D):
 	return isCrit
 
 
-func playParticleEffect(particleComponent: Node2D, rotation: float = 0, color: Color = UtilsS.colorWhite):
+func playParticleEffect(particleComponent: Node2D, rotation: float = 0, color: Color = UtilsS.colorWhite, isLocal: bool = false):
 	var particle = particleComponent.get_child(0).duplicate()
-	particle.global_position = particleComponent.global_position
+	if isLocal:
+		particle.position = particleComponent.position
+	else:
+		particle.global_position = particleComponent.global_position
 	particle.rotation = rotation
 	particle.modulate = color
 	get_tree().get_root().get_node("Game").particles.add_child(particle)

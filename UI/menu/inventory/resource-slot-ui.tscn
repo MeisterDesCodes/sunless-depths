@@ -5,8 +5,8 @@
 [ext_resource type="Theme" uid="uid://dobbys3uid5er" path="res://assets/UI/themes/UI-elements/resource-icon.tres" id="4_moob4"]
 [ext_resource type="Texture2D" uid="uid://b3opfj120sgb6" path="res://assets/UI/icons/menu/inventory/Craft.png" id="4_xdy42"]
 [ext_resource type="Texture2D" uid="uid://yyxnduijymmo" path="res://assets/UI/icons/menu/inventory/Consume.png" id="6_0lsik"]
+[ext_resource type="Theme" uid="uid://cxk4iwl1igdto" path="res://assets/UI/themes/UI-elements/button-large.tres" id="6_8t0fk"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="6_cemff"]
-[ext_resource type="Theme" uid="uid://dvhdetcbngtrh" path="res://assets/UI/themes/UI-elements/button-small.tres" id="6_fm76f"]
 [ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/menu/inventory/Storage.png" id="7_1y86g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u7vf"]
@@ -86,32 +86,29 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 
-[node name="AssignWeaponSlot1" parent="MarginContainer/WeaponSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="AssignWeaponSlot1" parent="MarginContainer/WeaponSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="AssignWeaponSlot2" parent="MarginContainer/WeaponSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="AssignWeaponSlot2" parent="MarginContainer/WeaponSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="AssignWeaponSlot3" parent="MarginContainer/WeaponSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="AssignWeaponSlot3" parent="MarginContainer/WeaponSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
 [node name="AmmunitionSlots" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -119,51 +116,46 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 
-[node name="AssignAmmunitionSlot1" parent="MarginContainer/AmmunitionSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="AssignAmmunitionSlot1" parent="MarginContainer/AmmunitionSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="AssignAmmunitionSlot2" parent="MarginContainer/AmmunitionSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="AssignAmmunitionSlot2" parent="MarginContainer/AmmunitionSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="AssignAmmunitionSlot3" parent="MarginContainer/AmmunitionSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="AssignAmmunitionSlot3" parent="MarginContainer/AmmunitionSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="CraftButton" parent="MarginContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="CraftButton" parent="MarginContainer" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
 texture = ExtResource("4_xdy42")
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="EquipButton" parent="MarginContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="EquipButton" parent="MarginContainer" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
 texture = ExtResource("7_1y86g")
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
 [node name="ConsumeSlots" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -171,26 +163,24 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 
-[node name="ConsumeButton" parent="MarginContainer/ConsumeSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="ConsumeButton" parent="MarginContainer/ConsumeSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
 texture = ExtResource("6_0lsik")
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
-[node name="ConsumeEquipButton" parent="MarginContainer/ConsumeSlots" node_paths=PackedStringArray("affectedElement") instance=ExtResource("6_cemff")]
+[node name="ConsumeEquipButton" parent="MarginContainer/ConsumeSlots" instance=ExtResource("6_cemff")]
 custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
 mouse_filter = 1
-theme = ExtResource("6_fm76f")
+theme = ExtResource("6_8t0fk")
 flat = false
 texture = ExtResource("7_1y86g")
-version = 0
-affectedElement = NodePath(".")
+version = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

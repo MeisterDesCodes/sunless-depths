@@ -42,68 +42,61 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="AllItems" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllItems" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("3_7pkxf")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="AllMaterials" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllMaterials" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("5_vn4d0")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="AllConsumables" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllConsumables" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("6_hkan2")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="AllBlueprints" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllBlueprints" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("6_vglu4")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="AllWeapons" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllWeapons" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("7_81jl7")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="AllAmmunition" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllAmmunition" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("8_nfy4b")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="AllEquipment" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("2_ksq2u")]
+[node name="AllEquipment" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("4_bq3c6")
 version = 1
-affectedElement = NodePath(".")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(625, 450)

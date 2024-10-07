@@ -6,6 +6,7 @@
 size = Vector2(320, 10)
 
 [node name="Bridge" type="Node2D"]
+z_index = 1
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(306, -1)

@@ -6,9 +6,10 @@ extends Control
 
 
 func _ready():
-	resourcesUI.updateResources.connect(updateInventory)
+	resourcesUI.updateInventory.connect(updateInventory)
+	playerStatsUI.updateInventory.connect(updateInventory)
 
 
 func updateInventory():
 	playerStatsUI.updateLabels()
-	resourcesUI.updateAssets(resourcesUI.currentFilter)
+	resourcesUI.updateResourceSlots()

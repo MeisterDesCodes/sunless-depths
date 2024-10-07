@@ -1,6 +1,8 @@
 extends Control
 
 
+signal updateInventory
+
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var inventory: Inventory = preload("res://inventory-resource/resources/player/player-inventory.tres")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
@@ -26,7 +28,7 @@ var scene
 
 func _ready():
 	updateLabels()
-	updateExperience()
+	updateExperienceBar()
 	experienceBar.pivot_offset = Vector2(experienceBar.size.x / 2, experienceBar.size.y / 2)
 
 
@@ -42,7 +44,7 @@ func updateLabels():
 	playerScene.updateMaxHealth()
 
 
-func updateExperience():
+func updateExperienceBar():
 	var currentExperience: int = playerScene.inventory.getResourceAmount(experience)
 	experienceBar.value = currentExperience / levelUpCost() * 100
 	currentExperienceLabel.text = str(currentExperience) + " / " + str(levelUpCost())
@@ -62,11 +64,14 @@ func levelUpCost():
 func levelUp():
 	playerScene.inventory.removeResource(experience, levelUpCost())
 	playerScene.level += 1
-	updateExperience()
-	updateLabels()
+	updateExperienceBar()
 	scene = UILoaderS.loadUIScene(preload("res://UI/menu/inventory/level-up-cards/level-up-ui.tscn"))
-	scene.cardSelected.connect(updateLabels)
+	scene.cardSelected.connect(updateStats)
 	playerScene.canExitUIScene = false
+
+
+func updateStats():
+	updateInventory.emit()
 
 
 func _on_level_up_button_pressed():

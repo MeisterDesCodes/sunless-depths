@@ -11,8 +11,12 @@ extends Button
 		version = value
 		_ready()
 
-@export var affectedElement: Control
+@export var affectedElement: Control = self
 
+@onready var textureRect: TextureRect = get_node("TextureRect")
+@onready var particles: Node2D = get_node("ClickParticles")
+
+var playerScene
 var selected: bool = false
 var initialScale: Vector2
 var scaleIncrease: Vector2
@@ -37,6 +41,9 @@ func _ready():
 		$"TextureRect".custom_minimum_size = Vector2(50, 20)
 	
 	pivot_offset = Vector2(size.x / 2, size.y / 2)
+	
+	if get_tree():
+		playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 
 
 func setSize():
@@ -51,6 +58,7 @@ func _on_mouse_entered():
 	changeColor(UtilsS.colorPrimaryBright)
 	setSize()
 	AnimationsS.setSize(affectedElement, scaleIncrease.x, 0.15)
+	playerScene.soundComponent.onHover()
 
 
 func _on_mouse_exited():
@@ -83,6 +91,26 @@ func changeColor(color: Color):
 		AnimationsS.changeColor(affectedElement, color, 0)
 	else:
 		AnimationsS.changeColor(affectedElement, color, 0.15)
+
+
+func _on_pressed():
+	playerScene.soundComponent.onClick()
+	UtilsS.playParticleEffect(particles, 0, UtilsS.colorPrimary, true)
+
+
+func disable():
+	disabled = true
+	changeColor(UtilsS.colorWhite)
+	textureRect.self_modulate = UtilsS.colorDisabled
+
+
+func enable():
+	disabled = false
+	textureRect.self_modulate = UtilsS.colorWhite
+
+
+
+
 
 
 

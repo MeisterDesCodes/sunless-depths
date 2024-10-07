@@ -39,7 +39,7 @@ initialLocation = SubResource("Resource_jq2ng")
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("2_bqi1q")]
-position = Vector2(4239.79, 904.789)
+position = Vector2(6141.76, 1852.42)
 
 [node name="RemoteTransformCamera2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../FollowCamera")
@@ -55,6 +55,7 @@ entityResource = ExtResource("6_jf3fh")
 [node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("7_0gon8")]
 
 [node name="TheSettlement" parent="CurrentLocation" instance=ExtResource("2_rrhun")]
+visible = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ssy1a")
@@ -62,7 +63,7 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 [node name="CaveGenerator" parent="NavigationRegion2D" instance=ExtResource("1_7p5h0")]
 
 [node name="FollowCamera" type="Camera2D" parent="."]
-position = Vector2(4239.79, 904.789)
+position = Vector2(6141.76, 1852.42)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 

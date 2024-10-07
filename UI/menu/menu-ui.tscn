@@ -55,23 +55,23 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 50
+theme_override_constants/separation = 20
 
-[node name="Inventory" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_w8t0y")]
+[node name="Inventory" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("3_w8t0y")]
+custom_minimum_size = Vector2(50, 45)
 layout_mode = 2
 theme = ExtResource("4_31jwt")
 flat = false
 texture = ExtResource("3_4508c")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="Map" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_w8t0y")]
+[node name="Map" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("3_w8t0y")]
+custom_minimum_size = Vector2(50, 45)
 layout_mode = 2
 theme = ExtResource("4_31jwt")
 flat = false
 texture = ExtResource("4_b33fp")
 version = 1
-affectedElement = NodePath(".")
 
 [node name="Body" type="PanelContainer" parent="VBoxContainer"]
 clip_contents = true
