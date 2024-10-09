@@ -25,14 +25,14 @@
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="15_v7k3q"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="16_ftbjq"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="17_1ecqs"]
-[ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/mycelium.tscn" id="25_cdsrh"]
-[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/old-log.tscn" id="26_0qajs"]
-[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/chest.tscn" id="27_00hc8"]
+[ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/resource-nodes/mycelium.tscn" id="25_cdsrh"]
+[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/resource-nodes/old-log.tscn" id="26_0qajs"]
+[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="27_471t0"]
 [ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="28_qbusf"]
 [ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="29_tw824"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="30_nqol6"]
 [ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basked-empty-1.png" id="31_nb0ak"]
-[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/debris.tscn" id="32_umm7g"]
+[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="32_d5dvn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -486,13 +486,13 @@ position = Vector2(268, 950)
 position = Vector2(1330, 988)
 rotation = 1.309
 
-[node name="Chest" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_00hc8")]
+[node name="Chest" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_471t0")]
 position = Vector2(689, 489)
 rotation = -0.523598
 closedTexture = ExtResource("28_qbusf")
 openedTexture = ExtResource("29_tw824")
 
-[node name="Chest2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_00hc8")]
+[node name="Chest2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_471t0")]
 position = Vector2(297, 691)
 rotation = -0.523598
 scale = Vector2(0.575, 0.575)
@@ -500,7 +500,7 @@ closedTexture = ExtResource("30_nqol6")
 openedTexture = ExtResource("31_nb0ak")
 type = 1
 
-[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_00hc8")]
+[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_471t0")]
 position = Vector2(469, 676)
 rotation = -2.99867
 scale = Vector2(0.575, 0.575)
@@ -508,10 +508,10 @@ closedTexture = ExtResource("30_nqol6")
 openedTexture = ExtResource("31_nb0ak")
 type = 1
 
-[node name="Debris" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("32_umm7g")]
+[node name="Debris" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("32_d5dvn")]
 position = Vector2(672, 861)
 
-[node name="Debris2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("32_umm7g")]
+[node name="Debris2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("32_d5dvn")]
 position = Vector2(1227, 579)
 rotation = -0.785397
 

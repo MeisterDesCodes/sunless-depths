@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="12_uucb5"]
 [ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="13_y1t17"]
 [ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/nature/root-4.png" id="14_txwiw"]
-[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/old-log.tscn" id="19_0v5wg"]
-[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/chest.tscn" id="20_c5chs"]
+[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/resource-nodes/old-log.tscn" id="19_0v5wg"]
+[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="20_jg2h8"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="21_ufbh7"]
 [ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basked-empty-1.png" id="22_vusdi"]
 
@@ -247,7 +247,7 @@ z_index = 1
 position = Vector2(875, 720)
 rotation = 1.0472
 
-[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("20_c5chs")]
+[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("20_jg2h8")]
 position = Vector2(717, 285)
 rotation = -2.99867
 scale = Vector2(0.575, 0.575)

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="15_0mx78"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="16_joci4"]
 [ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="17_ocoe6"]
-[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/debris.tscn" id="18_6lrlr"]
+[ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="18_6lrlr"]
 [ext_resource type="PackedScene" uid="uid://daul7wuliryox" path="res://environment/decorations/regular/object-05x2-square.tscn" id="18_hxyxy"]
 [ext_resource type="Texture2D" uid="uid://cbcllohb57dbb" path="res://assets/environment/decorations/walls/beam-short-2.png" id="19_mdwh4"]
 [ext_resource type="PackedScene" uid="uid://crbivv1f3wewy" path="res://environment/decorations/regular/object-05x3-square.tscn" id="20_qmdam"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cigdfxhhfn6bk"]
+[gd_scene load_steps=97 format=3 uid="uid://cigdfxhhfn6bk"]
 
 [ext_resource type="Script" path="res://game/areas/area.gd" id="1_1btye"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_2rmuk"]
@@ -67,7 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://cimq1r2tpja58" path="res://assets/environment/decorations/regular/rocks/stalagnite-1.png" id="59_m6h0v"]
 [ext_resource type="Texture2D" uid="uid://b15ma78hskxwk" path="res://assets/environment/decorations/regular/rocks/stalagnite-3.png" id="60_1kw4o"]
 [ext_resource type="Texture2D" uid="uid://br12hq2006j5t" path="res://assets/environment/decorations/walls/beam-short-1.png" id="63_38uvt"]
-[ext_resource type="PackedScene" uid="uid://btvlprymmvef5" path="res://environment/interactions/pile-of-glass.tscn" id="63_o6njq"]
+[ext_resource type="PackedScene" uid="uid://btvlprymmvef5" path="res://environment/interactions/resource-nodes/pile-of-glass.tscn" id="63_o6njq"]
 [ext_resource type="PackedScene" uid="uid://crbivv1f3wewy" path="res://environment/decorations/regular/object-05x3-square.tscn" id="64_ttfkk"]
 [ext_resource type="Resource" uid="uid://dlg83af5a8eiv" path="res://inventory-resource/resources/blueprint/BP-supplies.tres" id="65_d8qwl"]
 [ext_resource type="Texture2D" uid="uid://c13g4prs1w36a" path="res://assets/environment/decorations/walls/beam-medium-1.png" id="65_gf6b2"]
@@ -93,6 +93,7 @@
 [ext_resource type="Resource" uid="uid://bev37k7vnrfi7" path="res://inventory-resource/resources/blueprint/equipment/BP-lucky-scarf.tres" id="75_dg3im"]
 [ext_resource type="Texture2D" uid="uid://db2mqbu3lhou4" path="res://assets/environment/decorations/regular/pipes/pipes-arranged-1.png" id="75_qnjx6"]
 [ext_resource type="Texture2D" uid="uid://d4l8k0xoxrrwi" path="res://assets/environment/decorations/regular/pipes/pipes-arranged-2.png" id="76_gt1jc"]
+[ext_resource type="PackedScene" uid="uid://cdht6pytvy2ky" path="res://environment/curiosities/storage-box.tscn" id="94_5vvrm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a82g1"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-635, 2760, -648, -415, 8057, -321, 7600, 2935)])
@@ -1436,5 +1437,8 @@ availableBlueprints = Array[Resource("res://inventory-resource/inventory-resourc
 position = Vector2(3164, 586)
 title = "Cooking Station"
 availableBlueprints = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("65_d8qwl"), ExtResource("70_ukeje")])
+
+[node name="StorageBox" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("94_5vvrm")]
+position = Vector2(3145.11, 676.091)
 
 [node name="Spawners" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]

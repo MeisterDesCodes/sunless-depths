@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgm6rsehl83up"
-path="res://.godot/imported/left-arrow.png-49c51818444439d9249061249a04889f.ctex"
+uid="uid://b3g2775hxei88"
+path="res://.godot/imported/Quick Stack Storage.png-7cb02fee596044c0788cac8bffff2762.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons/menu/merchant/left-arrow.png"
-dest_files=["res://.godot/imported/left-arrow.png-49c51818444439d9249061249a04889f.ctex"]
+source_file="res://assets/UI/icons/menu/inventory/Quick Stack Storage.png"
+dest_files=["res://.godot/imported/Quick Stack Storage.png-7cb02fee596044c0788cac8bffff2762.ctex"]
 
 [params]
 

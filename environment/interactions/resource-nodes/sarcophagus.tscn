@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmx537qedfbtp"]
 
-[ext_resource type="Script" path="res://environment/interactions/sarcophagus.gd" id="1_kprbm"]
+[ext_resource type="Script" path="res://environment/interactions/resource-nodes/sarcophagus.gd" id="1_kprbm"]
 [ext_resource type="Texture2D" uid="uid://c63lbs06y51mp" path="res://assets/environment/interactions/sarcophagus-bottom.png" id="2_i4b60"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="2_u2pnh"]
 [ext_resource type="Texture2D" uid="uid://dasr076tisfqc" path="res://assets/environment/interactions/sarcophagus-top.png" id="3_isd8t"]

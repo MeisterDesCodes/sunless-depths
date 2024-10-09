@@ -15,6 +15,9 @@ signal updateSlot
 @onready var consumeSlotsContainer: HBoxContainer = get_node("MarginContainer/ConsumeSlots")
 @onready var weaponSlotsContainer: HBoxContainer = get_node("MarginContainer/WeaponSlots")
 @onready var ammunitionSlotsConainer: HBoxContainer = get_node("MarginContainer/AmmunitionSlots")
+@onready var playerTransferSlotsConainer: HBoxContainer = get_node("MarginContainer/PlayerTransferSlots")
+@onready var boxTransferSlotsConainer: HBoxContainer = get_node("MarginContainer/BoxTransferSlots")
+@onready var transferButton: Button = get_node("MarginContainer/TransferButton")
 
 @onready var consumeTexture = preload("res://assets/UI/icons/menu/inventory/Consume.png")
 
@@ -30,10 +33,12 @@ func _ready():
 	weaponSlotsContainer.visible = false
 	ammunitionSlotsConainer.visible = false
 	blueprintIcon.visible = false
+	playerTransferSlotsConainer.visible = false
+	boxTransferSlotsConainer.visible = false
 	loaded = true
 
 
-func setup(_slot: InventorySlot, displayOnly: bool):
+func setup(_slot: InventorySlot, inventoryType: Enums.inventoryType):
 	if !loaded:
 		return
 	
@@ -57,13 +62,18 @@ func setup(_slot: InventorySlot, displayOnly: bool):
 			ammunitionSlotsConainer.visible = true
 			amountLabel.visible = true
 	
-	if displayOnly:
+	if inventoryType != Enums.inventoryType.REGULAR:
 		consumeButton.visible = false
 		consumeEquipButton.visible = false
 		craftButton.visible = false
 		equipButton.visible = false
 		weaponSlotsContainer.visible = false
 		ammunitionSlotsConainer.visible = false
+	
+	if inventoryType == Enums.inventoryType.STORAGE_PLAYER:
+		playerTransferSlotsConainer.visible = true
+	if inventoryType == Enums.inventoryType.STORAGE_BOX:
+		boxTransferSlotsConainer.visible = true
 	
 	update()
 
@@ -182,6 +192,24 @@ func useConsumable():
 	playerScene.soundComponent.onConsume()
 
 
+func transferToBox(amount: int):
+	transferResources(playerScene.inventory, playerScene.storage, amount)
+
+
+func transferToPlayer(amount: int):
+	transferResources(playerScene.storage, playerScene.inventory, amount)
+
+
+func transferResources(from: Inventory, to: Inventory, amount: int):
+	if slot.amount < amount:
+		amount = slot.amount
+	
+	from.removeResource(slot.resource, amount)
+	to.addResource(slot.resource, amount)
+	updateSlot.emit()
+	playerScene.soundComponent.onEquip()
+
+
 func _on_equip_button_pressed():
 	equipGear()
 
@@ -289,6 +317,37 @@ func disableConsumeButton():
 	consumeButton.disable()
 	consumeButton.texture = null
 	consumeButton.text = str(round(slot.resource.remainingCooldown))
+
+
+func _on_player_transfer_1_button_pressed():
+	transferToBox(1)
+
+
+func _on_player_transfer_5_button_pressed():
+	transferToBox(5)
+
+
+func _on_player_transfer_all_button_pressed():
+	transferToBox(slot.amount)
+
+
+func _on_box_transfer_1_button_pressed():
+	transferToPlayer(1)
+
+
+func _on_box_transfer_5_button_pressed():
+	transferToPlayer(5)
+
+
+func _on_box_transfer_all_button_pressed():
+	transferToPlayer(slot.amount)
+
+
+
+
+
+
+
 
 
 

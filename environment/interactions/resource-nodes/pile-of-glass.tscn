@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://btvlprymmvef5"]
 
-[ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_c2eqe"]
+[ext_resource type="Script" path="res://environment/interactions/resource-nodes/resource-node.gd" id="1_c2eqe"]
 [ext_resource type="Resource" uid="uid://drw6g4nfm2221" path="res://inventory-resource/resources/material/uncommon/glass-shard.tres" id="2_4grnp"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_lct1a"]
 [ext_resource type="Texture2D" uid="uid://dpupu4mq5lnnr" path="res://assets/environment/interactions/pile-of-glass.png" id="4_erxyr"]

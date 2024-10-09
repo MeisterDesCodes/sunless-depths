@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cno6olixfbot0"]
 
-[ext_resource type="Script" path="res://environment/interactions/arena-operator.gd" id="1_vipwu"]
+[ext_resource type="Script" path="res://environment/interactions/operators/arena-operator.gd" id="1_vipwu"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="2_u4yfm"]
 
 [node name="ArenaOperator" type="Node2D"]

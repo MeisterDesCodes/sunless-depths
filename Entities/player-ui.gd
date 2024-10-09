@@ -6,6 +6,7 @@ signal healthModified
 @export var entityResource: Entity
 
 @export var inventory: Inventory
+@export var storage: Inventory
 
 @onready var animations =  get_node("AnimationPlayer")
 @onready var hudUI = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/HudUI")

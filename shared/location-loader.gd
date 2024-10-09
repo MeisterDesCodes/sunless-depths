@@ -24,7 +24,7 @@ func loadArea(location: Enums.locations):
 	nextLocation = -1
 	visitedLocations.append(location)
 	game.currentLocation.add_child(getSceneFromId(location).instantiate())
-	game.gameSoundComponent.playSettlementAmbient()
+	game.soundComponent.playSettlementAmbient()
 	finishAreaTransition()
 
 
@@ -40,7 +40,7 @@ func loadCave():
 	await get_tree().process_frame
 	
 	game.navigationRegion.bake_navigation_polygon()
-	game.gameSoundComponent.playCaveAmbient()
+	game.soundComponent.playCaveAmbient()
 	finishAreaTransition()
 
 

@@ -2,7 +2,6 @@ extends Control
 
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
 @onready var title = get_node("VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/LocationContainer/PanelContainer/Title")
 
 @onready var resourcesContainer = get_node("VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/LocationContainer/ScrollContainer/Resources")

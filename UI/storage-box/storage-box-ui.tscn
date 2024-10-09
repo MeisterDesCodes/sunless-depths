@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1vlpu8bhjuid"]
+
+[ext_resource type="Script" path="res://UI/storage-box/storage-box-ui.gd" id="1_b0qe7"]
+[ext_resource type="Theme" uid="uid://doff4d8cld34g" path="res://assets/UI/themes/UI-elements/menu-small.tres" id="2_48pma"]
+[ext_resource type="Theme" uid="uid://vkof7lo8jctq" path="res://assets/UI/themes/UI-elements/menu-header.tres" id="2_ijsd8"]
+[ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="3_2mtgh"]
+[ext_resource type="PackedScene" uid="uid://xttesm4el1dg" path="res://UI/menu/inventory/resources-ui.tscn" id="3_k2euh"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="4_j5hr1"]
+[ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="4_typ5q"]
+[ext_resource type="Theme" uid="uid://cxk4iwl1igdto" path="res://assets/UI/themes/UI-elements/button-large.tres" id="5_xhat5"]
+[ext_resource type="Texture2D" uid="uid://cebq33it7oitv" path="res://assets/UI/icons/menu/inventory/Quick Stack Player.png" id="6_fjrcv"]
+[ext_resource type="Texture2D" uid="uid://b3g2775hxei88" path="res://assets/UI/icons/menu/inventory/Quick Stack Storage.png" id="9_e736c"]
+
+[node name="StorageBoxUI" type="Control"]
+z_index = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(800, 400)
+script = ExtResource("1_b0qe7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -702.0
+offset_top = -337.0
+offset_right = 702.0
+offset_bottom = 337.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(712.5, 75)
+layout_mode = 2
+theme = ExtResource("2_ijsd8")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_2mtgh")
+text = "Player Inventory"
+
+[node name="StackAllPlayerItems" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer" instance=ExtResource("4_j5hr1")]
+custom_minimum_size = Vector2(40, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("5_xhat5")
+flat = false
+texture = ExtResource("6_fjrcv")
+version = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_48pma")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("3_k2euh")]
+layout_mode = 2
+inventoryType = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(712.5, 75)
+layout_mode = 2
+theme = ExtResource("2_ijsd8")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_2mtgh")
+text = "Storage Box"
+
+[node name="StackAllBoxItems" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer" instance=ExtResource("4_j5hr1")]
+custom_minimum_size = Vector2(40, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_xhat5")
+flat = false
+texture = ExtResource("9_e736c")
+version = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_48pma")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer" instance=ExtResource("3_k2euh")]
+layout_mode = 2
+inventoryType = 3
+
+[node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("4_typ5q")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+scene = NodePath("../..")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/StackAllPlayerItems" to="." method="_on_stack_all_player_items_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/StackAllBoxItems" to="." method="_on_stack_all_box_items_pressed"]

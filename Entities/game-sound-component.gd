@@ -15,6 +15,7 @@ var effectMusic: Array[AudioStreamMP3] = [preload("res://assets/music/effect/wat
 	preload("res://assets/music/effect/devil-laugther.mp3"), preload("res://assets/music/effect/scream.mp3"),
 	preload("res://assets/music/effect/alien-sound.mp3")]
 var discoveryMusic: AudioStreamMP3 = preload("res://assets/music/effect/discorvery.mp3")
+var arenaMusic: AudioStreamMP3 = preload("res://assets/music/effect/arena.mp3")
 
 var effectDelay: float = 30
 
@@ -38,6 +39,10 @@ func playCaveEffect():
 
 func playDiscovery():
 	playMusic(effectPlayer, [discoveryMusic])
+
+
+func playArena():
+	playMusic(effectPlayer, [arenaMusic])
 
 
 func playMusic(player: AudioStreamPlayer, musicArray: Array[AudioStreamMP3]):

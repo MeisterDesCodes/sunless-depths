@@ -3,10 +3,9 @@ extends Control
 
 signal updateInventory
 
-@export var displayOnly: bool
+@export var inventoryType: Enums.inventoryType
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var inventory: Inventory = preload("res://inventory-resource/resources/player/player-inventory.tres")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 @onready var resourceContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/ScrollContainer/Resources")
 @onready var filterContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer")
@@ -16,6 +15,10 @@ var currentFilter: Enums.resourceType
 
 func _ready():
 	_on_all_items_pressed()
+	if inventoryType != Enums.inventoryType.STORAGE_BOX:
+		playerScene.inventory.createSlot.connect(generateSlot)
+	if inventoryType == Enums.inventoryType.STORAGE_BOX:
+		playerScene.storage.createSlot.connect(generateSlot)
 
 
 func displayResources(filter: Enums.resourceType):
@@ -37,15 +40,11 @@ func displayResources(filter: Enums.resourceType):
 
 
 func generateSlot(resourceSlot: InventorySlot):
+	UtilsS.updateResourceType(resourceSlot.resource)
 	var resourceSlotInstance = preload("res://UI/menu/inventory/resource-slot-ui.tscn").instantiate()
 	resourceContainer.add_child(resourceSlotInstance)
-	resourceSlotInstance.setup(resourceSlot, displayOnly)
+	resourceSlotInstance.setup(resourceSlot, inventoryType)
 	resourceSlotInstance.updateSlot.connect(updateResources)
-
-
-func getFilteredResources():
-	return inventory.resourceSlots if currentFilter == Enums.resourceType.RESOURCE \
-		else inventory.resourceSlots.filter(func(slot): return slot.resource.type == currentFilter)
 
 
 func updateResources():
@@ -53,15 +52,23 @@ func updateResources():
 
 
 func updateResourceSlots():
-	var inventorySlots = getFilteredResources()
-	var resourceSlots = resourceContainer.get_children()
-	for slot in inventorySlots:
-		if !resourceSlots.any(func(_slot): return _slot.slot.resource.name == slot.resource.name):
-			generateSlot(slot)
-	
-	for slot in resourceSlots:
+	for slot in resourceContainer.get_children():
 		slot.update()
 
+
+func getFilteredResources():
+	var resourceSlots
+	match inventoryType:
+		Enums.inventoryType.REGULAR:
+			resourceSlots = playerScene.inventory.resourceSlots
+		Enums.inventoryType.STORAGE_PLAYER:
+			resourceSlots = playerScene.inventory.resourceSlots
+		Enums.inventoryType.CRAFTING:
+			resourceSlots = playerScene.inventory.resourceSlots
+		Enums.inventoryType.STORAGE_BOX:
+			resourceSlots = playerScene.storage.resourceSlots
+	return resourceSlots if currentFilter == Enums.resourceType.RESOURCE \
+		else resourceSlots.filter(func(slot): return slot.resource.type == currentFilter)
 
 
 func _on_all_items_pressed():

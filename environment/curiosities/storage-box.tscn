@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdht6pytvy2ky"]
+
+[ext_resource type="Script" path="res://environment/curiosities/storage-box.gd" id="1_1qdsu"]
+[ext_resource type="PackedScene" uid="uid://mty0elomxwg6" path="res://environment/curiosities/curiosity.tscn" id="2_qo755"]
+
+[node name="StorageBox" type="Node2D"]
+script = ExtResource("1_1qdsu")
+title = "Storage Box"
+
+[node name="Curiosity" parent="." instance=ExtResource("2_qo755")]
+modulate = Color(0.862745, 0.466667, 0.384314, 1)

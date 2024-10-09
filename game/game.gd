@@ -9,7 +9,7 @@ extends Node2D
 @onready var currentLocation = get_node("CurrentLocation")
 @onready var canvasModulate = get_node("CanvasModulate")
 @onready var particles = get_node("Particles")
-@onready var gameSoundComponent = get_node("GameSoundComponent")
+@onready var soundComponent = get_node("GameSoundComponent")
 
 
 func _ready():

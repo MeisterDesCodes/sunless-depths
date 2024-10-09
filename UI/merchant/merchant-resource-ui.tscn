@@ -4,8 +4,8 @@
 [ext_resource type="Theme" uid="uid://bw5oquilxwgax" path="res://assets/UI/themes/UI-elements/resource-slot.tres" id="1_mmkwg"]
 [ext_resource type="Texture2D" uid="uid://c5efwq8xwq1dj" path="res://assets/resources/material/Gold.png" id="3_2742o"]
 [ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/menu/inventory/Storage.png" id="4_damf6"]
-[ext_resource type="Texture2D" uid="uid://cgm6rsehl83up" path="res://assets/UI/icons/menu/merchant/left-arrow.png" id="5_vrd1g"]
-[ext_resource type="Texture2D" uid="uid://bxmunutlqsf7u" path="res://assets/UI/icons/menu/merchant/right-arrow.png" id="6_f57g5"]
+[ext_resource type="Texture2D" uid="uid://cgm6rsehl83up" path="res://assets/UI/icons/menu/inventory/Left Arrow 2.png" id="5_vrd1g"]
+[ext_resource type="Texture2D" uid="uid://bxmunutlqsf7u" path="res://assets/UI/icons/menu/inventory/Right Arrow 2.png" id="6_f57g5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdfni"]
 

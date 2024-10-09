@@ -19,8 +19,7 @@ func _ready():
 		particles.queue_free()
 	
 	if interaction.lifetime == 0:
-		#deactivateInteraction()
-		pass
+		deactivateInteraction()
 
 
 func _process(delta):

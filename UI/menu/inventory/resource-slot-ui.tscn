@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp5qf8wxxydse"]
+[gd_scene load_steps=16 format=3 uid="uid://bp5qf8wxxydse"]
 
 [ext_resource type="Theme" uid="uid://bw5oquilxwgax" path="res://assets/UI/themes/UI-elements/resource-slot.tres" id="1_rhyo1"]
 [ext_resource type="Script" path="res://UI/menu/inventory/resource-slot-ui.gd" id="2_omeu2"]
@@ -8,6 +8,12 @@
 [ext_resource type="Theme" uid="uid://cxk4iwl1igdto" path="res://assets/UI/themes/UI-elements/button-large.tres" id="6_8t0fk"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="6_cemff"]
 [ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/menu/inventory/Storage.png" id="7_1y86g"]
+[ext_resource type="Texture2D" uid="uid://bxmunutlqsf7u" path="res://assets/UI/icons/menu/inventory/Right Arrow 2.png" id="9_0o68j"]
+[ext_resource type="Texture2D" uid="uid://yuwbyvgqpgyg" path="res://assets/UI/icons/menu/inventory/Right Arrow 1.png" id="9_ect15"]
+[ext_resource type="Texture2D" uid="uid://cgm6rsehl83up" path="res://assets/UI/icons/menu/inventory/Left Arrow 2.png" id="10_dj76o"]
+[ext_resource type="Texture2D" uid="uid://bxke5sm6j7xh1" path="res://assets/UI/icons/menu/inventory/Right Arrow 3.png" id="11_p5hr1"]
+[ext_resource type="Texture2D" uid="uid://gpta4l5uf1sb" path="res://assets/UI/icons/menu/inventory/Left Arrow 1.png" id="12_wjia7"]
+[ext_resource type="Texture2D" uid="uid://beogyl2pt2if4" path="res://assets/UI/icons/menu/inventory/Left Arrow 3.png" id="14_kn7j3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u7vf"]
 
@@ -182,6 +188,78 @@ flat = false
 texture = ExtResource("7_1y86g")
 version = 1
 
+[node name="PlayerTransferSlots" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="PlayerTransfer1Button" parent="MarginContainer/PlayerTransferSlots" instance=ExtResource("6_cemff")]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme = ExtResource("6_8t0fk")
+flat = false
+texture = ExtResource("9_ect15")
+version = 1
+
+[node name="PlayerTransfer5Button" parent="MarginContainer/PlayerTransferSlots" instance=ExtResource("6_cemff")]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme = ExtResource("6_8t0fk")
+flat = false
+texture = ExtResource("9_0o68j")
+version = 1
+
+[node name="PlayerTransferAllButton" parent="MarginContainer/PlayerTransferSlots" instance=ExtResource("6_cemff")]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme = ExtResource("6_8t0fk")
+flat = false
+texture = ExtResource("11_p5hr1")
+version = 1
+
+[node name="BoxTransferSlots" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="BoxTransfer1Button" parent="MarginContainer/BoxTransferSlots" instance=ExtResource("6_cemff")]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme = ExtResource("6_8t0fk")
+flat = false
+texture = ExtResource("12_wjia7")
+version = 1
+
+[node name="BoxTransfer5Button" parent="MarginContainer/BoxTransferSlots" instance=ExtResource("6_cemff")]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme = ExtResource("6_8t0fk")
+flat = false
+texture = ExtResource("10_dj76o")
+version = 1
+
+[node name="BoxTransferAllButton" parent="MarginContainer/BoxTransferSlots" instance=ExtResource("6_cemff")]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme = ExtResource("6_8t0fk")
+flat = false
+texture = ExtResource("14_kn7j3")
+version = 1
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/WeaponSlots/AssignWeaponSlot1" to="." method="_on_assign_weapon_slot_1_mouse_entered"]
@@ -206,3 +284,9 @@ version = 1
 [connection signal="pressed" from="MarginContainer/EquipButton" to="." method="_on_equip_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ConsumeSlots/ConsumeButton" to="." method="_on_consume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ConsumeSlots/ConsumeEquipButton" to="." method="_on_consume_equip_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PlayerTransferSlots/PlayerTransfer1Button" to="." method="_on_player_transfer_1_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PlayerTransferSlots/PlayerTransfer5Button" to="." method="_on_player_transfer_5_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PlayerTransferSlots/PlayerTransferAllButton" to="." method="_on_player_transfer_all_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxTransferSlots/BoxTransfer1Button" to="." method="_on_box_transfer_1_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxTransferSlots/BoxTransfer5Button" to="." method="_on_box_transfer_5_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxTransferSlots/BoxTransferAllButton" to="." method="_on_box_transfer_all_button_pressed"]

@@ -27,10 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://bs606vjh8uql4" path="res://assets/environment/decorations/light-sources/campfire-2.png" id="20_eu21u"]
 [ext_resource type="PackedScene" uid="uid://c84q0wmhvuyei" path="res://environment/decorations/regular/object-1x2-square.tscn" id="21_utdvj"]
 [ext_resource type="Texture2D" uid="uid://cuoi8c1xpc5i2" path="res://assets/environment/decorations/regular/storage/storage-medium-1.png" id="22_rqs3l"]
-[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/chest.tscn" id="28_fc2dk"]
+[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="28_x1gse"]
 [ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="29_whdig"]
 [ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="30_fpkel"]
-[ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/mycelium.tscn" id="31_c1yg5"]
+[ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/resource-nodes/mycelium.tscn" id="31_c1yg5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_76lny"]
 
@@ -553,13 +553,13 @@ texture = ExtResource("10_ng5o1")
 
 [node name="Loot" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
 
-[node name="Chest" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_fc2dk")]
+[node name="Chest" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_x1gse")]
 position = Vector2(1262, 1066)
 rotation = -0.523598
 closedTexture = ExtResource("29_whdig")
 openedTexture = ExtResource("30_fpkel")
 
-[node name="Chest2" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_fc2dk")]
+[node name="Chest2" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_x1gse")]
 position = Vector2(1350, 1058)
 rotation = 1.309
 scale = Vector2(0.75, 0.75)

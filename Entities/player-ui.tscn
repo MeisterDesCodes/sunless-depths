@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://xbb1mnn8v7hy"]
+[gd_scene load_steps=19 format=3 uid="uid://xbb1mnn8v7hy"]
 
 [ext_resource type="Script" path="res://entities/player-ui.gd" id="1_22f2w"]
 [ext_resource type="Resource" uid="uid://bunurwyxgx0ax" path="res://entities/resources/player/player.tres" id="2_cu86e"]
 [ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="3_bh5x3"]
 [ext_resource type="Script" path="res://entities/rotation-point.gd" id="3_qyr1b"]
+[ext_resource type="Resource" uid="uid://bft6yyarw6mwp" path="res://inventory-resource/resources/player/player-storage.tres" id="4_1lhmx"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="6_glmfw"]
 [ext_resource type="Script" path="res://entities/input-control.gd" id="7_0y48q"]
 [ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="8_ilynh"]
@@ -64,6 +65,7 @@ safe_margin = 5.0
 script = ExtResource("1_22f2w")
 entityResource = ExtResource("2_cu86e")
 inventory = ExtResource("3_bh5x3")
+storage = ExtResource("4_1lhmx")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 8

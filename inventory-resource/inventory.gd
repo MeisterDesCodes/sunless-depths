@@ -3,6 +3,7 @@ extends Resource
 class_name Inventory
 
 signal updateInventory
+signal createSlot
 
 @export var resourceSlots: Array[InventorySlot]
 
@@ -17,6 +18,7 @@ func addResource(tempResource: InventoryResource, amount: int):
 		newSlot.resource = tempResource
 		newSlot.amount = amount
 		resourceSlots.append(newSlot)
+		createSlot.emit(newSlot)
 	
 	updateResourceTypes()
 	updateInventory.emit()

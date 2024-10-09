@@ -3,13 +3,13 @@ extends Node2D
 
 @export var entity: CharacterBody2D
 
-@onready var backgroundMusic = get_node("BackgroundMusic")
 @onready var walk = get_node("Walk")
 @onready var attack = get_node("Attack")
 @onready var hit = get_node("Hit")
 @onready var dash = get_node("Dash")
 @onready var menu = get_node("Menu")
 @onready var hover = get_node("Hover")
+@onready var interaction = get_node("Interaction")
 @onready var walkTimer = get_node("WalkTimer")
 
 
@@ -24,6 +24,8 @@ var craftSound: AudioStreamMP3 = preload("res://assets/SFX/craft.mp3")
 var consumeSound: AudioStreamMP3 = preload("res://assets/SFX/consume.mp3")
 var weaponEquipSound: AudioStreamMP3 = preload("res://assets/SFX/equip-weapon.mp3")
 var itemEquipSound: AudioStreamMP3 = preload("res://assets/SFX/equip-item.mp3")
+var gateInteractionSound: AudioStreamMP3 = preload("res://assets/SFX/gate.mp3")
+var sarcophagusInteractionSound: AudioStreamMP3 = preload("res://assets/SFX/sarcophagus.mp3")
 var currentStep = 0
 
 
@@ -74,11 +76,19 @@ func onConsume():
 	playSound(menu, consumeSound, true)
 
 
-func onEquip(item: InventoryResource):
+func onGateInteraction():
+	playSound(interaction, gateInteractionSound, true)
+
+
+func onSarcophagusInteraction():
+	playSound(interaction, sarcophagusInteractionSound, true)
+
+
+func onEquip(item: InventoryResource = InventoryResource.new()):
 	var sound: AudioStreamMP3
 	if item is InventoryWeapon:
 		sound = weaponEquipSound
-	if item is InventoryEquipment || item is InventoryAmmunition || item is InventoryConsumable:
+	else:
 		sound = itemEquipSound
 	
 	playSound(menu, sound, true)

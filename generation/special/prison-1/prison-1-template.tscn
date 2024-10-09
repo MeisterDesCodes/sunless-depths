@@ -45,8 +45,8 @@
 [ext_resource type="PackedScene" uid="uid://bqg23ir8fxfji" path="res://environment/decorations/walls/prison-fence-medium.tscn" id="42_j1vtt"]
 [ext_resource type="PackedScene" uid="uid://dsjokrvb0vmde" path="res://entities/entity-spawner.tscn" id="43_73l1t"]
 [ext_resource type="PackedScene" uid="uid://baiiugv5sdp06" path="res://environment/interactions/gate.tscn" id="43_tm3vp"]
-[ext_resource type="PackedScene" uid="uid://csu8j4yk4u1er" path="res://environment/interactions/gate-operator.tscn" id="44_wvrjr"]
-[ext_resource type="PackedScene" uid="uid://cno6olixfbot0" path="res://environment/interactions/arena-operator.tscn" id="45_nubbl"]
+[ext_resource type="PackedScene" uid="uid://csu8j4yk4u1er" path="res://environment/interactions/operators/gate-operator.tscn" id="44_wvrjr"]
+[ext_resource type="PackedScene" uid="uid://cno6olixfbot0" path="res://environment/interactions/operators/arena-operator.tscn" id="45_nubbl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o25ag"]
 load_path = "res://.godot/imported/cage-circular.png-e3718dc6b823d9734ee65109d4a25487.ctex"

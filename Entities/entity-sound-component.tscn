@@ -23,6 +23,9 @@ volume_db = -10.0
 [node name="Hover" type="AudioStreamPlayer" parent="."]
 volume_db = -40.0
 
+[node name="Interaction" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
 [node name="WalkTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true

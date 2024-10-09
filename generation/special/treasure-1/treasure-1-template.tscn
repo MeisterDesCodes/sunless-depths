@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bp8dv6k0rtg0b"]
+[gd_scene load_steps=48 format=3 uid="uid://bp8dv6k0rtg0b"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_omkga"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_myypf"]
@@ -26,13 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="24_agbbg"]
 [ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="25_e32cb"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="26_eqpnu"]
-[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/old-log.tscn" id="27_p21jn"]
-[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/chest.tscn" id="28_evb0r"]
+[ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/resource-nodes/old-log.tscn" id="27_d8cjt"]
+[ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="28_uxin3"]
 [ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="29_bhb1w"]
 [ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="30_3td0m"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="31_ijixb"]
 [ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basked-empty-1.png" id="32_ume4w"]
-[ext_resource type="PackedScene" uid="uid://bmx537qedfbtp" path="res://environment/interactions/sarcophagus.tscn" id="33_oo8at"]
+[ext_resource type="PackedScene" uid="uid://bmx537qedfbtp" path="res://environment/interactions/resource-nodes/sarcophagus.tscn" id="33_d6vgs"]
 [ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="34_7l48k"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="35_vw4oq"]
 [ext_resource type="Resource" uid="uid://c8vtfnfxrfr1v" path="res://inventory-resource/resources/equipment/ancient-H.tres" id="36_188ul"]
@@ -40,6 +40,7 @@
 [ext_resource type="Resource" uid="uid://bl416lwjryrdd" path="res://inventory-resource/resources/equipment/ancient-P.tres" id="38_2gpra"]
 [ext_resource type="Resource" uid="uid://b44yjhpkbtd1o" path="res://inventory-resource/resources/equipment/ancient-B.tres" id="39_cvvve"]
 [ext_resource type="Resource" uid="uid://d1jvo271qbw3x" path="res://weapons/resources/bows/ancient-bow.tres" id="40_m0qdi"]
+[ext_resource type="PackedScene" uid="uid://b1gek0nj3hlno" path="res://environment/interactions/operators/sound-operator.tscn" id="41_2n5ub"]
 
 [sub_resource type="Resource" id="Resource_xiwgr"]
 script = ExtResource("35_vw4oq")
@@ -292,29 +293,29 @@ texture = ExtResource("26_eqpnu")
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 
-[node name="OldLog" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_p21jn")]
+[node name="OldLog" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("27_d8cjt")]
 position = Vector2(787, 915)
 rotation = 0.785397
 
-[node name="Chest" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_evb0r")]
+[node name="Chest" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(694, 278)
 rotation = -2.30706
 closedTexture = ExtResource("29_bhb1w")
 openedTexture = ExtResource("30_3td0m")
 
-[node name="Chest2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_evb0r")]
+[node name="Chest2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(254, 121)
 rotation = -0.124201
 closedTexture = ExtResource("29_bhb1w")
 openedTexture = ExtResource("30_3td0m")
 
-[node name="Chest6" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_evb0r")]
+[node name="Chest6" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(392.563, 901.565)
 rotation = 2.5449
 closedTexture = ExtResource("29_bhb1w")
 openedTexture = ExtResource("30_3td0m")
 
-[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_evb0r")]
+[node name="Chest3" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(773, 694)
 rotation = -2.99867
 scale = Vector2(0.575, 0.575)
@@ -322,7 +323,7 @@ closedTexture = ExtResource("31_ijixb")
 openedTexture = ExtResource("32_ume4w")
 type = 1
 
-[node name="Chest4" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_evb0r")]
+[node name="Chest4" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(833, 750)
 rotation = -2.35619
 scale = Vector2(0.575, 0.575)
@@ -330,7 +331,7 @@ closedTexture = ExtResource("31_ijixb")
 openedTexture = ExtResource("32_ume4w")
 type = 1
 
-[node name="Chest5" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_evb0r")]
+[node name="Chest5" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(698, 848)
 rotation = -2.61799
 scale = Vector2(0.575, 0.575)
@@ -342,10 +343,13 @@ type = 1
 
 [node name="Functionality" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 
-[node name="Sarcophagus" parent="Map/EnvironmentalObjects/Interactions/Functionality" instance=ExtResource("33_oo8at")]
+[node name="Sarcophagus" parent="Map/EnvironmentalObjects/Interactions/Functionality" instance=ExtResource("33_d6vgs")]
 position = Vector2(482, 502)
 dropResources = Array[ExtResource("35_vw4oq")]([SubResource("Resource_xiwgr"), SubResource("Resource_od2i3"), SubResource("Resource_p28b3"), SubResource("Resource_gl31m"), SubResource("Resource_0uf4a"), SubResource("Resource_wej3e")])
 lifetime = 1
+
+[node name="SoundOperator" parent="Map/EnvironmentalObjects/Interactions" instance=ExtResource("41_2n5ub")]
+position = Vector2(151, 577)
 
 [node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=7 format=3 uid="uid://bft6yyarw6mwp"]
+
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="1_lfchb"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_tp5de"]
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="3_e23vp"]
+[ext_resource type="Script" path="res://inventory-resource/inventory.gd" id="17_gae8n"]
+
+[sub_resource type="Resource" id="Resource_rpcen"]
+script = ExtResource("2_tp5de")
+resource = ExtResource("1_lfchb")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_6l7rv"]
+script = ExtResource("2_tp5de")
+resource = ExtResource("3_e23vp")
+amount = 999
+
+[resource]
+script = ExtResource("17_gae8n")
+resourceSlots = Array[ExtResource("2_tp5de")]([SubResource("Resource_rpcen"), SubResource("Resource_6l7rv")])

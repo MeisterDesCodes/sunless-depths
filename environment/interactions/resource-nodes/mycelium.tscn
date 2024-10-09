@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dx6j0un24peas"]
 
-[ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_ayxe0"]
+[ext_resource type="Script" path="res://environment/interactions/resource-nodes/resource-node.gd" id="1_ayxe0"]
 [ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="2_me3kh"]
 [ext_resource type="Texture2D" uid="uid://bqes0y60boixe" path="res://assets/environment/interactions/mycelium.png" id="2_xk8ri"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_0slle"]

@@ -6,6 +6,7 @@ signal enemiesDefeated
 @export var lifetime: int
 @export var spawners: Node2D
 
+@onready var game = get_tree().get_root().get_node("Game")
 @onready var interaction = get_node("Interaction")
 
 var effectAwareness: StatusEffect = preload("res://entities/resources/status-effects/awareness-arena.tres")
@@ -27,6 +28,8 @@ func interact(body):
 			UtilsS.applyStatusEffects(enemyScene, enemyScene, [effectAwareness, effectSpeed])
 			enemies.append(enemyScene)
 			enemyScene.onDeath.connect(reduceAmount)
+			
+	game.soundComponent.playArena()
 
 
 func reduceAmount(enemy: CharacterBody2D):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkyapdnubk1ph"]
 
-[ext_resource type="Script" path="res://environment/interactions/resource-node.gd" id="1_nldm4"]
+[ext_resource type="Script" path="res://environment/interactions/resource-nodes/resource-node.gd" id="1_nldm4"]
 [ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="2_o6rrp"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="2_rq5c8"]
 [ext_resource type="Texture2D" uid="uid://cfgfddu12t3pl" path="res://assets/environment/interactions/debris.png" id="2_v276m"]
