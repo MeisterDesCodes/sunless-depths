@@ -1,19 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c572bb7vvyy3u"]
+[gd_scene load_steps=6 format=3 uid="uid://c572bb7vvyy3u"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-location-ui.gd" id="1_5e0v6"]
 [ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="2_eui46"]
 [ext_resource type="Theme" uid="uid://dt2kmg15mqf2t" path="res://assets/UI/themes/UI-elements/location-marker.tres" id="2_jr7c8"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="3_7trmp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmpxj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw44r"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umhch"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihnea"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oen8f"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62nxb"]
 
 [node name="MapLocationUI" type="Control"]
 layout_mode = 3
@@ -94,11 +86,9 @@ expand_mode = 1
 
 [node name="Button" parent="PanelContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_7trmp")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nmpxj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_sw44r")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_umhch")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ihnea")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oen8f")
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_62nxb")
 affectedElement = NodePath("..")
 
 [connection signal="mouse_entered" from="PanelContainer/Button" to="." method="_on_button_mouse_entered"]

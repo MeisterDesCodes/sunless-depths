@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://xttesm4el1dg"]
+[gd_scene load_steps=12 format=3 uid="uid://xttesm4el1dg"]
 
 [ext_resource type="Script" path="res://UI/menu/inventory/resources-ui.gd" id="1_15s3g"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="2_ksq2u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://baaxea56gnea3" path="res://assets/UI/icons/menu/inventory/Blueprints.png" id="6_vglu4"]
 [ext_resource type="Texture2D" uid="uid://d0yvfjmya7pbf" path="res://assets/UI/icons/menu/inventory/Weapons.png" id="7_81jl7"]
 [ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Ammunition.png" id="8_nfy4b"]
+[ext_resource type="Texture2D" uid="uid://c5i8qxqixb2vr" path="res://assets/resources/equipment/bagpacks/Backpack.png" id="11_mv2iu"]
 
 [node name="ResourcesUI" type="Control"]
 layout_mode = 3
@@ -40,9 +41,13 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 
-[node name="AllItems" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="AllItems" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
@@ -50,7 +55,7 @@ flat = false
 texture = ExtResource("3_7pkxf")
 version = 1
 
-[node name="AllMaterials" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="AllMaterials" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
@@ -58,7 +63,7 @@ flat = false
 texture = ExtResource("5_vn4d0")
 version = 1
 
-[node name="AllConsumables" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="AllConsumables" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
@@ -66,7 +71,7 @@ flat = false
 texture = ExtResource("6_hkan2")
 version = 1
 
-[node name="AllBlueprints" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="AllBlueprints" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
@@ -74,7 +79,7 @@ flat = false
 texture = ExtResource("6_vglu4")
 version = 1
 
-[node name="AllWeapons" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="AllWeapons" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
@@ -82,7 +87,7 @@ flat = false
 texture = ExtResource("7_81jl7")
 version = 1
 
-[node name="AllAmmunition" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="AllAmmunition" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
@@ -90,13 +95,27 @@ flat = false
 texture = ExtResource("8_nfy4b")
 version = 1
 
-[node name="AllEquipment" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ksq2u")]
+[node name="AllEquipment" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("4_bq3c6")
 version = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("11_mv2iu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TotalWeight" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(625, 450)
@@ -110,10 +129,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllItems" to="." method="_on_all_items_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllMaterials" to="." method="_on_all_materials_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllConsumables" to="." method="_on_all_consumables_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllBlueprints" to="." method="_on_all_blueprints_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllWeapons" to="." method="_on_all_weapons_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllAmmunition" to="." method="_on_all_ammunition_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/AllEquipment" to="." method="_on_all_equipment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllItems" to="." method="_on_all_items_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllMaterials" to="." method="_on_all_materials_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllConsumables" to="." method="_on_all_consumables_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllBlueprints" to="." method="_on_all_blueprints_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllWeapons" to="." method="_on_all_weapons_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllAmmunition" to="." method="_on_all_ammunition_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllEquipment" to="." method="_on_all_equipment_pressed"]

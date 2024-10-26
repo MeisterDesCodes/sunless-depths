@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://rwobq8jhtdxq"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://rwobq8jhtdxq"]
 
+[ext_resource type="Resource" uid="uid://b4qemph8yyffr" path="res://dialogs/resources/settlement-headquarters/DC-request-meeting.tres" id="1_44fip"]
 [ext_resource type="Script" path="res://dialogs/dialog.gd" id="1_52fft"]
+[ext_resource type="Resource" uid="uid://cjmferfgjr640" path="res://dialogs/resources/settlement-headquarters/DC-ask.tres" id="1_ws0eh"]
+[ext_resource type="Resource" uid="uid://ctrndbglt5sik" path="res://dialogs/resources/settlement-headquarters/DC-show-off.tres" id="2_cwlck"]
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="2_vfn4f"]
 
 [resource]
 script = ExtResource("1_52fft")
-title = "123"
-description = "Blabla"
-choices = Array[Resource("res://dialogs/dialog-choice.gd")]([])
+title = "The leader's tent"
+description = "This tent is noticably larger than the other ones. It surrounded by rusty machines and an intricate network of timeworn pipes, running in and out of the undergorund walls. Two guards at the tent's front suggest there is someone of importance residing here. Perhaps someone that could help you to make sense of all this."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_ws0eh"), ExtResource("1_44fip"), ExtResource("2_cwlck"), ExtResource("2_vfn4f")])

@@ -9,3 +9,4 @@ name = "Experience"
 description = "Gained through surviving, killing and exploring, it can be spent to level up, or used as a resource for certain events."
 texture = ExtResource("2_setcy")
 rarity = 0
+weight = 0.0

@@ -18,3 +18,4 @@ name = "Ramshackle Bow"
 description = ""
 texture = ExtResource("2_kq5hy")
 rarity = 1
+weight = 3.5

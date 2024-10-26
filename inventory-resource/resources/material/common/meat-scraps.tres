@@ -9,3 +9,4 @@ name = "Meat Scraps"
 description = "Small bits of flesh, providing some nourishment in the harsh underground world. They don't look so good, but with some help, can be turned into supplies."
 texture = ExtResource("2_8hnl3")
 rarity = 1
+weight = 0.75

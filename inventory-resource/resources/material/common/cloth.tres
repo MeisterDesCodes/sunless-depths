@@ -9,3 +9,4 @@ name = "Cloth"
 description = "Woven from various fibers, it is vital for crafting primitive garments and combining flexible resources."
 texture = ExtResource("2_qy8yc")
 rarity = 1
+weight = 0.25

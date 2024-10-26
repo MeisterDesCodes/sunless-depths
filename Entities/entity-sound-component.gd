@@ -26,6 +26,7 @@ var weaponEquipSound: AudioStreamMP3 = preload("res://assets/SFX/equip-weapon.mp
 var itemEquipSound: AudioStreamMP3 = preload("res://assets/SFX/equip-item.mp3")
 var gateInteractionSound: AudioStreamMP3 = preload("res://assets/SFX/gate.mp3")
 var sarcophagusInteractionSound: AudioStreamMP3 = preload("res://assets/SFX/sarcophagus.mp3")
+var merchantSound: AudioStreamMP3 = preload("res://assets/SFX/merchant.mp3")
 var currentStep = 0
 
 
@@ -82,6 +83,10 @@ func onGateInteraction():
 
 func onSarcophagusInteraction():
 	playSound(interaction, sarcophagusInteractionSound, true)
+
+
+func onMerchantInteraction():
+	playSound(interaction, merchantSound)
 
 
 func onEquip(item: InventoryResource = InventoryResource.new()):

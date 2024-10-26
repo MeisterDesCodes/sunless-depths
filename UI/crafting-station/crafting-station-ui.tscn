@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dang7tjw4gkgi"]
+[gd_scene load_steps=7 format=3 uid="uid://dang7tjw4gkgi"]
 
 [ext_resource type="Script" path="res://UI/crafting-station/crafting-station-ui.gd" id="1_t2ta2"]
+[ext_resource type="Theme" uid="uid://vkof7lo8jctq" path="res://assets/UI/themes/UI-elements/menu-header.tres" id="2_65uik"]
 [ext_resource type="Theme" uid="uid://doff4d8cld34g" path="res://assets/UI/themes/UI-elements/menu-small.tres" id="2_l0ban"]
 [ext_resource type="PackedScene" uid="uid://xttesm4el1dg" path="res://UI/menu/inventory/resources-ui.tscn" id="2_retwm"]
+[ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="3_kxy5n"]
 [ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="4_q2ba3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gy2tt"]
 
 [node name="CraftingStationUI" type="Control"]
 z_index = 3
@@ -37,57 +37,78 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(712.5, 75)
+layout_mode = 2
+theme = ExtResource("2_65uik")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_kxy5n")
+text = "Player Inventory"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(700, 600)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_l0ban")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("2_retwm")]
+[node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("2_retwm")]
 layout_mode = 2
 inventoryType = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(712.5, 75)
+layout_mode = 2
+theme = ExtResource("2_65uik")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_kxy5n")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(700, 600)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_l0ban")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 10
 
-[node name="LocationContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+[node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer" instance=ExtResource("2_retwm")]
 layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/LocationContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxEmpty_gy2tt")
-
-[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/LocationContainer/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "
-"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/LocationContainer"]
-custom_minimum_size = Vector2(600, 425)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-horizontal_scroll_mode = 0
-
-[node name="Resources" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/LocationContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 5
+inventoryType = 2
 
 [node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("4_q2ba3")]
 layout_mode = 2

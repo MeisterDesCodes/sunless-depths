@@ -34,3 +34,4 @@ outputResources = Array[ExtResource("2_ueoqx")]([SubResource("Resource_4dyvn")])
 name = "Lucky Scarf - Blueprint"
 description = ""
 rarity = 2
+weight = 1.0

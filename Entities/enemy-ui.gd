@@ -62,11 +62,14 @@ var projectileSpreadModifier: float = 1
 var effectDurationRandomModifier: float = 1
 var effectTakenStrengthModifier: float = 1
 var effectTakenDurationModifier: float = 1
+var dashingDamageModifier: float = 1
 
 var rangedDamageAfterMeleeAttack: float = 0
 var meleeDamageAfterRangedAttack: float = 0
 var thirdAttackDamage: float = 0
 var sightRadiusEntryEffect: float = 0
+var critHealChance: float = 0
+var critChance: float = 0
 
 var damageRangeMin: float = 0.75
 var damageRangeMax: float = 1.25
@@ -106,12 +109,14 @@ func moveInDirection(direction: Vector2, speed: float):
 	velocity = lerp(velocity, direction * speed * movementSpeedModifier, 0.15)
 
 
-func moveToPath(speed: float):
+func moveToPath(speed: float, lookInDirection: bool):
 	var nextPoint = navigationHandler.get_next_path_position()
 	if nextPoint.distance_to(global_position) > 10:
 		var direction = nextPoint - global_position
 		moveInDirection(direction, speed)
-		rotation = lerp_angle(rotation, global_position.direction_to(navigationHandler.get_next_path_position()).normalized().angle(), 0.05)
+		if !lookInDirection:
+			direction *= -1
+		rotation = lerp_angle(rotation, direction.normalized().angle(), 0.05)  
 	else:
 		velocity = Vector2.ZERO
 

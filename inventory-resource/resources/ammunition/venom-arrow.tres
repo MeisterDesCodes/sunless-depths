@@ -12,6 +12,7 @@ duration = 8.0
 appliesTo = 1
 isStackable = true
 stackLimit = 0
+effectApplyType = 0
 
 [resource]
 script = ExtResource("1_cqcku")
@@ -24,3 +25,4 @@ name = "Venom Arrow"
 description = ""
 texture = ExtResource("3_ewln6")
 rarity = 2
+weight = 1.0

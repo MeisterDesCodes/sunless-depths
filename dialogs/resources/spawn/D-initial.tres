@@ -1,16 +1,12 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://colwlosjhukvl"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://colwlosjhukvl"]
 
-[ext_resource type="Resource" uid="uid://cxuxyss8scst8" path="res://dialogs/resources/blocked-path/DC-explode.tres" id="1_1i30b"]
 [ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="2_pipsi"]
 [ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_7o8wi"]
 
 [resource]
 script = ExtResource("3_7o8wi")
-title = "???"
-description = "You awaken in darkness, the air thick with the scent of damp stone and decay. Your head throbs with a dull ache, and your mind is shrouded in fog. Memories slip through your fingers like water, leaving only a void where your past should be.
+title = "Lost memories"
+description = "Blackness fades as you regain consciousness. You awaken in nearly complete darkness, merely the cinders of a dying campfire shed some light. Your head is heavy, it feels like a metal boulder was mounted on your very shoulders.
 
-Alone in the midst of winding tunnels, you sense the weight of isolation pressing down upon you. But amidst the uncertainty, one thought pierces through the haze: you must find refuge, and quickly.
-
-With no recollection of how you arrived here or who you are, your instinct drives you forward. There is safety in the underground settlements, bastions of humanity in a world overrun by shadows and unknown horrors. Your mission is clear: navigate these ancient sewers, overcome the perils that lurk in the darkness, and find sanctuary among the survivors.
-Time is of the essence. The journey ahead is fraught with danger, but you must press on. Your survival depends on it."
-choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_1i30b"), ExtResource("2_pipsi")])
+A thought rushes into your mind. \"How did I get here?\""
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("2_pipsi")])

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://bmkqipgvhxc3f"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="4_oa10g"]
+
+[resource]
+script = ExtResource("4_oa10g")
+title = "Attempt to catch a fish"
+description = "xxx"
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+optionalMoveBackwards = 0
+oneTimeUse = false
+function = "clearPath"

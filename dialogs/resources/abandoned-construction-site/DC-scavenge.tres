@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DialogChoice" load_steps=8 format=3 uid="uid://c3wyqfdtacbg1"]
 
 [ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="1_4c2bc"]
-[ext_resource type="Resource" uid="uid://tmwurmle4x07" path="res://dialogs/resources/shared/D-placeholder.tres" id="1_744xh"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_swrfd"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="2_70dgd"]
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_xkwug"]
+[ext_resource type="Resource" uid="uid://ckd07lin3dh0j" path="res://dialogs/resources/abandoned-construction-site/D-resources.tres" id="3_2keo6"]
 
 [sub_resource type="Resource" id="Resource_8wcwg"]
 script = ExtResource("2_xkwug")
@@ -19,11 +19,11 @@ amount = 2
 [resource]
 script = ExtResource("1_swrfd")
 title = "Scavenge for resources"
-description = "There be something of value, still lingering around this place."
+description = "If you're willing get your hands dirty, you might still find something of value here."
 requiredResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_54ek5")])
 addedResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_8wcwg")])
 removedResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_54ek5")])
-nextDialog = ExtResource("1_744xh")
-optionalMoveBackwards = 0
+nextDialog = ExtResource("3_2keo6")
+optionalMoveBackwards = -1
 oneTimeUse = false
 function = ""

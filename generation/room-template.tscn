@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bai3u5p5ujpk6"]
+[gd_scene load_steps=53 format=3 uid="uid://bai3u5p5ujpk6"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_fvtau"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_cbd2q"]
@@ -31,16 +31,31 @@
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="29_7vs2p"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="30_cjjs2"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="31_jvrvd"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="32_j7isa"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="32_uewh6"]
+[ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="33_11y41"]
 [ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="33_vn6sy"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="34_1wvvo"]
+[ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="34_mr5ek"]
 [ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/resource-nodes/old-log.tscn" id="35_tw8op"]
+[ext_resource type="Texture2D" uid="uid://c3qj1p2qa5wam" path="res://assets/environment/decorations/walls/tunnel/wall-metal-2.png" id="35_v1ld6"]
+[ext_resource type="Texture2D" uid="uid://bthk8jj51l37j" path="res://assets/environment/decorations/walls/tunnel/wall-metal-3.png" id="36_5qofv"]
 [ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="36_chlo2"]
+[ext_resource type="Texture2D" uid="uid://dlnoommkq1n0k" path="res://assets/environment/decorations/walls/tunnel/wall-metal-1.png" id="37_bq0nx"]
 [ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="37_yd4pj"]
 [ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="38_fcg68"]
+[ext_resource type="Texture2D" uid="uid://2abst8vfm3jn" path="res://assets/environment/decorations/walls/tunnel/wall-wood-3.png" id="38_rmpjd"]
+[ext_resource type="Texture2D" uid="uid://c2ix6irtmxb51" path="res://assets/environment/decorations/walls/tunnel/beam-metal-2.png" id="39_3l0j3"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="39_aril1"]
-[ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basked-empty-1.png" id="40_p71ct"]
+[ext_resource type="Texture2D" uid="uid://ck3feyge4ld1a" path="res://assets/environment/decorations/walls/tunnel/pillar-metal-1.png" id="40_nqvlc"]
+[ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basket-empty-1.png" id="40_p71ct"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="41_n8lhn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_slyqk"]
+load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a4ojw"]
+load_path = "res://.godot/imported/pillar-wood-1.png-7b2cc619d412669578b49543f4d8ae5e.ctex"
 
 [node name="Node2D" type="Node2D"]
 
@@ -178,6 +193,79 @@ texture = ExtResource("31_jvrvd")
 
 [node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 z_index = 1
+
+[node name="Tunnel" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel"]
+
+[node name="ObjectSquare6" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Walls" instance=ExtResource("32_j7isa")]
+position = Vector2(174, 189)
+rotation = -1.57079
+texture = ExtResource("33_11y41")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare17" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Walls" instance=ExtResource("32_j7isa")]
+position = Vector2(146, 182)
+rotation = -1.57079
+texture = ExtResource("34_mr5ek")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare25" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Walls" instance=ExtResource("32_j7isa")]
+position = Vector2(324, 188)
+rotation = -1.57079
+texture = ExtResource("35_v1ld6")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare19" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Walls" instance=ExtResource("32_j7isa")]
+position = Vector2(368, 192)
+rotation = 1.57079
+texture = ExtResource("36_5qofv")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="ObjectSquare27" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Walls" instance=ExtResource("32_j7isa")]
+position = Vector2(280, 188)
+rotation = -1.57079
+texture = ExtResource("37_bq0nx")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare16" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Walls" instance=ExtResource("32_j7isa")]
+position = Vector2(209, 189)
+rotation = -1.5708
+texture = ExtResource("38_rmpjd")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="Beams" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel"]
+
+[node name="ObjectSquare47" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Beams" instance=ExtResource("32_j7isa")]
+position = Vector2(308, 355)
+rotation = 3.14159
+texture = ExtResource("39_3l0j3")
+collision = false
+
+[node name="ObjectSquare48" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Beams" instance=ExtResource("32_j7isa")]
+position = Vector2(309, 326)
+texture = SubResource("CompressedTexture2D_slyqk")
+collision = false
+
+[node name="ObjectSquare52" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Beams" instance=ExtResource("32_j7isa")]
+position = Vector2(224, 327)
+rotation = 3.14159
+texture = SubResource("CompressedTexture2D_a4ojw")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare60" parent="Map/EnvironmentalObjects/Decorations/Walls/Tunnel/Beams" instance=ExtResource("32_j7isa")]
+position = Vector2(223, 361)
+rotation = 1.57079
+texture = ExtResource("40_nqvlc")
+collisionWidth = 20
+collisionHeight = 20
 
 [node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 

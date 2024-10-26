@@ -34,6 +34,7 @@ extends Control
 @onready var consumableAmount = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumbleAmount")
 @onready var consumableCooldown = get_node("MarginContainer/HBoxContainer/PanelContainer4/ConsumbleCooldown")
 @onready var consumeParticles = get_node("ConsumeParticles")
+@onready var consumeButton = get_node("MarginContainer/HBoxContainer/PanelContainer4/Button")
 
 @onready var statusEffectsContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/StatusEffects")
 
@@ -62,31 +63,37 @@ func _ready():
 	updateLabels()
 	sprintContainer.visible = false
 	setupWeaponTextures()
+	updateConsumable()
 	survivalNeedModifier = UtilsS.getScalingValue(playerScene.entityResource.perseverance * 2)
+	consumableContainer.pivot_offset = Vector2(consumableContainer.size.x / 2, consumableContainer.size.y / 2)
 
 
 func updateConsumable():
 	consumableTexture.texture = null
 	consumableAmount.text = ""
 	consumableCooldown.text = ""
-	if playerScene.equippedConsumable:
-		if !playerScene.equippedConsumable.isOnCooldown:
-			consumableContainer.self_modulate = UtilsS.colorWhite
-			consumableTexture.texture = playerScene.equippedConsumable.texture
-			consumableAmount.text = str(playerScene.inventory.getResourceAmount(playerScene.equippedConsumable))
-		else:
-			consumableContainer.self_modulate = UtilsS.colorDisabled
-			consumableTexture.texture = null
-			consumableAmount.text = ""
-			consumableCooldown.text = str(round(playerScene.equippedConsumable.remainingCooldown))
+	if !playerScene.equippedConsumable:
+		consumeButton.disable(UtilsS.colorDisabled)
+		return
+	
+	if !playerScene.equippedConsumable.isOnCooldown:
+		if consumeButton.disabled:
+			consumeButton.enable()
+		consumableTexture.texture = playerScene.equippedConsumable.texture
+		consumableAmount.text = str(playerScene.inventory.getResourceAmount(playerScene.equippedConsumable))
+	else:
+		consumeButton.disable(UtilsS.colorDisabled)
+		consumableTexture.texture = null
+		consumableAmount.text = ""
+		consumableCooldown.text = str(round(playerScene.equippedConsumable.remainingCooldown))
 
 
 func disableConsumeButton():
 	if playerScene.equippedConsumable:
 		playerScene.inventory.getResource(playerScene.equippedConsumable).isOnCooldown = true
 		updateConsumable()
-		#TODO
-		UtilsS.playParticleEffect(consumeParticles)
+	
+	UtilsS.playUIParticleEffect(consumeParticles, UtilsS.colorPrimary)
 
 
 func setupWeaponTexture(index: int):
@@ -225,7 +232,7 @@ func healthModified():
 
 func updateLabels():
 	suppliesLabel.text = str(playerScene.inventory.getResourceAmount(supplies))
-	healthLabel.text = str(healthBar.value)
+	healthLabel.text = str(round(playerScene.health))
 
 
 func _on_supplies_timer_timeout():
@@ -286,3 +293,18 @@ func _on_panel_container_ammunition_3_mouse_exited():
 
 func _on_consumable_timer_timeout():
 	updateConsumable()
+
+
+func _on_panel_container_4_mouse_entered():
+	if playerScene.equippedConsumable:
+		UILoaderS.loadUIPopup(consumableContainer, playerScene.equippedConsumable)
+
+
+func _on_panel_container_4_mouse_exited():
+	UILoaderS.closeUIPopup()
+
+
+func _on_button_pressed():
+	if playerScene.equippedConsumable:
+		UtilsS.useConsumable(playerScene, playerScene.equippedConsumable)
+		disableConsumeButton()

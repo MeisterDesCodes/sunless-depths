@@ -7,25 +7,26 @@
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_ir6id"]
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="4_bx62n"]
 
-[sub_resource type="Resource" id="Resource_8la6k"]
-script = ExtResource("3_0slle")
-resource = ExtResource("4_bx62n")
-amount = 6
-dropChance = 0.3
-
 [sub_resource type="Resource" id="Resource_ah2aw"]
 script = ExtResource("3_0slle")
 resource = ExtResource("2_me3kh")
 amount = 4
 dropChance = 0.5
 
+[sub_resource type="Resource" id="Resource_8la6k"]
+script = ExtResource("3_0slle")
+resource = ExtResource("4_bx62n")
+amount = 2
+dropChance = 0.25
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
 radius = 31.0161
 
 [node name="Mycelium" type="Node2D"]
 script = ExtResource("1_ayxe0")
-dropResources = Array[ExtResource("3_0slle")]([SubResource("Resource_8la6k"), SubResource("Resource_ah2aw")])
-lifetime = 3
+dropResources = Array[ExtResource("3_0slle")]([SubResource("Resource_ah2aw"), SubResource("Resource_8la6k")])
+lifetime = 4
+interactionCost = 5.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

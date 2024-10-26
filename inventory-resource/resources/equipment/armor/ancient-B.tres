@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://b44yjhpkbtd1o"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_ka8aa"]
+[ext_resource type="Texture2D" uid="uid://yyh4pjw7oprx" path="res://assets/resources/equipment/armor/Boots.png" id="2_11wn7"]
+
+[resource]
+script = ExtResource("1_ka8aa")
+equipmentType = 6
+modifiers = Array[Resource("res://inventory-resource/inventory-equipment-modifier.gd")]([])
+name = "Ancient Boots"
+description = "xxx"
+texture = ExtResource("2_11wn7")
+rarity = 3
+weight = 0.75

@@ -1,0 +1,475 @@
+[gd_scene load_steps=30 format=3 uid="uid://dce0defa020j1"]
+
+[ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_jqb1r"]
+[ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_pl3sb"]
+[ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/cave-sand-texture.tscn" id="3_2001y"]
+[ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_l6je4"]
+[ext_resource type="Texture2D" uid="uid://vdw8rs4sxwfw" path="res://assets/environment/decorations/regular/mineshaft/20230421103643-87e80f3c.png" id="6_i8807"]
+[ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="7_iymvt"]
+[ext_resource type="Texture2D" uid="uid://bak6hssu1h7us" path="res://assets/environment/decorations/regular/mineshaft/20230421103648-2a79033c.png" id="7_mnihy"]
+[ext_resource type="Texture2D" uid="uid://c0euu6eh304aj" path="res://assets/environment/decorations/light-sources/lantern-1.png" id="8_ki5vl"]
+[ext_resource type="Texture2D" uid="uid://gq6pf1b3dbif" path="res://assets/environment/decorations/regular/mineshaft/20230421103641-61dfe243.png" id="8_vjewm"]
+[ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="9_v01tk"]
+[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="10_awsbd"]
+[ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="10_m7ocj"]
+[ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="11_1nwwg"]
+[ext_resource type="Texture2D" uid="uid://dlaks4iw0ww5i" path="res://assets/environment/decorations/regular/rubble/blockage-2.png" id="11_6jyo1"]
+[ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="12_8dpoh"]
+[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="13_r25lo"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="18_lc7xa"]
+[ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="19_exs7r"]
+[ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="20_yxiri"]
+[ext_resource type="Texture2D" uid="uid://c3qj1p2qa5wam" path="res://assets/environment/decorations/walls/tunnel/wall-metal-2.png" id="21_528yl"]
+[ext_resource type="Texture2D" uid="uid://bthk8jj51l37j" path="res://assets/environment/decorations/walls/tunnel/wall-metal-3.png" id="22_2qrih"]
+[ext_resource type="Texture2D" uid="uid://dlnoommkq1n0k" path="res://assets/environment/decorations/walls/tunnel/wall-metal-1.png" id="23_3rhwe"]
+[ext_resource type="Texture2D" uid="uid://2abst8vfm3jn" path="res://assets/environment/decorations/walls/tunnel/wall-wood-3.png" id="24_r3y51"]
+[ext_resource type="Texture2D" uid="uid://c2ix6irtmxb51" path="res://assets/environment/decorations/walls/tunnel/beam-metal-2.png" id="25_2mpiw"]
+[ext_resource type="Texture2D" uid="uid://ck3feyge4ld1a" path="res://assets/environment/decorations/walls/tunnel/pillar-metal-1.png" id="26_1pskv"]
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="27_fukr4"]
+[ext_resource type="PackedScene" uid="uid://el4vr05klw55" path="res://environment/interactions/resource-nodes/iron-ore-deposit.tscn" id="27_v2tcw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tawum"]
+load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i2wkd"]
+load_path = "res://.godot/imported/pillar-wood-1.png-7b2cc619d412669578b49543f4d8ae5e.ctex"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_jqb1r")]
+layer_0/tile_data = PackedInt32Array(0, 131074, 1, 1, 131074, 1, 2, 131074, 1, 3, 131074, 1, 65540, 131074, 1, 65541, 131074, 1, 262144, 131074, 1, 262145, 131074, 1, 262146, 131074, 1, 262147, 131074, 1, 262148, 131074, 1, 262149, 131074, 1, 65539, 131074, 1, 65543, 131074, 1, 327687, 131074, 1, 65544, 589826, 1, 327688, 131074, 1, 65545, 131074, 1, 327689, 131074, 1, 65546, 131074, 1, 327690, 131074, 1, 65547, 131074, 1, 327691, 131074, 1, 65548, 131074, 1, 262156, 131074, 1, 65542, 131074, 1, 262150, 131074, 1, 327686, 131074, 1, 262155, 131074, 1, 65538, 327682, 1, 262151, 262146, 2, 262154, 327682, 2, 196608, 131074, 0, 196609, 131074, 0, 196610, 131074, 0, 196611, 131074, 0, 196612, 131074, 0, 196613, 131074, 0, 196614, 131074, 0, 196619, 131074, 0, 196620, 131074, 0, 131079, 131074, 2, 131078, 131074, 2, 131077, 131074, 2, 131076, 131074, 2, 131075, 131074, 2, 131081, 262146, 1, 131082, 131074, 2, 131083, 131074, 2, 131084, 131074, 2, 131080, 262146, 7, 196617, 196610, 2, 196616, 65538, 2, 262152, 131074, 0, 262153, 131074, 0, 131073, 196610, 2, 131074, 65538, 2, 196615, 196610, 0, 196618, 65538, 0, 7, 131074, 1, 8, 131074, 1, 9, 131074, 1, 65537, 262146, 1, 65536, 131074, 1, 131072, 131074, 2)
+layer_1/tile_data = PackedInt32Array(65537, 458754, 2, 131073, 458754, 2, 131074, 458754, 2, 131072, 458754, 2, 196608, 458754, 2, 65538, 458754, 2, 196609, 458754, 2, 196610, 458754, 2, 196611, 458754, 2, 196612, 458754, 2, 196613, 458754, 2, 196614, 458754, 2, 131079, 458754, 2, 131080, 458754, 2, 65544, 458754, 2, 131078, 458754, 2, 131077, 458754, 2, 131076, 458754, 2, 131075, 458754, 2, 196615, 458754, 2, 196616, 458754, 2, 196617, 458754, 2, 196618, 458754, 2, 196619, 458754, 2, 196620, 458754, 2, 131084, 458754, 2, 131083, 458754, 2, 131082, 458754, 2, 131081, 458754, 2, 262153, 458754, 2, 262154, 458754, 2, 262152, 458754, 2, 262151, 458754, 2)
+layer_2/tile_data = PackedInt32Array(0, 458754, 7, 1, 458754, 7, 2, 458754, 7, 3, 458754, 7, 65539, 458754, 7, 65540, 458754, 7, 65541, 458754, 7, 65542, 458754, 7, 65543, 458754, 7, 65545, 458754, 7, 65546, 458754, 7, 65547, 458754, 7, 65548, 458754, 7, 262156, 458754, 7, 262155, 458754, 7, 327691, 458754, 7, 327690, 458754, 7, 327689, 458754, 7, 327688, 458754, 7, 327687, 458754, 7, 327686, 458754, 7, 262150, 458754, 7, 262149, 458754, 7, 262148, 458754, 7, 262147, 458754, 7, 262146, 458754, 7, 262145, 458754, 7, 262144, 458754, 7, 196608, 458754, 6, 196609, 458754, 6, 196610, 458754, 6, 196611, 458754, 6, 196612, 458754, 6, 196613, 458754, 6, 196614, 458754, 6, 262151, 589826, 8, 262154, 655362, 8, 262152, 458754, 6, 262153, 458754, 6, 196619, 458754, 6, 196620, 458754, 6, 196618, 393218, 6, 196615, 524290, 6, 131084, 458754, 8, 131083, 458754, 8, 131082, 458754, 8, 131081, 589826, 7, 65544, 786434, 8, 131079, 458754, 8, 131078, 458754, 8, 131077, 458754, 8, 131076, 458754, 8, 131075, 458754, 8, 65537, 589826, 7, 65536, 458754, 7, 65538, 655362, 7, 131074, 393218, 8, 131080, 262146, 9, 196616, 393218, 8, 196617, 524290, 8, 7, 458754, 7, 8, 458754, 7, 9, 458754, 7, 131073, 524290, 8, 131072, 458754, 8)
+
+[node name="EnvironmentalObjects" type="Node2D" parent="Map"]
+
+[node name="Decorations" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Textures" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+position = Vector2(-3, 1)
+
+[node name="CaveTexture4" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("2_pl3sb")]
+position = Vector2(683, 193)
+rotation = 1.57079
+scale = Vector2(0.475, 0.475)
+
+[node name="CaveSandTexture" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("3_2001y")]
+position = Vector2(355, 227)
+rotation = 0.771434
+scale = Vector2(0.47, 0.47)
+
+[node name="RockTexture2" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("4_l6je4")]
+position = Vector2(127, 162)
+rotation = -0.523598
+scale = Vector2(0.305, 0.305)
+
+[node name="RockTexture3" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("4_l6je4")]
+position = Vector2(520, 217)
+rotation = -0.523598
+scale = Vector2(0.305, 0.305)
+
+[node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="ObjectDecoration" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(470, 199)
+rotation = 1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_i8807")
+
+[node name="ObjectDecoration2" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(127, 104)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_mnihy")
+
+[node name="ObjectDecoration4" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(221, 198)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_mnihy")
+
+[node name="ObjectDecoration5" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(296, 198)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_mnihy")
+
+[node name="ObjectDecoration10" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(580, 273)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_mnihy")
+
+[node name="ObjectDecoration7" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(390, 199)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_mnihy")
+
+[node name="ObjectDecoration3" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(146, 179)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_vjewm")
+
+[node name="ObjectDecoration8" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(516, 292)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_vjewm")
+
+[node name="ObjectDecoration9" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(655, 292)
+rotation = 1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_vjewm")
+
+[node name="ObjectDecoration6" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(371, 217)
+rotation = -4.71238
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_vjewm")
+
+[node name="ObjectSquare" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("18_lc7xa")]
+position = Vector2(543, 110)
+rotation = -0.785397
+texture = ExtResource("10_awsbd")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare2" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("18_lc7xa")]
+position = Vector2(556, 316)
+rotation = -0.785397
+texture = ExtResource("10_awsbd")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare3" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("18_lc7xa")]
+position = Vector2(270, 240)
+rotation = -0.161154
+texture = ExtResource("11_6jyo1")
+collisionWidth = 70
+collisionHeight = 30
+
+[node name="ObjectSquare4" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("18_lc7xa")]
+position = Vector2(409, 144)
+rotation = -0.523598
+texture = ExtResource("11_6jyo1")
+collisionWidth = 70
+collisionHeight = 30
+
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="Lantern4" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("7_iymvt")]
+position = Vector2(321, 186)
+texture = ExtResource("8_ki5vl")
+
+[node name="Lantern7" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("7_iymvt")]
+position = Vector2(485, 196)
+texture = ExtResource("8_ki5vl")
+
+[node name="Lantern6" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("7_iymvt")]
+position = Vector2(655, 204)
+texture = ExtResource("8_ki5vl")
+
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+z_index = 3
+
+[node name="Overlay3" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(18, 239)
+rotation = 1.83259
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("10_m7ocj")
+
+[node name="Overlay4" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(611, 319)
+rotation = 1.309
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("10_m7ocj")
+
+[node name="Overlay16" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(69, 174)
+rotation = -2.09439
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay18" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(50, 188)
+rotation = -1.96021
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay13" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(251, 193)
+rotation = -1.06281
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay20" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(402, 195)
+rotation = -2.05157
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay21" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(455, 149)
+rotation = -0.895728
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay22" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(557, 254)
+rotation = -1.29061
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay23" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(714, 203)
+rotation = -1.85463
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay24" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(731, 200)
+rotation = -1.33053
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_1nwwg")
+
+[node name="Overlay10" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(90, 131)
+rotation = -1.1796
+scale = Vector2(0.197, 0.197)
+texture = ExtResource("12_8dpoh")
+
+[node name="Overlay17" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("9_v01tk")]
+position = Vector2(550, 142)
+rotation = 0.444773
+scale = Vector2(0.167, 0.167)
+texture = ExtResource("13_r25lo")
+
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+z_index = 1
+
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
+[node name="Tunnel" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular"]
+
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel"]
+
+[node name="ObjectSquare8" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(281, 239)
+rotation = -0.0396544
+texture = ExtResource("19_exs7r")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare9" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(373, 239)
+rotation = -0.0389074
+texture = ExtResource("19_exs7r")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare10" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(391, 140)
+rotation = 0.0094486
+texture = ExtResource("19_exs7r")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare12" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(480, 285)
+rotation = 1.33518
+texture = ExtResource("19_exs7r")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare11" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(283, 141)
+rotation = 0.0094486
+texture = ExtResource("19_exs7r")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare18" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(449, 241)
+rotation = 0.138669
+texture = ExtResource("20_yxiri")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare33" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(465, 144)
+rotation = 0.138669
+texture = ExtResource("20_yxiri")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare34" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(332, 142)
+rotation = -0.00956403
+texture = ExtResource("20_yxiri")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare35" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(209, 145)
+rotation = -0.101712
+texture = ExtResource("20_yxiri")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare36" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(171, 118)
+rotation = 1.3779
+texture = ExtResource("20_yxiri")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare37" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(135, 86)
+rotation = 0.0695621
+texture = ExtResource("20_yxiri")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare26" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(746, 238)
+rotation = 0.0862148
+texture = ExtResource("21_528yl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare38" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(676, 290)
+rotation = 1.83649
+texture = ExtResource("21_528yl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare29" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(687, 160)
+rotation = -0.126375
+texture = ExtResource("22_2qrih")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="ObjectSquare30" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(598, 179)
+rotation = -0.436728
+texture = ExtResource("23_3rhwe")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare16" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("18_lc7xa")]
+position = Vector2(153, 248)
+rotation = -3.25829
+texture = ExtResource("24_r3y51")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="Beams" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel"]
+
+[node name="ObjectSquare47" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(655, 203)
+rotation = 0.710897
+texture = ExtResource("25_2mpiw")
+collision = false
+
+[node name="ObjectSquare67" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(232, 191)
+rotation = -4.56216
+texture = SubResource("CompressedTexture2D_tawum")
+collision = false
+
+[node name="ObjectSquare71" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(321, 189)
+rotation = -4.88549
+texture = SubResource("CompressedTexture2D_tawum")
+collision = false
+
+[node name="ObjectSquare72" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(349, 190)
+rotation = -4.68675
+texture = SubResource("CompressedTexture2D_tawum")
+collision = false
+
+[node name="ObjectSquare73" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(428, 187)
+rotation = -4.60409
+texture = SubResource("CompressedTexture2D_tawum")
+collision = false
+
+[node name="ObjectSquare74" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(483, 195)
+rotation = -4.4304
+texture = SubResource("CompressedTexture2D_tawum")
+collision = false
+
+[node name="ObjectSquare54" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(163, 91)
+rotation = 2.42714
+texture = SubResource("CompressedTexture2D_i2wkd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare60" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(180, 148)
+rotation = 2.09439
+texture = SubResource("CompressedTexture2D_i2wkd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare75" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(106, 86)
+rotation = 1.63445
+texture = SubResource("CompressedTexture2D_i2wkd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare65" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(764, 151)
+rotation = 1.62283
+texture = ExtResource("26_1pskv")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare76" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("18_lc7xa")]
+position = Vector2(797, 241)
+rotation = 1.57079
+texture = ExtResource("26_1pskv")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="IronOreDeposit" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("27_v2tcw")]
+position = Vector2(77, 123)
+
+[node name="IronOreDeposit2" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("27_v2tcw")]
+position = Vector2(656, 298)
+
+[node name="IronOreDeposit3" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("27_v2tcw")]
+position = Vector2(656, 298)
+
+[node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Spawners" type="Node2D" parent="Map/EnvironmentalObjects"]

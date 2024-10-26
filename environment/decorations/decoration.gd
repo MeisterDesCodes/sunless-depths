@@ -9,11 +9,6 @@ extends Node2D
 		texture = value
 		if $Sprite2D:
 			$"Sprite2D".texture = texture
-@export var collision: bool = true:
-	set(value):
-		collision = value
-		if collisionShape:
-			collisionShape.disabled = !value
 
 
 func isMap():

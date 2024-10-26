@@ -8,17 +8,23 @@ signal updateInventory
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 @onready var resourceContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/ScrollContainer/Resources")
-@onready var filterContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer")
+@onready var filterContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2")
+@onready var totalWeightContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer")
+@onready var totalWeightLabel: Label = get_node("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/TotalWeight")
 
 var currentFilter: Enums.resourceType
 
 
 func _ready():
 	_on_all_items_pressed()
+	updateTotalWeight()
+	if inventoryType == Enums.inventoryType.STORAGE_BOX || inventoryType == Enums.inventoryType.CRAFTING_STATION:
+		totalWeightContainer.visible = false
 	if inventoryType != Enums.inventoryType.STORAGE_BOX:
 		playerScene.inventory.createSlot.connect(generateSlot)
 	if inventoryType == Enums.inventoryType.STORAGE_BOX:
 		playerScene.storage.createSlot.connect(generateSlot)
+
 
 
 func displayResources(filter: Enums.resourceType):
@@ -54,16 +60,36 @@ func updateResources():
 func updateResourceSlots():
 	for slot in resourceContainer.get_children():
 		slot.update()
+	
+	updateTotalWeight()
+
+
+func updateTotalWeight():
+	var totalWeight = playerScene.inventory.getTotalWeight()
+	var weightCapacity = playerScene.entityResource.weightCapacity
+	totalWeightLabel.text = str(totalWeight) + " / " + str(weightCapacity)
+	
+	if totalWeight >= weightCapacity:
+		totalWeightLabel.self_modulate = UtilsS.colorMissing
+	else:
+		totalWeightLabel.self_modulate = UtilsS.colorWhite
 
 
 func getFilteredResources():
-	var resourceSlots
+	var resourceSlots: Array[InventorySlot]
 	match inventoryType:
 		Enums.inventoryType.REGULAR:
 			resourceSlots = playerScene.inventory.resourceSlots
-		Enums.inventoryType.STORAGE_PLAYER:
+		Enums.inventoryType.CRAFTING_PLAYER:
 			resourceSlots = playerScene.inventory.resourceSlots
-		Enums.inventoryType.CRAFTING:
+		Enums.inventoryType.CRAFTING_STATION:
+			var blueprints = LocationLoaderS.currentInteraction.availableBlueprints
+			for blueprint in blueprints:
+				var newSlot = InventorySlot.new()
+				newSlot.resource = blueprint
+				newSlot.amount = 1
+				resourceSlots.append(newSlot)
+		Enums.inventoryType.STORAGE_PLAYER:
 			resourceSlots = playerScene.inventory.resourceSlots
 		Enums.inventoryType.STORAGE_BOX:
 			resourceSlots = playerScene.storage.resourceSlots

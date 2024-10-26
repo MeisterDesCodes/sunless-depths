@@ -36,25 +36,8 @@ func onCompletion():
 
 
 func disableButton():
-	button.disabled = true
-	self_modulate = UtilsS.colorDisabled
+	button.disable()
 
 
 func _on_button_pressed():
 	dialogMenu.clickChoice(choice, determineNextDialog(choice))
-
-
-func _on_button_mouse_entered():
-	if button.disabled:
-		return
-	
-	AnimationsS.changeColor(self, UtilsS.colorPrimaryBright, 0.15)
-	AnimationsS.setSize(self, 1.025, 0.15)
-
-
-func _on_button_mouse_exited():
-	if button.disabled:
-		return
-	
-	AnimationsS.changeColor(self, UtilsS.colorWhite, 0.15)
-	AnimationsS.setSize(self, 1, 0.15)

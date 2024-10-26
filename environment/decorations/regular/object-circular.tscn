@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drhau43vmqgyi"]
+
+[ext_resource type="Script" path="res://environment/decorations/regular/object-circular.gd" id="1_54l1m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hegt6"]
+radius = 0.01
+
+[node name="ObjectCircular" type="Node2D"]
+script = ExtResource("1_54l1m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_hegt6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)

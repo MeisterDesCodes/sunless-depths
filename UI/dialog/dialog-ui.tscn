@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://buvdhtxsdft4p"]
+
+[ext_resource type="Script" path="res://UI/dialog/dialog-ui.gd" id="1_6i0cn"]
+[ext_resource type="Theme" uid="uid://c6rp0i4nnn7ww" path="res://assets/UI/themes/UI-elements/dialog.tres" id="1_xk14v"]
+[ext_resource type="Theme" uid="uid://ct6ax5ic4d7tk" path="res://assets/UI/themes/text/text-large.tres" id="2_0aib0"]
+[ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="3_3q162"]
+
+[node name="Dialog" type="PanelContainer"]
+custom_minimum_size = Vector2(850, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = -85.0
+offset_right = 435.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xk14v")
+script = ExtResource("1_6i0cn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="LocationDialogContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="MarginContainer/LocationDialogContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_0aib0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="MarginContainer/LocationDialogContainer"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_3q162")
+autowrap_mode = 2
+
+[node name="DialogResources" type="VBoxContainer" parent="MarginContainer/LocationDialogContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="MarginContainer/LocationDialogContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10

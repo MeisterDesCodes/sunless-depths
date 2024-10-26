@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c6rp0i4nnn7ww"]
+
+[ext_resource type="Texture2D" uid="uid://cpmyq2lw1uupy" path="res://assets/UI/components/dialog.png" id="1_tr2ch"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4or3s"]
+texture = ExtResource("1_tr2ch")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4or3s")

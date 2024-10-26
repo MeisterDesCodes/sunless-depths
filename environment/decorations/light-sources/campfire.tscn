@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjw85nwae6j0u" path="res://environment/decorations/particles/torch-particle.tscn" id="3_a2x4h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v372m"]
-radius = 21.0
+radius = 15.0
 
 [node name="Campfire" type="Node2D"]
 script = ExtResource("1_7prux")
@@ -16,7 +16,7 @@ script = ExtResource("1_7prux")
 shape = SubResource("CircleShape2D_v372m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 
 [node name="LightSource" parent="." instance=ExtResource("2_huqr5")]
 position = Vector2(-2, 2)

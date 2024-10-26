@@ -9,3 +9,4 @@ name = "Supplies"
 description = "Crucial for survival in the sewers, keeping you alive and well. If you run out, things will go down south quickly."
 texture = ExtResource("2_ncb6a")
 rarity = 0
+weight = 2.0

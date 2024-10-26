@@ -8,6 +8,7 @@ class_name Player
 @export var staminaRestore: float
 @export var lightRadius: float
 @export var oxygenCapacity: float
+@export var weightCapacity: float
 @export var sprintingStaminaDrain: float
 @export var dashStaminaCost: float
 @export var exhaustionSpeedPenalty: float

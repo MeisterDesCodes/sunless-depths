@@ -37,5 +37,6 @@ func onChange(oldState: State, newState: State):
 
 
 func getState(state: Enums.enemyStates):
+	print(states)
 	var stateString: String = UtilsS.getEnumValue(Enums.enemyStates, state).to_lower()
 	return states[stateString] if stateString in states else null

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://bjmj5122wv47o"]
+
+[ext_resource type="Resource" uid="uid://tmwurmle4x07" path="res://dialogs/resources/shared/D-placeholder.tres" id="1_mrgra"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_hoo3t"]
+
+[resource]
+script = ExtResource("2_hoo3t")
+title = "Return"
+description = "Let's see what else awaits you here."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialog = ExtResource("1_mrgra")
+optionalMoveBackwards = 1
+oneTimeUse = false
+function = ""

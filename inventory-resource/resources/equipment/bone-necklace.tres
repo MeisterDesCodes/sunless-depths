@@ -16,9 +16,10 @@ value = 3.0
 
 [resource]
 script = ExtResource("1_4w4n3")
-equipmentType = 6
+equipmentType = 7
 modifiers = Array[ExtResource("1_t11yr")]([SubResource("Resource_wvg3i"), SubResource("Resource_jbwxf")])
 name = "Bone Necklace"
 description = "Crafted from the bones of slain beasts, this necklace give a noticable attack boost."
 texture = ExtResource("2_6rqx4")
 rarity = 1
+weight = 2.0

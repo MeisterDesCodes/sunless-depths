@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://cdy8d7sa2su4j"]
+
+[ext_resource type="Texture2D" uid="uid://dwomjij6jbgvy" path="res://assets/UI/icons/entities/player/stats/Dashing Damage.png" id="1_2c76c"]
+[ext_resource type="Resource" uid="uid://cqx4hn68gfddw" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-1.tres" id="2_324uj"]
+[ext_resource type="Resource" uid="uid://jwx3knrang51" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-stamina-cost-1.tres" id="3_m45a1"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="5_6li4a"]
+
+[resource]
+script = ExtResource("5_6li4a")
+name = "Dashing Damage"
+description = "Increases damage while dashing by"
+icon = ExtResource("1_2c76c")
+requirements = Array[ExtResource("5_6li4a")]([ExtResource("2_324uj"), ExtResource("3_m45a1")])
+type = 26
+value = 15.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 1

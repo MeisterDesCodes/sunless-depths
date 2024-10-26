@@ -17,7 +17,7 @@ func exit():
 
 
 func update(delta):
-	entity.moveToPath(entity.moveSpeed * 0.5)
+	entity.moveToPath(entity.moveSpeed * 0.5, true)
 
 
 func getDirection():

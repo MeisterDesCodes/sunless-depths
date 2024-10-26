@@ -40,7 +40,7 @@ func _process(delta):
 		for area in areas:
 			if weapon is MeleeWeapon && !(area in hitEntities):
 				hitEntities.append(area)
-				var damage: float = weapon.damage * 1.25 if entityScene.isDashing else weapon.damage
+				var damage: float = weapon.damage * (1.25 * entityScene.dashingDamageModifier) if entityScene.isDashing else weapon.damage
 				var knockback: float = weapon.knockback * 1.5 if entityScene.isDashing else weapon.knockback
 				var attack = Attack.new(global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, weapon.statusEffects, UtilsS.checkForCrit(playerScene))
 				area.get_parent().processIncomingAttack(attack)

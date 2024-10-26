@@ -18,3 +18,4 @@ name = "Advanced Bow"
 description = ""
 texture = ExtResource("2_kwp6v")
 rarity = 4
+weight = 3.5

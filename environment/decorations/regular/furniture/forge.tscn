@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvkw67dybxd8j"]
 
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_kxnnm"]
-[ext_resource type="Texture2D" uid="uid://dcm2g1ipvtrhy" path="res://assets/environment/decorations/regular/market/forge.png" id="2_1modh"]
+[ext_resource type="Texture2D" uid="uid://dcm2g1ipvtrhy" path="res://assets/environment/decorations/regular/curiosities/forge.png" id="2_1modh"]
 [ext_resource type="PackedScene" uid="uid://bjw85nwae6j0u" path="res://environment/decorations/particles/torch-particle.tscn" id="3_1525y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqame"]

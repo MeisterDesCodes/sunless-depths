@@ -85,7 +85,7 @@ theme_override_constants/margin_top = 10
 
 [node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" instance=ExtResource("3_k2euh")]
 layout_mode = 2
-inventoryType = 2
+inventoryType = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -131,7 +131,7 @@ theme_override_constants/margin_top = 10
 
 [node name="ResourcesUI" parent="VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer" instance=ExtResource("3_k2euh")]
 layout_mode = 2
-inventoryType = 3
+inventoryType = 4
 
 [node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("4_typ5q")]
 layout_mode = 2

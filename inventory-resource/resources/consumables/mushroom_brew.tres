@@ -32,3 +32,4 @@ name = "Mushroom Brew"
 description = "Distilled from underground fungi, it is essential for concocting basic potions, providing basic improvements of stats."
 texture = ExtResource("2_tk0dd")
 rarity = 1
+weight = 1.0

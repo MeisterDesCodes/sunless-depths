@@ -8,4 +8,4 @@ script = ExtResource("1_1qdsu")
 title = "Storage Box"
 
 [node name="Curiosity" parent="." instance=ExtResource("2_qo755")]
-modulate = Color(0.862745, 0.466667, 0.384314, 1)
+modulate = Color(0.921569, 0.607843, 0.537255, 1)

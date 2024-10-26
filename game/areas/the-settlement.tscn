@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cigdfxhhfn6bk"]
+[gd_scene load_steps=99 format=3 uid="uid://cigdfxhhfn6bk"]
 
 [ext_resource type="Script" path="res://game/areas/area.gd" id="1_1btye"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_2rmuk"]
@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://bykc0ifffyipd" path="res://assets/environment/decorations/regular/storage/storage-small-2.png" id="42_4lw3o"]
 [ext_resource type="PackedScene" uid="uid://cd8iqjms7aj8y" path="res://environment/decorations/textures/jungle-texture.tscn" id="42_ph3fe"]
 [ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="43_6pl8x"]
-[ext_resource type="Texture2D" uid="uid://dekcisemin3mc" path="res://assets/environment/decorations/regular/market/anvil.png" id="43_83lp8"]
+[ext_resource type="Texture2D" uid="uid://dekcisemin3mc" path="res://assets/environment/decorations/regular/curiosities/anvil.png" id="43_ec35m"]
 [ext_resource type="PackedScene" uid="uid://cq7ukrb8onntg" path="res://environment/decorations/textures/farm-texture.tscn" id="43_uv3m0"]
 [ext_resource type="Texture2D" uid="uid://c1hu4wpda5hk2" path="res://assets/environment/decorations/regular/storage/storage-small-3.png" id="44_xyekq"]
 [ext_resource type="Texture2D" uid="uid://de5hs2ixjnjcu" path="res://assets/environment/decorations/regular/storage/storage-medium-2.png" id="45_85d5n"]
@@ -57,7 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://brve0520s7uii" path="res://assets/environment/decorations/regular/storage/storage-medium-5.png" id="48_ngvqu"]
 [ext_resource type="PackedScene" uid="uid://df7n2slgq3wyq" path="res://environment/decorations/regular/furniture/wheelbarrel.tscn" id="49_sp61o"]
 [ext_resource type="Texture2D" uid="uid://cwt5ujkfuvom3" path="res://assets/environment/decorations/regular/town/wheelbarrel.png" id="51_hy0ps"]
-[ext_resource type="Texture2D" uid="uid://byffbaflddxri" path="res://assets/environment/decorations/regular/market/stove.png" id="53_rcdm5"]
+[ext_resource type="Texture2D" uid="uid://byffbaflddxri" path="res://assets/environment/decorations/regular/curiosities/stove.png" id="53_cbfas"]
 [ext_resource type="PackedScene" uid="uid://cvkw67dybxd8j" path="res://environment/decorations/regular/furniture/forge.tscn" id="55_3ure2"]
 [ext_resource type="Texture2D" uid="uid://xvbk2i3l6tk7" path="res://assets/environment/decorations/light-sources/torch-3.png" id="55_a5fa5"]
 [ext_resource type="PackedScene" uid="uid://bb46lyl1v2c37" path="res://environment/decorations/regular/object-1x1-square.tscn" id="56_83kbl"]
@@ -89,10 +89,12 @@
 [ext_resource type="Resource" uid="uid://bfn3r12b4g5kj" path="res://inventory-resource/resources/blueprint/ammunition/BP-bone-arrow.tres" id="71_oi3d4"]
 [ext_resource type="Resource" uid="uid://bvqn285ifpq0y" path="res://inventory-resource/resources/blueprint/ammunition/BP-scrap-arrow.tres" id="72_1xdke"]
 [ext_resource type="Resource" uid="uid://4t8k42ko4tk5" path="res://inventory-resource/resources/blueprint/equipment/BP-bone-necklace.tres" id="74_qfi2r"]
-[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="74_w2yf7"]
 [ext_resource type="Resource" uid="uid://bev37k7vnrfi7" path="res://inventory-resource/resources/blueprint/equipment/BP-lucky-scarf.tres" id="75_dg3im"]
 [ext_resource type="Texture2D" uid="uid://db2mqbu3lhou4" path="res://assets/environment/decorations/regular/pipes/pipes-arranged-1.png" id="75_qnjx6"]
 [ext_resource type="Texture2D" uid="uid://d4l8k0xoxrrwi" path="res://assets/environment/decorations/regular/pipes/pipes-arranged-2.png" id="76_gt1jc"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="76_vfgjq"]
+[ext_resource type="PackedScene" uid="uid://b5bkf1av7upsy" path="res://environment/decorations/regular/object-05x1-square.tscn" id="77_op5dj"]
+[ext_resource type="Texture2D" uid="uid://coshc3t8hp6lb" path="res://assets/environment/decorations/regular/curiosities/storage.png" id="78_r7j4d"]
 [ext_resource type="PackedScene" uid="uid://cdht6pytvy2ky" path="res://environment/curiosities/storage-box.tscn" id="94_5vvrm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a82g1"]
@@ -589,7 +591,7 @@ texture = ExtResource("42_4lw3o")
 position = Vector2(3124, 425)
 rotation = 0.261799
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("43_83lp8")
+texture = ExtResource("43_ec35m")
 
 [node name="StorageSmall3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("31_0f43m")]
 position = Vector2(1910, 1579)
@@ -708,7 +710,7 @@ scale = Vector2(1.3, 1.3)
 position = Vector2(3217, 571)
 rotation = 0.87559
 scale = Vector2(0.835, 0.835)
-texture = ExtResource("53_rcdm5")
+texture = ExtResource("53_cbfas")
 
 [node name="Object1x1Square" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("56_83kbl")]
 position = Vector2(1969, 1663)
@@ -793,9 +795,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("60_1kw4o")
 
 [node name="Object2x2Square3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("70_0exfb")]
-position = Vector2(3007, 1049)
-rotation = 1.68035
-scale = Vector2(2, 2)
+position = Vector2(2951, 1045)
+rotation = 2.09439
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("71_bs8rx")
 
 [node name="Object05x2Square5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("57_1foif")]
@@ -1380,15 +1382,21 @@ position = Vector2(1583, 887)
 rotation = 1.63245
 texture = ExtResource("70_12uyw")
 
-[node name="ObjectDecoration" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("74_w2yf7")]
-position = Vector2(2373, 534)
-rotation = 4.71238
+[node name="Object05x1Square" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("77_op5dj")]
+position = Vector2(3085, 1046)
+rotation = -3.42726
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("78_r7j4d")
+
+[node name="ObjectSquare" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("76_vfgjq")]
+position = Vector2(2371, 510)
+rotation = 4.86013
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("75_qnjx6")
 
-[node name="ObjectDecoration2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("74_w2yf7")]
-position = Vector2(2645, 443)
-rotation = 3.32429
+[node name="ObjectSquare2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("76_vfgjq")]
+position = Vector2(2662, 414)
+rotation = 3.30385
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("76_gt1jc")
 
@@ -1397,12 +1405,12 @@ texture = ExtResource("76_gt1jc")
 [node name="Loot" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
 
 [node name="PileOfGlass" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("63_o6njq")]
-position = Vector2(2423, 644)
+position = Vector2(2407, 643)
 rotation = 0.246506
 scale = Vector2(0.5, 0.5)
 
 [node name="PileOfGlass2" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("63_o6njq")]
-position = Vector2(2467, 591)
+position = Vector2(2466, 581)
 rotation = 1.36134
 scale = Vector2(0.5, 0.5)
 
@@ -1425,20 +1433,20 @@ priceModifier = 1.0
 
 [node name="SettlementHeadquarters" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("9_svwkp")]
 position = Vector2(2538, 572)
-title = "123"
+title = "The Settlement"
 initialDialog = ExtResource("68_ol1ue")
 
 [node name="CraftingStation" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("68_ak5py")]
 position = Vector2(3104, 467)
-title = "Tool Station"
+title = "Tool Forge"
 availableBlueprints = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("66_s8nid"), ExtResource("67_56hie"), ExtResource("68_cbcj5"), ExtResource("69_e6605"), ExtResource("70_nkj0o"), ExtResource("71_oi3d4"), ExtResource("72_1xdke"), ExtResource("74_qfi2r"), ExtResource("75_dg3im")])
 
 [node name="CraftingStation2" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("68_ak5py")]
 position = Vector2(3164, 586)
-title = "Cooking Station"
+title = "Cooking Stove"
 availableBlueprints = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("65_d8qwl"), ExtResource("70_ukeje")])
 
 [node name="StorageBox" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("94_5vvrm")]
-position = Vector2(3145.11, 676.091)
+position = Vector2(3068, 989)
 
 [node name="Spawners" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]

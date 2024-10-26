@@ -19,14 +19,16 @@ func _process(delta):
 		return
 	
 	if Input.is_action_just_pressed("inventory"):
-		UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
+		var menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
+		menuScene._on_inventory_pressed()
 
 	if Input.is_action_just_pressed("dash"):
-		if (playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > 0):
+		if playerScene.canDash && !playerScene.isKnockback && playerScene.hudUI.staminaBar.value > 0 && playerScene.currentMoveSpeed > 0:
 			playerScene.dash()
 	
-	if Input.is_action_just_pressed("interact"):
-		pass
+	if Input.is_action_just_pressed("map"):
+		var menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
+		menuScene._on_map_pressed()
 	
 	if Input.is_action_just_pressed("switch-up"):
 		playerScene.switchToNextWeapon(-1)

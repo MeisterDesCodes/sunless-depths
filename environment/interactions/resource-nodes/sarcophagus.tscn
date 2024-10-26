@@ -71,6 +71,8 @@ _data = {
 
 [node name="Sarcophagus" type="Node2D"]
 script = ExtResource("1_kprbm")
+lifetime = 1
+interactionCost = 30.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

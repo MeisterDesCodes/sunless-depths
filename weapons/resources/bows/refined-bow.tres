@@ -18,3 +18,4 @@ name = "Refined Bow"
 description = ""
 texture = ExtResource("2_b0hjw")
 rarity = 2
+weight = 3.5

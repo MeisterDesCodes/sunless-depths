@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var interactionComponent = get_node("InteractionConponent")
+@onready var exitParticles = get_node("ExitParticles")
 
 var direction: Enums.exitDirection
 var menuScene
@@ -14,8 +15,18 @@ func _ready():
 	interactionComponent.onInteract.connect(interact)
 
 
+func update():
+	if !isActive():
+		interactionComponent.queue_free()
+		exitParticles.queue_free()
+
+
+func isActive():
+	return !playerScene.isInCave || direction != LocationLoaderS.currentFromDirection
+
+
 func interact(body):
-	if playerScene.isInCave && direction == LocationLoaderS.currentFromDirection:
+	if !isActive():
 		return
 	
 	if !playerScene.isInCave:

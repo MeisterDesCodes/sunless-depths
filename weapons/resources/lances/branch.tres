@@ -27,3 +27,4 @@ name = "Branch"
 description = "Harvested from decaying logs, this branch could be used as a weapon for fending off smaller creatures."
 texture = ExtResource("2_14f5w")
 rarity = 1
+weight = 2.0

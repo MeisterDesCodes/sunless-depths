@@ -9,3 +9,4 @@ name = "Gold"
 description = "Rare currency found in the depths, used to purchase vital supplies and equipment from underground traders."
 texture = ExtResource("2_eerdk")
 rarity = 0
+weight = 0.0

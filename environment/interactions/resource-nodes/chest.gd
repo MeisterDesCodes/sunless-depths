@@ -9,6 +9,7 @@ extends Node2D
 
 @export var openedTexture: Texture2D
 @export var resources: Array[DropResource]
+@export var interactionCost: float
 @export var lifetime: int
 @export var type: Enums.chestType
 
@@ -28,6 +29,7 @@ func _ready():
 
 
 func interact(body):
+	interaction.playerScene.updateHud.emit(interactionCost * 0.1, interactionCost * 0.25, interactionCost)
 	$"Sprite2D".texture = openedTexture
 	if type == Enums.chestType.CHEST:
 		global_position -= Vector2(0, 10).rotated(deg_to_rad(get_rotation_degrees()))

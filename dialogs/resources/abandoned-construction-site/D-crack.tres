@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://7cr37yjom7oj"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_dt1jt"]
+[ext_resource type="Resource" uid="uid://dxpg833cca5fd" path="res://dialogs/resources/abandoned-construction-site/DC-peek.tres" id="1_od8an"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_kegfg"]
+
+[resource]
+script = ExtResource("2_kegfg")
+title = "The crack"
+description = "You stand before a thin crack, vertically opening the wall in front of you like a wound. "
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_od8an"), ExtResource("1_dt1jt")])

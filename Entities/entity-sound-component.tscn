@@ -21,7 +21,7 @@ volume_db = -15.0
 volume_db = -10.0
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
-volume_db = -40.0
+volume_db = -10.0
 
 [node name="Interaction" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0

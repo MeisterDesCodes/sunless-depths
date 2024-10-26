@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://co6lsfbmsmks2"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_wavgk"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_cvb8e"]
+
+[resource]
+script = ExtResource("3_cvb8e")
+title = "An unsettling presence"
+description = "Curiosity got the best of you. You move closer to the small opening and gently move your head to catch a glimpse. The crack is not wide enough to make out any details, but whatever is behind it is covered in light. As of right now, there seems to be no way of getting in closer. 
+
+Perhaps, that's a good thing."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_wavgk")])

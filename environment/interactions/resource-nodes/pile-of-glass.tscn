@@ -12,7 +12,7 @@
 script = ExtResource("3_lct1a")
 resource = ExtResource("2_4grnp")
 amount = 2
-dropChance = 0.85
+dropChance = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cj27c"]
 size = Vector2(66, 52)
@@ -31,6 +31,7 @@ effectApplyType = 1
 script = ExtResource("1_c2eqe")
 dropResources = Array[ExtResource("3_lct1a")]([SubResource("Resource_50wsn")])
 lifetime = 4
+interactionCost = 5.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

@@ -15,7 +15,8 @@ func enter():
 	projectileCooldown.wait_time = UtilsS.getRandomRange(entity.currentAttack.attackDelay)
 	projectileCooldown.start()
 	entity.canLaunchProjectile = false
-	projectileSpawner.spawnProjectiles(entity, entity.currentAttack.ammunition, entity.global_position, entity.global_position.direction_to(playerScene.global_position), 20, 5)
+	projectileSpawner.spawnProjectiles(entity, entity.currentAttack.ammunition, entity.global_position, \
+		entity.global_position.direction_to(playerScene.global_position), entity.currentAttack.spread, entity.currentAttack.amount)
 
 
 func exit():

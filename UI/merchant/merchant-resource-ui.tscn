@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b465sei327g5c"]
+[gd_scene load_steps=12 format=3 uid="uid://b465sei327g5c"]
 
 [ext_resource type="Script" path="res://UI/merchant/merchant-resource-ui.gd" id="1_5dpjm"]
 [ext_resource type="Theme" uid="uid://bw5oquilxwgax" path="res://assets/UI/themes/UI-elements/resource-slot.tres" id="1_mmkwg"]
 [ext_resource type="Texture2D" uid="uid://c5efwq8xwq1dj" path="res://assets/resources/material/Gold.png" id="3_2742o"]
 [ext_resource type="Texture2D" uid="uid://feedj20e76of" path="res://assets/UI/icons/menu/inventory/Storage.png" id="4_damf6"]
-[ext_resource type="Texture2D" uid="uid://cgm6rsehl83up" path="res://assets/UI/icons/menu/inventory/Left Arrow 2.png" id="5_vrd1g"]
+[ext_resource type="Theme" uid="uid://csssnpr3oiscv" path="res://assets/UI/themes/text/text-small.tres" id="6_e4382"]
 [ext_resource type="Texture2D" uid="uid://bxmunutlqsf7u" path="res://assets/UI/icons/menu/inventory/Right Arrow 2.png" id="6_f57g5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdfni"]
+[ext_resource type="Theme" uid="uid://dewfnljg88yw5" path="res://assets/UI/themes/UI-elements/dialog-choice.tres" id="6_gwv7k"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="6_ua63d"]
+[ext_resource type="Theme" uid="uid://cxk4iwl1igdto" path="res://assets/UI/themes/UI-elements/button-large.tres" id="7_tme73"]
+[ext_resource type="Texture2D" uid="uid://yuwbyvgqpgyg" path="res://assets/UI/icons/menu/inventory/Right Arrow 1.png" id="8_5ac6j"]
+[ext_resource type="Texture2D" uid="uid://bxke5sm6j7xh1" path="res://assets/UI/icons/menu/inventory/Right Arrow 3.png" id="10_ay1uc"]
 
 [node name="MerchantResourceUI" type="PanelContainer"]
 custom_minimum_size = Vector2(600, 60)
@@ -16,9 +19,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -301.0
+offset_left = -312.5
 offset_top = -30.0
-offset_right = 301.0
+offset_right = 312.5
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -37,10 +40,9 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 45
+theme_override_constants/separation = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -55,76 +57,90 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Name" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 autowrap_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("3_2742o")
-expand_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Cost" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("6_e4382")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="Texture" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("4_damf6")
-expand_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="InventoryAmount" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer4"]
 layout_mode = 2
+theme = ExtResource("6_e4382")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_vdfni")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("6_gwv7k")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer"]
+[node name="PurchaseAmount" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer"]
 layout_mode = 2
-texture = ExtResource("5_vrd1g")
-expand_mode = 2
+size_flags_horizontal = 4
 
-[node name="LessButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer"]
+[node name="Button1" parent="MarginContainer/HBoxContainer/HBoxContainer3" instance=ExtResource("6_ua63d")]
+custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
-flat = true
+theme = ExtResource("7_tme73")
+flat = false
+texture = ExtResource("8_5ac6j")
+version = 1
 
-[node name="PurchaseAmount" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer3"]
+[node name="Button5" parent="MarginContainer/HBoxContainer/HBoxContainer3" instance=ExtResource("6_ua63d")]
+custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_vdfni")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer2"]
-layout_mode = 2
+theme = ExtResource("7_tme73")
+flat = false
 texture = ExtResource("6_f57g5")
-expand_mode = 2
+version = 1
 
-[node name="MoreButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer2"]
+[node name="ButtonAll" parent="MarginContainer/HBoxContainer/HBoxContainer3" instance=ExtResource("6_ua63d")]
+custom_minimum_size = Vector2(45, 40)
 layout_mode = 2
-flat = true
+theme = ExtResource("7_tme73")
+flat = false
+texture = ExtResource("10_ay1uc")
+version = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer/LessButton" to="." method="_on_less_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer2/MoreButton" to="." method="_on_more_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer3/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer3/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer3/ButtonAll" to="." method="_on_button_all_pressed"]

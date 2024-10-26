@@ -29,3 +29,4 @@ name = "Ancient Bow"
 description = ""
 texture = ExtResource("3_fsqg3")
 rarity = 3
+weight = 0.75

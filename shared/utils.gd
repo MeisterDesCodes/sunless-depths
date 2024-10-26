@@ -6,7 +6,7 @@ class_name Utils
 
 var colorBackground = Color("#161616")
 var colorPrimary = Color("#E14F21")
-var colorPrimaryBright = Color("#FF794E")
+var colorPrimaryBright = Color("#E14F21")
 var colorCommon = Color("#FFFFFF")
 var colorUncommon = Color("#54A32F")
 var colorRare = Color("#1E5F9B")
@@ -33,12 +33,14 @@ func updateResourceType(resource: InventoryResource):
 		resource.type = Enums.resourceType.CONSUMABLE
 	if resource is InventoryBlueprint:
 		resource.type = Enums.resourceType.BLUEPRINT
+		resource.weight = 0.1
 	if resource is InventoryWeapon:
 		resource.type = Enums.resourceType.WEAPON
 	if resource is InventoryEquipment:
 		resource.type = Enums.resourceType.EQUIPMENT
 	if resource is InventoryAmmunition:
 		resource.type = Enums.resourceType.AMMUNITION
+		resource.weight = 0.2
 
 
 func getScalingValue(value: float):
@@ -102,9 +104,16 @@ func applyStatusEffect(source: CharacterBody2D, target: CharacterBody2D, _effect
 	var entityEffects = getStatusEffectsByType(target, _effect)
 	if !_effect.isStackable && !entityEffects.is_empty():
 		var entityEffect = entityEffects[0]
-		if entityEffect.remainingDuration <= _effect.duration && entityEffect.strength <= _effect.strength:
-			entityEffect.remainingDuration = _effect.duration
-			entityEffect.strength = _effect.strength
+		var _strength = _effect.strength * source.effectStrengthModifier
+		var _duration = _effect.duration * (1 + (randf() * (source.effectDurationRandomModifier - 1))) * target.effectTakenDurationModifier
+		if entityEffect.strength <= _strength:
+			if entityEffect.remainingDuration <= _duration:
+				entityEffect.remainingDuration = _duration
+				entityEffect.strength = _strength
+		else:
+			entityEffect.remainingDuration = _duration
+			entityEffect.strength = _strength
+		
 		return
 	
 	if _effect.stackLimit > 0 && _effect.stackLimit <= entityEffects.size():
@@ -128,10 +137,20 @@ func useConsumable(entityScene: CharacterBody2D, consumable: InventoryConsumable
 	if entityScene.inventory.getResourceAmount(consumable) <= 0:
 		entityScene.equippedConsumable = null
 	entityScene.hudUI.updateConsumable()
+	entityScene.soundComponent.onConsume()
 
 
-func unequipItem(entityScene, item, index):
-	for modifier in item.modifiers:
+func unequipResource(entityScene: CharacterBody2D, resource: InventoryResource):
+	match resource.type:
+		Enums.resourceType.EQUIPMENT:
+			UtilsS.unequipItem(entityScene, resource, resource.equipmentType)
+		Enums.resourceType.WEAPON:
+			if resource in entityScene.equippedWeapons:
+				equipWeapon(entityScene, resource, entityScene.equippedWeapons.find(resource))
+
+
+func unequipItem(entityScene: CharacterBody2D, resource: InventoryResource, index: int):
+	for modifier in resource.modifiers:
 		modifyStat(entityScene, modifier, false)
 	
 	entityScene.equippedGear[index] = null
@@ -139,16 +158,33 @@ func unequipItem(entityScene, item, index):
 	entityScene.updateMaxHealth()
 
 
-func equipItem(entityScene, item, index):
-	for modifier in item.modifiers:
+func equipWeapon(entityScene: CharacterBody2D, resource: InventoryResource, index: int):
+	if entityScene.equippedWeapons[index] == resource:
+		if resource is RangedWeapon:
+			entityScene.equippedWeapons[index].ammunition = null
+		entityScene.equippedWeapons[index] = entityScene.fistWeapon
+	else:
+		var duplicateWeaponIndex = entityScene.equippedWeapons.find(resource)
+		if duplicateWeaponIndex >= 0:
+			entityScene.equippedWeapons[duplicateWeaponIndex] = entityScene.fistWeapon
+		if index != duplicateWeaponIndex:
+			if entityScene.equippedWeapons[index] is RangedWeapon:
+				entityScene.equippedWeapons[index].ammunition = null
+			entityScene.equippedWeapons[index] = resource
+	
+	entityScene.updateWeapons()
+
+
+func equipItem(entityScene: CharacterBody2D, resource: InventoryResource, index: int):
+	for modifier in resource.modifiers:
 		modifyStat(entityScene, modifier, true)
 	
-	entityScene.equippedGear[index] = item
+	entityScene.equippedGear[index] = resource
 	entityScene.setupLightSource()
 	entityScene.updateMaxHealth()
 
 
-func modifyStat(entityScene, modifier: InventoryEquipmentModifier, isEquipped: bool):
+func modifyStat(entityScene: CharacterBody2D, modifier: InventoryEquipmentModifier, isEquipped: bool):
 	var value: float = modifier.value
 	if !isEquipped:
 		value = value * -1
@@ -163,10 +199,12 @@ func modifyStat(entityScene, modifier: InventoryEquipmentModifier, isEquipped: b
 			entityScene.entityResource.agility += value
 		Enums.equipmentModifierType.PERCEPTION:
 			entityScene.entityResource.perception += value
-		Enums.equipmentModifierType.OXYGEN_CAPACITY:
-			entityScene.entityResource.oxygenCapacity += value
 		Enums.equipmentModifierType.LIGHT_RADIUS:
 			entityScene.entityResource.lightRadius += value
+		Enums.equipmentModifierType.OXYGEN_CAPACITY:
+			entityScene.entityResource.oxygenCapacity += value
+		Enums.equipmentModifierType.WEIGHT_CAPACITY:
+			entityScene.entityResource.weightCapacity += value
 		Enums.equipmentModifierType.MAX_HEALTH:
 			entityScene.maxHealth += value
 		Enums.equipmentModifierType.DAMAGE:
@@ -218,19 +256,22 @@ func getStatusEffectsByType(target: CharacterBody2D, _effect: StatusEffect):
 
 
 func checkForCrit(entity: CharacterBody2D):
-	var isCrit: bool = false
-	if randf() <= entity.critChance / 100:
-		isCrit = true
-	
-	return isCrit
+	return randf() <= entity.critChance / 100
 
 
-func playParticleEffect(particleComponent: Node2D, rotation: float = 0, color: Color = UtilsS.colorWhite, isLocal: bool = false):
-	var particle = particleComponent.get_child(0).duplicate()
-	if isLocal:
-		particle.position = particleComponent.position
+func playUIParticleEffect(particleComponent: Node2D, color: Color = UtilsS.colorWhite):
+	var particle = particleComponent.get_child(0)
+	particle.self_modulate = color
+	if particle.emitting:
+		particle.emitting = false
+		particle.restart()
 	else:
-		particle.global_position = particleComponent.global_position
+		particle.emitting = true
+
+
+func playParticleEffect(particleComponent: Node2D, rotation: float = 0, color: Color = UtilsS.colorWhite):
+	var particle = particleComponent.get_child(0).duplicate()
+	particle.global_position = particleComponent.global_position
 	particle.rotation = rotation
 	particle.modulate = color
 	get_tree().get_root().get_node("Game").particles.add_child(particle)
@@ -322,6 +363,12 @@ func gainModifiers(entityScene: CharacterBody2D, card: LevelUpCard):
 		
 		Enums.cardType.CRIT_STAT_INCREASE:
 			entityScene.critStatIncrease += value * 100
+		
+		Enums.cardType.CRIT_HEAL:
+			entityScene.critHealChance += value * 100
+		
+		Enums.cardType.DASHING_DAMAGE:
+			entityScene.dashingDamageModifier += value
 
 
 func gainStats(entityScene: CharacterBody2D, card: LevelUpCard):

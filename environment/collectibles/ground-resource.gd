@@ -11,6 +11,8 @@ var canBePickedUp: bool = false
 var moveSpeed: float = 0
 var direction: Vector2 = Vector2.ZERO
 
+var wasDropped: bool = false
+
 
 func _physics_process(delta):
 	if isMoving:
@@ -29,8 +31,9 @@ func _physics_process(delta):
 			queue_free()
 
 
-func setup(groundResource: InventoryResource):
-	resource = groundResource
+func setup(_resource: InventoryResource, _wasDropped: bool):
+	resource = _resource
+	wasDropped = _wasDropped
 	$"Sprite2D".texture = resource.texture
 
 
@@ -39,4 +42,9 @@ func _on_timer_timeout():
 
 
 func _on_pickup_timer_timeout():
+	if !wasDropped:
+		canBePickedUp = true
+
+
+func _on_detection_range_area_exited(area):
 	canBePickedUp = true

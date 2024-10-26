@@ -9,3 +9,4 @@ name = "Improvised Explosives"
 description = "Assembled from volatile components, they are crucial for creating makeshift bombs and triggering destructive traps."
 texture = ExtResource("2_xt0vh")
 rarity = 2
+weight = 2.0

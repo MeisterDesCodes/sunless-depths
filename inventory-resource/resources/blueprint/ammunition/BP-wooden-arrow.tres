@@ -36,3 +36,4 @@ name = "Wooden Arrow - Blueprint"
 description = ""
 texture = ExtResource("6_pk4qk")
 rarity = 1
+weight = 0.2

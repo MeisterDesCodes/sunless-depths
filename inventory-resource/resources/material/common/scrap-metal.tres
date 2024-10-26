@@ -9,3 +9,4 @@ name = "Scrap Metal"
 description = "Salvaged from abandoned ruins and euipment, it is essential for forging crude weapons and crafting sturdy tools."
 texture = ExtResource("2_gx451")
 rarity = 1
+weight = 1.5

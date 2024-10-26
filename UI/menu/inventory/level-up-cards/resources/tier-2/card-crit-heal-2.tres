@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://xrsjmgyrdagu"]
+
+[ext_resource type="Texture2D" uid="uid://t5mgs760kcct" path="res://assets/UI/icons/entities/player/stats/Crit Heal.png" id="1_526pl"]
+[ext_resource type="Resource" uid="uid://0w0g55m4t2jt" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-critical-2.tres" id="2_skrn1"]
+[ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="3_ypo8r"]
+[ext_resource type="Resource" uid="uid://brkeg52ssnu6o" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-crit-heal-1.tres" id="4_sy1ok"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="5_cw8wu"]
+
+[resource]
+script = ExtResource("5_cw8wu")
+name = "Crit Heal"
+description = "Increases chance for heals to crit by"
+icon = ExtResource("1_526pl")
+requirements = Array[ExtResource("5_cw8wu")]([ExtResource("2_skrn1"), ExtResource("3_ypo8r"), ExtResource("4_sy1ok")])
+type = 25
+value = 15.0
+value2 = 0.0
+stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+tier = 2

@@ -7,12 +7,12 @@ signal purchasedResourcesUpdate
 @onready var texture: TextureRect = get_node("MarginContainer/HBoxContainer/HBoxContainer/Texture")
 @onready var description: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer/Name")
 @onready var cost: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer2/Cost")
-@onready var purchaseAmount: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer3/PurchaseAmount")
 @onready var inventoryAmount: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer4/InventoryAmount")
+@onready var purchaseAmount: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer3/PanelContainer/PurchaseAmount")
 
 var resource: InventoryResource
-var selectedAmount = 0
-var merchantMode = Enums.merchantMode.BUY
+var selectedAmount: int = 0
+var merchantMode: Enums.merchantMode = Enums.merchantMode.BUY
 var priceModifier: float = 1
 
 
@@ -81,21 +81,6 @@ func calculateTotalCost():
 	return selectedAmount * int(cost.text)
 
 
-func _on_less_button_pressed():
-	if selectedAmount > 0:
-		selectedAmount -= 1
-		updatePurchaseAmount()
-
-
-func _on_more_button_pressed():
-	if selectedAmount > 0&& resource.type == Enums.resourceType.WEAPON:
-		return
-	
-	if selectedAmount < 99 && (merchantMode == Enums.merchantMode.BUY || selectedAmount < playerScene.inventory.getResourceAmount(resource)):
-		selectedAmount += 1
-		updatePurchaseAmount()
-
-
 func _on_mouse_entered():
 	UILoaderS.loadUIPopup(self, resource)
 
@@ -104,10 +89,34 @@ func _on_mouse_exited():
 	UILoaderS.closeUIPopup()
 
 
+func increaseAmount(amount: int):
+	if selectedAmount > 0 && (resource.type == Enums.resourceType.WEAPON || resource.type == Enums.resourceType.EQUIPMENT):
+		return
+	
+	selectedAmount += amount
+	if merchantMode == Enums.merchantMode.BUY && selectedAmount > 99:
+		selectedAmount = 99
+	if merchantMode == Enums.merchantMode.SELL && selectedAmount > playerScene.inventory.getResourceAmount(resource):
+		selectedAmount = playerScene.inventory.getResourceAmount(resource)
+	
+	updatePurchaseAmount()
 
 
+func decreaseAmount(amount: int):
+	selectedAmount -= amount
+	if selectedAmount < 0:
+		selectedAmount = 0
+	
+	updatePurchaseAmount()
 
 
+func _on_button_1_pressed():
+	increaseAmount(1)
 
 
+func _on_button_5_pressed():
+	increaseAmount(5)
 
+
+func _on_button_all_pressed():
+	increaseAmount(20 if merchantMode == Enums.merchantMode.BUY else playerScene.inventory.getResourceAmount(resource))

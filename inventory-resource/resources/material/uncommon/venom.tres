@@ -9,3 +9,4 @@ name = "Venom"
 description = "Harvested from dangerous creatures, it is crucial for concocting deadly poisons and enhancing toxic weaponry."
 texture = ExtResource("2_0jj4g")
 rarity = 2
+weight = 0.5

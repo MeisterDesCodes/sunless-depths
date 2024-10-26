@@ -11,9 +11,10 @@ value = 3.0
 
 [resource]
 script = ExtResource("1_aek3d")
-equipmentType = 6
+equipmentType = 7
 modifiers = Array[ExtResource("1_066uf")]([SubResource("Resource_ttscw")])
 name = "Lucky Scarf"
 description = "xxx"
 texture = ExtResource("2_hbb07")
 rarity = 1
+weight = 2.0

@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://el4vr05klw55"]
+
+[ext_resource type="Script" path="res://environment/interactions/resource-nodes/resource-node.gd" id="1_o2iw1"]
+[ext_resource type="Texture2D" uid="uid://dcv6t8ylg2s5y" path="res://assets/environment/interactions/iron-ore-deposit.png" id="2_2cd57"]
+[ext_resource type="Resource" uid="uid://b40hdikmw50c6" path="res://inventory-resource/resources/material/uncommon/iron-ore.tres" id="2_hs57u"]
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="2_i33tp"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_1l0ys"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="6_ddr0x"]
+
+[sub_resource type="Resource" id="Resource_pdy5t"]
+script = ExtResource("3_1l0ys")
+resource = ExtResource("2_hs57u")
+amount = 1
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_kvv8s"]
+script = ExtResource("3_1l0ys")
+resource = ExtResource("2_i33tp")
+amount = 1
+dropChance = 0.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
+radius = 32.0
+
+[node name="IronOreDeposit" type="Node2D"]
+script = ExtResource("1_o2iw1")
+dropResources = Array[ExtResource("3_1l0ys")]([SubResource("Resource_pdy5t"), SubResource("Resource_kvv8s")])
+lifetime = 5
+interactionCost = 15.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_mdnsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("2_2cd57")
+
+[node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("6_ddr0x")]
+interaction = NodePath("..")

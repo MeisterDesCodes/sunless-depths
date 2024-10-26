@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=6 format=3 uid="uid://clcx6r0d0mnyc"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_5qkn1"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_gu3ti"]
+[ext_resource type="Texture2D" uid="uid://yyh4pjw7oprx" path="res://assets/resources/equipment/armor/Boots.png" id="3_um6dm"]
+
+[sub_resource type="Resource" id="Resource_47hgs"]
+script = ExtResource("1_5qkn1")
+type = 1
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_5faq4"]
+script = ExtResource("1_5qkn1")
+type = 2
+value = 1.0
+
+[resource]
+script = ExtResource("1_gu3ti")
+equipmentType = 6
+modifiers = Array[ExtResource("1_5qkn1")]([SubResource("Resource_47hgs"), SubResource("Resource_5faq4")])
+name = "Cloth Boots"
+description = "Light and durable, this piece of equipment offers a little suporrt in surviving the harsh depths around here."
+texture = ExtResource("3_um6dm")
+rarity = 1
+weight = -1.0

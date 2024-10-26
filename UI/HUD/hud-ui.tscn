@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://snd70w6whqbn"]
+[gd_scene load_steps=26 format=3 uid="uid://snd70w6whqbn"]
 
 [ext_resource type="Script" path="res://UI/hud/hud-ui.gd" id="1_o31jx"]
 [ext_resource type="Theme" uid="uid://dobbys3uid5er" path="res://assets/UI/themes/UI-elements/resource-icon.tres" id="3_3dcqr"]
@@ -15,6 +15,7 @@
 [ext_resource type="Theme" uid="uid://bk8r3d023xyjr" path="res://assets/UI/themes/UI-elements/weapon-slot.tres" id="12_gluqe"]
 [ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="12_hfdgr"]
 [ext_resource type="PackedScene" uid="uid://dkao4jqlrlta" path="res://environment/decorations/particles/projectile-hit-particle.tscn" id="13_0uc02"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="13_xfydg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omi5o"]
 
@@ -31,6 +32,16 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_voxrs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2x7q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvklu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jl78"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tctdw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -311,6 +322,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("11_075nt")
 
+[node name="Button" parent="MarginContainer/HBoxContainer/PanelContainer4" node_paths=PackedStringArray("affectedElement") instance=ExtResource("13_xfydg")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_voxrs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l2x7q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tvklu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2jl78")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tctdw")
+affectedElement = NodePath("..")
+
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
@@ -453,10 +475,12 @@ wait_time = 2.5
 autostart = true
 
 [node name="ConsumeParticles" parent="." instance=ExtResource("13_0uc02")]
-z_index = -1
 position = Vector2(1172, 723)
 scale = Vector2(2, 2)
 
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer4" to="." method="_on_panel_container_4_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer4" to="." method="_on_panel_container_4_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer4/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/PanelContainerAmmunition1" to="." method="_on_panel_container_ammunition_1_mouse_entered"]

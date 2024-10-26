@@ -36,3 +36,4 @@ name = "Venom Arrow - Blueprint"
 description = ""
 texture = ExtResource("7_ftl4r")
 rarity = 2
+weight = 0.2

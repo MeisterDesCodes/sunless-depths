@@ -7,3 +7,5 @@ class_name EnemyAttack
 @export var statusEffects: Array[StatusEffect]
 @export var ammunition: InventoryAmmunition
 @export var attackDelay: float
+@export var spread: float
+@export var amount: float

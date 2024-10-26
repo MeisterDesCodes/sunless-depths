@@ -30,3 +30,4 @@ name = "Improvised Explosives - Blueprint"
 description = ""
 texture = ExtResource("6_xcia4")
 rarity = 1
+weight = 1.0

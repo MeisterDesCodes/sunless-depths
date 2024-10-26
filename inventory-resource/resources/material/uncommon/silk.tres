@@ -9,3 +9,4 @@ name = "Silk"
 description = "xxx"
 texture = ExtResource("2_klhur")
 rarity = 2
+weight = 0.25

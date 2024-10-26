@@ -72,14 +72,17 @@ func applyOnHitEffects(attacker: CharacterBody2D, attack: Attack, damage: float)
 			attack.caster.thirdAttackDamage))
 
 
-func receiveHealing(amount: float, statusEffect):
+func receiveHealing(amount: float, statusEffect: StatusEffect):
+	var isCrit = randf() <= entity.critHealChance / 100
+	if isCrit:
+		amount *= (1.5 * entity.critDamageModifier)
 	entity.health += amount
-	showHealthChange(amount, false, false, statusEffect)
+	showHealthChange(amount, false, isCrit, statusEffect)
 	if entity.health >= entity.maxHealth:
 		entity.health = entity.maxHealth
 
 
-func receiveDamage(damage: float, isCrit: bool, statusEffect):
+func receiveDamage(damage: float, isCrit: bool, statusEffect: StatusEffect):
 	entity.health -= damage
 	showHealthChange(damage, true, isCrit, statusEffect)
 	if entity.health <= 0 && !entity.isDying:
@@ -92,11 +95,14 @@ func showHealthChange(amount: float, isDamage: bool, isCrit: bool, statusEffect)
 	get_tree().get_root().add_child(damageIndicator)
 	damageIndicator.setup(spawnPosition, amount, isDamage, statusEffect)
 	
-	damageIndicator.modulate = UtilsS.colorUncommon
 	if isDamage:
 		damageIndicator.modulate = UtilsS.colorMissing
-	if isCrit:
+	if !isDamage:
+		damageIndicator.modulate = UtilsS.colorUncommon
+	if isCrit && isDamage:
 		damageIndicator.modulate = UtilsS.colorLegendary
+	if isCrit && !isDamage:
+		damageIndicator.modulate = UtilsS.colorRare
 	
 	var percentage = amount / entity.maxHealth * 0.5
 	var size = 0.5 + percentage

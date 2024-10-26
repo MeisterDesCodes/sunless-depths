@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://c40i2uq2urckf"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_j6ui5"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_mehkh"]
+
+[resource]
+script = ExtResource("2_mehkh")
+title = "Unavailable"
+description = "The leader has other matters to attend to. You are less than politely asked to withdraw."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_j6ui5")])

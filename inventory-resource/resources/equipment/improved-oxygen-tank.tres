@@ -6,13 +6,9 @@
 [resource]
 script = ExtResource("1_nvncw")
 equipmentType = 1
-ferocityModifier = 0
-perseveranceModifier = 3
-agilityModifier = -2
-perceptionModifier = 0
-lightRadius = 0.0
-oxygenCapacity = 125.0
+modifiers = Array[Resource("res://inventory-resource/inventory-equipment-modifier.gd")]([])
 name = "Improved Oxygen Tank"
 description = ""
 texture = ExtResource("2_scvhv")
 rarity = 1
+weight = 4.0

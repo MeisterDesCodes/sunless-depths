@@ -22,3 +22,4 @@ name = "Rusty Tank"
 description = "Once used for deep-sea exploration, this tank now provides a small amount of oxygen for exploring the sewers."
 texture = ExtResource("2_f36tg")
 rarity = 1
+weight = 4.0

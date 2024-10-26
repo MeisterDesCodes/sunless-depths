@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://dt4htgbejhxma"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_voqss"]
+[ext_resource type="Texture2D" uid="uid://b33yk2q2454ka" path="res://assets/resources/equipment/armor/Helmet.png" id="2_icr4a"]
+
+[resource]
+script = ExtResource("1_voqss")
+equipmentType = 3
+modifiers = Array[Resource("res://inventory-resource/inventory-equipment-modifier.gd")]([])
+name = "Chitin Helmet"
+description = ""
+texture = ExtResource("2_icr4a")
+rarity = 1
+weight = 2.0

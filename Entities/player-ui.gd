@@ -21,6 +21,7 @@ signal healthModified
 @onready var image: Sprite2D = get_node("RotationPoint/Image")
 @onready var soundComponent: Node2D = get_node("SoundComponent")
 @onready var rotationPoint: Marker2D = get_node("RotationPoint")
+@onready var resourceSpawner = get_node("ResourceSpawner")
 
 @onready var staminaRestoreTimer: Timer = get_node("StaminaRestore")
 @onready var staminaRestoreExhaustTimer: Timer = get_node("StaminaExhaustRestore")
@@ -31,7 +32,7 @@ var fistWeapon = preload("res://weapons/resources/daggers/fists.tres")
 var rustyTank = preload("res://inventory-resource/resources/equipment/rusty-tank.tres")
 var oldTorch = preload("res://inventory-resource/resources/equipment/old-torch.tres")
 var equippedWeapons: Array[InventoryWeapon]  = [fistWeapon, fistWeapon, fistWeapon]
-var equippedGear: Array[InventoryEquipment]  = [oldTorch, rustyTank, null, null, null, null, null]
+var equippedGear: Array[InventoryEquipment]  = [null, null, null, null, null, null, null, null]
 var equippedConsumable: InventoryConsumable = null
 
 var isAttacking: bool = false
@@ -41,6 +42,7 @@ var maxHealth: float
 var health: float
 var healthRegeneration: float
 var level: int
+var totalWeight: float
 
 var immunityFramesActive: bool = false
 var isKnockback: bool = false
@@ -81,7 +83,7 @@ var movementSpeedModifier: float = 1
 var sightRadiusModifier: float = 1
 var lootModifier: float = 1
 var effectStrengthModifier: float = 1
-var staminaCostModifier: float = 1
+var staminaCostModifier: float = 0.2
 var criticalDamageModifier: float = 1
 
 var knockbackModifier: float = 1
@@ -93,6 +95,7 @@ var effectDurationRandomModifier: float = 1
 var effectTakenStrengthModifier: float = 1
 var effectTakenDurationModifier: float = 1
 var critDamageModifier: float = 1
+var dashingDamageModifier: float = 1
 
 var rangedDamageAfterMeleeAttack: float = 0
 var meleeDamageAfterRangedAttack: float = 0
@@ -103,6 +106,7 @@ var movementSpeedAfterKill: float = 0
 var sightRadiusEntryEffect: float = 0
 var critStatIncrease: float = 0
 var critChance: float = 0
+var critHealChance: float = 75
 
 
 var baseZoom: float = 2.5
@@ -115,7 +119,8 @@ var isInCave: bool = false
 
 
 func setup():
-	$"RotationPoint/Image".texture = entityResource.texture
+	inventory.updateResources.connect(updateTotalWeight)
+	image.texture = entityResource.texture
 	initializePlayer()
 	updateActiveWeapon()
 	updateWepaonTypes()
@@ -146,6 +151,10 @@ func updateMaxHealth():
 	if health > maxHealth:
 		health = maxHealth
 	hudUI.healthModified()
+
+
+func updateTotalWeight():
+	totalWeight = inventory.getTotalWeight()
 
 
 func equipInitialItems():
@@ -181,13 +190,25 @@ func _physics_process(_delta):
 		if isAttacking:
 			currentMoveSpeed *= 0.5
 		
-		currentMoveSpeed *= 1 / UtilsS.getScalingValue(entityResource.agility * 0.5) * movementSpeedModifier
+		var encumberedModifier = getEncumberedModifier()
+		currentMoveSpeed *= 1 / UtilsS.getScalingValue(entityResource.agility * 0.5) * movementSpeedModifier * encumberedModifier
 		velocity = lerp(velocity, direction * currentMoveSpeed, 0.15)
 	
 	if isKnockback:
 		velocity += knockbackVector
 	
 	move_and_slide()
+
+
+func getEncumberedModifier():
+	var WC = entityResource.weightCapacity
+	var TW = totalWeight
+	if TW >= WC:
+		return 0
+	if TW <= WC / 2:
+		return 1
+	else:
+		return (WC - TW) / (WC - WC / 2)
 
 
 func getDirection():
@@ -280,7 +301,7 @@ func dash():
 	var direction: Vector2 = getDirection()
 	if direction == Vector2.ZERO:
 		direction = global_position.direction_to(get_global_mouse_position())
-	var speed: float = 150 + entityResource.moveSpeed * 1.5
+	var speed: float = 50 + currentMoveSpeed * 2
 	velocity = lerp(velocity, direction * speed, 0.5)
 	useStamina(dashStaminaCost)
 	particleComponent.activateDashParticles()

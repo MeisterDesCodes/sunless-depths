@@ -5,10 +5,10 @@ signal onInteract
 @export var interaction: Node2D
 @export var triggersAutomatically: bool = false
 
+@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var resourceSpawner = get_node("ResourceSpawner")
 @onready var particles = get_node("InteractionParticle")
 
-var player = null
 var playerInRange = false
 var completed = false
 var approachLabel: Control  
@@ -23,40 +23,49 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact") && playerInRange && !completed && !player.isInUIScene:
-		onInteract.emit(player)
+	if Input.is_action_just_pressed("interact") && playerInRange && !completed && !playerScene.isInUIScene:
+		interact(playerScene)
 		if interaction.lifetime > 0:
 			interaction.lifetime -= 1
+			updateLabel()
 			if interaction.lifetime == 0:
 				deactivateInteraction()
+
+
+func updateLabel():
+	approachLabel.setup("(E) to interact " + ("(" + str(interaction.lifetime) + " remaining)" if interaction.lifetime > 0 else ""))
 
 
 func deactivateInteraction():
 	completed = true
 	particles.get_child(0).emitting = false
 	if approachLabel:
-		UILoaderS.closeUILabel(approachLabel)
+		UILoaderS.closeUIOverlay(approachLabel)
 		approachLabel = null
 
 
 func _on_detection_radius_body_entered(body):
 	if triggersAutomatically:
 		if interaction.lifetime > 0:
-			onInteract.emit(player)
+			interact(playerScene)
 			interaction.lifetime -= 1
 		return
 	
-	approachLabel = UILoaderS.loadUILabel(preload("res://UI/shared/dialog-approach.tscn"))
 	if body.has_method("isPlayer") && !completed:
-		player = body
+		approachLabel = UILoaderS.loadUIOverlay(preload("res://UI/shared/interaction-footer.tscn"))
+		updateLabel()
 		playerInRange = true
-		approachLabel.setup("(E) to interact")
+
+
+func interact(playerScene: CharacterBody2D):
+	onInteract.emit(playerScene)
 
 
 func _on_detection_radius_body_exited(body):
-	playerInRange = false
-	if approachLabel:
-		UILoaderS.closeUILabel(approachLabel)
+	if body.has_method("isPlayer"):
+		playerInRange = false
+		if approachLabel:
+			UILoaderS.closeUIOverlay(approachLabel)
 
 
 func dropResources(resources: Array[DropResource], speed: float, body: CharacterBody2D):

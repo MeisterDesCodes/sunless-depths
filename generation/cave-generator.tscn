@@ -4,6 +4,8 @@
 
 [node name="CaveGenerator" type="Node2D"]
 script = ExtResource("1_2xknk")
-iterations = 2
+iterations = 3
 
 [node name="Cave" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]

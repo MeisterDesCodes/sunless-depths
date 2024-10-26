@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=3 format=3 uid="uid://c8vtfnfxrfr1v"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="1_qfwe5"]
+[ext_resource type="Texture2D" uid="uid://b33yk2q2454ka" path="res://assets/resources/equipment/armor/Helmet.png" id="2_01te3"]
+
+[resource]
+script = ExtResource("1_qfwe5")
+equipmentType = 3
+modifiers = Array[Resource("res://inventory-resource/inventory-equipment-modifier.gd")]([])
+name = "Ancient Helmet"
+description = "xxx"
+texture = ExtResource("2_01te3")
+rarity = 3
+weight = 0.75

@@ -11,13 +11,13 @@
 [sub_resource type="Resource" id="Resource_yx2d8"]
 script = ExtResource("2_1asrg")
 resource = ExtResource("1_inpjj")
-amount = 8
+amount = 5
 dropChance = 0.75
 
 [sub_resource type="Resource" id="Resource_fadn4"]
 script = ExtResource("2_1asrg")
 resource = ExtResource("5_mvx5v")
-amount = 4
+amount = 3
 dropChance = 0.75
 
 [sub_resource type="Resource" id="Resource_klxn3"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://ckd07lin3dh0j"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_qr07h"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_edfli"]
+
+[resource]
+script = ExtResource("2_edfli")
+title = "A little success"
+description = "After a lengthy search, you manage to collect what can only be decribed as a messy assemblance of scrap metal. You eagerly stuff nails, screws, metal contraptions no longer identifiable, into your backpack. After all, they might come in handy."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_qr07h")])

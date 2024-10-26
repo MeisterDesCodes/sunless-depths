@@ -37,5 +37,6 @@ autostart = true
 wait_time = 0.75
 autostart = true
 
+[connection signal="area_exited" from="DetectionRange" to="." method="_on_detection_range_area_exited"]
 [connection signal="timeout" from="MovingTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="PickupTimer" to="." method="_on_pickup_timer_timeout"]

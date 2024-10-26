@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://dxpg833cca5fd"]
+
+[ext_resource type="Resource" uid="uid://co6lsfbmsmks2" path="res://dialogs/resources/abandoned-construction-site/D-presence.tres" id="1_qhpig"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_rxfq2"]
+
+[resource]
+script = ExtResource("5_rxfq2")
+title = "Peek"
+description = "Attempt to take a look through the crack."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialog = ExtResource("1_qhpig")
+optionalMoveBackwards = -1
+oneTimeUse = false
+function = ""

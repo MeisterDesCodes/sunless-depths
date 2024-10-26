@@ -13,9 +13,11 @@ class_name SavedData
 @export var supplies: float
 @export var oxygen: float
 @export var stamina: float
+@export var visitedLocations: Array[Enums.locations]
 
 @export_subgroup("Assets")
 @export var inventory: Array[InventorySlot]
+@export var storage: Array[InventorySlot]
 @export var equippedWeapons: Array[InventoryWeapon]
 @export var equippedAmmunitions: Array[InventoryAmmunition]
 @export var equippedGear: Array[InventoryEquipment]

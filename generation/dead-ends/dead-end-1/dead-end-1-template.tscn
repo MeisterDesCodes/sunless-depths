@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3jvqy14idd56"]
+[gd_scene load_steps=10 format=3 uid="uid://d3jvqy14idd56"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_0v7cg"]
 [ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="3_2m771"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_jt6pi"]
 [ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="5_eqnhw"]
 [ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="6_cg1x4"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="7_6ommi"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="7_v4nen"]
+[ext_resource type="Texture2D" uid="uid://bthk8jj51l37j" path="res://assets/environment/decorations/walls/tunnel/wall-metal-3.png" id="8_v2xoi"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -54,14 +56,34 @@ z_index = 1
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
 
+[node name="Tunnel" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular"]
+
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel"]
+
+[node name="ObjectSquare19" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("7_6ommi")]
+position = Vector2(46, 130)
+rotation = -1.48395
+texture = ExtResource("8_v2xoi")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="ObjectSquare33" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("7_6ommi")]
+position = Vector2(37, 130)
+rotation = -1.59967
+texture = ExtResource("8_v2xoi")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="Beams" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel"]
+
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
 [node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 
-[node name="Debris" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("7_v4nen")]
-position = Vector2(12, 94)
-
 [node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="Debris" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("7_v4nen")]
+position = Vector2(12, 94)
 
 [node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
 

@@ -5,9 +5,9 @@ extends Control
 @onready var MerchantWindow = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/Merchant")
 @onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
 
-@onready var locationTitle = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer/Title")
-@onready var scrollContainer = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer")
-@onready var locationDialogs = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/LocationDialogs")
+@onready var locationTitle = get_node("VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/Title")
+@onready var scrollContainer = get_node("VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer")
+@onready var locationDialogs = get_node("VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LocationDialogs")
 
 var currentDialog: PanelContainer = null
 var dialogTree: Array[Dialog] = []
@@ -19,7 +19,7 @@ func setup(location):
 	for child in locationDialogs.get_children():
 		child.queue_free()
 	
-	pushDialog(location.initialDialog, [])
+	pushDialog(location.initialDialog, [], false)
 
 
 func clickChoice(choice: DialogChoice, nextDialog: Dialog):
@@ -37,22 +37,26 @@ func clickChoice(choice: DialogChoice, nextDialog: Dialog):
 	if choice.function != "":
 		executeFunction(choice.function)
 	
-	pushDialog(nextDialog, combinedResources)
+	pushDialog(nextDialog, combinedResources, choice.optionalMoveBackwards > 0)
 	
 	await get_tree().create_timer(0.15).timeout
 	var lastDialog = locationDialogs.get_child(locationDialogs.get_children().size() - 1)
 	AnimationsS.scroll(scrollContainer, locationDialogs.size.y - lastDialog.size.y, 0.75)
 
 
-func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource]):
+func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource], wasReturned: bool):
 	if dialog != null:
 		if currentDialog != null:
 			currentDialog.completed = true
 			for choice in currentDialog.choiceContainer.get_children():
 				choice.onCompletion()
 		
-		dialogTree.append(dialog)
-		var dialogWindow = preload("res://UI/dialog/dialog.tscn").instantiate()
+		if wasReturned:
+			dialogTree.remove_at(dialogTree.size() - 1)
+		else:
+			dialogTree.append(dialog)
+	
+		var dialogWindow = preload("res://UI/dialog/dialog-ui.tscn").instantiate()
 		locationDialogs.add_child(dialogWindow)
 		generateResources(dialogWindow, choiceResources)
 		dialogWindow.setup(dialog)

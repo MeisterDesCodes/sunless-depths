@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://g15kf5157lvj"]
+[gd_scene load_steps=15 format=3 uid="uid://g15kf5157lvj"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-ui.gd" id="1_c4myw"]
 [ext_resource type="Theme" uid="uid://c08gjo7q0l1re" path="res://assets/UI/themes/UI-elements/map.tres" id="2_v2k7b"]
@@ -39,38 +39,46 @@ locationType = 0
 attributes = Array[int]([])
 location = 3
 
+[sub_resource type="Resource" id="Resource_ae5mo"]
+script = ExtResource("4_qsxx8")
+name = "Test"
+description = ""
+locationType = 0
+attributes = Array[int]([])
+location = 1
+
 [sub_resource type="Resource" id="Resource_w2r5w"]
 script = ExtResource("6_2hfbu")
 name = "Pathway"
 description = ""
 iterations = 1
+tier = 0
 locationFrom = 1
 locationTo = 2
 travelDirections = Array[int]([3, 1])
 attributes = Array[int]([])
-tier = 0
 
 [sub_resource type="Resource" id="Resource_ylear"]
 script = ExtResource("6_2hfbu")
 name = "Pathway"
 description = ""
 iterations = 2
+tier = 1
 locationFrom = 2
 locationTo = 3
 travelDirections = Array[int]([0, 2])
 attributes = Array[int]([])
-tier = 1
 
 [sub_resource type="Resource" id="Resource_0j77k"]
 script = ExtResource("6_2hfbu")
 name = "Pathway"
 description = ""
-iterations = 2
-locationFrom = 2
-locationTo = 4
-travelDirections = Array[int]([3, 1])
-attributes = Array[int]([1])
+iterations = 3
 tier = 1
+locationFrom = 4
+locationTo = 1
+travelDirections = Array[int]([3, 1])
+attributes = Array[int]([])
 
 [node name="MapUI" type="Control"]
 custom_minimum_size = Vector2(1400, 600)
@@ -228,9 +236,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MapLocationIUI13" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
 offset_left = 559.0
-offset_top = 113.0
+offset_top = 104.0
 offset_right = 559.0
-offset_bottom = 113.0
+offset_bottom = 104.0
+locationResource = SubResource("Resource_ae5mo")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pathways" type="Node2D" parent="PanelContainer"]
@@ -259,5 +268,14 @@ offset_top = 109.0
 offset_right = 620.0
 offset_bottom = 169.0
 rotation = 6.08509
+scale = Vector2(0.4, 0.4)
+pathwayResource = SubResource("Resource_0j77k")
+
+[node name="MapPathwayUI4" parent="PanelContainer/Pathways" instance=ExtResource("4_mf3og")]
+offset_left = 441.0
+offset_top = 77.0
+offset_right = 682.0
+offset_bottom = 137.0
+rotation = 6.41643
 scale = Vector2(0.4, 0.4)
 pathwayResource = SubResource("Resource_0j77k")

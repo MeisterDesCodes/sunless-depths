@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://cjmferfgjr640"]
+
+[ext_resource type="Resource" uid="uid://c5xjqfbt7bub4" path="res://dialogs/resources/settlement-headquarters/D-info.tres" id="1_wonpq"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_b0k30"]
+
+[resource]
+script = ExtResource("2_b0k30")
+title = "Ask about this place"
+description = "What is this place? Surely someone here must know. Although noone seems overly enthusiastic to chat with you, it's worth a try."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialog = ExtResource("1_wonpq")
+optionalMoveBackwards = -1
+oneTimeUse = false
+function = ""

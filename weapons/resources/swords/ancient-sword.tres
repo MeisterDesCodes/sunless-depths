@@ -11,6 +11,8 @@ strength = 20.0
 duration = 5.0
 appliesTo = 0
 isStackable = false
+stackLimit = 0
+effectApplyType = 0
 
 [resource]
 script = ExtResource("1_x746j")
@@ -25,3 +27,4 @@ name = "Ancient Sword"
 description = "xxx"
 texture = ExtResource("3_31ycb")
 rarity = 3
+weight = 2.5

@@ -2,10 +2,10 @@
 
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_wwpgw"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_ejb43"]
-[ext_resource type="Resource" uid="uid://dwh4ailce8erj" path="res://inventory-resource/resources/equipment/cloth-P.tres" id="3_cno6a"]
+[ext_resource type="Resource" uid="uid://dwh4ailce8erj" path="res://inventory-resource/resources/equipment/armor/cloth-P.tres" id="3_cno6a"]
 [ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="3_l7h5i"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_vrlng"]
-[ext_resource type="Texture2D" uid="uid://dbw02f4bjxegg" path="res://assets/resources/equipment/Pants.png" id="5_t06xq"]
+[ext_resource type="Texture2D" uid="uid://dbw02f4bjxegg" path="res://assets/resources/equipment/armor/Pants.png" id="6_rfse8"]
 
 [sub_resource type="Resource" id="Resource_xtk5x"]
 script = ExtResource("2_ejb43")
@@ -28,5 +28,6 @@ inputResources = Array[ExtResource("2_ejb43")]([SubResource("Resource_xtk5x"), S
 outputResources = Array[ExtResource("2_ejb43")]([SubResource("Resource_4dyvn")])
 name = "Cloth Pants - Blueprint"
 description = ""
-texture = ExtResource("5_t06xq")
+texture = ExtResource("6_rfse8")
 rarity = 1
+weight = -1.0

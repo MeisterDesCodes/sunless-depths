@@ -9,10 +9,6 @@ var inventoryUI: PackedScene = preload("res://UI/menu/inventory/inventory-ui.tsc
 var mapUI: PackedScene = preload("res://UI/menu/map/map-ui.tscn")
 
 
-func _ready():
-	_on_inventory_pressed()
-
-
 func _on_inventory_pressed():
 	loadUIComponent(inventoryUI)
 	buttonContainer.get_child(0).select()

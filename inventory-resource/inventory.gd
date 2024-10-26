@@ -4,6 +4,7 @@ class_name Inventory
 
 signal updateInventory
 signal createSlot
+signal updateResources
 
 @export var resourceSlots: Array[InventorySlot]
 
@@ -31,6 +32,7 @@ func removeResource(tempResource: InventoryResource, amount: int):
 		if foundResourceSlots[0].amount <= 0:
 			resourceSlots.remove_at(resourceSlots.find(foundResourceSlots[0]))
 	
+	updateResourceTypes()
 	updateInventory.emit()
 
 
@@ -65,8 +67,15 @@ func getResourceAmount(tempResource: InventoryResource):
 func updateResourceTypes():
 	for resourceSlot in resourceSlots:
 		UtilsS.updateResourceType(resourceSlot.resource)
+	
+	updateResources.emit()
 
 
+func getTotalWeight():
+	var totalWeight = 0
+	for slot in resourceSlots:
+		totalWeight += slot.resource.weight * slot.amount
+	return totalWeight
 
 
 

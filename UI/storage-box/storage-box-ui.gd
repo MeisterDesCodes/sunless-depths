@@ -19,7 +19,8 @@ func updateResources():
 func quickStack(from: Inventory, to: Inventory):
 	for i in range(from.resourceSlots.size() - 1, -1, -1):
 		var slot = from.resourceSlots[i]
-		if to.getResource(slot.resource):
+		if to.getResource(slot.resource) && !slot.resource.type == Enums.resourceType.WEAPON \
+			&& !slot.resource.type == Enums.resourceType.EQUIPMENT && !slot.resource.type == Enums.resourceType.BLUEPRINT:
 			to.addResource(slot.resource, slot.amount)
 			from.removeResource(slot.resource, slot.amount)
 	

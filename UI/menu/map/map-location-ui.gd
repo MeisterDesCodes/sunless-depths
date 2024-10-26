@@ -103,7 +103,6 @@ func _on_button_pressed():
 	playerScene.isInCave = true
 	var pathwayObject = findPathway(LocationLoaderS.currentLocation, locationResource.location)
 	setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
-	game.soundComponent.playDiscovery()
 
 
 func findPathway(source: int, destination: int):
@@ -130,6 +129,7 @@ func findPathway(source: int, destination: int):
 func setupCaveGeneration(foundPathway, fromDirection, toDirection):
 	LocationLoaderS.nextLocation = locationResource.location
 	LocationLoaderS.caveGenerator.iterations = foundPathway.pathwayResource.iterations
+	LocationLoaderS.caveGenerator.tier = foundPathway.pathwayResource.tier
 	LocationLoaderS.caveGenerator.initialDirection = fromDirection
 	LocationLoaderS.caveGenerator.availableDirections = foundPathway.pathwayResource.travelDirections
 	LocationLoaderS.currentFromDirection = fromDirection

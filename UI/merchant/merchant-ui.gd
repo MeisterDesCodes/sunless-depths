@@ -68,9 +68,9 @@ func updateTotalCosts():
 		totalCosts += merchantResource.calculateTotalCost()
 	totalCostsLabel.text = str(totalCosts)
 	if (totalCosts > playerScene.inventory.getResourceAmount(gold) && merchantMode == Enums.merchantMode.BUY) || totalCosts == 0:
-		purchaseButton.disabled = true
+		purchaseButton.disable()
 	else:
-		purchaseButton.disabled = false
+		purchaseButton.enable()
 		
 	totalGold.text = str(playerScene.inventory.getResourceAmount(gold))
 
@@ -81,6 +81,8 @@ func purchase():
 		if merchantResource.selectedAmount > 0:
 			playerScene.inventory.addResource(merchantResource.resource, merchantResource.selectedAmount)
 			merchantResource.reset()
+	
+	playerScene.soundComponent.onMerchantInteraction()
 
 
 func sell():
@@ -88,10 +90,10 @@ func sell():
 	for merchantResource in resourcesWindow.get_children():
 		if merchantResource.selectedAmount > 0:
 			playerScene.inventory.removeResource(merchantResource.resource, merchantResource.selectedAmount)
+			UtilsS.unequipResource(playerScene, merchantResource.resource)
 			merchantResource.reset()
-			if merchantResource.resource in playerScene.equippedWeapons:
-				playerScene.equippedWeapons[playerScene.equippedWeapons.find(merchantResource.resource)] = null
-				playerScene.updateWeapons()
+	
+	playerScene.soundComponent.onMerchantInteraction()
 
 
 func _on_purchase_pressed():
@@ -107,7 +109,6 @@ func _on_leave_pressed():
 
 
 func _on_buy_pressed():
-	#TODO
 	merchantMode = Enums.merchantMode.BUY
 	purchaseButton.text = "Purchase"
 	generateBuyResources()
@@ -121,7 +122,6 @@ func _on_sell_pressed():
 	generateSellResources()
 	buttonContainer.get_child(1).select()
 	buttonContainer.get_child(0).deselect()
-
 
 
 

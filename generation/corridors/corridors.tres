@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Segment" load_steps=10 format=3 uid="uid://cpcepgxydpcd1"]
+[gd_resource type="Resource" script_class="Segment" load_steps=18 format=3 uid="uid://cpcepgxydpcd1"]
 
 [ext_resource type="Script" path="res://generation/segment.gd" id="1_olgkv"]
 [ext_resource type="PackedScene" uid="uid://bsdfyqdtryy0a" path="res://generation/corridors/corridor-1/corridor-1-0.tscn" id="1_xd0me"]
@@ -9,7 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dipwsq3ltndjp" path="res://generation/corridors/corridor-2/corridor-2-90.tscn" id="6_o8pr1"]
 [ext_resource type="PackedScene" uid="uid://l3p7kev6w2w8" path="res://generation/corridors/corridor-2/corridor-2-180.tscn" id="7_ujqr1"]
 [ext_resource type="PackedScene" uid="uid://6ubhp42cbeln" path="res://generation/corridors/corridor-2/corridor-2-270.tscn" id="8_1y63f"]
+[ext_resource type="PackedScene" uid="uid://bhjbqngo61h88" path="res://generation/corridors/corridor-3/corridor-3-0.tscn" id="9_55vmi"]
+[ext_resource type="PackedScene" uid="uid://bx7a0s3va6cwi" path="res://generation/corridors/corridor-3/corridor-3-90.tscn" id="10_so6mt"]
+[ext_resource type="PackedScene" uid="uid://vng7sgdotnmy" path="res://generation/corridors/corridor-3/corridor-3-180.tscn" id="11_bx8sd"]
+[ext_resource type="PackedScene" uid="uid://bymmthl0i22wk" path="res://generation/corridors/corridor-3/corridor-3-270.tscn" id="12_30mf5"]
+[ext_resource type="PackedScene" uid="uid://b2f6lpqny7n6v" path="res://generation/corridors/corridor-4/corridor-4-0.tscn" id="13_4g8b8"]
+[ext_resource type="PackedScene" uid="uid://sqtkjk1et48y" path="res://generation/corridors/corridor-4/corridor-4-90.tscn" id="14_ffxx7"]
+[ext_resource type="PackedScene" uid="uid://8wjqovk65bbi" path="res://generation/corridors/corridor-4/corridor-4-180.tscn" id="15_qerfm"]
+[ext_resource type="PackedScene" uid="uid://bg42l2c3i7ggc" path="res://generation/corridors/corridor-4/corridor-4-270.tscn" id="16_v13f4"]
 
 [resource]
 script = ExtResource("1_olgkv")
-allSegments = Array[PackedScene]([ExtResource("1_xd0me"), ExtResource("2_vk3b7"), ExtResource("3_6dopq"), ExtResource("4_3j5ke"), ExtResource("5_yd48a"), ExtResource("6_o8pr1"), ExtResource("7_ujqr1"), ExtResource("8_1y63f")])
+allSegments = Array[PackedScene]([ExtResource("1_xd0me"), ExtResource("2_vk3b7"), ExtResource("3_6dopq"), ExtResource("4_3j5ke"), ExtResource("5_yd48a"), ExtResource("6_o8pr1"), ExtResource("7_ujqr1"), ExtResource("8_1y63f"), ExtResource("9_55vmi"), ExtResource("10_so6mt"), ExtResource("11_bx8sd"), ExtResource("12_30mf5"), ExtResource("13_4g8b8"), ExtResource("14_ffxx7"), ExtResource("15_qerfm"), ExtResource("16_v13f4")])

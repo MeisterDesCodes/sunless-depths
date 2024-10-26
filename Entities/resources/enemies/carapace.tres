@@ -13,6 +13,8 @@ damage = 15.0
 knockback = 30.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 attackDelay = 2.5
+spread = 0.0
+amount = 0.0
 
 [sub_resource type="Resource" id="Resource_w862f"]
 script = ExtResource("3_jdib3")

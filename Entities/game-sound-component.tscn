@@ -6,17 +6,16 @@
 script = ExtResource("1_wqvq1")
 
 [node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
+volume_db = -10.0
+
+[node name="AmbientEffectMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+max_polyphony = 10
 
 [node name="EffectMusic" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
+volume_db = -10.0
 
 [node name="AmbientTimer" type="Timer" parent="."]
 
-[node name="FadeoutTimer" type="Timer" parent="."]
-wait_time = 0.25
-autostart = true
-
 [connection signal="finished" from="AmbientMusic" to="." method="_on_ambient_music_finished"]
 [connection signal="timeout" from="AmbientTimer" to="." method="_on_ambient_timer_timeout"]
-[connection signal="timeout" from="FadeoutTimer" to="." method="_on_fadeout_timer_timeout"]

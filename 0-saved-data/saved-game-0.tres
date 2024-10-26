@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="SavedData" load_steps=40 format=3 uid="uid://rxtygpky7d74"]
+[gd_resource type="Resource" script_class="SavedData" load_steps=59 format=3 uid="uid://dplydmt44pob7"]
 
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="1_dapt8"]
 [ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="1_vyyox"]
 [ext_resource type="Resource" uid="uid://buco1qws0fm6y" path="res://inventory-resource/resources/equipment/old-torch.tres" id="2_0pc8b"]
 [ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="2_ooeft"]
@@ -37,28 +38,92 @@
 [ext_resource type="Resource" uid="uid://dcdm3cxjfht88" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-2.tres" id="27_8vejd"]
 [ext_resource type="Resource" uid="uid://sdlv7hjlopg6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-3.tres" id="29_2a1nc"]
 [ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="30_fx3lh"]
+[ext_resource type="Resource" uid="uid://b7mblt1oqmpyo" path="res://inventory-resource/resources/equipment/ragged-backpack.tres" id="32_g2ncf"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="38_5811t"]
+[ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="40_bql5o"]
+[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="41_hj3w6"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="42_005ek"]
+[ext_resource type="Resource" uid="uid://cxduwdaay1mpy" path="res://inventory-resource/resources/equipment/lucky-scarf.tres" id="43_qjnhe"]
+[ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/BP-mushroom-brew.tres" id="45_girg4"]
+
+[sub_resource type="Resource" id="Resource_rpcen"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("2_0pc8b")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ojcg5"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("3_g3yoe")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_cbtrd"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("38_5811t")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_fpqv4"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("7_schab")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_qkiv4"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("8_7nlay")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_unuh6"]
+[sub_resource type="Resource" id="Resource_6sixg"]
 script = ExtResource("5_m8eok")
-resource = ExtResource("8_7nlay")
+resource = ExtResource("40_bql5o")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_4a2q7"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("41_hj3w6")
 amount = 1
+
+[sub_resource type="Resource" id="Resource_dq6h5"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("42_005ek")
+amount = 500000
+
+[sub_resource type="Resource" id="Resource_ynui3"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("13_86nyl")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_rkxdc"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("43_qjnhe")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_u0jd2"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("45_girg4")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dlyi7"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("32_g2ncf")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_5uviv"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("1_dapt8")
+amount = 50
 
 [resource]
 script = ExtResource("15_vc2fh")
-area = 2
-position = Vector2(3000, 400)
+area = 4
+position = Vector2(-250, 450)
 level = 13
-health = 29.6827
-supplies = 98.3814
-oxygen = 89.6561
-stamina = 69.5
-inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_unuh6"), SubResource("Resource_qkiv4")])
-equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("8_7nlay"), ExtResource("7_schab"), ExtResource("4_ixoyg")])
-equippedAmmunitions = SubResource("Resource_qkiv4")
-equippedGear = Array[Resource("res://inventory-resource/inventory-equipment.gd")]([ExtResource("2_0pc8b"), ExtResource("3_g3yoe"), null, null, null, null, ExtResource("13_86nyl")])
+health = 52.632
+supplies = 5.39946
+oxygen = 68.891
+stamina = 100.0
+visitedLocations = Array[int]([1, 2, 1])
+inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_u0jd2"), SubResource("Resource_dlyi7"), SubResource("Resource_5uviv")])
+storage = Array[ExtResource("5_m8eok")]([])
+equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("4_ixoyg"), ExtResource("8_7nlay"), ExtResource("7_schab")])
+equippedAmmunitions = Array[Resource("res://inventory-resource/inventory-ammunition.gd")]([null, ExtResource("1_dapt8"), null])
+equippedGear = Array[Resource("res://inventory-resource/inventory-equipment.gd")]([ExtResource("2_0pc8b"), ExtResource("3_g3yoe"), ExtResource("32_g2ncf"), null, null, null, null, null])
 equippedCards = Array[Resource("res://UI/menu/inventory/level-up-cards/level-up-card.gd")]([ExtResource("1_vyyox"), ExtResource("2_ooeft"), ExtResource("3_2awgd"), ExtResource("4_reops"), ExtResource("5_wkx15"), ExtResource("6_apump"), ExtResource("7_u5lrf"), ExtResource("8_om6ob"), ExtResource("9_b71ts"), ExtResource("10_7f045"), ExtResource("11_3dcij"), ExtResource("12_ckncj"), ExtResource("13_tawtx"), ExtResource("14_rk32x"), ExtResource("15_23nni"), ExtResource("16_agfd3"), ExtResource("17_w5wwf"), ExtResource("18_qps2s"), ExtResource("19_nwx5t"), ExtResource("20_tj3jw"), ExtResource("21_joes5"), ExtResource("22_2a04m"), ExtResource("23_hwbxr"), ExtResource("24_om31u"), ExtResource("25_p75oi"), ExtResource("26_yn6l4"), ExtResource("27_8vejd"), ExtResource("29_2a1nc"), ExtResource("30_fx3lh")])

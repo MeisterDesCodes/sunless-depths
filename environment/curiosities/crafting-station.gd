@@ -12,5 +12,6 @@ func _ready():
 
 
 func onEnter():
+	LocationLoaderS.currentInteraction = self
 	var scene = UILoaderS.loadUIScene(preload("res://UI/crafting-station/crafting-station-ui.tscn"))
 	scene.setup(self)

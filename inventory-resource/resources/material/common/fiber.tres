@@ -9,3 +9,4 @@ name = "Fiber"
 description = "Harvested from wild plants and creatures, it is indispensable for weaving sturdy fabrics and combining resilient resources."
 texture = ExtResource("2_ov2b2")
 rarity = 1
+weight = 0.25

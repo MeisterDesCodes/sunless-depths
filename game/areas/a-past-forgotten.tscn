@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="7_of1ps"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="8_5nxgd"]
 [ext_resource type="PackedScene" uid="uid://dasm1al2nwuyi" path="res://environment/decorations/textures/mushroom-texture.tscn" id="8_vss2c"]
-[ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basked-empty-1.png" id="9_x22x4"]
+[ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basket-empty-1.png" id="9_x22x4"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="10_fnkix"]
 [ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/resource-nodes/old-log.tscn" id="14_su6jt"]
 [ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="16_jpr1m"]
@@ -172,6 +172,7 @@ name = "Planks"
 description = ""
 texture = ExtResource("66_xumnx")
 rarity = 1
+weight = 1.0
 
 [sub_resource type="Resource" id="Resource_3glmw"]
 script = ExtResource("7_of1ps")

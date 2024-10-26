@@ -26,6 +26,8 @@ damage = 2.0
 knockback = 20.0
 statusEffects = Array[ExtResource("3_kb283")]([SubResource("Resource_fwmki")])
 attackDelay = 4.0
+spread = 0.0
+amount = 0.0
 
 [sub_resource type="Resource" id="Resource_awibb"]
 script = ExtResource("5_mmn2q")

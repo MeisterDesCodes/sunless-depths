@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://7kjql0f2151g"]
+
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_t7a4q"]
+[ext_resource type="PackedScene" uid="uid://cc7vjopsggiu0" path="res://generation/special/oasis-1/oasis-1-template.tscn" id="2_8qk34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
+size = Vector2(815, 1007)
+
+[node name="Oasis - 1" type="Node2D"]
+script = ExtResource("1_t7a4q")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 1,
+"position": Vector2(12, 2)
+}, {
+"completed": false,
+"direction": 2,
+"position": Vector2(7, 15)
+}, {
+"completed": false,
+"direction": 3,
+"position": Vector2(0, 9)
+}])
+
+[node name="Map" parent="." instance=ExtResource("2_8qk34")]
+position = Vector2(0, 1024)
+rotation = 4.71239
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(415.5, 511.5)
+shape = SubResource("RectangleShape2D_m2ub1")

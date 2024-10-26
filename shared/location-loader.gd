@@ -14,8 +14,10 @@ var attributes: Array[Enums.locationAttribute]
 
 var visitedLocations: Array[Enums.locations]
 
+var currentInteraction: Node2D
 
-func loadArea(location: Enums.locations):
+
+func loadArea(location: Enums.locations, showLocationHeader: bool = true):
 	await startAreaTransition()
 	removeCurrentLocation()
 	removeCurrentCave()
@@ -26,6 +28,11 @@ func loadArea(location: Enums.locations):
 	game.currentLocation.add_child(getSceneFromId(location).instantiate())
 	game.soundComponent.playSettlementAmbient()
 	finishAreaTransition()
+	
+	if showLocationHeader:
+		await get_tree().create_timer(1.5).timeout
+		var UIHeader = UILoaderS.loadUIOverlay(preload("res://UI/shared/location-header.tscn"))
+		UIHeader.setup(UtilsS.getEnumValue(Enums.locations, currentLocation))
 
 
 func loadCave():
@@ -40,13 +47,16 @@ func loadCave():
 	await get_tree().process_frame
 	
 	game.navigationRegion.bake_navigation_polygon()
-	game.soundComponent.playCaveAmbient()
 	finishAreaTransition()
+	
+	await get_tree().create_timer(1.5).timeout
+	var UIHeader = UILoaderS.loadUIOverlay(preload("res://UI/shared/location-header.tscn"))
+	UIHeader.setup("Tunnel towards: " + UtilsS.getEnumValue(Enums.locations, nextLocation))
 
 
 func startAreaTransition():
 	playerScene.isInLoadingScreen = true
-	UILoaderS.loadLoadingScreen(preload("res://UI/shared/loading-screen.tscn"))
+	UILoaderS.loadUILoadingScreen(preload("res://UI/shared/loading-screen.tscn"))
 	await get_tree().create_timer(0.5).timeout
 	return true
 
@@ -54,7 +64,7 @@ func startAreaTransition():
 func finishAreaTransition():
 	UILoaderS.closeAllUIScenes()
 	await get_tree().create_timer(1).timeout
-	UILoaderS.closeLoadingScreen(UILoaderS.currentLoadingScene)
+	UILoaderS.closeUILoadingScreen(UILoaderS.currentLoadingScene)
 	playerScene.isInLoadingScreen = false
 
 
@@ -67,7 +77,7 @@ func removeCurrentCave():
 	for child in caveGenerator.get_child(0).get_children():
 		caveGenerator.get_child(0).remove_child(child)
 	
-	for enemy in game.enemies.get_children():
+	for enemy in caveGenerator.get_child(1).get_children():
 		enemy.queue_free()
 
 

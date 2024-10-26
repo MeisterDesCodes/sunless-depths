@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://blclu3vc70xoy"]
+
+[ext_resource type="Texture2D" uid="uid://i2al6aysc2s1" path="res://assets/UI/components/location-header.png" id="1_be038"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shwku"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4or3s"]
+texture = ExtResource("1_be038")
+
+[resource]
+/icons/background = SubResource("ViewportTexture_shwku")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4or3s")

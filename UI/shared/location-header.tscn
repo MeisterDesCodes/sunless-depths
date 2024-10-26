@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2orfv7t1ou3w"]
+
+[ext_resource type="Script" path="res://UI/shared/location-header.gd" id="1_yt42q"]
+[ext_resource type="PackedScene" uid="uid://6i7is3iwmb6y" path="res://environment/decorations/particles/overlay-particle.tscn" id="2_c0xo3"]
+[ext_resource type="Theme" uid="uid://blclu3vc70xoy" path="res://assets/UI/themes/UI-elements/loction-header.tres" id="2_gvgug"]
+[ext_resource type="Theme" uid="uid://ct6ax5ic4d7tk" path="res://assets/UI/themes/text/text-large.tres" id="3_4geef"]
+
+[node name="Control" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yt42q")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(750, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_right = 375.0
+offset_bottom = 200.0
+grow_horizontal = 2
+pivot_offset = Vector2(396, 109)
+theme = ExtResource("2_gvgug")
+
+[node name="Location" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_4geef")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Particles" type="Node2D" parent="."]
+position = Vector2(799, 118)
+
+[node name="OverlayParticles" parent="Particles" instance=ExtResource("2_c0xo3")]
+z_index = -1
+position = Vector2(-297, -15)
+rotation = -3.14159
+
+[node name="OverlayParticles2" parent="Particles" instance=ExtResource("2_c0xo3")]
+z_index = -1
+position = Vector2(292, -20)

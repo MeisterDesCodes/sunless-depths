@@ -18,3 +18,4 @@ name = "Refined Crossbow"
 description = ""
 texture = ExtResource("2_aewng")
 rarity = 1
+weight = 4.5

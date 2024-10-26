@@ -21,7 +21,7 @@ func exit():
 
 
 func update(delta):
-	entity.moveToPath(entity.moveSpeed * 0.75 if isKeepingDistance else entity.moveSpeed)
+	entity.moveToPath(entity.moveSpeed * 0.75 if isKeepingDistance else entity.moveSpeed, !isKeepingDistance)
 
 
 func _on_distance_timer_timeout():
@@ -31,7 +31,7 @@ func _on_distance_timer_timeout():
 	if distance <= keepDistanceThreshold:
 		isKeepingDistance = true
 		var direction: Vector2 = playerScene.global_position.direction_to(entity.global_position)
-		var movePosition: Vector2 = entity.global_position + direction * entity.entityResource.moveSpeed
+		var movePosition: Vector2 = entity.global_position + direction * entity.entityResource.moveSpeed * 5
 		entity.navigationHandler.target_position = movePosition
 	
 	if distance > keepDistanceThreshold && distance < chaseThreshold:

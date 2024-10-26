@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://dyagg4rfim6vh"]
+
+[ext_resource type="Resource" uid="uid://7cr37yjom7oj" path="res://dialogs/resources/abandoned-construction-site/D-crack.tres" id="1_ip8ag"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_2yejd"]
+
+[resource]
+script = ExtResource("5_2yejd")
+title = "Investigate this place"
+description = "You notice light shimmering through a small crack behind one of the wooden platforms."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialog = ExtResource("1_ip8ag")
+optionalMoveBackwards = -1
+oneTimeUse = false
+function = ""

@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Segment" load_steps=6 format=3 uid="uid://bsdpyl8cg32kd"]
+[gd_resource type="Resource" script_class="Segment" load_steps=10 format=3 uid="uid://bsdpyl8cg32kd"]
 
 [ext_resource type="PackedScene" uid="uid://dcwjrgd1oubav" path="res://generation/special/merchant-1/merchant-1-0.tscn" id="1_3ta4c"]
 [ext_resource type="Script" path="res://generation/segment.gd" id="1_odwfu"]
 [ext_resource type="PackedScene" uid="uid://dkl3c6yclla06" path="res://generation/special/merchant-1/merchant-1-90.tscn" id="2_v624y"]
 [ext_resource type="PackedScene" uid="uid://i7jpm57ogh2f" path="res://generation/special/merchant-1/merchant-1-180.tscn" id="3_evpax"]
 [ext_resource type="PackedScene" uid="uid://ctlxo7yd7hdmg" path="res://generation/special/merchant-1/merchant-1-270.tscn" id="4_toin4"]
+[ext_resource type="PackedScene" uid="uid://bey2m02rwlq4j" path="res://generation/special/oasis-1/oasis-1-0.tscn" id="5_1ium7"]
+[ext_resource type="PackedScene" uid="uid://cpechbmnmvoc3" path="res://generation/special/oasis-1/oasis-1-90.tscn" id="6_tlrha"]
+[ext_resource type="PackedScene" uid="uid://57t8xact1gfq" path="res://generation/special/oasis-1/oasis-1-180.tscn" id="7_nk4ho"]
+[ext_resource type="PackedScene" uid="uid://7kjql0f2151g" path="res://generation/special/oasis-1/oasis-1-270.tscn" id="8_d0u2m"]
 
 [resource]
 script = ExtResource("1_odwfu")
-allSegments = Array[PackedScene]([ExtResource("1_3ta4c"), ExtResource("2_v624y"), ExtResource("3_evpax"), ExtResource("4_toin4")])
+allSegments = Array[PackedScene]([ExtResource("1_3ta4c"), ExtResource("2_v624y"), ExtResource("3_evpax"), ExtResource("4_toin4"), ExtResource("5_1ium7"), ExtResource("6_tlrha"), ExtResource("7_nk4ho"), ExtResource("8_d0u2m")])

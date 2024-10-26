@@ -14,6 +14,7 @@ signal spawnPlayer
 @onready var cave = get_node("Cave")
 
 var rooms: Array[PackedScene] = preload("res://generation/rooms/rooms.tres").allSegments
+var rootRooms: Array[PackedScene] = preload("res://generation/rooms/root-rooms.tres").allSegments
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
 var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
@@ -22,6 +23,8 @@ var specialRoomsDeadEnd: Array[PackedScene] = preload("res://generation/special/
 
 var currentRooms: Array[Node2D]
 var tileSize = 64
+
+var tier: int
 
 var availableDirections: Array[Enums.exitDirection] = [Enums.exitDirection.RIGHT, Enums.exitDirection.LEFT]
 var initialDirection: Enums.exitDirection = Enums.exitDirection.TOP
@@ -32,11 +35,14 @@ var generatedExits: Array[Node2D] = []
 var placedSpecialRooms: int = 0
 var placedSpecialRoomsDeadEnd: int = 0
 
-var maxSpecialRooms: int = 2
-var maxSpecialRoomsDeadEnd: int = 10
+var maxSpecialRooms: int = 0
+var maxSpecialRoomsDeadEnd: int = 0
 
 
 func generateCave():
+	maxSpecialRooms = iterations - 1
+	maxSpecialRoomsDeadEnd = iterations - 1
+	
 	if iterations > 0:
 		clearCave()
 		generateRoot()
@@ -59,13 +65,8 @@ func clearCave():
 		enemiesScene.remove_child(enemy)
 
 
-
-func instanceRoom():
-	return rooms.pick_random().instantiate().duplicate()
-
-
 func generateRoot():
-	var root = instanceRoom()
+	var root = rootRooms.pick_random().instantiate().duplicate()
 	cave.add_child(root)
 	root.global_position = Vector2.ZERO
 	currentRooms.append(root)
@@ -87,8 +88,8 @@ func generateFittingRoom(exit, roomType):
 		var type = exit.room.type
 		var chance = randf()
 		var segments
-		var repeatingRoomChance = 0.2
-		var specialRoomChance = 0.15
+		var repeatingRoomChance = 0.15
+		var specialRoomChance = 0.35
 		if type == Enums.segmentType.CORRIDOR:
 			segments = corridors if chance < repeatingRoomChance else rooms
 			if chance < specialRoomChance && placedSpecialRooms < maxSpecialRooms:
@@ -209,7 +210,7 @@ func placeRoom(exit, type: Enums.segmentType):
 
 func generateExits():
 	for direction in availableDirections:
-		generateExitInDirection(getRemainingExits(), direction)
+		var exit = generateExitInDirection(getRemainingExits(), direction)
 
 
 func generateExitInDirection(exits, direction):
@@ -238,6 +239,7 @@ func generateExitInDirection(exits, direction):
 		if direction == initialDirection:
 			var foundExitTemplate = room.get_child(0)
 			foundExitTemplate.exit.direction = direction
+			foundExitTemplate.exit.update()
 			spawnPlayer.emit(foundExitTemplate.get_child(2).global_position)
 
 
@@ -251,7 +253,7 @@ func generateDeadEnds():
 
 
 func generateDeadEndSpecialRooms():
-	var specialRoomsDeadEndChance: float = 1
+	var specialRoomsDeadEndChance: float = 0.35
 	for exit in getRemainingExits():
 		if randf() < specialRoomsDeadEndChance && placedSpecialRoomsDeadEnd < maxSpecialRoomsDeadEnd:
 			if placeRoom(exit, Enums.segmentType.SPECIAL_ROOM_DEAD_END):
@@ -282,7 +284,7 @@ func setSpawners():
 	for room in currentRooms:
 		var spawners: Node2D = room.get_child(0).get_node("Map/EnvironmentalObjects/Spawners")
 		for spawner in spawners.get_children():
-			spawner.setup(room.get_child(0), 45, 2)
+			spawner.setup(room.get_child(0), 40 - tier * 5, 2 + tier)
 			spawner.spawnEntity()
 
 

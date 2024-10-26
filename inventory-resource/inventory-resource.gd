@@ -6,6 +6,8 @@ class_name InventoryResource
 @export_multiline var description: String
 @export var texture: Texture2D
 @export var rarity: Enums.resourceRarity = Enums.resourceRarity.COMMON
+@export var weight: float = 1
 
 var pickupAmount: int = 1
 var type: Enums.resourceType = Enums.resourceType.RESOURCE
+

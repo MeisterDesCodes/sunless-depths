@@ -8,17 +8,17 @@
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="4_1fod0"]
 [ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="5_wsbcr"]
 
+[sub_resource type="Resource" id="Resource_3sekj"]
+script = ExtResource("3_plctn")
+resource = ExtResource("2_gujpp")
+amount = 2
+dropChance = 1.0
+
 [sub_resource type="Resource" id="Resource_qkl11"]
 script = ExtResource("3_plctn")
 resource = ExtResource("4_1fod0")
 amount = 4
 dropChance = 0.75
-
-[sub_resource type="Resource" id="Resource_3sekj"]
-script = ExtResource("3_plctn")
-resource = ExtResource("2_gujpp")
-amount = 3
-dropChance = 1.0
 
 [sub_resource type="Resource" id="Resource_0yoaq"]
 script = ExtResource("3_plctn")
@@ -31,8 +31,9 @@ size = Vector2(30, 172)
 
 [node name="OldLog" type="Node2D"]
 script = ExtResource("1_pn7ta")
-dropResources = Array[ExtResource("3_plctn")]([SubResource("Resource_qkl11"), SubResource("Resource_3sekj"), SubResource("Resource_0yoaq")])
-lifetime = 3
+dropResources = Array[ExtResource("3_plctn")]([SubResource("Resource_3sekj"), SubResource("Resource_qkl11"), SubResource("Resource_0yoaq")])
+lifetime = 2
+interactionCost = 5.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

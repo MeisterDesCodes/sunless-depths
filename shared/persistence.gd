@@ -7,6 +7,9 @@ class_name Persistence
 
 
 func saveGame():
+	for i in range(playerScene.statusEffectComponent.statusEffects.size() - 1, -1, -1):
+		playerScene.statusEffectComponent.statusEffects[i].onExpire(playerScene)
+	
 	var savedData = SavedData.new()
 	
 	savedData.area = LocationLoaderS.currentLocation
@@ -16,8 +19,10 @@ func saveGame():
 	savedData.supplies = playerScene.hudUI.suppliesBar.value
 	savedData.oxygen = playerScene.hudUI.oxygenBar.value
 	savedData.stamina = playerScene.hudUI.staminaBar.value
+	savedData.visitedLocations = LocationLoaderS.visitedLocations
 	
 	savedData.inventory = playerScene.inventory.resourceSlots
+	savedData.storage = playerScene.storage.resourceSlots
 	savedData.equippedWeapons = playerScene.equippedWeapons
 	for i in playerScene.equippedWeapons.size():
 		if playerScene.equippedWeapons[i] is RangedWeapon && playerScene.equippedWeapons[i].ammunition:
@@ -35,7 +40,6 @@ func saveGame():
 func loadGame():
 	var savedData = load("res://0-saved-data/saved-game-0.tres")
 	
-	LocationLoaderS.loadArea(savedData.area)
 	playerScene.global_position = savedData.position
 	
 	playerScene.level = savedData.level
@@ -44,7 +48,9 @@ func loadGame():
 	playerScene.hudUI.oxygenBar.value = savedData.oxygen
 	playerScene.hudUI.staminaBar.value = savedData.stamina
 	
+	LocationLoaderS.visitedLocations = savedData.visitedLocations
 	playerScene.inventory.resourceSlots = savedData.inventory
+	playerScene.storage.resourceSlots = savedData.storage
 	playerScene.equippedWeapons = savedData.equippedWeapons
 	for i in savedData.equippedAmmunitions.size():
 		if savedData.equippedAmmunitions[i]:
@@ -53,7 +59,8 @@ func loadGame():
 	playerScene.equippedGear = savedData.equippedGear
 	playerScene.equippedConsumable = savedData.equippedConsumable
 	playerScene.equippedCards = savedData.equippedCards
-
+	
+	return savedData
 
 
 

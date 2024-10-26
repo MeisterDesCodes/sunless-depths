@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("3_vhjth")
 title = "No passage"
-description = "Ahead, the path narrows abruptly, culminating in a formidable obstruction of ancient stone. Massive blocks, worn smooth by the passage of time, form an impenetrable barrier, sealing off any hope of progress along this route. Despite your best efforts, there is no passage through this formidable blockade. You will have to find another way."
+description = "Ahead, the path suddenly stops. Large and small boulders, scattered around the narrow tunnel, block your way. You will have to find another way."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_5dlfp"), ExtResource("2_8ceae")])

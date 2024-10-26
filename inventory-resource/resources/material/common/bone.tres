@@ -9,3 +9,4 @@ name = "Bone"
 description = "Salvaged from the surface, they are essential for crafting primitive equipment and combined resources."
 texture = ExtResource("2_78txd")
 rarity = 1
+weight = 0.5

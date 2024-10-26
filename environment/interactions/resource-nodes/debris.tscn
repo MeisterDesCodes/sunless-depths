@@ -10,14 +10,14 @@
 [sub_resource type="Resource" id="Resource_8j16i"]
 script = ExtResource("2_rq5c8")
 resource = ExtResource("2_o6rrp")
-amount = 4
-dropChance = 0.8
+amount = 2
+dropChance = 0.75
 
 [sub_resource type="Resource" id="Resource_fl6lg"]
 script = ExtResource("2_rq5c8")
 resource = ExtResource("4_utj17")
-amount = 3
-dropChance = 0.6
+amount = 1
+dropChance = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnsl"]
 radius = 32.0
@@ -26,6 +26,7 @@ radius = 32.0
 script = ExtResource("1_nldm4")
 dropResources = Array[ExtResource("2_rq5c8")]([SubResource("Resource_8j16i"), SubResource("Resource_fl6lg")])
 lifetime = 3
+interactionCost = 10.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 

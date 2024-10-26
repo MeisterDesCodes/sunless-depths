@@ -22,3 +22,4 @@ name = "Old Torch"
 description = "Fashioned from weathered wood and wrapped with frayed cloth, serves as a reliable light source and can be wielded as a makeshift weapon."
 texture = ExtResource("2_rm61f")
 rarity = 1
+weight = 1.0

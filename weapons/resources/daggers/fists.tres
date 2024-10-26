@@ -16,3 +16,4 @@ name = "Fists"
 description = "Unarmed strikes are a straightforward yet effective method in close-quarters combat, however, they drain stamina very quickly."
 texture = ExtResource("2_mpjgl")
 rarity = 0
+weight = 0.0

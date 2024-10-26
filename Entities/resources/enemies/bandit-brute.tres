@@ -6,11 +6,11 @@
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="4_wdqou"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="5_4kvln"]
 [ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="6_h7kbd"]
-[ext_resource type="Resource" uid="uid://brce76y3nxw8e" path="res://inventory-resource/resources/equipment/bandit-B.tres" id="7_la4bx"]
+[ext_resource type="Resource" uid="uid://brce76y3nxw8e" path="res://inventory-resource/resources/equipment/armor/bandit-B.tres" id="7_la4bx"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="7_lh31o"]
-[ext_resource type="Resource" uid="uid://i3hvkcqsmiae" path="res://inventory-resource/resources/equipment/bandit-C.tres" id="8_5f15m"]
-[ext_resource type="Resource" uid="uid://daf7r3jspwtfx" path="res://inventory-resource/resources/equipment/bandit-H.tres" id="9_2mhch"]
-[ext_resource type="Resource" uid="uid://wj0a5nbcy6sc" path="res://inventory-resource/resources/equipment/bandit-P.tres" id="10_xl0eh"]
+[ext_resource type="Resource" uid="uid://i3hvkcqsmiae" path="res://inventory-resource/resources/equipment/armor/bandit-C.tres" id="8_5f15m"]
+[ext_resource type="Resource" uid="uid://daf7r3jspwtfx" path="res://inventory-resource/resources/equipment/armor/bandit-H.tres" id="9_2mhch"]
+[ext_resource type="Resource" uid="uid://wj0a5nbcy6sc" path="res://inventory-resource/resources/equipment/armor/bandit-P.tres" id="10_xl0eh"]
 [ext_resource type="Texture2D" uid="uid://c1r7hsy045gk7" path="res://assets/entities/bandit-brute.png" id="12_t6t7b"]
 
 [sub_resource type="Resource" id="Resource_o5h46"]
@@ -20,6 +20,8 @@ knockback = 20.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 ammunition = ExtResource("1_88q3a")
 attackDelay = 2.0
+spread = 0.0
+amount = 0.0
 
 [sub_resource type="Resource" id="Resource_udg4a"]
 script = ExtResource("4_wdqou")

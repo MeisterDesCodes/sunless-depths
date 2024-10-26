@@ -79,23 +79,21 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_nkjx7")
 layout_mode = 2
 theme_override_constants/separation = 35
 
-[node name="Buy" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
+[node name="Buy" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer" instance=ExtResource("3_2r470")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("4_3u2ih")
 flat = false
 texture = ExtResource("5_34ksj")
 version = 1
-affectedElement = NodePath(".")
 
-[node name="Sell" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
+[node name="Sell" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer" instance=ExtResource("3_2r470")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
 theme = ExtResource("4_3u2ih")
 flat = false
 texture = ExtResource("6_u4g0l")
 version = 1
-affectedElement = NodePath(".")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -173,13 +171,12 @@ expand_mode = 2
 [node name="TotalCost" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="Purchase" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_2r470")]
+[node name="Purchase" parent="VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer2/HBoxContainer" instance=ExtResource("3_2r470")]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme = ExtResource("9_o3tve")
 flat = false
 version = 2
-affectedElement = NodePath(".")
 
 [node name="Button" parent="VBoxContainer" node_paths=PackedStringArray("scene") instance=ExtResource("4_w70lt")]
 layout_mode = 2

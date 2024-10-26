@@ -92,8 +92,8 @@ func _on_button_pressed():
 
 
 func _on_button_mouse_entered():
-	AnimationsS.slideUp(self, 25, 0.15)
+	AnimationsS.fadeSlide(self, 25, 0.15)
 
 
 func _on_button_mouse_exited():
-	AnimationsS.slideDown(self, 0, 0.15)
+	AnimationsS.fadeSlide(self, 0, 0.15)

@@ -19,7 +19,7 @@ func exit():
 
 
 func update(delta):
-	entity.moveToPath(entity.moveSpeed)
+	entity.moveToPath(entity.moveSpeed, true)
 
 
 func _on_follow_timer_timeout():

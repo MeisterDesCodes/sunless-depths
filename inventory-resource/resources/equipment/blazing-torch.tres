@@ -11,3 +11,4 @@ name = "Blazing Torch"
 description = ""
 texture = ExtResource("2_il0bx")
 rarity = 1
+weight = 1.0

@@ -14,9 +14,33 @@ extends Node2D
 
 func _ready():
 	canvasModulate.color = UtilsS.colorCanvasModulate
-	
+	loadGame()
+
+
+func startNewGame():
 	visible = false
-	PersistenceS.loadGame()
+	playerScene.setup()
+	LocationLoaderS.removeCurrentLocation()
+	LocationLoaderS.loadArea(Enums.locations.A_PAST_FORGOTTEN, false)
+	visible = true
+	
+	await get_tree().create_timer(2).timeout
+	var location = preload("res://environment/curiosities/location.tscn").instantiate()
+	location.title = "???"
+	location.initialDialog = preload("res://dialogs/resources/spawn/D-initial.tres")
+	var scene = UILoaderS.loadUIScene(preload("res://UI/dialog/dialog-menu-ui.tscn"))
+	scene.setup(location)
+
+
+func loadGame():
+	visible = false
+	var saveState = PersistenceS.loadGame()
+	LocationLoaderS.loadArea(saveState.area, false)
 	playerScene.setup()
 	visible = true
+
+
+
+
+
 

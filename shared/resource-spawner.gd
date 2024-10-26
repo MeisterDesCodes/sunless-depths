@@ -24,26 +24,35 @@ func spawnResources(resources: Array[DropResource], spawnType: Enums.resourceSpa
 	resources.append_array(experienceResources)
 	resources.append_array(otherResources)
 	for resource in resources:
-		if resource.dropChance > randf():
-			var amount = round(randf_range(resource.amount * UtilsS.randomRangeMin, resource.amount * UtilsS.randomRangeMax))
+		spawnResource(resource, spawnType, spawnPosition, direction, speed, false)
+
+
+func spawnResource(resource: DropResource, spawnType: Enums.resourceSpawnType,
+						spawnPosition: Vector2, direction: Vector2, speed: float, wasDropped: bool):
+	if resource.dropChance > randf():
+		var amount: int
+		if !wasDropped:
+			amount = round(randf_range(resource.amount * UtilsS.randomRangeMin, resource.amount * UtilsS.randomRangeMax))
+		else:
+			amount = resource.amount
+		
+		for j in amount:
+			var groundResource = preload("res://environment/collectibles/ground-resource.tscn").instantiate()
+			groundResource.setup(resource.resource, wasDropped)
+			groundResource.global_position = spawnPosition
+			groundResource.scale = Vector2(0.5, 0.5)
+			get_tree().get_root().add_child(groundResource)
 			
-			for j in amount:
-				var groundResource = preload("res://environment/collectibles/ground-resource.tscn").instantiate()
-				groundResource.setup(resource.resource)
-				groundResource.global_position = spawnPosition
-				groundResource.scale = Vector2(0.5, 0.5)
-				get_tree().get_root().add_child(groundResource)
+			var spreadVector: float
+			match spawnType:
+				Enums.resourceSpawnType.DASH:
+					spreadVector = randf_range(-30, 30)
 				
-				var spreadVector: float
-				match spawnType:
-					Enums.resourceSpawnType.DASH:
-						spreadVector = randf_range(-30, 30)
-					
-					Enums.resourceSpawnType.DROP:
-						spreadVector = randf_range(-180, 180)
-					
-				groundResource.moveSpeed = randf_range(speed * UtilsS.randomRangeMin, speed * UtilsS.randomRangeMin)
-				groundResource.direction = direction.rotated(deg_to_rad(spreadVector))
+				Enums.resourceSpawnType.DROP:
+					spreadVector = randf_range(-180, 180)
+				
+			groundResource.moveSpeed = randf_range(speed * UtilsS.randomRangeMin, speed * UtilsS.randomRangeMin)
+			groundResource.direction = direction.rotated(deg_to_rad(spreadVector))
 
 
 func getResourceDistribution(resources, thresholds):

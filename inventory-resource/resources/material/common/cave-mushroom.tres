@@ -9,3 +9,4 @@ name = "Cave Mushroom"
 description = "Gathered from the depths of dark caverns, it is crucial for brewing potent potions and enhancing alchemical recipes. With more knowledge, they could also be turned into supplies."
 texture = ExtResource("2_trxue")
 rarity = 1
+weight = 0.5
