@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://uognb7dads7q"]
+
+[ext_resource type="Theme" uid="uid://dt2kmg15mqf2t" path="res://assets/UI/themes/UI-elements/location-marker.tres" id="1_rbcgn"]
+[ext_resource type="Script" path="res://UI/menu/map/player-marker-ui.gd" id="2_i62bl"]
+[ext_resource type="PackedScene" uid="uid://c8sm53impkash" path="res://environment/decorations/particles/effect-particle.tscn" id="3_rvs8b"]
+
+[node name="PlayerMarkerUI" type="PanelContainer"]
+z_index = 4
+custom_minimum_size = Vector2(60, 60)
+offset_right = 60.0
+offset_bottom = 60.0
+pivot_offset = Vector2(30, 30)
+theme = ExtResource("1_rbcgn")
+script = ExtResource("2_i62bl")
+
+[node name="EffectParticles" parent="." instance=ExtResource("3_rvs8b")]
+modulate = Color(1, 0.439216, 0.384314, 1)
+position = Vector2(30, 30)

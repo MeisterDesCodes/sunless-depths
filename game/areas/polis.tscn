@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://sokoc5ar5h24"]
+[gd_scene load_steps=19 format=3 uid="uid://sokoc5ar5h24"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_crksr"]
 [ext_resource type="PackedScene" uid="uid://c1e2cwvpwxhq0" path="res://generation/exits/exit-1/exit-0.tscn" id="2_sqs2t"]
@@ -8,28 +8,10 @@
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="6_1buik"]
 [ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="7_r00nr"]
 [ext_resource type="PackedScene" uid="uid://b6cogporqnswb" path="res://environment/curiosities/merchant.tscn" id="8_rqu2r"]
-[ext_resource type="Resource" uid="uid://bnm0u18wx7tpo" path="res://weapons/resources/crossbows/refined-crossbow.tres" id="9_gvi52"]
 [ext_resource type="PackedScene" uid="uid://ceyk8mxkdgl5s" path="res://environment/decorations/light-sources/campfire.tscn" id="10_687ug"]
 [ext_resource type="Texture2D" uid="uid://b26hoxy6hbaln" path="res://assets/environment/decorations/light-sources/campfire-1.png" id="11_cwphp"]
 [ext_resource type="Texture2D" uid="uid://bs606vjh8uql4" path="res://assets/environment/decorations/light-sources/campfire-2.png" id="12_w7iln"]
 [ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="13_d6sr3"]
-[ext_resource type="PackedScene" uid="uid://s068tliviiio" path="res://environment/decorations/regular/structures/tent-circular.tscn" id="14_roht3"]
-[ext_resource type="Texture2D" uid="uid://b3iibl2hbudqi" path="res://assets/environment/decorations/regular/town/tent-circular-1.png" id="15_pinj3"]
-[ext_resource type="Texture2D" uid="uid://b805e3axhdjgo" path="res://assets/environment/decorations/regular/town/tent-circular-2.png" id="16_aupex"]
-[ext_resource type="PackedScene" uid="uid://dlfesfs142y0g" path="res://environment/decorations/regular/structures/tent-square.tscn" id="17_yq7p6"]
-[ext_resource type="Texture2D" uid="uid://cmndxs3u0xj82" path="res://assets/environment/decorations/regular/town/tent-square-1.png" id="18_e7y4k"]
-[ext_resource type="Texture2D" uid="uid://bweqtjgj4ncxj" path="res://assets/environment/decorations/regular/town/tent-square-2.png" id="19_cd8ei"]
-[ext_resource type="Texture2D" uid="uid://dfto606syyyqn" path="res://assets/environment/decorations/regular/town/tent-square-3.png" id="20_ifp37"]
-[ext_resource type="Texture2D" uid="uid://g0a42t8np6oa" path="res://assets/environment/decorations/regular/town/tent-capsule.png" id="21_xfwio"]
-[ext_resource type="PackedScene" uid="uid://duf63m41ihawf" path="res://environment/decorations/regular/structures/well.tscn" id="22_3bns1"]
-[ext_resource type="Texture2D" uid="uid://cmlewy2nl2ac5" path="res://assets/environment/decorations/regular/town/well.png" id="23_kio7r"]
-[ext_resource type="PackedScene" uid="uid://crlc6dhyk5ivq" path="res://environment/decorations/regular/structures/market.tscn" id="24_fhywd"]
-[ext_resource type="Texture2D" uid="uid://ig4iq65ax7ox" path="res://assets/environment/decorations/regular/market/market-1.png" id="25_xxkie"]
-[ext_resource type="PackedScene" uid="uid://bnkbhwysl6liv" path="res://environment/decorations/regular/storage/pot.tscn" id="26_78517"]
-[ext_resource type="Texture2D" uid="uid://cg5jvbat4e1he" path="res://assets/environment/decorations/regular/storage/pot-1.png" id="27_vmmde"]
-[ext_resource type="Texture2D" uid="uid://c4qvp0bpwu1vi" path="res://assets/environment/decorations/regular/storage/pot-2.png" id="28_5a6uc"]
-[ext_resource type="Texture2D" uid="uid://bdh2keo3efrtp" path="res://assets/environment/decorations/regular/storage/pot-3.png" id="29_kbuki"]
-[ext_resource type="Texture2D" uid="uid://dsyj45ruv4cve" path="res://assets/environment/decorations/regular/storage/pot-4.png" id="30_fiqdu"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="31_3yw8y"]
 [ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="32_g22ej"]
 [ext_resource type="Texture2D" uid="uid://b7cr5yl1kx0eb" path="res://assets/environment/decorations/light-sources/torch-2.png" id="33_7fcgb"]
@@ -87,7 +69,6 @@ dropResources = Array[ExtResource("6_1buik")]([SubResource("Resource_km6bw"), Su
 [node name="Merchant" parent="NavigationRegion2D/EnvironmentalObjects/Curiosities" instance=ExtResource("8_rqu2r")]
 position = Vector2(1969.92, 1295.05)
 title = "Merchant 123"
-merchantResources = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("7_r00nr"), ExtResource("5_qpss1"), ExtResource("9_gvi52")])
 
 [node name="Decorations" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
 
@@ -135,116 +116,6 @@ position = Vector2(2000.77, 1336)
 [node name="Regular" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
 
 [node name="Rubble" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular"]
-
-[node name="Tent2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("14_roht3")]
-position = Vector2(1514.77, 572)
-rotation = -0.256563
-scale = Vector2(0.475, 0.475)
-texture = ExtResource("15_pinj3")
-
-[node name="Tent3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("14_roht3")]
-position = Vector2(1592.77, 565)
-rotation = 0.66148
-scale = Vector2(0.595, 0.595)
-texture = ExtResource("16_aupex")
-
-[node name="Tent8" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("14_roht3")]
-position = Vector2(1738.77, 1225)
-rotation = -3.084
-scale = Vector2(0.58, 0.58)
-texture = ExtResource("15_pinj3")
-
-[node name="Tent12" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("14_roht3")]
-position = Vector2(1937.77, 961)
-rotation = 0.722565
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("15_pinj3")
-
-[node name="Tent9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("14_roht3")]
-position = Vector2(1792.77, 1286)
-rotation = -1.81514
-scale = Vector2(0.47, 0.47)
-texture = ExtResource("16_aupex")
-
-[node name="Tent4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(1528.77, 747)
-rotation = 1.17984
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("18_e7y4k")
-
-[node name="Tent6" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(1285.77, 832)
-rotation = 0.734784
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("19_cd8ei")
-
-[node name="Tent7" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(1512.77, 891)
-rotation = -0.916298
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("20_ifp37")
-
-[node name="Tent10" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(1611.77, 1218)
-rotation = -0.16057
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("20_ifp37")
-
-[node name="Tent13" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(1611.77, 1218)
-rotation = -0.16057
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("20_ifp37")
-
-[node name="Tent11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(1858.77, 961)
-rotation = 1.39801
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("20_ifp37")
-
-[node name="Tent5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_yq7p6")]
-position = Vector2(3153.77, 1217)
-rotation = 2.89027
-scale = Vector2(1.65, 1.65)
-texture = ExtResource("21_xfwio")
-
-[node name="Well" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("22_3bns1")]
-position = Vector2(1689.77, 655)
-scale = Vector2(0.76, 0.76)
-texture = ExtResource("23_kio7r")
-
-[node name="Market" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("24_fhywd")]
-position = Vector2(2046.77, 1315)
-rotation = 1.60571
-scale = Vector2(0.84, 0.84)
-texture = ExtResource("25_xxkie")
-
-[node name="Pot" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("26_78517")]
-position = Vector2(1970.77, 1342)
-scale = Vector2(0.66, 0.66)
-texture = ExtResource("27_vmmde")
-
-[node name="Pot2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("26_78517")]
-position = Vector2(1917.77, 1350)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("28_5a6uc")
-
-[node name="Pot3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("26_78517")]
-position = Vector2(1986.77, 1368)
-rotation = -1.1013
-scale = Vector2(0.635, 0.635)
-texture = ExtResource("29_kbuki")
-
-[node name="Pot5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("26_78517")]
-position = Vector2(1905.77, 1373)
-scale = Vector2(0.675, 0.675)
-texture = ExtResource("29_kbuki")
-
-[node name="Pot4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("26_78517")]
-position = Vector2(1944.77, 1366)
-rotation = 0.18326
-scale = Vector2(0.915, 0.915)
-texture = ExtResource("30_fiqdu")
 
 [node name="Overlays" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
 

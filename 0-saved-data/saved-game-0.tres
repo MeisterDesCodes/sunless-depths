@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SavedData" load_steps=59 format=3 uid="uid://dplydmt44pob7"]
+[gd_resource type="Resource" script_class="SavedData" load_steps=61 format=3 uid="uid://dplydmt44pob7"]
 
 [ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="1_dapt8"]
 [ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="1_vyyox"]
@@ -44,6 +44,7 @@
 [ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="41_hj3w6"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="42_005ek"]
 [ext_resource type="Resource" uid="uid://cxduwdaay1mpy" path="res://inventory-resource/resources/equipment/lucky-scarf.tres" id="43_qjnhe"]
+[ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/uncommon/improvised-explosives.tres" id="45_2coqs"]
 [ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/BP-mushroom-brew.tres" id="45_girg4"]
 
 [sub_resource type="Resource" id="Resource_rpcen"]
@@ -111,17 +112,23 @@ script = ExtResource("5_m8eok")
 resource = ExtResource("1_dapt8")
 amount = 50
 
+[sub_resource type="Resource" id="Resource_7fpsa"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("45_2coqs")
+amount = 3
+
 [resource]
 script = ExtResource("15_vc2fh")
-area = 4
-position = Vector2(-250, 450)
+area = 2
+position = Vector2(250, 650)
 level = 13
 health = 52.632
 supplies = 5.39946
 oxygen = 68.891
 stamina = 100.0
 visitedLocations = Array[int]([1, 2, 1])
-inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_u0jd2"), SubResource("Resource_dlyi7"), SubResource("Resource_5uviv")])
+exploredLocations = Array[int]([1])
+inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_6sixg"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_u0jd2"), SubResource("Resource_dlyi7"), SubResource("Resource_5uviv"), SubResource("Resource_7fpsa")])
 storage = Array[ExtResource("5_m8eok")]([])
 equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("4_ixoyg"), ExtResource("8_7nlay"), ExtResource("7_schab")])
 equippedAmmunitions = Array[Resource("res://inventory-resource/inventory-ammunition.gd")]([null, ExtResource("1_dapt8"), null])

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://crqpsyhqguh0a"]
+
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="1_5m2ym"]
+[ext_resource type="Texture2D" uid="uid://ddyvdlxge3ldm" path="res://assets/environment/decorations/walls/tunnel/platform-wood-2.png" id="2_ndfa2"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="3_ifoga"]
+[ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="4_u2bi1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g5mh8"]
+load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
+
+[node name="ArrangedPlatform" type="Node2D"]
+
+[node name="ObjectDecoration9" parent="." instance=ExtResource("1_5m2ym")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(-1, 2)
+texture = ExtResource("2_ndfa2")
+
+[node name="ObjectSquare74" parent="." instance=ExtResource("3_ifoga")]
+position = Vector2(47.9998, 12)
+rotation = -1.58083
+texture = ExtResource("4_u2bi1")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare75" parent="." instance=ExtResource("3_ifoga")]
+position = Vector2(-51, 4)
+rotation = -1.58083
+texture = ExtResource("4_u2bi1")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare77" parent="." instance=ExtResource("3_ifoga")]
+position = Vector2(-1.00024, -17)
+rotation = 0.0258506
+texture = SubResource("CompressedTexture2D_g5mh8")
+collision = false
+
+[node name="ObjectSquare78" parent="." instance=ExtResource("3_ifoga")]
+position = Vector2(-1, 29)
+rotation = 0.00159456
+texture = SubResource("CompressedTexture2D_g5mh8")
+collision = false

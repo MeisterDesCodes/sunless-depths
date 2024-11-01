@@ -19,7 +19,6 @@ shape = SubResource("CircleShape2D_v372m")
 scale = Vector2(0.2, 0.2)
 
 [node name="LightSource" parent="." instance=ExtResource("2_huqr5")]
-position = Vector2(-2, 2)
 size = 6.0
 energy = 1.0
 

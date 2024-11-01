@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://027k3knn47i8"
-path="res://.godot/imported/20230421103504-a9017952-me.png-a1770d101066e00f36b5ac8c5ddca9fa.ctex"
+uid="uid://cqksnq5x6mth5"
+path="res://.godot/imported/platform-wood-1.png-10e3f0d627b695dd46dae0ae11db7054.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/decorations/bridges/20230421103504-a9017952-me.png"
-dest_files=["res://.godot/imported/20230421103504-a9017952-me.png-a1770d101066e00f36b5ac8c5ddca9fa.ctex"]
+source_file="res://assets/environment/decorations/walls/tunnel/platform-wood-1.png"
+dest_files=["res://.godot/imported/platform-wood-1.png-10e3f0d627b695dd46dae0ae11db7054.ctex"]
 
 [params]
 

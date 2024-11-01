@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="3_qq3qh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqlev"]
-size = Vector2(107, 68)
+size = Vector2(69, 54)
 
 [node name="OxygenCompressor" type="Node2D"]
 script = ExtResource("1_48f0t")
@@ -14,10 +14,12 @@ lifetime = -1
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-32.5, 0)
 shape = SubResource("RectangleShape2D_vqlev")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+position = Vector2(-27, 0)
+scale = Vector2(0.23, 0.23)
 texture = ExtResource("2_b5orh")
 
 [node name="Interaction" parent="." node_paths=PackedStringArray("interaction") instance=ExtResource("3_qq3qh")]

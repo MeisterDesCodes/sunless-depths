@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0um87rc8bl77"]
+[gd_scene load_steps=11 format=3 uid="uid://b0um87rc8bl77"]
 
 [ext_resource type="Script" path="res://UI/menu/menu-ui.gd" id="1_2cm1r"]
 [ext_resource type="Theme" uid="uid://vkof7lo8jctq" path="res://assets/UI/themes/UI-elements/menu-header.tres" id="2_kwxqd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqulph4hdnkof" path="res://assets/UI/icons/menu/Map.png" id="4_b33fp"]
 [ext_resource type="Theme" uid="uid://bat77wlh5fhmk" path="res://assets/UI/themes/UI-elements/menu.tres" id="5_i3qkj"]
 [ext_resource type="PackedScene" uid="uid://b1hn3floafrun" path="res://UI/shared/exit-button.tscn" id="7_0i61g"]
+[ext_resource type="Texture2D" uid="uid://cx5m4vbwhhs7y" path="res://assets/UI/icons/menu/Cave.png" id="7_45p04"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfupi"]
 
@@ -73,6 +74,14 @@ flat = false
 texture = ExtResource("4_b33fp")
 version = 1
 
+[node name="Cave" parent="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("3_w8t0y")]
+custom_minimum_size = Vector2(50, 45)
+layout_mode = 2
+theme = ExtResource("4_31jwt")
+flat = false
+texture = ExtResource("7_45p04")
+version = 1
+
 [node name="Body" type="PanelContainer" parent="VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(1400, 600)
@@ -94,3 +103,4 @@ scene = NodePath("../..")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/Cave" to="." method="_on_cave_pressed"]

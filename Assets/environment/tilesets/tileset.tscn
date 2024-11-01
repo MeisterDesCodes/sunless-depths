@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://btup4e4gco38c"]
 
-[ext_resource type="Shader" path="res://game/areas/eastward-quarries.gdshader" id="1_vpw1b"]
+[ext_resource type="Shader" path="res://assets/UI/shaders/water.gdshader" id="1_vpw1b"]
 [ext_resource type="Texture2D" uid="uid://ba320w5cf5ggw" path="res://assets/environment/tilesets/tileset-64-new-export.png" id="1_y0hss"]
 [ext_resource type="Script" path="res://game/map.gd" id="2_ou1tj"]
 

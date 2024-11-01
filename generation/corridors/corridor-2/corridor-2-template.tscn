@@ -582,6 +582,18 @@ rotation = 3.4718
 scale = Vector2(0.73, 0.73)
 texture = ExtResource("15_vsgra")
 
+[node name="ObjectDecoration20" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("27_jnq74")]
+position = Vector2(822, 165)
+rotation = 1.85016
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("15_vsgra")
+
+[node name="ObjectDecoration21" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("27_jnq74")]
+position = Vector2(831, 189)
+rotation = 1.85016
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("15_vsgra")
+
 [node name="ObjectDecoration8" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("27_jnq74")]
 position = Vector2(648, 382)
 rotation = 1.30463
@@ -589,14 +601,14 @@ scale = Vector2(0.815, 0.815)
 texture = ExtResource("29_8w0tl")
 
 [node name="ObjectDecoration10" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("27_jnq74")]
-position = Vector2(677, 221)
+position = Vector2(584, 159)
 rotation = 2.01713
 scale = Vector2(0.72, 0.72)
 texture = ExtResource("29_8w0tl")
 
 [node name="ObjectDecoration17" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("27_jnq74")]
-position = Vector2(722, 155)
-rotation = -0.619469
+position = Vector2(600, 142)
+rotation = 1.47351
 scale = Vector2(0.72, 0.72)
 texture = ExtResource("29_8w0tl")
 
@@ -612,7 +624,7 @@ rotation = -0.971644
 texture = ExtResource("30_ua1d3")
 
 [node name="ObjectDecoration16" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("27_jnq74")]
-position = Vector2(735, 182)
+position = Vector2(806, 141)
 rotation = -1.55673
 texture = ExtResource("30_ua1d3")
 

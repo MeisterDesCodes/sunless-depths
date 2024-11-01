@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgq78vsqitf72"]
+
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="1_hk563"]
+[ext_resource type="Texture2D" uid="uid://ddyvdlxge3ldm" path="res://assets/environment/decorations/walls/tunnel/platform-wood-2.png" id="2_3vcou"]
+[ext_resource type="Texture2D" uid="uid://cqksnq5x6mth5" path="res://assets/environment/decorations/walls/tunnel/platform-wood-1.png" id="2_gan3y"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="3_koijk"]
+[ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="4_g5srl"]
+[ext_resource type="Texture2D" uid="uid://2abst8vfm3jn" path="res://assets/environment/decorations/walls/tunnel/wall-wood-3.png" id="6_uiwnl"]
+[ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="7_cvmq3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sdn0x"]
+load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_64ekv"]
+load_path = "res://.godot/imported/pillar-wood-1.png-7b2cc619d412669578b49543f4d8ae5e.ctex"
+
+[node name="ArrangedPlatform" type="Node2D"]
+
+[node name="ObjectDecoration5" parent="." instance=ExtResource("1_hk563")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(46.9998, -15)
+rotation = 1.60751
+texture = ExtResource("2_gan3y")
+
+[node name="ObjectDecoration6" parent="." instance=ExtResource("1_hk563")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(-43, 22)
+rotation = 3.25457
+texture = ExtResource("2_gan3y")
+
+[node name="ObjectDecoration7" parent="." instance=ExtResource("1_hk563")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(-19, -23)
+texture = ExtResource("2_3vcou")
+
+[node name="ObjectDecoration8" parent="." instance=ExtResource("1_hk563")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(26.0002, 23)
+rotation = -3.08998
+texture = ExtResource("2_3vcou")
+
+[node name="ObjectSquare70" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(77, 4)
+rotation = -1.57079
+texture = ExtResource("4_g5srl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare71" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(1.99976, 49.0001)
+rotation = 0.0400771
+texture = ExtResource("6_uiwnl")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="ObjectSquare73" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(55, -41.0001)
+rotation = 0.0400771
+texture = ExtResource("7_cvmq3")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare72" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(-68.9995, 0.999878)
+rotation = 1.60101
+texture = ExtResource("4_g5srl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare74" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(-16.9998, -43)
+rotation = 0.0258506
+texture = SubResource("CompressedTexture2D_sdn0x")
+collision = false
+
+[node name="ObjectSquare75" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(75, -40.0001)
+rotation = -2.48051
+texture = SubResource("CompressedTexture2D_64ekv")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare76" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(72, 49)
+rotation = -2.21737
+texture = SubResource("CompressedTexture2D_64ekv")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare77" parent="." instance=ExtResource("3_koijk")]
+position = Vector2(-71, 45.0001)
+rotation = -0.847061
+texture = SubResource("CompressedTexture2D_64ekv")
+collisionWidth = 20
+collisionHeight = 20

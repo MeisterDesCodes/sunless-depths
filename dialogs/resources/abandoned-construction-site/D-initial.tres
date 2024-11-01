@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("3_dh42a")
 title = "Left in a hurry"
-description = "You approach what used to be some sort of construction project. Metal beams and support platforms were slowly carved into the tunnel walls. There is no sign of life here, yet this place looks like it was left recently. In the surrounding baskets, you identify pieces of bread and vegetables, some more, some less rotten. 
+description = "You approach what used to be some sort of construction project. Wooden beams and support platforms were slowly carved into the tunnel walls. There is no sign of life here, yet this place looks like it was left recently. In the surrounding baskets, you identify pieces of bread and vegetables, some more, some less rotten. 
 
 This place wasn't abandoned, it was fled from."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_oekk1"), ExtResource("2_s0jk7"), ExtResource("4_6fu0m"), ExtResource("2_6cirn")])

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
 size = Vector2(624, 560)
 
-[node name="Room - 4" type="Node2D"]
+[node name="Room - 4 - 180" type="Node2D"]
 script = ExtResource("1_cnvig")
 exits = Array[Dictionary]([{
 "completed": false,

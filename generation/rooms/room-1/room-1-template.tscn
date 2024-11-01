@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://o01dx38o0wma"]
+[gd_scene load_steps=52 format=3 uid="uid://o01dx38o0wma"]
 
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_cs7ai"]
 [ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/cave-sand-texture.tscn" id="3_087id"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="6_r631m"]
 [ext_resource type="PackedScene" uid="uid://dasm1al2nwuyi" path="res://environment/decorations/textures/mushroom-texture.tscn" id="7_aycak"]
 [ext_resource type="PackedScene" uid="uid://dsjokrvb0vmde" path="res://entities/entity-spawner.tscn" id="7_n6h3v"]
+[ext_resource type="PackedScene" uid="uid://drhau43vmqgyi" path="res://environment/decorations/regular/object-circular.tscn" id="8_cdnws"]
+[ext_resource type="Texture2D" uid="uid://b3iibl2hbudqi" path="res://assets/environment/decorations/regular/town/tent-circular-1.png" id="9_qrnl1"]
 [ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="10_2j3x1"]
 [ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="10_xwqsc"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="10_yyv48"]
@@ -147,10 +149,17 @@ scale = Vector2(0.915, 0.915)
 
 [node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
+[node name="ObjectCircular41" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_cdnws")]
+position = Vector2(175, 909)
+rotation = -2.58699
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_qrnl1")
+collisionRadius = 60
+
 [node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
 [node name="Campfire3" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("3_fltdf")]
-position = Vector2(162.127, 861.524)
+position = Vector2(142, 837)
 texture = ExtResource("4_kp2xx")
 
 [node name="Lantern" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("10_xwqsc")]
@@ -1038,3 +1047,10 @@ position = Vector2(530.669, 612.635)
 
 [node name="EntitySpawner2" parent="Map/EnvironmentalObjects/Spawners" instance=ExtResource("7_n6h3v")]
 position = Vector2(1058.67, 552.635)
+
+[node name="ObjectCircular41" parent="." instance=ExtResource("8_cdnws")]
+position = Vector2(2701, 108)
+rotation = -0.43069
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_qrnl1")
+collisionRadius = 60

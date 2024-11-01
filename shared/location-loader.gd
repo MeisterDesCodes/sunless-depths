@@ -13,8 +13,12 @@ var currentTier: int
 var attributes: Array[Enums.locationAttribute]
 
 var visitedLocations: Array[Enums.locations]
+var exploredLocations: Array[Enums.locations]
+var visitedRooms: Array[int]
 
 var currentInteraction: Node2D
+
+var currentCave: Node2D
 
 
 func loadArea(location: Enums.locations, showLocationHeader: bool = true):
@@ -22,11 +26,17 @@ func loadArea(location: Enums.locations, showLocationHeader: bool = true):
 	removeCurrentLocation()
 	removeCurrentCave()
 	removeAttributes()
+	exploredLocations.append(currentLocation)
 	currentLocation = location
 	nextLocation = -1
 	visitedLocations.append(location)
 	game.currentLocation.add_child(getSceneFromId(location).instantiate())
 	game.soundComponent.playSettlementAmbient()
+	
+	#TODO Monitor chase not working
+	await get_tree().process_frame
+	
+	game.navigationRegion.bake_navigation_polygon()
 	finishAreaTransition()
 	
 	if showLocationHeader:
@@ -102,6 +112,26 @@ func setupAttributes():
 func removeAttributes():
 	game.canvasModulate.color = UtilsS.colorCanvasModulate
 
+
+func getBasicCave(_cave: Node2D):
+	var cave = Node2D.new()
+	for _room in _cave.get_children():
+		var room = _room.duplicate()
+		
+		if "id" in room:
+			room.id = _room.id
+			room.get_child(0).set_script(null)
+			room.get_child(0).get_child(0).set_script(null)
+			room.get_child(0).get_child(0).get_child(0).queue_free()
+		else:
+			room.set_script(null)
+			room.get_child(0).queue_free()
+			room.get_child(1).get_child(0).set_script(null)
+			room.get_child(1).get_child(1).queue_free()
+		
+		cave.add_child(room)
+	
+	return cave
 
 
 

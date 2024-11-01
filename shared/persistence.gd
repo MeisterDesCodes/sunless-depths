@@ -20,6 +20,7 @@ func saveGame():
 	savedData.oxygen = playerScene.hudUI.oxygenBar.value
 	savedData.stamina = playerScene.hudUI.staminaBar.value
 	savedData.visitedLocations = LocationLoaderS.visitedLocations
+	savedData.exploredLocations = LocationLoaderS.exploredLocations
 	
 	savedData.inventory = playerScene.inventory.resourceSlots
 	savedData.storage = playerScene.storage.resourceSlots
@@ -49,6 +50,7 @@ func loadGame():
 	playerScene.hudUI.staminaBar.value = savedData.stamina
 	
 	LocationLoaderS.visitedLocations = savedData.visitedLocations
+	LocationLoaderS.exploredLocations = savedData.exploredLocations
 	playerScene.inventory.resourceSlots = savedData.inventory
 	playerScene.storage.resourceSlots = savedData.storage
 	playerScene.equippedWeapons = savedData.equippedWeapons

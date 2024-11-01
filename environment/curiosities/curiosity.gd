@@ -18,6 +18,7 @@ func _process(delta):
 func _on_detection_radius_body_entered(body):
 	if body.has_method("isPlayer"):
 		approachLabel = UILoaderS.loadUIOverlay(preload("res://UI/shared/interaction-footer.tscn"))
+		approachLabel.setup("(R) to enter")
 		playerInRange = true
 
 

@@ -18,7 +18,7 @@ var rootRooms: Array[PackedScene] = preload("res://generation/rooms/root-rooms.t
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
 var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
-var specialRooms: Array[PackedScene] = preload("res://generation/special/special-rooms.tres").allSegments
+var specialRooms: Array[PackedScene] = load("res://generation/special/special-rooms.tres").allSegments
 var specialRoomsDeadEnd: Array[PackedScene] = preload("res://generation/special/special-rooms-dead-end.tres").allSegments
 
 var currentRooms: Array[Node2D]
@@ -291,9 +291,14 @@ func setSpawners():
 func validateCave():
 	if generatedExits.size() < availableDirections.size():
 		generateCave()
+	else:
+		saveCave()
 
 
-
+func saveCave():
+	for room in cave.get_children():
+		room.id = randi() % 10000
+	LocationLoaderS.currentCave = LocationLoaderS.getBasicCave(cave)
 
 
 

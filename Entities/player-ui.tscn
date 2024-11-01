@@ -93,7 +93,7 @@ inventory = ExtResource("3_bh5x3")
 storage = ExtResource("4_1lhmx")
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 264
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

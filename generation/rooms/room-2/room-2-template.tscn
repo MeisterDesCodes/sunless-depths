@@ -1069,7 +1069,6 @@ rotation = -0.523598
 [node name="OldLog2" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("26_hjy6b")]
 position = Vector2(304, 352)
 rotation = -1.43025
-scale = Vector2(1, 1)
 
 [node name="Debris2" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("30_0qpsk")]
 position = Vector2(363, 572)

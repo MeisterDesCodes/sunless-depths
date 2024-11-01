@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq6uwqf7xlm7k"]
+
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="1_8f7mc"]
+[ext_resource type="Texture2D" uid="uid://ddyvdlxge3ldm" path="res://assets/environment/decorations/walls/tunnel/platform-wood-2.png" id="2_t0cjx"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="3_7w41m"]
+[ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="4_j3tme"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ohcnt"]
+load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5wts"]
+load_path = "res://.godot/imported/pillar-wood-1.png-7b2cc619d412669578b49543f4d8ae5e.ctex"
+
+[node name="ArrangedPlatform" type="Node2D"]
+
+[node name="ObjectDecoration2" parent="." instance=ExtResource("1_8f7mc")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(1, -21)
+texture = ExtResource("2_t0cjx")
+
+[node name="ObjectDecoration3" parent="." instance=ExtResource("1_8f7mc")]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(-1, 21)
+rotation = -3.08998
+texture = ExtResource("2_t0cjx")
+
+[node name="ObjectSquare57" parent="." instance=ExtResource("3_7w41m")]
+position = Vector2(48.0002, 5)
+rotation = -1.57079
+texture = ExtResource("4_j3tme")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare58" parent="." instance=ExtResource("3_7w41m")]
+position = Vector2(-2.99976, 49)
+rotation = 0.0400771
+texture = ExtResource("4_j3tme")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare59" parent="." instance=ExtResource("3_7w41m")]
+position = Vector2(-48.9995, 2.99988)
+rotation = 1.60101
+texture = ExtResource("4_j3tme")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare9" parent="." instance=ExtResource("3_7w41m")]
+position = Vector2(0.999756, -40)
+rotation = 0.0258506
+texture = SubResource("CompressedTexture2D_ohcnt")
+collision = false
+
+[node name="ObjectSquare16" parent="." instance=ExtResource("3_7w41m")]
+position = Vector2(46, 50)
+rotation = -2.19801
+texture = SubResource("CompressedTexture2D_o5wts")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare69" parent="." instance=ExtResource("3_7w41m")]
+position = Vector2(-51, 47.0001)
+rotation = -0.847061
+texture = SubResource("CompressedTexture2D_o5wts")
+collisionWidth = 20
+collisionHeight = 20

@@ -16,15 +16,15 @@ spread = 180.0
 initial_velocity_min = 10.0
 initial_velocity_max = 15.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.03
-scale_max = 0.05
+scale_min = 0.04
+scale_max = 0.06
 scale_curve = SubResource("CurveTexture_pdkqn")
 color = Color(1, 1, 1, 0.682353)
 
 [node name="LightParticle" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 30
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_0p8mg")
 texture = ExtResource("1_4i7sj")
 lifetime = 2.0

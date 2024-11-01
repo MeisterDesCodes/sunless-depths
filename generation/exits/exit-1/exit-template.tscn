@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://xvs63raay20g"]
+[gd_scene load_steps=33 format=3 uid="uid://xvs63raay20g"]
 
 [ext_resource type="Script" path="res://generation/exits/exit-1/exit-template.gd" id="1_10wmj"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_6juiv"]
@@ -16,14 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="13_fq2s5"]
 [ext_resource type="Texture2D" uid="uid://oyfckt5llb7n" path="res://assets/environment/decorations/walls/mushroom-1.png" id="14_ogdy2"]
 [ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="15_0mx78"]
-[ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="16_joci4"]
+[ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="15_fawi3"]
 [ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="17_51c0k"]
-[ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="17_ocoe6"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="18_6lrlr"]
 [ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="18_mmyym"]
+[ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="18_wxlu5"]
 [ext_resource type="Texture2D" uid="uid://bthk8jj51l37j" path="res://assets/environment/decorations/walls/tunnel/wall-metal-3.png" id="21_4h3c6"]
 [ext_resource type="Texture2D" uid="uid://dlnoommkq1n0k" path="res://assets/environment/decorations/walls/tunnel/wall-metal-1.png" id="22_5sjs3"]
-[ext_resource type="Texture2D" uid="uid://2abst8vfm3jn" path="res://assets/environment/decorations/walls/tunnel/wall-wood-3.png" id="23_67pet"]
 [ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="24_0rfv5"]
 [ext_resource type="Texture2D" uid="uid://c2ix6irtmxb51" path="res://assets/environment/decorations/walls/tunnel/beam-metal-2.png" id="24_e85e0"]
 [ext_resource type="Texture2D" uid="uid://ck3feyge4ld1a" path="res://assets/environment/decorations/walls/tunnel/pillar-metal-1.png" id="25_tufn5"]
@@ -132,15 +131,9 @@ z_index = 1
 [node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
 
-[node name="Torch18" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("16_joci4")]
-position = Vector2(37, 212)
-rotation = -1.95998
-texture = ExtResource("17_ocoe6")
-
-[node name="Torch19" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("16_joci4")]
-position = Vector2(137, 313)
-rotation = -3.97124
-texture = ExtResource("17_ocoe6")
+[node name="Lantern" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("15_fawi3")]
+position = Vector2(20, 258)
+rotation = 1.20887
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
@@ -153,6 +146,27 @@ position = Vector2(0, -1)
 [node name="ObjectSquare8" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("17_51c0k")]
 position = Vector2(304, 284)
 rotation = -0.388448
+texture = ExtResource("18_mmyym")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare10" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("17_51c0k")]
+position = Vector2(390, 155)
+rotation = -0.184118
+texture = ExtResource("18_wxlu5")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare11" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("17_51c0k")]
+position = Vector2(346, 153)
+rotation = 0.250468
+texture = ExtResource("18_wxlu5")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ObjectSquare9" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("17_51c0k")]
+position = Vector2(242, 350)
+rotation = -1.37953
 texture = ExtResource("18_mmyym")
 collisionWidth = 100
 collisionHeight = 10
@@ -185,13 +199,6 @@ texture = ExtResource("22_5sjs3")
 collisionWidth = 50
 collisionHeight = 10
 
-[node name="ObjectSquare16" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Walls" instance=ExtResource("17_51c0k")]
-position = Vector2(352, 161)
-rotation = -3.25829
-texture = ExtResource("23_67pet")
-collisionWidth = 150
-collisionHeight = 10
-
 [node name="Beams" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel"]
 
 [node name="ObjectSquare47" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("17_51c0k")]
@@ -213,8 +220,8 @@ texture = SubResource("CompressedTexture2D_302g6")
 collision = false
 
 [node name="ObjectSquare53" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Beams" instance=ExtResource("17_51c0k")]
-position = Vector2(423, 151)
-rotation = 2.96883
+position = Vector2(416, 151)
+rotation = 3.08325
 texture = SubResource("CompressedTexture2D_8bb8y")
 collisionWidth = 20
 collisionHeight = 20
@@ -270,10 +277,10 @@ rotation = 2.61799
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = 2
-offset_left = 629.0
-offset_top = 157.0
-offset_right = 922.0
-offset_bottom = 319.0
+offset_left = 627.0
+offset_top = 161.0
+offset_right = 920.0
+offset_bottom = 323.0
 rotation = 2.69304
 texture = SubResource("GradientTexture1D_newhl")
 expand_mode = 1

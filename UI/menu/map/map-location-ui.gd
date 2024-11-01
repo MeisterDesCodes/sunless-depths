@@ -8,7 +8,7 @@ extends Control
 @onready var typeContainer: TextureRect = get_node("PanelContainer/TextureRect")
 @onready var attributeContainer: HBoxContainer = get_node("VBoxContainer/HBoxContainer")
 @onready var button: Button = get_node("PanelContainer/Button")
-@onready var locationMarker: PanelContainer = get_node("LocationMarker")
+@onready var playerMarkerUI: PanelContainer = get_node("PlayerMarkerUI")
 @onready var locationContainer: PanelContainer = get_node("PanelContainer")
 
 var ringLevel: Enums.locationRingLevel
@@ -20,7 +20,7 @@ func _ready():
 		queue_free()
 		return
 	
-	locationMarker.self_modulate = UtilsS.colorTransparent
+	playerMarkerUI.modulate = UtilsS.colorTransparent
 	
 	setType()
 	setAttributes()
@@ -42,16 +42,12 @@ func updateLocation():
 			button.select()
 		Enums.locationRingLevel.CURRENT:
 			locationContainer.self_modulate = UtilsS.colorPrimary
-			locationMarker.self_modulate = UtilsS.colorWhite
+			playerMarkerUI.modulate = UtilsS.colorWhite
 	
 	if !playerScene.atExit || !canBeVisited:
 		button.disabled = true
 	else:
 		button.disabled = false 
-
-
-func _process(delta):
-	locationMarker.rotation += 0.025
 
 
 func setType():

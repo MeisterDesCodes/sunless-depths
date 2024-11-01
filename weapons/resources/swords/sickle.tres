@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="MeleeWeapon" load_steps=5 format=3 uid="uid://bo4y6hxwim3ij"]
+
+[ext_resource type="Script" path="res://inventory-resource/melee-weapon.gd" id="1_w86kq"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_f0k6a"]
+[ext_resource type="Texture2D" uid="uid://cf33dfv7nj6l3" path="res://assets/resources/weapons/sickle.png" id="3_78y8v"]
+
+[sub_resource type="Resource" id="Resource_70rk3"]
+script = ExtResource("2_f0k6a")
+effectType = 0
+strength = 3.0
+duration = 3.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[resource]
+script = ExtResource("1_w86kq")
+damage = 3.0
+knockback = 5.0
+statusEffects = Array[ExtResource("2_f0k6a")]([SubResource("Resource_70rk3")])
+meleeWeaponType = 1
+attackDelay = 1.25
+staminaCost = 20.0
+animations = Array[int]([2])
+name = "Sickle"
+description = "xxx"
+texture = ExtResource("3_78y8v")
+rarity = 2
+weight = 5.0

@@ -28,7 +28,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("map"):
 		var menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
-		menuScene._on_map_pressed()
+		menuScene._on_cave_pressed()
 	
 	if Input.is_action_just_pressed("switch-up"):
 		playerScene.switchToNextWeapon(-1)

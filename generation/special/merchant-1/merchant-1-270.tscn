@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
 size = Vector2(676, 935)
 
-[node name="Room - 1" type="Node2D"]
+[node name="Merchant - 1 - 270" type="Node2D"]
 script = ExtResource("1_qfkg5")
 exits = Array[Dictionary]([{
 "completed": false,
@@ -22,7 +22,7 @@ exits = Array[Dictionary]([{
 "position": Vector2(10, 10)
 }])
 
-[node name="Node2D" parent="." instance=ExtResource("2_kv8ig")]
+[node name="Map" parent="." instance=ExtResource("2_kv8ig")]
 position = Vector2(0, 960)
 rotation = 4.71239
 

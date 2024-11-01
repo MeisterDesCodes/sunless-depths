@@ -14,6 +14,7 @@ class_name SavedData
 @export var oxygen: float
 @export var stamina: float
 @export var visitedLocations: Array[Enums.locations]
+@export var exploredLocations: Array[Enums.locations]
 
 @export_subgroup("Assets")
 @export var inventory: Array[InventorySlot]

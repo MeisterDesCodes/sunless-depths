@@ -20,8 +20,8 @@ size = Vector2(66, 52)
 [sub_resource type="Resource" id="Resource_ja6qg"]
 script = ExtResource("7_neg82")
 effectType = 0
-strength = 3.0
-duration = 3.0
+strength = 2.0
+duration = 2.0
 appliesTo = 1
 isStackable = true
 stackLimit = 0

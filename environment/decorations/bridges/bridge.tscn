@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bih0wc87kkrmi"]
 
-[ext_resource type="Texture2D" uid="uid://027k3knn47i8" path="res://assets/environment/decorations/bridges/20230421103504-a9017952-me.png" id="1_3r56f"]
+[ext_resource type="Texture2D" uid="uid://027k3knn47i8" path="res://assets/environment/decorations/bridges/bridge-1.png" id="1_3r56f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8aom"]
 size = Vector2(320, 10)
