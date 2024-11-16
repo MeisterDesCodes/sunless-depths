@@ -7,6 +7,8 @@ var hitEntities: Array
 var direction: Vector2 = Vector2.ZERO
 
 var caster: CharacterBody2D
+var projectileSpeedModifier: float
+var critChance: float
 var enemyAttack: EnemyAttack
 var projectile: InventoryAmmunition
 var weapon: InventoryWeapon
@@ -15,6 +17,8 @@ var isPlayer: bool
 
 func setup(_caster: CharacterBody2D, _projectile: InventoryAmmunition, _position: Vector2, _direction: Vector2):
 	caster = _caster
+	projectileSpeedModifier = caster.projectileSpeedModifier
+	critChance = caster.critChance
 	projectile = _projectile
 	global_position = _position
 	direction = _direction
@@ -30,9 +34,9 @@ func setup(_caster: CharacterBody2D, _projectile: InventoryAmmunition, _position
 func _physics_process(delta):
 	var speed: float
 	if isPlayer:
-		speed = weapon.speedModifier * projectile.speed * caster.projectileSpeedModifier
+		speed = weapon.speedModifier * projectile.speed * projectileSpeedModifier
 	else:
-		speed = projectile.speed * caster.projectileSpeedModifier
+		speed = projectile.speed * projectileSpeedModifier
 	global_position += direction * speed * delta
 
 
@@ -50,9 +54,9 @@ func _on_detection_area_area_entered(area):
 	hitEntities.append(area)
 	var attack: Attack
 	if isPlayer:
-		attack = Attack.new(global_position, caster, weapon.damageModifier * projectile.damage, weapon.knockbackModifier * projectile.knockback, Enums.weaponTypes.RANGED, projectile.statusEffects, UtilsS.checkForCrit(caster))
+		attack = Attack.new(global_position, caster, weapon.damageModifier * projectile.damage, weapon.knockbackModifier * projectile.knockback, Enums.weaponTypes.RANGED, projectile.statusEffects, UtilsS.checkForCrit(critChance))
 	else:
-		attack = Attack.new(global_position, caster, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects, UtilsS.checkForCrit(caster))
+		attack = Attack.new(global_position, caster, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects, UtilsS.checkForCrit(critChance))
 	if projectile.isPiercing:
 		attack.knockback = 0
 	else:

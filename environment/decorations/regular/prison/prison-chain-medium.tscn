@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfvnld3afkrmh"]
 
-[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_rjanw"]
+[ext_resource type="Script" path="res://environment/decorations/object.gd" id="1_rjanw"]
 [ext_resource type="Texture2D" uid="uid://cm8h8ahhqa5ad" path="res://assets/environment/decorations/regular/prison/chain-medium.png" id="2_i7ejj"]
 [ext_resource type="PackedScene" uid="uid://5iahhgkt3jmk" path="res://environment/interactions/object-contact-damage-component.tscn" id="3_l7kvn"]
 [ext_resource type="Script" path="res://combat/status-effect.gd" id="4_e8otn"]

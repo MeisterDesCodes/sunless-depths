@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://generation/exits/exit-1/exit-template.gd" id="1_10wmj"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_6juiv"]
-[ext_resource type="PackedScene" uid="uid://dp6mp20tnrb6q" path="res://environment/interactions/exit.tscn" id="3_42dit"]
+[ext_resource type="PackedScene" uid="uid://dp6mp20tnrb6q" path="res://environment/interactions/environment/exit.tscn" id="3_42dit"]
 [ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_caobl"]
 [ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/cave-sand-texture.tscn" id="5_jyj8n"]
 [ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="6_wesml"]

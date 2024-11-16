@@ -39,13 +39,13 @@
 [ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="37_ppag7"]
 [ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/nature/root-1.png" id="38_vi1un"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="40_chcfc"]
-[ext_resource type="PackedScene" uid="uid://31my3mwtridv" path="res://environment/decorations/regular/arranged/arranged-platform-2.tscn" id="40_y74iu"]
-[ext_resource type="PackedScene" uid="uid://bgq78vsqitf72" path="res://environment/decorations/regular/arranged/arranged-platform-4.tscn" id="41_0vuul"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="41_ieoke"]
+[ext_resource type="PackedScene" uid="uid://31my3mwtridv" path="res://environment/decorations/regular/arranged/platform-2.tscn" id="42_0kitd"]
 [ext_resource type="Texture2D" uid="uid://db22u6nl7yith" path="res://assets/environment/decorations/light-sources/torch-1.png" id="42_d1adk"]
-[ext_resource type="PackedScene" uid="uid://bq6uwqf7xlm7k" path="res://environment/decorations/regular/arranged/arranged-platform-3.tscn" id="42_pk8j8"]
-[ext_resource type="PackedScene" uid="uid://7lajmdxxtogu" path="res://environment/decorations/regular/arranged/arranged-platform-1.tscn" id="43_rh4je"]
+[ext_resource type="PackedScene" uid="uid://bgq78vsqitf72" path="res://environment/decorations/regular/arranged/platform-4.tscn" id="43_tyt7n"]
+[ext_resource type="PackedScene" uid="uid://bq6uwqf7xlm7k" path="res://environment/decorations/regular/arranged/platform-3.tscn" id="44_hv87y"]
 [ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="44_pve3w"]
+[ext_resource type="PackedScene" uid="uid://7lajmdxxtogu" path="res://environment/decorations/regular/arranged/platform-1.tscn" id="45_ec6hl"]
 [ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="45_weoso"]
 [ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="46_2j3wt"]
 [ext_resource type="Texture2D" uid="uid://c3qj1p2qa5wam" path="res://assets/environment/decorations/walls/tunnel/wall-metal-2.png" id="47_hf5vx"]
@@ -2934,51 +2934,51 @@ collisionHeight = 20
 
 [node name="Platforms" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel"]
 
-[node name="ArrangedPlatform7" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("40_y74iu")]
+[node name="ArrangedPlatform7" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_0kitd")]
 position = Vector2(2171, -825)
 rotation = -1.7549
 
-[node name="ArrangedPlatform9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("40_y74iu")]
+[node name="ArrangedPlatform9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_0kitd")]
 position = Vector2(1793, -902)
 rotation = -3.35312
 
-[node name="ArrangedPlatform8" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("40_y74iu")]
+[node name="ArrangedPlatform8" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_0kitd")]
 position = Vector2(2266, -848)
 rotation = -1.83259
 
-[node name="ArrangedPlatform" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("41_0vuul")]
+[node name="ArrangedPlatform" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("43_tyt7n")]
 position = Vector2(2127, -626)
 rotation = -0.60139
 
-[node name="ArrangedPlatform2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_pk8j8")]
+[node name="ArrangedPlatform2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("44_hv87y")]
 position = Vector2(2099, -844)
 rotation = -2.61119
 
-[node name="ArrangedPlatform12" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("40_y74iu")]
+[node name="ArrangedPlatform12" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_0kitd")]
 position = Vector2(1786, -640)
 rotation = 1.31274
 
-[node name="ArrangedPlatform4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("43_rh4je")]
+[node name="ArrangedPlatform4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("45_ec6hl")]
 position = Vector2(1806, -840)
 rotation = 2.93896
 
-[node name="ArrangedPlatform13" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("43_rh4je")]
+[node name="ArrangedPlatform13" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("45_ec6hl")]
 position = Vector2(1882, -1104)
 rotation = 1.6358
 
-[node name="ArrangedPlatform10" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("43_rh4je")]
+[node name="ArrangedPlatform10" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("45_ec6hl")]
 position = Vector2(1735, -627)
 rotation = 1.3221
 
-[node name="ArrangedPlatform11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("43_rh4je")]
+[node name="ArrangedPlatform11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("45_ec6hl")]
 position = Vector2(1836, -655)
 rotation = 4.43389
 
-[node name="ArrangedPlatform3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("40_y74iu")]
+[node name="ArrangedPlatform3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_0kitd")]
 position = Vector2(1699, -790)
 rotation = 0.127853
 
-[node name="ArrangedPlatform5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("40_y74iu")]
+[node name="ArrangedPlatform5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/Regular/Tunnel/Platforms" instance=ExtResource("42_0kitd")]
 position = Vector2(1685, -694)
 rotation = -3.01633
 
@@ -3367,6 +3367,8 @@ position = Vector2(4797, 1962)
 rotation = -2.09439
 scale = Vector2(0.985, 0.985)
 dropResources = Array[ExtResource("7_of1ps")]([SubResource("Resource_5qr4s")])
+
+[node name="TransportNodes" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
 
 [node name="Curiosities" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
 

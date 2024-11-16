@@ -6,7 +6,7 @@ class_name SavedData
 @export_group("Player")
 
 @export_subgroup("Information")
-@export var area: Enums.locations
+@export var currentLocation: MapLocation
 @export var position: Vector2
 @export var level: int
 @export var health: float
@@ -15,6 +15,7 @@ class_name SavedData
 @export var stamina: float
 @export var visitedLocations: Array[Enums.locations]
 @export var exploredLocations: Array[Enums.locations]
+@export var transportableLocations: Array[Enums.locations]
 
 @export_subgroup("Assets")
 @export var inventory: Array[InventorySlot]

@@ -32,3 +32,16 @@ extends Node2D
 @export var type: Enums.segmentType
 
 var id: int
+
+
+func removeObjects():
+	get_child(0).set_script(null)
+	get_child(0).get_child(0).set_script(null)
+	get_child(0).get_child(0).get_child(0).queue_free()
+
+
+
+
+
+
+

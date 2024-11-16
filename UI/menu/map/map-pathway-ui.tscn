@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://l81lxelhto0l"]
+[gd_scene load_steps=4 format=3 uid="uid://l81lxelhto0l"]
 
 [ext_resource type="Theme" uid="uid://1ms3510wxh1r" path="res://assets/UI/themes/UI-elements/location-pathway.tres" id="1_13y8g"]
 [ext_resource type="Script" path="res://UI/menu/map/map-pathway-ui.gd" id="1_ie07u"]
+[ext_resource type="PackedScene" uid="uid://uognb7dads7q" path="res://UI/menu/map/player-marker-ui.tscn" id="3_6a72e"]
 
 [node name="MapPathwayUI" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -17,9 +18,13 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 theme = ExtResource("1_13y8g")
 script = ExtResource("1_ie07u")
+
+[node name="PlayerMarkerUI" parent="." instance=ExtResource("3_6a72e")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

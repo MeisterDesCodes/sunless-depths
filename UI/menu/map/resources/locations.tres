@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://UI/menu/map/resources/locations.gd" id="1_x5pud"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_254lm"]
 [ext_resource type="PackedScene" uid="uid://cobeqd6r2pjwe" path="res://game/areas/central-pathway.tscn" id="3_r3bmn"]
-[ext_resource type="PackedScene" uid="uid://v2n640a55olu" path="res://game/areas/eastward-quarries.tscn" id="4_ovsw8"]
+[ext_resource type="PackedScene" uid="uid://v2n640a55olu" path="res://game/areas/eastward-quarries-1.tscn" id="4_ovsw8"]
 
 [resource]
 script = ExtResource("1_x5pud")

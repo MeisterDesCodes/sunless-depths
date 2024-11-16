@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MapLocation" load_steps=2 format=3 uid="uid://dfu058hop23wt"]
+
+[ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="1_7w5ac"]
+
+[resource]
+script = ExtResource("1_7w5ac")
+name = "The Settlement"
+description = "123"
+tier = 0
+locationType = 2
+attributes = Array[int]([1, 2])
+location = 2

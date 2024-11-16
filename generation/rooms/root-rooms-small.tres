@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Segment" load_steps=10 format=3 uid="uid://caevkkwbwejc6"]
+
+[ext_resource type="PackedScene" uid="uid://ca24koh4kamxx" path="res://generation/rooms/room-1/room-1-0.tscn" id="1_3xuqv"]
+[ext_resource type="PackedScene" uid="uid://du2kb7w35m6cx" path="res://generation/rooms/room-1/room-1-90.tscn" id="2_2h2m1"]
+[ext_resource type="PackedScene" uid="uid://sgmnmrhneyto" path="res://generation/rooms/room-1/room-1-180.tscn" id="3_e6ydr"]
+[ext_resource type="PackedScene" uid="uid://vhrunfc60ayd" path="res://generation/rooms/room-1/room-1-270.tscn" id="4_5djt0"]
+[ext_resource type="PackedScene" uid="uid://ct3d5st0q06vs" path="res://generation/rooms/room-2/room-2-0.tscn" id="5_jm4c0"]
+[ext_resource type="Script" path="res://generation/segment.gd" id="5_wh454"]
+[ext_resource type="PackedScene" uid="uid://bsjpf7bhql4f3" path="res://generation/rooms/room-2/room-2-90.tscn" id="6_7cpuj"]
+[ext_resource type="PackedScene" uid="uid://bjhfbnn5vc3y8" path="res://generation/rooms/room-2/room-2-180.tscn" id="7_eytru"]
+[ext_resource type="PackedScene" uid="uid://da8btnue5tu7c" path="res://generation/rooms/room-2/room-2-270.tscn" id="8_4v88i"]
+
+[resource]
+script = ExtResource("5_wh454")
+allSegments = Array[PackedScene]([ExtResource("1_3xuqv"), ExtResource("2_2h2m1"), ExtResource("3_e6ydr"), ExtResource("4_5djt0"), ExtResource("5_jm4c0"), ExtResource("6_7cpuj"), ExtResource("7_eytru"), ExtResource("8_4v88i")])

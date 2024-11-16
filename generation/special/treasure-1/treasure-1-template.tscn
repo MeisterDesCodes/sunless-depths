@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bp8dv6k0rtg0b"]
+[gd_scene load_steps=55 format=3 uid="uid://bp8dv6k0rtg0b"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_omkga"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_myypf"]
@@ -8,17 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="6_027wj"]
 [ext_resource type="PackedScene" uid="uid://gcr3nihe0icm" path="res://environment/decorations/textures/treasure-texture.tscn" id="7_3qqd6"]
 [ext_resource type="PackedScene" uid="uid://ceyk8mxkdgl5s" path="res://environment/decorations/light-sources/campfire.tscn" id="8_fpcsa"]
+[ext_resource type="PackedScene" uid="uid://drhau43vmqgyi" path="res://environment/decorations/regular/object-circular.tscn" id="8_x15ps"]
 [ext_resource type="Texture2D" uid="uid://u16j3130at2r" path="res://assets/environment/decorations/light-sources/campfire-3.png" id="9_383cx"]
-[ext_resource type="PackedScene" uid="uid://bnkbhwysl6liv" path="res://environment/decorations/regular/storage/pot.tscn" id="10_3lhka"]
 [ext_resource type="Texture2D" uid="uid://dsyj45ruv4cve" path="res://assets/environment/decorations/regular/storage/pot-4.png" id="11_lac05"]
 [ext_resource type="Texture2D" uid="uid://bdh2keo3efrtp" path="res://assets/environment/decorations/regular/storage/pot-3.png" id="12_uonl4"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="13_v2vrp"]
 [ext_resource type="Texture2D" uid="uid://c4qvp0bpwu1vi" path="res://assets/environment/decorations/regular/storage/pot-2.png" id="13_wkaqg"]
 [ext_resource type="Texture2D" uid="uid://cg5jvbat4e1he" path="res://assets/environment/decorations/regular/storage/pot-1.png" id="14_sdlsb"]
-[ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="15_dc8cr"]
 [ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="16_6khxs"]
-[ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="17_gu4uy"]
+[ext_resource type="Texture2D" uid="uid://dlaks4iw0ww5i" path="res://assets/environment/decorations/regular/rubble/blockage-2.png" id="16_jt7bi"]
 [ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="18_3s4xr"]
+[ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/nature/root-1.png" id="18_4v50f"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="19_28q0k"]
+[ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="19_eu1qt"]
+[ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/nature/root-4.png" id="20_l8rgk"]
 [ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="20_mo2bt"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="21_bqlop"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="22_bqrrg"]
@@ -30,7 +33,10 @@
 [ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="28_uxin3"]
 [ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="29_bhb1w"]
 [ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="30_3td0m"]
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="30_p4pyd"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="31_ijixb"]
+[ext_resource type="Texture2D" uid="uid://beffiwjbmjdys" path="res://assets/environment/decorations/walls/mushroom-2.png" id="31_m4a7x"]
+[ext_resource type="Texture2D" uid="uid://cvsx1770twdv5" path="res://assets/environment/decorations/walls/mushroom-3.png" id="32_4rxoe"]
 [ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basket-empty-1.png" id="32_ume4w"]
 [ext_resource type="PackedScene" uid="uid://bmx537qedfbtp" path="res://environment/interactions/resource-nodes/sarcophagus.tscn" id="33_d6vgs"]
 [ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="34_7l48k"]
@@ -38,6 +44,7 @@
 [ext_resource type="Resource" uid="uid://c8vtfnfxrfr1v" path="res://inventory-resource/resources/equipment/armor/ancient-H.tres" id="36_188ul"]
 [ext_resource type="Resource" uid="uid://ddmkqkr6dpypa" path="res://inventory-resource/resources/equipment/armor/ancient-C.tres" id="37_t6o2j"]
 [ext_resource type="Resource" uid="uid://bl416lwjryrdd" path="res://inventory-resource/resources/equipment/armor/ancient-P.tres" id="38_2gpra"]
+[ext_resource type="PackedScene" uid="uid://el4vr05klw55" path="res://environment/interactions/resource-nodes/iron-ore-deposit.tscn" id="39_82nwq"]
 [ext_resource type="Resource" uid="uid://b44yjhpkbtd1o" path="res://inventory-resource/resources/equipment/armor/ancient-B.tres" id="39_cvvve"]
 [ext_resource type="Resource" uid="uid://d1jvo271qbw3x" path="res://weapons/resources/bows/ancient-bow.tres" id="40_m0qdi"]
 [ext_resource type="PackedScene" uid="uid://b1gek0nj3hlno" path="res://environment/interactions/operators/sound-operator.tscn" id="41_2n5ub"]
@@ -81,9 +88,11 @@ dropChance = 0.2
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_omkga")]
-layer_0/tile_data = PackedInt32Array(2, 131074, 1, 65538, 131074, 1, 131074, 131074, 1, 196610, 655362, 2, 262145, 131074, 1, 327681, 131074, 1, 393217, 131074, 1, 458753, 131074, 1, 458752, 131074, 1, 655360, 131074, 1, 655361, 131074, 1, 720897, 131074, 1, 786433, 131074, 1, 786434, 131074, 1, 851970, 131074, 1, 917506, 131074, 1, 983042, 131074, 1, 983043, 131074, 1, 1048579, 131074, 1, 1048580, 131074, 1, 1048581, 131074, 1, 1048582, 131074, 1, 983046, 131074, 1, 983047, 131074, 1, 917511, 131074, 1, 851975, 131074, 1, 786439, 131074, 1, 3, 131074, 1, 4, 131074, 1, 5, 131074, 1, 65541, 131074, 1, 65542, 131074, 1, 131078, 131074, 1, 131079, 131074, 1, 196615, 131074, 1, 327688, 131074, 1, 327689, 131074, 1, 393225, 131074, 1, 524297, 589826, 2, 524298, 131074, 1, 589834, 131074, 1, 655370, 131074, 1, 786440, 131074, 1, 131080, 131074, 1, 131081, 131074, 1, 65545, 131074, 1, 65546, 131074, 1, 65547, 131074, 1, 131083, 131074, 1, 131084, 131074, 1, 327690, 131074, 1, 851976, 131074, 1, 851977, 131074, 1, 917513, 131074, 1, 917514, 131074, 1, 983050, 131074, 1, 983051, 131074, 1, 983052, 131074, 1, 983053, 131074, 1, 917517, 131074, 1, 917518, 131074, 1, 851982, 131074, 1, 851983, 131074, 1, 786447, 131074, 1, 720911, 131074, 1, 720910, 131074, 1, 655374, 131074, 1, 655373, 131074, 1, 589835, 131074, 1, 262153, 131074, 1, 393227, 131074, 1, 327692, 131074, 1, 393228, 131074, 1, 393226, 131074, 1, 131085, 131074, 1, 196621, 131074, 1, 262157, 131074, 1, 327693, 131074, 1, 262146, 131074, 1, 589836, 131074, 1, 589837, 131074, 1, 720904, 131074, 1, 589824, 131074, 0, 589825, 131074, 0, 655362, 196610, 1, 786435, 262146, 2, 851971, 262146, 1, 917507, 262146, 2, 983044, 262146, 2, 720898, 262146, 2, 851978, 262146, 2, 917515, 262146, 2, 786441, 262146, 2, 327691, 589826, 2, 196620, 327682, 1, 655372, 327682, 1, 720909, 327682, 1, 196614, 327682, 1, 131077, 327682, 1, 65540, 327682, 1, 65539, 262146, 1, 327682, 262146, 1, 655371, 262146, 1, 196616, 393218, 4, 131075, 196610, 1, 262147, 196610, 1, 393218, 196610, 1, 458754, 196610, 1, 983045, 327682, 2, 917510, 327682, 2, 851981, 327682, 2, 786446, 720898, 2, 917516, 327682, 2, 131082, 589826, 1, 262156, 327682, 2, 393224, 327682, 1, 524296, 65538, 1, 589833, 327682, 1, 720903, 327682, 2, 786438, 65538, 1, 851974, 65538, 1, 655368, 131074, 0, 720906, 131074, 2, 720905, 196610, 7, 655369, 262146, 6, 720907, 196610, 2, 720908, 65538, 2, 786445, 655362, 5, 851980, 65538, 0, 851979, 196610, 0, 786442, 196610, 0, 720902, 65538, 0, 655367, 65538, 0, 917509, 65538, 0, 917508, 196610, 0, 720899, 196610, 0, 589826, 196610, 0, 524288, 131074, 2, 524289, 131074, 2, 524290, 196610, 2, 327683, 196610, 2, 131076, 65538, 2, 196613, 65538, 2, 196611, 720898, 5, 458762, 131074, 1, 458761, 458754, 4, 458760, 655362, 5, 196609, 131074, 1, 131073, 131074, 1, 262152, 458754, 5, 262151, 65538, 6, 327687, 65538, 1, 393223, 65538, 2, 196619, 131074, 2, 196617, 196610, 4, 262154, 262146, 2, 196618, 65538, 12, 786436, 196610, 0, 851972, 196610, 2, 655364, 720898, 1, 393220, 720898, 1, 327686, 720898, 1, 786443, 720898, 1, 589832, 65538, 2, 262155, 589826, 4, 262150, 65538, 2)
+layer_0/tile_data = PackedInt32Array(2, 131074, 1, 65538, 131074, 1, 131074, 131074, 1, 196610, 655362, 2, 262145, 131074, 1, 327681, 131074, 1, 393217, 131074, 1, 458753, 131074, 1, 458752, 131074, 1, 655360, 131074, 1, 655361, 131074, 1, 720897, 131074, 1, 786433, 131074, 1, 786434, 131074, 1, 851970, 131074, 1, 917506, 131074, 1, 983042, 131074, 1, 983043, 131074, 1, 1048579, 131074, 1, 1048580, 131074, 1, 1048581, 131074, 1, 1048582, 131074, 1, 983046, 131074, 1, 983047, 131074, 1, 917511, 131074, 1, 851975, 131074, 1, 786439, 131074, 1, 3, 131074, 1, 4, 131074, 1, 5, 131074, 1, 65541, 131074, 1, 65542, 131074, 1, 131078, 131074, 1, 131079, 131074, 1, 196615, 131074, 1, 327688, 131074, 1, 327689, 131074, 1, 393225, 131074, 1, 524297, 589826, 2, 524298, 131074, 1, 589834, 131074, 1, 655370, 131074, 1, 786440, 131074, 1, 131080, 131074, 1, 131081, 131074, 1, 65545, 131074, 1, 65546, 131074, 1, 65547, 131074, 1, 131083, 131074, 1, 131084, 131074, 1, 327690, 131074, 1, 851976, 131074, 1, 851977, 131074, 1, 917513, 131074, 1, 917514, 131074, 1, 983050, 131074, 1, 983051, 131074, 1, 983052, 131074, 1, 983053, 131074, 1, 917517, 131074, 1, 917518, 131074, 1, 851982, 131074, 1, 851983, 131074, 1, 786447, 131074, 1, 720911, 131074, 1, 720910, 131074, 1, 655374, 131074, 1, 655373, 131074, 1, 589835, 131074, 1, 262153, 131074, 1, 393227, 131074, 1, 327692, 131074, 1, 393228, 131074, 1, 393226, 131074, 1, 131085, 131074, 1, 196621, 131074, 1, 262157, 131074, 1, 327693, 131074, 1, 262146, 131074, 1, 589836, 131074, 1, 589837, 131074, 1, 720904, 131074, 1, 589824, 131074, 0, 589825, 131074, 0, 655362, 196610, 1, 786435, 262146, 2, 851971, 262146, 1, 917507, 262146, 2, 983044, 262146, 2, 720898, 262146, 2, 851978, 262146, 2, 917515, 262146, 2, 786441, 262146, 2, 327691, 589826, 2, 196620, 327682, 1, 655372, 327682, 1, 720909, 327682, 1, 196614, 327682, 1, 131077, 327682, 1, 65540, 327682, 1, 65539, 262146, 1, 327682, 262146, 1, 655371, 262146, 1, 196616, 393218, 4, 131075, 196610, 1, 262147, 196610, 1, 393218, 196610, 1, 458754, 196610, 1, 983045, 327682, 2, 917510, 327682, 2, 851981, 327682, 2, 786446, 720898, 2, 917516, 327682, 2, 131082, 589826, 1, 262156, 327682, 2, 393224, 327682, 1, 524296, 65538, 1, 589833, 327682, 1, 720903, 327682, 2, 786438, 65538, 1, 851974, 65538, 1, 655368, 131074, 0, 720906, 131074, 2, 720905, 196610, 7, 655369, 262146, 6, 720907, 196610, 2, 720908, 65538, 2, 786445, 655362, 5, 851980, 65538, 0, 851979, 196610, 0, 786442, 196610, 0, 720902, 65538, 0, 655367, 65538, 0, 917509, 65538, 0, 917508, 196610, 0, 720899, 196610, 0, 589826, 196610, 0, 524288, 131074, 2, 524289, 131074, 2, 524290, 196610, 2, 327683, 196610, 2, 131076, 65538, 2, 196613, 65538, 2, 196611, 720898, 5, 458762, 131074, 1, 458761, 458754, 4, 458760, 655362, 5, 196609, 131074, 1, 131073, 131074, 1, 262152, 458754, 5, 262151, 65538, 6, 327687, 65538, 1, 393223, 65538, 2, 196619, 131074, 2, 196617, 196610, 4, 262154, 262146, 2, 196618, 65538, 12, 786436, 196610, 0, 851972, 196610, 2, 589832, 65538, 2, 262155, 589826, 4, 262150, 65538, 2)
 layer_1/tile_data = PackedInt32Array(524288, 458754, 2, 589824, 458754, 2, 589825, 458754, 2, 524289, 458754, 2, 524290, 458754, 2, 458754, 458754, 2, 393218, 458754, 2, 327682, 458754, 2, 327683, 458754, 2, 262147, 458754, 2, 196611, 458754, 2, 131075, 458754, 2, 65539, 458754, 2, 65540, 458754, 2, 131076, 458754, 2, 131077, 458754, 2, 196613, 458754, 2, 196614, 458754, 2, 262150, 458754, 2, 262151, 458754, 2, 262152, 458754, 2, 196616, 458754, 2, 196617, 458754, 2, 196618, 458754, 2, 131082, 458754, 2, 262155, 458754, 2, 262154, 458754, 2, 196619, 458754, 2, 196620, 458754, 2, 262156, 458754, 2, 327691, 458754, 2, 327687, 458754, 2, 196612, 458754, 2, 262148, 458754, 2, 327684, 458754, 2, 393220, 458754, 2, 458756, 458754, 2, 524292, 458754, 2, 524291, 458754, 2, 458755, 458754, 2, 589827, 458754, 2, 393219, 458754, 2, 589826, 458754, 2, 655362, 458754, 2, 720899, 458754, 2, 786435, 458754, 2, 851971, 458754, 2, 917507, 458754, 2, 917508, 458754, 2, 983044, 458754, 2, 983045, 458754, 2, 917509, 458754, 2, 917510, 458754, 2, 851974, 458754, 2, 786438, 458754, 2, 720902, 458754, 2, 655366, 458754, 2, 851973, 458754, 2, 786436, 458754, 2, 720900, 458754, 2, 851972, 458754, 2, 655364, 458754, 2, 589828, 458754, 2, 655363, 458754, 2, 720901, 458754, 2, 786437, 458754, 2, 655365, 458754, 2, 589829, 458754, 2, 524294, 458754, 2, 524293, 458754, 2, 720898, 458754, 2, 458757, 458754, 2, 393221, 458754, 2, 327685, 458754, 2, 262149, 458754, 2, 393222, 458754, 2, 458758, 458754, 2, 327686, 458754, 2, 393223, 458754, 2, 458759, 458754, 2, 458760, 458754, 2, 393224, 458754, 2, 524296, 458754, 2, 589832, 458754, 2, 655368, 458754, 2, 720903, 458754, 2, 655367, 458754, 2, 589831, 458754, 2, 589830, 458754, 2, 524295, 458754, 2, 589833, 458754, 2, 655369, 458754, 2, 720905, 458754, 2, 786441, 458754, 2, 786442, 458754, 2, 720906, 458754, 2, 720907, 458754, 2, 655371, 458754, 2, 655372, 458754, 2, 720908, 458754, 2, 720909, 458754, 2, 786445, 458754, 2, 786446, 458754, 2, 786444, 458754, 2, 786443, 458754, 2, 851978, 458754, 2, 851979, 458754, 2, 851980, 458754, 2, 851981, 458754, 2, 917516, 458754, 2, 917515, 458754, 2, 458761, 458754, 2, 524297, 458754, 2, 196610, 458754, 2)
-layer_2/tile_data = PackedInt32Array(327688, 458754, 7, 327689, 458754, 7, 262153, 458754, 7, 327690, 458754, 7, 393226, 458754, 7, 393225, 458754, 7, 393227, 458754, 7, 393228, 458754, 7, 327692, 458754, 7, 327693, 458754, 7, 262157, 458754, 7, 196621, 458754, 7, 131085, 458754, 7, 131084, 458754, 7, 131083, 458754, 7, 65547, 458754, 7, 65546, 458754, 7, 65545, 458754, 7, 131081, 458754, 7, 131080, 458754, 7, 131079, 458754, 7, 196615, 458754, 7, 131078, 458754, 7, 65542, 458754, 7, 65541, 458754, 7, 5, 458754, 7, 4, 458754, 7, 3, 458754, 7, 2, 458754, 7, 65538, 458754, 7, 131074, 458754, 7, 131073, 458754, 7, 196609, 458754, 7, 262145, 458754, 7, 262146, 458754, 7, 393217, 458754, 7, 458753, 458754, 7, 458752, 458754, 7, 655360, 458754, 7, 655361, 458754, 7, 720897, 458754, 7, 786433, 458754, 7, 786434, 458754, 7, 851970, 458754, 7, 983043, 458754, 7, 917506, 458754, 7, 983042, 458754, 7, 1048579, 458754, 7, 1048580, 458754, 7, 1048581, 458754, 7, 1048582, 458754, 7, 983046, 458754, 7, 983047, 458754, 7, 917511, 458754, 7, 851975, 458754, 7, 786439, 458754, 7, 720904, 458754, 7, 786440, 458754, 7, 851976, 458754, 7, 851977, 458754, 7, 917513, 458754, 7, 917514, 458754, 7, 983050, 458754, 7, 983051, 458754, 7, 983052, 458754, 7, 983053, 458754, 7, 917517, 458754, 7, 917518, 458754, 7, 851982, 458754, 7, 851983, 458754, 7, 786447, 458754, 7, 720911, 458754, 7, 720910, 458754, 7, 655374, 458754, 7, 655373, 458754, 7, 589837, 458754, 7, 589836, 458754, 7, 589835, 458754, 7, 589834, 458754, 7, 655370, 458754, 7, 524298, 458754, 7, 458762, 458754, 7, 327681, 458754, 7, 524288, 458754, 8, 524289, 458754, 8, 458754, 524290, 7, 524290, 524290, 8, 393218, 524290, 7, 327682, 589826, 7, 65539, 589826, 7, 196616, 589826, 7, 131082, 786434, 8, 196610, 851970, 9, 196611, 851970, 5, 262147, 524290, 7, 327683, 524290, 8, 131075, 524290, 7, 65540, 655362, 7, 131077, 655362, 7, 196614, 655362, 7, 720898, 589826, 8, 786435, 589826, 8, 917507, 589826, 8, 983044, 589826, 8, 983045, 655362, 8, 917510, 655362, 8, 851971, 589826, 7, 720903, 655362, 8, 786441, 589826, 8, 851978, 589826, 8, 917515, 589826, 8, 917516, 655362, 8, 851981, 655362, 8, 720909, 655362, 7, 655372, 655362, 7, 655371, 589826, 7, 524297, 786434, 9, 589833, 655362, 7, 458761, 655362, 9, 393224, 655362, 7, 262152, 655362, 10, 262154, 589826, 8, 196620, 655362, 7, 262156, 655362, 8, 327691, 786434, 9, 786446, 917506, 9, 786445, 786434, 5, 262155, 786434, 6, 196619, 458754, 8, 196617, 393218, 11, 196618, 196610, 12, 262151, 65538, 8, 327687, 393218, 7, 393223, 393218, 8, 458760, 786434, 5, 524296, 393218, 7, 589832, 393218, 8, 720908, 393218, 8, 851980, 393218, 6, 851979, 524290, 6, 786442, 524290, 6, 720905, 196610, 9, 720906, 458754, 8, 720907, 524290, 8, 655369, 262146, 8, 655367, 393218, 6, 655368, 458754, 6, 720902, 393218, 6, 786438, 393218, 7, 851974, 393218, 7, 917509, 393218, 6, 917508, 524290, 6, 786436, 524290, 6, 851972, 524290, 8, 720899, 524290, 6, 589826, 524290, 6, 655362, 524290, 7, 589825, 458754, 6, 589824, 458754, 6, 196613, 393218, 8, 262150, 393218, 8, 131076, 393218, 8, 327686, 917506, 8, 393220, 917506, 8, 655364, 917506, 8, 786443, 917506, 8)
+layer_2/tile_data = PackedInt32Array(327688, 458754, 7, 327689, 458754, 7, 262153, 458754, 7, 327690, 458754, 7, 393226, 458754, 7, 393225, 458754, 7, 393227, 458754, 7, 393228, 458754, 7, 327692, 458754, 7, 327693, 458754, 7, 262157, 458754, 7, 196621, 458754, 7, 131085, 458754, 7, 131084, 458754, 7, 131083, 458754, 7, 65547, 458754, 7, 65546, 458754, 7, 65545, 458754, 7, 131081, 458754, 7, 131080, 458754, 7, 131079, 458754, 7, 196615, 458754, 7, 131078, 458754, 7, 65542, 458754, 7, 65541, 458754, 7, 5, 458754, 7, 4, 458754, 7, 3, 458754, 7, 2, 458754, 7, 65538, 458754, 7, 131074, 458754, 7, 131073, 458754, 7, 196609, 458754, 7, 262145, 458754, 7, 262146, 458754, 7, 393217, 458754, 7, 458753, 458754, 7, 458752, 458754, 7, 655360, 458754, 7, 655361, 458754, 7, 720897, 458754, 7, 786433, 458754, 7, 786434, 458754, 7, 851970, 458754, 7, 983043, 458754, 7, 917506, 458754, 7, 983042, 458754, 7, 1048579, 458754, 7, 1048580, 458754, 7, 1048581, 458754, 7, 1048582, 458754, 7, 983046, 458754, 7, 983047, 458754, 7, 917511, 458754, 7, 851975, 458754, 7, 786439, 458754, 7, 720904, 458754, 7, 786440, 458754, 7, 851976, 458754, 7, 851977, 458754, 7, 917513, 458754, 7, 917514, 458754, 7, 983050, 458754, 7, 983051, 458754, 7, 983052, 458754, 7, 983053, 458754, 7, 917517, 458754, 7, 917518, 458754, 7, 851982, 458754, 7, 851983, 458754, 7, 786447, 458754, 7, 720911, 458754, 7, 720910, 458754, 7, 655374, 458754, 7, 655373, 458754, 7, 589837, 458754, 7, 589836, 458754, 7, 589835, 458754, 7, 589834, 458754, 7, 655370, 458754, 7, 524298, 458754, 7, 458762, 458754, 7, 327681, 458754, 7, 524288, 458754, 8, 524289, 458754, 8, 458754, 524290, 7, 524290, 524290, 8, 393218, 524290, 7, 327682, 589826, 7, 65539, 589826, 7, 196616, 589826, 9, 131082, 786434, 8, 196610, 851970, 9, 196611, 851970, 5, 262147, 524290, 7, 327683, 524290, 8, 131075, 524290, 7, 65540, 655362, 7, 131077, 655362, 7, 196614, 655362, 7, 720898, 589826, 8, 786435, 589826, 8, 917507, 589826, 8, 983044, 589826, 8, 983045, 655362, 8, 917510, 655362, 8, 851971, 589826, 7, 720903, 655362, 8, 786441, 589826, 8, 851978, 589826, 8, 917515, 589826, 8, 917516, 655362, 8, 851981, 655362, 8, 720909, 655362, 7, 655372, 655362, 7, 655371, 589826, 7, 524297, 786434, 9, 589833, 655362, 7, 458761, 655362, 9, 393224, 655362, 7, 262152, 655362, 10, 262154, 589826, 8, 196620, 655362, 7, 262156, 655362, 8, 327691, 786434, 9, 786446, 917506, 9, 786445, 786434, 5, 262155, 786434, 6, 196619, 458754, 8, 196617, 393218, 11, 196618, 196610, 12, 262151, 65538, 8, 327687, 393218, 7, 393223, 393218, 8, 458760, 786434, 5, 524296, 393218, 7, 589832, 393218, 8, 720908, 393218, 8, 851980, 393218, 6, 851979, 524290, 6, 786442, 524290, 6, 720905, 196610, 9, 720906, 458754, 8, 720907, 524290, 8, 655369, 262146, 8, 655367, 393218, 6, 655368, 458754, 6, 720902, 393218, 6, 786438, 393218, 7, 851974, 393218, 7, 917509, 393218, 6, 917508, 524290, 6, 786436, 524290, 6, 851972, 524290, 8, 720899, 524290, 6, 589826, 524290, 6, 655362, 524290, 7, 589825, 458754, 6, 589824, 458754, 6, 196613, 393218, 8, 262150, 393218, 8, 131076, 393218, 8, 262158, 458754, 7, 196622, 458754, 7, 131086, 458754, 7, 65549, 458754, 7, 65548, 458754, 7, 917519, 458754, 7, 983055, 458754, 7, 983054, 458754, 7, 1048587, 458754, 7, 1048588, 458754, 7, 1048589, 458754, 7, 1048590, 458754, 7, 1048586, 458754, 7, 983049, 458754, 7)
+layer_5/tile_data = PackedInt32Array(524292, 720898, 1, 589827, 786434, 1, 458757, 851970, 1, 524293, 851970, 2, 655365, 851970, 2, 655367, 720898, 1, 327684, 720898, 1, 196612, 851970, 1, 196613, 786434, 1, 262148, 786434, 2, 196611, 720898, 1, 786436, 720898, 1, 786437, 851970, 2, 786443, 720898, 1, 851980, 786434, 1, 720906, 786434, 2)
+layer_6/tile_data = PackedInt32Array(655367, 917506, 8, 524292, 917506, 8, 524293, 1048578, 9, 655365, 1048578, 9, 786437, 1048578, 9, 786436, 917506, 8, 327684, 917506, 8, 196611, 917506, 8, 196612, 1048578, 8, 196613, 983042, 8, 262148, 983042, 9, 458757, 1048578, 8, 589827, 983042, 8, 720906, 983042, 9, 786443, 917506, 8, 851980, 983042, 8)
 
 [node name="EnvironmentalObjects" type="Node2D" parent="Map"]
 
@@ -126,6 +135,178 @@ rotation = 3.14159
 
 [node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
+[node name="ObjectCircular22" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(525, 439)
+texture = ExtResource("14_sdlsb")
+collisionRadius = 10
+
+[node name="ObjectCircular31" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(484, 601)
+texture = ExtResource("14_sdlsb")
+collisionRadius = 10
+
+[node name="ObjectCircular23" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(788, 250)
+rotation = 0.523598
+texture = ExtResource("11_lac05")
+collisionRadius = 10
+
+[node name="ObjectCircular33" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(438, 557)
+rotation = -0.166459
+texture = ExtResource("11_lac05")
+collisionRadius = 10
+
+[node name="ObjectCircular34" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(527, 483)
+rotation = -1.88549
+texture = ExtResource("11_lac05")
+collisionRadius = 10
+
+[node name="ObjectCircular24" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(772, 273)
+texture = ExtResource("13_wkaqg")
+collisionRadius = 10
+
+[node name="ObjectCircular27" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(545, 463)
+texture = ExtResource("13_wkaqg")
+collisionRadius = 10
+
+[node name="ObjectCircular29" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(494, 570)
+texture = ExtResource("13_wkaqg")
+collisionRadius = 10
+
+[node name="ObjectCircular30" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(459, 578)
+texture = ExtResource("13_wkaqg")
+collisionRadius = 10
+
+[node name="ObjectCircular25" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(495, 436)
+rotation = -1.0472
+texture = ExtResource("12_uonl4")
+collisionRadius = 10
+
+[node name="ObjectCircular28" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(529, 580)
+rotation = -2.35619
+texture = ExtResource("12_uonl4")
+collisionRadius = 10
+
+[node name="ObjectCircular26" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("8_x15ps")]
+position = Vector2(769, 227)
+rotation = -0.975028
+texture = ExtResource("12_uonl4")
+collisionRadius = 10
+
+[node name="ObjectSquare25" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(169, 353)
+rotation = 0.721852
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_6khxs")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare34" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(475, 735)
+rotation = 2.32289
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_6khxs")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare37" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(433, 873)
+rotation = 0.824286
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_6khxs")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare30" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(328, 161)
+rotation = 0.523598
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_6khxs")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare28" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(563, 502)
+rotation = -2.35619
+texture = ExtResource("18_3s4xr")
+collisionWidth = 30
+collisionHeight = 30
+
+[node name="ObjectSquare35" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(178, 224)
+rotation = -0.388018
+texture = ExtResource("18_3s4xr")
+collisionWidth = 30
+collisionHeight = 30
+
+[node name="ObjectSquare36" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(206, 201)
+rotation = -2.65886
+texture = ExtResource("18_3s4xr")
+collisionWidth = 30
+collisionHeight = 30
+
+[node name="ObjectSquare32" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(263, 818)
+rotation = -4.02606
+texture = ExtResource("18_3s4xr")
+collisionWidth = 30
+collisionHeight = 30
+
+[node name="ObjectSquare33" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(265, 842)
+rotation = -2.61799
+texture = ExtResource("18_3s4xr")
+collisionWidth = 30
+collisionHeight = 30
+
+[node name="ObjectSquare29" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(562, 536)
+rotation = -0.261799
+texture = ExtResource("18_3s4xr")
+collisionWidth = 30
+collisionHeight = 30
+
+[node name="ObjectSquare26" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(152, 436)
+rotation = -1.20252
+scale = Vector2(1.355, 1.355)
+texture = ExtResource("16_jt7bi")
+collisionWidth = 70
+collisionHeight = 30
+
+[node name="ObjectSquare31" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(661, 178)
+rotation = -2.1596
+scale = Vector2(1.355, 1.355)
+texture = ExtResource("16_jt7bi")
+collisionWidth = 70
+collisionHeight = 30
+
+[node name="ObjectSquare27" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(64, 620)
+rotation = -0.0354823
+scale = Vector2(1.355, 1.355)
+texture = ExtResource("16_jt7bi")
+collisionWidth = 70
+collisionHeight = 30
+
+[node name="ObjectSquare38" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("13_v2vrp")]
+position = Vector2(389, 939)
+rotation = 0.523598
+scale = Vector2(1.355, 1.355)
+texture = ExtResource("16_jt7bi")
+collisionWidth = 70
+collisionHeight = 30
+
 [node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
 [node name="Campfire2" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("8_fpcsa")]
@@ -133,62 +314,6 @@ position = Vector2(780, 787)
 texture = ExtResource("9_383cx")
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
-
-[node name="Pot" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_3lhka")]
-position = Vector2(776, 231)
-rotation = -0.523598
-texture = ExtResource("11_lac05")
-
-[node name="Pot2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_3lhka")]
-position = Vector2(671, 195)
-rotation = -2.61799
-texture = ExtResource("11_lac05")
-
-[node name="Pot5" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_3lhka")]
-position = Vector2(749, 263)
-rotation = -0.785397
-texture = ExtResource("12_uonl4")
-
-[node name="Pot3" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_3lhka")]
-position = Vector2(788, 276)
-texture = ExtResource("13_wkaqg")
-
-[node name="Pot4" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_3lhka")]
-position = Vector2(740, 314)
-texture = ExtResource("14_sdlsb")
-
-[node name="BlockageLarge" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("15_dc8cr")]
-position = Vector2(244, 953)
-rotation = 0.785397
-scale = Vector2(1.27, 1.27)
-texture = ExtResource("16_6khxs")
-
-[node name="BlockageLarge2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("15_dc8cr")]
-position = Vector2(354, 159)
-rotation = -0.523598
-scale = Vector2(1.27, 1.27)
-texture = ExtResource("16_6khxs")
-
-[node name="BlockageLarge3" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("15_dc8cr")]
-position = Vector2(138, 445)
-rotation = -1.0472
-scale = Vector2(1.27, 1.27)
-texture = ExtResource("16_6khxs")
-
-[node name="BlockageSmall2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_gu4uy")]
-position = Vector2(211, 332)
-rotation = 0.785397
-texture = ExtResource("18_3s4xr")
-
-[node name="BlockageSmall3" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_gu4uy")]
-position = Vector2(91, 613)
-rotation = -1.309
-texture = ExtResource("18_3s4xr")
-
-[node name="BlockageSmall4" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("17_gu4uy")]
-position = Vector2(562, 497)
-rotation = -2.61799
-texture = ExtResource("18_3s4xr")
 
 [node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 z_index = 3
@@ -200,9 +325,81 @@ scale = Vector2(0.365, 0.365)
 texture = ExtResource("20_mo2bt")
 
 [node name="Overlay23" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
-position = Vector2(605, 791)
-rotation = 9.42476
+position = Vector2(604, 792)
+rotation = 9.16296
 scale = Vector2(0.605, 0.605)
+texture = ExtResource("21_bqlop")
+
+[node name="Overlay24" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(64, 524)
+rotation = 9.18994
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("21_bqlop")
+
+[node name="Overlay32" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(788, 335)
+rotation = 8.90117
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("21_bqlop")
+
+[node name="Overlay27" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(164, 404)
+rotation = 10.1341
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("18_4v50f")
+
+[node name="Overlay31" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(179, 394)
+rotation = 10.7678
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("18_4v50f")
+
+[node name="Overlay28" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(258, 694)
+rotation = 10.2102
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("20_mo2bt")
+
+[node name="Overlay33" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(398, 293)
+rotation = 12.8282
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("20_mo2bt")
+
+[node name="Overlay29" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(514, 613)
+rotation = 7.23556
+scale = Vector2(0.465, 0.465)
+texture = ExtResource("19_eu1qt")
+
+[node name="Overlay30" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(287, 488)
+rotation = 6.02138
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("20_l8rgk")
+
+[node name="Overlay25" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(398, 196)
+rotation = 9.18994
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("21_bqlop")
+
+[node name="Overlay34" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(283, 245)
+rotation = 8.63937
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("21_bqlop")
+
+[node name="Overlay35" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(402, 725)
+rotation = 9.05369
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("21_bqlop")
+
+[node name="Overlay26" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(258, 968)
+rotation = 7.85397
+scale = Vector2(0.765, 0.765)
 texture = ExtResource("21_bqlop")
 
 [node name="Overlay55" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
@@ -224,9 +421,39 @@ scale = Vector2(0.26, 0.26)
 texture = ExtResource("22_bqrrg")
 
 [node name="Overlay60" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
-position = Vector2(460, 499)
+position = Vector2(456, 501)
 rotation = -2.61799
 scale = Vector2(0.45, 0.45)
+texture = ExtResource("22_bqrrg")
+
+[node name="Overlay64" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(343, 341)
+rotation = -2.04676
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("22_bqrrg")
+
+[node name="Overlay65" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(264, 188)
+rotation = -2.04676
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("22_bqrrg")
+
+[node name="Overlay67" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(206, 267)
+rotation = -3.40339
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("22_bqrrg")
+
+[node name="Overlay68" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(331, 126)
+rotation = -3.66519
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("22_bqrrg")
+
+[node name="Overlay66" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
+position = Vector2(187, 37)
+rotation = -2.04676
+scale = Vector2(0.285, 0.285)
 texture = ExtResource("22_bqrrg")
 
 [node name="Overlay61" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("19_28q0k")]
@@ -288,6 +515,126 @@ rotation = 3.45774
 texture = ExtResource("26_eqpnu")
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
+[node name="ObjectDecoration22" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(884, 865)
+rotation = -0.785397
+texture = ExtResource("23_heiie")
+
+[node name="ObjectDecoration26" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(866, 888)
+rotation = 0.523598
+texture = ExtResource("23_heiie")
+
+[node name="ObjectDecoration30" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(689, 892)
+rotation = 0.261799
+texture = ExtResource("23_heiie")
+
+[node name="ObjectDecoration31" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(709, 674)
+rotation = -0.793689
+texture = ExtResource("23_heiie")
+
+[node name="ObjectDecoration37" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(706, 319)
+rotation = -0.261799
+texture = ExtResource("23_heiie")
+
+[node name="ObjectDecoration36" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(158, 328)
+rotation = 0.183987
+texture = ExtResource("23_heiie")
+
+[node name="ObjectDecoration25" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(590, 724)
+rotation = 0.697579
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration38" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(714, 341)
+rotation = 0.697579
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration39" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(723, 365)
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration40" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(746, 361)
+rotation = -1.79654
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration27" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(849, 719)
+rotation = 1.83259
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration32" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(872, 720)
+rotation = 2.87979
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration28" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(681, 717)
+rotation = 2.61029
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration34" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(207, 877)
+rotation = 0.509085
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
+
+[node name="ObjectDecoration24" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(576, 696)
+rotation = -1.309
+scale = Vector2(1.37, 1.37)
+texture = ExtResource("32_4rxoe")
+
+[node name="ObjectDecoration41" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(807, 207)
+rotation = -1.0472
+scale = Vector2(1.37, 1.37)
+texture = ExtResource("32_4rxoe")
+
+[node name="ObjectDecoration42" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(835, 241)
+rotation = -0.523598
+scale = Vector2(1.37, 1.37)
+texture = ExtResource("32_4rxoe")
+
+[node name="ObjectDecoration29" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(655, 874)
+rotation = -1.309
+scale = Vector2(1.37, 1.37)
+texture = ExtResource("32_4rxoe")
+
+[node name="ObjectDecoration33" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(205, 909)
+rotation = -1.309
+scale = Vector2(1.37, 1.37)
+texture = ExtResource("32_4rxoe")
+
+[node name="ObjectDecoration35" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(193, 319)
+rotation = -2.74176
+scale = Vector2(1.37, 1.37)
+texture = ExtResource("32_4rxoe")
+
+[node name="ObjectDecoration23" parent="Map/EnvironmentalObjects/Decorations/Walls/Regular" instance=ExtResource("30_p4pyd")]
+position = Vector2(551, 693)
+rotation = -1.408
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("31_m4a7x")
 
 [node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
@@ -302,12 +649,6 @@ openedTexture = ExtResource("30_3td0m")
 [node name="Chest2" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
 position = Vector2(254, 121)
 rotation = -0.124201
-closedTexture = ExtResource("29_bhb1w")
-openedTexture = ExtResource("30_3td0m")
-
-[node name="Chest6" parent="Map/EnvironmentalObjects/Interactions/Loot" instance=ExtResource("28_uxin3")]
-position = Vector2(392.563, 901.565)
-rotation = 2.5449
 closedTexture = ExtResource("29_bhb1w")
 openedTexture = ExtResource("30_3td0m")
 
@@ -340,6 +681,10 @@ type = 1
 [node name="OldLog" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("27_d8cjt")]
 position = Vector2(787, 915)
 rotation = 0.785397
+
+[node name="IronOreDeposit" parent="Map/EnvironmentalObjects/Interactions/ResourceNodes" instance=ExtResource("39_82nwq")]
+position = Vector2(412, 914)
+rotation = -1.309
 
 [node name="Functionality" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct4824s3ahrn7"]
 
-[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_41b0w"]
+[ext_resource type="Script" path="res://environment/decorations/object.gd" id="1_41b0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxuio"]
 size = Vector2(46, 52)

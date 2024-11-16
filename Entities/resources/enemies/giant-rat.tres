@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=13 format=3 uid="uid://egkn5f1g2uuv"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://egkn5f1g2uuv"]
 
-[ext_resource type="Resource" uid="uid://cmh04mkgurn5p" path="res://inventory-resource/resources/ammunition/scrap-arrow.tres" id="1_6qq5t"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="1_12d5c"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_igf4x"]
 [ext_resource type="Texture2D" uid="uid://dnl6yp8gkfp40" path="res://assets/entities/giant-rat.png" id="2_5cuxh"]
@@ -14,7 +13,6 @@ script = ExtResource("1_igf4x")
 damage = 3.0
 knockback = 15.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
-ammunition = ExtResource("1_6qq5t")
 attackDelay = 3.0
 spread = 0.0
 amount = 0.0

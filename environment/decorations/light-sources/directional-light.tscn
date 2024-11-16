@@ -1,11 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://rvyc0umohgfj"]
+[gd_scene load_steps=4 format=3 uid="uid://rvyc0umohgfj"]
+
+[ext_resource type="Script" path="res://environment/decorations/light-sources/light-source.gd" id="1_qc7cl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qkk2b"]
 load_path = "res://.godot/imported/player-light.png-2bb3fff47926f853b3b91556e44b2b2d.ctex"
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_b0gr6"]
+points = PackedVector2Array(0, 0, 200, -20, 200, 20)
+
 [node name="DirectionalLight" type="Node2D"]
+script = ExtResource("1_qc7cl")
+energy = 1.0
+color = Color(1, 1, 1, 1)
+shadow = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 texture = SubResource("CompressedTexture2D_qkk2b")
 offset = Vector2(70, 0)
+
+[node name="Area2D" type="Area2D" parent="PointLight2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
+shape = SubResource("ConvexPolygonShape2D_b0gr6")

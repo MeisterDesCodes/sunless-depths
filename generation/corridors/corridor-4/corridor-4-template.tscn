@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://crb7syqsqlcaj"]
+[gd_scene load_steps=36 format=3 uid="uid://crb7syqsqlcaj"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_my1ha"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_oe4ge"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd8iqjms7aj8y" path="res://environment/decorations/textures/jungle-texture.tscn" id="4_is47c"]
 [ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="5_7x5g2"]
 [ext_resource type="PackedScene" uid="uid://cakdvo3mnhbpd" path="res://environment/decorations/textures/mud-texture.tscn" id="5_gghiy"]
-[ext_resource type="Texture2D" uid="uid://vdw8rs4sxwfw" path="res://assets/environment/decorations/regular/mineshaft/rail-broken.png" id="6_edkol"]
+[ext_resource type="Texture2D" uid="uid://vdw8rs4sxwfw" path="res://assets/environment/decorations/regular/mineshaft/rail-broken-1.png" id="6_edkol"]
 [ext_resource type="Texture2D" uid="uid://bak6hssu1h7us" path="res://assets/environment/decorations/regular/mineshaft/rail-straight.png" id="7_63ar0"]
 [ext_resource type="Texture2D" uid="uid://gq6pf1b3dbif" path="res://assets/environment/decorations/regular/mineshaft/rail-curve.png" id="8_kvgqy"]
 [ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="9_8wgeo"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dlaks4iw0ww5i" path="res://assets/environment/decorations/regular/rubble/blockage-2.png" id="11_uwn0o"]
 [ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="12_80kja"]
 [ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="12_b52ro"]
-[ext_resource type="Texture2D" uid="uid://c0euu6eh304aj" path="res://assets/environment/decorations/light-sources/lantern-1.png" id="13_87xfi"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="14_j6ylj"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="15_i4nwq"]
 [ext_resource type="Texture2D" uid="uid://ddntyddsvynfr" path="res://assets/environment/decorations/overlay/beam.png" id="16_54afh"]
@@ -46,7 +45,7 @@ load_path = "res://.godot/imported/pillar-wood-1.png-7b2cc619d412669578b49543f4d
 [node name="Map" parent="." instance=ExtResource("1_my1ha")]
 layer_0/tile_data = PackedInt32Array(0, 131074, 1, 1, 131074, 1, 2, 131074, 1, 3, 131074, 1, 196608, 131074, 1, 196609, 131074, 1, 196610, 131074, 1, 196611, 131074, 1, 4, 131074, 1, 5, 131074, 1, 6, 131074, 1, 65543, 131074, 1, 131079, 131074, 1, 196615, 131074, 1, 196616, 131074, 1, 262153, 131074, 1, 262154, 131074, 1, 262155, 131074, 1, 262156, 131074, 1, 262147, 131074, 1, 262148, 131074, 1, 327684, 131074, 1, 393223, 131074, 1, 393224, 131074, 1, 458761, 131074, 1, 458762, 131074, 1, 458763, 131074, 1, 458764, 131074, 1, 458765, 131074, 1, 262157, 131074, 1, 458760, 131074, 1, 196617, 131074, 1, 393221, 131074, 1, 393222, 131074, 1, 393220, 131074, 1, 7, 131074, 1, 262152, 327682, 1, 65542, 327682, 1, 327685, 262146, 2, 393225, 262146, 2, 196612, 262146, 2, 196613, 196610, 0, 262149, 196610, 1, 196614, 65538, 1, 262150, 65538, 2, 262151, 131074, 2, 327686, 131074, 0, 327687, 131074, 0, 327688, 65538, 7, 393226, 131074, 0, 393227, 131074, 0, 393228, 131074, 0, 393229, 131074, 0, 327690, 131074, 2, 327691, 131074, 2, 327692, 131074, 2, 327693, 131074, 2, 327689, 131074, 6, 131078, 65538, 1, 65541, 131074, 2, 65540, 131074, 2, 65539, 131074, 2, 65538, 131074, 2, 65537, 131074, 2, 65536, 131074, 2, 131072, 131074, 0, 131073, 131074, 0, 131074, 131074, 0, 131075, 131074, 0, 131076, 196610, 0)
 layer_1/tile_data = PackedInt32Array(65536, 458754, 2, 131072, 458754, 2, 131073, 458754, 2, 65537, 458754, 2, 65538, 458754, 2, 65539, 458754, 2, 65540, 458754, 2, 65541, 458754, 2, 131078, 458754, 2, 131077, 458754, 2, 131076, 458754, 2, 131075, 458754, 2, 131074, 458754, 2, 65542, 458754, 2, 196613, 458754, 2, 196612, 458754, 2, 196614, 458754, 2, 262150, 458754, 2, 262149, 458754, 2, 327685, 458754, 2, 327686, 458754, 2, 327687, 458754, 2, 327688, 458754, 2, 262152, 458754, 2, 262151, 458754, 2, 327689, 458754, 2, 327690, 458754, 2, 327691, 458754, 2, 327692, 458754, 2, 327693, 458754, 2, 393229, 458754, 2, 393228, 458754, 2, 393227, 458754, 2, 393226, 458754, 2, 393225, 458754, 2)
-layer_2/tile_data = PackedInt32Array(262157, 458754, 7, 262156, 458754, 7, 262155, 458754, 7, 262154, 458754, 7, 262153, 458754, 7, 196617, 458754, 7, 196616, 458754, 7, 196615, 458754, 7, 131079, 458754, 7, 65543, 458754, 7, 7, 458754, 7, 6, 458754, 7, 5, 458754, 7, 4, 458754, 7, 3, 458754, 7, 2, 458754, 7, 1, 458754, 7, 0, 458754, 7, 196608, 458754, 7, 196609, 458754, 7, 196610, 458754, 7, 196611, 458754, 7, 262147, 458754, 7, 262148, 458754, 7, 327684, 458754, 7, 393220, 458754, 7, 393221, 458754, 7, 393222, 458754, 7, 393223, 458754, 7, 393224, 458754, 7, 458760, 458754, 7, 458761, 458754, 7, 458762, 458754, 7, 458763, 458754, 7, 458764, 458754, 7, 458765, 458754, 7, 393229, 458754, 6, 393228, 458754, 6, 393227, 458754, 6, 393226, 458754, 6, 393225, 589826, 8, 327693, 458754, 8, 327692, 458754, 8, 327691, 458754, 8, 327690, 458754, 8, 327689, 131074, 8, 262152, 655362, 7, 327688, 65538, 9, 262151, 458754, 8, 327687, 458754, 6, 327686, 458754, 6, 327685, 589826, 8, 196612, 589826, 8, 65542, 655362, 7, 131078, 393218, 7, 196614, 393218, 7, 262150, 393218, 8, 196613, 524290, 6, 262149, 524290, 7, 65541, 458754, 8, 65540, 458754, 8, 65539, 458754, 8, 65538, 458754, 8, 65537, 458754, 8, 65536, 458754, 8, 131075, 458754, 6, 131074, 458754, 6, 131073, 458754, 6, 131072, 458754, 6, 131076, 524290, 6)
+layer_2/tile_data = PackedInt32Array(262157, 458754, 7, 262156, 458754, 7, 262155, 458754, 7, 262154, 458754, 7, 262153, 458754, 7, 196617, 458754, 7, 196616, 458754, 7, 196615, 458754, 7, 131079, 458754, 7, 65543, 458754, 7, 7, 458754, 7, 6, 458754, 7, 5, 458754, 7, 4, 458754, 7, 3, 458754, 7, 2, 458754, 7, 1, 458754, 7, 0, 458754, 7, 196608, 458754, 7, 196609, 458754, 7, 196610, 458754, 7, 196611, 458754, 7, 262147, 458754, 7, 262148, 458754, 7, 327684, 458754, 7, 393220, 458754, 7, 393221, 458754, 7, 393222, 458754, 7, 393223, 458754, 7, 393224, 458754, 7, 458760, 458754, 7, 458761, 458754, 7, 458762, 458754, 7, 458763, 458754, 7, 458764, 458754, 7, 458765, 458754, 7, 393229, 458754, 6, 393228, 458754, 6, 393227, 458754, 6, 393226, 458754, 6, 393225, 589826, 8, 327693, 458754, 8, 327692, 458754, 8, 327691, 458754, 8, 327690, 458754, 8, 327689, 131074, 8, 262152, 655362, 7, 327688, 65538, 9, 262151, 458754, 8, 327687, 458754, 6, 327686, 458754, 6, 327685, 589826, 8, 196612, 589826, 8, 65542, 655362, 7, 131078, 393218, 7, 196614, 393218, 7, 262150, 393218, 8, 196613, 524290, 6, 262149, 524290, 7, 65541, 458754, 8, 65540, 458754, 8, 65539, 458754, 8, 65538, 458754, 8, 65537, 458754, 8, 65536, 458754, 8, 131075, 458754, 6, 131074, 458754, 6, 131073, 458754, 6, 131072, 458754, 6, 131076, 524290, 6, 262144, 458754, 7, 262145, 458754, 7, 262146, 458754, 7)
 
 [node name="EnvironmentalObjects" type="Node2D" parent="Map"]
 
@@ -187,7 +186,6 @@ collisionHeight = 30
 
 [node name="Lantern6" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("12_b52ro")]
 position = Vector2(758, 383)
-texture = ExtResource("13_87xfi")
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 

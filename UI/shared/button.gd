@@ -20,8 +20,8 @@ var playerScene
 var selected: bool = false
 var initialScale: Vector2
 var scaleIncrease: Vector2
-var animationSpeed: float = 0.1
-var sizeIncrease: float = 1.025
+var animationSpeed: float = 0.15
+var sizeIncrease: float = 1.035
 
 
 func _ready():

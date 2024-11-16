@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d3jvqy14idd56" path="res://generation/dead-ends/dead-end-1/dead-end-1-template.tscn" id="2_pt87a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
-size = Vector2(245, 46)
+size = Vector2(245, 111)
 
 [node name="DeadEnd - 1 - 0" type="Node2D"]
 script = ExtResource("1_cck0d")
@@ -25,5 +25,5 @@ collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-position = Vector2(129.5, 33)
+position = Vector2(129.5, 65.5)
 shape = SubResource("RectangleShape2D_m2ub1")

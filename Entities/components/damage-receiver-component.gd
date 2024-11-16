@@ -119,9 +119,7 @@ func toggleKnockback(_position, knockback: float):
 
 
 func playHitAnimation(position: Vector2):
-	if entity.animations.is_playing():
-		entity.animations.stop()
-	entity.animations.play("damage-received")
+	UtilsS.playAnimation(entity.animations, "damage-received")
 	entity.particleComponent.activateHitParticles(position)
 
 

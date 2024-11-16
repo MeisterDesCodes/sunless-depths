@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gbaxsc4xlopi"
-path="res://.godot/imported/Collapse Risk.png-f20956906afaab304dcb7839c5bf9249.ctex"
+uid="uid://drl6oexccy2u2"
+path="res://.godot/imported/rail-broken-2.png-7f58e3e215aed6fabab6496987de967c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons/locations/Collapse Risk.png"
-dest_files=["res://.godot/imported/Collapse Risk.png-f20956906afaab304dcb7839c5bf9249.ctex"]
+source_file="res://assets/environment/decorations/regular/mineshaft/rail-broken-2.png"
+dest_files=["res://.godot/imported/rail-broken-2.png-7f58e3e215aed6fabab6496987de967c.ctex"]
 
 [params]
 

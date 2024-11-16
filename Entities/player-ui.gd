@@ -115,6 +115,7 @@ var maxZoomLevels: int = 4
 var currentZoomLevel: int = 0
 
 var atExit: bool = false
+var atTransportNode: bool = false
 var isInCave: bool = false
 
 
@@ -221,11 +222,10 @@ func setupLightSource():
 	var size = 2 + entityResource.lightRadius * 0.5
 	var sizeIncrease = 1 / UtilsS.getScalingValue(entityResource.perception * 0.5)
 	var totalSize: float = size * sizeIncrease
-	lightSource.update(totalSize)
+	lightSource.update(Vector2(totalSize, totalSize))
 	
-	var totaldirectionalSize: float = 1 + totalSize * 0.2
-	directionalLight.get_child(0).scale = Vector2(totaldirectionalSize, totaldirectionalSize * 1.5)
-	directionalLight.get_child(0).energy = 0.5 * totalSize / 2
+	var totalDirectionalSize: float = 1 + totalSize * 0.2
+	directionalLight.update( Vector2(totalDirectionalSize, totalDirectionalSize * 1.5))
 
 
 func updateWeapons():

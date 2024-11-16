@@ -34,16 +34,17 @@ var knockbackVector: Vector2 = Vector2.ZERO
 var immunityFramesActive: bool = false
 
 var baseVisionRange: float
-var visionRangeSpeedModifier = 0.5
-var visionRangeAttackedModifier = 2
-var visionRangeModifier = 1
+var visionRangeSpeedModifier: float = 0.5
+var visionRangeAttackedModifier: float = 2
+var visionRangeModifier: float = 1
 
-var canDash = true
-var isDashing = false
+var canDash: bool = true
+var isDashing: bool = false
+var canDealContactDamage: bool = false
 
 var canLaunchProjectile = true
 
-var isAttacking = true
+var isAttacking: bool = true
 var currentAttack: EnemyAttack
 
 var isDying: bool = false
@@ -96,7 +97,7 @@ func _physics_process(delta):
 	if stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE) && canLaunchProjectile && stateMachine.currentState != stateMachine.getState(Enums.enemyStates.IDLE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE))
 
-	if stateMachine.getState(Enums.enemyStates.DASH) && canDash && global_position.distance_to(playerScene.global_position) <= (100 + moveSpeed) * movementSpeedModifier:
+	if stateMachine.getState(Enums.enemyStates.DASH) && canDash && global_position.distance_to(playerScene.global_position) <= (50 + moveSpeed) * movementSpeedModifier:
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.DASH))
 
 
@@ -106,7 +107,7 @@ func getDistanceThreshold(distance: float):
 
 func moveInDirection(direction: Vector2, speed: float):
 	direction = direction.normalized()
-	velocity = lerp(velocity, direction * speed * movementSpeedModifier, 0.15)
+	velocity = lerp(velocity, direction * speed * movementSpeedModifier, 0.1)
 
 
 func moveToPath(speed: float, lookInDirection: bool):
@@ -116,7 +117,7 @@ func moveToPath(speed: float, lookInDirection: bool):
 		moveInDirection(direction, speed)
 		if !lookInDirection:
 			direction *= -1
-		rotation = lerp_angle(rotation, direction.normalized().angle(), 0.05)  
+		rotation = lerp_angle(rotation, direction.normalized().angle(), 0.1)  
 	else:
 		velocity = Vector2.ZERO
 

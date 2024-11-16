@@ -1,0 +1,269 @@
+[gd_scene load_steps=24 format=3 uid="uid://dnss23pfdr3oh"]
+
+[ext_resource type="Script" path="res://environment/interactions/environment/transport-node.gd" id="1_7vmf1"]
+[ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="2_6qcun"]
+[ext_resource type="PackedScene" uid="uid://1yvhjy3jwhtg" path="res://environment/decorations/textures/settlement-texture.tscn" id="2_iubrl"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="2_xtdso"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="3_ulc8x"]
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="7_i0vdk"]
+[ext_resource type="Texture2D" uid="uid://dix7fd4obrohl" path="res://assets/environment/decorations/walls/tunnel/minecart.png" id="8_2ta2d"]
+[ext_resource type="Texture2D" uid="uid://gq6pf1b3dbif" path="res://assets/environment/decorations/regular/mineshaft/rail-curve.png" id="8_weqcm"]
+[ext_resource type="Texture2D" uid="uid://bak6hssu1h7us" path="res://assets/environment/decorations/regular/mineshaft/rail-straight.png" id="9_fx3vt"]
+[ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="10_valyl"]
+[ext_resource type="Texture2D" uid="uid://c3qj1p2qa5wam" path="res://assets/environment/decorations/walls/tunnel/wall-metal-2.png" id="11_erawl"]
+[ext_resource type="Texture2D" uid="uid://c2ix6irtmxb51" path="res://assets/environment/decorations/walls/tunnel/beam-metal-2.png" id="13_r2ifq"]
+[ext_resource type="PackedScene" uid="uid://7lajmdxxtogu" path="res://environment/decorations/regular/arranged/platform-1.tscn" id="14_ls4vv"]
+[ext_resource type="Texture2D" uid="uid://ck3feyge4ld1a" path="res://assets/environment/decorations/walls/tunnel/pillar-metal-1.png" id="14_y3ghd"]
+[ext_resource type="PackedScene" uid="uid://31my3mwtridv" path="res://environment/decorations/regular/arranged/platform-2.tscn" id="15_8pjei"]
+[ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="15_pcaj6"]
+[ext_resource type="Texture2D" uid="uid://ykdnbdi4fyhe" path="res://assets/environment/decorations/walls/tunnel/wall-wood-2.png" id="15_sio0f"]
+[ext_resource type="PackedScene" uid="uid://bq6uwqf7xlm7k" path="res://environment/decorations/regular/arranged/platform-3.tscn" id="16_7kban"]
+[ext_resource type="Texture2D" uid="uid://5gwcbt0u8x35" path="res://assets/environment/decorations/walls/tunnel/wall-wood-1.png" id="16_dmu8d"]
+[ext_resource type="PackedScene" uid="uid://b6vbxrl43dx5s" path="res://environment/decorations/regular/arranged/tunnel-entrance.tscn" id="17_xgxt7"]
+[ext_resource type="Texture2D" uid="uid://2abst8vfm3jn" path="res://assets/environment/decorations/walls/tunnel/wall-wood-3.png" id="17_yxvrh"]
+
+[sub_resource type="Resource" id="Resource_mwhkk"]
+script = ExtResource("3_ulc8x")
+resource = ExtResource("2_xtdso")
+amount = 20
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_10c85"]
+load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
+
+[node name="TransportNode" type="Node2D"]
+script = ExtResource("1_7vmf1")
+lifetime = -1
+repairCosts = Array[ExtResource("3_ulc8x")]([SubResource("Resource_mwhkk")])
+
+[node name="Textures" type="Node2D" parent="."]
+
+[node name="SettlementTexture" parent="Textures" instance=ExtResource("2_iubrl")]
+position = Vector2(-59, -37)
+rotation = 1.57079
+scale = Vector2(0.4, 0.4)
+
+[node name="SettlementTexture2" parent="Textures" instance=ExtResource("2_iubrl")]
+position = Vector2(130, -16)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="RailReplace" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(3.99998, -57)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_fx3vt")
+
+[node name="RailReplace2" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(79, -57)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_fx3vt")
+
+[node name="RailReplace3" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(-71, -57)
+rotation = -1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_fx3vt")
+
+[node name="ObjectDecoration2" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(-146, -38)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_weqcm")
+
+[node name="ObjectDecoration4" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(154, -38)
+rotation = 1.57079
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_weqcm")
+
+[node name="ObjectDecoration6" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(-165, 37)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_fx3vt")
+
+[node name="ObjectDecoration7" parent="Decorations" instance=ExtResource("7_i0vdk")]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+position = Vector2(173, 37)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_fx3vt")
+
+[node name="MinecartReplace" parent="Decorations" instance=ExtResource("10_valyl")]
+position = Vector2(44, -57)
+rotation = 1.5708
+texture = ExtResource("8_2ta2d")
+collisionWidth = 30
+collisionHeight = 40
+
+[node name="LightSources" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Lantern" parent="LightSources" instance=ExtResource("2_6qcun")]
+position = Vector2(-15.5892, -110.553)
+rotation = 3.13874
+
+[node name="Walls" type="Node2D" parent="."]
+z_index = 1
+
+[node name="ObjectSquare143" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-79, -9)
+rotation = 2.53607
+texture = ExtResource("16_dmu8d")
+collisionWidth = 50
+collisionHeight = 10
+
+[node name="ReplaceWall" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(92, -98)
+rotation = 0.108291
+texture = ExtResource("11_erawl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ReplaceWall2" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-192, -41)
+rotation = 2.01337
+texture = ExtResource("11_erawl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="DeleteWall" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(186, -56)
+rotation = 0.723424
+texture = ExtResource("11_erawl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="DeleteWall2" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-122, -95)
+rotation = -0.117377
+texture = ExtResource("11_erawl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="DeleteWall4" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-11, -25)
+rotation = -0.0160466
+texture = ExtResource("15_sio0f")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="DeleteWall5" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(81, -13)
+rotation = 0.261882
+texture = ExtResource("15_sio0f")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="DeleteWall3" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(33.8079, -63.4945)
+rotation = 1.60017
+scale = Vector2(0.75, 0.75)
+texture = SubResource("CompressedTexture2D_10c85")
+collision = false
+
+[node name="ObjectSquare76" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(227, 38)
+rotation = 1.54285
+texture = ExtResource("11_erawl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare117" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-124, 80)
+rotation = 1.87714
+texture = ExtResource("17_yxvrh")
+collisionWidth = 150
+collisionHeight = 10
+
+[node name="ObjectSquare115" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(143, -91)
+rotation = -1.08592
+texture = ExtResource("14_y3ghd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare116" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(224, -18)
+rotation = -0.457391
+texture = ExtResource("14_y3ghd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare79" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-211, 54)
+rotation = 1.53072
+texture = ExtResource("11_erawl")
+collisionWidth = 100
+collisionHeight = 10
+
+[node name="ObjectSquare118" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-169, -87)
+rotation = -0.669896
+texture = ExtResource("14_y3ghd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare119" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-213, 0.999985)
+rotation = -1.10017
+texture = ExtResource("14_y3ghd")
+collisionWidth = 20
+collisionHeight = 20
+
+[node name="ObjectSquare66" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-61.0394, -60.5417)
+rotation = 1.46852
+scale = Vector2(0.75, 0.75)
+texture = SubResource("CompressedTexture2D_10c85")
+collision = false
+
+[node name="ObjectSquare33" parent="Walls" instance=ExtResource("10_valyl")]
+position = Vector2(-15, -103)
+rotation = 3.10569
+texture = ExtResource("13_r2ifq")
+collision = false
+
+[node name="Plattforms" type="Node2D" parent="."]
+z_index = 1
+
+[node name="ArrangedTunnelEntrance" parent="Plattforms" instance=ExtResource("17_xgxt7")]
+position = Vector2(170, -5)
+rotation = -0.214655
+
+[node name="ArrangedTunnelEntrance2" parent="Plattforms" instance=ExtResource("17_xgxt7")]
+position = Vector2(-169, 1)
+rotation = 0.18764
+
+[node name="ArrangedPlatform" parent="Plattforms" instance=ExtResource("14_ls4vv")]
+position = Vector2(83, 18)
+
+[node name="ArrangedPlatform2" parent="Plattforms" instance=ExtResource("15_8pjei")]
+position = Vector2(50, 54)
+rotation = 1.57079
+
+[node name="ArrangedPlatform6" parent="Plattforms" instance=ExtResource("15_8pjei")]
+position = Vector2(144, 54)
+rotation = 4.71238
+
+[node name="ArrangedPlatform7" parent="Plattforms" instance=ExtResource("15_8pjei")]
+position = Vector2(241, 55)
+rotation = 1.57079
+
+[node name="ArrangedPlatform3" parent="Plattforms" instance=ExtResource("16_7kban")]
+position = Vector2(-49, 51)
+
+[node name="Interactions" type="Node2D" parent="."]
+
+[node name="InteractionComponent" parent="Interactions" node_paths=PackedStringArray("interaction") instance=ExtResource("15_pcaj6")]
+position = Vector2(-10, -55)
+interaction = NodePath("../..")
+
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(-15, -143)

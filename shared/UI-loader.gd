@@ -119,6 +119,7 @@ func closeUIPopup():
 
 func closeUIScene(sceneInstance):
 	playerScene.atExit = false
+	playerScene.atTransportNode = false
 	if currentUIScenes.size() == 1:
 		playerScene.isInUIScene = false
 		closeUIBlocker(currentBlockerScene)

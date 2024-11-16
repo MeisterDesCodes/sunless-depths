@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://baiiugv5sdp06"]
 
-[ext_resource type="Script" path="res://environment/interactions/gate.gd" id="1_0fdu8"]
+[ext_resource type="Script" path="res://environment/interactions/environment/gate.gd" id="1_0fdu8"]
 [ext_resource type="Texture2D" uid="uid://drg4e0wuwe5eu" path="res://assets/environment/decorations/regular/prison/prison-gate.png" id="2_625sw"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="2_nga38"]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6vbxrl43dx5s"]
+
+[ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="1_iphyf"]
+[ext_resource type="Texture2D" uid="uid://dj7my84wjssg3" path="res://assets/environment/decorations/walls/tunnel/tunnel-wall-1.png" id="2_lhnyq"]
+[ext_resource type="Texture2D" uid="uid://b6qkqjbbrj7gp" path="res://assets/environment/decorations/walls/tunnel/tunnel-wall-2.png" id="3_ge0f3"]
+[ext_resource type="Texture2D" uid="uid://b46ct56o2ev8w" path="res://assets/environment/decorations/walls/tunnel/tunnel-entry.png" id="4_awtbn"]
+
+[node name="ArrangedTunnelEntrance" type="Node2D"]
+modulate = Color(0.682353, 0.682353, 0.682353, 1)
+
+[node name="ObjectDecoration" parent="." instance=ExtResource("1_iphyf")]
+position = Vector2(121, 23.0001)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_lhnyq")
+
+[node name="ObjectDecoration5" parent="." instance=ExtResource("1_iphyf")]
+position = Vector2(-128, -5.99987)
+rotation = 2.94365
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_lhnyq")
+
+[node name="ObjectDecoration4" parent="." instance=ExtResource("1_iphyf")]
+position = Vector2(-126, 24.0001)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ge0f3")
+
+[node name="ObjectDecoration7" parent="." instance=ExtResource("1_iphyf")]
+position = Vector2(125, -7.00005)
+rotation = -2.96771
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ge0f3")
+
+[node name="ObjectDecoration2" parent="." instance=ExtResource("1_iphyf")]
+position = Vector2(-6.86646e-05, 22)
+texture = ExtResource("4_awtbn")
+
+[node name="ObjectDecoration6" parent="." instance=ExtResource("1_iphyf")]
+position = Vector2(0.999939, -20)
+rotation = 3.14159
+texture = ExtResource("4_awtbn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(18, -16, 32, -42, 120, -33, 188, 12, -192, 16, -117, -36, -23, -41, -15, -16)

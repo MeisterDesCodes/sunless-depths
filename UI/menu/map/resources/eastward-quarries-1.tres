@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MapLocation" load_steps=2 format=3 uid="uid://bmcfjvny08vtb"]
+
+[ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="1_rqew7"]
+
+[resource]
+script = ExtResource("1_rqew7")
+name = "Eastward Quarries - I"
+description = "123"
+tier = 1
+locationType = 3
+attributes = Array[int]([0])
+location = 4

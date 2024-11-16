@@ -1,18 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://uognb7dads7q"]
+[gd_scene load_steps=5 format=3 uid="uid://uognb7dads7q"]
 
 [ext_resource type="Theme" uid="uid://dt2kmg15mqf2t" path="res://assets/UI/themes/UI-elements/location-marker.tres" id="1_rbcgn"]
 [ext_resource type="Script" path="res://UI/menu/map/player-marker-ui.gd" id="2_i62bl"]
+[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="3_jyamg"]
 [ext_resource type="PackedScene" uid="uid://c8sm53impkash" path="res://environment/decorations/particles/effect-particle.tscn" id="3_rvs8b"]
 
-[node name="PlayerMarkerUI" type="PanelContainer"]
-z_index = 4
-custom_minimum_size = Vector2(60, 60)
-offset_right = 60.0
-offset_bottom = 60.0
-pivot_offset = Vector2(30, 30)
-theme = ExtResource("1_rbcgn")
+[node name="PlayerMarkerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("2_i62bl")
 
 [node name="EffectParticles" parent="." instance=ExtResource("3_rvs8b")]
-modulate = Color(1, 0.439216, 0.384314, 1)
-position = Vector2(30, 30)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+pivot_offset = Vector2(30, 30)
+theme = ExtResource("1_rbcgn")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(40, 40)
+theme = ExtResource("1_rbcgn")
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+modulate = Color(1, 0.682353, 0.568627, 1)
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+offset_left = -22.0
+offset_top = -20.0
+offset_right = 23.0
+offset_bottom = 20.0
+pivot_offset = Vector2(40, 40)
+theme = ExtResource("3_jyamg")

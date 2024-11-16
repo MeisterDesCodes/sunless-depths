@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://datyrxalpyugx" path="res://assets/environment/decorations/regular/prison/chains-long.png" id="41_4asxb"]
 [ext_resource type="PackedScene" uid="uid://bqg23ir8fxfji" path="res://environment/decorations/regular/prison/prison-fence-medium.tscn" id="42_j1vtt"]
 [ext_resource type="PackedScene" uid="uid://dsjokrvb0vmde" path="res://entities/entity-spawner.tscn" id="43_73l1t"]
-[ext_resource type="PackedScene" uid="uid://baiiugv5sdp06" path="res://environment/interactions/gate.tscn" id="43_tm3vp"]
+[ext_resource type="PackedScene" uid="uid://baiiugv5sdp06" path="res://environment/interactions/environment/gate.tscn" id="43_tm3vp"]
 [ext_resource type="PackedScene" uid="uid://csu8j4yk4u1er" path="res://environment/interactions/operators/gate-operator.tscn" id="44_wvrjr"]
 [ext_resource type="PackedScene" uid="uid://cno6olixfbot0" path="res://environment/interactions/operators/arena-operator.tscn" id="45_nubbl"]
 

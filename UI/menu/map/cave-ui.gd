@@ -21,10 +21,11 @@ var lastPosition: Vector2 = Vector2.ZERO
 
 
 func _ready():
-	if !playerScene.isInCave && !(LocationLoaderS.currentLocation in LocationLoaderS.exploredLocations):
+	if !playerScene.isInCave && !(LocationLoaderS.currentLocation.location in LocationLoaderS.exploredLocations):
 		return
 	
 	cave = LocationLoaderS.getBasicCave(LocationLoaderS.currentCave if playerScene.isInCave else game.currentLocation)
+	caveContainer.global_position = LocationLoaderS.getCavePosition(cave) * caveContainer.scale
 	caveContainer.add_child(cave)
 	caveContainer.add_child(playerMarker)
 	setupPlayerMarker()
@@ -38,8 +39,9 @@ func _ready():
 
 
 func setupPlayerMarker():
-	playerMarker.position = (playerScene.global_position - Vector2(playerMarker.size.x / 2, playerMarker.size.y / 2)) * cave.scale.x
-	playerMarker.get_child(0).scale = Vector2(2, 2)
+	playerMarker.position = (playerScene.global_position - Vector2(playerMarker.size.x * 1.5, playerMarker.size.y * 1.5)) * cave.scale.x
+	playerMarker.scale = Vector2(3, 3)
+	playerMarker.z_index = 3
 
 
 func setupMapLocation():
@@ -51,19 +53,20 @@ func _process(delta):
 	if Input.is_action_just_pressed("switch-up"):
 		if currentZoomLevel < maxZoomLevels:
 			currentZoomLevel += 1
-			caveContainer.position += Vector2(0, -60)
+			#caveContainer.position += Vector2(0, 25 * caveContainer.scale.x)
 			zoomMap()
 	
 	if Input.is_action_just_pressed("switch-down"):
 		if currentZoomLevel > 0:
 			currentZoomLevel -= 1
-			caveContainer.position += Vector2(0, 60)
+			#caveContainer.position += Vector2(0, -25 * caveContainer.scale.x)
 			zoomMap()
 
 
 func zoomMap():
 	var zoom: float = baseZoom + (currentZoomLevel - 5) * zoomAmount
 	caveContainer.scale = Vector2(zoom, zoom)
+	lastPosition = caveContainer.position
 
 
 func _on_button_mouse_entered():

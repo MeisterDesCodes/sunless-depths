@@ -1,13 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://dce0defa020j1"]
+[gd_scene load_steps=29 format=3 uid="uid://dce0defa020j1"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_jqb1r"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="2_pl3sb"]
 [ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/cave-sand-texture.tscn" id="3_2001y"]
 [ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_l6je4"]
-[ext_resource type="Texture2D" uid="uid://vdw8rs4sxwfw" path="res://assets/environment/decorations/regular/mineshaft/rail-broken.png" id="6_i8807"]
+[ext_resource type="Texture2D" uid="uid://vdw8rs4sxwfw" path="res://assets/environment/decorations/regular/mineshaft/rail-broken-1.png" id="6_i8807"]
 [ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="7_iymvt"]
 [ext_resource type="Texture2D" uid="uid://bak6hssu1h7us" path="res://assets/environment/decorations/regular/mineshaft/rail-straight.png" id="7_mnihy"]
-[ext_resource type="Texture2D" uid="uid://c0euu6eh304aj" path="res://assets/environment/decorations/light-sources/lantern-1.png" id="8_ki5vl"]
 [ext_resource type="Texture2D" uid="uid://gq6pf1b3dbif" path="res://assets/environment/decorations/regular/mineshaft/rail-curve.png" id="8_vjewm"]
 [ext_resource type="PackedScene" uid="uid://bwl4e3vnqbit6" path="res://environment/decorations/overlays/overlay.tscn" id="9_v01tk"]
 [ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="10_awsbd"]
@@ -39,7 +38,7 @@ load_path = "res://.godot/imported/pillar-wood-1.png-7b2cc619d412669578b49543f4d
 [node name="Map" parent="." instance=ExtResource("1_jqb1r")]
 layer_0/tile_data = PackedInt32Array(0, 131074, 1, 1, 131074, 1, 2, 131074, 1, 3, 131074, 1, 65540, 131074, 1, 65541, 131074, 1, 262144, 131074, 1, 262145, 131074, 1, 262146, 131074, 1, 262147, 131074, 1, 262148, 131074, 1, 262149, 131074, 1, 65539, 131074, 1, 65543, 131074, 1, 327687, 131074, 1, 65544, 589826, 1, 327688, 131074, 1, 65545, 131074, 1, 327689, 131074, 1, 65546, 131074, 1, 327690, 131074, 1, 65547, 131074, 1, 327691, 131074, 1, 65548, 131074, 1, 262156, 131074, 1, 65542, 131074, 1, 262150, 131074, 1, 327686, 131074, 1, 262155, 131074, 1, 65538, 327682, 1, 262151, 262146, 2, 262154, 327682, 2, 196608, 131074, 0, 196609, 131074, 0, 196610, 131074, 0, 196611, 131074, 0, 196612, 131074, 0, 196613, 131074, 0, 196614, 131074, 0, 196619, 131074, 0, 196620, 131074, 0, 131079, 131074, 2, 131078, 131074, 2, 131077, 131074, 2, 131076, 131074, 2, 131075, 131074, 2, 131081, 262146, 1, 131082, 131074, 2, 131083, 131074, 2, 131084, 131074, 2, 131080, 262146, 7, 196617, 196610, 2, 196616, 65538, 2, 262152, 131074, 0, 262153, 131074, 0, 131073, 196610, 2, 131074, 65538, 2, 196615, 196610, 0, 196618, 65538, 0, 7, 131074, 1, 8, 131074, 1, 9, 131074, 1, 65537, 262146, 1, 65536, 131074, 1, 131072, 131074, 2)
 layer_1/tile_data = PackedInt32Array(65537, 458754, 2, 131073, 458754, 2, 131074, 458754, 2, 131072, 458754, 2, 196608, 458754, 2, 65538, 458754, 2, 196609, 458754, 2, 196610, 458754, 2, 196611, 458754, 2, 196612, 458754, 2, 196613, 458754, 2, 196614, 458754, 2, 131079, 458754, 2, 131080, 458754, 2, 65544, 458754, 2, 131078, 458754, 2, 131077, 458754, 2, 131076, 458754, 2, 131075, 458754, 2, 196615, 458754, 2, 196616, 458754, 2, 196617, 458754, 2, 196618, 458754, 2, 196619, 458754, 2, 196620, 458754, 2, 131084, 458754, 2, 131083, 458754, 2, 131082, 458754, 2, 131081, 458754, 2, 262153, 458754, 2, 262154, 458754, 2, 262152, 458754, 2, 262151, 458754, 2)
-layer_2/tile_data = PackedInt32Array(0, 458754, 7, 1, 458754, 7, 2, 458754, 7, 3, 458754, 7, 65539, 458754, 7, 65540, 458754, 7, 65541, 458754, 7, 65542, 458754, 7, 65543, 458754, 7, 65545, 458754, 7, 65546, 458754, 7, 65547, 458754, 7, 65548, 458754, 7, 262156, 458754, 7, 262155, 458754, 7, 327691, 458754, 7, 327690, 458754, 7, 327689, 458754, 7, 327688, 458754, 7, 327687, 458754, 7, 327686, 458754, 7, 262150, 458754, 7, 262149, 458754, 7, 262148, 458754, 7, 262147, 458754, 7, 262146, 458754, 7, 262145, 458754, 7, 262144, 458754, 7, 196608, 458754, 6, 196609, 458754, 6, 196610, 458754, 6, 196611, 458754, 6, 196612, 458754, 6, 196613, 458754, 6, 196614, 458754, 6, 262151, 589826, 8, 262154, 655362, 8, 262152, 458754, 6, 262153, 458754, 6, 196619, 458754, 6, 196620, 458754, 6, 196618, 393218, 6, 196615, 524290, 6, 131084, 458754, 8, 131083, 458754, 8, 131082, 458754, 8, 131081, 589826, 7, 65544, 786434, 8, 131079, 458754, 8, 131078, 458754, 8, 131077, 458754, 8, 131076, 458754, 8, 131075, 458754, 8, 65537, 589826, 7, 65536, 458754, 7, 65538, 655362, 7, 131074, 393218, 8, 131080, 262146, 9, 196616, 393218, 8, 196617, 524290, 8, 7, 458754, 7, 8, 458754, 7, 9, 458754, 7, 131073, 524290, 8, 131072, 458754, 8)
+layer_2/tile_data = PackedInt32Array(0, 458754, 7, 1, 458754, 7, 2, 458754, 7, 3, 458754, 7, 65539, 458754, 7, 65540, 458754, 7, 65541, 458754, 7, 65542, 458754, 7, 65543, 458754, 7, 65545, 458754, 7, 65546, 458754, 7, 65547, 458754, 7, 65548, 458754, 7, 262156, 458754, 7, 262155, 458754, 7, 327691, 458754, 7, 327690, 458754, 7, 327689, 458754, 7, 327688, 458754, 7, 327687, 458754, 7, 327686, 458754, 7, 262150, 458754, 7, 262149, 458754, 7, 262148, 458754, 7, 262147, 458754, 7, 262146, 458754, 7, 262145, 458754, 7, 262144, 458754, 7, 196608, 458754, 6, 196609, 458754, 6, 196610, 458754, 6, 196611, 458754, 6, 196612, 458754, 6, 196613, 458754, 6, 196614, 458754, 6, 262151, 589826, 8, 262154, 655362, 8, 262152, 458754, 6, 262153, 458754, 6, 196619, 458754, 6, 196620, 458754, 6, 196618, 393218, 6, 196615, 524290, 6, 131084, 458754, 8, 131083, 458754, 8, 131082, 458754, 8, 131081, 589826, 7, 65544, 786434, 8, 131079, 458754, 8, 131078, 458754, 8, 131077, 458754, 8, 131076, 458754, 8, 131075, 458754, 8, 65537, 589826, 7, 65536, 458754, 7, 65538, 655362, 7, 131074, 393218, 8, 131080, 262146, 9, 196616, 393218, 8, 196617, 524290, 8, 7, 458754, 7, 8, 458754, 7, 9, 458754, 7, 131073, 524290, 8, 131072, 458754, 8, 327685, 458754, 7, 327684, 458754, 7, 327683, 458754, 7)
 
 [node name="EnvironmentalObjects" type="Node2D" parent="Map"]
 
@@ -56,7 +55,7 @@ scale = Vector2(0.475, 0.475)
 [node name="CaveSandTexture" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("3_2001y")]
 position = Vector2(355, 227)
 rotation = 0.771434
-scale = Vector2(0.47, 0.47)
+scale = Vector2(0.415, 0.415)
 
 [node name="RockTexture2" parent="Map/EnvironmentalObjects/Decorations/Textures" instance=ExtResource("4_l6je4")]
 position = Vector2(127, 162)
@@ -71,68 +70,68 @@ scale = Vector2(0.305, 0.305)
 [node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
 [node name="ObjectDecoration" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(470, 199)
 rotation = 1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_i8807")
 
 [node name="ObjectDecoration2" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(127, 104)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_mnihy")
 
 [node name="ObjectDecoration4" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(221, 198)
 rotation = -1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_mnihy")
 
 [node name="ObjectDecoration5" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(296, 198)
 rotation = -1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_mnihy")
 
 [node name="ObjectDecoration10" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(580, 273)
 rotation = -1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_mnihy")
 
 [node name="ObjectDecoration7" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(390, 199)
 rotation = -1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_mnihy")
 
 [node name="ObjectDecoration3" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(146, 179)
 rotation = -1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_vjewm")
 
 [node name="ObjectDecoration8" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(516, 292)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_vjewm")
 
 [node name="ObjectDecoration9" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(655, 292)
 rotation = 1.57079
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_vjewm")
 
 [node name="ObjectDecoration6" parent="Map/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("27_fukr4")]
-modulate = Color(0.678431, 0.678431, 0.678431, 1)
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
 position = Vector2(371, 217)
 rotation = -4.71238
 scale = Vector2(0.75, 0.75)
@@ -170,15 +169,12 @@ collisionHeight = 30
 
 [node name="Lantern4" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("7_iymvt")]
 position = Vector2(321, 186)
-texture = ExtResource("8_ki5vl")
 
 [node name="Lantern7" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("7_iymvt")]
 position = Vector2(485, 196)
-texture = ExtResource("8_ki5vl")
 
 [node name="Lantern6" parent="Map/EnvironmentalObjects/Decorations/LightSources" instance=ExtResource("7_iymvt")]
 position = Vector2(655, 204)
-texture = ExtResource("8_ki5vl")
 
 [node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 

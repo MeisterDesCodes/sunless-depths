@@ -11,7 +11,7 @@ script = ExtResource("1_gp75y")
 exits = Array[Dictionary]([{
 "completed": false,
 "direction": 0,
-"position": Vector2(6, 0)
+"position": Vector2(5, 0)
 }, {
 "completed": false,
 "direction": 2,

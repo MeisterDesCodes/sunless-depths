@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d3jvqy14idd56" path="res://generation/dead-ends/dead-end-1/dead-end-1-template.tscn" id="2_lu5il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
-size = Vector2(50, 241)
+size = Vector2(115, 241)
 
 [node name="DeadEnd - 1 - 180" type="Node2D"]
 script = ExtResource("1_g1x7p")
@@ -16,7 +16,7 @@ exits = Array[Dictionary]([{
 type = 2
 
 [node name="Map" parent="." instance=ExtResource("2_lu5il")]
-position = Vector2(64, 256)
+position = Vector2(128, 256)
 rotation = 3.14159
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -24,6 +24,5 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(32, 130.5)
+position = Vector2(64.5, 130.5)
 shape = SubResource("RectangleShape2D_m2ub1")

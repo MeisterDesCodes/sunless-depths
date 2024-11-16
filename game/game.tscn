@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
-[ext_resource type="Script" path="res://map/map-location.gd" id="2_x24fo"]
+[ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="2_x24fo"]
 [ext_resource type="Resource" uid="uid://csj7grpf30j7s" path="res://entities/resources/enemies/bandit-ranger.tres" id="5_5y320"]
 [ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="5_dkndk"]
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="7_0gon8"]
@@ -16,6 +16,7 @@
 script = ExtResource("2_x24fo")
 name = ""
 description = ""
+tier = 0
 locationType = 0
 attributes = Array[int]([])
 location = 2

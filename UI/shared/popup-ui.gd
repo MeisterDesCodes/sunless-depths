@@ -125,9 +125,11 @@ func showAdditionalInformation():
 		
 		Enums.resourceType.MAP_LOCATION:
 			statsContainer.visible = true
-			type.text = "Information about this Area: "
-			rarity.text = UtilsS.getEnumValue(Enums.locationType, element.locationType)
+			type.text = "Danger Level: "
+			rarity.text = str(element.tier)
 			rarity.self_modulate = UtilsS.colorPrimary
+			if element.locationType != Enums.locationType.NONE:
+				addStatsElement(preload("res://assets/UI/icons/menu/map/Information.png"), "Known Information", UtilsS.getEnumValue(Enums.locationType, element.locationType))
 			if !element.attributes.is_empty():
 				addStatsElement(preload("res://assets/UI/icons/menu/map/Hazards.png"), "Hazards present", UtilsS.enumArrayToString(Enums.locationAttribute, element.attributes))
 		

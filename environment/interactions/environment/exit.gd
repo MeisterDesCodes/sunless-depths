@@ -8,7 +8,6 @@ extends Node2D
 @onready var exitParticles = get_node("ExitParticles")
 
 var direction: Enums.exitDirection
-var menuScene
 
 
 func _ready():
@@ -31,7 +30,7 @@ func interact(body):
 	
 	if !playerScene.isInCave:
 		playerScene.atExit = true
-		menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
+		var menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 		menuScene._on_map_pressed()
 	else:
 		playerScene.isInCave = false

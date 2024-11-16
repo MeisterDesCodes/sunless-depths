@@ -13,21 +13,21 @@ signal spawnPlayer
 @onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
 @onready var cave = get_node("Cave")
 
+@onready var tileSize: int = 64
+@onready var availableDirections: Array[Enums.exitDirection] = [Enums.exitDirection.LEFT, Enums.exitDirection.RIGHT]
+@onready var initialDirection: Enums.exitDirection = Enums.exitDirection.LEFT
+
+var currentRooms: Array[Node2D]
+var tier: int
+
 var rooms: Array[PackedScene] = preload("res://generation/rooms/rooms.tres").allSegments
-var rootRooms: Array[PackedScene] = preload("res://generation/rooms/root-rooms.tres").allSegments
+var rootRoomsSmall: Array[PackedScene] = preload("res://generation/rooms/root-rooms-small.tres").allSegments
+var rootRoomsLarge: Array[PackedScene] = preload("res://generation/rooms/root-rooms-large.tres").allSegments
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
 var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
 var specialRooms: Array[PackedScene] = load("res://generation/special/special-rooms.tres").allSegments
 var specialRoomsDeadEnd: Array[PackedScene] = preload("res://generation/special/special-rooms-dead-end.tres").allSegments
-
-var currentRooms: Array[Node2D]
-var tileSize = 64
-
-var tier: int
-
-var availableDirections: Array[Enums.exitDirection] = [Enums.exitDirection.RIGHT, Enums.exitDirection.LEFT]
-var initialDirection: Enums.exitDirection = Enums.exitDirection.TOP
 
 var generatedSpecialRooms: Array[Node2D] = []
 var generatedExits: Array[Node2D] = []
@@ -43,8 +43,8 @@ func generateCave():
 	maxSpecialRooms = iterations - 1
 	maxSpecialRoomsDeadEnd = iterations - 1
 	
+	clearCave()
 	if iterations > 0:
-		clearCave()
 		generateRoot()
 		generateRooms()
 		setSpawners()
@@ -52,6 +52,9 @@ func generateCave():
 
 
 func clearCave():
+	cave.global_position = Vector2.ZERO
+	print(cave.global_position)
+	
 	placedSpecialRooms = 0
 	placedSpecialRoomsDeadEnd = 0
 	
@@ -66,7 +69,11 @@ func clearCave():
 
 
 func generateRoot():
-	var root = rootRooms.pick_random().instantiate().duplicate()
+	var root
+	if iterations == 1:
+		root = rootRoomsSmall.pick_random().instantiate().duplicate()
+	else:
+		root = rootRoomsLarge.pick_random().instantiate().duplicate()
 	cave.add_child(root)
 	root.global_position = Vector2.ZERO
 	currentRooms.append(root)
@@ -85,26 +92,29 @@ func generateFittingRoom(exit, roomType):
 			Enums.exitDirection.LEFT:
 				direction = Enums.exitDirection.RIGHT
 				
-		var type = exit.room.type
 		var chance = randf()
 		var segments
-		var repeatingRoomChance = 0.15
+		var repeatingCorridorChance = 0.25
 		var specialRoomChance = 0.35
-		if type == Enums.segmentType.CORRIDOR:
-			segments = corridors if chance < repeatingRoomChance else rooms
-			if chance < specialRoomChance && placedSpecialRooms < maxSpecialRooms:
-				segments = specialRooms
-		else:
-			segments = rooms if chance < repeatingRoomChance else corridors
 		
-		if roomType == Enums.segmentType.DEAD_END:
-			segments = dead_ends
-		
-		if roomType == Enums.segmentType.EXIT:
-			segments = exits
-		
-		if roomType == Enums.segmentType.SPECIAL_ROOM_DEAD_END:
-			segments = specialRoomsDeadEnd
+		match roomType:
+			Enums.segmentType.ROOM:
+				if exit.room.type == Enums.segmentType.ROOM || chance < repeatingCorridorChance:
+					segments = corridors
+				else:
+					if chance < specialRoomChance && placedSpecialRooms < maxSpecialRooms:
+						segments = specialRooms
+					else:
+						segments = rooms
+				
+			Enums.segmentType.DEAD_END:
+				segments = dead_ends
+				
+			Enums.segmentType.EXIT:
+				segments = exits
+				
+			Enums.segmentType.SPECIAL_ROOM_DEAD_END:
+				segments = specialRoomsDeadEnd
 		
 		var filteredSegments = segments.filter(func(segment): return segmentHasDirection(segment, direction))
 		if !filteredSegments.is_empty():
@@ -196,7 +206,7 @@ func generateRooms():
 	generateExits()
 	generateDeadEndSpecialRooms()
 	generateDeadEnds()
-	
+
 
 func placeRoom(exit, type: Enums.segmentType):
 	var room = generateFittingRoom(exit, type)
@@ -221,16 +231,16 @@ func generateExitInDirection(exits, direction):
 	for exit in exits:
 		match direction:
 			Enums.exitDirection.TOP:
-				if !foundExit || exitGlobalPosition(exit).y < 0:
+				if !foundExit || getExitGlobalPosition(exit).y < getExitGlobalPosition(foundExit).y:
 					foundExit = exit
 			Enums.exitDirection.RIGHT:
-				if !foundExit || exitGlobalPosition(exit).x > 0:
+				if !foundExit || getExitGlobalPosition(exit).x > getExitGlobalPosition(foundExit).x:
 					foundExit = exit
 			Enums.exitDirection.DOWN:
-				if !foundExit || exitGlobalPosition(exit).y > 0:
+				if !foundExit || getExitGlobalPosition(exit).y > getExitGlobalPosition(foundExit).y:
 					foundExit = exit
 			Enums.exitDirection.LEFT:
-				if !foundExit || exitGlobalPosition(exit).x < 0:
+				if !foundExit || getExitGlobalPosition(exit).x < getExitGlobalPosition(foundExit).x:
 					foundExit = exit
 					
 	var room = placeRoom(foundExit, Enums.segmentType.EXIT)
@@ -240,10 +250,10 @@ func generateExitInDirection(exits, direction):
 			var foundExitTemplate = room.get_child(0)
 			foundExitTemplate.exit.direction = direction
 			foundExitTemplate.exit.update()
-			spawnPlayer.emit(foundExitTemplate.get_child(2).global_position)
+			spawnPlayer.emit(foundExitTemplate.playerSpawner.global_position)
 
 
-func exitGlobalPosition(exit):
+func getExitGlobalPosition(exit):
 	return exit.room.global_position + exit.position * tileSize
 
 
@@ -298,7 +308,7 @@ func validateCave():
 func saveCave():
 	for room in cave.get_children():
 		room.id = randi() % 10000
-	LocationLoaderS.currentCave = LocationLoaderS.getBasicCave(cave)
+	LocationLoaderS.currentCave = cave
 
 
 

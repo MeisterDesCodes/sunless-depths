@@ -12,7 +12,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sd828"]
 
 [node name="PopupUI" type="Control"]
-z_index = 5
+z_index = 6
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 6

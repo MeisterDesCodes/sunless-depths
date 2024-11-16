@@ -15,7 +15,7 @@ var colorLegendary = Color("#D3A42B")
 var colorMissing = Color("#B51111")
 var colorBlack = Color("#000000")
 var colorWhite = Color("#FFFFFF")
-var colorDisabled = Color("#959595")
+var colorDisabled = Color("#858585")
 var colorTransparent = Color("#FFFFFF", 0)
 
 var colorCanvasModulate = Color("#292929")
@@ -255,8 +255,8 @@ func getStatusEffectsByType(target: CharacterBody2D, _effect: StatusEffect):
 	return effects
 
 
-func checkForCrit(entity: CharacterBody2D):
-	return randf() <= entity.critChance / 100
+func checkForCrit(critChance: float):
+	return randf() <= critChance / 100
 
 
 func playUIParticleEffect(particleComponent: Node2D, color: Color = UtilsS.colorWhite):
@@ -384,5 +384,8 @@ func gainStats(entityScene: CharacterBody2D, card: LevelUpCard):
 				entityScene.entityResource.perception += stat.amount
 
 
-
+func playAnimation(animationPlayer: AnimationPlayer, animation: String):
+	if animationPlayer.is_playing():
+		animationPlayer.stop()
+	animationPlayer.play(animation)
 

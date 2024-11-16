@@ -12,10 +12,10 @@ func _ready():
 				locationInstance.ringLevel = Enums.locationRingLevel.NONE
 			if isOuterRing(locationInstance.locationResource.location):
 				locationInstance.ringLevel = Enums.locationRingLevel.OUTER
-			if isInnerRing(locationInstance.locationResource.location):
-				locationInstance.ringLevel = Enums.locationRingLevel.INNER
 			if isVisited(locationInstance.locationResource.location):
 				locationInstance.ringLevel = Enums.locationRingLevel.VISITED
+			if isInnerRing(locationInstance.locationResource.location):
+				locationInstance.ringLevel = Enums.locationRingLevel.INNER
 			if isCurrent(locationInstance.locationResource.location):
 				locationInstance.ringLevel = Enums.locationRingLevel.CURRENT
 			
@@ -34,17 +34,18 @@ func _ready():
 func isVisited(location: Enums.locations):
 	return location in LocationLoaderS.visitedLocations
 
+
 func isCurrent(location: Enums.locations):
-	return location == LocationLoaderS.currentLocation
+	return location == LocationLoaderS.currentLocation.location
 
 
 func isInnerRing(location: Enums.locations):
-	return location in getSurroudingLocations(LocationLoaderS.currentLocation)
+	return location in getSurroudingLocations(LocationLoaderS.currentLocation.location)
 
 
 func isOuterRing(location: Enums.locations):
 	var outerRing: Array[Enums.locations]
-	var innerRing = getSurroudingLocations(LocationLoaderS.currentLocation)
+	var innerRing = getSurroudingLocations(LocationLoaderS.currentLocation.location)
 	for innerLocation in innerRing:
 		outerRing.append_array(getSurroudingLocations(innerLocation))
 	return location in outerRing

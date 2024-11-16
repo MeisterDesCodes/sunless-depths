@@ -12,7 +12,7 @@ func saveGame():
 	
 	var savedData = SavedData.new()
 	
-	savedData.area = LocationLoaderS.currentLocation
+	savedData.currentLocation = LocationLoaderS.currentLocation
 	savedData.position = playerScene.global_position
 	savedData.level = playerScene.level
 	savedData.health = playerScene.health
@@ -21,7 +21,8 @@ func saveGame():
 	savedData.stamina = playerScene.hudUI.staminaBar.value
 	savedData.visitedLocations = LocationLoaderS.visitedLocations
 	savedData.exploredLocations = LocationLoaderS.exploredLocations
-	
+	savedData.transportableLocations = LocationLoaderS.transportableLocations
+		
 	savedData.inventory = playerScene.inventory.resourceSlots
 	savedData.storage = playerScene.storage.resourceSlots
 	savedData.equippedWeapons = playerScene.equippedWeapons
@@ -49,8 +50,10 @@ func loadGame():
 	playerScene.hudUI.oxygenBar.value = savedData.oxygen
 	playerScene.hudUI.staminaBar.value = savedData.stamina
 	
+	LocationLoaderS.currentLocation = savedData.currentLocation
 	LocationLoaderS.visitedLocations = savedData.visitedLocations
 	LocationLoaderS.exploredLocations = savedData.exploredLocations
+	LocationLoaderS.transportableLocations = savedData.transportableLocations
 	playerScene.inventory.resourceSlots = savedData.inventory
 	playerScene.storage.resourceSlots = savedData.storage
 	playerScene.equippedWeapons = savedData.equippedWeapons

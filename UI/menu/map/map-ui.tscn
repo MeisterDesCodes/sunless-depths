@@ -3,49 +3,13 @@
 [ext_resource type="Script" path="res://UI/menu/map/map-ui.gd" id="1_c4myw"]
 [ext_resource type="Theme" uid="uid://c08gjo7q0l1re" path="res://assets/UI/themes/UI-elements/map.tres" id="2_v2k7b"]
 [ext_resource type="PackedScene" uid="uid://c572bb7vvyy3u" path="res://UI/menu/map/map-location-ui.tscn" id="3_v6jxr"]
+[ext_resource type="Resource" uid="uid://donrw0kavmjae" path="res://UI/menu/map/resources/a-past-forgotten.tres" id="4_hc7ju"]
 [ext_resource type="PackedScene" uid="uid://l81lxelhto0l" path="res://UI/menu/map/map-pathway-ui.tscn" id="4_mf3og"]
-[ext_resource type="Script" path="res://map/map-location.gd" id="4_qsxx8"]
-[ext_resource type="Script" path="res://map/map-pathway.gd" id="6_2hfbu"]
-
-[sub_resource type="Resource" id="Resource_j5tkm"]
-script = ExtResource("4_qsxx8")
-name = "A Past Forgotten"
-description = ""
-locationType = 0
-attributes = Array[int]([])
-location = 1
-
-[sub_resource type="Resource" id="Resource_4hajs"]
-script = ExtResource("4_qsxx8")
-name = "The Settlement"
-description = ""
-locationType = 1
-attributes = Array[int]([])
-location = 2
-
-[sub_resource type="Resource" id="Resource_2wog4"]
-script = ExtResource("4_qsxx8")
-name = "Eastward Quarries"
-description = ""
-locationType = 0
-attributes = Array[int]([0])
-location = 4
-
-[sub_resource type="Resource" id="Resource_rdgy8"]
-script = ExtResource("4_qsxx8")
-name = "Central Pathway"
-description = ""
-locationType = 0
-attributes = Array[int]([])
-location = 3
-
-[sub_resource type="Resource" id="Resource_ae5mo"]
-script = ExtResource("4_qsxx8")
-name = "Test"
-description = ""
-locationType = 0
-attributes = Array[int]([])
-location = 1
+[ext_resource type="Resource" uid="uid://dfu058hop23wt" path="res://UI/menu/map/resources/the-settlement.tres" id="5_pcqvf"]
+[ext_resource type="Script" path="res://UI/menu/map/map-pathway.gd" id="6_2hfbu"]
+[ext_resource type="Resource" uid="uid://bmcfjvny08vtb" path="res://UI/menu/map/resources/eastward-quarries-1.tres" id="6_6myy3"]
+[ext_resource type="Resource" uid="uid://cjdbiv5pj6gl2" path="res://UI/menu/map/resources/central-pathway.tres" id="7_yk5uj"]
+[ext_resource type="Resource" uid="uid://b5fgu0457wi8a" path="res://UI/menu/map/resources/eastward-quarries-2.tres" id="8_xhvb4"]
 
 [sub_resource type="Resource" id="Resource_w2r5w"]
 script = ExtResource("6_2hfbu")
@@ -62,8 +26,8 @@ attributes = Array[int]([])
 script = ExtResource("6_2hfbu")
 name = "Pathway"
 description = ""
-iterations = 2
-tier = 1
+iterations = 3
+tier = 0
 locationFrom = 2
 locationTo = 3
 travelDirections = Array[int]([0, 2])
@@ -73,10 +37,21 @@ attributes = Array[int]([])
 script = ExtResource("6_2hfbu")
 name = "Pathway"
 description = ""
-iterations = 3
+iterations = 2
+tier = 1
+locationFrom = 2
+locationTo = 4
+travelDirections = Array[int]([3, 1])
+attributes = Array[int]([1])
+
+[sub_resource type="Resource" id="Resource_ph8b0"]
+script = ExtResource("6_2hfbu")
+name = "Pathway"
+description = ""
+iterations = 2
 tier = 1
 locationFrom = 4
-locationTo = 1
+locationTo = 5
 travelDirections = Array[int]([3, 1])
 attributes = Array[int]([])
 
@@ -109,7 +84,7 @@ offset_left = 82.0
 offset_top = 76.0
 offset_right = 82.0
 offset_bottom = 76.0
-locationResource = SubResource("Resource_j5tkm")
+locationResource = ExtResource("4_hc7ju")
 metadata/_edit_use_anchors_ = true
 
 [node name="MapLocationIUI2" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
@@ -117,7 +92,7 @@ offset_left = 217.0
 offset_top = 126.0
 offset_right = 217.0
 offset_bottom = 126.0
-locationResource = SubResource("Resource_4hajs")
+locationResource = ExtResource("5_pcqvf")
 metadata/_edit_use_anchors_ = true
 
 [node name="MapLocationIUI3" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
@@ -125,7 +100,7 @@ offset_left = 415.0
 offset_top = 87.0
 offset_right = 415.0
 offset_bottom = 87.0
-locationResource = SubResource("Resource_2wog4")
+locationResource = ExtResource("6_6myy3")
 metadata/_edit_use_anchors_ = true
 
 [node name="MapLocationIUI4" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
@@ -133,7 +108,7 @@ offset_left = 270.0
 offset_top = 228.0
 offset_right = 270.0
 offset_bottom = 228.0
-locationResource = SubResource("Resource_rdgy8")
+locationResource = ExtResource("7_yk5uj")
 metadata/_edit_use_anchors_ = true
 
 [node name="MapLocationIUI5" parent="PanelContainer/Locations" instance=ExtResource("3_v6jxr")]
@@ -239,7 +214,7 @@ offset_left = 559.0
 offset_top = 104.0
 offset_right = 559.0
 offset_bottom = 104.0
-locationResource = SubResource("Resource_ae5mo")
+locationResource = ExtResource("8_xhvb4")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pathways" type="Node2D" parent="PanelContainer"]
@@ -272,10 +247,10 @@ scale = Vector2(0.4, 0.4)
 pathwayResource = SubResource("Resource_0j77k")
 
 [node name="MapPathwayUI4" parent="PanelContainer/Pathways" instance=ExtResource("4_mf3og")]
-offset_left = 441.0
-offset_top = 77.0
-offset_right = 682.0
-offset_bottom = 137.0
-rotation = 6.41643
+offset_left = 439.0
+offset_top = 78.0
+offset_right = 685.0
+offset_bottom = 138.0
+rotation = 6.41343
 scale = Vector2(0.4, 0.4)
-pathwayResource = SubResource("Resource_0j77k")
+pathwayResource = SubResource("Resource_ph8b0")

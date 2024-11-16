@@ -5,10 +5,10 @@ extends Control
 
 @onready var game: Node2D = get_tree().get_root().get_node("Game")
 @onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var typeContainer: TextureRect = get_node("PanelContainer/TextureRect")
-@onready var attributeContainer: HBoxContainer = get_node("VBoxContainer/HBoxContainer")
+@onready var locationType: TextureRect = get_node("PanelContainer/TextureRect")
+@onready var attributeContainer: HBoxContainer = get_node("AttributeContainer")
 @onready var button: Button = get_node("PanelContainer/Button")
-@onready var playerMarkerUI: PanelContainer = get_node("PlayerMarkerUI")
+@onready var playerMarkerUI: Control = get_node("PlayerMarkerUI")
 @onready var locationContainer: PanelContainer = get_node("PanelContainer")
 
 var ringLevel: Enums.locationRingLevel
@@ -30,24 +30,31 @@ func updateLocation():
 	match ringLevel:
 		Enums.locationRingLevel.NONE:
 			modulate = UtilsS.colorTransparent
+			button.disable()
 		Enums.locationRingLevel.OUTER:
-			locationContainer.self_modulate = UtilsS.colorBlack
+			locationContainer.self_modulate = UtilsS.colorDisabled
 			attributeContainer.visible = false
+			locationType.visible = false
+			button.disable(UtilsS.colorDisabled)
 		Enums.locationRingLevel.INNER:
-			locationContainer.self_modulate = UtilsS.colorCommon
-			canBeVisited = true
-		Enums.locationRingLevel.VISITED:
-			locationContainer.self_modulate = UtilsS.colorPrimary
-			canBeVisited = true
-			button.select()
+			if playerScene.atExit:
+				button.select()
+			else:
+				button.disable()
 		Enums.locationRingLevel.CURRENT:
-			locationContainer.self_modulate = UtilsS.colorPrimary
-			playerMarkerUI.modulate = UtilsS.colorWhite
+			locationContainer.self_modulate = UtilsS.colorCommon
+			button.disable()
+			if !playerScene.isInCave:
+				playerMarkerUI.modulate = UtilsS.colorWhite
 	
-	if !playerScene.atExit || !canBeVisited:
-		button.disabled = true
-	else:
-		button.disabled = false 
+	if playerScene.atTransportNode:
+		if LocationLoaderS.currentLocation.location != locationResource.location && \
+			locationResource.location in LocationLoaderS.transportableLocations:
+			button.enable()
+			button.select()
+	
+	if (playerScene.atExit && canBeVisited):
+		button.enable()
 
 
 func setType():
@@ -61,7 +68,7 @@ func setType():
 			texture = preload("res://assets/UI/icons/locations/Mystery.png")
 		Enums.locationType.RETREAT:
 			texture = preload("res://assets/UI/icons/locations/Retreat.png")
-	typeContainer.texture = texture
+	locationType.texture = texture
 
 
 func setAttributes():
@@ -77,7 +84,7 @@ func setAttributes():
 			Enums.locationAttribute.INFESTATION:
 				texture = preload("res://assets/UI/icons/locations/Infestation.png")
 			Enums.locationAttribute.ROCK_SLIDES:
-				texture = preload("res://assets/UI/icons/locations/Collapse Risk.png")
+				texture = preload("res://assets/UI/icons/locations/Rock Slides.png")
 		attributeScene.setup(texture)
 
 
@@ -95,10 +102,13 @@ func _on_button_mouse_exited():
 
 
 func _on_button_pressed():
-	playerScene.atExit = false
-	playerScene.isInCave = true
-	var pathwayObject = findPathway(LocationLoaderS.currentLocation, locationResource.location)
-	setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
+	if playerScene.atExit:
+		var pathwayObject = findPathway(LocationLoaderS.currentLocation.location, locationResource.location)
+		setupCaveGeneration(pathwayObject.PW, pathwayObject.FD, pathwayObject.TD)
+		playerScene.atExit = false
+		playerScene.isInCave = true
+	else:
+		LocationLoaderS.loadArea(locationResource)
 
 
 func findPathway(source: int, destination: int):
@@ -123,7 +133,7 @@ func findPathway(source: int, destination: int):
 
 
 func setupCaveGeneration(foundPathway, fromDirection, toDirection):
-	LocationLoaderS.nextLocation = locationResource.location
+	LocationLoaderS.nextLocation = locationResource
 	LocationLoaderS.caveGenerator.iterations = foundPathway.pathwayResource.iterations
 	LocationLoaderS.caveGenerator.tier = foundPathway.pathwayResource.tier
 	LocationLoaderS.caveGenerator.initialDirection = fromDirection
@@ -132,7 +142,7 @@ func setupCaveGeneration(foundPathway, fromDirection, toDirection):
 	LocationLoaderS.currentToDirection = toDirection
 	LocationLoaderS.currentTier = foundPathway.pathwayResource.tier
 	LocationLoaderS.attributes = foundPathway.pathwayResource.attributes
-	LocationLoaderS.loadCave()
+	LocationLoaderS.loadCave(foundPathway.pathwayResource)
 
 
 func getNameFromScene(scene: PackedScene):

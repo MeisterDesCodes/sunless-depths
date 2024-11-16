@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqg23ir8fxfji"]
 
-[ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_ypqdk"]
+[ext_resource type="Script" path="res://environment/decorations/object.gd" id="1_ypqdk"]
 [ext_resource type="PackedScene" uid="uid://5iahhgkt3jmk" path="res://environment/interactions/object-contact-damage-component.tscn" id="2_2bcdh"]
 [ext_resource type="Texture2D" uid="uid://cvk4emwoq2f1x" path="res://assets/environment/decorations/regular/prison/prison-fence.png" id="2_k6xuy"]
 [ext_resource type="Script" path="res://combat/status-effect.gd" id="4_ntnno"]

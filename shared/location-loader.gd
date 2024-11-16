@@ -5,15 +5,18 @@ extends Node
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var caveGenerator = get_tree().get_root().get_node("Game/NavigationRegion2D/CaveGenerator")
 
-var currentLocation: Enums.locations
-var nextLocation: Enums.locations
+var currentLocation: MapLocation
+var nextLocation: MapLocation
+var currentPathway: MapPathway
 var currentFromDirection: Enums.exitDirection
 var currentToDirection: Enums.exitDirection
 var currentTier: int
 var attributes: Array[Enums.locationAttribute]
+var lightModifier: int = 0
 
 var visitedLocations: Array[Enums.locations]
 var exploredLocations: Array[Enums.locations]
+var transportableLocations: Array[Enums.locations]
 var visitedRooms: Array[int]
 
 var currentInteraction: Node2D
@@ -21,16 +24,16 @@ var currentInteraction: Node2D
 var currentCave: Node2D
 
 
-func loadArea(location: Enums.locations, showLocationHeader: bool = true):
+func loadArea(location: MapLocation, showLocationHeader: bool = true):
 	await startAreaTransition()
 	removeCurrentLocation()
 	removeCurrentCave()
 	removeAttributes()
+	setupAttributes(true)
 	exploredLocations.append(currentLocation)
 	currentLocation = location
-	nextLocation = -1
 	visitedLocations.append(location)
-	game.currentLocation.add_child(getSceneFromId(location).instantiate())
+	game.currentLocation.add_child(getSceneFromId(location.location).instantiate())
 	game.soundComponent.playSettlementAmbient()
 	
 	#TODO Monitor chase not working
@@ -42,16 +45,17 @@ func loadArea(location: Enums.locations, showLocationHeader: bool = true):
 	if showLocationHeader:
 		await get_tree().create_timer(1.5).timeout
 		var UIHeader = UILoaderS.loadUIOverlay(preload("res://UI/shared/location-header.tscn"))
-		UIHeader.setup(UtilsS.getEnumValue(Enums.locations, currentLocation))
+		UIHeader.setup(UtilsS.getEnumValue(Enums.locations, currentLocation.location))
 
 
-func loadCave():
+func loadCave(pathway: MapPathway):
 	await startAreaTransition()
 	caveGenerator.spawnPlayer.connect(spawnPlayer)
 	removeCurrentCave()
 	removeCurrentLocation()
 	caveGenerator.generateCave()
-	setupAttributes()
+	setupAttributes(false)
+	currentPathway = pathway
 	
 	#TODO Monitor chase not working
 	await get_tree().process_frame
@@ -61,7 +65,7 @@ func loadCave():
 	
 	await get_tree().create_timer(1.5).timeout
 	var UIHeader = UILoaderS.loadUIOverlay(preload("res://UI/shared/location-header.tscn"))
-	UIHeader.setup("Tunnel towards: " + UtilsS.getEnumValue(Enums.locations, nextLocation))
+	UIHeader.setup("Tunnel towards: " + UtilsS.getEnumValue(Enums.locations, nextLocation.location))
 
 
 func startAreaTransition():
@@ -102,14 +106,21 @@ func getSceneFromId(location: Enums.locations):
 	return foundLocations[0]
 
 
-func setupAttributes():
-	for attribute in LocationLoaderS.attributes:
+func setupAttributes(isLocation: bool):
+	for attribute in attributes:
 		match attribute:
 			Enums.locationAttribute.DARKNESS:
+				lightModifier -= 2
 				game.canvasModulate.color = UtilsS.colorBlack
+		
+		if isLocation:
+			match currentLocation.locationType:
+				Enums.locationType.SETTLEMENT:
+					lightModifier += 1
 
 
 func removeAttributes():
+	LocationLoaderS.lightModifier = 0
 	game.canvasModulate.color = UtilsS.colorCanvasModulate
 
 
@@ -117,23 +128,26 @@ func getBasicCave(_cave: Node2D):
 	var cave = Node2D.new()
 	for _room in _cave.get_children():
 		var room = _room.duplicate()
-		
+		cave.add_child(room)
+			
 		if "id" in room:
 			room.id = _room.id
-			room.get_child(0).set_script(null)
-			room.get_child(0).get_child(0).set_script(null)
-			room.get_child(0).get_child(0).get_child(0).queue_free()
-		else:
-			room.set_script(null)
-			room.get_child(0).queue_free()
-			room.get_child(1).get_child(0).set_script(null)
-			room.get_child(1).get_child(1).queue_free()
-		
-		cave.add_child(room)
-	
+			room.removeObjects()
+			
 	return cave
 
 
-
+func getCavePosition(cave: Node2D):
+	var left: int = 0
+	var top: int = 0
+	for room in cave.get_children():
+		var x = room.global_position.x
+		var y = room.global_position.y
+		if x < left:
+			left = x
+		if y < top:
+			top = y
+	
+	return Vector2(-left, -top)
 
 

@@ -423,34 +423,15 @@ z_index = 1
 position = Vector2(685, 1045)
 texture = ExtResource("5_x583x")
 
-[node name="Torch3" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
-position = Vector2(444, 742)
-rotation = 1.54811
-texture = ExtResource("5_x583x")
-
-[node name="Torch4" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
-position = Vector2(846, 542)
-rotation = 1.1968
-texture = ExtResource("5_x583x")
-
 [node name="Torch9" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
 position = Vector2(1068, 391)
 rotation = -0.101229
-texture = ExtResource("5_x583x")
-
-[node name="Torch11" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
-position = Vector2(911, 233)
-rotation = 2.0262
 texture = ExtResource("5_x583x")
 
 [node name="Torch5" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
 position = Vector2(788, 43)
 rotation = 3.18697
 texture = ExtResource("5_x583x")
-
-[node name="Torch2" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
-position = Vector2(811, 809)
-texture = ExtResource("4_gh6p4")
 
 [node name="Torch7" parent="Map/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("3_lyis5")]
 position = Vector2(499, 371)
@@ -1047,10 +1028,3 @@ position = Vector2(530.669, 612.635)
 
 [node name="EntitySpawner2" parent="Map/EnvironmentalObjects/Spawners" instance=ExtResource("7_n6h3v")]
 position = Vector2(1058.67, 552.635)
-
-[node name="ObjectCircular41" parent="." instance=ExtResource("8_cdnws")]
-position = Vector2(2701, 108)
-rotation = -0.43069
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_qrnl1")
-collisionRadius = 60

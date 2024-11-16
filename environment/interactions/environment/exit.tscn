@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp6mp20tnrb6q"]
 
-[ext_resource type="Script" path="res://environment/interactions/exit.gd" id="1_1b0lg"]
+[ext_resource type="Script" path="res://environment/interactions/environment/exit.gd" id="1_1b0lg"]
 [ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="1_5b5qa"]
 [ext_resource type="PackedScene" uid="uid://5mvbhu1pwt7b" path="res://environment/decorations/particles/exit-particle.tscn" id="3_hts4k"]
 [ext_resource type="PackedScene" uid="uid://dt8jeingtjfoh" path="res://environment/interactions/interaction-component.tscn" id="4_3rrb5"]

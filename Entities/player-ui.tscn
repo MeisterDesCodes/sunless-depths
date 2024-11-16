@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="12_rm3wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqlct"]
-radius = 20.0
+radius = 13.0384
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_016k8"]
 radius = 6.0

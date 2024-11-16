@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp4yb5qnguagk"]
+
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_gw1fx"]
+[ext_resource type="PackedScene" uid="uid://dtgeihk14ufwb" path="res://generation/corridors/corridor-5/corridor-5-template.tscn" id="2_l8lct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
+size = Vector2(551, 297)
+
+[node name="Corridor - 5 - 0" type="Node2D"]
+script = ExtResource("1_gw1fx")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 2,
+"position": Vector2(6, 4)
+}, {
+"completed": false,
+"direction": 3,
+"position": Vector2(0, 1)
+}])
+type = 1
+
+[node name="Map" parent="." instance=ExtResource("2_l8lct")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(292.5, 165.5)
+shape = SubResource("RectangleShape2D_m2ub1")

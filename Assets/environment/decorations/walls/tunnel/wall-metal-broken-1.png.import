@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vdw8rs4sxwfw"
-path="res://.godot/imported/rail-broken.png-1cd4b119f0591d8315c66d5309bc0b1b.ctex"
+uid="uid://bulh6ftwjtjmh"
+path="res://.godot/imported/wall-metal-broken-1.png-74fb5c39ea542c84ec77fa90aafeaf82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/decorations/regular/mineshaft/rail-broken.png"
-dest_files=["res://.godot/imported/rail-broken.png-1cd4b119f0591d8315c66d5309bc0b1b.ctex"]
+source_file="res://assets/environment/decorations/walls/tunnel/wall-metal-broken-1.png"
+dest_files=["res://.godot/imported/wall-metal-broken-1.png-74fb5c39ea542c84ec77fa90aafeaf82.ctex"]
 
 [params]
 
