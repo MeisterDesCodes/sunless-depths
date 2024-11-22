@@ -15,7 +15,7 @@ var colorLegendary = Color("#D3A42B")
 var colorMissing = Color("#B51111")
 var colorBlack = Color("#000000")
 var colorWhite = Color("#FFFFFF")
-var colorDisabled = Color("#858585")
+var colorDisabled = Color("#757575")
 var colorTransparent = Color("#FFFFFF", 0)
 
 var colorCanvasModulate = Color("#292929")
@@ -41,6 +41,8 @@ func updateResourceType(resource: InventoryResource):
 	if resource is InventoryAmmunition:
 		resource.type = Enums.resourceType.AMMUNITION
 		resource.weight = 0.2
+		
+	resource.filterType = resource.type
 
 
 func getScalingValue(value: float):
@@ -231,22 +233,53 @@ func resourceNameArrayToString(array):
 	return text
 
 
+func resourceCostArrayToString(array):
+	var text: String = ""
+	for element in array:
+		text += str(element.amount) + " " + element.resource.name
+		if element.amount > 1 && !element.resource.name.ends_with("s"):
+			text += "s"
+		if array.find(element) < array.size() - 1:
+			text += ", "
+	
+	return text
+
+
 func round(value: float, decimals: int):
 	return round(value * pow(10, decimals)) / pow(10, decimals)
 
 
 func getStatusEffectDescription(effect: StatusEffect):
 	match effect.effectType:
-		Enums.statusEffectType.BLEED:
-			return "Takes " + str(effect.strength) + " bleed damage every second"
-		Enums.statusEffectType.POISON:
-			return "Takes " + str(effect.strength) + " poison damage every second"
-		Enums.statusEffectType.BLEED:
+		Enums.statusEffectType.BLEED || Enums.statusEffectType.POISON || Enums.statusEffectType.BURN:
 			return "Takes " + str(effect.strength) + " burn damage every second"
 		Enums.statusEffectType.HEAL:
 			return "Restores " + str(effect.strength) + " health every second"
 		Enums.statusEffectType.STAMINA_COST_REDUCTION:
 			return "Overall stamina costs are reduced by " + str(effect.strength) + " %"
+		Enums.statusEffectType.STAMINA_COST_REDUCTION:
+			return "Overall stamina costs are reduced by " + str(effect.strength) + " %"
+		Enums.statusEffectType.SLOWNESS:
+			return "Movement speed is reduced by " + str(effect.strength) + " %"
+		Enums.statusEffectType.QUICK_FEET:
+			return "Movement speed is increased by " + str(effect.strength) + " %"
+		Enums.statusEffectType.HASTE:
+			return "Attack delays are reduced by " + str(effect.strength * -1) + " %"
+		Enums.statusEffectType.STAT_INCREASE:
+			return "Overall stats are increased by " + str(effect.strength)
+		Enums.statusEffectType.SATURATION:
+			return "Restores " + str(effect.strength) + " % of nourishment every second"
+		Enums.statusEffectType.STAMINA_RESTORE:
+			return "Restores " + str(effect.strength) + " % of stamina every second"
+		Enums.statusEffectType.ON_HIT:
+			return "Attacks deal " + str(effect.strength) + " additional damage"
+		Enums.statusEffectType.DAMAGE_INCREASE:
+			return "Overall damage is increased by " + str(effect.strength)
+		Enums.statusEffectType.MELEE_DAMAGE_INCREASE:
+			return "Melee damage is increased by " + str(effect.strength)
+		Enums.statusEffectType.RANGED_DAMAGE_INCREASE:
+			return "Ranged damage is increased by " + str(effect.strength)
+	
 	return ""
 
 
@@ -389,3 +422,25 @@ func playAnimation(animationPlayer: AnimationPlayer, animation: String):
 		animationPlayer.stop()
 	animationPlayer.play(animation)
 
+
+func getStatCheckChance(playerScene: CharacterBody2D, statCheck: StatCheck):
+	if !statCheck:
+		return 1
+	
+	var statValue: int = getValueFromStat(playerScene, statCheck)
+	var chance: float = statCheck.baseChance + (statValue - statCheck.statMinimum) / (statCheck.statMaximum - statCheck.statMinimum)
+	if chance > 1:
+		chance = 1
+	return chance
+
+
+func getValueFromStat(playerScene: CharacterBody2D, statCheck: StatCheck):
+	match statCheck.stat:
+		Enums.equipmentModifierType.FEROCITY:
+			return playerScene.entityResource.ferocity
+		Enums.equipmentModifierType.PERSEVERANCE:
+			return playerScene.entityResource.perseverance
+		Enums.equipmentModifierType.AGILITY:
+			return playerScene.entityResource.agility
+		Enums.equipmentModifierType.PERCEPTION:
+			return playerScene.entityResource.perception

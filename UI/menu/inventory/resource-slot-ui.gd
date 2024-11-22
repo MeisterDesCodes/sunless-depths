@@ -19,7 +19,7 @@ signal updateSlot
 @onready var playerTransferSlotsConainer: HBoxContainer = get_node("MarginContainer/PlayerTransferSlots")
 @onready var boxTransferSlotsConainer: HBoxContainer = get_node("MarginContainer/BoxTransferSlots")
 @onready var transferButton: Button = get_node("MarginContainer/TransferButton")
-@onready var dropButton: Button = get_node("MarginContainer/DropButton")
+@onready var dropButton: Button = get_node("MarginContainer2/DropButton")
 
 @onready var consumeTexture = preload("res://assets/UI/icons/menu/inventory/Consume.png")
 
@@ -73,6 +73,9 @@ func setup(_slot: InventorySlot, inventoryType: Enums.inventoryType):
 		Enums.resourceType.AMMUNITION:
 			ammunitionSlotsConainer.visible = true
 			showAmount()
+	
+	if inventoryType != Enums.inventoryType.REGULAR:
+		dropButton.visible = false
 	
 	if inventoryType != Enums.inventoryType.REGULAR && inventoryType != Enums.inventoryType.CRAFTING_STATION:
 		consumeButton.visible = false

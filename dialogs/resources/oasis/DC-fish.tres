@@ -1,14 +1,36 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://bmkqipgvhxc3f"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://bmkqipgvhxc3f"]
 
+[ext_resource type="Resource" uid="uid://wqed7ldr02ve" path="res://inventory-resource/resources/consumables/cave-fish.tres" id="1_nbu4o"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_cfcd5"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="2_hxlaq"]
+[ext_resource type="Resource" uid="uid://cajx836dc4hkm" path="res://dialogs/resources/oasis/D-failure.tres" id="3_suugn"]
+[ext_resource type="Resource" uid="uid://dc8vmqfe0pdon" path="res://dialogs/resources/oasis/D-success.tres" id="4_bajhn"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="4_oa10g"]
+
+[sub_resource type="Resource" id="Resource_xucn2"]
+script = ExtResource("2_cfcd5")
+resource = ExtResource("1_nbu4o")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_bs3iy"]
+script = ExtResource("2_hxlaq")
+stat = 3
+baseChance = 0.3
+statMinimum = 0
+statMaximum = 12
 
 [resource]
 script = ExtResource("4_oa10g")
 title = "Attempt to catch a fish"
-description = "xxx"
-requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-addedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-removedResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-optionalMoveBackwards = 0
-oneTimeUse = false
-function = "clearPath"
+description = "You see several fish swimming in the little pond. Having no equipment, you have to use your bare hands. It might be worth a try."
+statCheck = SubResource("Resource_bs3iy")
+requiredResources = Array[ExtResource("2_cfcd5")]([])
+addedResourcesS = Array[ExtResource("2_cfcd5")]([SubResource("Resource_xucn2")])
+removedResourcesS = Array[ExtResource("2_cfcd5")]([])
+nextDialogS = ExtResource("4_bajhn")
+addedResourcesF = Array[ExtResource("2_cfcd5")]([])
+removedResourcesF = Array[ExtResource("2_cfcd5")]([])
+nextDialogF = ExtResource("3_suugn")
+optionalMoveBackwards = -1
+oneTimeUse = true
+function = ""

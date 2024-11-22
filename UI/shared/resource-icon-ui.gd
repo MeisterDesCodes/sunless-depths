@@ -5,8 +5,11 @@ extends PanelContainer
 @onready var icon: TextureRect = get_node("Icon")
 @onready var amount: Label = get_node("Amount")
 
+var resource: InventoryResource
+
 
 func setup(_resource, _amount, _texture, showNumber: bool, isRequirement: bool):
+	resource = _resource
 	icon.texture = _texture
 	if showNumber && !(_resource is InventoryWeapon) && !(_resource is InventoryEquipment):
 		amount.text = str(_amount)
@@ -23,3 +26,11 @@ func changeIconColor(color: Color):
 
 func changeFrameColor(color: Color):
 	self_modulate = color
+
+
+func _on_mouse_entered():
+	UILoaderS.loadUITooltip(self, resource.name)
+
+
+func _on_mouse_exited():
+		UILoaderS.closeUITooltip()

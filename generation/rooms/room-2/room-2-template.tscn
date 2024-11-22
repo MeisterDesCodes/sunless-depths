@@ -254,8 +254,13 @@ rotation = -1.0784
 texture = ExtResource("13_misny")
 
 [node name="BlockageSmall2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_ryidj")]
-position = Vector2(1243, 532)
+position = Vector2(1234, 482)
 rotation = -3.66519
+texture = ExtResource("13_misny")
+
+[node name="BlockageSmall6" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_ryidj")]
+position = Vector2(1263, 518)
+rotation = -6.23014
 texture = ExtResource("13_misny")
 
 [node name="BlockageSmall3" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_ryidj")]

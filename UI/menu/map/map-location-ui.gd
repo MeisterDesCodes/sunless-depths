@@ -22,6 +22,9 @@ func _ready():
 	
 	playerMarkerUI.modulate = UtilsS.colorTransparent
 	
+	if !(locationResource.location in LocationLoaderS.exploredLocations):
+		locationResource.description = "???"
+	
 	setType()
 	setAttributes()
 
@@ -142,6 +145,7 @@ func setupCaveGeneration(foundPathway, fromDirection, toDirection):
 	LocationLoaderS.currentToDirection = toDirection
 	LocationLoaderS.currentTier = foundPathway.pathwayResource.tier
 	LocationLoaderS.attributes = foundPathway.pathwayResource.attributes
+	LocationLoaderS.caveGenerator.caveVariation = foundPathway.pathwayResource.caveVariation
 	LocationLoaderS.loadCave(foundPathway.pathwayResource)
 
 

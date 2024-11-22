@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=5 format=3 uid="uid://wqed7ldr02ve"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-consumable.gd" id="1_brn4f"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_u74a1"]
+[ext_resource type="Texture2D" uid="uid://b6ytyituiklf0" path="res://assets/resources/consumables/Cave Fish.png" id="3_whcnm"]
+
+[sub_resource type="Resource" id="Resource_okjso"]
+script = ExtResource("2_u74a1")
+effectType = 15
+strength = 5.0
+duration = 20.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 1
+
+[resource]
+script = ExtResource("1_brn4f")
+cooldown = 30.0
+statusEffects = Array[ExtResource("2_u74a1")]([SubResource("Resource_okjso")])
+name = "Cave Fish"
+description = "Obtained from fishing in underground ponds. This fish will keep you satisfied for a long time, or can be used in more effective recipes."
+texture = ExtResource("3_whcnm")
+rarity = 2
+weight = 2.0

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_rqew7")
 name = "Eastward Quarries - I"
-description = "123"
+description = "The beginning of a large network of quarries, providing building materials for the tunnels. This place was recently abandoned by the settlement and is now roamed by bandits."
 tier = 1
 locationType = 3
 attributes = Array[int]([0])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://xib11p6doy2u"]
+
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="4_nuo0q"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="5_gjtpl"]
+
+[resource]
+script = ExtResource("5_gjtpl")
+title = "xxx"
+description = "xxx"
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("4_nuo0q")])

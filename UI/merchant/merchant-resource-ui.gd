@@ -43,19 +43,19 @@ func calculateResourceCost():
 	var baseCost: float
 	match resource.type:
 		Enums.resourceType.MATERIAL:
-			baseCost = 10
+			baseCost = 8
 		Enums.resourceType.CONSUMABLE:
-			baseCost = 35
+			baseCost = 25
 		Enums.resourceType.BLUEPRINT:
-			baseCost = 75
-		Enums.resourceType.AMMUNITION:
-			baseCost = 5
-		Enums.resourceType.EQUIPMENT:
 			baseCost = 125
+		Enums.resourceType.AMMUNITION:
+			baseCost = 2
+		Enums.resourceType.EQUIPMENT:
+			baseCost = 75
 		Enums.resourceType.WEAPON:
-			baseCost = 150
+			baseCost = 125
 	
-	var sellModifier = 1 if merchantMode == Enums.merchantMode.BUY else 0.65
+	var sellModifier = 1 if merchantMode == Enums.merchantMode.BUY else 0.5
 	return round(baseCost * rarityModifier * sellModifier * priceModifier)
 
 

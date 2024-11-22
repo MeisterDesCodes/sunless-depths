@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("1_4b37e")
-damage = 9.0
+damage = 8.0
 knockback = 10.0
 speed = 700.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 isPiercing = true
 name = "Bone Arrow"
-description = ""
+description = "A lightweight arrow that pierces foes."
 texture = ExtResource("2_jop4y")
 rarity = 2
+weight = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1m1q6gnsimr3"]
+[gd_scene load_steps=8 format=3 uid="uid://c7akthwbu2d8b"]
 
 [ext_resource type="Script" path="res://UI/shared/popup-ui.gd" id="1_ffj85"]
 [ext_resource type="Theme" uid="uid://r3nr6e6s77a1" path="res://assets/UI/themes/UI-elements/popup.tres" id="2_pjr4e"]
@@ -11,108 +11,99 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sd828"]
 
-[node name="PopupUI" type="Control"]
-z_index = 6
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 6
-size_flags_vertical = 6
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(500, 0)
+offset_right = 500.0
+offset_bottom = 100.0
+theme = ExtResource("2_pjr4e")
 script = ExtResource("1_ffj85")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-offset_right = 299.0
-offset_bottom = 257.0
-size_flags_horizontal = 4
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 size_flags_vertical = 4
-theme = ExtResource("2_pjr4e")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_peqai")
 
-[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ofk2b")
 
-[node name="Type" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("3_vqprk")
 horizontal_alignment = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ofk2b")
 
-[node name="Rarity" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="Rarity" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("3_vqprk")
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sd828")
 
-[node name="Description" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer2"]
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
 theme = ExtResource("3_vqprk")
 autowrap_mode = 3
 
-[node name="Stats" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Stats" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Blueprint" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Blueprint" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="InputResources" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Blueprint"]
+[node name="InputResources" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Blueprint"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Blueprint"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Blueprint"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sd828")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Blueprint/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Blueprint/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("3_d5fn4")
 expand_mode = 2
 
-[node name="OutputResources" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Blueprint"]
+[node name="OutputResources" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Blueprint"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

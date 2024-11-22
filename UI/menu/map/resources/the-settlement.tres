@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_7w5ac")
 name = "The Settlement"
-description = "123"
+description = "A small yet sturdy settlement in the outskirts of the tunnels, cut off from civilazation during a recent rock slide. This place doens't provide much, but might aid your journey nonetheless."
 tier = 0
 locationType = 2
 attributes = Array[int]([1, 2])

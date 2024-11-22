@@ -45,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="39_k1h18"]
 [ext_resource type="Texture2D" uid="uid://chsokdma7mrch" path="res://assets/environment/interactions/basket-empty-1.png" id="40_ww1ri"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="41_ndmou"]
-[ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="42_43fa1"]
+[ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom-brew.tres" id="42_43fa1"]
 [ext_resource type="Resource" uid="uid://daf7r3jspwtfx" path="res://inventory-resource/resources/equipment/armor/bandit-H.tres" id="43_pkpxl"]
 [ext_resource type="Resource" uid="uid://i3hvkcqsmiae" path="res://inventory-resource/resources/equipment/armor/bandit-C.tres" id="44_333vx"]
 [ext_resource type="Resource" uid="uid://wj0a5nbcy6sc" path="res://inventory-resource/resources/equipment/armor/bandit-P.tres" id="45_6tlbc"]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://tk4vhadxk7c7"]
+
+[ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_toxvp"]
+[ext_resource type="Texture2D" uid="uid://bi5hd7ko2vaay" path="res://assets/resources/weapons/slingshot.png" id="2_7ji1t"]
+
+[resource]
+script = ExtResource("1_toxvp")
+damageModifier = 0.4
+speedModifier = 0.8
+knockbackModifier = 1.25
+spread = 20.0
+projectileAmount = 1
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 0.75
+staminaCost = 10.0
+animations = Array[int]([3])
+name = "Slingshot"
+description = ""
+texture = ExtResource("2_7ji1t")
+rarity = 1
+weight = 1.5

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgh80wpa5oaig"
-path="res://.godot/imported/Cave Shroom.png-1ed6caf5692ec576158f646b3ff1f8d7.ctex"
+uid="uid://bt32i5s6okydk"
+path="res://.godot/imported/workshop-texture.png-7a72e024cbadad208b8fe6f40b1b166e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/material/Cave Shroom.png"
-dest_files=["res://.godot/imported/Cave Shroom.png-1ed6caf5692ec576158f646b3ff1f8d7.ctex"]
+source_file="res://assets/environment/textures/material/workshop-texture.png"
+dest_files=["res://.godot/imported/workshop-texture.png-7a72e024cbadad208b8fe6f40b1b166e.ctex"]
 
 [params]
 

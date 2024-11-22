@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfsrre5x3sd2i"]
+
+[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="1_q5c66"]
+[ext_resource type="Script" path="res://UI/shared/stat-icon-ui.gd" id="2_37m8e"]
+
+[node name="StatIconUI" type="PanelContainer"]
+custom_minimum_size = Vector2(55, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_q5c66")
+script = ExtResource("2_37m8e")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="3_m1d1e"]
 [ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="4_veb18"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="5_psxhh"]
-[ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom_brew.tres" id="6_kcgpp"]
+[ext_resource type="Resource" uid="uid://dxgdtyxnrmnic" path="res://inventory-resource/resources/consumables/mushroom-brew.tres" id="6_kcgpp"]
 
 [sub_resource type="Resource" id="Resource_5e2bq"]
 script = ExtResource("2_1asrg")

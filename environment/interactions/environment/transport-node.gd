@@ -26,6 +26,7 @@ extends Node2D
 @onready var minecartReplace = get_node("Decorations/MinecartReplace")
 @onready var railReplace1 = get_node("Decorations/RailReplace")
 @onready var railReplace2 = get_node("Decorations/RailReplace2")
+@onready var lanternDelete = get_node("LightSources/LanternDelete")
 
 
 var isBroken: bool = true
@@ -40,6 +41,7 @@ func _ready():
 	if LocationLoaderS.currentLocation.location in LocationLoaderS.transportableLocations:
 		isBroken = false
 	else:
+		interaction.textDisplay = "Repair for " + UtilsS.resourceCostArrayToString(repairCosts)
 		wallReplace1.texture = brokenWall
 		wallReplace2.texture = brokenWall
 		wallDelete1.visible = false
@@ -47,6 +49,7 @@ func _ready():
 		wallDelete3.visible = false
 		wallDelete4.visible = false
 		wallDelete5.visible = false
+		lanternDelete.visible = false
 		minecartReplace.texture = brokenMinecart
 		minecartReplace.rotation = 200
 		railReplace1.texture = brokenRail
@@ -54,10 +57,18 @@ func _ready():
 
 
 func interact(body):
-	if isBroken && playerScene.inventory.hasResources(repairCosts):
+	if isBroken:
+		if !playerScene.inventory.hasResources(repairCosts):
+			return
+		
+		LocationLoaderS.startAreaTransition()
+		LocationLoaderS.finishAreaTransition()
+		
 		for repairCost in repairCosts:
 			playerScene.inventory.removeResource(repairCost.resource, repairCost.amount)
 		
+		interaction.textDisplay = ""
+		interaction.updateLabel()
 		isBroken = false
 		LocationLoaderS.transportableLocations.append(LocationLoaderS.currentLocation.location)
 
@@ -68,6 +79,7 @@ func interact(body):
 		wallDelete3.visible = true
 		wallDelete4.visible = true
 		wallDelete5.visible = true
+		lanternDelete.visible = true
 		minecartReplace.texture = repairedMinecart
 		minecartReplace.rotation = 90
 		railReplace1.texture = repairedRail

@@ -12,6 +12,8 @@ knockback = 20.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 ammunition = ExtResource("1_er7rl")
 attackDelay = 0.5
+spread = 0.0
+amount = 0.0
 
 [resource]
 script = ExtResource("5_qt5ef")

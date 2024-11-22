@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://evwwxpphrv2f"]
+[gd_scene load_steps=24 format=3 uid="uid://evwwxpphrv2f"]
 
 [ext_resource type="Script" path="res://UI/menu/inventory/player-stats-ui.gd" id="1_yem5b"]
 [ext_resource type="Texture2D" uid="uid://ddo537ghvks2b" path="res://assets/entities/player.png" id="2_itxv7"]
@@ -6,14 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://jb4iqplcwjyj" path="res://assets/UI/icons/entities/player/stats/Ferocity.png" id="4_hciwx"]
 [ext_resource type="Theme" uid="uid://btdvschxvt4e5" path="res://assets/UI/themes/text/text-regular-highlight.tres" id="4_ty8xn"]
 [ext_resource type="Texture2D" uid="uid://c4bc5s1o4qa72" path="res://assets/UI/icons/entities/player/stats/Perseverance.png" id="5_epqw1"]
-[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="5_xgu3m"]
+[ext_resource type="Theme" uid="uid://ct6ax5ic4d7tk" path="res://assets/UI/themes/text/text-large.tres" id="6_70rfd"]
 [ext_resource type="Texture2D" uid="uid://bej8d5jd1it7r" path="res://assets/UI/icons/entities/player/stats/Agility.png" id="6_wut3j"]
 [ext_resource type="Texture2D" uid="uid://y7hxr8hq5k2e" path="res://assets/UI/icons/entities/player/stats/Perception.png" id="7_72qyy"]
 [ext_resource type="Theme" uid="uid://lkf3mb4llx74" path="res://assets/UI/themes/text/text-large-highlight.tres" id="10_81mck"]
+[ext_resource type="Texture2D" uid="uid://c0luo3i8kg4ve" path="res://assets/UI/components/progress-bar-outline.png" id="10_crj3w"]
+[ext_resource type="PackedScene" uid="uid://cfsrre5x3sd2i" path="res://UI/shared/stat-icon-ui.tscn" id="10_hpt31"]
 [ext_resource type="Texture2D" uid="uid://dntr40encvoxf" path="res://assets/UI/components/resource-icon.png" id="10_t0obh"]
-[ext_resource type="Theme" uid="uid://b18tu8eqd6rjk" path="res://assets/UI/themes/text/text-small-highlight.tres" id="11_cv104"]
+[ext_resource type="Texture2D" uid="uid://cs7s62josfgtx" path="res://assets/UI/components/progress-bar-fill.png" id="11_ooxg0"]
 [ext_resource type="Texture2D" uid="uid://bbdh0rhsv0fiy" path="res://assets/UI/components/status-effect-fill.png" id="11_tkxfv"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="12_syd1x"]
+[ext_resource type="Theme" uid="uid://dewfnljg88yw5" path="res://assets/UI/themes/UI-elements/dialog-choice.tres" id="17_63xdf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lje58"]
 
@@ -43,193 +46,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 30
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 60
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(625, 0)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 30
+size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 30
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_lje58")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("2_itxv7")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 10
-
-[node name="Label1" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("3_dh1lh")
-text = "Name
-"
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("3_dh1lh")
-text = "Background"
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("3_dh1lh")
-text = "Level"
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("3_dh1lh")
-text = "Ambition"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 10
-
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("4_ty8xn")
-
-[node name="Background" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("4_ty8xn")
-
-[node name="Level" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("4_ty8xn")
-
-[node name="Ambition" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("4_ty8xn")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 15
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-self_modulate = Color(0.709804, 0.0666667, 0.0666667, 1)
-custom_minimum_size = Vector2(65, 55)
-layout_mode = 2
-theme = ExtResource("5_xgu3m")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Panel"]
-self_modulate = Color(0.709804, 0.0666667, 0.0666667, 1)
-custom_minimum_size = Vector2(35, 35)
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("4_hciwx")
-expand_mode = 2
-
-[node name="Ferocity" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-self_modulate = Color(0.329412, 0.639216, 0.184314, 1)
-custom_minimum_size = Vector2(65, 55)
-layout_mode = 2
-theme = ExtResource("5_xgu3m")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/Panel"]
-self_modulate = Color(0.329412, 0.639216, 0.184314, 1)
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("5_epqw1")
-expand_mode = 2
-
-[node name="Perseverance" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-layout_mode = 2
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Panel3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-self_modulate = Color(0.827451, 0.643137, 0.168627, 1)
-custom_minimum_size = Vector2(65, 55)
-layout_mode = 2
-theme = ExtResource("5_xgu3m")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/Panel3"]
-self_modulate = Color(0.827451, 0.643137, 0.168627, 1)
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("6_wut3j")
-expand_mode = 2
-
-[node name="Agility" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
-layout_mode = 2
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Panel4" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
-self_modulate = Color(0.117647, 0.372549, 0.607843, 1)
-custom_minimum_size = Vector2(65, 55)
-layout_mode = 2
-theme = ExtResource("5_xgu3m")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/Panel4"]
-self_modulate = Color(0.117647, 0.372549, 0.607843, 1)
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("7_72qyy")
-expand_mode = 2
-
-[node name="Perception" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
-layout_mode = 2
-text = "
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Experience" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Experience" type="TextureProgressBar" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -244,7 +101,7 @@ stretch_margin_bottom = 10
 texture_over = ExtResource("10_t0obh")
 texture_progress = ExtResource("11_tkxfv")
 
-[node name="LevelUpButton" parent="MarginContainer/VBoxContainer/HBoxContainer3/Experience" node_paths=PackedStringArray("affectedElement") instance=ExtResource("12_syd1x")]
+[node name="LevelUpButton" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/Experience" node_paths=PackedStringArray("affectedElement") instance=ExtResource("12_syd1x")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = 15
@@ -264,34 +121,371 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_l1t6c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ne6mt")
 affectedElement = NodePath("..")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Level" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("6_70rfd")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_dh1lh")
 text = "Current Experience:"
 
-[node name="CurrentExperience" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+[node name="ExperienceLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("10_81mck")
 
-[node name="LevelUp" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/LevelUp"]
-layout_mode = 2
+theme = ExtResource("4_ty8xn")
 text = "Ready to level up!"
 
-[node name="ExperienceCost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/LevelUp"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("11_cv104")
+theme_override_constants/separation = 10
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer3/Experience/LevelUpButton" to="." method="_on_level_up_button_pressed"]
+[node name="Stats" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("6_70rfd")
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="StatIconUI4" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer" instance=ExtResource("10_hpt31")]
+layout_mode = 2
+texture = ExtResource("4_hciwx")
+tooltip = "Ferocity"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 10)
+layout_mode = 2
+nine_patch_stretch = true
+texture_under = ExtResource("10_crj3w")
+texture_over = ExtResource("10_crj3w")
+texture_progress = ExtResource("11_ooxg0")
+
+[node name="Ferocity" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="StatIconUI3" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2" instance=ExtResource("10_hpt31")]
+layout_mode = 2
+texture = ExtResource("5_epqw1")
+tooltip = "Perseverance"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(400, 10)
+layout_mode = 2
+nine_patch_stretch = true
+texture_under = ExtResource("10_crj3w")
+texture_over = ExtResource("10_crj3w")
+texture_progress = ExtResource("11_ooxg0")
+
+[node name="Perseverance" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="StatIconUI2" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3" instance=ExtResource("10_hpt31")]
+layout_mode = 2
+texture = ExtResource("6_wut3j")
+tooltip = "Agility"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(400, 10)
+layout_mode = 2
+nine_patch_stretch = true
+texture_under = ExtResource("10_crj3w")
+texture_over = ExtResource("10_crj3w")
+texture_progress = ExtResource("11_ooxg0")
+
+[node name="Agility" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="StatIconUI" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4" instance=ExtResource("10_hpt31")]
+layout_mode = 2
+texture = ExtResource("7_72qyy")
+tooltip = "Perception"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(400, 10)
+layout_mode = 2
+nine_patch_stretch = true
+texture_under = ExtResource("10_crj3w")
+texture_over = ExtResource("10_crj3w")
+texture_progress = ExtResource("11_ooxg0")
+
+[node name="Perception" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Weapons" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("6_70rfd")
+text = "Weapons"
+horizontal_alignment = 1
+
+[node name="WeaponContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Equipment" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("6_70rfd")
+text = "Equipment"
+horizontal_alignment = 1
+
+[node name="EquipmentContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer6"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer7" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer7"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer8" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer8"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer9" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer9"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer10" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer10"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer11" type="PanelContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_63xdf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer11"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/Experience/LevelUpButton" to="." method="_on_level_up_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer" to="." method="_on_panel_container_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer2" to="." method="_on_panel_container_2_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer2" to="." method="_on_panel_container_2_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer3" to="." method="_on_panel_container_3_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer3/WeaponContainer/PanelContainer3" to="." method="_on_panel_container_3_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer4" to="." method="_on_panel_container_4_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer4" to="." method="_on_panel_container_4_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer5" to="." method="_on_panel_container_5_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer5" to="." method="_on_panel_container_5_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer6" to="." method="_on_panel_container_6_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer6" to="." method="_on_panel_container_6_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer7" to="." method="_on_panel_container_7_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer7" to="." method="_on_panel_container_7_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer8" to="." method="_on_panel_container_8_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer8" to="." method="_on_panel_container_8_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer9" to="." method="_on_panel_container_9_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer9" to="." method="_on_panel_container_9_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer10" to="." method="_on_panel_container_10_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer10" to="." method="_on_panel_container_10_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer11" to="." method="_on_panel_container_11_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer4/EquipmentContainer/PanelContainer11" to="." method="_on_panel_container_11_mouse_exited"]

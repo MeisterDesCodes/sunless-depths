@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c26smam66letm"]
+
+[ext_resource type="Texture2D" uid="uid://bt32i5s6okydk" path="res://assets/environment/textures/material/workshop-texture.png" id="1_msl83"]
+
+[node name="WorkshopTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -370.0
+offset_top = -407.0
+offset_right = 432.0
+offset_bottom = 430.0
+texture = ExtResource("1_msl83")
+expand_mode = 1

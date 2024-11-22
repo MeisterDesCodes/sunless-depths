@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_cnpe1")
 name = "Planks"
-description = "Salvaged from the surface, they are essential for crafting primitive equipment and combined resources."
+description = "Salvaged from rubble and dead trees. Might be useful for crafting rudimentary weapons."
 texture = ExtResource("2_kk6do")
 rarity = 1
+weight = 1.0

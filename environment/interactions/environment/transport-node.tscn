@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://dnss23pfdr3oh"]
+[gd_scene load_steps=28 format=3 uid="uid://dnss23pfdr3oh"]
 
 [ext_resource type="Script" path="res://environment/interactions/environment/transport-node.gd" id="1_7vmf1"]
 [ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="2_6qcun"]
 [ext_resource type="PackedScene" uid="uid://1yvhjy3jwhtg" path="res://environment/decorations/textures/settlement-texture.tscn" id="2_iubrl"]
 [ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="2_xtdso"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="3_ulc8x"]
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="4_easrk"]
+[ext_resource type="Resource" uid="uid://b77626vhf1e2b" path="res://inventory-resource/resources/material/uncommon/iron-bar.tres" id="5_27q6m"]
 [ext_resource type="PackedScene" uid="uid://bbgwcs1e6472" path="res://environment/decorations/regular/object-decoration.tscn" id="7_i0vdk"]
 [ext_resource type="Texture2D" uid="uid://dix7fd4obrohl" path="res://assets/environment/decorations/walls/tunnel/minecart.png" id="8_2ta2d"]
 [ext_resource type="Texture2D" uid="uid://gq6pf1b3dbif" path="res://assets/environment/decorations/regular/mineshaft/rail-curve.png" id="8_weqcm"]
@@ -25,7 +27,17 @@
 [sub_resource type="Resource" id="Resource_mwhkk"]
 script = ExtResource("3_ulc8x")
 resource = ExtResource("2_xtdso")
-amount = 20
+amount = 8
+
+[sub_resource type="Resource" id="Resource_c3w6a"]
+script = ExtResource("3_ulc8x")
+resource = ExtResource("4_easrk")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_whfil"]
+script = ExtResource("3_ulc8x")
+resource = ExtResource("5_27q6m")
+amount = 2
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_10c85"]
 load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda7bd.ctex"
@@ -33,7 +45,7 @@ load_path = "res://.godot/imported/beam-wood-2.png-dc71f382177a866be6337c7f72fda
 [node name="TransportNode" type="Node2D"]
 script = ExtResource("1_7vmf1")
 lifetime = -1
-repairCosts = Array[ExtResource("3_ulc8x")]([SubResource("Resource_mwhkk")])
+repairCosts = Array[ExtResource("3_ulc8x")]([SubResource("Resource_mwhkk"), SubResource("Resource_c3w6a"), SubResource("Resource_whfil")])
 
 [node name="Textures" type="Node2D" parent="."]
 
@@ -105,7 +117,7 @@ collisionHeight = 40
 [node name="LightSources" type="Node2D" parent="."]
 z_index = 1
 
-[node name="Lantern" parent="LightSources" instance=ExtResource("2_6qcun")]
+[node name="LanternDelete" parent="LightSources" instance=ExtResource("2_6qcun")]
 position = Vector2(-15.5892, -110.553)
 rotation = 3.13874
 

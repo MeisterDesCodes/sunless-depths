@@ -1,29 +1,31 @@
 [gd_resource type="Resource" script_class="DialogChoice" load_steps=8 format=3 uid="uid://cbj2ojglyo8ig"]
 
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="1_fl4sn"]
-[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="1_x6vdh"]
+[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/material/BP-improvised-explosives.tres" id="1_x6vdh"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_hvcgd"]
 [ext_resource type="Resource" uid="uid://bhfo3v05n6mbh" path="res://dialogs/resources/abandoned-construction-site/D-toolbox.tres" id="3_lyks1"]
 [ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/common/blackpowder.tres" id="3_yo6vb"]
 
-[sub_resource type="Resource" id="Resource_ns5md"]
-script = ExtResource("1_fl4sn")
-resource = ExtResource("1_x6vdh")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_3ti0r"]
+[sub_resource type="Resource" id="Resource_c5r55"]
 script = ExtResource("1_fl4sn")
 resource = ExtResource("3_yo6vb")
 amount = 10
+
+[sub_resource type="Resource" id="Resource_dq18t"]
+script = ExtResource("1_fl4sn")
+resource = ExtResource("1_x6vdh")
+amount = 1
 
 [resource]
 script = ExtResource("3_hvcgd")
 title = "Approach the box"
 description = "A peculiar looking metal toolbox below one of the metal beams catches your eye."
 requiredResources = Array[ExtResource("1_fl4sn")]([])
-addedResources = Array[ExtResource("1_fl4sn")]([SubResource("Resource_ns5md"), SubResource("Resource_3ti0r")])
-removedResources = Array[ExtResource("1_fl4sn")]([])
-nextDialog = ExtResource("3_lyks1")
+addedResourcesS = Array[ExtResource("1_fl4sn")]([SubResource("Resource_c5r55"), SubResource("Resource_dq18t")])
+removedResourcesS = Array[ExtResource("1_fl4sn")]([])
+nextDialogS = ExtResource("3_lyks1")
+addedResourcesF = Array[ExtResource("1_fl4sn")]([])
+removedResourcesF = Array[ExtResource("1_fl4sn")]([])
 optionalMoveBackwards = -1
 oneTimeUse = true
 function = ""

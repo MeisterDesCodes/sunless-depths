@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=6 format=3 uid="uid://dxgdtyxnrmnic"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-consumable.gd" id="1_or725"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_ruy37"]
+[ext_resource type="Texture2D" uid="uid://vtbcdxr54xli" path="res://assets/resources/consumables/Potion.png" id="3_6ld6s"]
+
+[sub_resource type="Resource" id="Resource_okjso"]
+script = ExtResource("2_ruy37")
+effectType = 4
+strength = 1.0
+duration = 12.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 1
+
+[sub_resource type="Resource" id="Resource_3qpli"]
+script = ExtResource("2_ruy37")
+effectType = 5
+strength = 20.0
+duration = 45.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 0
+
+[resource]
+script = ExtResource("1_or725")
+cooldown = 60.0
+statusEffects = Array[ExtResource("2_ruy37")]([SubResource("Resource_okjso"), SubResource("Resource_3qpli")])
+name = "Mushroom Brew"
+description = "This potion, distilled from underground fungi, provides minor health regeneration and boosts endurance."
+texture = ExtResource("3_6ld6s")
+rarity = 1
+weight = 1.0

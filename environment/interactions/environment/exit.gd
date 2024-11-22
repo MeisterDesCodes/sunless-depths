@@ -28,8 +28,8 @@ func interact(body):
 	if !isActive():
 		return
 	
+	playerScene.atExit = true
 	if !playerScene.isInCave:
-		playerScene.atExit = true
 		var menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 		menuScene._on_map_pressed()
 	else:

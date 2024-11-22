@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://snd70w6whqbn"]
+[gd_scene load_steps=27 format=3 uid="uid://snd70w6whqbn"]
 
 [ext_resource type="Script" path="res://UI/hud/hud-ui.gd" id="1_o31jx"]
 [ext_resource type="Theme" uid="uid://dobbys3uid5er" path="res://assets/UI/themes/UI-elements/resource-icon.tres" id="3_3dcqr"]
 [ext_resource type="Texture2D" uid="uid://84ye3gaj0elj" path="res://assets/resources/material/Supplies.png" id="6_gs1gf"]
+[ext_resource type="PackedScene" uid="uid://cfsrre5x3sd2i" path="res://UI/shared/stat-icon-ui.tscn" id="7_e5adk"]
 [ext_resource type="Texture2D" uid="uid://cq8ior3ocgh67" path="res://assets/resources/material/Oxygen.png" id="7_hei8a"]
 [ext_resource type="Texture2D" uid="uid://dlq0q7872floo" path="res://assets/UI/icons/entities/status-effects/Heal.png" id="7_qbo8x"]
 [ext_resource type="Texture2D" uid="uid://cbeyoho1tujoo" path="res://assets/resources/material/Stamina.png" id="8_6lvbm"]
@@ -94,14 +95,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons"]
+[node name="SprintContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_3dcqr")
 
-[node name="SprintIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/PanelContainer"]
+[node name="SprintIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/SprintContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -109,14 +110,14 @@ size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_qmntt")
 expand_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons"]
+[node name="DashContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_3dcqr")
 
-[node name="DashIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/PanelContainer2"]
+[node name="DashIcon" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/DashContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -146,20 +147,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow"]
-custom_minimum_size = Vector2(45, 40)
+[node name="HealthContainer2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow" instance=ExtResource("7_e5adk")]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("12_hfdgr")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow/PanelContainer"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("7_qbo8x")
-expand_mode = 1
+tooltip = "Health"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow"]
 layout_mode = 2
@@ -185,18 +176,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow"]
-custom_minimum_size = Vector2(45, 40)
+[node name="SuppliesContainer2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow" instance=ExtResource("7_e5adk")]
 layout_mode = 2
-theme = ExtResource("12_hfdgr")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/PanelContainer"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("6_gs1gf")
-expand_mode = 1
+tooltip = "Supplies"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow"]
 layout_mode = 2
@@ -221,19 +204,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow"]
-custom_minimum_size = Vector2(45, 40)
+[node name="OxygenContainer2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow" instance=ExtResource("7_e5adk")]
 layout_mode = 2
-theme = ExtResource("12_hfdgr")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/PanelContainer"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("8_cwr15")
 texture = ExtResource("7_hei8a")
-expand_mode = 1
+tooltip = "Oxygen"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow"]
 layout_mode = 2
@@ -257,18 +231,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
-custom_minimum_size = Vector2(45, 40)
+[node name="StaminaContainer2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow" instance=ExtResource("7_e5adk")]
 layout_mode = 2
-theme = ExtResource("12_hfdgr")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/PanelContainer"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("8_6lvbm")
-expand_mode = 1
+tooltip = "Stamina"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow"]
 layout_mode = 2
@@ -478,8 +444,14 @@ autostart = true
 position = Vector2(1172, 723)
 scale = Vector2(2, 2)
 
+[connection signal="mouse_entered" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/SprintContainer" to="." method="_on_sprint_container_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/SprintContainer" to="." method="_on_sprint_container_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/DashContainer" to="." method="_on_dash_container_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/DashContainer" to="." method="_on_dash_container_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer4" to="." method="_on_panel_container_4_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer4" to="." method="_on_panel_container_4_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer4/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer4/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer4/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PanelContainer" to="." method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PanelContainer" to="." method="_on_panel_container_mouse_exited"]

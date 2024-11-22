@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://bty34c0ifs8ip"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_vinem"]
+[ext_resource type="Texture2D" uid="uid://bnc37v0l43fj" path="res://assets/resources/material/Ground Root.png" id="2_coafp"]
+
+[resource]
+script = ExtResource("1_vinem")
+name = "Ground Root"
+description = "Has a sligthly stale taste, but is rich in nutrients. Needs to be prepared with other food sources first to be edible."
+texture = ExtResource("2_coafp")
+rarity = 1
+weight = 0.5

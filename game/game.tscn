@@ -1,15 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwiu2kgkgw4ns"]
+[gd_scene load_steps=15 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
 [ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="2_x24fo"]
-[ext_resource type="Resource" uid="uid://csj7grpf30j7s" path="res://entities/resources/enemies/bandit-ranger.tres" id="5_5y320"]
-[ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="5_dkndk"]
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="7_0gon8"]
-[ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-ui.tscn" id="9_75ykn"]
+[ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-menu-ui.tscn" id="9_75ykn"]
 [ext_resource type="PackedScene" uid="uid://g3kf8qmks18f" path="res://entities/game-sound-component.tscn" id="9_676h2"]
+[ext_resource type="PackedScene" uid="uid://hpuo6k2d5tp" path="res://UI/shared/tooltip.tscn" id="10_utire"]
 [ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/hud/hud-ui.tscn" id="58_isjnl"]
 
 [sub_resource type="Resource" id="Resource_jq2ng"]
@@ -46,10 +45,6 @@ position = Vector2(294.912, 235.804)
 remote_path = NodePath("../../../FollowCamera")
 
 [node name="Enemies" type="Node2D" parent="Entities"]
-
-[node name="Enemy" parent="Entities/Enemies" instance=ExtResource("5_dkndk")]
-position = Vector2(3640.8, 824.481)
-entityResource = ExtResource("5_5y320")
 
 [node name="CurrentLocation" type="Node2D" parent="."]
 
@@ -101,4 +96,6 @@ offset_right = 0.0878906
 z_index = 1
 layout_mode = 1
 
-[node name="PopupUI" parent="CanvasLayer/UIControl" instance=ExtResource("9_75ykn")]
+[node name="PopupMenuUI" parent="CanvasLayer/UIControl" instance=ExtResource("9_75ykn")]
+
+[node name="TooltipUI" parent="CanvasLayer/UIControl" instance=ExtResource("10_utire")]

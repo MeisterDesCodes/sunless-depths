@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_fbapc")
 name = "Central Pathway"
-description = "123"
+description = "A central connection point between the settlement and supposedly larger villages further down south."
+tier = 0
 locationType = 0
 attributes = Array[int]([])
 location = 3

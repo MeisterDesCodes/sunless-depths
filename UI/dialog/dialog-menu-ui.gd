@@ -22,14 +22,28 @@ func setup(location):
 	pushDialog(location.initialDialog, [], false)
 
 
-func clickChoice(choice: DialogChoice, nextDialog: Dialog):
+func determineNextDialog(choice: DialogChoice, success):
+	if choice.optionalMoveBackwards >= 0:
+		return dialogTree[dialogTree.size() - 1 - choice.optionalMoveBackwards]
+	
+	if success:
+		return choice.nextDialogS
+	else:
+		return choice.nextDialogF
+
+
+func clickChoice(choice: DialogChoice):
+	var success = randf() < UtilsS.getStatCheckChance(playerScene, choice.statCheck)
+	var nextDialog = determineNextDialog(choice, success)
 	var combinedResources: Array[ChoiceResource] = []
-	for resource in choice.addedResources:
+	var addedResources = choice.addedResourcesS if success else choice.addedResourcesF
+	var removedResources = choice.removedResourcesS if success else choice.removedResourcesF
+	for resource in addedResources:
 		resource.type = Enums.dialogResourceType.ADD
-	for resource in choice.removedResources:
+	for resource in removedResources:
 		resource.type = Enums.dialogResourceType.REMOVE
-	combinedResources.append_array(choice.addedResources)
-	combinedResources.append_array(choice.removedResources)
+	combinedResources.append_array(addedResources)
+	combinedResources.append_array(removedResources)
 	
 	if choice.oneTimeUse:
 		currentDialog.dialog.choices.remove_at(currentDialog.dialog.choices.find(choice))

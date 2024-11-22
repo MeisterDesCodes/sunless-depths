@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_x4wl7")
 name = "Cloth"
-description = "Woven from various fibers, it is vital for crafting primitive garments and combining flexible resources."
+description = "A blank piece of fabric, usable for crafting lightweight armor and accessories."
 texture = ExtResource("2_qy8yc")
 rarity = 1
 weight = 0.25

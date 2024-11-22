@@ -7,7 +7,9 @@ signal spawnPlayer
 @export var generate: bool:
 	set(value):
 		generateCave()
+
 @export var iterations: int
+@export var caveVariation: Enums.caveVariations
 
 @onready var game = get_tree().get_root().get_node("Game")
 @onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
@@ -28,6 +30,8 @@ var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-end
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
 var specialRooms: Array[PackedScene] = load("res://generation/special/special-rooms.tres").allSegments
 var specialRoomsDeadEnd: Array[PackedScene] = preload("res://generation/special/special-rooms-dead-end.tres").allSegments
+
+var oldTomsWorkshop: PackedScene = preload("res://generation/corridors/corridor-wooden/corridor-wooden-0.tscn")
 
 var generatedSpecialRooms: Array[Node2D] = []
 var generatedExits: Array[Node2D] = []
@@ -74,6 +78,13 @@ func generateRoot():
 		root = rootRoomsSmall.pick_random().instantiate().duplicate()
 	else:
 		root = rootRoomsLarge.pick_random().instantiate().duplicate()
+	
+	match caveVariation:
+		Enums.caveVariations.NONE:
+			pass
+		Enums.caveVariations.OLD_TOMS_WORKSHOP:
+			root = oldTomsWorkshop.instantiate().duplicate()
+	
 	cave.add_child(root)
 	root.global_position = Vector2.ZERO
 	currentRooms.append(root)

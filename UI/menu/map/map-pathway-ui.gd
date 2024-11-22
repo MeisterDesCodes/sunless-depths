@@ -11,6 +11,12 @@ func _ready():
 	if !pathwayResource:
 		queue_free()
 	
+	if pathwayResource.name == "":
+		pathwayResource.name = "Pathway"
+	if pathwayResource.description == "":
+		pathwayResource.description = "Connects " + UtilsS.getEnumValue(Enums.locations, pathwayResource.locationFrom) \
+			+ " and " + UtilsS.getEnumValue(Enums.locations, pathwayResource.locationTo)
+	
 	if !playerScene.isInCave || !LocationLoaderS.currentPathway || LocationLoaderS.currentPathway != pathwayResource:
 		playerMarker.queue_free()
 

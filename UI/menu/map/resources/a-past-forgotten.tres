@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_gmclb")
 name = "A Past Forgotten"
-description = "123"
+description = "This is were you woke up. A mysterious place, yet it might provide some anwsers as to why you got here."
+tier = 0
 locationType = 1
 attributes = Array[int]([])
 location = 1

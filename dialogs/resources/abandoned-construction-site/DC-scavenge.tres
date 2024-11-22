@@ -1,29 +1,73 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=8 format=3 uid="uid://c3wyqfdtacbg1"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=18 format=3 uid="uid://c3wyqfdtacbg1"]
 
 [ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="1_4c2bc"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_swrfd"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="2_70dgd"]
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_xkwug"]
 [ext_resource type="Resource" uid="uid://ckd07lin3dh0j" path="res://dialogs/resources/abandoned-construction-site/D-resources.tres" id="3_2keo6"]
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="3_k3mhk"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="4_wp8fg"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="4_x0vjg"]
 
-[sub_resource type="Resource" id="Resource_8wcwg"]
+[sub_resource type="Resource" id="Resource_2j6vd"]
+script = ExtResource("2_xkwug")
+resource = ExtResource("4_x0vjg")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ppx7q"]
+script = ExtResource("2_xkwug")
+resource = ExtResource("3_k3mhk")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_oyh1w"]
 script = ExtResource("2_xkwug")
 resource = ExtResource("1_4c2bc")
 amount = 3
 
-[sub_resource type="Resource" id="Resource_54ek5"]
+[sub_resource type="Resource" id="Resource_1rb1s"]
+script = ExtResource("2_xkwug")
+resource = ExtResource("4_x0vjg")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_75ug1"]
+script = ExtResource("2_xkwug")
+resource = ExtResource("3_k3mhk")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_hhlxc"]
 script = ExtResource("2_xkwug")
 resource = ExtResource("2_70dgd")
 amount = 2
+
+[sub_resource type="Resource" id="Resource_lmjwl"]
+script = ExtResource("2_xkwug")
+resource = ExtResource("2_70dgd")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_du1nb"]
+script = ExtResource("2_xkwug")
+resource = ExtResource("2_70dgd")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_8b27h"]
+script = ExtResource("4_wp8fg")
+stat = 3
+baseChance = 0.5
+statMinimum = 0
+statMaximum = 10
 
 [resource]
 script = ExtResource("1_swrfd")
 title = "Scavenge for resources"
 description = "If you're willing get your hands dirty, you might still find something of value here."
-requiredResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_54ek5")])
-addedResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_8wcwg")])
-removedResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_54ek5")])
-nextDialog = ExtResource("3_2keo6")
+statCheck = SubResource("Resource_8b27h")
+requiredResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_du1nb")])
+addedResourcesS = Array[ExtResource("2_xkwug")]([SubResource("Resource_oyh1w"), SubResource("Resource_1rb1s"), SubResource("Resource_75ug1")])
+removedResourcesS = Array[ExtResource("2_xkwug")]([SubResource("Resource_lmjwl")])
+nextDialogS = ExtResource("3_2keo6")
+addedResourcesF = Array[ExtResource("2_xkwug")]([SubResource("Resource_2j6vd"), SubResource("Resource_ppx7q")])
+removedResourcesF = Array[ExtResource("2_xkwug")]([SubResource("Resource_hhlxc")])
+nextDialogF = ExtResource("3_2keo6")
 optionalMoveBackwards = -1
 oneTimeUse = false
 function = ""

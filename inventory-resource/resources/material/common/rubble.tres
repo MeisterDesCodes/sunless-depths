@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_2yh6f")
 name = "Rubble"
-description = "Found everywhere is the sewers, it is crucial for constructing primitive structures and combining raw elements."
+description = "Found everywhere is the sewers, it is crucial for constructing primitive structures and ammunition."
 texture = ExtResource("2_ks35n")
 rarity = 1
+weight = 1.0

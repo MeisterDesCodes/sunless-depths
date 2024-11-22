@@ -8,11 +8,10 @@
 [node name="Control" type="Control"]
 z_index = 5
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_yt42q")
 
@@ -38,7 +37,7 @@ theme = ExtResource("3_4geef")
 layout_mode = 2
 
 [node name="Particles" type="Node2D" parent="."]
-position = Vector2(799, 118)
+position = Vector2(5, 118)
 
 [node name="OverlayParticles" parent="Particles" instance=ExtResource("2_c0xo3")]
 z_index = -1

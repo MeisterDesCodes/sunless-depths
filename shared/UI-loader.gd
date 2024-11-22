@@ -4,7 +4,8 @@ extends Node
 class_name UILoader
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var popupInstance: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/PopupUI")
+@onready var popupInstance: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/PopupMenuUI")
+@onready var tooltipInstance: Control = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/TooltipUI")
 
 var fadeTime: float = 0.1
 var fadeTimeOverlay: float = 0.2
@@ -15,6 +16,7 @@ var currentBlockerScene: Control
 var currentLabelScene: Control
 var currentOverlayScene: Control
 var currentPopupScene: Control
+var currentTooltipScene: Control
 
 
 func loadUIScene(scene: PackedScene):
@@ -63,6 +65,30 @@ func loadUIPopup(container, element):
 	
 	await get_tree().process_frame
 	
+	var snapPosition = getInstancePosition(container, popupInstance)
+	if element is MapPathway:
+		snapPosition.x -= container.size.x / 2
+	popupInstance.global_position = snapPosition
+	
+	AnimationsS.fadeHeight(popupInstance, 1, fadeTime)
+	currentPopupScene = popupInstance
+	return currentPopupScene
+
+
+func loadUITooltip(container, text: String):
+	tooltipInstance.visible = true
+	tooltipInstance.setup(text)
+	
+	await get_tree().process_frame
+	
+	tooltipInstance.global_position = getInstancePosition(container, tooltipInstance)
+	
+	AnimationsS.fadeHeight(tooltipInstance, 1, fadeTime)
+	currentTooltipScene = tooltipInstance
+	return currentPopupScene
+
+
+func getInstancePosition(container, instance):
 	var snapPosition: Vector2
 	var offset: float = 10
 	var hasXOverflow: bool = false
@@ -70,29 +96,23 @@ func loadUIPopup(container, element):
 	snapPosition = container.global_position
 	snapPosition.x += container.size.x + offset
 	
-	var endXPosition = container.global_position.x + container.size.x + popupInstance.get_child(0).size.x
+	var endXPosition = container.global_position.x + container.size.x + instance.get_child(0).size.x
 	var screenWidth = get_viewport().get_visible_rect().size.x
 	if endXPosition > (screenWidth - offset * 2):
 		hasXOverflow = true
-		snapPosition.x -= (endXPosition - screenWidth + offset * 2)
+		#snapPosition.x -= (endXPosition - screenWidth + offset * 2)
+		snapPosition.x = container.global_position.x - instance.get_child(0).size.x - offset
 		
-	var test = popupInstance.get_child(0).custom_minimum_size.y
-	var endYPosition = container.global_position.y + popupInstance.get_child(0).size.y
+	var endYPosition = container.global_position.y + instance.get_child(0).size.y
 	var screenHeight = get_viewport().get_visible_rect().size.y
 	if endYPosition > (screenHeight - offset * 2):
-		if hasXOverflow:
-			snapPosition.y -= (popupInstance.get_child(0).size.y + offset * 2)
-		else:
-			snapPosition.y -= (endYPosition - screenHeight) + offset * 2
+		snapPosition.y -= (endYPosition - screenHeight) + offset * 2
+		#if hasXOverflow:
+			#snapPosition.y -= (instance.get_child(0).size.y + offset * 2)
+		#else:
+			#snapPosition.y -= (endYPosition - screenHeight) + offset * 2
 	
-	if element is MapPathway:
-		snapPosition.x -= container.size.x / 2
-	
-	popupInstance.global_position = snapPosition
-	
-	AnimationsS.fadeHeight(popupInstance, 1, fadeTime)
-	currentPopupScene = popupInstance
-	return currentPopupScene
+	return snapPosition
 
 
 func closeUIOverlay(overlayInstance):
@@ -117,6 +137,14 @@ func closeUIPopup():
 		popupInstance.visible = false
 
 
+func closeUITooltip():
+	currentTooltipScene = null
+	AnimationsS.fadeHeight(tooltipInstance, 0, fadeTime)
+	await get_tree().create_timer(fadeTime).timeout
+	if !currentTooltipScene:
+		tooltipInstance.visible = false
+
+
 func closeUIScene(sceneInstance):
 	playerScene.atExit = false
 	playerScene.atTransportNode = false
@@ -138,8 +166,10 @@ func closeUIBlocker(sceneInstance):
 
 func closeAllUIScenes():
 	playerScene.isInUIScene = false
+	playerScene.atExit = false
+	playerScene.atTransportNode = false
 	for UIScene in currentUIScenes:
-		UIScene.queue_free()
+		closeUIScene(UIScene)
 	currentUIScenes.clear()
 	if currentBlockerScene:
 		closeUIBlocker(currentBlockerScene)

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=8 format=3 uid="uid://beal727ownsw"]
+
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="1_hhi7o"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_rnwo1"]
+[ext_resource type="Resource" uid="uid://wg5xw5r5yg7i" path="res://inventory-resource/resources/ammunition/pebbles.tres" id="3_j0fjn"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_58qer"]
+[ext_resource type="Texture2D" uid="uid://dkq8mykavp6ou" path="res://assets/resources/weapons/ammunition/Pebbles.png" id="6_a45gx"]
+
+[sub_resource type="Resource" id="Resource_et0mn"]
+script = ExtResource("2_rnwo1")
+resource = ExtResource("1_hhi7o")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_rnwo1")
+resource = ExtResource("3_j0fjn")
+amount = 10
+
+[resource]
+script = ExtResource("5_58qer")
+inputResources = Array[ExtResource("2_rnwo1")]([SubResource("Resource_et0mn")])
+outputResources = Array[ExtResource("2_rnwo1")]([SubResource("Resource_4dyvn")])
+name = "Pebbles - Blueprint"
+description = ""
+texture = ExtResource("6_a45gx")
+rarity = 1
+weight = 1.0

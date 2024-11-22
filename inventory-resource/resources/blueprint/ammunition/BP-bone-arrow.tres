@@ -30,4 +30,4 @@ name = "Bone Arrow - Blueprint"
 description = ""
 texture = ExtResource("6_xj5id")
 rarity = 2
-weight = 0.2
+weight = 1.0

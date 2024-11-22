@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_bhu4e")
 name = "Scrap Metal"
-description = "Salvaged from abandoned ruins and euipment, it is essential for forging crude weapons and crafting sturdy tools."
+description = "Salvaged from abandoned ruins and euipment. It can be used to craft sligthy more sophisticated equipment."
 texture = ExtResource("2_gx451")
 rarity = 1
 weight = 1.5

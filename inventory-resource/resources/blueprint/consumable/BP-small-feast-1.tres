@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=12 format=3 uid="uid://j8e60xt24xts"]
+
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="1_kvkm0"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_yu0vd"]
+[ext_resource type="Resource" uid="uid://bty34c0ifs8ip" path="res://inventory-resource/resources/material/common/ground-root.tres" id="3_85a60"]
+[ext_resource type="Resource" uid="uid://wqed7ldr02ve" path="res://inventory-resource/resources/consumables/cave-fish.tres" id="3_nfj48"]
+[ext_resource type="Resource" uid="uid://cryo4sw7600iq" path="res://inventory-resource/resources/consumables/small-feast.tres" id="3_ptetx"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_3bowp"]
+[ext_resource type="Texture2D" uid="uid://3li5t730fc73" path="res://assets/resources/consumables/Small Feast.png" id="5_yvrqs"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_yu0vd")
+resource = ExtResource("1_kvkm0")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_k8swv"]
+script = ExtResource("2_yu0vd")
+resource = ExtResource("3_85a60")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_uhdmp"]
+script = ExtResource("2_yu0vd")
+resource = ExtResource("3_nfj48")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_yu0vd")
+resource = ExtResource("3_ptetx")
+amount = 1
+
+[resource]
+script = ExtResource("4_3bowp")
+inputResources = Array[ExtResource("2_yu0vd")]([SubResource("Resource_xtk5x"), SubResource("Resource_k8swv"), SubResource("Resource_uhdmp")])
+outputResources = Array[ExtResource("2_yu0vd")]([SubResource("Resource_4dyvn")])
+name = "Small Feast - Blueprint"
+description = ""
+texture = ExtResource("5_yvrqs")
+rarity = 1
+weight = 1.0

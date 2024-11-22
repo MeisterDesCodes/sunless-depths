@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=8 format=3 uid="uid://lbgvjn03tco1"]
+
+[ext_resource type="Resource" uid="uid://b40hdikmw50c6" path="res://inventory-resource/resources/material/uncommon/iron-ore.tres" id="1_l0gmb"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_6vnh2"]
+[ext_resource type="Resource" uid="uid://b77626vhf1e2b" path="res://inventory-resource/resources/material/uncommon/iron-bar.tres" id="3_aqhqu"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_h2728"]
+[ext_resource type="Texture2D" uid="uid://dd8t1q2xq4jtx" path="res://assets/resources/material/Iron Bar.png" id="5_ryadp"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_6vnh2")
+resource = ExtResource("1_l0gmb")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_6vnh2")
+resource = ExtResource("3_aqhqu")
+amount = 1
+
+[resource]
+script = ExtResource("4_h2728")
+inputResources = Array[ExtResource("2_6vnh2")]([SubResource("Resource_xtk5x")])
+outputResources = Array[ExtResource("2_6vnh2")]([SubResource("Resource_4dyvn")])
+name = "Iron Bar - Blueprint"
+description = ""
+texture = ExtResource("5_ryadp")
+rarity = 2
+weight = 1.0

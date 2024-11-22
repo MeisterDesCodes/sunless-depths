@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=6 format=3 uid="uid://cxuxyss8scst8"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=5 format=3 uid="uid://cxuxyss8scst8"]
 
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_3f70r"]
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="1_6drv5"]
-[ext_resource type="Resource" uid="uid://bp61rc4bdl0me" path="res://dialogs/resources/blocked-path/D-path.tres" id="1_hogli"]
 [ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/uncommon/improvised-explosives.tres" id="1_u6lrk"]
 
 [sub_resource type="Resource" id="Resource_5uysa"]
@@ -15,9 +14,10 @@ script = ExtResource("1_3f70r")
 title = "Explosives"
 description = "With the help of some makeshift explosives, you might be able to bring the whole thing down."
 requiredResources = Array[ExtResource("1_6drv5")]([SubResource("Resource_5uysa")])
-addedResources = Array[ExtResource("1_6drv5")]([])
-removedResources = Array[ExtResource("1_6drv5")]([SubResource("Resource_5uysa")])
-nextDialog = ExtResource("1_hogli")
+addedResourcesS = Array[ExtResource("1_6drv5")]([])
+removedResourcesS = Array[ExtResource("1_6drv5")]([])
+addedResourcesF = Array[ExtResource("1_6drv5")]([])
+removedResourcesF = Array[ExtResource("1_6drv5")]([])
 optionalMoveBackwards = -1
 oneTimeUse = true
 function = "clearPath"

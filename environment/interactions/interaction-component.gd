@@ -4,6 +4,7 @@ signal onInteract
 
 @export var interaction: Node2D
 @export var triggersAutomatically: bool = false
+@export var textDisplay: String = ""
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
 @onready var resourceSpawner = get_node("ResourceSpawner")
@@ -33,7 +34,9 @@ func _process(delta):
 
 
 func updateLabel():
-	approachLabel.setup("(E) to interact " + ("(" + str(interaction.lifetime) + " remaining)" if interaction.lifetime > 0 else ""))
+	if textDisplay == "":
+		textDisplay = "(E) to interact " + ("(" + str(interaction.lifetime) + " remaining)" if interaction.lifetime > 0 else "")
+	approachLabel.setup(textDisplay)
 
 
 func deactivateInteraction():

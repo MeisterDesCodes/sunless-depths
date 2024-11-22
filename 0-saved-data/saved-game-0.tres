@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SavedData" load_steps=60 format=3 uid="uid://dplydmt44pob7"]
+[gd_resource type="Resource" script_class="SavedData" load_steps=71 format=3 uid="uid://dplydmt44pob7"]
 
-[ext_resource type="Resource" uid="uid://dfu058hop23wt" path="res://UI/menu/map/resources/the-settlement.tres" id="1_26jhv"]
 [ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="1_dapt8"]
+[ext_resource type="Resource" uid="uid://dfu058hop23wt" path="res://UI/menu/map/resources/the-settlement.tres" id="1_iydjg"]
 [ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="1_vyyox"]
 [ext_resource type="Resource" uid="uid://buco1qws0fm6y" path="res://inventory-resource/resources/equipment/old-torch.tres" id="2_0pc8b"]
 [ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="2_ooeft"]
@@ -41,11 +41,16 @@
 [ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="30_fx3lh"]
 [ext_resource type="Resource" uid="uid://b7mblt1oqmpyo" path="res://inventory-resource/resources/equipment/ragged-backpack.tres" id="32_g2ncf"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="38_5811t"]
-[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/BP-improvised-explosives.tres" id="41_hj3w6"]
+[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/material/BP-improvised-explosives.tres" id="41_hj3w6"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="42_005ek"]
 [ext_resource type="Resource" uid="uid://cxduwdaay1mpy" path="res://inventory-resource/resources/equipment/lucky-scarf.tres" id="43_qjnhe"]
-[ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/BP-mushroom-brew.tres" id="45_girg4"]
+[ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/consumable/BP-mushroom-brew.tres" id="45_girg4"]
+[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="46_puu4r"]
 [ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="47_4vxbc"]
+[ext_resource type="Resource" uid="uid://b77626vhf1e2b" path="res://inventory-resource/resources/material/uncommon/iron-bar.tres" id="47_wmlgw"]
+[ext_resource type="Resource" uid="uid://wqed7ldr02ve" path="res://inventory-resource/resources/consumables/cave-fish.tres" id="48_y5a7p"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="49_atxoa"]
+[ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="50_ys80k"]
 
 [sub_resource type="Resource" id="Resource_rpcen"]
 script = ExtResource("5_m8eok")
@@ -80,7 +85,7 @@ amount = 1
 [sub_resource type="Resource" id="Resource_dq6h5"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("42_005ek")
-amount = 500000
+amount = 5000
 
 [sub_resource type="Resource" id="Resource_ynui3"]
 script = ExtResource("5_m8eok")
@@ -110,12 +115,42 @@ amount = 10
 [sub_resource type="Resource" id="Resource_v23ia"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("47_4vxbc")
-amount = 25
+amount = 10
+
+[sub_resource type="Resource" id="Resource_fuwxv"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("46_puu4r")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_l47ou"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("47_wmlgw")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_vmsmw"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("48_y5a7p")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_lfjcw"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("47_4vxbc")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_srr25"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("49_atxoa")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_5sn8s"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("50_ys80k")
+amount = 10
 
 [resource]
 script = ExtResource("15_vc2fh")
-currentLocation = ExtResource("1_26jhv")
-position = Vector2(700, 700)
+currentLocation = ExtResource("1_iydjg")
+position = Vector2(2550, 475)
 level = 13
 health = 52.632
 supplies = 5.39946
@@ -124,8 +159,8 @@ stamina = 100.0
 visitedLocations = Array[int]([1, 2])
 exploredLocations = Array[int]([1, 2])
 transportableLocations = Array[int]([4])
-inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_u0jd2"), SubResource("Resource_dlyi7"), SubResource("Resource_5uviv"), SubResource("Resource_v23ia")])
-storage = Array[ExtResource("5_m8eok")]([])
+inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_u0jd2"), SubResource("Resource_dlyi7"), SubResource("Resource_5uviv"), SubResource("Resource_v23ia"), SubResource("Resource_fuwxv"), SubResource("Resource_l47ou"), SubResource("Resource_vmsmw")])
+storage = Array[ExtResource("5_m8eok")]([SubResource("Resource_lfjcw"), SubResource("Resource_srr25"), SubResource("Resource_5sn8s")])
 equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("4_ixoyg"), ExtResource("8_7nlay"), ExtResource("7_schab")])
 equippedAmmunitions = Array[Resource("res://inventory-resource/inventory-ammunition.gd")]([null, ExtResource("1_dapt8"), null])
 equippedGear = Array[Resource("res://inventory-resource/inventory-equipment.gd")]([ExtResource("2_0pc8b"), ExtResource("3_g3yoe"), ExtResource("32_g2ncf"), null, null, null, null, null])

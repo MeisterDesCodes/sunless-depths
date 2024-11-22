@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2rabxleg11cj"]
 
 [ext_resource type="Script" path="res://entities/damage-indicator.gd" id="1_3ajnu"]
-[ext_resource type="Texture2D" uid="uid://du2sn8xojyt7a" path="res://assets/UI/icons/entities/brush-stroke.png" id="2_dt23j"]
+[ext_resource type="Texture2D" uid="uid://du2sn8xojyt7a" path="res://assets/UI/icons/entities/Brush Stroke.png" id="2_dt23j"]
 [ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="4_s5vd6"]
 
 [node name="DamageIndicator" type="Control"]

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=6 format=3 uid="uid://boc7x6ikd00jd"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-consumable.gd" id="1_das0a"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_wk2r2"]
+[ext_resource type="Texture2D" uid="uid://bhd27aj0gp45w" path="res://assets/resources/consumables/Medium Feast.png" id="3_bn4ti"]
+
+[sub_resource type="Resource" id="Resource_okjso"]
+script = ExtResource("2_wk2r2")
+effectType = 14
+strength = 5.0
+duration = 180.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 0
+
+[sub_resource type="Resource" id="Resource_pv8l8"]
+script = ExtResource("2_wk2r2")
+effectType = 4
+strength = 0.35
+duration = 90.0
+appliesTo = 0
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[resource]
+script = ExtResource("1_das0a")
+cooldown = 180.0
+statusEffects = Array[ExtResource("2_wk2r2")]([SubResource("Resource_okjso"), SubResource("Resource_pv8l8")])
+name = "Medium Feast"
+description = "Gain noticable health regeneration and a medium boost to all stats."
+texture = ExtResource("3_bn4ti")
+rarity = 3
+weight = 2.0

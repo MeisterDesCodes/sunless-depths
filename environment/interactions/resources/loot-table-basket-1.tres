@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LootTable" load_steps=13 format=3 uid="uid://0myeb2s1m2xs"]
+[gd_resource type="Resource" script_class="LootTable" load_steps=15 format=3 uid="uid://0myeb2s1m2xs"]
 
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_inpjj"]
 [ext_resource type="Script" path="res://environment/interactions/loot-table.gd" id="1_nh2rd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="5_mvx5v"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="5_psxhh"]
 [ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="5_umfxr"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="7_ovf3k"]
 
 [sub_resource type="Resource" id="Resource_yx2d8"]
 script = ExtResource("2_1asrg")
@@ -38,6 +39,12 @@ resource = ExtResource("5_psxhh")
 amount = 1
 dropChance = 0.25
 
+[sub_resource type="Resource" id="Resource_gfkd0"]
+script = ExtResource("2_1asrg")
+resource = ExtResource("7_ovf3k")
+amount = 30
+dropChance = 0.25
+
 [resource]
 script = ExtResource("1_nh2rd")
-resources = Array[ExtResource("2_1asrg")]([SubResource("Resource_yx2d8"), SubResource("Resource_fadn4"), SubResource("Resource_klxn3"), SubResource("Resource_jmmou"), SubResource("Resource_lrmlj")])
+resources = Array[ExtResource("2_1asrg")]([SubResource("Resource_yx2d8"), SubResource("Resource_fadn4"), SubResource("Resource_klxn3"), SubResource("Resource_jmmou"), SubResource("Resource_lrmlj"), SubResource("Resource_gfkd0")])

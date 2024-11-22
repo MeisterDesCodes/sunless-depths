@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du2sn8xojyt7a"
-path="res://.godot/imported/brush-stroke.png-e0ff8421baa842e35badc68f6827b5d7.ctex"
+uid="uid://dkq8mykavp6ou"
+path="res://.godot/imported/Pebbles.png-dba82ca42de129138fe616b61ca109f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons/entities/brush-stroke.png"
-dest_files=["res://.godot/imported/brush-stroke.png-e0ff8421baa842e35badc68f6827b5d7.ctex"]
+source_file="res://assets/resources/weapons/ammunition/Pebbles.png"
+dest_files=["res://.godot/imported/Pebbles.png-dba82ca42de129138fe616b61ca109f3.ctex"]
 
 [params]
 

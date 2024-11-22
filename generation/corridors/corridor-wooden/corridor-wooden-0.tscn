@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://fewqo1kx3ns2"]
+
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_dnwiw"]
+[ext_resource type="PackedScene" uid="uid://cvnq05a22rt0w" path="res://generation/corridors/corridor-wooden/corridor-wooden-template.tscn" id="2_m3f2g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
+size = Vector2(676, 295)
+
+[node name="Corridor - Wooden - 0" type="Node2D"]
+script = ExtResource("1_dnwiw")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 1,
+"position": Vector2(10, 1)
+}, {
+"completed": false,
+"direction": 3,
+"position": Vector2(0, 1)
+}])
+type = 1
+
+[node name="Map" parent="." instance=ExtResource("2_m3f2g")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(355, 164.5)
+shape = SubResource("RectangleShape2D_m2ub1")

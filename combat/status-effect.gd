@@ -58,7 +58,8 @@ func activateEffect(entity: CharacterBody2D, attack: Attack, strength: float):
 			entity.entityResource.agility += strength
 			entity.entityResource.perception += strength
 			entity.updateMaxHealth()
-		
+		Enums.statusEffectType.SATURATION:
+			entity.updateHud.emit(-strength, 0, 0)
 		Enums.statusEffectType.BLEED:
 			entity.damageReceiver.receiveDamage(strength, false, self)
 		Enums.statusEffectType.POISON:

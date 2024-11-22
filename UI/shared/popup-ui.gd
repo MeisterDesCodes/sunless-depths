@@ -1,20 +1,19 @@
 extends Control
 
 @onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var inputResources: HBoxContainer = get_node("PanelContainer/MarginContainer/VBoxContainer/Blueprint/InputResources")
-@onready var outputResources: HBoxContainer = get_node("PanelContainer/MarginContainer/VBoxContainer/Blueprint/OutputResources")
-@onready var title: Label = get_node("PanelContainer/MarginContainer/VBoxContainer/PanelContainer/Title")
-@onready var type: Label = get_node("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Type")
-@onready var rarity: Label = get_node("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/Rarity")
-@onready var description: Label = get_node("PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/Description")
-@onready var blueprintContainer: VBoxContainer = get_node("PanelContainer/MarginContainer/VBoxContainer/Blueprint")
-@onready var statsContainer: VBoxContainer = get_node("PanelContainer/MarginContainer/VBoxContainer/Stats")
+@onready var inputResources: HBoxContainer = get_node("MarginContainer/VBoxContainer/Blueprint/InputResources")
+@onready var outputResources: HBoxContainer = get_node("MarginContainer/VBoxContainer/Blueprint/OutputResources")
+@onready var title: Label = get_node("MarginContainer/VBoxContainer/PanelContainer/Title")
+@onready var type: Label = get_node("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Type")
+@onready var rarity: Label = get_node("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/Rarity")
+@onready var description: Label = get_node("MarginContainer/VBoxContainer/PanelContainer2/Description")
+@onready var blueprintContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/Blueprint")
+@onready var statsContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/Stats")
 
 var element
 
 
 func _ready():
-	visible = false
 	resetElements()
 
 
@@ -93,7 +92,6 @@ func showAdditionalInformation():
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Number of Projectiles.png"), "Number of Projectiles", str(element.projectileAmount))
 				addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Stamina Cost.png"), "Stamina Cost", str(element.staminaCost * playerScene.staminaCostModifier))
 			
-			addEmptyElement()
 			addStatusEffectDecriptions()
 		
 		Enums.resourceType.AMMUNITION:
@@ -104,7 +102,7 @@ func showAdditionalInformation():
 			addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Speed.png"), "Speed", str(element.speed))
 			addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Knockback.png"), "Knockback", str(element.knockback))
 			addStatsElement(preload("res://assets/UI/icons/entities/player/stats/Piercing.png"), "Piercing", "Yes" if element.isPiercing else "No")
-			addEmptyElement()
+			
 			addStatusEffectDecriptions()
 		
 		Enums.resourceType.EQUIPMENT:
@@ -114,6 +112,7 @@ func showAdditionalInformation():
 		
 		Enums.resourceType.CONSUMABLE:
 			statsContainer.visible = true
+			addStatsElement(preload("res://assets/UI/icons/entities/player/Cooldown.png"), "Cooldown", str(element.cooldown))
 			addStatusEffectDecriptions()
 		
 		Enums.resourceType.STATUS_EFFECT:
@@ -144,8 +143,10 @@ func showAdditionalInformation():
 
 func addStatusEffectDecriptions():
 	if !element.statusEffects.is_empty():
+		addEmptyElement()
 		for effect in element.statusEffects:
-			var description: String = str(round(effect.strength * playerScene.effectStrengthModifier)) + " / s for " + str(effect.duration) + " s"
+			var extension: String = " / s" if effect.effectApplyType == Enums.effectApplyType.TICK else ""
+			var description: String = str(UtilsS.round(effect.strength * playerScene.effectStrengthModifier, 2)) + extension + " for " + str(effect.duration) + " s"
 			addStatsElement(load("res://assets/UI/icons/entities/status-effects/" + UtilsS.getEnumValue(Enums.statusEffectType, effect.effectType) + ".png"), \
 				"Applies " + UtilsS.getEnumValue(Enums.statusEffectType, effect.effectType) + " to " + UtilsS.getEnumValue(Enums.statusEffectReceiver, effect.appliesTo), description)
 

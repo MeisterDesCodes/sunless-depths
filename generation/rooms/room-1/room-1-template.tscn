@@ -199,6 +199,12 @@ rotation = 3.05614
 scale = Vector2(1.27, 1.27)
 texture = ExtResource("11_fn7pb")
 
+[node name="BlockageLarge9" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_2j3x1")]
+position = Vector2(1318, 325)
+rotation = 4.44502
+scale = Vector2(1.27, 1.27)
+texture = ExtResource("11_fn7pb")
+
 [node name="BlockageLarge2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("10_2j3x1")]
 position = Vector2(489, 238)
 rotation = -0.523598
@@ -246,18 +252,23 @@ rotation = 3.66519
 texture = ExtResource("13_jn8i8")
 
 [node name="BlockageSmall4" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_w7bm4")]
-position = Vector2(1289, 337)
-rotation = 1.309
+position = Vector2(1281, 353)
+rotation = 2.08259
 texture = ExtResource("13_jn8i8")
 
 [node name="BlockageSmall5" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_w7bm4")]
-position = Vector2(806.557, 865.368)
-rotation = 2.87979
+position = Vector2(807, 856)
+rotation = 0.306286
+texture = ExtResource("13_jn8i8")
+
+[node name="BlockageSmall9" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_w7bm4")]
+position = Vector2(806, 886)
+rotation = 2.166
 texture = ExtResource("13_jn8i8")
 
 [node name="BlockageSmall2" parent="Map/EnvironmentalObjects/Decorations/Regular" instance=ExtResource("12_w7bm4")]
-position = Vector2(456, 465)
-rotation = 3.66519
+position = Vector2(467, 471)
+rotation = 3.38523
 texture = ExtResource("13_jn8i8")
 
 [node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
@@ -339,6 +350,18 @@ texture = ExtResource("16_ftbjq")
 position = Vector2(677, 552)
 rotation = 0.785397
 scale = Vector2(0.62, 0.62)
+texture = ExtResource("16_ftbjq")
+
+[node name="Overlay72" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("10_yyv48")]
+position = Vector2(846, 920)
+rotation = 1.83259
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("16_ftbjq")
+
+[node name="Overlay73" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("10_yyv48")]
+position = Vector2(805, 752)
+rotation = 0.815165
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("16_ftbjq")
 
 [node name="Overlay65" parent="Map/EnvironmentalObjects/Decorations/Overlays" instance=ExtResource("10_yyv48")]

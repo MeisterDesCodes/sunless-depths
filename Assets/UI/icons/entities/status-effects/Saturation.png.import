@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlnk5q2sprae"
-path="res://.godot/imported/Improvised Explosives.png-709799b033c9a955d3eb4ab3c8dfe61e.ctex"
+uid="uid://d3wvakyg16aji"
+path="res://.godot/imported/Saturation.png-4fa728b152c328995603ce7b9ba7be6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/usable/Improvised Explosives.png"
-dest_files=["res://.godot/imported/Improvised Explosives.png-709799b033c9a955d3eb4ab3c8dfe61e.ctex"]
+source_file="res://assets/UI/icons/entities/status-effects/Saturation.png"
+dest_files=["res://.godot/imported/Saturation.png-4fa728b152c328995603ce7b9ba7be6e.ctex"]
 
 [params]
 

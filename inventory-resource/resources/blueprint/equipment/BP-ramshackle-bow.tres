@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=10 format=3 uid="uid://bsca3choqc4l0"]
+
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="1_c0swj"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_j4m3t"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_x74go"]
+[ext_resource type="Resource" uid="uid://bx3w34ioc0w4j" path="res://weapons/resources/bows/ramshackle-bow.tres" id="4_5wsdh"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_3kjmn"]
+[ext_resource type="Texture2D" uid="uid://6786hr1kqqxv" path="res://assets/resources/weapons/ramshackle-bow.png" id="6_3it62"]
+
+[sub_resource type="Resource" id="Resource_ndo7o"]
+script = ExtResource("2_x74go")
+resource = ExtResource("1_c0swj")
+amount = 6
+
+[sub_resource type="Resource" id="Resource_mg2q5"]
+script = ExtResource("2_x74go")
+resource = ExtResource("1_j4m3t")
+amount = 4
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_x74go")
+resource = ExtResource("4_5wsdh")
+amount = 1
+
+[resource]
+script = ExtResource("5_3kjmn")
+inputResources = Array[ExtResource("2_x74go")]([SubResource("Resource_ndo7o"), SubResource("Resource_mg2q5")])
+outputResources = Array[ExtResource("2_x74go")]([SubResource("Resource_4dyvn")])
+name = "Ramshackle Bow - Blueprint"
+description = ""
+texture = ExtResource("6_3it62")
+rarity = 1
+weight = -1.0

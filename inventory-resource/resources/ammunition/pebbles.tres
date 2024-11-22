@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryAmmunition" load_steps=3 format=3 uid="uid://wg5xw5r5yg7i"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="1_qdvb7"]
+[ext_resource type="Texture2D" uid="uid://dkq8mykavp6ou" path="res://assets/resources/weapons/ammunition/Pebbles.png" id="2_r2dp7"]
+
+[resource]
+script = ExtResource("1_qdvb7")
+damage = 2.0
+knockback = 20.0
+speed = 450.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+isPiercing = false
+name = "Pebbles"
+description = "A small rock that can be conveniently launched with a slingshot."
+texture = ExtResource("2_r2dp7")
+rarity = 1
+weight = 1.0

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=8 format=3 uid="uid://dlg83af5a8eiv"]
+
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="1_io2ym"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_s8fa2"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="3_jlhpr"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="4_fpvky"]
+[ext_resource type="Texture2D" uid="uid://84ye3gaj0elj" path="res://assets/resources/material/Supplies.png" id="5_qoa5y"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_s8fa2")
+resource = ExtResource("1_io2ym")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_s8fa2")
+resource = ExtResource("3_jlhpr")
+amount = 1
+
+[resource]
+script = ExtResource("4_fpvky")
+inputResources = Array[ExtResource("2_s8fa2")]([SubResource("Resource_xtk5x")])
+outputResources = Array[ExtResource("2_s8fa2")]([SubResource("Resource_4dyvn")])
+name = "Supplies - Blueprint"
+description = ""
+texture = ExtResource("5_qoa5y")
+rarity = 0
+weight = 1.0

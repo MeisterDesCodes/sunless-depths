@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://hpuo6k2d5tp"]
+
+[ext_resource type="Script" path="res://UI/shared/tooltip.gd" id="1_kxuxg"]
+[ext_resource type="Theme" uid="uid://dewfnljg88yw5" path="res://assets/UI/themes/UI-elements/dialog-choice.tres" id="2_dn3pf"]
+
+[node name="TooltipUI" type="Control"]
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_kxuxg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_dn3pf")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2

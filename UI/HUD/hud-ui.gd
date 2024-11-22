@@ -11,9 +11,13 @@ extends Control
 @onready var oxygenLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/OxygenLabel")
 @onready var staminaLabel: Label = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/VBoxContainer/StaminaLabel")
 
+@onready var healthContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow/HealthContainer")
+@onready var suppliesContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/SuppliesContainer")
+@onready var oxygenContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/OxygenContainer")
+@onready var staminaContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StaminaWindow/StaminaContainer")
 
-@onready var sprintContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/PanelContainer")
-@onready var dashContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/PanelContainer2")
+@onready var sprintContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/SprintContainer")
+@onready var dashContainer: PanelContainer = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/MovementIcons/DashContainer")
 
 @onready var allResources = preload("res://inventory-resource/resources/all-resources.tres")
 
@@ -217,11 +221,12 @@ func onDashCooldown():
 
 
 func updateHud(suppliesValue, oxygenValue, staminaValue):
-	if !suppliesIsRestocked:
+	if !suppliesIsRestocked && suppliesValue != 0:
 		get_tree().create_tween().tween_property(suppliesBar, "value", suppliesBar.value - suppliesValue * survivalNeedModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	if !oxygenIsRestocked:
+	if !oxygenIsRestocked && oxygenValue != 0:
 		get_tree().create_tween().tween_property(oxygenBar, "value", oxygenBar.value - oxygenValue * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100), 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue * playerScene.staminaCostModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	if staminaValue != 0:
+		get_tree().create_tween().tween_property(staminaBar, "value", staminaBar.value - staminaValue * playerScene.staminaCostModifier, 0.15).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 func healthModified():
@@ -295,16 +300,67 @@ func _on_consumable_timer_timeout():
 	updateConsumable()
 
 
-func _on_panel_container_4_mouse_entered():
+func _on_button_mouse_entered():
 	if playerScene.equippedConsumable:
 		UILoaderS.loadUIPopup(consumableContainer, playerScene.equippedConsumable)
+	else:
+		UILoaderS.loadUITooltip(consumableContainer, "Unused consumable slot")
 
 
-func _on_panel_container_4_mouse_exited():
+func _on_button_mouse_exited():
 	UILoaderS.closeUIPopup()
+	UILoaderS.closeUITooltip()
 
 
 func _on_button_pressed():
 	if playerScene.equippedConsumable:
 		UtilsS.useConsumable(playerScene, playerScene.equippedConsumable)
 		disableConsumeButton()
+
+
+func _on_sprint_container_mouse_entered():
+	UILoaderS.loadUITooltip(sprintContainer, "Currently sprinting")
+
+
+func _on_sprint_container_mouse_exited():
+	UILoaderS.closeUITooltip()
+
+
+func _on_dash_container_mouse_entered():
+	UILoaderS.loadUITooltip(dashContainer, "Dash available")
+
+
+func _on_dash_container_mouse_exited():
+	UILoaderS.closeUITooltip()
+
+
+func _on_health_container_mouse_entered():
+	UILoaderS.loadUITooltip(healthContainer, "Health")
+
+
+func _on_health_container_mouse_exited():
+	UILoaderS.closeUITooltip()
+
+
+func _on_supplies_container_mouse_entered():
+	UILoaderS.loadUITooltip(suppliesContainer, "Supplies")
+
+
+func _on_supplies_container_mouse_exited():
+	UILoaderS.closeUITooltip()
+
+
+func _on_oxygen_container_mouse_entered():
+	UILoaderS.loadUITooltip(oxygenContainer, "Oxygen")
+
+
+func _on_oxygen_container_mouse_exited():
+	UILoaderS.closeUITooltip()
+
+
+func _on_stamina_container_mouse_entered():
+	UILoaderS.loadUITooltip(staminaContainer, "Stamina")
+
+
+func _on_stamina_container_mouse_exited():
+	UILoaderS.closeUITooltip()

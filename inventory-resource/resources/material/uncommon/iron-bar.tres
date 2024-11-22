@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://b77626vhf1e2b"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_ttpoh"]
+[ext_resource type="Texture2D" uid="uid://dd8t1q2xq4jtx" path="res://assets/resources/material/Iron Bar.png" id="2_dis3c"]
+
+[resource]
+script = ExtResource("1_ttpoh")
+name = "Iron Bar"
+description = ""
+texture = ExtResource("2_dis3c")
+rarity = 2
+weight = 3.0

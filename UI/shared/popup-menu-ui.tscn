@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1m1q6gnsimr3"]
+
+[ext_resource type="Script" path="res://UI/shared/popup-menu-ui.gd" id="1_ffj85"]
+[ext_resource type="PackedScene" uid="uid://c7akthwbu2d8b" path="res://UI/shared/popup-ui.tscn" id="2_8fqdl"]
+
+[node name="PopupMenuUI" type="Control"]
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_ffj85")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PopupMain" parent="VBoxContainer" instance=ExtResource("2_8fqdl")]
+layout_mode = 2
+
+[node name="PopupSecondary" parent="VBoxContainer" instance=ExtResource("2_8fqdl")]
+layout_mode = 2

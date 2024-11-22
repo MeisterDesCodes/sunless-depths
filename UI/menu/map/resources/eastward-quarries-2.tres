@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_1dc8k")
 name = "Eastward Quarries - II"
-description = "123"
+description = "xxxxx"
 tier = 1
 locationType = 3
 attributes = Array[int]([0])

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_07rjt")
 name = "Chitin"
-description = "Extracted from the exoskeletons of creatures, it is essential for crafting durable armor and reinforcing various constructions."
+description = "Harvested from the numorous athropods swarming the tunnel. Being extremely durable, it might prove useful to enhance pieces of armor."
 texture = ExtResource("2_tlang")
 rarity = 2
 weight = 0.5

@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Locations" load_steps=6 format=3 uid="uid://cdtomhnf0sy5k"]
+[gd_resource type="Resource" script_class="Locations" load_steps=7 format=3 uid="uid://cdtomhnf0sy5k"]
 
 [ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="1_2wh7b"]
 [ext_resource type="Script" path="res://UI/menu/map/resources/locations.gd" id="1_x5pud"]
 [ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_254lm"]
 [ext_resource type="PackedScene" uid="uid://cobeqd6r2pjwe" path="res://game/areas/central-pathway.tscn" id="3_r3bmn"]
 [ext_resource type="PackedScene" uid="uid://v2n640a55olu" path="res://game/areas/eastward-quarries-1.tscn" id="4_ovsw8"]
+[ext_resource type="PackedScene" uid="uid://bfxe4o2rjyr2i" path="res://game/areas/old-toms-workshop.tscn" id="5_fpvo0"]
 
 [resource]
 script = ExtResource("1_x5pud")
-allLocations = Array[PackedScene]([ExtResource("1_2wh7b"), ExtResource("2_254lm"), ExtResource("3_r3bmn"), ExtResource("4_ovsw8")])
+allLocations = Array[PackedScene]([ExtResource("1_2wh7b"), ExtResource("2_254lm"), ExtResource("3_r3bmn"), ExtResource("4_ovsw8"), ExtResource("5_fpvo0")])

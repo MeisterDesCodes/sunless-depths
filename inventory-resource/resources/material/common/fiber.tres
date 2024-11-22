@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_igw6s")
 name = "Fiber"
-description = "Harvested from wild plants and creatures, it is indispensable for weaving sturdy fabrics and combining resilient resources."
+description = "Can be harvested from biomarterial found in the tunnels. Used in a large number of basic blueprints."
 texture = ExtResource("2_ov2b2")
 rarity = 1
 weight = 0.25

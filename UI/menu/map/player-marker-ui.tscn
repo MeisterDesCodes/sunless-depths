@@ -21,6 +21,7 @@ offset_top = -30.0
 offset_right = 30.0
 offset_bottom = 30.0
 pivot_offset = Vector2(30, 30)
+mouse_filter = 2
 theme = ExtResource("1_rbcgn")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
@@ -30,6 +31,7 @@ offset_top = -40.0
 offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 theme = ExtResource("1_rbcgn")
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
@@ -41,4 +43,5 @@ offset_top = -20.0
 offset_right = 23.0
 offset_bottom = 20.0
 pivot_offset = Vector2(40, 40)
+mouse_filter = 2
 theme = ExtResource("3_jyamg")

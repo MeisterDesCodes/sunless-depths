@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="InventoryConsumable" load_steps=7 format=3 uid="uid://cryo4sw7600iq"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-consumable.gd" id="1_7m8tf"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_a2a12"]
+[ext_resource type="Texture2D" uid="uid://3li5t730fc73" path="res://assets/resources/consumables/Small Feast.png" id="3_3hw2l"]
+
+[sub_resource type="Resource" id="Resource_okjso"]
+script = ExtResource("2_a2a12")
+effectType = 14
+strength = 3.0
+duration = 120.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 0
+
+[sub_resource type="Resource" id="Resource_pv8l8"]
+script = ExtResource("2_a2a12")
+effectType = 4
+strength = 0.25
+duration = 60.0
+appliesTo = 0
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[sub_resource type="Resource" id="Resource_awvmr"]
+script = ExtResource("2_a2a12")
+effectType = 15
+strength = 1.0
+duration = 30.0
+appliesTo = 0
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[resource]
+script = ExtResource("1_7m8tf")
+cooldown = 120.0
+statusEffects = Array[ExtResource("2_a2a12")]([SubResource("Resource_okjso"), SubResource("Resource_pv8l8"), SubResource("Resource_awvmr")])
+name = "Small Feast"
+description = "Gain minor health regeneration and a small boost to all stats."
+texture = ExtResource("3_3hw2l")
+rarity = 2
+weight = 1.0

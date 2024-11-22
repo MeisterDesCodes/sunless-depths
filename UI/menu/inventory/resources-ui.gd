@@ -47,6 +47,12 @@ func displayResources(filter: Enums.resourceType):
 
 func generateSlot(resourceSlot: InventorySlot):
 	UtilsS.updateResourceType(resourceSlot.resource)
+	if inventoryType == Enums.inventoryType.CRAFTING_STATION:
+		var outputResource = resourceSlot.resource.outputResources[0].resource
+		UtilsS.updateResourceType(outputResource)
+		resourceSlot.resource.name = resourceSlot.resource.name.replace(" - Blueprint", "")
+		resourceSlot.resource.filterType = outputResource.type
+	
 	var resourceSlotInstance = preload("res://UI/menu/inventory/resource-slot-ui.tscn").instantiate()
 	resourceContainer.add_child(resourceSlotInstance)
 	resourceSlotInstance.setup(resourceSlot, inventoryType)
@@ -93,8 +99,9 @@ func getFilteredResources():
 			resourceSlots = playerScene.inventory.resourceSlots
 		Enums.inventoryType.STORAGE_BOX:
 			resourceSlots = playerScene.storage.resourceSlots
+	
 	return resourceSlots if currentFilter == Enums.resourceType.RESOURCE \
-		else resourceSlots.filter(func(slot): return slot.resource.type == currentFilter)
+		else resourceSlots.filter(func(slot): return slot.resource.filterType == currentFilter)
 
 
 func _on_all_items_pressed():
