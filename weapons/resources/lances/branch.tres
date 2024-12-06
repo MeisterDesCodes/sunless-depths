@@ -1,24 +1,13 @@
-[gd_resource type="Resource" script_class="MeleeWeapon" load_steps=5 format=3 uid="uid://d1cv8jecgulhu"]
+[gd_resource type="Resource" script_class="MeleeWeapon" load_steps=3 format=3 uid="uid://d1cv8jecgulhu"]
 
 [ext_resource type="Script" path="res://inventory-resource/melee-weapon.gd" id="1_qgno7"]
 [ext_resource type="Texture2D" uid="uid://dixiuetc43ks8" path="res://assets/resources/weapons/branch.png" id="2_14f5w"]
-[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_vc1w6"]
-
-[sub_resource type="Resource" id="Resource_70rk3"]
-script = ExtResource("2_vc1w6")
-effectType = 3
-strength = 5.0
-duration = 0.0
-appliesTo = 1
-isStackable = true
-stackLimit = 0
-effectApplyType = 0
 
 [resource]
 script = ExtResource("1_qgno7")
 damage = 4.0
 knockback = 40.0
-statusEffects = Array[ExtResource("2_vc1w6")]([SubResource("Resource_70rk3")])
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 meleeWeaponType = 0
 attackDelay = 0.75
 staminaCost = 15.0

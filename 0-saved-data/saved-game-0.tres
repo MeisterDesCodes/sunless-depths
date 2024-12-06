@@ -1,167 +1,117 @@
-[gd_resource type="Resource" script_class="SavedData" load_steps=71 format=3 uid="uid://dplydmt44pob7"]
+[gd_resource type="Resource" script_class="SavedData" load_steps=34 format=3 uid="uid://dplydmt44pob7"]
 
-[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="1_dapt8"]
-[ext_resource type="Resource" uid="uid://dfu058hop23wt" path="res://UI/menu/map/resources/the-settlement.tres" id="1_iydjg"]
-[ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="1_vyyox"]
+[ext_resource type="Resource" uid="uid://b4kgtexf6j6dj" path="res://dialogs/resources/old-toms-workshop/DC-offer.tres" id="1_m6u4f"]
 [ext_resource type="Resource" uid="uid://buco1qws0fm6y" path="res://inventory-resource/resources/equipment/old-torch.tres" id="2_0pc8b"]
-[ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="2_ooeft"]
-[ext_resource type="Resource" uid="uid://cqx4hn68gfddw" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-1.tres" id="3_2awgd"]
+[ext_resource type="AudioStream" uid="uid://c1ldis0f8pslk" path="res://assets/music/background/areas/mysterious-stressful.mp3" id="2_fp10r"]
 [ext_resource type="Resource" uid="uid://bvsi7quqj0cr6" path="res://inventory-resource/resources/equipment/rusty-tank.tres" id="3_g3yoe"]
+[ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="3_ijf0r"]
+[ext_resource type="Resource" uid="uid://cmh04mkgurn5p" path="res://inventory-resource/resources/ammunition/scrap-arrow.tres" id="4_0mj63"]
 [ext_resource type="Resource" uid="uid://bp437lt7ymavk" path="res://weapons/resources/daggers/fists.tres" id="4_ixoyg"]
-[ext_resource type="Resource" uid="uid://3sa6ybvx6rf6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-1.tres" id="4_reops"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="5_m8eok"]
-[ext_resource type="Resource" uid="uid://xym1semtg8ht" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-3.tres" id="5_wkx15"]
-[ext_resource type="Resource" uid="uid://lqpyllnb5amt" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-sight-1.tres" id="6_apump"]
 [ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="7_schab"]
-[ext_resource type="Resource" uid="uid://dfndcayooa4xk" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-1.tres" id="7_u5lrf"]
-[ext_resource type="Resource" uid="uid://d1jvo271qbw3x" path="res://weapons/resources/bows/ancient-bow.tres" id="8_7nlay"]
-[ext_resource type="Resource" uid="uid://bx1amcmmpk1fd" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-effect-duration-1.tres" id="8_om6ob"]
-[ext_resource type="Resource" uid="uid://d07qv8wjqw5y1" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-attack-delay-1.tres" id="9_b71ts"]
-[ext_resource type="Resource" uid="uid://dte10oqxcni6i" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-kill-attack-delay-speed-1.tres" id="10_7f045"]
-[ext_resource type="Resource" uid="uid://bfn7di4ytggl5" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-danger-1.tres" id="11_3dcij"]
-[ext_resource type="Resource" uid="uid://c13tx1qcbbwux" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-danger-2.tres" id="12_ckncj"]
-[ext_resource type="Resource" uid="uid://dpo73j42k6sbn" path="res://inventory-resource/resources/equipment/bone-necklace.tres" id="13_86nyl"]
-[ext_resource type="Resource" uid="uid://cf235tqhxwypn" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-sight-2.tres" id="13_tawtx"]
-[ext_resource type="Resource" uid="uid://dk4pxtjyldmu7" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-1.tres" id="14_rk32x"]
-[ext_resource type="Resource" uid="uid://civc60wvwcxib" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-projectile-speed-spread-1.tres" id="15_23nni"]
+[ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="10_7i846"]
+[ext_resource type="Resource" uid="uid://by4t5mlajd8kb" path="res://weapons/resources/bows/advanced-bow.tres" id="10_ibwqi"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/material/primary/oxygen.tres" id="12_11yhp"]
 [ext_resource type="Script" path="res://0-saved-data/saved-data.gd" id="15_vc2fh"]
-[ext_resource type="Resource" uid="uid://bn4lst5vcsblp" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-consume-ammo-1.tres" id="16_agfd3"]
-[ext_resource type="Resource" uid="uid://qk72yspymyae" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-damage-range-1.tres" id="17_w5wwf"]
-[ext_resource type="Resource" uid="uid://48psvlak4wd3" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-2.tres" id="18_qps2s"]
-[ext_resource type="Resource" uid="uid://jwx3knrang51" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-stamina-cost-1.tres" id="19_nwx5t"]
-[ext_resource type="Resource" uid="uid://bciu16h0f4jju" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-melee-ranged-1.tres" id="20_tj3jw"]
-[ext_resource type="Resource" uid="uid://caxbgfata11ub" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-kill-stamina-1.tres" id="21_joes5"]
-[ext_resource type="Resource" uid="uid://ciuufcghw28nc" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-exhausting-attack-1.tres" id="22_2a04m"]
-[ext_resource type="Resource" uid="uid://b08nph1gxsv4l" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-damage-range-2.tres" id="23_hwbxr"]
-[ext_resource type="Resource" uid="uid://dnkphiu2pkohv" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-third-attack-1.tres" id="24_om31u"]
-[ext_resource type="Resource" uid="uid://dy27n6ee5lvct" path="res://UI/menu/inventory/level-up-cards/resources/tier-3/card-test.tres" id="25_p75oi"]
-[ext_resource type="Resource" uid="uid://ckf7i0p03pukf" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-attack-delay-2.tres" id="26_yn6l4"]
-[ext_resource type="Resource" uid="uid://dcdm3cxjfht88" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-2.tres" id="27_8vejd"]
-[ext_resource type="Resource" uid="uid://sdlv7hjlopg6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-3.tres" id="29_2a1nc"]
-[ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="30_fx3lh"]
 [ext_resource type="Resource" uid="uid://b7mblt1oqmpyo" path="res://inventory-resource/resources/equipment/ragged-backpack.tres" id="32_g2ncf"]
-[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="38_5811t"]
-[ext_resource type="Resource" uid="uid://nxyeych8udio" path="res://inventory-resource/resources/blueprint/material/BP-improvised-explosives.tres" id="41_hj3w6"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="42_005ek"]
-[ext_resource type="Resource" uid="uid://cxduwdaay1mpy" path="res://inventory-resource/resources/equipment/lucky-scarf.tres" id="43_qjnhe"]
-[ext_resource type="Resource" uid="uid://islfv5he1wk2" path="res://inventory-resource/resources/blueprint/consumable/BP-mushroom-brew.tres" id="45_girg4"]
-[ext_resource type="Resource" uid="uid://b5ja2tybxkl4t" path="res://inventory-resource/resources/material/common/scrap-metal.tres" id="46_puu4r"]
 [ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="47_4vxbc"]
-[ext_resource type="Resource" uid="uid://b77626vhf1e2b" path="res://inventory-resource/resources/material/uncommon/iron-bar.tres" id="47_wmlgw"]
 [ext_resource type="Resource" uid="uid://wqed7ldr02ve" path="res://inventory-resource/resources/consumables/cave-fish.tres" id="48_y5a7p"]
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="49_atxoa"]
 [ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="50_ys80k"]
 
-[sub_resource type="Resource" id="Resource_rpcen"]
+[sub_resource type="Resource" id="Resource_uh2dw"]
+script = ExtResource("3_ijf0r")
+name = "Eastward Quarries - I"
+description = "The beginning of a large network of quarries, providing building materials for the tunnels. This place was recently abandoned by the settlement and is now roamed by bandits."
+tier = 1
+locationType = 3
+attributes = Array[int]([0])
+location = 4
+ambientMusic = Array[AudioStreamMP3]([ExtResource("2_fp10r")])
+
+[sub_resource type="Resource" id="Resource_wi3x4"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("10_7i846")
+amount = 8
+
+[sub_resource type="Resource" id="Resource_nxxen"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("12_11yhp")
+amount = 35
+
+[sub_resource type="Resource" id="Resource_8sbe8"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("2_0pc8b")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_ojcg5"]
+[sub_resource type="Resource" id="Resource_mrvd7"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("3_g3yoe")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_cbtrd"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("38_5811t")
-amount = 5
-
-[sub_resource type="Resource" id="Resource_fpqv4"]
+[sub_resource type="Resource" id="Resource_12ox3"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("7_schab")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_qkiv4"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("8_7nlay")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_4a2q7"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("41_hj3w6")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_dq6h5"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("42_005ek")
-amount = 5000
-
-[sub_resource type="Resource" id="Resource_ynui3"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("13_86nyl")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_rkxdc"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("43_qjnhe")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_u0jd2"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("45_girg4")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_dlyi7"]
+[sub_resource type="Resource" id="Resource_m5fgu"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("32_g2ncf")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_5uviv"]
+[sub_resource type="Resource" id="Resource_o5kw2"]
 script = ExtResource("5_m8eok")
-resource = ExtResource("1_dapt8")
-amount = 10
+resource = ExtResource("42_005ek")
+amount = 5000
 
-[sub_resource type="Resource" id="Resource_v23ia"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("47_4vxbc")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_fuwxv"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("46_puu4r")
-amount = 5
-
-[sub_resource type="Resource" id="Resource_l47ou"]
-script = ExtResource("5_m8eok")
-resource = ExtResource("47_wmlgw")
-amount = 2
-
-[sub_resource type="Resource" id="Resource_vmsmw"]
+[sub_resource type="Resource" id="Resource_kltqi"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("48_y5a7p")
 amount = 3
 
-[sub_resource type="Resource" id="Resource_lfjcw"]
+[sub_resource type="Resource" id="Resource_y844j"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("4_0mj63")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_kvujg"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("47_4vxbc")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_blmnj"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("47_4vxbc")
 amount = 10
 
-[sub_resource type="Resource" id="Resource_srr25"]
+[sub_resource type="Resource" id="Resource_qgkxx"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("49_atxoa")
 amount = 10
 
-[sub_resource type="Resource" id="Resource_5sn8s"]
+[sub_resource type="Resource" id="Resource_n475f"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("50_ys80k")
 amount = 10
 
 [resource]
 script = ExtResource("15_vc2fh")
-currentLocation = ExtResource("1_iydjg")
-position = Vector2(2550, 475)
-level = 13
-health = 52.632
-supplies = 5.39946
-oxygen = 68.891
-stamina = 100.0
+currentLocation = SubResource("Resource_uh2dw")
+position = Vector2(2682.76, 1223.57)
+level = 0
+health = 8.35666
+supplies = 33.8304
+oxygen = 34.6454
+stamina = 92.6667
 visitedLocations = Array[int]([1, 2])
-exploredLocations = Array[int]([1, 2])
+exploredLocations = Array[int]([4, 4])
 transportableLocations = Array[int]([4])
-inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_rpcen"), SubResource("Resource_ojcg5"), SubResource("Resource_cbtrd"), SubResource("Resource_fpqv4"), SubResource("Resource_qkiv4"), SubResource("Resource_4a2q7"), SubResource("Resource_dq6h5"), SubResource("Resource_ynui3"), SubResource("Resource_rkxdc"), SubResource("Resource_u0jd2"), SubResource("Resource_dlyi7"), SubResource("Resource_5uviv"), SubResource("Resource_v23ia"), SubResource("Resource_fuwxv"), SubResource("Resource_l47ou"), SubResource("Resource_vmsmw")])
-storage = Array[ExtResource("5_m8eok")]([SubResource("Resource_lfjcw"), SubResource("Resource_srr25"), SubResource("Resource_5sn8s")])
-equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("4_ixoyg"), ExtResource("8_7nlay"), ExtResource("7_schab")])
-equippedAmmunitions = Array[Resource("res://inventory-resource/inventory-ammunition.gd")]([null, ExtResource("1_dapt8"), null])
+completedDialogChoices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_m6u4f")])
+inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_wi3x4"), SubResource("Resource_nxxen"), SubResource("Resource_8sbe8"), SubResource("Resource_mrvd7"), SubResource("Resource_12ox3"), SubResource("Resource_m5fgu"), SubResource("Resource_o5kw2"), SubResource("Resource_kltqi"), SubResource("Resource_y844j"), SubResource("Resource_kvujg")])
+storage = Array[ExtResource("5_m8eok")]([SubResource("Resource_blmnj"), SubResource("Resource_qgkxx"), SubResource("Resource_n475f")])
+equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("7_schab"), ExtResource("10_ibwqi"), ExtResource("4_ixoyg")])
+equippedAmmunitions = Array[Resource("res://inventory-resource/inventory-ammunition.gd")]([null, ExtResource("4_0mj63"), null])
 equippedGear = Array[Resource("res://inventory-resource/inventory-equipment.gd")]([ExtResource("2_0pc8b"), ExtResource("3_g3yoe"), ExtResource("32_g2ncf"), null, null, null, null, null])
-equippedCards = Array[Resource("res://UI/menu/inventory/level-up-cards/level-up-card.gd")]([ExtResource("1_vyyox"), ExtResource("2_ooeft"), ExtResource("3_2awgd"), ExtResource("4_reops"), ExtResource("5_wkx15"), ExtResource("6_apump"), ExtResource("7_u5lrf"), ExtResource("8_om6ob"), ExtResource("9_b71ts"), ExtResource("10_7f045"), ExtResource("11_3dcij"), ExtResource("12_ckncj"), ExtResource("13_tawtx"), ExtResource("14_rk32x"), ExtResource("15_23nni"), ExtResource("16_agfd3"), ExtResource("17_w5wwf"), ExtResource("18_qps2s"), ExtResource("19_nwx5t"), ExtResource("20_tj3jw"), ExtResource("21_joes5"), ExtResource("22_2a04m"), ExtResource("23_hwbxr"), ExtResource("24_om31u"), ExtResource("25_p75oi"), ExtResource("26_yn6l4"), ExtResource("27_8vejd"), ExtResource("29_2a1nc"), ExtResource("30_fx3lh")])
+equippedConsumable = ExtResource("48_y5a7p")
+equippedCards = Array[Resource("res://UI/menu/inventory/level-up-cards/level-up-card.gd")]([])

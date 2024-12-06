@@ -1,15 +1,15 @@
-[gd_scene load_steps=89 format=3 uid="uid://con0pdy4padqm"]
+[gd_scene load_steps=90 format=3 uid="uid://con0pdy4padqm"]
 
 [ext_resource type="Script" path="res://game/areas/area.gd" id="1_18te6"]
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_aatu0"]
 [ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="1_qtktf"]
 [ext_resource type="PackedScene" uid="uid://cqqh46fe21pj3" path="res://environment/interactions/resource-nodes/chest.tscn" id="2_66hs1"]
-[ext_resource type="PackedScene" uid="uid://c1e2cwvpwxhq0" path="res://generation/exits/exit-1/exit-0.tscn" id="2_eda23"]
 [ext_resource type="Texture2D" uid="uid://bj5sok5doki7o" path="res://assets/environment/interactions/chest-closed-1.png" id="3_ci84i"]
 [ext_resource type="Resource" uid="uid://egkn5f1g2uuv" path="res://entities/resources/enemies/giant-rat.tres" id="3_w6aky"]
 [ext_resource type="Texture2D" uid="uid://esv3oav4ebpe" path="res://assets/environment/interactions/chest-open-1.png" id="4_c4ssq"]
-[ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/cave-sand-texture.tscn" id="5_4u1j4"]
-[ext_resource type="PackedScene" uid="uid://cw73sfxbtg6mo" path="res://generation/exits/exit-1/exit-270.tscn" id="6_0h4o0"]
+[ext_resource type="PackedScene" uid="uid://c1e2cwvpwxhq0" path="res://generation/exits/exit-1/exit-1-0.tscn" id="5_1kps7"]
+[ext_resource type="PackedScene" uid="uid://bciduojjrju4" path="res://environment/decorations/textures/ground-texture.tscn" id="5_4u1j4"]
+[ext_resource type="PackedScene" uid="uid://cw73sfxbtg6mo" path="res://generation/exits/exit-1/exit-1-270.tscn" id="6_arvk4"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="7_of1ps"]
 [ext_resource type="Texture2D" uid="uid://e11u1wstuykc" path="res://assets/environment/interactions/basket-filled-1.png" id="8_5nxgd"]
 [ext_resource type="PackedScene" uid="uid://dasm1al2nwuyi" path="res://environment/decorations/textures/mushroom-texture.tscn" id="8_vss2c"]
@@ -17,8 +17,9 @@
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="10_fnkix"]
 [ext_resource type="PackedScene" uid="uid://1yvhjy3jwhtg" path="res://environment/decorations/textures/settlement-texture.tscn" id="12_3bth7"]
 [ext_resource type="PackedScene" uid="uid://c23eyxxgg81kv" path="res://environment/interactions/resource-nodes/old-log.tscn" id="14_su6jt"]
-[ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="15_cefbe"]
+[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/rubble-1.png" id="15_yvo5a"]
 [ext_resource type="Resource" uid="uid://d1cv8jecgulhu" path="res://weapons/resources/lances/branch.tres" id="16_jpr1m"]
+[ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/rubble-3.png" id="17_h7ol8"]
 [ext_resource type="PackedScene" uid="uid://lgkwnkfqfwj6" path="res://environment/curiosities/location.tscn" id="19_vc8kf"]
 [ext_resource type="Resource" uid="uid://c2vwqem35u55w" path="res://dialogs/resources/abandoned-construction-site/D-initial.tres" id="20_5awm5"]
 [ext_resource type="PackedScene" uid="uid://b6l0hu4wpfg66" path="res://environment/decorations/textures/cave-texture.tscn" id="20_dtxys"]
@@ -33,10 +34,9 @@
 [ext_resource type="PackedScene" uid="uid://dkfnx8t267q7x" path="res://environment/decorations/light-sources/lantern.tscn" id="29_72vbc"]
 [ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="30_rwdwn"]
 [ext_resource type="Texture2D" uid="uid://btbmsb2egoku" path="res://assets/environment/decorations/regular/nature/root-3.png" id="30_vuit5"]
-[ext_resource type="Texture2D" uid="uid://dlaks4iw0ww5i" path="res://assets/environment/decorations/regular/rubble/blockage-2.png" id="31_q307v"]
+[ext_resource type="Texture2D" uid="uid://dlaks4iw0ww5i" path="res://assets/environment/decorations/regular/rubble/rubble-2.png" id="31_q307v"]
+[ext_resource type="PackedScene" uid="uid://61uv8w1tqhhi" path="res://environment/decorations/light-sources/light-source.tscn" id="31_qmg15"]
 [ext_resource type="Texture2D" uid="uid://dxhqd6m8l043b" path="res://assets/environment/decorations/regular/nature/root-4.png" id="32_bn8y4"]
-[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="32_yktes"]
-[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="34_kor8u"]
 [ext_resource type="Texture2D" uid="uid://dl68422qll211" path="res://assets/environment/decorations/regular/nature/root-2.png" id="37_ppag7"]
 [ext_resource type="Texture2D" uid="uid://qukotmfqdalr" path="res://assets/environment/decorations/regular/nature/root-1.png" id="38_vi1un"]
 [ext_resource type="Texture2D" uid="uid://bt5263ut5sja0" path="res://assets/environment/decorations/overlay/bush.png" id="40_chcfc"]
@@ -67,6 +67,7 @@
 [ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="63_jptt6"]
 [ext_resource type="PackedScene" uid="uid://uksjmg23iidg" path="res://environment/decorations/light-sources/torch.tscn" id="64_1h5yh"]
 [ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="65_5dqax"]
+[ext_resource type="PackedScene" uid="uid://bnoorpgeuilnr" path="res://environment/interactions/operators/area-operator.tscn" id="66_xkcpl"]
 [ext_resource type="PackedScene" uid="uid://dx6j0un24peas" path="res://environment/interactions/resource-nodes/mycelium.tscn" id="71_el3oa"]
 [ext_resource type="Texture2D" uid="uid://br12hq2006j5t" path="res://assets/environment/decorations/walls/beam-short-1.png" id="71_tlmby"]
 
@@ -201,10 +202,10 @@ layer_1/tile_data = PackedInt32Array(-196592, 458754, 2, -196591, 458754, 2, -26
 layer_2/tile_data = PackedInt32Array(1769525, 458754, 7, 1769526, 458754, 7, 1769527, 458754, 7, 1769531, 458754, 7, 1769532, 458754, 7, 1769533, 458754, 7, 1835069, 458754, 7, 1769534, 589826, 8, 1835070, 458754, 7, 1769535, 458754, 6, 1835071, 458754, 7, 1769536, 458754, 6, 1835072, 458754, 7, 1769537, 655362, 8, 1835073, 458754, 7, 1769538, 458754, 7, 1835074, 458754, 7, 1769539, 589826, 8, 1835075, 458754, 7, 1900611, 458754, 7, 1835076, 589826, 8, 1900612, 458754, 7, 1769541, 917506, 8, 1835077, 458754, 6, 1900613, 458754, 7, 1966149, 458754, 7, 1835078, 524290, 6, 1900614, 589826, 8, 1966150, 458754, 7, 1769543, 393218, 8, 1900615, 458754, 6, 1966151, 458754, 7, 1769544, 458754, 8, 1835080, 917506, 8, 1900616, 458754, 6, 1966152, 458754, 7, 2031688, 458754, 7, 1769545, 458754, 8, 1900617, 524290, 6, 1966153, 589826, 8, 2031689, 458754, 7, 1769546, 655362, 7, 1835082, 786434, 5, 1900618, 393218, 7, 1966154, 65538, 9, 2031690, 458754, 7, 1769547, 458754, 7, 1835083, 393218, 11, 1900619, 458754, 7, 1966155, 917506, 9, 2031691, 458754, 7, 1769548, 458754, 7, 1835084, 131074, 8, 1900620, 589826, 8, 1966156, 458754, 7, 2031692, 458754, 7, 1769549, 458754, 7, 1835085, 655362, 7, 1900621, 65538, 9, 1966157, 458754, 7, 1769550, 458754, 7, 1835086, 458754, 7, 1900622, 393218, 11, 1966158, 458754, 7, 2031694, 458754, 7, 1835087, 458754, 7, 1900623, 131074, 8, 1966159, 589826, 8, 2031695, 458754, 7, 1769552, 458754, 7, 1835088, 458754, 7, 1900624, 458754, 8, 1966160, 458754, 6, 2031696, 458754, 7, 1769553, 458754, 7, 1835089, 786434, 8, 1900625, 786434, 7, 1966161, 458754, 6, 2031697, 458754, 7, 2097233, 458754, 7, 1769554, 458754, 7, 1835090, 458754, 7, 1900626, 655362, 7, 1966162, 393218, 9, 2031698, 589826, 8, 2097234, 458754, 7, 1835091, 458754, 7, 1900627, 589826, 9, 1966163, 786434, 7, 2031699, 458754, 6, 2097235, 458754, 7, 1769556, 458754, 7, 1835092, 458754, 7, 1900628, 393218, 11, 1966164, 655362, 7, 2031700, 655362, 8, 2097236, 458754, 7, 1769557, 458754, 7, 1835093, 589826, 7, 1900629, 851970, 5, 1966165, 589826, 8, 2031701, 458754, 7, 2097237, 458754, 7, 1769558, 458754, 7, 1835094, 458754, 8, 1900630, 393218, 6, 1966166, 655362, 8, 2031702, 458754, 7, 1769559, 458754, 7, 1835095, 655362, 7, 1900631, 65538, 9, 1966167, 458754, 7, 2031703, 458754, 7, 1769560, 458754, 7, 1835096, 458754, 7, 1900632, 393218, 11, 1966168, 458754, 7, 2031704, 458754, 7, 1835097, 458754, 7, 1900633, 131074, 8, 1966169, 589826, 8, 2031705, 458754, 7, 196608, 458754, 7, 262144, 458754, 7, 327680, 458754, 7, 393216, 458754, 7, 196609, 524290, 7, 262145, 524290, 7, 327681, 589826, 8, 393217, 458754, 7, 131074, 65538, 8, 196610, 393218, 7, 262146, 393218, 7, 327682, 65538, 9, 393218, 458754, 7, 458754, 458754, 7, 131075, 851970, 5, 196611, 589826, 8, 262147, 458754, 7, 327683, 131074, 8, 393219, 589826, 8, 458755, 458754, 7, 131076, 393218, 8, 196612, 524290, 6, 262148, 524290, 7, 327684, 458754, 9, 393220, 655362, 8, 458756, 458754, 7, 131077, 655362, 7, 196613, 393218, 8, 262149, 393218, 6, 327685, 655362, 8, 393221, 458754, 7, 458757, 458754, 7, 196614, 655362, 7, 262150, 393218, 9, 327686, 589826, 8, 393222, 458754, 7, 262151, 458754, 8, 327687, 458754, 6, 393223, 458754, 7, 262152, 458754, 8, 327688, 458754, 6, 393224, 458754, 7, 262153, 524290, 8, 327689, 458754, 6, 393225, 458754, 7, 196618, 458754, 8, 262154, 393218, 6, 327690, 655362, 8, 393226, 458754, 7, 65547, 458754, 7, 131083, 589826, 7, 196619, 458754, 9, 262155, 655362, 8, 327691, 458754, 7, 393227, 458754, 7, 12, 589826, 7, 65548, 524290, 7, 131084, 458754, 9, 196620, 655362, 8, 262156, 458754, 7, 327692, 458754, 7, -65523, 589826, 7, 13, 524290, 8, 131085, 458754, 6, 262157, 458754, 7, 327693, 458754, 7, 393229, 458754, 7, 458765, 458754, 7, -131058, 589826, 7, -65522, 524290, 8, 65550, 393218, 6, 196622, 458754, 7, 262158, 589826, 9, 327694, 458754, 11, 393230, 589826, 10, 458766, 458754, 7, -131057, 524290, 8, 15, 393218, 6, 131087, 458754, 11, 196623, 458754, 11, 262159, 655362, 10, 327695, 589826, 7, 393231, 131074, 9, 458767, 458754, 7, -65520, 393218, 6, 65552, 458754, 7, 131088, 458754, 7, 196624, 458754, 7, 262160, 458754, 7, 327696, 65538, 8, 393232, 655362, 8, 458768, 458754, 7, -196591, 458754, 8, -131055, 393218, 6, -65519, 655362, 8, 17, 458754, 7, 65553, 458754, 7, 196625, 458754, 7, 327697, 655362, 10, 393233, 458754, 7, 458769, 458754, 7, -196590, 524290, 8, -131054, 458754, 6, -65518, 458754, 7, 18, 458754, 7, 327698, 589826, 10, 393234, 458754, 7, -131053, 458754, 6, 262163, 458754, 7, 327699, 393218, 11, 393235, 458754, 7, -131052, 458754, 6, 262164, 524290, 7, 327700, 131074, 9, 393236, 458754, 7, -131051, 458754, 6, 21, 458754, 7, 131093, 458754, 7, 262165, 393218, 6, 327701, 655362, 8, 393237, 458754, 7, -196586, 393218, 8, -131050, 524290, 6, -65514, 589826, 8, 22, 458754, 7, 131094, 458754, 7, 262166, 655362, 8, 327702, 458754, 7, 393238, 458754, 7, -196585, 655362, 7, -131049, 393218, 8, -65513, 458754, 6, 23, 458754, 7, 65559, 458754, 7, 131095, 458754, 7, 196631, 458754, 7, 262167, 458754, 7, 327703, 458754, 7, -131048, 655362, 7, -65512, 393218, 9, 24, 589826, 8, 65560, 458754, 7, -786407, 458754, 7, -720871, 458754, 7, -655335, 458754, 7, -589799, 458754, 7, -65511, 458754, 8, 25, 458754, 6, 65561, 458754, 7, -851942, 589826, 7, -786406, 524290, 7, -720870, 524290, 7, -655334, 589826, 8, -589798, 458754, 7, 26, 458754, 6, 65562, 458754, 7, -851941, 524290, 8, 27, 458754, 6, 65563, 458754, 7, 131099, 458754, 7, 196635, 458754, 7, 262171, 458754, 7, 589851, 458754, 7, 655387, 458754, 7, -983012, 458754, 7, -917476, 458754, 8, -524260, 458754, 7, -65508, 458754, 8, 28, 524290, 6, 65564, 524290, 7, 131100, 524290, 7, 196636, 589826, 8, 262172, 458754, 7, 327708, 458754, 7, 393244, 458754, 7, 458780, 458754, 7, 524316, 589826, 7, 589852, 589826, 8, 655388, 458754, 7, 720924, 458754, 7, 786460, 458754, 7, -983011, 524290, 7, -917475, 524290, 8, -524259, 458754, 7, -65507, 458754, 9, 29, 393218, 7, 65565, 393218, 7, 131101, 393218, 8, 196637, 524290, 6, 262173, 524290, 7, 327709, 524290, 7, 393245, 196610, 8, 458781, 458754, 11, 524317, 262146, 9, 589853, 393218, 9, 655389, 524290, 7, 720925, 589826, 8, 786461, 458754, 7, 851997, 458754, 7, 917533, 458754, 7, -983010, 393218, 8, -131042, 458754, 8, -65506, 458754, 6, 30, 458754, 7, 65566, 458754, 7, 131102, 655362, 7, 196638, 393218, 7, 262174, 393218, 7, 327710, 393218, 7, 393246, 655362, 8, 458782, 458754, 7, 524318, 458754, 7, 589854, 655362, 7, 655390, 393218, 7, 720926, 393218, 9, 786462, 524290, 7, 851998, 589826, 8, 917534, 458754, 7, 983070, 458754, 7, -1048545, 458754, 7, -983009, 655362, 7, -917473, 393218, 8, -131041, 458754, 9, -65505, 655362, 8, 31, 458754, 7, 65567, 458754, 7, 131103, 458754, 7, 196639, 458754, 7, 262175, 458754, 7, 327711, 458754, 7, 393247, 458754, 7, 458783, 458754, 7, 524319, 458754, 7, 589855, 458754, 7, 655391, 458754, 7, 720927, 458754, 8, 851999, 524290, 6, 983071, 458754, 7, 1048607, 458754, 7, 1114143, 458754, 7, -917472, 655362, 7, -851936, 393218, 8, -524256, 458754, 7, -131040, 458754, 6, -65504, 458754, 7, 32, 458754, 7, 786464, 393218, 8, 852000, 917506, 8, 917536, 524290, 6, 983072, 524290, 7, 1048608, 589826, 8, 1114144, 458754, 7, 1179680, 458754, 7, -851935, 458754, 8, -524255, 458754, 7, -196575, 458754, 8, -131039, 458754, 6, -65503, 458754, 7, 786465, 458754, 8, 917537, 917506, 8, 1048609, 524290, 6, 1179681, 458754, 7, -720862, 458754, 6, -589790, 458754, 7, -196574, 458754, 9, -131038, 655362, 8, -65502, 458754, 7, 852002, 393218, 8, 1245218, 458754, 7, -720861, 458754, 6, -196573, 458754, 6, -131037, 458754, 7, -65501, 458754, 7, 852003, 655362, 7, 917539, 393218, 7, 983075, 393218, 8, 1048611, 917506, 8, 1114147, 524290, 6, 1179683, 589826, 8, 1245219, 458754, 7, -720860, 458754, 6, -589788, 458754, 7, -196572, 458754, 6, -131036, 458754, 7, 917540, 458754, 7, 983076, 458754, 8, 1048612, 917506, 8, 1179684, 458754, 6, -720859, 524290, 6, -589787, 458754, 7, -262107, 65538, 8, -196571, 655362, 8, -131035, 458754, 7, 1048613, 393218, 8, 1114149, 393218, 6, 1179685, 655362, 8, 1245221, 458754, 7, -786394, 393218, 8, -655322, 655362, 8, -458714, 458754, 7, -262106, 131074, 9, -131034, 458754, 7, 1048614, 655362, 7, 1114150, 393218, 9, 1179686, 589826, 8, 1245222, 458754, 7, -786393, 458754, 8, -720857, 458754, 6, -655321, 458754, 7, -589785, 458754, 7, -524249, 458754, 7, -458713, 458754, 7, -393177, 589826, 7, -327641, 458754, 9, 1114151, 458754, 8, 1179687, 458754, 6, 1245223, 458754, 7, -720856, 458754, 6, -655320, 458754, 7, -589784, 458754, 7, -524248, 458754, 7, -458712, 589826, 9, -393176, 262146, 9, -327640, 655362, 8, -262104, 458754, 7, 1114152, 458754, 8, 1179688, 458754, 6, 1245224, 458754, 7, 1310760, 458754, 7, -720855, 393218, 9, -655319, 524290, 7, -589783, 524290, 7, -524247, 196610, 8, -458711, 655362, 10, -393175, 458754, 7, 1048617, 589826, 7, 1114153, 524290, 8, 1179689, 524290, 6, 1245225, 589826, 8, 1310761, 458754, 7, 1376297, 458754, 7, -720854, 655362, 7, -655318, 393218, 8, -589782, 393218, 6, -524246, 655362, 8, -458710, 458754, 7, 1048618, 786434, 7, 1376298, 458754, 7, 1441834, 458754, 7, -655317, 655362, 7, -589781, 655362, 8, -524245, 458754, 7, -458709, 458754, 7, 1048619, 655362, 7, 1114155, 393218, 8, 1179691, 917506, 8, 1310763, 524290, 6, 1441835, 458754, 7, 1507371, 458754, 7, -589780, 458754, 7, -524244, 458754, 7, 1114156, 655362, 7, 1179692, 393218, 8, 1507372, 458754, 7, 1179693, 655362, 7, 1245229, 393218, 7, 1310765, 393218, 8, 1441837, 458754, 6, 1572909, 458754, 7, 1245230, 458754, 7, 1310766, 458754, 8, 1376302, 917506, 8, 1441838, 524290, 6, 1507374, 589826, 8, 1572910, 458754, 7, 1638446, 458754, 7, 1376303, 393218, 6, 1441839, 393218, 7, 1507375, 393218, 9, 1572911, 589826, 8, 1638447, 458754, 7, 1376304, 65538, 9, 1441840, 458754, 7, 1507376, 458754, 8, 1572912, 458754, 6, 1638448, 458754, 7, 1376305, 131074, 8, 1441841, 524290, 7, 1507377, 524290, 8, 1572913, 458754, 6, 1638449, 458754, 7, 1703985, 458754, 7, 1441842, 393218, 8, 1507378, 917506, 8, 1572914, 524290, 6, 1638450, 589826, 8, 1703986, 458754, 7, 1441843, 458754, 8, 1507380, 393218, 8, 1638452, 458754, 6, 1507381, 458754, 8, 1638453, 458754, 6, 1572918, 393218, 8, 1638454, 786434, 6, 1703990, 786434, 9, 1572919, 458754, 8, 1638455, 458754, 6, 1703991, 458754, 7, 1638456, 65538, 9, 1703992, 458754, 7, 1638457, 393218, 11, 1703993, 458754, 7, 1638458, 131074, 9, 1703994, 458754, 7, 1572923, 458754, 8, 1638459, 458754, 6, 1703995, 458754, 7, 1572924, 524290, 8, 1638460, 524290, 6, 1703996, 589826, 8, 1572925, 393218, 8, 1703997, 458754, 6, 1572926, 458754, 8, 1638462, 917506, 8, 1703998, 524290, 6, 1638463, 393218, 8, 1638464, 458754, 8, 1704001, 393218, 6, 1704002, 65538, 9, 1704003, 131074, 8, 65536, 458754, 7, 131072, 458754, 7, 65537, 458754, 7, 131073, 589826, 7, 2, 458754, 7, 65538, 458754, 7, 3, 458754, 7, 65539, 589826, 7, 4, 458754, 7, 65540, 655362, 7, 5, 458754, 7, 65541, 458754, 7, 65542, 458754, 7, 131078, 458754, 7, 131079, 458754, 7, 196615, 458754, 7, 131080, 458754, 7, 196616, 458754, 7, 131081, 458754, 7, 196617, 589826, 7, 65546, 458754, 7, 131082, 458754, 7, -65525, 458754, 7, 11, 458754, 7, -131060, 458754, 7, -65524, 458754, 7, -196595, 458754, 7, -131059, 458754, 7, 196621, 458754, 7, -262130, 458754, 7, -196594, 458754, 7, 131086, 655362, 8, -262129, 458754, 7, -196593, 589826, 7, 65551, 262146, 8, -262128, 458754, 7, -196592, 458754, 8, 16, 655362, 8, -327663, 458754, 7, -262127, 458754, 7, 262161, 589826, 9, -327662, 458754, 7, -262126, 589826, 7, 196626, 458754, 7, 262162, 655362, 9, -327661, 458754, 7, -262125, 458754, 8, -65517, 458754, 7, 131091, 458754, 7, 196627, 458754, 7, -327660, 458754, 7, -262124, 458754, 8, -65516, 458754, 7, 131092, 458754, 7, 196628, 589826, 7, -327659, 458754, 7, -262123, 458754, 8, -65515, 458754, 7, 196629, 458754, 8, -327658, 458754, 7, -262122, 655362, 7, 196630, 655362, 7, -327657, 458754, 7, -262121, 458754, 7, -262120, 458754, 7, -196584, 458754, 7, -917479, 458754, 7, -851943, 458754, 7, -196583, 458754, 7, -131047, 458754, 7, -983014, 458754, 7, -917478, 458754, 7, -131046, 458754, 7, -65510, 458754, 8, -983013, 458754, 7, -917477, 589826, 7, -655333, 458754, 6, -589797, 458754, 7, -131045, 458754, 7, -65509, 458754, 8, 458779, 458754, 7, 524315, 458754, 7, -1114084, 458754, 7, -1048548, 458754, 7, -655332, 458754, 6, -589796, 458754, 7, -196580, 458754, 7, -131044, 458754, 7, -655331, 524290, 6, -589795, 589826, 8, -196579, 458754, 7, -131043, 589826, 7, -589794, 458754, 6, -524258, 458754, 7, -262114, 458754, 7, -196578, 458754, 7, -589793, 458754, 6, -524257, 458754, 7, -262113, 458754, 7, -196577, 589826, 7, 917535, 589826, 8, -1048544, 458754, 7, -983008, 458754, 7, -655328, 393218, 6, -589792, 655362, 8, -262112, 458754, 7, -196576, 458754, 8, 655392, 458754, 7, 720928, 655362, 7, -983007, 458754, 7, -917471, 458754, 7, -655327, 655362, 8, -589791, 458754, 7, -327647, 458754, 7, -262111, 458754, 7, 655393, 458754, 7, 720929, 458754, 7, 1114145, 589826, 8, -917470, 458754, 7, -851934, 458754, 8, -655326, 458754, 7, -327646, 458754, 7, -262110, 589826, 7, 720930, 458754, 7, 786466, 655362, 7, 1114146, 458754, 6, 1179682, 458754, 7, -917469, 458754, 7, -851933, 458754, 8, -655325, 458754, 7, -327645, 458754, 7, -262109, 458754, 8, 720931, 458754, 7, 786467, 458754, 7, -917468, 458754, 7, -851932, 458754, 8, -655324, 458754, 7, -327644, 458754, 7, -262108, 458754, 8, 786468, 458754, 7, 852004, 458754, 7, 1245220, 458754, 7, -917467, 458754, 7, -851931, 458754, 8, -655323, 589826, 8, -393179, 458754, 7, -327643, 458754, 7, 917541, 458754, 7, 983077, 655362, 7, -917466, 458754, 7, -851930, 655362, 7, -589786, 458754, 7, -393178, 458754, 7, -196570, 458754, 7, 917542, 458754, 7, 983078, 458754, 7, -917465, 458754, 7, -851929, 458754, 7, 983079, 458754, 7, 1048615, 458754, 7, -851928, 458754, 7, -786392, 458754, 8, 983080, 458754, 7, 1048616, 458754, 7, -851927, 458754, 7, -786391, 655362, 7, 917545, 458754, 7, 983081, 458754, 7, -851926, 458754, 7, -786390, 458754, 7, 917546, 458754, 7, 983082, 786434, 8, 1245226, 524290, 6, 1310762, 589826, 8, -786389, 458754, 7, -720853, 458754, 7, 917547, 458754, 7, 983083, 458754, 7, 1376299, 589826, 8, -720852, 458754, 7, -655316, 458754, 7, 983084, 458754, 7, 1048620, 458754, 7, 1376300, 524290, 6, 1441836, 589826, 8, 1048621, 458754, 7, 1114157, 458754, 7, 1507373, 458754, 7, 1114158, 458754, 7, 1179694, 458754, 7, 1245231, 458754, 7, 1310767, 458754, 8, 1245232, 458754, 7, 1310768, 655362, 7, 1245233, 458754, 7, 1310769, 458754, 7, 1310770, 458754, 7, 1376306, 655362, 7, 1310771, 458754, 7, 1376307, 458754, 7, 1638451, 458754, 6, 1703987, 458754, 7, 1376308, 458754, 7, 1441844, 655362, 7, 1703988, 458754, 7, 1376309, 458754, 7, 1441845, 458754, 7, 1703989, 458754, 7, 1441846, 458754, 7, 1507382, 655362, 7, 1441847, 458754, 7, 1507383, 458754, 7, 1507384, 458754, 7, 1572920, 655362, 7, 1507385, 458754, 7, 1572921, 458754, 7, 1507386, 458754, 7, 1572922, 589826, 7, 1441851, 458754, 7, 1507387, 458754, 7, 1441852, 458754, 7, 1507388, 589826, 7, 1441853, 458754, 7, 1507389, 655362, 7, 1441854, 458754, 7, 1507390, 458754, 7, 1507391, 458754, 7, 1572927, 655362, 7, 1507392, 458754, 7, 1572928, 458754, 7, 1572929, 458754, 7, 1638465, 458754, 8, 1572930, 458754, 7, 1638466, 655362, 7, 1572931, 458754, 7, 1638467, 458754, 7, 1638468, 458754, 7, 1704004, 458754, 8, 1638469, 458754, 7, 1704005, 458754, 8, 1638470, 458754, 7, 1704006, 458754, 8, 1638471, 458754, 7, 1704007, 655362, 7, 1638472, 458754, 7, 1704008, 458754, 7, 1704009, 458754, 7, 1704010, 458754, 7, 1704011, 458754, 7, -327642, 589826, 7, -131033, 458754, 7, -131032, 458754, 7, -65496, 458754, 7, 40, 458754, 7, 65576, 458754, 7, 65577, 458754, 7, 131113, 458754, 7, 131114, 458754, 7, 131115, 458754, 7, 131116, 458754, 7, 65580, 458754, 7, 44, 458754, 7, -65492, 458754, 7, -131028, 458754, 7, -131029, 458754, 7, -65493, 655362, 7, 65579, 655362, 8, 65578, 589826, 8, 43, 393218, 7, -131030, 786434, 8, 41, 851970, 9, -65495, 589826, 10, -196567, 655362, 9, -196569, 589826, 10, -131031, 458754, 11, -196568, 393218, 11, -262105, 262146, 8, 42, 851970, 5, -65494, 196610, 12, 1704032, 458754, 7, 1704031, 458754, 7, 1704030, 458754, 7, 1704029, 458754, 7, 1769565, 458754, 7, 1769564, 458754, 7, 1769563, 458754, 7, 1769562, 458754, 7, 1769561, 458754, 7, 1704026, 458754, 7, 1704027, 458754, 7, 1704028, 458754, 7, 1704025, 458754, 7, 1704024, 458754, 7, 1704023, 458754, 7, 1704022, 458754, 7, 1704021, 458754, 7, 1704020, 458754, 7, 1704019, 458754, 7, 1704018, 458754, 7, 1704017, 458754, 7, 1769555, 458754, 7, 1769551, 458754, 7, 1704015, 458754, 7, 1704014, 458754, 7, 1704013, 458754, 7, 1638477, 458754, 7, 1638476, 458754, 7, 1638475, 458754, 7, 1638474, 458754, 7, 1572938, 458754, 7, 1572937, 458754, 7, 1572936, 458754, 7, 1507400, 458754, 7, 1507399, 458754, 7, 1507398, 458754, 7, 1507397, 458754, 7, 1704016, 458754, 7, 1704012, 458754, 7, 1638473, 458754, 7, 1572935, 458754, 7, 1507396, 458754, 7, 1441860, 458754, 7, 1441859, 458754, 7, 1441858, 458754, 7, 1441857, 458754, 7, 1441856, 458754, 7, 1441855, 458754, 7, 1376319, 458754, 7, 1376320, 458754, 7, 1376321, 458754, 7, 1376322, 458754, 7, 1376323, 458754, 7, 1376324, 458754, 7, 1441861, 458754, 7, 1441862, 458754, 7, 1572934, 458754, 7, 1572933, 458754, 7, 1572932, 458754, 7, 1507394, 458754, 7, 1507393, 458754, 7, 1507395, 458754, 7, 1441850, 458754, 7, 1441849, 458754, 7, 1441848, 458754, 7, 1900608, 458754, 7, 1900609, 458754, 7, 1966145, 458754, 7, 1966146, 458754, 7, 1966147, 458754, 7, 1966148, 458754, 7, 2031686, 458754, 7, 2031687, 458754, 7, 1900610, 458754, 7, 2097231, 458754, 7, 2097232, 458754, 7, 2162768, 458754, 7, 2162769, 458754, 7, 2162770, 458754, 7, 2162771, 458754, 7, 2162772, 458754, 7, 2162773, 458754, 7, 2228308, 458754, 7, 2228307, 458754, 7, 2228306, 458754, 7, 2228305, 458754, 7, 2097238, 458754, 7, 2097239, 458754, 7, 2097230, 458754, 7, 2097229, 458754, 7, 2031693, 458754, 7, 2097226, 458754, 7, 2097225, 458754, 7, 2097227, 458754, 7, 2097228, 458754, 7, 1310773, 458754, 7, 1310772, 458754, 7, 1245235, 458754, 7, 1245234, 458754, 7, 1179698, 458754, 7, 1179697, 458754, 7, 1179696, 458754, 7, 1114160, 458754, 7, 1114159, 458754, 7, 1048622, 458754, 7, 1048623, 458754, 7, 1048624, 458754, 7, 1114161, 458754, 7, 1179699, 458754, 7, 1179695, 458754, 7, 1638445, 458754, 7, 1638444, 458754, 7, 1638443, 458754, 7, 1638442, 458754, 7, 1572905, 458754, 7, 1572904, 458754, 7, 1507367, 458754, 7, 1507366, 458754, 7, 1441830, 458754, 7, 1441829, 458754, 7, 1376292, 458754, 7, 1376291, 458754, 7, 1310755, 458754, 7, 1310756, 458754, 7, 1310757, 458754, 7, 1310758, 458754, 7, 1376295, 458754, 7, 1441832, 458754, 7, 1507369, 458754, 7, 1507370, 458754, 7, 1572906, 458754, 7, 1572907, 458754, 7, 1572908, 458754, 7, 1441831, 458754, 7, 1376294, 458754, 7, 1376293, 458754, 7, 1507368, 458754, 7, 1441833, 458754, 7, 1376296, 458754, 7, 1310759, 458754, 7, 852009, 458754, 7, 852008, 458754, 7, 852007, 458754, 7, 852006, 458754, 7, 917543, 458754, 7, 917544, 458754, 7, 852005, 458754, 7, 1310754, 458754, 7, 1245217, 458754, 7, 1245216, 458754, 7, 1179679, 458754, 7, 1114142, 458754, 7, 1048606, 458754, 7, 196632, 458754, 7, 262168, 458754, 7, 393239, 458754, 7, 327704, 458754, 7, 65558, 458754, 7, 65557, 458754, 7, 65556, 458754, 7, 20, 458754, 7, 19, 458754, 7, 65555, 458754, 7, 65554, 458754, 7, 131089, 458754, 7, 131090, 458754, 7, 131096, 458754, 7, 458764, 458754, 7, 393228, 458754, 7, 458763, 458754, 7, 458762, 458754, 7, 458761, 458754, 7, 458760, 458754, 7, 458759, 458754, 7, 458758, 458754, 7, 524297, 458754, 7, 524296, 458754, 7, 524295, 458754, 7, 524294, 458754, 7, -393194, 458754, 7, -393195, 458754, 7, -393196, 458754, 7, -393197, 458754, 7, -327648, 458754, 7, -393184, 458754, 7, -458720, 458754, 7, -458719, 458754, 7, -524254, 458754, 7, -589789, 458754, 7, -524253, 458754, 7, -524252, 458754, 7, -524251, 458754, 7, -524250, 458754, 7, -458715, 458754, 7, -458716, 458754, 7, -393180, 458754, 7, -393181, 458754, 7, -393182, 458754, 7, -393183, 458754, 7, -458717, 458754, 7, -458718, 458754, 7, -458721, 458754, 7, -393185, 458754, 7, -327649, 458754, 7, -851925, 458754, 7, -917462, 458754, 7, -917463, 458754, 7, -917464, 458754, 7, -983000, 458754, 7, -983001, 458754, 7, -983002, 458754, 7, -983003, 458754, 7, -983004, 458754, 7, -983005, 458754, 7, -983006, 458754, 7, 1900643, 458754, 7, 1966178, 458754, 7, 1966177, 458754, 7, 2031713, 458754, 7, 2031712, 458754, 7, 2097248, 458754, 7, 2097247, 458754, 7, 2097246, 458754, 7, 2162782, 458754, 7, 2162781, 458754, 7, 2162783, 458754, 7, 2162780, 458754, 7, 2162779, 458754, 7, 2097243, 458754, 7, 2097242, 458754, 7, 2097241, 458754, 7, 2097240, 458754, 7, 1966179, 458754, 7, 2031714, 458754, 7, 2097249, 458754, 7, 2162784, 458754, 7, 1703984, 458754, 7, 1703983, 458754, 7, 1703982, 458754, 7, 1703981, 458754, 7, 1703980, 458754, 7, -196566, 458754, 7, -262102, 458754, 7, -262103, 458754, 7, -327639, 458754, 7, -393174, 458754, 7, -196565, 458754, 7, -1245156, 458754, 7, -1179620, 458754, 7, -1245155, 458754, 7, -1310691, 458754, 7, -1376227, 458754, 7, -1441763, 458754, 7, -1507299, 458754, 7, -1572835, 458754, 7, -1114081, 458754, 7, -1179617, 458754, 7, -1245153, 458754, 7, -1310689, 458754, 7, -1376225, 458754, 7, -1441761, 458754, 7, -1507297, 458754, 7, -1572833, 458754, 7, -1638369, 458754, 7, -1703905, 458754, 7, -1769441, 458754, 7, -1834977, 458754, 7, -1834979, 458754, 7, -1769443, 458754, 7, -1703907, 458754, 7, -1638371, 458754, 7, -1179619, 589826, 7, -1179618, 262146, 9, -1114082, 393218, 7, -1245154, 458754, 11, -1310690, 458754, 11, -1376226, 458754, 11, -1441762, 458754, 11, -1507298, 458754, 11, -1572834, 458754, 11, -1638370, 458754, 11, -1703906, 458754, 11, -1769442, 458754, 11, -1834978, 458754, 11, -1114083, 524290, 7, -1048547, 524290, 7, -720863, 393218, 6, -1048546, 393218, 7, -1114080, 458754, 7, -1179616, 458754, 7, -1245152, 458754, 7, -1310688, 458754, 7, -1376224, 458754, 7, -1441760, 458754, 7, -1507296, 458754, 7, -1572832, 458754, 7, -1638368, 458754, 7, -1310692, 458754, 7, -1376228, 458754, 7, -1441764, 458754, 7, -1507300, 458754, 7, -1572836, 458754, 7, -1638372, 458754, 7, -1703908, 458754, 7, -1769444, 458754, 7, -1703904, 458754, 7, -1769440, 458754, 7, -1834976, 458754, 7, -1834980, 458754, 7, -1900513, 458754, 7, -1900516, 458754, 7, -1900515, 589826, 8, -1900514, 262146, 8)
 removeRandomObjects = false
 
-[node name="Exit - 1" parent="NavigationRegion2D/Tilemap" instance=ExtResource("2_eda23")]
+[node name="Exit - 1" parent="NavigationRegion2D/Tilemap" instance=ExtResource("5_1kps7")]
 position = Vector2(5760, 1664)
 
-[node name="Exit - 2" parent="NavigationRegion2D/Tilemap" instance=ExtResource("6_0h4o0")]
+[node name="Exit - 2" parent="NavigationRegion2D/Tilemap" instance=ExtResource("6_arvk4")]
 position = Vector2(1664, -2496)
 
 [node name="EnvironmentalObjects" type="Node2D" parent="NavigationRegion2D"]
@@ -483,42 +484,42 @@ scale = Vector2(0.34, 0.34)
 
 [node name="ObjectSquare" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1881, -919)
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1975, -1324)
 rotation = -1.13551
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1954, -1545)
 rotation = 0.230287
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2005, -926)
 rotation = 0.785397
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare21" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2362, -657)
 rotation = 2.61799
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare11" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1978, -1228)
 rotation = 0.785397
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -565,21 +566,21 @@ collisionHeight = 30
 [node name="ObjectSquare5" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1872, -886)
 rotation = 0.571329
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare6" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2027, -883)
 rotation = 2.30622
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1859, 635)
 rotation = -0.599787
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -587,7 +588,7 @@ collisionHeight = 40
 position = Vector2(3097.97, 1450.35)
 rotation = -0.397669
 scale = Vector2(1.9, 1.9)
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -595,7 +596,7 @@ collisionHeight = 40
 position = Vector2(3870, 1508)
 rotation = -2.03369
 scale = Vector2(1.325, 1.325)
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -603,7 +604,7 @@ collisionHeight = 40
 position = Vector2(4181, 1772)
 rotation = -3.85
 scale = Vector2(1.325, 1.325)
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -611,7 +612,7 @@ collisionHeight = 40
 position = Vector2(4057, 1573)
 rotation = -3.77474
 scale = Vector2(0.89, 0.89)
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -619,21 +620,21 @@ collisionHeight = 40
 position = Vector2(3449, 1497)
 rotation = -4.92236
 scale = Vector2(0.89, 0.89)
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare29" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2056, 951)
 rotation = -0.599787
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
 [node name="ObjectSquare25" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1925, 766)
 rotation = 0.942516
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 collisionWidth = 70
 collisionHeight = 40
 
@@ -664,6 +665,21 @@ collisionHeight = 30
 [node name="ObjectSquare32" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2367, 1184)
 rotation = 0.761877
+scale = Vector2(1.32, 1.32)
+texture = ExtResource("31_q307v")
+collisionWidth = 70
+collisionHeight = 30
+
+[node name="ObjectSquare61" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
+position = Vector2(108, 347)
+rotation = 0.801856
+texture = ExtResource("15_yvo5a")
+collisionWidth = 70
+collisionHeight = 40
+
+[node name="ObjectSquare62" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
+position = Vector2(375, 209)
+rotation = -0.702612
 scale = Vector2(1.32, 1.32)
 texture = ExtResource("31_q307v")
 collisionWidth = 70
@@ -721,49 +737,49 @@ collisionHeight = 30
 position = Vector2(1833, 560)
 rotation = 0.348922
 scale = Vector2(1.36, 1.36)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare27" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2089, 771)
 rotation = 2.17501
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare28" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1944, 810)
 rotation = 0.246366
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare33" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2291, 1184)
 rotation = -1.34233
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare34" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2401, 1167)
 rotation = -2.34888
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare36" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2740, 1036)
 rotation = -3.72977
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare37" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2766, 1047)
 rotation = -4.60679
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -771,7 +787,7 @@ collisionHeight = 30
 position = Vector2(2840.74, 1124.69)
 rotation = -4.03819
 scale = Vector2(1.395, 1.395)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -779,28 +795,28 @@ collisionHeight = 30
 position = Vector2(2708.72, 1273.16)
 rotation = -6.33689
 scale = Vector2(1.395, 1.395)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare44" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(3246, 1417)
 rotation = -4.23179
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare45" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(3230, 1387)
 rotation = -3.41932
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare46" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(3475, 1509)
 rotation = -4.51554
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -808,7 +824,7 @@ collisionHeight = 30
 position = Vector2(3922, 1510)
 rotation = -4.18878
 scale = Vector2(1.425, 1.425)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -816,7 +832,7 @@ collisionHeight = 30
 position = Vector2(3997, 1730)
 rotation = -1.26123
 scale = Vector2(1.425, 1.425)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -824,35 +840,35 @@ collisionHeight = 30
 position = Vector2(4068, 1776)
 rotation = -0.85873
 scale = Vector2(1.425, 1.425)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare50" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(4073, 1600)
 rotation = -0.846536
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare55" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(4025, 1559)
 rotation = -2.03912
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare51" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(4240, 1710)
 rotation = 2.01586
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare58" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(4782, 1795)
 rotation = -0.749443
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -860,7 +876,7 @@ collisionHeight = 30
 position = Vector2(5136, 1879)
 rotation = -1.73125
 scale = Vector2(1.41, 1.41)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -868,7 +884,7 @@ collisionHeight = 30
 position = Vector2(5412.68, 2000.55)
 rotation = 0.439668
 scale = Vector2(1.41, 1.41)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -876,28 +892,28 @@ collisionHeight = 30
 position = Vector2(1834, 603)
 rotation = -0.0481728
 scale = Vector2(1.36, 1.36)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare19" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2256, -667)
 rotation = 3.92699
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare20" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(2471, -641)
 rotation = 3.80826
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
 [node name="ObjectSquare17" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Ground" instance=ExtResource("44_pve3w")]
 position = Vector2(1917, -1130)
 rotation = 0.62384
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -905,7 +921,7 @@ collisionHeight = 30
 position = Vector2(1944, -1250)
 rotation = 3.77859
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -913,7 +929,7 @@ collisionHeight = 30
 position = Vector2(1942, -1438)
 rotation = 5.43255
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -921,7 +937,7 @@ collisionHeight = 30
 position = Vector2(1962, -1297)
 rotation = 2.79707
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -929,7 +945,7 @@ collisionHeight = 30
 position = Vector2(1942, -1228)
 rotation = 2.61799
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("15_cefbe")
+texture = ExtResource("17_h7ol8")
 collisionWidth = 30
 collisionHeight = 30
 
@@ -951,25 +967,14 @@ texture = ExtResource("27_cxwno")
 
 [node name="Rubble" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular"]
 
-[node name="BlockageLargeRemove1" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
+[node name="BlockageRemove1" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
 position = Vector2(1911, 425)
 rotation = 0.261799
-texture = ExtResource("32_yktes")
+texture = ExtResource("15_yvo5a")
 
-[node name="BlockageLargeRemove3" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
-position = Vector2(113, 344)
-rotation = 1.07492
-texture = ExtResource("32_yktes")
-
-[node name="BlockageLargeRemove2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
+[node name="BlockageRemove2" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
 position = Vector2(1892, 489)
 rotation = 0.785397
-texture = ExtResource("31_q307v")
-
-[node name="BlockageLargeRemove4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular/Rubble" instance=ExtResource("30_rwdwn")]
-position = Vector2(411, 219)
-rotation = -0.523598
-scale = Vector2(1.28, 1.28)
 texture = ExtResource("31_q307v")
 
 [node name="Overlays" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
@@ -1947,6 +1952,12 @@ z_index = 1
 [node name="LightSources" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
 
+[node name="LightSource" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("31_qmg15")]
+position = Vector2(1954.33, -1601.49)
+size = 10.0
+energy = 10.0
+color = Color(1, 1, 1, 1)
+
 [node name="Torch9" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("64_1h5yh")]
 position = Vector2(1909, -1056)
 rotation = 3.00515
@@ -1971,11 +1982,6 @@ texture = ExtResource("42_d1adk")
 position = Vector2(4466, 1708)
 rotation = 4.64933
 texture = ExtResource("42_d1adk")
-
-[node name="LightSource" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("34_kor8u")]
-position = Vector2(1950, -1524)
-size = 10.0
-energy = 10.0
 
 [node name="Lantern4" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls/LightSources" instance=ExtResource("29_72vbc")]
 position = Vector2(961, -1)
@@ -3373,6 +3379,11 @@ scale = Vector2(0.985, 0.985)
 dropResources = Array[ExtResource("7_of1ps")]([SubResource("Resource_5qr4s")])
 
 [node name="TransportNodes" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
+
+[node name="Other" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
+
+[node name="AreaOperator" parent="NavigationRegion2D/EnvironmentalObjects/Interactions/Other" instance=ExtResource("66_xkcpl")]
+position = Vector2(1846.95, -2226.27)
 
 [node name="Curiosities" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
 

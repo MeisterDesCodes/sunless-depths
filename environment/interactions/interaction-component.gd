@@ -6,7 +6,7 @@ signal onInteract
 @export var triggersAutomatically: bool = false
 @export var textDisplay: String = ""
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var resourceSpawner = get_node("ResourceSpawner")
 @onready var particles = get_node("InteractionParticle")
 

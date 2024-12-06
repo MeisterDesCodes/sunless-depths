@@ -6,7 +6,7 @@
 script = ExtResource("1_g738v")
 effectType = 7
 strength = 10000.0
-duration = 500.0
+duration = 1000.0
 appliesTo = 1
 isStackable = false
 stackLimit = null

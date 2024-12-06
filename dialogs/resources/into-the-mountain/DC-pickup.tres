@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://cq6rp44v26ypx"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_cwrc0"]
+
+[resource]
+script = ExtResource("5_cwrc0")
+title = "Pick up the omnious stone"
+description = "xxx"
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

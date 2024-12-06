@@ -10,3 +10,4 @@ description = "Curiosity got the best of you. You move closer to the small openi
 
 Perhaps, that's a good thing."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_wavgk")])
+canExit = false

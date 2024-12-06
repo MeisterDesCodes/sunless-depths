@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://entities/resources/enemies.gd" id="2_0libn"]
 [ext_resource type="Resource" uid="uid://dum4ni3lxgxqv" path="res://entities/resources/enemies/crawler.tres" id="2_w15yg"]
 [ext_resource type="Resource" uid="uid://cwaapu5hqbqij" path="res://entities/resources/enemies/bat.tres" id="3_2c8ya"]
-[ext_resource type="Resource" uid="uid://cu2kjfnxku1qq" path="res://entities/resources/enemies/bandit-brute.tres" id="5_g24fy"]
+[ext_resource type="Resource" uid="uid://cu2kjfnxku1qq" path="res://entities/resources/enemies/bandit-brawler.tres" id="5_g24fy"]
 [ext_resource type="Resource" uid="uid://jq1oi7xmfhrq" path="res://entities/resources/enemies/carapace.tres" id="5_j36qe"]
-[ext_resource type="Resource" uid="uid://csj7grpf30j7s" path="res://entities/resources/enemies/bandit-ranger.tres" id="6_i2htf"]
+[ext_resource type="Resource" uid="uid://csj7grpf30j7s" path="res://entities/resources/enemies/bandit-rogue.tres" id="6_i2htf"]
 
 [sub_resource type="Resource" id="Resource_wgjaw"]
 script = ExtResource("1_8cmwc")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://7el5rf12tos0"]
+
+[ext_resource type="Resource" uid="uid://dn6hn1df0jgas" path="res://dialogs/resources/shared/DC-surrender.tres" id="1_1a68p"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_wyl47"]
+
+[resource]
+script = ExtResource("2_wyl47")
+title = "No luck"
+description = "You manage to ignite the fire before you pass out. Lying helplessly by, the crackling of the fire is the last thing you hear."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_1a68p")])
+canExit = false

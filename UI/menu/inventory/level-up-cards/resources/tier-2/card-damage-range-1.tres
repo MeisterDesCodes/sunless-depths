@@ -1,9 +1,30 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://qk72yspymyae"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=10 format=3 uid="uid://qk72yspymyae"]
 
 [ext_resource type="Texture2D" uid="uid://dswm54q6fveqm" path="res://assets/UI/icons/entities/player/stats/Lucky Strike.png" id="1_ah8uf"]
 [ext_resource type="Resource" uid="uid://od04dp6x1ken" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-1.tres" id="2_jlmjy"]
 [ext_resource type="Resource" uid="uid://3sa6ybvx6rf6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-1.tres" id="3_5mile"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_5vwij"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="5_hii32"]
+
+[sub_resource type="Resource" id="Resource_2htqt"]
+script = ExtResource("5_hii32")
+resource = 0
+amount = 1
+
+[sub_resource type="Resource" id="Resource_jek77"]
+script = ExtResource("5_hii32")
+resource = 1
+amount = 1
+
+[sub_resource type="Resource" id="Resource_lph64"]
+script = ExtResource("5_hii32")
+resource = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_0b5se"]
+script = ExtResource("5_hii32")
+resource = 3
+amount = 1
 
 [resource]
 script = ExtResource("4_5vwij")
@@ -14,5 +35,5 @@ requirements = Array[ExtResource("4_5vwij")]([ExtResource("2_jlmjy"), ExtResourc
 type = 20
 value = 5.0
 value2 = 10.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("5_hii32")]([SubResource("Resource_2htqt"), SubResource("Resource_jek77"), SubResource("Resource_lph64"), SubResource("Resource_0b5se")])
 tier = 1

@@ -2,19 +2,20 @@
 
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_6j75h"]
 [ext_resource type="Texture2D" uid="uid://c0euu6eh304aj" path="res://assets/environment/decorations/light-sources/lantern-1.png" id="2_2aapc"]
-[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="2_f3ffv"]
+[ext_resource type="PackedScene" uid="uid://61uv8w1tqhhi" path="res://environment/decorations/light-sources/light-source.tscn" id="2_f3ffv"]
 [ext_resource type="PackedScene" uid="uid://dtny1upneb7yc" path="res://environment/decorations/particles/light-particle.tscn" id="4_lbbcp"]
 
 [node name="Lantern" type="Node2D"]
 script = ExtResource("1_6j75h")
 texture = ExtResource("2_2aapc")
 
-[node name="LightSource" parent="." instance=ExtResource("2_f3ffv")]
-size = 5.0
-energy = 1.0
-
-[node name="LightParticle" parent="." instance=ExtResource("4_lbbcp")]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2aapc")
+
+[node name="LightSource" parent="." instance=ExtResource("2_f3ffv")]
+size = 5.0
+energy = 1.0
+color = Color(1, 1, 1, 1)
+
+[node name="LightParticle" parent="." instance=ExtResource("4_lbbcp")]

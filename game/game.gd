@@ -3,18 +3,21 @@ extends Node2D
 
 @export var initialLocation: MapLocation
 
-@onready var startingArea = preload("res://game/areas/a-past-forgotten.tscn")
 @onready var playerScene = get_node("Entities/Player")
 @onready var enemies = get_node("Entities/Enemies")
+@onready var groundResources = get_node("GroundResources")
 @onready var navigationRegion = get_node("NavigationRegion2D")
 @onready var currentLocation = get_node("CurrentLocation")
 @onready var canvasModulate = get_node("CanvasModulate")
 @onready var particles = get_node("Particles")
 @onready var soundComponent = get_node("GameSoundComponent")
 
+@onready var startingArea = preload("res://game/areas/a-past-forgotten.tscn")
+
 
 func _ready():
 	canvasModulate.color = UtilsS.colorCanvasModulate
+	PersistenceS.setup()
 	loadGame()
 
 
@@ -25,12 +28,8 @@ func startNewGame():
 	LocationLoaderS.loadArea(startingArea, false)
 	visible = true
 	
-	await get_tree().create_timer(2).timeout
-	var location = preload("res://environment/curiosities/location.tscn").instantiate()
-	location.title = "???"
-	location.initialDialog = preload("res://dialogs/resources/spawn/D-initial.tres")
-	var scene = UILoaderS.loadUIScene(preload("res://UI/dialog/dialog-menu-ui.tscn"))
-	scene.setup(location)
+	await UtilsS.createTimer(2)
+	UILoaderS.setupDialog(preload("res://dialogs/resources/spawn/D-initial.tres"), "???")
 
 
 func loadGame():
@@ -41,6 +40,12 @@ func loadGame():
 	visible = true
 
 
+func resetGame():
+	UtilsS.removeEntitiesFromScene(enemies)
+	UtilsS.removeEntitiesFromScene(groundResources)
+	
+	playerScene.reset()
+	loadGame()
 
 
 

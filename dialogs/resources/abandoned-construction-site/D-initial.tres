@@ -13,3 +13,4 @@ description = "You approach what used to be some sort of construction project. W
 
 This place wasn't abandoned, it was fled from."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_oekk1"), ExtResource("2_s0jk7"), ExtResource("4_6fu0m"), ExtResource("2_6cirn")])
+canExit = false

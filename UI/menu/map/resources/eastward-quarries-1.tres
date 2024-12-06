@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="MapLocation" load_steps=2 format=3 uid="uid://bmcfjvny08vtb"]
+[gd_resource type="Resource" script_class="MapLocation" load_steps=3 format=3 uid="uid://bmcfjvny08vtb"]
 
+[ext_resource type="AudioStream" uid="uid://c1ldis0f8pslk" path="res://assets/music/background/areas/mysterious-stressful.mp3" id="1_rdf55"]
 [ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="1_rqew7"]
 
 [resource]
@@ -10,3 +11,4 @@ tier = 1
 locationType = 3
 attributes = Array[int]([0])
 location = 4
+ambientMusic = Array[AudioStreamMP3]([ExtResource("1_rdf55")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://cmfjpvldfim30"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_dtboy"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_eyfgp"]
+
+[resource]
+script = ExtResource("2_eyfgp")
+title = "Lost in the mountain"
+description = "You wander around aimlessly for a while. Every pathway looks the same. There is a whisper in your head, getting louder with every step you take, until it is almost unbearable. You walk down yet another pathway, and eventually you pass out."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_dtboy")])
+canExit = false

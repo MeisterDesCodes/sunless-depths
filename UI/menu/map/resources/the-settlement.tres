@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="MapLocation" load_steps=2 format=3 uid="uid://dfu058hop23wt"]
+[gd_resource type="Resource" script_class="MapLocation" load_steps=3 format=3 uid="uid://dfu058hop23wt"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="1_7w5ac"]
+[ext_resource type="AudioStream" uid="uid://sv3ff03xvnuk" path="res://assets/music/background/areas/lively-rural.mp3" id="1_ntbu3"]
 
 [resource]
 script = ExtResource("1_7w5ac")
@@ -8,5 +9,6 @@ name = "The Settlement"
 description = "A small yet sturdy settlement in the outskirts of the tunnels, cut off from civilazation during a recent rock slide. This place doens't provide much, but might aid your journey nonetheless."
 tier = 0
 locationType = 2
-attributes = Array[int]([1, 2])
+attributes = Array[int]([])
 location = 2
+ambientMusic = Array[AudioStreamMP3]([ExtResource("1_ntbu3")])

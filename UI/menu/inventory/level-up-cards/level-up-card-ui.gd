@@ -3,7 +3,7 @@ extends Control
 
 signal cardSelected
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var title: Label = get_node("MarginContainer/VBoxContainer/Title")
 @onready var icon: TextureRect = get_node("MarginContainer/VBoxContainer/PanelContainer/Icon")
 @onready var requirementsDescription: Label = get_node("MarginContainer/VBoxContainer/Requirements/Description")

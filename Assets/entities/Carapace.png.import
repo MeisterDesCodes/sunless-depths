@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsbqjysd6hg2c"
-path="res://.godot/imported/Carapace.png-be4cdeef1c2ac8312c5d0121f4f5b8ac.ctex"
+path="res://.godot/imported/carapace.png-debdb2bb8f34690ed42979216958c683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/Carapace.png"
-dest_files=["res://.godot/imported/Carapace.png-be4cdeef1c2ac8312c5d0121f4f5b8ac.ctex"]
+source_file="res://assets/entities/carapace.png"
+dest_files=["res://.godot/imported/carapace.png-debdb2bb8f34690ed42979216958c683.ctex"]
 
 [params]
 

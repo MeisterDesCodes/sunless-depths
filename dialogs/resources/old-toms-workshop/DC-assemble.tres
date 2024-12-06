@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=17 format=3 uid="uid://ddfpqeo0lmpdj"]
+
+[ext_resource type="Resource" uid="uid://blmuxyfm4n5r1" path="res://inventory-resource/resources/material/uncommon/the-bomb.tres" id="1_t77yx"]
+[ext_resource type="Resource" uid="uid://c2yhcgrbu2hi" path="res://inventory-resource/resources/material/uncommon/explosive-components-1.tres" id="2_iogj1"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_xqfbd"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="3_gaji7"]
+[ext_resource type="Resource" uid="uid://6n2sgfy0kfrd" path="res://inventory-resource/resources/material/uncommon/explosive-components-2.tres" id="4_e4asx"]
+[ext_resource type="Resource" uid="uid://bvq4p3bqo3hyy" path="res://inventory-resource/resources/material/uncommon/explosive-components-3.tres" id="5_kryf3"]
+[ext_resource type="Resource" uid="uid://bjs8ns2ft45x4" path="res://inventory-resource/resources/material/common/blackpowder.tres" id="6_fa4t5"]
+
+[sub_resource type="Resource" id="Resource_p528w"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("1_t77yx")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_l0u05"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("2_iogj1")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4vau2"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("4_e4asx")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_mhmye"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("5_kryf3")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ipxl1"]
+script = ExtResource("3_gaji7")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_m35a3"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("2_iogj1")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_t2pit"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("4_e4asx")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_egtoh"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("5_kryf3")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_vegcs"]
+script = ExtResource("3_gaji7")
+resource = ExtResource("6_fa4t5")
+amount = 10
+
+[resource]
+script = ExtResource("2_xqfbd")
+title = "Assemble the bomb"
+description = "You got all the parts. It's time to construct this montrosity under Old Tom's assistance."
+requiredResources = Array[ExtResource("3_gaji7")]([SubResource("Resource_m35a3"), SubResource("Resource_t2pit"), SubResource("Resource_egtoh"), SubResource("Resource_vegcs")])
+forbiddenResources = Array[ExtResource("3_gaji7")]([])
+addedResourcesS = Array[ExtResource("3_gaji7")]([SubResource("Resource_p528w")])
+removedResourcesS = Array[ExtResource("3_gaji7")]([SubResource("Resource_l0u05"), SubResource("Resource_4vau2"), SubResource("Resource_mhmye"), SubResource("Resource_ipxl1")])
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("3_gaji7")]([])
+removedResourcesF = Array[ExtResource("3_gaji7")]([])
+moveBackwardsF = -1
+oneTimeUse = true
+function = ""

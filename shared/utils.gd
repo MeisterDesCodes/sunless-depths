@@ -3,10 +3,10 @@ extends Node
 
 class_name Utils
 
-
 var colorBackground = Color("#161616")
 var colorPrimary = Color("#E14F21")
 var colorPrimaryBright = Color("#E14F21")
+var colorPrimaryTransparent = Color("#e5795b75")
 var colorCommon = Color("#FFFFFF")
 var colorUncommon = Color("#54A32F")
 var colorRare = Color("#1E5F9B")
@@ -16,17 +16,29 @@ var colorMissing = Color("#B51111")
 var colorBlack = Color("#000000")
 var colorWhite = Color("#FFFFFF")
 var colorDisabled = Color("#757575")
+var colorGray = Color("#555555")
 var colorTransparent = Color("#FFFFFF", 0)
 
-var colorCanvasModulate = Color("#292929")
+var colorCanvasModulate = Color("#393939")
 
 var resourceDropSpeed: float = 150
 
 var randomRangeMin: float = 0.75
 var randomRangeMax: float = 1.25
 
+var shaderElements: Array
+
+
+func updateResourceSlotTypes(slots: Array[InventorySlot]):
+	for slot in slots:
+		updateResourceType(slot.resource)
+
 
 func updateResourceType(resource: InventoryResource):
+	if resource == preload("res://inventory-resource/resources/material/primary/health.tres") || \
+		resource == preload("res://inventory-resource/resources/material/primary/oxygen.tres"):
+		resource.hidden = true
+	
 	if resource is InventoryMaterial:
 		resource.type = Enums.resourceType.MATERIAL
 	if resource is InventoryConsumable:
@@ -41,8 +53,12 @@ func updateResourceType(resource: InventoryResource):
 	if resource is InventoryAmmunition:
 		resource.type = Enums.resourceType.AMMUNITION
 		resource.weight = 0.2
-		
+	if resource is InventoryCuriosity:
+		resource.type = Enums.resourceType.CURIOSITY
+		resource.weight = 0
+	
 	resource.filterType = resource.type
+
 
 
 func getScalingValue(value: float):
@@ -236,13 +252,19 @@ func resourceNameArrayToString(array):
 func resourceCostArrayToString(array):
 	var text: String = ""
 	for element in array:
-		text += str(element.amount) + " " + element.resource.name
-		if element.amount > 1 && !element.resource.name.ends_with("s"):
-			text += "s"
+		text += str(element.amount) + " "
+		text += pluralizeResource(element.resource, element.amount)
 		if array.find(element) < array.size() - 1:
 			text += ", "
 	
 	return text
+
+
+func pluralizeResource(resource, amount):
+	if amount > 1 && !resource.name.ends_with("s") && resource.rarity != Enums.resourceRarity.PRIMARY:
+		return resource.name + "s"
+	else:
+		return resource.name
 
 
 func round(value: float, decimals: int):
@@ -279,6 +301,12 @@ func getStatusEffectDescription(effect: StatusEffect):
 			return "Melee damage is increased by " + str(effect.strength)
 		Enums.statusEffectType.RANGED_DAMAGE_INCREASE:
 			return "Ranged damage is increased by " + str(effect.strength)
+		Enums.statusEffectType.STARVATION:
+			return "You are at the brink of starvation. \
+				Damage and movement speed reduced by " + str(effect.strength)
+		Enums.statusEffectType.SUFFOCATION:
+			return "Without oxygen, you will quickly find your demise. \
+				Vision and movement speed reduced by " + str(effect.strength)
 	
 	return ""
 
@@ -307,12 +335,12 @@ func playParticleEffect(particleComponent: Node2D, rotation: float = 0, color: C
 	particle.global_position = particleComponent.global_position
 	particle.rotation = rotation
 	particle.modulate = color
-	get_tree().get_root().get_node("Game").particles.add_child(particle)
+	get_tree().get_root().get_node("GameController/Game").particles.add_child(particle)
 	particle.emitting = true
 	
-	await get_tree().create_timer(particle.lifetime * 1.5).timeout
+	await UtilsS.createTimer(particle.lifetime * 1.5)
 	
-	get_tree().get_root().get_node("Game").particles.remove_child(particle)
+	get_tree().get_root().get_node("GameController/Game").particles.remove_child(particle)
 
 
 func equipCard(entityScene: CharacterBody2D, card: LevelUpCard):
@@ -409,17 +437,21 @@ func gainStats(entityScene: CharacterBody2D, card: LevelUpCard):
 		match stat.resource:
 			Enums.statType.FEROCITY:
 				entityScene.entityResource.ferocity += stat.amount
+				entityScene.baseFerocity += stat.amount
 			Enums.statType.PERSEVERANCE:
 				entityScene.entityResource.perseverance += stat.amount
+				entityScene.basePerseverance += stat.amount
 			Enums.statType.AGILITY:
 				entityScene.entityResource.agility += stat.amount
+				entityScene.baseAgility += stat.amount
 			Enums.statType.PERCEPTION:
 				entityScene.entityResource.perception += stat.amount
-
+				entityScene.basePerception += stat.amount
 
 func playAnimation(animationPlayer: AnimationPlayer, animation: String):
 	if animationPlayer.is_playing():
 		animationPlayer.stop()
+		animationPlayer.seek(0.0, true)
 	animationPlayer.play(animation)
 
 
@@ -428,7 +460,7 @@ func getStatCheckChance(playerScene: CharacterBody2D, statCheck: StatCheck):
 		return 1
 	
 	var statValue: int = getValueFromStat(playerScene, statCheck)
-	var chance: float = statCheck.baseChance + (statValue - statCheck.statMinimum) / (statCheck.statMaximum - statCheck.statMinimum)
+	var chance: float = statCheck.baseChance + (1 - statCheck.baseChance) * (float(statValue) / float(statCheck.statMaximum))
 	if chance > 1:
 		chance = 1
 	return chance
@@ -444,3 +476,38 @@ func getValueFromStat(playerScene: CharacterBody2D, statCheck: StatCheck):
 			return playerScene.entityResource.agility
 		Enums.equipmentModifierType.PERCEPTION:
 			return playerScene.entityResource.perception
+
+
+func runShader(element, shader: String):
+	var shaderMaterial = preload("res://assets/UI/shaders/dissolve-material-ui.tres").duplicate()
+	#shaderMaterial.set_shader_parameter("dissolve_threshold", 1.25)
+	element.material = shaderMaterial
+	shaderElements.append(element)
+
+
+func _process(delta):
+	for shader in shaderElements:
+		if is_instance_valid(shader):
+			var amount: float = shader.material.get_shader_parameter("dissolve_threshold")
+			shader.material.set_shader_parameter("dissolve_threshold", amount - 0.025)
+		else:
+			shaderElements.remove_at(shaderElements.find(shader))
+
+
+func removeEntitiesFromScene(scene):
+	for entity in scene.get_children():
+		entity.queue_free()
+		for element in entity.get_children():
+			if element is Timer:
+				element.queue_free()
+
+
+func removeStatusEffects(entity: CharacterBody2D):
+	for i in range(entity.statusEffectComponent.statusEffects.size() - 1, -1, -1):
+		entity.statusEffectComponent.statusEffects[i].onExpire(entity)
+
+
+func createTimer(duration: float):
+	if get_tree():
+		await UtilsS.get_tree().create_timer(duration).timeout
+	return true

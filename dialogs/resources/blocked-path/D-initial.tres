@@ -9,3 +9,4 @@ script = ExtResource("3_vhjth")
 title = "No passage"
 description = "Ahead, the path suddenly stops. Large and small boulders, scattered around the narrow tunnel, block your way. You will have to find another way."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_5dlfp"), ExtResource("2_8ceae")])
+canExit = false

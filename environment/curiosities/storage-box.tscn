@@ -9,3 +9,5 @@ title = "Storage Box"
 
 [node name="Curiosity" parent="." instance=ExtResource("2_qo755")]
 modulate = Color(0.921569, 0.607843, 0.537255, 1)
+
+[connection signal="onEnter" from="Curiosity" to="." method="_on_curiosity_on_enter"]

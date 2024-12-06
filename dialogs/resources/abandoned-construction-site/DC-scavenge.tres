@@ -53,7 +53,6 @@ amount = 2
 script = ExtResource("4_wp8fg")
 stat = 3
 baseChance = 0.5
-statMinimum = 0
 statMaximum = 10
 
 [resource]
@@ -62,12 +61,14 @@ title = "Scavenge for resources"
 description = "If you're willing get your hands dirty, you might still find something of value here."
 statCheck = SubResource("Resource_8b27h")
 requiredResources = Array[ExtResource("2_xkwug")]([SubResource("Resource_du1nb")])
+forbiddenResources = Array[ExtResource("2_xkwug")]([])
 addedResourcesS = Array[ExtResource("2_xkwug")]([SubResource("Resource_oyh1w"), SubResource("Resource_1rb1s"), SubResource("Resource_75ug1")])
 removedResourcesS = Array[ExtResource("2_xkwug")]([SubResource("Resource_lmjwl")])
 nextDialogS = ExtResource("3_2keo6")
+moveBackwardsS = -1
 addedResourcesF = Array[ExtResource("2_xkwug")]([SubResource("Resource_2j6vd"), SubResource("Resource_ppx7q")])
 removedResourcesF = Array[ExtResource("2_xkwug")]([SubResource("Resource_hhlxc")])
 nextDialogF = ExtResource("3_2keo6")
-optionalMoveBackwards = -1
+moveBackwardsF = -1
 oneTimeUse = false
 function = ""

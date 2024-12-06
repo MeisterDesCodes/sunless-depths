@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://c2yhcgrbu2hi"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_7bws7"]
+[ext_resource type="Texture2D" uid="uid://cqkcqc37fa8l8" path="res://assets/resources/material/Explosive Component.png" id="2_3k48y"]
+
+[resource]
+script = ExtResource("1_7bws7")
+name = "Explosive Components I"
+description = "A metal frame with wires sticking out of it. Maybe someone at the settlement will know what to do with this."
+texture = ExtResource("2_3k48y")
+rarity = 2
+weight = 3.0

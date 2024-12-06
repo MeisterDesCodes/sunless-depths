@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://c13hymfgb3kbo"]
+
+[ext_resource type="Resource" uid="uid://cq6rp44v26ypx" path="res://dialogs/resources/into-the-mountain/DC-pickup.tres" id="1_55004"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_7nw46"]
+
+[resource]
+script = ExtResource("3_7nw46")
+title = "The omnious chamber"
+description = "xxx"
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_55004")])
+canExit = false

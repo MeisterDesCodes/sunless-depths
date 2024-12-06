@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bciduojjrju4"]
+
+[ext_resource type="Script" path="res://environment/decorations/textures/texture.gd" id="1_4enwu"]
+
+[node name="GroundTexture" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_4enwu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -362.0
+offset_top = -350.0
+offset_right = 1093.0
+offset_bottom = 1105.0
+scale = Vector2(0.5, 0.5)

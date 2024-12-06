@@ -3,7 +3,7 @@ extends Node2D
 
 @export var lifetime: int
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var interactionComponent = get_node("InteractionConponent")
 @onready var exitParticles = get_node("ExitParticles")
 
@@ -29,6 +29,7 @@ func interact(body):
 		return
 	
 	playerScene.atExit = true
+	playerScene.currentExitDirection = direction
 	if !playerScene.isInCave:
 		var menuScene = UILoaderS.loadUIScene(preload("res://UI/menu/menu-ui.tscn"))
 		menuScene._on_map_pressed()

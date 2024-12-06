@@ -23,5 +23,5 @@ outputResources = Array[ExtResource("2_twp68")]([SubResource("Resource_4dyvn")])
 name = "Cloth - Blueprint"
 description = ""
 texture = ExtResource("5_sbj0y")
-rarity = 0
+rarity = 1
 weight = 1.0

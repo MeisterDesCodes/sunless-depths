@@ -13,7 +13,7 @@ var lastState: State
 
 func _ready():
 	for state in get_children():
-		if entityScene.entityResource.states.filter(func(stateKey): return UtilsS.getEnumValue(Enums.enemyStates,stateKey).to_lower() == state.name.to_lower()).is_empty():
+		if entityScene.entityResource.states.filter(func(stateKey): return UtilsS.getEnumValue(Enums.enemyStates, stateKey).to_lower() == state.name.to_lower()).is_empty():
 			state.get_parent().remove_child(state)
 	
 	for state in get_children():
@@ -26,14 +26,16 @@ func _ready():
 
 
 func _process(delta):
-	currentState.update(delta)
+	if !entityScene.isDying:
+		currentState.update(delta)
 
 
 func onChange(oldState: State, newState: State):
-	oldState.exit()
-	newState.enter()
-	lastState = oldState
-	currentState = newState
+	if !entityScene.isDying:
+		oldState.exit()
+		newState.enter()
+		lastState = oldState
+		currentState = newState
 
 
 func getState(state: Enums.enemyStates):

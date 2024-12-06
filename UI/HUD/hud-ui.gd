@@ -1,6 +1,6 @@
 extends Control
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var healthBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow/VBoxContainer/Health")
 @onready var suppliesBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/Supplies")
 @onready var oxygenBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/Oxygen")
@@ -46,6 +46,7 @@ extends Control
 @onready var ammunitionSlots: Array = [ammunitionActive, ammunitionReserve1, ammunitionReserve2]
 @onready var weaponSlotLabels: Array = [ammunitionActiveLabel, ammunitionReserve1Label, ammunitionReserve2Label]
 
+var health = preload("res://inventory-resource/resources/material/primary/health.tres")
 var supplies = preload("res://inventory-resource/resources/material/primary/supplies.tres")
 var oxygen = preload("res://inventory-resource/resources/material/primary/oxygen.tres")
 var stamina = preload("res://inventory-resource/resources/material/primary/stamina.tres")
@@ -70,6 +71,61 @@ func _ready():
 	updateConsumable()
 	survivalNeedModifier = UtilsS.getScalingValue(playerScene.entityResource.perseverance * 2)
 	consumableContainer.pivot_offset = Vector2(consumableContainer.size.x / 2, consumableContainer.size.y / 2)
+
+
+func _process(delta):
+	if !playerScene.canAct():
+		return
+	
+	if playerScene.health < playerScene.maxHealth:
+		var healthAmount = playerScene.maxHealth * playerScene.healthRegeneration / 75
+		playerScene.health += healthAmount if playerScene.damageReceiver.canReceiveHealing() else healthAmount * -1
+		healthModified()
+	oxygenModified()
+	
+	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
+	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100)
+	
+	if playerScene.isSprinting:
+		staminaBar.value -= delta * (playerScene.sprintingStaminaDrain * playerScene.staminaCostModifier - playerScene.currentStaminaRestore + playerScene.baseStaminaRestore)
+	
+	if playerScene.isResting:
+		staminaBar.value += delta * playerScene.currentStaminaRestore
+	
+	staminaBar.value += delta * (playerScene.currentStaminaRestore - playerScene.baseStaminaRestore)
+	
+	if suppliesBar.value <= 0:
+		if playerScene.inventory.getResourceAmount(supplies) > 0:
+			restockSupplies()
+		else:
+			handleStarvation()
+	else:
+		playerScene.isStarving = false
+	
+	if oxygenBar.value <= 0:
+		handleSuffocation()
+	else:
+		playerScene.isSuffocating = false
+		playerScene.wasSuffocating = false
+	
+	if staminaBar.value <= 0:
+		pass
+
+
+
+func handleStarvation():
+	if !playerScene.isStarving:
+		playerScene.isStarving = true
+		UILoaderS.setupDialog(preload("res://dialogs/resources/starvation/D-initial.tres"), "At Death's Door")
+
+
+func handleSuffocation():
+	if !playerScene.isSuffocating:
+		playerScene.isSuffocating = true
+		if playerScene.wasSuffocating:
+			UILoaderS.setupDialog(preload("res://dialogs/resources/player-death/D-initial.tres"), "A Journey's End")
+		else:
+			UILoaderS.setupDialog(preload("res://dialogs/resources/suffocation/D-initial.tres"), "At Death's Door")
 
 
 func updateConsumable():
@@ -119,35 +175,6 @@ func setupWeaponTextures():
 	playerScene.updateActiveWeapon()
 
 
-func _process(delta):
-	if !playerScene.canAct():
-		return
-	
-	if playerScene.health < playerScene.maxHealth:
-		playerScene.health += playerScene.maxHealth * playerScene.healthRegeneration / 60
-		healthModified()
-	
-	suppliesBar.value -= delta * playerScene.currentSupplyDrain * survivalNeedModifier
-	oxygenBar.value -= delta * playerScene.currentOxygenDrain * survivalNeedModifier * 1 / (playerScene.entityResource.oxygenCapacity / 100)
-	
-	if playerScene.isSprinting:
-		staminaBar.value -= delta * (playerScene.sprintingStaminaDrain * playerScene.staminaCostModifier - playerScene.currentStaminaRestore + playerScene.baseStaminaRestore)
-	
-	if playerScene.isResting:
-		staminaBar.value += delta * playerScene.currentStaminaRestore
-	
-	staminaBar.value += delta * (playerScene.currentStaminaRestore - playerScene.baseStaminaRestore)
-	
-	if (suppliesBar.value <= 0 && !suppliesIsRestocked):
-		restockSupplies()
-
-	if oxygenBar.value <= 0:
-		pass
-	
-	if staminaBar.value <= 0:
-		pass
-
-
 func addStatusEffect(effect: StatusEffect):
 	if !getStatusEffectInstance(effect):
 		var effectInstance = preload("res://entities/components/status-effect-icon.tscn").instantiate()
@@ -191,11 +218,12 @@ func updateStatusEffects():
 
 
 func restockSupplies():
-	suppliesIsRestocked = true
-	$"SuppliesTimer".start()
-	playerScene.inventory.removeResource(supplies, 1)
-	updateLabels()
-	get_tree().create_tween().tween_property(suppliesBar, "value", 100, 0.3).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	if !suppliesIsRestocked:
+		suppliesIsRestocked = true
+		$"SuppliesTimer".start()
+		playerScene.inventory.removeResource(supplies, 1)
+		updateLabels()
+		get_tree().create_tween().tween_property(suppliesBar, "value", 100, 0.3).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
 
 func restockOxygen():
@@ -230,9 +258,18 @@ func updateHud(suppliesValue, oxygenValue, staminaValue):
 
 
 func healthModified():
-	if playerScene:
+	if playerScene.health <= 0 && !playerScene.isDying:
+		playerScene.entityKilled()
+		
+	if playerScene && !playerScene.isDying:
 		get_tree().create_tween().tween_property(healthBar, "value", playerScene.health / playerScene.maxHealth * 100, 0.25).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 		healthLabel.text = str(round(playerScene.health))
+		playerScene.inventory.getResourceSlot(health).amount = round(playerScene.health)
+
+
+func oxygenModified():
+	if playerScene && !playerScene.isDying:
+		playerScene.inventory.getResourceSlot(oxygen).amount = round(oxygenBar.value)
 
 
 func updateLabels():

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://qbictuatitbb"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_onx12"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_8yo8u"]
+
+[resource]
+script = ExtResource("2_8yo8u")
+title = "A poorly placed hand"
+description = "As you reach onto the top of the pile, a small rock below you shifts and causes some boulders, along with you, to fall down several meters. You land less than comfortably and strain your shoulder. You're lucky a rock twice your size barely misses you."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_onx12")])
+canExit = false

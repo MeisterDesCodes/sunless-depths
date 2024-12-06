@@ -1,6 +1,6 @@
 extends Control
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var inputResources: HBoxContainer = get_node("MarginContainer/VBoxContainer/Blueprint/InputResources")
 @onready var outputResources: HBoxContainer = get_node("MarginContainer/VBoxContainer/Blueprint/OutputResources")
 @onready var title: Label = get_node("MarginContainer/VBoxContainer/PanelContainer/Title")

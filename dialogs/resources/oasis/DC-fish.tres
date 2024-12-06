@@ -16,7 +16,6 @@ amount = 2
 script = ExtResource("2_hxlaq")
 stat = 3
 baseChance = 0.3
-statMinimum = 0
 statMaximum = 12
 
 [resource]
@@ -25,12 +24,14 @@ title = "Attempt to catch a fish"
 description = "You see several fish swimming in the little pond. Having no equipment, you have to use your bare hands. It might be worth a try."
 statCheck = SubResource("Resource_bs3iy")
 requiredResources = Array[ExtResource("2_cfcd5")]([])
+forbiddenResources = Array[ExtResource("2_cfcd5")]([])
 addedResourcesS = Array[ExtResource("2_cfcd5")]([SubResource("Resource_xucn2")])
 removedResourcesS = Array[ExtResource("2_cfcd5")]([])
 nextDialogS = ExtResource("4_bajhn")
+moveBackwardsS = -1
 addedResourcesF = Array[ExtResource("2_cfcd5")]([])
 removedResourcesF = Array[ExtResource("2_cfcd5")]([])
 nextDialogF = ExtResource("3_suugn")
-optionalMoveBackwards = -1
+moveBackwardsF = -1
 oneTimeUse = true
 function = ""

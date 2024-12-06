@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://rvyc0umohgfj"]
 
-[ext_resource type="Script" path="res://environment/decorations/light-sources/light-source.gd" id="1_qc7cl"]
+[ext_resource type="Script" path="res://environment/decorations/light-sources/light-source.gd" id="1_au75t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qkk2b"]
 load_path = "res://.godot/imported/player-light.png-2bb3fff47926f853b3b91556e44b2b2d.ctex"
@@ -9,10 +9,9 @@ load_path = "res://.godot/imported/player-light.png-2bb3fff47926f853b3b91556e44b
 points = PackedVector2Array(0, 0, 200, -20, 200, 20)
 
 [node name="DirectionalLight" type="Node2D"]
-script = ExtResource("1_qc7cl")
+script = ExtResource("1_au75t")
 energy = 1.0
 color = Color(1, 1, 1, 1)
-shadow = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true

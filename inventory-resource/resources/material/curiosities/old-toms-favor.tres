@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryCuriosity" load_steps=3 format=3 uid="uid://bjvdcj5c4nhe7"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-curiosity.gd" id="1_dily2"]
+[ext_resource type="Texture2D" uid="uid://bjp01d3we5owf" path="res://assets/resources/curiosities/Old Toms Favor.png" id="2_jiokr"]
+
+[resource]
+script = ExtResource("1_dily2")
+name = "Old Tom's Favor"
+description = "You helped Old Tom in times of trouble. Now it's his turn to help you."
+texture = ExtResource("2_jiokr")
+rarity = 2
+weight = 1.0

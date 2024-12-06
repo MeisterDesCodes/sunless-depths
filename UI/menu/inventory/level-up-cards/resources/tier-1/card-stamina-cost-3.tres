@@ -8,12 +8,12 @@
 [sub_resource type="Resource" id="Resource_tdhbv"]
 script = ExtResource("4_s5plf")
 resource = 1
-amount = 3
+amount = 2
 
 [sub_resource type="Resource" id="Resource_ghqfi"]
 script = ExtResource("4_s5plf")
 resource = 2
-amount = 2
+amount = 1
 
 [resource]
 script = ExtResource("3_4k4e7")

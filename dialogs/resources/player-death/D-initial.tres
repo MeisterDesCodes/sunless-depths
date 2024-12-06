@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://c7s34pg3nmaqx"]
+
+[ext_resource type="Resource" uid="uid://bgmin5i3a1x5i" path="res://dialogs/resources/player-death/DC-respawn.tres" id="1_bqscx"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="1_u032t"]
+
+[resource]
+script = ExtResource("1_u032t")
+title = "The tunnels comsume everything"
+description = "Your journey has come to an end. It is time to venture home."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_bqscx")])
+canExit = false

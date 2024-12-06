@@ -1,10 +1,31 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://c03rm57akwhsw"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=11 format=3 uid="uid://c03rm57akwhsw"]
 
 [ext_resource type="Texture2D" uid="uid://cqtd88the4v6e" path="res://assets/UI/icons/entities/player/stats/Battle Trance.png" id="1_jv8dr"]
 [ext_resource type="Resource" uid="uid://0w0g55m4t2jt" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-critical-2.tres" id="2_b2fft"]
 [ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="3_lda1e"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_jwlfa"]
 [ext_resource type="Resource" uid="uid://csav5itofofid" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-crit-stat-increase-1.tres" id="4_xcxbk"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_u0tra"]
+
+[sub_resource type="Resource" id="Resource_pg1ds"]
+script = ExtResource("6_u0tra")
+resource = 0
+amount = 1
+
+[sub_resource type="Resource" id="Resource_eommw"]
+script = ExtResource("6_u0tra")
+resource = 1
+amount = 1
+
+[sub_resource type="Resource" id="Resource_i016q"]
+script = ExtResource("6_u0tra")
+resource = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_g2ycc"]
+script = ExtResource("6_u0tra")
+resource = 3
+amount = 1
 
 [resource]
 script = ExtResource("4_jwlfa")
@@ -15,5 +36,5 @@ requirements = Array[ExtResource("4_jwlfa")]([ExtResource("2_b2fft"), ExtResourc
 type = 24
 value = 2.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("6_u0tra")]([SubResource("Resource_pg1ds"), SubResource("Resource_eommw"), SubResource("Resource_i016q"), SubResource("Resource_g2ycc")])
 tier = 2

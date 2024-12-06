@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=21 format=3 uid="uid://csj7grpf30j7s"]
+
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="1_nlvr8"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="2_af2kp"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="3_4v0xe"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="4_37rbd"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="5_ynl8q"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="6_2hy8n"]
+[ext_resource type="Resource" uid="uid://brce76y3nxw8e" path="res://inventory-resource/resources/equipment/armor/bandit-B.tres" id="7_3syaj"]
+[ext_resource type="Resource" uid="uid://i3hvkcqsmiae" path="res://inventory-resource/resources/equipment/armor/bandit-C.tres" id="8_4akyk"]
+[ext_resource type="Resource" uid="uid://daf7r3jspwtfx" path="res://inventory-resource/resources/equipment/armor/bandit-H.tres" id="9_uw6w8"]
+[ext_resource type="Resource" uid="uid://wj0a5nbcy6sc" path="res://inventory-resource/resources/equipment/armor/bandit-P.tres" id="10_ruocf"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="11_dp348"]
+[ext_resource type="Texture2D" uid="uid://bvbfi77is4ye3" path="res://assets/entities/bandit-rogue.png" id="12_8ng3y"]
+
+[sub_resource type="Resource" id="Resource_o5h46"]
+script = ExtResource("2_af2kp")
+damage = 9.0
+knockback = 5.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+ammunition = ExtResource("1_nlvr8")
+attackDelay = 2.5
+spread = 20.0
+amount = 1.0
+
+[sub_resource type="Resource" id="Resource_udg4a"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("3_4v0xe")
+amount = 35
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_awibb"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("5_ynl8q")
+amount = 5
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_aps46"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("6_2hy8n")
+amount = 3
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_pkunj"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("7_3syaj")
+amount = 1
+dropChance = 0.025
+
+[sub_resource type="Resource" id="Resource_dc527"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("8_4akyk")
+amount = 1
+dropChance = 0.025
+
+[sub_resource type="Resource" id="Resource_1v3e0"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("9_uw6w8")
+amount = 1
+dropChance = 0.025
+
+[sub_resource type="Resource" id="Resource_rncku"]
+script = ExtResource("4_37rbd")
+resource = ExtResource("10_ruocf")
+amount = 1
+dropChance = 0.025
+
+[resource]
+script = ExtResource("11_dp348")
+attacks = Array[ExtResource("2_af2kp")]([SubResource("Resource_o5h46")])
+states = Array[int]([0, 3, 4, 5])
+drops = Array[ExtResource("4_37rbd")]([SubResource("Resource_udg4a"), SubResource("Resource_awibb"), SubResource("Resource_aps46"), SubResource("Resource_pkunj"), SubResource("Resource_dc527"), SubResource("Resource_1v3e0"), SubResource("Resource_rncku")])
+name = "Bandit Rogue"
+texture = ExtResource("12_8ng3y")
+maxHealth = 27.0
+moveSpeed = 75.0
+ferocity = 4.0
+perseverance = 2.0
+agility = 3.0
+perception = 4.0

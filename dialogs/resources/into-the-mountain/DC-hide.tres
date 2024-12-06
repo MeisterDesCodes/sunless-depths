@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://wfajlbfqtstm"]
+
+[ext_resource type="Resource" uid="uid://b5eicc13lt5ux" path="res://dialogs/resources/into-the-mountain/D-hide-f.tres" id="1_i5aak"]
+[ext_resource type="Resource" uid="uid://2pwlto81ijtg" path="res://dialogs/resources/into-the-mountain/D-wind.tres" id="2_u80er"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_k7g3f"]
+[ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="3_lsh6s"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="4_0raem"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="4_jiwfh"]
+
+[sub_resource type="Resource" id="Resource_du0cg"]
+script = ExtResource("4_jiwfh")
+resource = ExtResource("3_lsh6s")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_6cp6v"]
+script = ExtResource("4_0raem")
+stat = 2
+baseChance = 0.5
+statMaximum = 20
+
+[resource]
+script = ExtResource("3_k7g3f")
+title = "Run and hide from them"
+description = "You would rather not want to find out if they will take a closer look at you. A crevasse to your right would make a great hiding spot."
+statCheck = SubResource("Resource_6cp6v")
+requiredResources = Array[ExtResource("4_jiwfh")]([])
+forbiddenResources = Array[ExtResource("4_jiwfh")]([])
+addedResourcesS = Array[ExtResource("4_jiwfh")]([])
+removedResourcesS = Array[ExtResource("4_jiwfh")]([])
+nextDialogS = ExtResource("2_u80er")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("4_jiwfh")]([])
+removedResourcesF = Array[ExtResource("4_jiwfh")]([SubResource("Resource_du0cg")])
+nextDialogF = ExtResource("1_i5aak")
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

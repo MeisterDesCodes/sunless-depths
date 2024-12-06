@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ca0d7whibvanw"]
+[gd_scene load_steps=22 format=3 uid="uid://ca0d7whibvanw"]
 
 [ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
 [ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="2_u0ny8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver-component.tscn" id="6_vf118"]
 [ext_resource type="PackedScene" uid="uid://byhgk6jja038" path="res://entities/states/launch-projectile.tscn" id="7_813tm"]
 [ext_resource type="PackedScene" uid="uid://bibqyv7bymwus" path="res://entities/components/contact-damage-component.tscn" id="8_fhwn0"]
+[ext_resource type="PackedScene" uid="uid://c60ss8qk6erso" path="res://entities/states/death.tscn" id="8_ie6si"]
 [ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
 [ext_resource type="PackedScene" uid="uid://hsibopu7e36h" path="res://entities/entity-sound-component.tscn" id="13_l4cay"]
@@ -155,6 +156,9 @@ entity = NodePath("../..")
 entity = NodePath("../..")
 
 [node name="Launch Projectile" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("7_813tm")]
+entity = NodePath("../..")
+
+[node name="Death" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("8_ie6si")]
 entity = NodePath("../..")
 
 [node name="ContactDamageComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("8_fhwn0")]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://qs3mg6cicf4f"]
+
+[ext_resource type="Resource" uid="uid://3q3pnfc0s70y" path="res://dialogs/resources/into-the-mountain/DC-remove.tres" id="1_4ye15"]
+[ext_resource type="Resource" uid="uid://dkdx43g1dh4du" path="res://dialogs/resources/into-the-mountain/DC-climb.tres" id="2_17770"]
+[ext_resource type="Resource" uid="uid://bgi1kw2xpq6dc" path="res://dialogs/resources/into-the-mountain/DC-retrace.tres" id="3_4uan3"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_tusci"]
+
+[resource]
+script = ExtResource("3_tusci")
+title = "A rocky surprise"
+description = "Boulders litter the ground, were there once seemed to ba a path. You can try to push them aside, or climb up in search for another exit."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_4ye15"), ExtResource("2_17770"), ExtResource("3_4uan3")])
+canExit = false

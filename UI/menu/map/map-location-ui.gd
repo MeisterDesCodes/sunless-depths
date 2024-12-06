@@ -3,8 +3,8 @@ extends Control
 
 @export var locationResource: MapLocation
 
-@onready var game: Node2D = get_tree().get_root().get_node("Game")
-@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var game: Node2D = get_tree().get_root().get_node("GameController/Game")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var locationType: TextureRect = get_node("PanelContainer/TextureRect")
 @onready var attributeContainer: HBoxContainer = get_node("AttributeContainer")
 @onready var button: Button = get_node("PanelContainer/Button")
@@ -40,7 +40,8 @@ func updateLocation():
 			locationType.visible = false
 			button.disable(UtilsS.colorDisabled)
 		Enums.locationRingLevel.INNER:
-			if playerScene.atExit:
+			var pathway = findPathway(LocationLoaderS.currentLocation.location, locationResource.location)
+			if playerScene.atExit && playerScene.currentExitDirection == pathway.FD:
 				button.select()
 			else:
 				button.disable()

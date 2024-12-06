@@ -5,7 +5,7 @@ extends Node2D
 @export var lifetime: int
 @export var interactionCost: float
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var interaction = get_node("Interaction")
 @onready var animationPlayer = get_node("AnimationPlayer")
 
@@ -18,5 +18,5 @@ func interact(body):
 	interaction.playerScene.updateHud.emit(interactionCost * 0.1, interactionCost * 0.25, interactionCost)
 	animationPlayer.play("Open Sarcophagus")
 	playerScene.soundComponent.onSarcophagusInteraction()
-	await get_tree().create_timer(3).timeout
+	await UtilsS.createTimer(3)
 	interaction.dropResources(dropResources, UtilsS.resourceDropSpeed, body)

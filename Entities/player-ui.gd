@@ -9,7 +9,7 @@ signal healthModified
 @export var storage: Inventory
 
 @onready var animations =  get_node("AnimationPlayer")
-@onready var hudUI = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/HudUI")
+@onready var hudUI = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/HudUI")
 @onready var weaponInstance = get_node("RotationPoint/Weapons/Weapon")
 @onready var immunityFramesTimer = get_node("ImmunityFrames")
 @onready var damageReceiver = get_node("DamageReceiver")
@@ -17,7 +17,7 @@ signal healthModified
 @onready var particleComponent = get_node("ParticleComponent")
 @onready var lightSource = get_node("RotationPoint/LightSource")
 @onready var directionalLight = get_node("RotationPoint/DirectionalLight")
-@onready var camera = get_tree().get_root().get_node("Game/FollowCamera")
+@onready var camera = get_tree().get_root().get_node("GameController/Game/FollowCamera")
 @onready var image: Sprite2D = get_node("RotationPoint/Image")
 @onready var soundComponent: Node2D = get_node("SoundComponent")
 @onready var rotationPoint: Marker2D = get_node("RotationPoint")
@@ -44,6 +44,11 @@ var healthRegeneration: float
 var level: int
 var totalWeight: float
 
+var baseFerocity: int
+var basePerseverance: int
+var baseAgility: int
+var basePerception: int
+
 var immunityFramesActive: bool = false
 var isKnockback: bool = false
 var knockbackVector: Vector2 = Vector2.ZERO
@@ -56,6 +61,9 @@ var canDash: bool = true
 var isInUIScene: bool = false
 var canExitUIScene: bool = true
 var isInLoadingScreen: bool = false
+var isStarving: bool = false
+var isSuffocating: bool = false
+var wasSuffocating: bool = false
 var isDying: bool = false
 
 var currentSupplyDrain: float
@@ -70,11 +78,11 @@ var damageRangeMin: float = 0.75
 var damageRangeMax: float = 1.25
 
 var equippedCards: Array[LevelUpCard]
-
+var completedDialogChoices: Array[DialogChoice]
 
 var attackCounter: int = 1
 
-var damageModifier: float = 1
+var damageModifier: float = 5
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
 var attackDelayModifier: float = 1
@@ -115,12 +123,15 @@ var maxZoomLevels: int = 4
 var currentZoomLevel: int = 0
 
 var atExit: bool = false
+var currentExitDirection: Enums.exitDirection
 var atTransportNode: bool = false
 var isInCave: bool = false
 
 
 func setup():
 	inventory.updateResources.connect(updateTotalWeight)
+	inventory.updateHealth.connect(updateCurrentHealth)
+	inventory.updateOxygen.connect(updateOxygen)
 	image.texture = entityResource.texture
 	initializePlayer()
 	updateActiveWeapon()
@@ -132,6 +143,10 @@ func setup():
 
 
 func initializePlayer():
+	baseFerocity = entityResource.ferocity
+	basePerseverance = entityResource.perseverance
+	baseAgility = entityResource.agility
+	basePerception = entityResource.perception
 	currentSupplyDrain = entityResource.supplyDrain
 	currentOxygenDrain = entityResource.oxygenDrain
 	baseStaminaRestore = entityResource.staminaRestore
@@ -143,8 +158,15 @@ func initializePlayer():
 	updateMaxHealth()
 	health = maxHealth
 	healthRegeneration = entityResource.healthRegeneration
-	equipInitialItems()
 	equipInitialCards()
+	equipInitialItems()
+
+
+func updateCurrentHealth(amount: float):
+	if amount >= 0:
+		damageReceiver.receiveHealing(amount, null)
+	else:
+		damageReceiver.receiveDamage(-amount, false, null)
 
 
 func updateMaxHealth():
@@ -152,6 +174,10 @@ func updateMaxHealth():
 	if health > maxHealth:
 		health = maxHealth
 	hudUI.healthModified()
+
+
+func updateOxygen(amount: float):
+	updateHud.emit(0, -amount, 0)
 
 
 func updateTotalWeight():
@@ -225,7 +251,7 @@ func setupLightSource():
 	lightSource.update(Vector2(totalSize, totalSize))
 	
 	var totalDirectionalSize: float = 1 + totalSize * 0.2
-	directionalLight.update( Vector2(totalDirectionalSize, totalDirectionalSize * 1.5))
+	directionalLight.update(Vector2(totalDirectionalSize, totalDirectionalSize * 1.5))
 
 
 func updateWeapons():
@@ -308,7 +334,7 @@ func dash():
 	soundComponent.onDash()
 	
 	dashTimer.start()
-	await get_tree().create_timer(0.3).timeout
+	await UtilsS.createTimer(0.3)
 	isDashing = false
 
 
@@ -357,7 +383,8 @@ func reduceConsumableCooldowns():
 
 
 func entityKilled():
-	pass
+	isDying = true
+	UILoaderS.setupDialog(preload("res://dialogs/resources/player-death/D-initial.tres"), "The Afterlife")
 
 
 func isPlayer():
@@ -392,3 +419,20 @@ func canAct():
 
 func _on_consume_timer_timeout():
 	reduceConsumableCooldowns()
+
+
+func reset():
+	immunityFramesActive = false
+	isKnockback = false
+	isResting = false
+	isWalking = false
+	isSprinting = false
+	isDashing = false
+	canDash = true
+	isInUIScene = false
+	canExitUIScene = true
+	isInLoadingScreen = false
+	isStarving = false
+	isSuffocating = false
+	wasSuffocating = false
+	isDying = false

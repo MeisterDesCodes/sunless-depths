@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://cneuigtj5g1ny"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=9 format=3 uid="uid://cneuigtj5g1ny"]
 
 [ext_resource type="Texture2D" uid="uid://bdnlj4ptxu5de" path="res://assets/UI/icons/entities/player/stats/Lingering Effects.png" id="1_3ga0w"]
 [ext_resource type="Resource" uid="uid://c6kqyb8iuo7jc" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-2.tres" id="2_peodl"]
 [ext_resource type="Resource" uid="uid://48psvlak4wd3" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-2.tres" id="3_o3hdi"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_sx5s0"]
 [ext_resource type="Resource" uid="uid://bx1amcmmpk1fd" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-effect-duration-1.tres" id="4_w8n2y"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_8jibt"]
+
+[sub_resource type="Resource" id="Resource_le0ri"]
+script = ExtResource("6_8jibt")
+resource = 3
+amount = 2
+
+[sub_resource type="Resource" id="Resource_w0u36"]
+script = ExtResource("6_8jibt")
+resource = 1
+amount = 2
 
 [resource]
 script = ExtResource("4_sx5s0")
@@ -15,5 +26,5 @@ requirements = Array[ExtResource("4_sx5s0")]([ExtResource("2_peodl"), ExtResourc
 type = 21
 value = 15.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("6_8jibt")]([SubResource("Resource_le0ri"), SubResource("Resource_w0u36")])
 tier = 2

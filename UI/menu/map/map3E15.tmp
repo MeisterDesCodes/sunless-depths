@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://c572bb7vvyy3u"]
+
+[ext_resource type="Script" path="res://UI/menu/map/map-location-ui.gd" id="1_5e0v6"]
+[ext_resource type="PackedScene" uid="uid://uognb7dads7q" path="res://UI/menu/map/player-marker-ui.tscn" id="2_c3a3t"]
+[ext_resource type="Theme" uid="uid://bs6h0yav1a7gr" path="res://assets/UI/themes/UI-elements/hud-icon.tres" id="2_eui46"]
+[ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="3_7trmp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62nxb"]
+
+[node name="MapLocationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_5e0v6")
+
+[node name="AttributeContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PlayerMarkerUI" parent="." instance=ExtResource("2_c3a3t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -20.0
+offset_right = 23.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 20)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_eui46")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="Button" parent="PanelContainer" node_paths=PackedStringArray("affectedElement") instance=ExtResource("3_7trmp")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_62nxb")
+affectedElement = NodePath("..")
+
+[connection signal="mouse_entered" from="PanelContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]

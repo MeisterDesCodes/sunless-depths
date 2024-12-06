@@ -16,6 +16,7 @@ class_name SavedData
 @export var visitedLocations: Array[Enums.locations]
 @export var exploredLocations: Array[Enums.locations]
 @export var transportableLocations: Array[Enums.locations]
+@export var completedDialogChoices: Array[DialogChoice]
 
 @export_subgroup("Assets")
 @export var inventory: Array[InventorySlot]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://s55k6ohrdsg6"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_fnt3r"]
+[ext_resource type="Texture2D" uid="uid://dlq0q7872floo" path="res://assets/UI/icons/entities/status-effects/Heal.png" id="2_orhaq"]
+
+[resource]
+script = ExtResource("1_fnt3r")
+name = "Health"
+description = ""
+texture = ExtResource("2_orhaq")
+rarity = 0
+weight = 0.0

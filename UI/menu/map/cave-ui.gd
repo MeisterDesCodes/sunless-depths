@@ -1,10 +1,11 @@
 extends Control
 
 
-@onready var game = get_tree().get_root().get_node("Game")
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var game = get_tree().get_root().get_node("GameController/Game")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var scrollContainer: ScrollContainer = get_node("PanelContainer/MarginContainer/ScrollContainer")
 @onready var caveContainer: Node2D = get_node("PanelContainer/MarginContainer/ScrollContainer/CaveContainer")
+@onready var unexploredLabel: Label = get_node("PanelContainer/MarginContainer/ScrollContainer/Label")
 
 var playerMarker = preload("res://UI/menu/map/player-marker-ui.tscn").instantiate()
 
@@ -23,7 +24,8 @@ var lastPosition: Vector2 = Vector2.ZERO
 func _ready():
 	if !playerScene.isInCave && !(LocationLoaderS.currentLocation.location in LocationLoaderS.exploredLocations):
 		return
-	
+
+	unexploredLabel.visible = false
 	cave = LocationLoaderS.getBasicCave(LocationLoaderS.currentCave if playerScene.isInCave else game.currentLocation)
 	caveContainer.global_position = LocationLoaderS.getCavePosition(cave) * caveContainer.scale
 	caveContainer.add_child(cave)

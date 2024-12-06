@@ -3,7 +3,7 @@ extends Node2D
 
 @export var spawnAtLocation: bool = false
 
-@onready var enemiesScene = get_tree().get_root().get_node("Game/NavigationRegion2D/CaveGenerator").get_child(1)
+@onready var enemiesScene = get_tree().get_root().get_node("GameController/Game/NavigationRegion2D/CaveGenerator").get_child(1)
 @onready var spawnTimer: Timer = get_node("SpawnTimer")
 
 var room: Node2D

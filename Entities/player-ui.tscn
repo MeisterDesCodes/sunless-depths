@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://btn5dob4qrwk5" path="res://inventory-resource/resources/player/player-inventory.tres" id="3_bh5x3"]
 [ext_resource type="Script" path="res://entities/rotation-point.gd" id="3_qyr1b"]
 [ext_resource type="Resource" uid="uid://bft6yyarw6mwp" path="res://inventory-resource/resources/player/player-storage.tres" id="4_1lhmx"]
-[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="6_glmfw"]
 [ext_resource type="Script" path="res://entities/input-control.gd" id="7_0y48q"]
 [ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="8_ilynh"]
 [ext_resource type="PackedScene" uid="uid://rvyc0umohgfj" path="res://environment/decorations/light-sources/directional-light.tscn" id="8_j54sr"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver-component.tscn" id="8_p7uws"]
 [ext_resource type="PackedScene" uid="uid://c30m4otyx5tja" path="res://shared/resource-spawner.tscn" id="9_k5lu8"]
 [ext_resource type="PackedScene" uid="uid://hsibopu7e36h" path="res://entities/entity-sound-component.tscn" id="10_joknd"]
+[ext_resource type="PackedScene" uid="uid://61uv8w1tqhhi" path="res://environment/decorations/light-sources/light-source.tscn" id="11_nja8b"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="12_rm3wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqlct"]
@@ -125,9 +125,8 @@ z_index = 1
 rotation = 4.71239
 scale = Vector2(0.12, 0.12)
 
-[node name="LightSource" parent="RotationPoint" instance=ExtResource("6_glmfw")]
+[node name="LightSource" parent="RotationPoint" instance=ExtResource("11_nja8b")]
 energy = 2.0
-shadow = true
 
 [node name="DirectionalLight" parent="RotationPoint" instance=ExtResource("8_j54sr")]
 

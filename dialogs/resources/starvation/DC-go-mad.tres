@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=10 format=3 uid="uid://dqvujm5l4a0xc"]
+
+[ext_resource type="Resource" uid="uid://c7coglid6rw4g" path="res://inventory-resource/resources/material/curiosities/unreasonable-peckish.tres" id="1_3hyni"]
+[ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="1_qvxqf"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_1hm61"]
+[ext_resource type="Resource" uid="uid://lhfn1gl58j4j" path="res://dialogs/resources/starvation/D-go-mad-S.tres" id="3_ddpin"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_qxj07"]
+
+[sub_resource type="Resource" id="Resource_wb25x"]
+script = ExtResource("2_1hm61")
+resource = ExtResource("1_3hyni")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_dxb5m"]
+script = ExtResource("2_1hm61")
+resource = ExtResource("1_3hyni")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_t5ewi"]
+script = ExtResource("2_1hm61")
+resource = ExtResource("1_qvxqf")
+amount = 35
+
+[sub_resource type="Resource" id="Resource_b07wr"]
+script = ExtResource("2_1hm61")
+resource = ExtResource("1_qvxqf")
+amount = 35
+
+[resource]
+script = ExtResource("3_qxj07")
+title = "Go mad"
+description = "The hunger is going to your head. You can't think clearly, let alone make rational decisions. Death is approaching."
+requiredResources = Array[ExtResource("2_1hm61")]([SubResource("Resource_b07wr")])
+forbiddenResources = Array[ExtResource("2_1hm61")]([SubResource("Resource_dxb5m")])
+addedResourcesS = Array[ExtResource("2_1hm61")]([SubResource("Resource_wb25x")])
+removedResourcesS = Array[ExtResource("2_1hm61")]([SubResource("Resource_t5ewi")])
+nextDialogS = ExtResource("3_ddpin")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_1hm61")]([])
+removedResourcesF = Array[ExtResource("2_1hm61")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

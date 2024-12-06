@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_5vja1"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="5_bwl6s"]
 
-[sub_resource type="Resource" id="Resource_sfffy"]
+[sub_resource type="Resource" id="Resource_m3i5x"]
 script = ExtResource("5_bwl6s")
 resource = 3
-amount = 8
+amount = 4
 
 [resource]
 script = ExtResource("4_5vja1")
@@ -20,5 +20,5 @@ requirements = Array[ExtResource("4_5vja1")]([ExtResource("2_ljmif"), ExtResourc
 type = 19
 value = 20.0
 value2 = 0.0
-stats = Array[ExtResource("5_bwl6s")]([SubResource("Resource_sfffy")])
+stats = Array[ExtResource("5_bwl6s")]([SubResource("Resource_m3i5x")])
 tier = 1

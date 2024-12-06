@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://c5pooh57ypxki"]
+
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="1_0smtp"]
+[ext_resource type="Resource" uid="uid://b4nj0owbshek7" path="res://dialogs/resources/suffocation/DC-power-through.tres" id="1_c0nva"]
+[ext_resource type="Resource" uid="uid://kry2f5dq8ls7" path="res://dialogs/resources/suffocation/DC-filter.tres" id="2_i7omj"]
+[ext_resource type="Resource" uid="uid://y22rug2vtxjb" path="res://dialogs/resources/suffocation/DC-signal.tres" id="3_1nrlp"]
+[ext_resource type="Resource" uid="uid://dn6hn1df0jgas" path="res://dialogs/resources/shared/DC-surrender.tres" id="4_neh1v"]
+
+[resource]
+script = ExtResource("1_0smtp")
+title = "Panic!"
+description = "Nausea, a clouded mind and blurred vision. The indescribable sense of death appraoching. You have run out of oxygen."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_c0nva"), ExtResource("2_i7omj"), ExtResource("3_1nrlp"), ExtResource("4_neh1v")])
+canExit = false

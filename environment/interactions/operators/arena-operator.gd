@@ -6,7 +6,7 @@ signal enemiesDefeated
 @export var lifetime: int
 @export var spawners: Node2D
 
-@onready var game = get_tree().get_root().get_node("Game")
+@onready var game = get_tree().get_root().get_node("GameController/Game")
 @onready var interaction = get_node("Interaction")
 
 var effectAwareness: StatusEffect = preload("res://entities/resources/status-effects/awareness-arena.tres")
@@ -21,7 +21,7 @@ func _ready():
 
 func interact(body):
 	for i in 3:
-		await get_tree().create_timer(0.75).timeout
+		await UtilsS.createTimer(0.75)
 		for spawner in spawners.get_children():
 			spawner.setup(spawners.get_parent().get_parent().get_parent(), 500, 500)
 			var enemyScene = spawner.spawnEntity()

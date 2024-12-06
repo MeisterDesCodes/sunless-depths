@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://b3bm7ms3pgvok"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_i8fxo"]
+[ext_resource type="Texture2D" uid="uid://dqutahqhb4cgv" path="res://assets/resources/material/Transport Node Repair Kit.png" id="2_mge3y"]
+
+[resource]
+script = ExtResource("1_i8fxo")
+name = "Transport Node Repair Kit"
+description = "xxx"
+texture = ExtResource("2_mge3y")
+rarity = 2
+weight = 10.0

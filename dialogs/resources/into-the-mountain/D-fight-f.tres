@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://dsqddayqf3hdh"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_m5sss"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_03855"]
+
+[resource]
+script = ExtResource("2_03855")
+title = "A hopeless battle"
+description = "You violently swing your torch, and the first few bats go down in flames. But there is just too many off them. In a frenzied flock they latch onto and rip your skin apart."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_m5sss")])
+canExit = false

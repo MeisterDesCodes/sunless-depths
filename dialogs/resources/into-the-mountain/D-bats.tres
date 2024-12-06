@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://bna6bjh8j6q3"]
+
+[ext_resource type="Resource" uid="uid://bs5ki47ordihj" path="res://dialogs/resources/into-the-mountain/DC-fight.tres" id="1_kjr35"]
+[ext_resource type="Resource" uid="uid://wfajlbfqtstm" path="res://dialogs/resources/into-the-mountain/DC-hide.tres" id="2_hbh0k"]
+[ext_resource type="Resource" uid="uid://bgi1kw2xpq6dc" path="res://dialogs/resources/into-the-mountain/DC-retrace.tres" id="3_2fbwy"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_30f21"]
+
+[resource]
+script = ExtResource("3_30f21")
+title = "Bats!"
+description = "As you move around the narrow pathway, hugging the damp cave walls, you hear deafining squieking quickly coming towards you. Not soon after,  bats appear from a small crevasse at the top of the cave. Hundreds, possible thousands of them. They are flying straight in your direction."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_kjr35"), ExtResource("2_hbh0k"), ExtResource("3_2fbwy")])
+canExit = false

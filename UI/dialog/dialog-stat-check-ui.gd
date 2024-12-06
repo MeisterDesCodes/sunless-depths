@@ -1,7 +1,7 @@
 extends PanelContainer
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var statTexture: TextureRect = get_node("Stat")
 @onready var chanceTexture: TextureRect = get_node("Chance")
 
@@ -28,7 +28,7 @@ func setup(_choice: DialogChoice):
 
 func _on_mouse_entered():
 	var text: String = "Your " + UtilsS.getEnumValue(Enums.statType, choice.statCheck.stat) + \
-		" gives you a " + str(chance * 100) + "% chance of success"
+		" gives you a " + str(round(chance * 100)) + "% chance of success"
 	UILoaderS.loadUITooltip(self, text)
 
 

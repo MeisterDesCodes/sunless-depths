@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=6 format=3 uid="uid://gkmym47uixro"]
+
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_ftobc"]
+[ext_resource type="Resource" uid="uid://bfd7wom5x06to" path="res://dialogs/resources/into-the-mountain/D-start.tres" id="1_oysoe"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_sfrmj"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_h42ro"]
+
+[sub_resource type="Resource" id="Resource_jk3b4"]
+script = ExtResource("2_sfrmj")
+resource = ExtResource("1_ftobc")
+amount = 6
+
+[resource]
+script = ExtResource("3_h42ro")
+title = "Embark on an expedition"
+description = "The way into the mountain might be long and tough. Bring plenty of supplies and oxygen with you."
+requiredResources = Array[ExtResource("2_sfrmj")]([SubResource("Resource_jk3b4")])
+forbiddenResources = Array[ExtResource("2_sfrmj")]([])
+addedResourcesS = Array[ExtResource("2_sfrmj")]([])
+removedResourcesS = Array[ExtResource("2_sfrmj")]([])
+nextDialogS = ExtResource("1_oysoe")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_sfrmj")]([])
+removedResourcesF = Array[ExtResource("2_sfrmj")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

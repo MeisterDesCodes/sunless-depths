@@ -5,7 +5,7 @@ class_name DashState
 
 @export var entity: CharacterBody2D
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var dashTimer = get_node("DashTimer")
 @onready var dashCooldown = get_node("DashCooldown")
 
@@ -23,7 +23,7 @@ func enter():
 	dashCooldown.start()
 	direction = entity.global_position.direction_to(playerScene.global_position).normalized()
 	entity.velocity = Vector2.ZERO
-	await get_tree().create_timer(0.15).timeout
+	await UtilsS.createTimer(0.15)
 	entity.isDashing = true
 	entity.canDealContactDamage = true
 
@@ -43,9 +43,9 @@ func update(delta):
 
 func _on_dash_timer_timeout():
 	entity.isDashing = false
-	await get_tree().create_timer(0.25).timeout
+	await UtilsS.createTimer(0.25)
 	entity.canDealContactDamage = false
-	await get_tree().create_timer(0.25).timeout
+	await UtilsS.createTimer(0.25)
 	entity.changeToLastState()
 
 

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=11 format=3 uid="uid://y22rug2vtxjb"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_s62js"]
+[ext_resource type="Resource" uid="uid://7el5rf12tos0" path="res://dialogs/resources/suffocation/D-signal-F.tres" id="1_tsh3v"]
+[ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="1_vdgmy"]
+[ext_resource type="Resource" uid="uid://cw27idajqlwxr" path="res://dialogs/resources/suffocation/D-signal-S.tres" id="2_03c5k"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="2_orsml"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_uhmae"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="3_nt542"]
+
+[sub_resource type="Resource" id="Resource_bjp1x"]
+script = ExtResource("2_uhmae")
+resource = ExtResource("3_nt542")
+amount = 350
+
+[sub_resource type="Resource" id="Resource_oab8l"]
+script = ExtResource("2_uhmae")
+resource = ExtResource("1_vdgmy")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_wa7a5"]
+script = ExtResource("2_orsml")
+stat = 1
+baseChance = 1.0
+statMaximum = 40
+
+[resource]
+script = ExtResource("1_s62js")
+title = "Signal for help"
+description = "Use burnable materials to create a sizable fire for other explorers to see. You might not be able to do it in time, however. You might burn yourself too."
+statCheck = SubResource("Resource_wa7a5")
+requiredResources = Array[ExtResource("2_uhmae")]([SubResource("Resource_oab8l")])
+forbiddenResources = Array[ExtResource("2_uhmae")]([])
+addedResourcesS = Array[ExtResource("2_uhmae")]([])
+removedResourcesS = Array[ExtResource("2_uhmae")]([SubResource("Resource_bjp1x")])
+nextDialogS = ExtResource("2_03c5k")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_uhmae")]([])
+removedResourcesF = Array[ExtResource("2_uhmae")]([])
+nextDialogF = ExtResource("1_tsh3v")
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

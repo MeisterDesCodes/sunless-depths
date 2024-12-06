@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=10 format=3 uid="uid://bgi1kw2xpq6dc"]
+
+[ext_resource type="Resource" uid="uid://cmfjpvldfim30" path="res://dialogs/resources/into-the-mountain/D-retrace-f.tres" id="1_0pm8f"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_walop"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_6coel"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_igoom"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/material/primary/oxygen.tres" id="4_57ldd"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="4_gepsp"]
+
+[sub_resource type="Resource" id="Resource_h5sg5"]
+script = ExtResource("2_6coel")
+resource = ExtResource("1_walop")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_0dnbj"]
+script = ExtResource("2_6coel")
+resource = ExtResource("4_57ldd")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_k4uhq"]
+script = ExtResource("4_gepsp")
+stat = 3
+baseChance = 0.65
+statMaximum = 15
+
+[resource]
+script = ExtResource("3_igoom")
+title = "Retrace your steps"
+description = "Whatever you might find here, this is not worth it."
+statCheck = SubResource("Resource_k4uhq")
+requiredResources = Array[ExtResource("2_6coel")]([])
+forbiddenResources = Array[ExtResource("2_6coel")]([])
+addedResourcesS = Array[ExtResource("2_6coel")]([])
+removedResourcesS = Array[ExtResource("2_6coel")]([])
+moveBackwardsS = 1
+addedResourcesF = Array[ExtResource("2_6coel")]([])
+removedResourcesF = Array[ExtResource("2_6coel")]([SubResource("Resource_h5sg5"), SubResource("Resource_0dnbj")])
+nextDialogF = ExtResource("1_0pm8f")
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

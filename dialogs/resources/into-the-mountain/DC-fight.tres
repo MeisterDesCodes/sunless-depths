@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://bs5ki47ordihj"]
+
+[ext_resource type="Resource" uid="uid://dsqddayqf3hdh" path="res://dialogs/resources/into-the-mountain/D-fight-f.tres" id="1_f7ldq"]
+[ext_resource type="Resource" uid="uid://2pwlto81ijtg" path="res://dialogs/resources/into-the-mountain/D-wind.tres" id="2_wmdlq"]
+[ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="3_03ntf"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="3_5o2uu"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_bcsd7"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="4_cr0f3"]
+
+[sub_resource type="Resource" id="Resource_kng33"]
+script = ExtResource("4_cr0f3")
+resource = ExtResource("3_03ntf")
+amount = 12
+
+[sub_resource type="Resource" id="Resource_vo5ex"]
+script = ExtResource("3_5o2uu")
+stat = 0
+baseChance = 0.5
+statMaximum = 15
+
+[resource]
+script = ExtResource("3_bcsd7")
+title = "Fight those beats off with your torch"
+description = "You confidently wield your torch. They might have caught you off guard. But after all, there are just bats, are they?"
+statCheck = SubResource("Resource_vo5ex")
+requiredResources = Array[ExtResource("4_cr0f3")]([])
+forbiddenResources = Array[ExtResource("4_cr0f3")]([])
+addedResourcesS = Array[ExtResource("4_cr0f3")]([])
+removedResourcesS = Array[ExtResource("4_cr0f3")]([])
+nextDialogS = ExtResource("2_wmdlq")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("4_cr0f3")]([])
+removedResourcesF = Array[ExtResource("4_cr0f3")]([SubResource("Resource_kng33")])
+nextDialogF = ExtResource("1_f7ldq")
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

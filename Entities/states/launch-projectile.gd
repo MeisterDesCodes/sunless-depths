@@ -5,7 +5,7 @@ class_name ProjectileState
 
 @export var entity: CharacterBody2D
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var projectileSpawner = get_node("ProjectileSpawner")
 @onready var projectileCooldown = get_node("ProjectileCooldown")
 @onready var projectileTimer = get_node("ProjectileTimer")

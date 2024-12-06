@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://b5eicc13lt5ux"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_dcwxd"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_jjxxt"]
+
+[resource]
+script = ExtResource("2_jjxxt")
+title = "Spotted"
+description = "This seemed like a good idea. Apperantly, these bats pick up on light and are charging straight towards your blazing torch. You fend them off, but get bitten and scratched in the process."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_dcwxd")])
+canExit = false

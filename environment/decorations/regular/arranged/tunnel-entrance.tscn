@@ -13,17 +13,6 @@ position = Vector2(121, 23.0001)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_lhnyq")
 
-[node name="ObjectDecoration5" parent="." instance=ExtResource("1_iphyf")]
-position = Vector2(-128, -5.99987)
-rotation = 2.94365
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_lhnyq")
-
-[node name="ObjectDecoration4" parent="." instance=ExtResource("1_iphyf")]
-position = Vector2(-126, 24.0001)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_ge0f3")
-
 [node name="ObjectDecoration7" parent="." instance=ExtResource("1_iphyf")]
 position = Vector2(125, -7.00005)
 rotation = -2.96771
@@ -42,4 +31,4 @@ texture = ExtResource("4_awtbn")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(18, -16, 32, -42, 120, -33, 188, 12, -192, 16, -117, -36, -23, -41, -15, -16)
+polygon = PackedVector2Array(18, -16, 32, -42, 120, -33, 188, 12, 122, 46, 27, 43, 13, 18, -14, 18, -28, 42, -69, 40, -66, -40, -23, -41, -15, -16)

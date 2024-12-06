@@ -3,7 +3,7 @@ extends PanelContainer
 
 signal updateSlot
 
-@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var nameLabel: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer3/Name")
 @onready var amountContainer: HBoxContainer = get_node("MarginContainer/HBoxContainer/HBoxContainer")
 @onready var weightContainer: HBoxContainer = get_node("MarginContainer/HBoxContainer/HBoxContainer2")
@@ -20,6 +20,7 @@ signal updateSlot
 @onready var boxTransferSlotsConainer: HBoxContainer = get_node("MarginContainer/BoxTransferSlots")
 @onready var transferButton: Button = get_node("MarginContainer/TransferButton")
 @onready var dropButton: Button = get_node("MarginContainer2/DropButton")
+@onready var rarityShade: TextureRect = get_node("MarginContainer3/RarityShade")
 
 @onready var consumeTexture = preload("res://assets/UI/icons/menu/inventory/Consume.png")
 
@@ -94,15 +95,22 @@ func setup(_slot: InventorySlot, inventoryType: Enums.inventoryType):
 
 
 func update():
-	if slot.amount == 0:
+	if slot.amount == 0 || slot.resource.hidden:
 		UtilsS.unequipResource(playerScene, slot.resource)
 		queue_free()
-	
+
 	nameLabel.text = slot.resource.name
+	icon.texture = slot.resource.texture
+	rarityShade.self_modulate = UtilsS.getRarityColor(slot.resource.rarity)
+	
 	if amountContainer.get_child(1).text != "":
 		showAmount()
-	weightContainer.get_child(1).text = str(slot.resource.weight)
-	icon.texture = slot.resource.texture
+	
+	if slot.resource.weight == 0:
+		weightContainer.visible = false
+		dropButton.visible = false
+	else:
+		weightContainer.get_child(1).text = str(slot.resource.weight)
 	
 	if slot.resource == playerScene.equippedConsumable:
 		consumeEquipButton.select()

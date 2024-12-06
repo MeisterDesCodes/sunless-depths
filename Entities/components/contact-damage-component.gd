@@ -7,7 +7,7 @@ extends Node2D
 
 
 func _process(delta):
-	if !entityScene.canDealContactDamage:
+	if !entityScene.canDealContactDamage || entityScene.isDying:
 		return
 	
 	var areas = damageRadius.get_overlapping_areas()

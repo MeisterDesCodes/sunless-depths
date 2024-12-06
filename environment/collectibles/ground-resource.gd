@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var pickupRange = get_node("PickupRange")
 @onready var detectionRange = get_node("DetectionRange")
 

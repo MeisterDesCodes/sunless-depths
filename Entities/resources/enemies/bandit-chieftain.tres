@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=23 format=3 uid="uid://c43tnn85a1ylf"]
+
+[ext_resource type="Resource" uid="uid://c2yqclqnhrapf" path="res://inventory-resource/resources/ammunition/wooden-arrow.tres" id="1_ka43d"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="2_iychd"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="3_0hiis"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="3_uwhac"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="4_l5f6n"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="5_kqkx6"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="6_rp5t7"]
+[ext_resource type="Resource" uid="uid://brce76y3nxw8e" path="res://inventory-resource/resources/equipment/armor/bandit-B.tres" id="7_d56am"]
+[ext_resource type="Resource" uid="uid://i3hvkcqsmiae" path="res://inventory-resource/resources/equipment/armor/bandit-C.tres" id="8_r6hkl"]
+[ext_resource type="Resource" uid="uid://daf7r3jspwtfx" path="res://inventory-resource/resources/equipment/armor/bandit-H.tres" id="9_puhht"]
+[ext_resource type="Resource" uid="uid://wj0a5nbcy6sc" path="res://inventory-resource/resources/equipment/armor/bandit-P.tres" id="10_6itua"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="11_ae6ff"]
+[ext_resource type="Texture2D" uid="uid://bipn8ci6gwc18" path="res://assets/entities/bandit-chieftain.png" id="13_am48q"]
+
+[sub_resource type="Resource" id="Resource_yl7xi"]
+script = ExtResource("3_uwhac")
+effectType = 0
+strength = 2.0
+duration = 3.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+effectApplyType = 0
+
+[sub_resource type="Resource" id="Resource_o5h46"]
+script = ExtResource("2_iychd")
+damage = 10.0
+knockback = 20.0
+statusEffects = Array[ExtResource("3_uwhac")]([SubResource("Resource_yl7xi")])
+ammunition = ExtResource("1_ka43d")
+attackDelay = 3.0
+spread = 20.0
+amount = 1.0
+
+[sub_resource type="Resource" id="Resource_udg4a"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("3_0hiis")
+amount = 80
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_awibb"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("5_kqkx6")
+amount = 12
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_aps46"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("6_rp5t7")
+amount = 5
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_pkunj"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("7_d56am")
+amount = 1
+dropChance = 0.25
+
+[sub_resource type="Resource" id="Resource_dc527"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("8_r6hkl")
+amount = 1
+dropChance = 0.25
+
+[sub_resource type="Resource" id="Resource_1v3e0"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("9_puhht")
+amount = 1
+dropChance = 0.25
+
+[sub_resource type="Resource" id="Resource_rncku"]
+script = ExtResource("4_l5f6n")
+resource = ExtResource("10_6itua")
+amount = 1
+dropChance = 0.25
+
+[resource]
+script = ExtResource("11_ae6ff")
+attacks = Array[ExtResource("2_iychd")]([SubResource("Resource_o5h46")])
+states = Array[int]([0, 1, 2, 5])
+drops = Array[ExtResource("4_l5f6n")]([SubResource("Resource_udg4a"), SubResource("Resource_awibb"), SubResource("Resource_aps46"), SubResource("Resource_pkunj"), SubResource("Resource_dc527"), SubResource("Resource_1v3e0"), SubResource("Resource_rncku")])
+name = "Bandit Chieftain"
+texture = ExtResource("13_am48q")
+maxHealth = 56.0
+moveSpeed = 80.0
+ferocity = 7.0
+perseverance = 7.0
+agility = 2.0
+perception = 2.0

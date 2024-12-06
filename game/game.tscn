@@ -1,14 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwiu2kgkgw4ns"]
+[gd_scene load_steps=18 format=3 uid="uid://bwiu2kgkgw4ns"]
 
 [ext_resource type="PackedScene" uid="uid://ddundce1jredb" path="res://generation/cave-generator.tscn" id="1_7p5h0"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_xvjr7"]
 [ext_resource type="PackedScene" uid="uid://xbb1mnn8v7hy" path="res://entities/player-ui.tscn" id="2_bqi1q"]
-[ext_resource type="PackedScene" uid="uid://cigdfxhhfn6bk" path="res://game/areas/the-settlement.tscn" id="2_rrhun"]
 [ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="2_x24fo"]
-[ext_resource type="PackedScene" uid="uid://con0pdy4padqm" path="res://game/areas/a-past-forgotten.tscn" id="7_0gon8"]
+[ext_resource type="PackedScene" uid="uid://d3xleob1yehsl" path="res://environment/curiosities/dialog-function-component.tscn" id="8_ah73a"]
 [ext_resource type="PackedScene" uid="uid://d1m1q6gnsimr3" path="res://UI/shared/popup-menu-ui.tscn" id="9_75ykn"]
 [ext_resource type="PackedScene" uid="uid://g3kf8qmks18f" path="res://entities/game-sound-component.tscn" id="9_676h2"]
 [ext_resource type="PackedScene" uid="uid://hpuo6k2d5tp" path="res://UI/shared/tooltip.tscn" id="10_utire"]
+[ext_resource type="Shader" path="res://assets/UI/shaders/fog.gdshader" id="11_geg1l"]
 [ext_resource type="PackedScene" uid="uid://snd70w6whqbn" path="res://UI/hud/hud-ui.tscn" id="58_isjnl"]
 
 [sub_resource type="Resource" id="Resource_jq2ng"]
@@ -19,6 +19,7 @@ tier = 0
 locationType = 0
 attributes = Array[int]([])
 location = 2
+ambientMusic = Array[AudioStreamMP3]([])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ssy1a"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-11901, -8054, 11857, -8054, 12017, 8361, -11630, 8555)])
@@ -31,6 +32,23 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_shq6o"]
 gradient = SubResource("Gradient_g0pcc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c284x"]
+shader = ExtResource("11_geg1l")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/OCTAVES = 2
+shader_parameter/enable_pixelation = false
+shader_parameter/pixelation_amount = 200
+shader_parameter/fog_direction = Vector2(0.5, 1)
+shader_parameter/scroll_noise_tex = true
+shader_parameter/noise_scroll_direction = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_pkfxq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hreo8"]
+gradient = SubResource("Gradient_pkfxq")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xvjr7")
@@ -48,11 +66,6 @@ remote_path = NodePath("../../../FollowCamera")
 
 [node name="CurrentLocation" type="Node2D" parent="."]
 
-[node name="APastForgotten" parent="CurrentLocation" instance=ExtResource("7_0gon8")]
-visible = false
-
-[node name="TheSettlement" parent="CurrentLocation" instance=ExtResource("2_rrhun")]
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 
@@ -61,11 +74,16 @@ navigation_polygon = SubResource("NavigationPolygon_ssy1a")
 [node name="FollowCamera" type="Camera2D" parent="."]
 position = Vector2(294.912, 235.804)
 position_smoothing_enabled = true
-position_smoothing_speed = 3.0
+position_smoothing_speed = 2.0
 
 [node name="Particles" type="Node2D" parent="."]
+z_index = 1
+
+[node name="GroundResources" type="Node2D" parent="."]
 
 [node name="GameSoundComponent" parent="." instance=ExtResource("9_676h2")]
+
+[node name="DialogFunctionComponent" parent="." instance=ExtResource("8_ah73a")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
@@ -99,3 +117,13 @@ layout_mode = 1
 [node name="PopupMenuUI" parent="CanvasLayer/UIControl" instance=ExtResource("9_75ykn")]
 
 [node name="TooltipUI" parent="CanvasLayer/UIControl" instance=ExtResource("10_utire")]
+
+[node name="FogShader" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_c284x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_hreo8")

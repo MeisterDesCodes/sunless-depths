@@ -18,7 +18,7 @@ amount = 0.0
 [resource]
 script = ExtResource("5_qt5ef")
 attacks = Array[ExtResource("1_i2ilf")]([SubResource("Resource_24rk2")])
-states = Array[int]([])
+states = Array[int]([0])
 drops = Array[Resource("res://inventory-resource/drop-resource.gd")]([])
 name = "Test Dummy"
 texture = ExtResource("6_6r2bo")

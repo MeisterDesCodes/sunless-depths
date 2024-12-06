@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_46ft3"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="2_i61ok"]
-[ext_resource type="Texture2D" uid="uid://dbw02f4bjxegg" path="res://assets/resources/equipment/armor/Pants.png" id="3_px6ac"]
+[ext_resource type="Texture2D" uid="uid://b33yk2q2454ka" path="res://assets/resources/equipment/armor/Helmet.png" id="3_lqfo8"]
 
 [sub_resource type="Resource" id="Resource_47hgs"]
 script = ExtResource("1_46ft3")
@@ -25,6 +25,6 @@ equipmentType = 3
 modifiers = Array[ExtResource("1_46ft3")]([SubResource("Resource_47hgs"), SubResource("Resource_5faq4"), SubResource("Resource_mdp82")])
 name = "Bandit Helmet"
 description = "xxx"
-texture = ExtResource("3_px6ac")
+texture = ExtResource("3_lqfo8")
 rarity = 1
 weight = 1.5

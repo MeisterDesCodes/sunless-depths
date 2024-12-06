@@ -12,5 +12,6 @@ class_name MapPathway
 @export var travelDirections: Array[Enums.exitDirection]
 @export var attributes: Array[Enums.locationAttribute]
 @export var caveVariation: Enums.caveVariations
+@export var ambientMusic: Array[AudioStreamMP3]
 
 var type = Enums.resourceType.MAP_PATHWAY

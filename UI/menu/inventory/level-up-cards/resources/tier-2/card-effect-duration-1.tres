@@ -1,9 +1,20 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://bx1amcmmpk1fd"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=8 format=3 uid="uid://bx1amcmmpk1fd"]
 
 [ext_resource type="Texture2D" uid="uid://bdnlj4ptxu5de" path="res://assets/UI/icons/entities/player/stats/Lingering Effects.png" id="1_dehya"]
 [ext_resource type="Resource" uid="uid://dfndcayooa4xk" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-effect-strength-1.tres" id="2_ib3jh"]
 [ext_resource type="Resource" uid="uid://3sa6ybvx6rf6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-1.tres" id="3_tt7nb"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_3600m"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="5_0gy8d"]
+
+[sub_resource type="Resource" id="Resource_43asr"]
+script = ExtResource("5_0gy8d")
+resource = 3
+amount = 2
+
+[sub_resource type="Resource" id="Resource_tbjf6"]
+script = ExtResource("5_0gy8d")
+resource = 1
+amount = 2
 
 [resource]
 script = ExtResource("4_3600m")
@@ -14,5 +25,5 @@ requirements = Array[ExtResource("4_3600m")]([ExtResource("2_ib3jh"), ExtResourc
 type = 21
 value = 20.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("5_0gy8d")]([SubResource("Resource_43asr"), SubResource("Resource_tbjf6")])
 tier = 1

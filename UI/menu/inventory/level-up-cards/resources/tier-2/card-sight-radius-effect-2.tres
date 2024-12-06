@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://dnks8pbkwu3cq"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=9 format=3 uid="uid://dnks8pbkwu3cq"]
 
 [ext_resource type="Texture2D" uid="uid://dguuqdega3kss" path="res://assets/UI/icons/entities/player/stats/Bright Sanctuary.png" id="1_wufv8"]
 [ext_resource type="Resource" uid="uid://bhklu3vom8utu" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-health-2.tres" id="2_7nv6p"]
 [ext_resource type="Resource" uid="uid://cf235tqhxwypn" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-sight-2.tres" id="3_5ia5d"]
 [ext_resource type="Resource" uid="uid://5baibvy6e3jj" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-sight-radius-effect-1.tres" id="4_g8upf"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="5_1vv8q"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_11261"]
+
+[sub_resource type="Resource" id="Resource_txqy4"]
+script = ExtResource("6_11261")
+resource = 3
+amount = 2
+
+[sub_resource type="Resource" id="Resource_vdbwb"]
+script = ExtResource("6_11261")
+resource = 1
+amount = 2
 
 [resource]
 script = ExtResource("5_1vv8q")
@@ -15,5 +26,5 @@ requirements = Array[ExtResource("5_1vv8q")]([ExtResource("2_7nv6p"), ExtResourc
 type = 18
 value = 15.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("6_11261")]([SubResource("Resource_txqy4"), SubResource("Resource_vdbwb")])
 tier = 2

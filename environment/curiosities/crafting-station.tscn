@@ -8,3 +8,5 @@ script = ExtResource("1_oi6vs")
 
 [node name="Curiosity" parent="." instance=ExtResource("2_ynmo4")]
 modulate = Color(0.360784, 0.847059, 0.752941, 1)
+
+[connection signal="onEnter" from="Curiosity" to="." method="_on_curiosity_on_enter"]

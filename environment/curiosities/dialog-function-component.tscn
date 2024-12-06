@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3xleob1yehsl"]
+
+[ext_resource type="Script" path="res://environment/curiosities/dialog-function-component.gd" id="1_h1nen"]
+
+[node name="DialogFunctionComponent" type="Node2D"]
+script = ExtResource("1_h1nen")

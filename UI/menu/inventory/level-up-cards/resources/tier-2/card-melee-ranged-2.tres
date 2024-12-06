@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://b0i0jsqinjr8c"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=9 format=3 uid="uid://b0i0jsqinjr8c"]
 
 [ext_resource type="Texture2D" uid="uid://bphgut2htshjg" path="res://assets/UI/icons/entities/player/stats/Master of the Hunt.png" id="1_nbq6a"]
 [ext_resource type="Resource" uid="uid://lg3wfvn8fyal" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-melee-2.tres" id="2_upx54"]
 [ext_resource type="Resource" uid="uid://dsl3wpmyab5wi" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-2.tres" id="3_sufia"]
 [ext_resource type="Resource" uid="uid://bciu16h0f4jju" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-melee-ranged-1.tres" id="4_8ajqj"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_xfybe"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_gukuc"]
+
+[sub_resource type="Resource" id="Resource_x1uvp"]
+script = ExtResource("6_gukuc")
+resource = 2
+amount = 2
+
+[sub_resource type="Resource" id="Resource_7ydle"]
+script = ExtResource("6_gukuc")
+resource = 0
+amount = 2
 
 [resource]
 script = ExtResource("4_xfybe")
@@ -15,5 +26,5 @@ requirements = Array[ExtResource("4_xfybe")]([ExtResource("2_upx54"), ExtResourc
 type = 11
 value = 10.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("6_gukuc")]([SubResource("Resource_x1uvp"), SubResource("Resource_7ydle")])
 tier = 2

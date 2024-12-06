@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://mty0elomxwg6"]
+[gd_scene load_steps=7 format=3 uid="uid://mty0elomxwg6"]
 
 [ext_resource type="Texture2D" uid="uid://hlp85qqcfy2l" path="res://assets/environment/interactions/Curiosity.png" id="2_aaiyn"]
 [ext_resource type="Script" path="res://environment/curiosities/curiosity.gd" id="2_egl2p"]
 [ext_resource type="PackedScene" uid="uid://ujngla653jpi" path="res://environment/decorations/particles/curiosity-particle.tscn" id="4_cx4y6"]
-[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="4_pdv0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwgc1"]
 radius = 36.0
+
+[sub_resource type="Gradient" id="Gradient_60pnu"]
+offsets = PackedFloat32Array(0.162338, 0.350649, 0.525974, 0.701299)
+colors = PackedColorArray(1, 1, 1, 1, 0.393086, 0.393085, 0.393086, 1, 0.103744, 0.103743, 0.103744, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ww04t"]
+gradient = SubResource("Gradient_60pnu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Curiosity" type="Node2D"]
 script = ExtResource("2_egl2p")
@@ -21,15 +29,15 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
 shape = SubResource("CircleShape2D_nwgc1")
 
-[node name="LightSource" parent="." instance=ExtResource("4_pdv0a")]
-size = 3.0
-energy = 1.0
-
 [node name="CuriosityParticles" parent="." instance=ExtResource("4_cx4y6")]
 
 [node name="FollowTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(3, 3)
+texture = SubResource("GradientTexture2D_ww04t")
 
 [connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]

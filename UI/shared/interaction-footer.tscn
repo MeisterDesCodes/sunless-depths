@@ -30,6 +30,7 @@ offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(250, 71)
+mouse_filter = 2
 theme = ExtResource("2_xdnmc")
 
 [node name="InteractionLabel" type="Label" parent="PanelContainer"]

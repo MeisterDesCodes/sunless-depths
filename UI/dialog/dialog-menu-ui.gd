@@ -1,19 +1,23 @@
 extends Control
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var MerchantWindow = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/Merchant")
-@onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var dialogFunctionComponent = get_tree().get_root().get_node("GameController/Game/DialogFunctionComponent")
+@onready var MerchantWindow = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/Merchant")
+@onready var approachLabel = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/DialogApproachLabel")
 
 @onready var locationTitle = get_node("VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/Title")
+@onready var textureRect = get_node("VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer2/MarginContainer/TextureRect")
 @onready var scrollContainer = get_node("VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer")
 @onready var locationDialogs = get_node("VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ScrollContainer/LocationDialogs")
+@onready var exitButton = get_node("VBoxContainer/MarginContainer/Button")
 
 var currentDialog: PanelContainer = null
 var dialogTree: Array[Dialog] = []
 
 
 func setup(location):
+	UtilsS.runShader(textureRect, "dissolve_threshold")
 	locationTitle.text = location.title
 	
 	for child in locationDialogs.get_children():
@@ -23,16 +27,17 @@ func setup(location):
 
 
 func determineNextDialog(choice: DialogChoice, success):
-	if choice.optionalMoveBackwards >= 0:
-		return dialogTree[dialogTree.size() - 1 - choice.optionalMoveBackwards]
-	
 	if success:
-		return choice.nextDialogS
+		if choice.moveBackwardsS >= 0:
+			return {"ND": dialogTree[dialogTree.size() - 1 - choice.moveBackwardsS], "RA": true}
+		return {"ND": choice.nextDialogS, "RA": false}
 	else:
-		return choice.nextDialogF
+		if choice.moveBackwardsF >= 0:
+			return {"ND": dialogTree[dialogTree.size() - 1 - choice.moveBackwardsF], "RA": true}
+		return {"ND": choice.nextDialogF, "RA": false}
 
 
-func clickChoice(choice: DialogChoice):
+func selectChoice(choice: DialogChoice):
 	var success = randf() < UtilsS.getStatCheckChance(playerScene, choice.statCheck)
 	var nextDialog = determineNextDialog(choice, success)
 	var combinedResources: Array[ChoiceResource] = []
@@ -46,21 +51,24 @@ func clickChoice(choice: DialogChoice):
 	combinedResources.append_array(removedResources)
 	
 	if choice.oneTimeUse:
+		playerScene.completedDialogChoices.append(choice)
 		currentDialog.dialog.choices.remove_at(currentDialog.dialog.choices.find(choice))
 	
 	if choice.function != "":
 		executeFunction(choice.function)
 	
-	pushDialog(nextDialog, combinedResources, choice.optionalMoveBackwards > 0)
+	pushDialog(nextDialog.ND, combinedResources, nextDialog.RA)
 	
-	await get_tree().create_timer(0.15).timeout
+	await UtilsS.createTimer(0.15)
 	var lastDialog = locationDialogs.get_child(locationDialogs.get_children().size() - 1)
 	AnimationsS.scroll(scrollContainer, locationDialogs.size.y - lastDialog.size.y, 0.75)
 
 
 func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource], wasReturned: bool):
-	if dialog != null:
-		if currentDialog != null:
+	if !dialog:
+		UILoaderS.closeUIScene(self)
+	else:
+		if currentDialog:
 			currentDialog.completed = true
 			for choice in currentDialog.choiceContainer.get_children():
 				choice.onCompletion()
@@ -69,14 +77,18 @@ func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource], wasRetur
 			dialogTree.remove_at(dialogTree.size() - 1)
 		else:
 			dialogTree.append(dialog)
-	
+		
 		var dialogWindow = preload("res://UI/dialog/dialog-ui.tscn").instantiate()
 		locationDialogs.add_child(dialogWindow)
 		generateResources(dialogWindow, choiceResources)
 		dialogWindow.setup(dialog)
+		dialogWindow.choiceSelected.connect(selectChoice)
 		currentDialog = dialogWindow
-	else:
-		UILoaderS.closeUIScene(self)
+		updateExitButton(dialog)
+
+
+func updateExitButton(dialog: Dialog):
+	exitButton.disabled = !dialog.canExit
 
 
 func generateResources(dialog: PanelContainer, choiceResources: Array[ChoiceResource]):
@@ -92,7 +104,7 @@ func generateResources(dialog: PanelContainer, choiceResources: Array[ChoiceReso
 
 
 func executeFunction(identifier: String):
-	var callable = Callable(DialogFunctionsS, identifier)
+	var callable = Callable(dialogFunctionComponent, identifier)
 	callable.call()
 
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://d25opwy47rcjg"]
+
+[ext_resource type="Resource" uid="uid://b8b8lph46kowx" path="res://dialogs/resources/old-toms-workshop/D-info.tres" id="1_aga3m"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_fcsfu"]
+
+[resource]
+script = ExtResource("1_fcsfu")
+title = "Inquire about this place"
+description = "What is he doing out here? And more importantly, why?"
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_aga3m")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://djpx37kk3krhv"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_ecu61"]
+
+[resource]
+script = ExtResource("5_ecu61")
+title = "Keep moving"
+description = "This is the final stretch."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = "starvationGoMad"

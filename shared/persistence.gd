@@ -3,12 +3,15 @@ extends Node
 
 class_name Persistence
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+
+
+func setup():
+	pass
 
 
 func saveGame():
-	for i in range(playerScene.statusEffectComponent.statusEffects.size() - 1, -1, -1):
-		playerScene.statusEffectComponent.statusEffects[i].onExpire(playerScene)
+	UtilsS.removeStatusEffects(playerScene)
 	
 	var savedData = SavedData.new()
 	
@@ -19,10 +22,12 @@ func saveGame():
 	savedData.supplies = playerScene.hudUI.suppliesBar.value
 	savedData.oxygen = playerScene.hudUI.oxygenBar.value
 	savedData.stamina = playerScene.hudUI.staminaBar.value
+	
 	savedData.visitedLocations = LocationLoaderS.visitedLocations
 	savedData.exploredLocations = LocationLoaderS.exploredLocations
 	savedData.transportableLocations = LocationLoaderS.transportableLocations
-		
+	
+	savedData.completedDialogChoices = playerScene.completedDialogChoices
 	savedData.inventory = playerScene.inventory.resourceSlots
 	savedData.storage = playerScene.storage.resourceSlots
 	savedData.equippedWeapons = playerScene.equippedWeapons
@@ -40,7 +45,12 @@ func saveGame():
 
 
 func loadGame():
-	var savedData = load("res://0-saved-data/saved-game-0.tres")
+	UtilsS.removeStatusEffects(playerScene)
+	
+	var savedData = preload("res://0-saved-data/saved-game-0.tres").duplicate(true)
+	var player = preload("res://entities/resources/player/player.tres").duplicate(true)
+	
+	playerScene.entityResource = player
 	
 	playerScene.global_position = savedData.position
 	
@@ -54,23 +64,36 @@ func loadGame():
 	LocationLoaderS.visitedLocations = savedData.visitedLocations
 	LocationLoaderS.exploredLocations = savedData.exploredLocations
 	LocationLoaderS.transportableLocations = savedData.transportableLocations
-	playerScene.inventory.resourceSlots = savedData.inventory
-	playerScene.storage.resourceSlots = savedData.storage
+
+	playerScene.completedDialogChoices = savedData.completedDialogChoices
+	
+	playerScene.inventory.resourceSlots.clear()
+	for i in savedData.inventory.size():
+		playerScene.inventory.resourceSlots.append( \
+			createSlot(savedData.inventory[i].resource, (savedData.inventory[i].amount)))
+	
+	playerScene.storage.resourceSlots.clear()
+	for i in savedData.storage.size():
+		playerScene.storage.resourceSlots.append( \
+			createSlot(savedData.storage[i].resource, (savedData.storage[i].amount)))
+
 	playerScene.equippedWeapons = savedData.equippedWeapons
 	for i in savedData.equippedAmmunitions.size():
 		if savedData.equippedAmmunitions[i]:
 			playerScene.equippedWeapons[i].ammunition = savedData.equippedAmmunitions[i]
 	
 	playerScene.equippedGear = savedData.equippedGear
-	playerScene.equippedConsumable = savedData.equippedConsumable
+	playerScene.equippedConsumable = playerScene.inventory.getResource(savedData.equippedConsumable)
+	playerScene.equippedConsumable.remainingCooldown = 0
+	playerScene.equippedConsumable.isOnCooldown = false
 	playerScene.equippedCards = savedData.equippedCards
-	
-	return savedData
 
 
-
-
-
+func createSlot(resource: InventoryResource, amount: int):
+	var slot: InventorySlot = InventorySlot.new()
+	slot.resource = resource
+	slot.amount = amount
+	return slot
 
 
 

@@ -1,7 +1,7 @@
 extends Marker2D
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var animations = get_node("AnimationPlayer")
 @onready var hitbox = get_node("StaticBody2D/Area2D")
 @onready var projectileSpawner = get_node("ProjectileSpawner")

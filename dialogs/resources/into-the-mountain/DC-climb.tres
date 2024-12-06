@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://dkdx43g1dh4du"]
+
+[ext_resource type="Resource" uid="uid://qbictuatitbb" path="res://dialogs/resources/into-the-mountain/D-climb-f.tres" id="1_inu7i"]
+[ext_resource type="Resource" uid="uid://bna6bjh8j6q3" path="res://dialogs/resources/into-the-mountain/D-bats.tres" id="2_fj6n3"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="2_imka2"]
+[ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="3_fo80g"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_m8i3k"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="4_xstm5"]
+
+[sub_resource type="Resource" id="Resource_quv54"]
+script = ExtResource("4_xstm5")
+resource = ExtResource("3_fo80g")
+amount = 8
+
+[sub_resource type="Resource" id="Resource_mjd3d"]
+script = ExtResource("2_imka2")
+stat = 2
+baseChance = 0.5
+statMaximum = 15
+
+[resource]
+script = ExtResource("3_m8i3k")
+title = "Climb onto the pile of rocks"
+description = "There is no way you can move these boulders by yourself. You better risk climbing up and finding another way."
+statCheck = SubResource("Resource_mjd3d")
+requiredResources = Array[ExtResource("4_xstm5")]([])
+forbiddenResources = Array[ExtResource("4_xstm5")]([])
+addedResourcesS = Array[ExtResource("4_xstm5")]([])
+removedResourcesS = Array[ExtResource("4_xstm5")]([])
+nextDialogS = ExtResource("2_fj6n3")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("4_xstm5")]([])
+removedResourcesF = Array[ExtResource("4_xstm5")]([SubResource("Resource_quv54")])
+nextDialogF = ExtResource("1_inu7i")
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

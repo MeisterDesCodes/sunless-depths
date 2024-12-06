@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=6 format=3 uid="uid://fo8f3gr66apw"]
+
+[ext_resource type="Resource" uid="uid://c0dd1rfbg126u" path="res://dialogs/resources/old-toms-workshop/D-project.tres" id="1_itwy4"]
+[ext_resource type="Resource" uid="uid://bjvdcj5c4nhe7" path="res://inventory-resource/resources/material/curiosities/old-toms-favor.tres" id="2_twqwm"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_uakym"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="3_0jvdj"]
+
+[sub_resource type="Resource" id="Resource_d8o71"]
+script = ExtResource("3_0jvdj")
+resource = ExtResource("2_twqwm")
+amount = 1
+
+[resource]
+script = ExtResource("2_uakym")
+title = "Ask about his most recent project"
+description = "Old Tom is an odd man. Perhaps it's age, perhabs it's character. But you must know. This might be something important."
+requiredResources = Array[ExtResource("3_0jvdj")]([SubResource("Resource_d8o71")])
+forbiddenResources = Array[ExtResource("3_0jvdj")]([])
+addedResourcesS = Array[ExtResource("3_0jvdj")]([])
+removedResourcesS = Array[ExtResource("3_0jvdj")]([])
+nextDialogS = ExtResource("1_itwy4")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("3_0jvdj")]([])
+removedResourcesF = Array[ExtResource("3_0jvdj")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

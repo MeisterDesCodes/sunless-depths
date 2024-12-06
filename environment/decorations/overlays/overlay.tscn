@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://environment/decorations/overlays/overlay.gd" id="1_uawvt"]
 
 [node name="Overlay" type="Node2D"]
-modulate = Color(0.0156863, 0.0156863, 0.0156863, 0.968627)
+modulate = Color(0, 0, 0, 0.882353)
 script = ExtResource("1_uawvt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

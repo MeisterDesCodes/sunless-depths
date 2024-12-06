@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0o2lcygoycjd"]
+
+[ext_resource type="Script" path="res://generation/segment-ui.gd" id="1_d2yak"]
+[ext_resource type="PackedScene" uid="uid://xvs63raay20g" path="res://generation/exits/exit-1/exit-1-template.tscn" id="2_y6o1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ub1"]
+size = Vector2(618, 422)
+
+[node name="Exit - 1 - 180" type="Node2D"]
+script = ExtResource("1_d2yak")
+exits = Array[Dictionary]([{
+"completed": false,
+"direction": 1,
+"position": Vector2(9, 2)
+}])
+type = 3
+
+[node name="Map" parent="." instance=ExtResource("2_y6o1r")]
+position = Vector2(640, 448)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(319, 226)
+shape = SubResource("RectangleShape2D_m2ub1")

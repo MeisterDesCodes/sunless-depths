@@ -1,7 +1,8 @@
 extends Node2D
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var game = get_tree().get_root().get_node("GameController/Game")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 
 var gold = preload("res://inventory-resource/resources/material/primary/gold.tres")
 var experience = preload("res://inventory-resource/resources/material/primary/experience.tres")
@@ -41,7 +42,7 @@ func spawnResource(resource: DropResource, spawnType: Enums.resourceSpawnType,
 			groundResource.setup(resource.resource, wasDropped)
 			groundResource.global_position = spawnPosition
 			groundResource.scale = Vector2(0.5, 0.5)
-			get_tree().get_root().add_child(groundResource)
+			game.groundResources.add_child(groundResource)
 			
 			var spreadVector: float
 			match spawnType:

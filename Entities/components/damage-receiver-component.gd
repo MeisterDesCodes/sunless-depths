@@ -3,7 +3,7 @@ extends Node2D
 
 @export var entity: CharacterBody2D
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 
 
 func receiveAttack(attack: Attack):
@@ -73,6 +73,9 @@ func applyOnHitEffects(attacker: CharacterBody2D, attack: Attack, damage: float)
 
 
 func receiveHealing(amount: float, statusEffect: StatusEffect):
+	if !canReceiveHealing():
+		return
+	
 	var isCrit = randf() <= entity.critHealChance / 100
 	if isCrit:
 		amount *= (1.5 * entity.critDamageModifier)
@@ -83,6 +86,9 @@ func receiveHealing(amount: float, statusEffect: StatusEffect):
 
 
 func receiveDamage(damage: float, isCrit: bool, statusEffect: StatusEffect):
+	if entity.isDying:
+		return
+	
 	entity.health -= damage
 	showHealthChange(damage, true, isCrit, statusEffect)
 	if entity.health <= 0 && !entity.isDying:
@@ -114,7 +120,7 @@ func showHealthChange(amount: float, isDamage: bool, isCrit: bool, statusEffect)
 func toggleKnockback(_position, knockback: float):
 	entity.isKnockback = true
 	entity.knockbackVector = global_position.direction_to(_position) * knockback * -1
-	await get_tree().create_timer(0.2).timeout
+	await UtilsS.createTimer(0.2)
 	entity.isKnockback = false
 
 
@@ -123,7 +129,8 @@ func playHitAnimation(position: Vector2):
 	entity.particleComponent.activateHitParticles(position)
 
 
-
+func canReceiveHealing():
+	return !entity.isDying && !entity.isSuffocating
 
 
 

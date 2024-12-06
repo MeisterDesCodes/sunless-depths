@@ -17,5 +17,5 @@ animations = Array[int]([3])
 name = "Improved Bow"
 description = ""
 texture = ExtResource("2_bj5m4")
-rarity = 3
+rarity = 2
 weight = 3.5

@@ -11,3 +11,4 @@ script = ExtResource("1_52fft")
 title = "The leader's tent"
 description = "This tent is noticably larger than the other ones. It surrounded by rusty machines and an intricate network of timeworn pipes, running in and out of the undergorund walls. Two guards at the tent's front suggest there is someone of importance residing here. Perhaps someone that could help you to make sense of all this."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_ws0eh"), ExtResource("1_44fip"), ExtResource("2_cwlck"), ExtResource("2_vfn4f")])
+canExit = false

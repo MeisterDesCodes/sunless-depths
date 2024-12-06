@@ -83,6 +83,13 @@ func activateEffect(entity: CharacterBody2D, attack: Attack, strength: float):
 			if attack.type == Enums.weaponTypes.RANGED:
 				entity.damageReceiver.receiveDamage(percentageStrength, false, self)
 				onExpire(entity)
+		Enums.statusEffectType.STARVATION:
+			entity.damageModifier -= percentageStrength
+			entity.movementSpeedModifier -= percentageStrength
+		Enums.statusEffectType.SUFFOCATION:
+			entity.entityResource.lightRadius -= percentageStrength * 6
+			entity.movementSpeedModifier -= percentageStrength
+			entity.setupLightSource()
 
 
 func onExpire(entity: CharacterBody2D):
@@ -107,7 +114,14 @@ func onExpire(entity: CharacterBody2D):
 			entity.entityResource.agility -= strength
 			entity.entityResource.perception -= strength
 			entity.updateMaxHealth()
-		
+		Enums.statusEffectType.STARVATION:
+			entity.damageModifier += percentageStrength
+			entity.movementSpeedModifier += percentageStrength
+		Enums.statusEffectType.SUFFOCATION:
+			entity.entityResource.lightRadius += percentageStrength * 6
+			entity.movementSpeedModifier += percentageStrength
+			entity.setupLightSource()
+	
 	remainingDuration = 0
 	
 	for effect in entity.statusEffectComponent.statusEffects:

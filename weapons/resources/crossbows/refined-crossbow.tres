@@ -17,5 +17,5 @@ animations = Array[int]([3])
 name = "Refined Crossbow"
 description = ""
 texture = ExtResource("2_fy1yk")
-rarity = 1
+rarity = 2
 weight = 4.5

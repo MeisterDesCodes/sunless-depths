@@ -5,7 +5,7 @@ signal updateInventory
 
 @export var inventoryType: Enums.inventoryType
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 @onready var resourceContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/ScrollContainer/Resources")
 @onready var filterContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2")
@@ -41,17 +41,27 @@ func displayResources(filter: Enums.resourceType):
 		resourceSlot.queue_free()
 	
 	var resourceSlots = getFilteredResources()
+	resourceSlots.sort_custom(sortResources)
 	for resourceSlot in resourceSlots:
 		generateSlot(resourceSlot)
 
 
+func sortResources(a, b):
+	var rarityA = a.resource.rarity
+	var rarityB = b.resource.rarity
+	var typeA = a.resource.filterType if inventoryType == Enums.inventoryType.CRAFTING_STATION else a.resource.type
+	var typeB = b.resource.filterType if inventoryType == Enums.inventoryType.CRAFTING_STATION else b.resource.type
+	if rarityA == rarityB:
+		return typeA < typeB
+	else:
+		return rarityA < rarityB
+
+
 func generateSlot(resourceSlot: InventorySlot):
-	UtilsS.updateResourceType(resourceSlot.resource)
 	if inventoryType == Enums.inventoryType.CRAFTING_STATION:
 		var outputResource = resourceSlot.resource.outputResources[0].resource
 		UtilsS.updateResourceType(outputResource)
 		resourceSlot.resource.name = resourceSlot.resource.name.replace(" - Blueprint", "")
-		resourceSlot.resource.filterType = outputResource.type
 	
 	var resourceSlotInstance = preload("res://UI/menu/inventory/resource-slot-ui.tscn").instantiate()
 	resourceContainer.add_child(resourceSlotInstance)
@@ -94,14 +104,18 @@ func getFilteredResources():
 				var newSlot = InventorySlot.new()
 				newSlot.resource = blueprint
 				newSlot.amount = 1
+				newSlot.resource.filterType = newSlot.resource.outputResources[0].resource.type
 				resourceSlots.append(newSlot)
 		Enums.inventoryType.STORAGE_PLAYER:
 			resourceSlots = playerScene.inventory.resourceSlots
 		Enums.inventoryType.STORAGE_BOX:
 			resourceSlots = playerScene.storage.resourceSlots
 	
-	return resourceSlots if currentFilter == Enums.resourceType.RESOURCE \
-		else resourceSlots.filter(func(slot): return slot.resource.filterType == currentFilter)
+	if currentFilter == Enums.resourceType.RESOURCE:
+		return resourceSlots.filter(func(slot): return slot.resource.filterType != Enums.resourceType.BLUEPRINT && \
+			slot.resource.filterType != Enums.resourceType.CURIOSITY)
+	else:
+		return resourceSlots.filter(func(slot): return slot.resource.filterType == currentFilter)
 
 
 func _on_all_items_pressed():
@@ -119,22 +133,26 @@ func _on_all_consumables_pressed():
 	filterContainer.get_child(2).select()
 
 
-func _on_all_blueprints_pressed():
-	displayResources(Enums.resourceType.BLUEPRINT)
-	filterContainer.get_child(3).select()
-
-
 func _on_all_weapons_pressed():
 	displayResources(Enums.resourceType.WEAPON)
-	filterContainer.get_child(4).select()
+	filterContainer.get_child(3).select()
 
 
 func _on_all_ammunition_pressed():
 	displayResources(Enums.resourceType.AMMUNITION)
-	filterContainer.get_child(5).select()
+	filterContainer.get_child(4).select()
 
 
 func _on_all_equipment_pressed():
 	displayResources(Enums.resourceType.EQUIPMENT)
+	filterContainer.get_child(5).select()
+
+
+func _on_all_blueprints_pressed():
+	displayResources(Enums.resourceType.BLUEPRINT)
 	filterContainer.get_child(6).select()
 
+
+func _on_all_curiosities_pressed():
+	displayResources(Enums.resourceType.CURIOSITY)
+	filterContainer.get_child(7).select()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://sokoc5ar5h24"]
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="1_crksr"]
-[ext_resource type="PackedScene" uid="uid://c1e2cwvpwxhq0" path="res://generation/exits/exit-1/exit-0.tscn" id="2_sqs2t"]
-[ext_resource type="PackedScene" uid="uid://b0o2lcygoycjd" path="res://generation/exits/exit-1/exit-180.tscn" id="3_ttpdg"]
+[ext_resource type="PackedScene" uid="uid://c1e2cwvpwxhq0" path="res://generation/exits/exit-1/exit-1-0.tscn" id="2_sqs2t"]
+[ext_resource type="PackedScene" uid="uid://b0o2lcygoycjd" path="res://generation/exits/exit-1/exit-1-180.tscn" id="3_ttpdg"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="4_mtu3l"]
 [ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="5_qpss1"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="6_1buik"]

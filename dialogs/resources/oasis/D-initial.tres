@@ -9,3 +9,4 @@ script = ExtResource("3_lh1jr")
 title = "A moment of relief"
 description = "xxx"
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_iwqco"), ExtResource("2_gshpm")])
+canExit = false

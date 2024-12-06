@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://c7uw6nmaio53w"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=9 format=3 uid="uid://c7uw6nmaio53w"]
 
 [ext_resource type="Texture2D" uid="uid://cf5ycl6hycjr2" path="res://assets/UI/icons/entities/player/stats/Adrenaline Rush.png" id="1_iwwm6"]
 [ext_resource type="Resource" uid="uid://ckf7i0p03pukf" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-attack-delay-2.tres" id="2_hog4i"]
 [ext_resource type="Resource" uid="uid://dcdm3cxjfht88" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-2.tres" id="3_g75rg"]
 [ext_resource type="Resource" uid="uid://dte10oqxcni6i" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-kill-attack-delay-speed-1.tres" id="4_rl0y3"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_wtv0c"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_u824g"]
+
+[sub_resource type="Resource" id="Resource_7x465"]
+script = ExtResource("6_u824g")
+resource = 0
+amount = 2
+
+[sub_resource type="Resource" id="Resource_wvaku"]
+script = ExtResource("6_u824g")
+resource = 2
+amount = 2
 
 [resource]
 script = ExtResource("4_wtv0c")
@@ -15,5 +26,5 @@ requirements = Array[ExtResource("4_wtv0c")]([ExtResource("2_hog4i"), ExtResourc
 type = 15
 value = 10.0
 value2 = 5.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("6_u824g")]([SubResource("Resource_7x465"), SubResource("Resource_wvaku")])
 tier = 2

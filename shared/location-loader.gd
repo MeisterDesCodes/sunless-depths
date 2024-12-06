@@ -1,9 +1,9 @@
 extends Node
 
 
-@onready var game = get_tree().get_root().get_node("Game")
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
-@onready var caveGenerator = get_tree().get_root().get_node("Game/NavigationRegion2D/CaveGenerator")
+@onready var game = get_tree().get_root().get_node("GameController/Game")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var caveGenerator = get_tree().get_root().get_node("GameController/Game/NavigationRegion2D/CaveGenerator")
 
 var currentLocation: MapLocation
 var nextLocation: MapLocation
@@ -30,11 +30,10 @@ func loadArea(location: MapLocation, showLocationHeader: bool = true):
 	removeCurrentCave()
 	removeAttributes()
 	setupAttributes(true)
-	exploredLocations.append(currentLocation)
 	currentLocation = location
 	visitedLocations.append(location)
 	game.currentLocation.add_child(getSceneFromId(location.location).instantiate())
-	game.soundComponent.playSettlementAmbient()
+	game.soundComponent.playSettlementAmbient(currentLocation)
 	
 	#TODO Monitor chase not working
 	await get_tree().process_frame
@@ -43,7 +42,7 @@ func loadArea(location: MapLocation, showLocationHeader: bool = true):
 	finishAreaTransition()
 	
 	if showLocationHeader:
-		await get_tree().create_timer(1.5).timeout
+		await UtilsS.createTimer(1.5)
 		var UIHeader = UILoaderS.loadUIOverlay(preload("res://UI/shared/location-header.tscn"))
 		UIHeader.setup(UtilsS.getEnumValue(Enums.locations, currentLocation.location))
 
@@ -56,6 +55,7 @@ func loadCave(pathway: MapPathway):
 	caveGenerator.generateCave()
 	setupAttributes(false)
 	currentPathway = pathway
+	game.soundComponent.playCaveAmbient(currentPathway)
 	
 	#TODO Monitor chase not working
 	await get_tree().process_frame
@@ -63,7 +63,7 @@ func loadCave(pathway: MapPathway):
 	game.navigationRegion.bake_navigation_polygon()
 	finishAreaTransition()
 	
-	await get_tree().create_timer(1.5).timeout
+	await UtilsS.createTimer(1.5)
 	var UIHeader = UILoaderS.loadUIOverlay(preload("res://UI/shared/location-header.tscn"))
 	UIHeader.setup("Tunnel towards: " + UtilsS.getEnumValue(Enums.locations, nextLocation.location))
 
@@ -71,13 +71,13 @@ func loadCave(pathway: MapPathway):
 func startAreaTransition():
 	playerScene.isInLoadingScreen = true
 	UILoaderS.loadUILoadingScreen(preload("res://UI/shared/loading-screen.tscn"))
-	await get_tree().create_timer(0.5).timeout
+	await UtilsS.createTimer(0.5)
 	return true
 
 
 func finishAreaTransition():
 	UILoaderS.closeAllUIScenes()
-	await get_tree().create_timer(1).timeout
+	await UtilsS.createTimer(1)
 	UILoaderS.closeUILoadingScreen(UILoaderS.currentLoadingScene)
 	playerScene.isInLoadingScreen = false
 
@@ -91,8 +91,7 @@ func removeCurrentCave():
 	for child in caveGenerator.get_child(0).get_children():
 		caveGenerator.get_child(0).remove_child(child)
 	
-	for enemy in caveGenerator.get_child(1).get_children():
-		enemy.queue_free()
+	UtilsS.removeEntitiesFromScene(caveGenerator.get_child(1))
 
 
 func spawnPlayer(_position: Vector2):
@@ -113,10 +112,10 @@ func setupAttributes(isLocation: bool):
 				lightModifier -= 2
 				game.canvasModulate.color = UtilsS.colorBlack
 		
-		if isLocation:
-			match currentLocation.locationType:
-				Enums.locationType.SETTLEMENT:
-					lightModifier += 1
+	if isLocation:
+		match currentLocation.locationType:
+			Enums.locationType.SETTLEMENT:
+				game.canvasModulate.color = UtilsS.colorGray
 
 
 func removeAttributes():

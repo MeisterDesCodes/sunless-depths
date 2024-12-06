@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://bmsjt3slk5quo"]
+
+[ext_resource type="Resource" uid="uid://daymdu0jens5n" path="res://dialogs/resources/starvation/DC-suffer-E.tres" id="1_tbqob"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="6_ummon"]
+
+[resource]
+script = ExtResource("6_ummon")
+title = "A painful choice"
+description = "Movement is getting slower as your body grows more and more heavy. You will have to endure for now."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_tbqob")])
+canExit = false

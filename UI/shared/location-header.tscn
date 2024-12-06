@@ -12,7 +12,6 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
-mouse_filter = 2
 script = ExtResource("1_yt42q")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -26,6 +25,7 @@ offset_right = 375.0
 offset_bottom = 200.0
 grow_horizontal = 2
 pivot_offset = Vector2(396, 109)
+mouse_filter = 2
 theme = ExtResource("2_gvgug")
 
 [node name="Location" type="Label" parent="PanelContainer"]

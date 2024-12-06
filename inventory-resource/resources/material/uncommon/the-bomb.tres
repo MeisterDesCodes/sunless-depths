@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryMaterial" load_steps=3 format=3 uid="uid://blmuxyfm4n5r1"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-material.gd" id="1_d5bgy"]
+[ext_resource type="Texture2D" uid="uid://dwk3lgeww6oxm" path="res://assets/resources/material/The Bomb.png" id="2_xbehk"]
+
+[resource]
+script = ExtResource("1_d5bgy")
+name = "The Bomb"
+description = "This monster of a weapon might bring the great wall down. Let's better use it quickly, you do not want to be anywhere near this thing."
+texture = ExtResource("2_xbehk")
+rarity = 2
+weight = 10.0

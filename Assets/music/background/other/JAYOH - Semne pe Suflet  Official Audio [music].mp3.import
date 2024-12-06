@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cot47c4vgl0d1"
+path="res://.godot/imported/JAYOH - Semne pe Suflet  Official Audio [music].mp3-f1909a40fc92357e4840d30e4f59b60a.mp3str"
+
+[deps]
+
+source_file="res://assets/music/background/other/JAYOH - Semne pe Suflet  Official Audio [music].mp3"
+dest_files=["res://.godot/imported/JAYOH - Semne pe Suflet  Official Audio [music].mp3-f1909a40fc92357e4840d30e4f59b60a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

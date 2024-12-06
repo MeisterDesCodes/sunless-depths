@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://uksjmg23iidg"]
 
 [ext_resource type="Script" path="res://environment/decorations/decoration.gd" id="1_2ty4c"]
+[ext_resource type="PackedScene" uid="uid://61uv8w1tqhhi" path="res://environment/decorations/light-sources/light-source.tscn" id="2_26byf"]
 [ext_resource type="PackedScene" uid="uid://bjw85nwae6j0u" path="res://environment/decorations/particles/torch-particle.tscn" id="2_bmalg"]
-[ext_resource type="PackedScene" uid="uid://2wn1b725gt7m" path="res://environment/decorations/light-sources/light-source.tscn" id="3_fpgdl"]
 
 [node name="Torch" type="Node2D"]
 script = ExtResource("1_2ty4c")
@@ -11,8 +11,7 @@ script = ExtResource("1_2ty4c")
 position = Vector2(-5, 0)
 scale = Vector2(0.2, 0.2)
 
-[node name="LightSource" parent="." instance=ExtResource("3_fpgdl")]
-scale = Vector2(1.5, 1.5)
+[node name="LightSource" parent="." instance=ExtResource("2_26byf")]
 size = 4.0
 energy = 1.0
 

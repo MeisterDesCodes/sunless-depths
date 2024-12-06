@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://bibgria34fqyw"]
+
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="1_4kmcw"]
+[ext_resource type="Resource" uid="uid://cxcpa8wrf3b55" path="res://dialogs/resources/starvation/DC-feast-meat.tres" id="1_tuxn1"]
+[ext_resource type="Resource" uid="uid://bm6jk8d6s6ova" path="res://dialogs/resources/starvation/DC-feast-mushrooms.tres" id="2_egmcx"]
+[ext_resource type="Resource" uid="uid://ih5xd4qh1u73" path="res://dialogs/resources/starvation/DC-suffer.tres" id="3_2tbdv"]
+[ext_resource type="Resource" uid="uid://dqvujm5l4a0xc" path="res://dialogs/resources/starvation/DC-go-mad.tres" id="4_3g8c0"]
+[ext_resource type="Resource" uid="uid://dn6hn1df0jgas" path="res://dialogs/resources/shared/DC-surrender.tres" id="4_pf0jj"]
+
+[resource]
+script = ExtResource("1_4kmcw")
+title = "The gnawing hunger"
+description = "You haven't eaten in a while. Resting against the tunnel walls, your stomach is growling, almost as a last warning sign for your impending doom.
+
+If you don't find food soon, your condition will quickly worsen."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_tuxn1"), ExtResource("2_egmcx"), ExtResource("3_2tbdv"), ExtResource("4_3g8c0"), ExtResource("4_pf0jj")])
+canExit = false

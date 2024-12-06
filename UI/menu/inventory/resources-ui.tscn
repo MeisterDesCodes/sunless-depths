@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xttesm4el1dg"]
+[gd_scene load_steps=13 format=3 uid="uid://xttesm4el1dg"]
 
 [ext_resource type="Script" path="res://UI/menu/inventory/resources-ui.gd" id="1_15s3g"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="2_ksq2u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://baaxea56gnea3" path="res://assets/UI/icons/menu/inventory/Blueprints.png" id="6_vglu4"]
 [ext_resource type="Texture2D" uid="uid://d0yvfjmya7pbf" path="res://assets/UI/icons/menu/inventory/Weapons.png" id="7_81jl7"]
 [ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Ammunition.png" id="8_nfy4b"]
+[ext_resource type="Texture2D" uid="uid://dnc8byekafeh4" path="res://assets/UI/icons/menu/inventory/Curiosities.png" id="11_55hyf"]
 [ext_resource type="Texture2D" uid="uid://c5i8qxqixb2vr" path="res://assets/resources/equipment/bagpacks/Backpack.png" id="11_mv2iu"]
 
 [node name="ResourcesUI" type="Control"]
@@ -71,14 +72,6 @@ flat = false
 texture = ExtResource("6_hkan2")
 version = 1
 
-[node name="AllBlueprints" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
-custom_minimum_size = Vector2(60, 55)
-layout_mode = 2
-theme = ExtResource("3_w36b6")
-flat = false
-texture = ExtResource("6_vglu4")
-version = 1
-
 [node name="AllWeapons" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
 custom_minimum_size = Vector2(60, 55)
 layout_mode = 2
@@ -101,6 +94,22 @@ layout_mode = 2
 theme = ExtResource("3_w36b6")
 flat = false
 texture = ExtResource("4_bq3c6")
+version = 1
+
+[node name="AllBlueprints" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+theme = ExtResource("3_w36b6")
+flat = false
+texture = ExtResource("6_vglu4")
+version = 1
+
+[node name="AllCuriosities" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("2_ksq2u")]
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+theme = ExtResource("3_w36b6")
+flat = false
+texture = ExtResource("11_55hyf")
 version = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -132,7 +141,8 @@ theme_override_constants/separation = 10
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllItems" to="." method="_on_all_items_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllMaterials" to="." method="_on_all_materials_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllConsumables" to="." method="_on_all_consumables_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllBlueprints" to="." method="_on_all_blueprints_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllWeapons" to="." method="_on_all_weapons_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllAmmunition" to="." method="_on_all_ammunition_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllEquipment" to="." method="_on_all_equipment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllBlueprints" to="." method="_on_all_blueprints_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/AllCuriosities" to="." method="_on_all_curiosities_pressed"]

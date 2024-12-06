@@ -7,11 +7,7 @@ extends Node2D
 @onready var curiosity = get_node("Curiosity")
 
 
-func _ready():
-	curiosity.onEnter.connect(onEnter)
-
-
-func onEnter():
+func _on_curiosity_on_enter():
 	LocationLoaderS.currentInteraction = self
 	var scene = UILoaderS.loadUIScene(preload("res://UI/crafting-station/crafting-station-ui.tscn"))
 	scene.setup(self)

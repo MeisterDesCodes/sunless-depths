@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://cw27idajqlwxr"]
+
+[ext_resource type="Resource" uid="uid://nvrm1bdyiu1p" path="res://dialogs/resources/suffocation/DC-signal-E.tres" id="1_h84w2"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="1_r3lch"]
+
+[resource]
+script = ExtResource("1_r3lch")
+title = "A miracle!"
+description = "You don't remeber how, but you wake up somewhere else than were you passed out. Someone must have found and rescued you. Looking at your pockets, they took a handsome sum for such a service too."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_h84w2")])
+canExit = false

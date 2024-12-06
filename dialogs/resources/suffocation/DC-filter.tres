@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://kry2f5dq8ls7"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_do8u6"]
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_w6syk"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_r4y4c"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="3_tnefs"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="4_g661x"]
+
+[sub_resource type="Resource" id="Resource_umwit"]
+script = ExtResource("2_r4y4c")
+resource = ExtResource("1_w6syk")
+amount = 4
+
+[sub_resource type="Resource" id="Resource_fdiqp"]
+script = ExtResource("2_r4y4c")
+resource = ExtResource("3_tnefs")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_k2b3e"]
+script = ExtResource("2_r4y4c")
+resource = ExtResource("4_g661x")
+amount = 2
+
+[resource]
+script = ExtResource("1_do8u6")
+title = "Improvise an filter"
+description = "Use a makeshift filter made from from damp cloth and natural fibers that might make breathing a bit more bearable. This will only buy you a short period of time."
+requiredResources = Array[ExtResource("2_r4y4c")]([SubResource("Resource_umwit"), SubResource("Resource_fdiqp"), SubResource("Resource_k2b3e")])
+forbiddenResources = Array[ExtResource("2_r4y4c")]([])
+addedResourcesS = Array[ExtResource("2_r4y4c")]([])
+removedResourcesS = Array[ExtResource("2_r4y4c")]([])
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_r4y4c")]([])
+removedResourcesF = Array[ExtResource("2_r4y4c")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = "suffoctionFilter"

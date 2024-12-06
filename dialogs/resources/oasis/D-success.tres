@@ -8,3 +8,4 @@ script = ExtResource("3_ncjt0")
 title = "A sizable reward"
 description = "You manage to get hold on some fish and pull them ashore."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_sbpgn")])
+canExit = false

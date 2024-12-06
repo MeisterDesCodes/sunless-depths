@@ -11,8 +11,8 @@ signal spawnPlayer
 @export var iterations: int
 @export var caveVariation: Enums.caveVariations
 
-@onready var game = get_tree().get_root().get_node("Game")
-@onready var enemiesScene = get_tree().get_root().get_node("Game/Entities/Enemies")
+@onready var game = get_tree().get_root().get_node("GameController/Game")
+@onready var enemiesScene = get_tree().get_root().get_node("GameController/Game/Entities/Enemies")
 @onready var cave = get_node("Cave")
 
 @onready var tileSize: int = 64
@@ -28,10 +28,11 @@ var rootRoomsLarge: Array[PackedScene] = preload("res://generation/rooms/root-ro
 var corridors: Array[PackedScene] = preload("res://generation/corridors/corridors.tres").allSegments
 var dead_ends: Array[PackedScene] = preload("res://generation/dead-ends/dead-ends.tres").allSegments
 var exits: Array[PackedScene] = preload("res://generation/exits/exits.tres").allSegments
-var specialRooms: Array[PackedScene] = load("res://generation/special/special-rooms.tres").allSegments
+var specialExits: Array[PackedScene] = preload("res://generation/exits/special-exits.tres").allSegments
+var specialRooms: Array[PackedScene] = preload("res://generation/special/special-rooms.tres").allSegments
 var specialRoomsDeadEnd: Array[PackedScene] = preload("res://generation/special/special-rooms-dead-end.tres").allSegments
 
-var oldTomsWorkshop: PackedScene = preload("res://generation/corridors/corridor-wooden/corridor-wooden-0.tscn")
+var oldTomsWorkshop: PackedScene = preload("res://generation/corridors/corridor-wooden/corridor-wooden-90.tscn")
 
 var generatedSpecialRooms: Array[Node2D] = []
 var generatedExits: Array[Node2D] = []
@@ -84,6 +85,7 @@ func generateRoot():
 			pass
 		Enums.caveVariations.OLD_TOMS_WORKSHOP:
 			root = oldTomsWorkshop.instantiate().duplicate()
+			exits = specialExits
 	
 	cave.add_child(root)
 	root.global_position = Vector2.ZERO
@@ -234,33 +236,46 @@ func generateExits():
 		var exit = generateExitInDirection(getRemainingExits(), direction)
 
 
+func filterExitsByDirection(exits, direction: Enums.exitDirection):
+	match direction:
+		Enums.exitDirection.TOP:
+			return exits.filter(func(exit): return getExitGlobalPosition(exit).y < 0)
+		Enums.exitDirection.RIGHT:
+			return exits.filter(func(exit): return getExitGlobalPosition(exit).x > 0)
+		Enums.exitDirection.DOWN:
+			return exits.filter(func(exit): return getExitGlobalPosition(exit).y > 0)
+		Enums.exitDirection.LEFT:
+			return exits.filter(func(exit): return getExitGlobalPosition(exit).x < 0)
+
+
 func generateExitInDirection(exits, direction):
 	if exits.is_empty():
 		return
 	
 	var foundExit
-	for exit in exits:
-		match direction:
-			Enums.exitDirection.TOP:
-				if !foundExit || getExitGlobalPosition(exit).y < getExitGlobalPosition(foundExit).y:
-					foundExit = exit
-			Enums.exitDirection.RIGHT:
-				if !foundExit || getExitGlobalPosition(exit).x > getExitGlobalPosition(foundExit).x:
-					foundExit = exit
-			Enums.exitDirection.DOWN:
-				if !foundExit || getExitGlobalPosition(exit).y > getExitGlobalPosition(foundExit).y:
-					foundExit = exit
-			Enums.exitDirection.LEFT:
-				if !foundExit || getExitGlobalPosition(exit).x < getExitGlobalPosition(foundExit).x:
-					foundExit = exit
-					
+	#for exit in exits:
+	#	match direction:
+	#		Enums.exitDirection.TOP:
+	#			if !foundExit || getExitGlobalPosition(exit).y < getExitGlobalPosition(foundExit).y:
+	#				foundExit = exit
+	#		Enums.exitDirection.RIGHT:
+	#			if !foundExit || getExitGlobalPosition(exit).x > getExitGlobalPosition(foundExit).x:
+	#				foundExit = exit
+	#		Enums.exitDirection.DOWN:
+	#			if !foundExit || getExitGlobalPosition(exit).y > getExitGlobalPosition(foundExit).y:
+	#				foundExit = exit
+	#		Enums.exitDirection.LEFT:
+	#			if !foundExit || getExitGlobalPosition(exit).x < getExitGlobalPosition(foundExit).x:
+	#				foundExit = exit
+	
+	foundExit = filterExitsByDirection(exits, direction).pick_random()
 	var room = placeRoom(foundExit, Enums.segmentType.EXIT)
 	if room:
 		generatedExits.append(room)
+		var foundExitTemplate = room.get_child(0)
+		foundExitTemplate.exit.direction = direction
+		foundExitTemplate.exit.update()
 		if direction == initialDirection:
-			var foundExitTemplate = room.get_child(0)
-			foundExitTemplate.exit.direction = direction
-			foundExitTemplate.exit.update()
 			spawnPlayer.emit(foundExitTemplate.playerSpawner.global_position)
 
 

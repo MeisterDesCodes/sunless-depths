@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c70q4b87c456o" path="res://assets/particles/death-particle.png" id="1_p5k4g"]
 
 [sub_resource type="Gradient" id="Gradient_ql7om"]
-offsets = PackedFloat32Array(0, 0.624161, 1)
-colors = PackedColorArray(1, 0.0941176, 0.211765, 1, 1, 0.34902, 0.211765, 1, 1, 0.243137, 0.211765, 1)
+offsets = PackedFloat32Array(0, 0.489933, 1)
+colors = PackedColorArray(1, 0.243137, 0.211765, 0.694118, 1, 0.34902, 0.211765, 1, 1, 0.243137, 0.211765, 0.694118)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ldnot"]
 gradient = SubResource("Gradient_ql7om")
@@ -29,14 +29,14 @@ curve = SubResource("Curve_ob301")
 lifetime_randomness = 0.16
 particle_flag_align_y = true
 spread = 180.0
-initial_velocity_min = 80.0
-initial_velocity_max = 100.0
+initial_velocity_min = 50.0
+initial_velocity_max = 80.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = 2.0
 linear_accel_max = 3.0
 linear_accel_curve = SubResource("CurveTexture_ggla6")
-scale_min = 0.1
-scale_max = 0.15
+scale_min = 0.05
+scale_max = 0.1
 scale_curve = SubResource("CurveTexture_s62of")
 color_ramp = SubResource("GradientTexture1D_ldnot")
 turbulence_noise_strength = 5.0
@@ -47,10 +47,10 @@ turbulence_noise_speed_random = 0.1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 25
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_w8aek")
 texture = ExtResource("1_p5k4g")
-lifetime = 0.5
+lifetime = 0.75
 one_shot = true
 explosiveness = 1.0
 randomness = 0.13

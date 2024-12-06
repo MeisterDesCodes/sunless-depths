@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://xib11p6doy2u"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://bmis1skoj3047"]
 
-[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="4_nuo0q"]
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="1_1ectr"]
+[ext_resource type="Resource" uid="uid://d25opwy47rcjg" path="res://dialogs/resources/old-toms-workshop/DC-inquire.tres" id="1_q1tld"]
 [ext_resource type="Script" path="res://dialogs/dialog.gd" id="5_gjtpl"]
 
 [resource]
 script = ExtResource("5_gjtpl")
-title = "xxx"
-description = "xxx"
-choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("4_nuo0q")])
+title = "Speaking to Old Tom"
+description = "You find yourself in some sort of workshop. Planks, tools and broken pieces of electronic circuits are littering the floor, it's barely possible to move. An old man seems to be fiddling with something to your right. You wonder how someone can even work in this mess."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_q1tld"), ExtResource("1_1ectr")])
+canExit = false

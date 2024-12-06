@@ -31,7 +31,7 @@ dropChance = 1.0
 [resource]
 script = ExtResource("4_67nwx")
 attacks = Array[ExtResource("2_13c5i")]([SubResource("Resource_o5h46")])
-states = Array[int]([0, 1, 2])
+states = Array[int]([0, 1, 2, 5])
 drops = Array[ExtResource("3_xn4f2")]([SubResource("Resource_7nnmn"), SubResource("Resource_6lqcj")])
 name = "Bat"
 texture = ExtResource("5_yhlqx")

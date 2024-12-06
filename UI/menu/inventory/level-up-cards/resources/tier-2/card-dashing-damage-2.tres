@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=6 format=3 uid="uid://c3yqf6inwec4a"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=9 format=3 uid="uid://c3yqf6inwec4a"]
 
 [ext_resource type="Texture2D" uid="uid://dwomjij6jbgvy" path="res://assets/UI/icons/entities/player/stats/Dashing Damage.png" id="1_2dfh4"]
 [ext_resource type="Resource" uid="uid://dcdm3cxjfht88" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-movement-speed-2.tres" id="2_htoty"]
 [ext_resource type="Resource" uid="uid://bl8y1afeercjb" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-stamina-cost-2.tres" id="3_544hd"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_hi2xm"]
 [ext_resource type="Resource" uid="uid://cdy8d7sa2su4j" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-dashing-damage-1.tres" id="4_kknrn"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_hgb27"]
+
+[sub_resource type="Resource" id="Resource_rwl8p"]
+script = ExtResource("6_hgb27")
+resource = 2
+amount = 2
+
+[sub_resource type="Resource" id="Resource_xltu4"]
+script = ExtResource("6_hgb27")
+resource = 0
+amount = 2
 
 [resource]
 script = ExtResource("4_hi2xm")
@@ -15,5 +26,5 @@ requirements = Array[ExtResource("4_hi2xm")]([ExtResource("2_htoty"), ExtResourc
 type = 26
 value = 10.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("6_hgb27")]([SubResource("Resource_rwl8p"), SubResource("Resource_xltu4")])
 tier = 2

@@ -7,6 +7,7 @@ extends Node2D
 @onready var effectParticles: Node2D = get_node("EffectParticles")
 @onready var deathParticles: Node2D = get_node("DeathParticles")
 @onready var dashParticles: Node2D = get_node("DashParticles")
+@onready var desintegrateParticles: Node2D = get_node("DesintegrateParticles")
 
 
 func update():
@@ -58,3 +59,10 @@ func activateDashParticles():
 	else:
 		_rotation = entity.rotationPoint.rotation
 	UtilsS.playParticleEffect(dashParticles, _rotation)
+
+
+func activateDesintegrateParticles():
+	var color = UtilsS.colorPrimaryTransparent
+	UtilsS.playParticleEffect(desintegrateParticles, 0, color)
+
+

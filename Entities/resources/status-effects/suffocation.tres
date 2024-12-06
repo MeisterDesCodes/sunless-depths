@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://cpcmql06php0u"]
+
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="1_g78o1"]
+
+[resource]
+script = ExtResource("1_g78o1")
+effectType = 17
+strength = 0.0
+duration = 1000.0
+appliesTo = 0
+isStackable = false
+stackLimit = 0
+effectApplyType = 0

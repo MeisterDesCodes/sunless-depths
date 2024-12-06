@@ -5,6 +5,8 @@ class_name Inventory
 signal updateInventory
 signal createSlot
 signal updateResources
+signal updateHealth
+signal updateOxygen
 
 @export var resourceSlots: Array[InventorySlot]
 
@@ -23,6 +25,8 @@ func addResource(tempResource: InventoryResource, amount: int):
 	
 	updateResourceTypes()
 	updateInventory.emit()
+	
+	handlePrimaryResources(tempResource, amount, true)
 
 
 func removeResource(tempResource: InventoryResource, amount: int):
@@ -34,6 +38,16 @@ func removeResource(tempResource: InventoryResource, amount: int):
 	
 	updateResourceTypes()
 	updateInventory.emit()
+	
+	handlePrimaryResources(tempResource, amount, false)
+
+
+func handlePrimaryResources(resource: InventoryResource, _amount: int, isAdded: bool):
+	var amount = _amount if isAdded else _amount * -1
+	if resource == preload("res://inventory-resource/resources/material/primary/health.tres"):
+		updateHealth.emit(amount)
+	if resource == preload("res://inventory-resource/resources/material/primary/oxygen.tres"):
+		updateOxygen.emit(amount)
 
 
 func hasResources(resourceContainers: Array):
@@ -65,9 +79,7 @@ func getResourceAmount(tempResource: InventoryResource):
 
 
 func updateResourceTypes():
-	for resourceSlot in resourceSlots:
-		UtilsS.updateResourceType(resourceSlot.resource)
-	
+	UtilsS.updateResourceSlotTypes(resourceSlots)
 	updateResources.emit()
 
 

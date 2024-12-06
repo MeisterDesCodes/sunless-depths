@@ -5,7 +5,7 @@ signal onDeath
 
 @export var entityResource: Entity
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var navigationHandler = get_node("NavigationAgent2D")
 @onready var animations = get_node("AnimationPlayer")
 @onready var particleComponent = get_node("ParticleComponent")
@@ -48,6 +48,8 @@ var isAttacking: bool = true
 var currentAttack: EnemyAttack
 
 var isDying: bool = false
+var currentThreshold: float = 0.25
+var dissolveSpeed: float = 0.5
 
 
 var attackCounter: int = 1
@@ -80,13 +82,21 @@ func _ready():
 	maxHealth = entityResource.maxHealth
 	health = entityResource.maxHealth
 	moveSpeed = entityResource.moveSpeed
-	$"Sprite2D".texture = entityResource.texture
+	image.texture = entityResource.texture
 	currentAttack = entityResource.attacks[0]
 	updateVisionRange()
 
 
 func _physics_process(delta):
 	if !playerScene.canAct():
+		return
+	
+	if isDying:
+		currentThreshold += dissolveSpeed * delta
+		image.material.set_shader_parameter("dissolve_threshold", currentThreshold)
+		if currentThreshold >= 1.5:
+			resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, UtilsS.resourceDropSpeed * 0.5)
+			queue_free()
 		return
 	
 	if isKnockback:
@@ -160,13 +170,14 @@ func entityKilled():
 		UtilsS.applyStatusEffect(playerScene, playerScene, UtilsS.setupEffect(preload("res://entities/resources/status-effects/kill-stamina-gain.tres"), \
 			playerScene.staminaGainAfterKill))
 	
+	var shaderMaterial = preload("res://assets/UI/shaders/dissolve-material-entities.tres").duplicate()
+	image.material = shaderMaterial
+
+	stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.DEATH))
 	isDying = true
-	resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, UtilsS.resourceDropSpeed * 0.5)
-	
 	onDeath.emit(self)
 	particleComponent.activateDeathParticles()
-	queue_free()
-
+	particleComponent.activateDesintegrateParticles()
 
 
 func toggleAwareness():

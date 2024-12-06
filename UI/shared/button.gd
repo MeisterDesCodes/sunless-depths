@@ -42,7 +42,7 @@ func _ready():
 	particles.position = Vector2(size.x / 2, size.y / 2)
 	
 	if get_tree():
-		playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+		playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 
 
 func setSize():

@@ -1,7 +1,8 @@
 extends Control
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var game = get_tree().get_root().get_node("GameController/Game")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var savebutton = get_node("PanelContainer/MarginContainer/VBoxContainer/SaveGame")
 
 
@@ -16,10 +17,11 @@ func _on_continue_pressed():
 
 func _on_save_game_pressed():
 	PersistenceS.saveGame()
+	UILoaderS.closeAllUIScenes()
 
 
 func _on_load_game_pressed():
-	PersistenceS.loadGame()
+	game.resetGame()
 
 
 func _on_exit_pressed():

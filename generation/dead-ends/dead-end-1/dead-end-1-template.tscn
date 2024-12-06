@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="3_0v7cg"]
 [ext_resource type="PackedScene" uid="uid://ct4824s3ahrn7" path="res://environment/decorations/regular/rubble/blockage-small.tscn" id="3_2m771"]
-[ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/blockage-3.png" id="4_2nf1l"]
+[ext_resource type="Texture2D" uid="uid://ipgqtw65p6sq" path="res://assets/environment/decorations/regular/rubble/rubble-3.png" id="4_2nf1l"]
 [ext_resource type="PackedScene" uid="uid://dy5s0dodic4ul" path="res://environment/decorations/textures/rock-texture.tscn" id="4_jt6pi"]
 [ext_resource type="PackedScene" uid="uid://brnp7l0rmv45w" path="res://environment/decorations/regular/rubble/blockage-large.tscn" id="5_eqnhw"]
-[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/blockage-1.png" id="6_cg1x4"]
+[ext_resource type="Texture2D" uid="uid://57pcnyamwnmo" path="res://assets/environment/decorations/regular/rubble/rubble-1.png" id="6_cg1x4"]
 [ext_resource type="PackedScene" uid="uid://dnxk6fs4pewbp" path="res://environment/decorations/regular/object-square.tscn" id="7_6ommi"]
 [ext_resource type="PackedScene" uid="uid://bkyapdnubk1ph" path="res://environment/interactions/resource-nodes/debris.tscn" id="7_v4nen"]
 [ext_resource type="Texture2D" uid="uid://bthk8jj51l37j" path="res://assets/environment/decorations/walls/tunnel/wall-metal-3.png" id="8_v2xoi"]

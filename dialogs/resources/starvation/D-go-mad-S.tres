@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://lhfn1gl58j4j"]
+
+[ext_resource type="Resource" uid="uid://djpx37kk3krhv" path="res://dialogs/resources/starvation/DC-go-mad-E.tres" id="1_83swd"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="6_sj85w"]
+
+[resource]
+script = ExtResource("6_sj85w")
+title = "Blackened vision"
+description = "The pain is amost unbearable and nearly makes you faint. Eyelids heavy as metal doors, time seems to cease existing."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_83swd")])
+canExit = false

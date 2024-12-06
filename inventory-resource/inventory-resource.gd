@@ -11,3 +11,4 @@ class_name InventoryResource
 var pickupAmount: int = 1
 var type: Enums.resourceType = Enums.resourceType.RESOURCE
 var filterType: Enums.resourceType = Enums.resourceType.RESOURCE
+var hidden: bool = false

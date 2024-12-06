@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="MapLocation" load_steps=2 format=3 uid="uid://cui5p38signo2"]
+[gd_resource type="Resource" script_class="MapLocation" load_steps=3 format=3 uid="uid://cui5p38signo2"]
 
 [ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="1_2pfq1"]
+[ext_resource type="AudioStream" uid="uid://dwctm02uc64ag" path="res://assets/music/background/areas/mysterious-calm.mp3" id="1_yfhpm"]
 
 [resource]
 script = ExtResource("1_2pfq1")
@@ -10,3 +11,4 @@ tier = 0
 locationType = 2
 attributes = Array[int]([])
 location = 7
+ambientMusic = Array[AudioStreamMP3]([ExtResource("1_yfhpm")])

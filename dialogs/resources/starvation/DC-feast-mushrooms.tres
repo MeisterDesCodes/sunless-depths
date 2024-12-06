@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=10 format=3 uid="uid://bm6jk8d6s6ova"]
+
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_52n46"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_kqx6p"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_ykac0"]
+[ext_resource type="Resource" uid="uid://bk6a4xitfdkqe" path="res://inventory-resource/resources/material/common/cave-mushroom.tres" id="3_x3pjc"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="5_f104y"]
+
+[sub_resource type="Resource" id="Resource_fkaly"]
+script = ExtResource("2_ykac0")
+resource = ExtResource("1_52n46")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_sun7u"]
+script = ExtResource("2_ykac0")
+resource = ExtResource("3_x3pjc")
+amount = 6
+
+[sub_resource type="Resource" id="Resource_hlini"]
+script = ExtResource("2_ykac0")
+resource = ExtResource("3_x3pjc")
+amount = 6
+
+[sub_resource type="Resource" id="Resource_mcl6l"]
+script = ExtResource("5_f104y")
+stat = 1
+baseChance = 0.6
+statMaximum = 15
+
+[resource]
+script = ExtResource("1_kqx6p")
+title = "Eat some mushrooms"
+description = "Those mushrooms aren't supposed to be eaten raw, but you've survived worse."
+statCheck = SubResource("Resource_mcl6l")
+requiredResources = Array[ExtResource("2_ykac0")]([SubResource("Resource_hlini")])
+forbiddenResources = Array[ExtResource("2_ykac0")]([])
+addedResourcesS = Array[ExtResource("2_ykac0")]([SubResource("Resource_fkaly")])
+removedResourcesS = Array[ExtResource("2_ykac0")]([SubResource("Resource_sun7u")])
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_ykac0")]([])
+removedResourcesF = Array[ExtResource("2_ykac0")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

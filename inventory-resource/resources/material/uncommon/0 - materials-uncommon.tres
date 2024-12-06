@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Resources" load_steps=8 format=3 uid="uid://cjeyr7srclioc"]
+[gd_resource type="Resource" script_class="Resources" load_steps=6 format=3 uid="uid://cjeyr7srclioc"]
 
 [ext_resource type="Resource" uid="uid://drw6g4nfm2221" path="res://inventory-resource/resources/material/uncommon/glass-shard.tres" id="1_1qopa"]
 [ext_resource type="Resource" uid="uid://4b2ral4g0uup" path="res://inventory-resource/resources/material/uncommon/improvised-explosives.tres" id="2_645lx"]
 [ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/uncommon/silk.tres" id="3_g1t1a"]
 [ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/uncommon/venom.tres" id="4_1puiv"]
-[ext_resource type="Resource" uid="uid://b40hdikmw50c6" path="res://inventory-resource/resources/material/uncommon/iron-ore.tres" id="5_4te8x"]
-[ext_resource type="Resource" uid="uid://b77626vhf1e2b" path="res://inventory-resource/resources/material/uncommon/iron-bar.tres" id="6_6rv38"]
 [ext_resource type="Script" path="res://inventory-resource/resources.gd" id="11_cr7nj"]
 
 [resource]
 script = ExtResource("11_cr7nj")
-allResources = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("1_1qopa"), ExtResource("2_645lx"), ExtResource("3_g1t1a"), ExtResource("4_1puiv"), ExtResource("5_4te8x"), ExtResource("6_6rv38")])
+allResources = Array[Resource("res://inventory-resource/inventory-resource.gd")]([ExtResource("1_1qopa"), ExtResource("2_645lx"), ExtResource("3_g1t1a"), ExtResource("4_1puiv")])

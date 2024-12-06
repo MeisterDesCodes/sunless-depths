@@ -7,10 +7,10 @@
 [ext_resource type="Resource" uid="uid://bn4lst5vcsblp" path="res://UI/menu/inventory/level-up-cards/resources/tier-2/card-consume-ammo-1.tres" id="4_fs04b"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="6_nw535"]
 
-[sub_resource type="Resource" id="Resource_ilciq"]
+[sub_resource type="Resource" id="Resource_t4may"]
 script = ExtResource("6_nw535")
 resource = 3
-amount = 8
+amount = 4
 
 [resource]
 script = ExtResource("4_2efsv")
@@ -21,5 +21,5 @@ requirements = Array[ExtResource("4_2efsv")]([ExtResource("2_mtn04"), ExtResourc
 type = 19
 value = 15.0
 value2 = 0.0
-stats = Array[ExtResource("6_nw535")]([SubResource("Resource_ilciq")])
+stats = Array[ExtResource("6_nw535")]([SubResource("Resource_t4may")])
 tier = 2

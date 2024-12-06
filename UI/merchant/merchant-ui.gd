@@ -1,9 +1,9 @@
 extends Control
 
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var gold = preload("res://inventory-resource/resources/material/primary/gold.tres")
-@onready var approachLabel = get_tree().get_root().get_node("Game/CanvasLayer/UIControl/DialogApproachLabel")
+@onready var approachLabel = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/DialogApproachLabel")
 
 @onready var merchantTitle = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/PanelContainer/Title")
 @onready var resourcesWindow = get_node("VBoxContainer/PanelContainer/MarginContainer/LocationContainer/ScrollContainer/Resources")

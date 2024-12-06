@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=10 format=3 uid="uid://ih5xd4qh1u73"]
+
+[ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="1_4ocar"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_upeep"]
+[ext_resource type="Resource" uid="uid://c7coglid6rw4g" path="res://inventory-resource/resources/material/curiosities/unreasonable-peckish.tres" id="1_ux8q5"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_i7imf"]
+[ext_resource type="Resource" uid="uid://bmsjt3slk5quo" path="res://dialogs/resources/starvation/D-suffer-S.tres" id="3_55t2m"]
+
+[sub_resource type="Resource" id="Resource_udud7"]
+script = ExtResource("2_i7imf")
+resource = ExtResource("1_ux8q5")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_7ydgd"]
+script = ExtResource("2_i7imf")
+resource = ExtResource("1_ux8q5")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_t5ewi"]
+script = ExtResource("2_i7imf")
+resource = ExtResource("1_4ocar")
+amount = 7
+
+[sub_resource type="Resource" id="Resource_b07wr"]
+script = ExtResource("2_i7imf")
+resource = ExtResource("1_4ocar")
+amount = 7
+
+[resource]
+script = ExtResource("1_upeep")
+title = "Suffer the consequences"
+description = "With nothing edible in your backpack, you will have to continue without food. This will slighty damage you now. In the near future, this will be devastating."
+requiredResources = Array[ExtResource("2_i7imf")]([SubResource("Resource_b07wr")])
+forbiddenResources = Array[ExtResource("2_i7imf")]([SubResource("Resource_7ydgd")])
+addedResourcesS = Array[ExtResource("2_i7imf")]([SubResource("Resource_udud7")])
+removedResourcesS = Array[ExtResource("2_i7imf")]([SubResource("Resource_t5ewi")])
+nextDialogS = ExtResource("3_55t2m")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_i7imf")]([])
+removedResourcesF = Array[ExtResource("2_i7imf")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://kguy22ng64uk"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://kguy22ng64uk"]
 
 [ext_resource type="Texture2D" uid="uid://chomwtfwojeff" path="res://assets/UI/icons/entities/player/stats/Murderous Intents.png" id="1_05iwh"]
 [ext_resource type="Resource" uid="uid://bav3gg2tw435w" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-critical-1.tres" id="2_r86l7"]
 [ext_resource type="Resource" uid="uid://3sa6ybvx6rf6" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-fortune-1.tres" id="3_1jqof"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_qeb3p"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="5_ciccg"]
+
+[sub_resource type="Resource" id="Resource_dngpe"]
+script = ExtResource("5_ciccg")
+resource = 0
+amount = 4
 
 [resource]
 script = ExtResource("4_qeb3p")
@@ -14,5 +20,5 @@ requirements = Array[ExtResource("4_qeb3p")]([ExtResource("2_r86l7"), ExtResourc
 type = 23
 value = 10.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("5_ciccg")]([SubResource("Resource_dngpe")])
 tier = 1

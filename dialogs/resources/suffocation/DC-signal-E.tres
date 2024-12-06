@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://nvrm1bdyiu1p"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_met4c"]
+
+[resource]
+script = ExtResource("5_met4c")
+title = "Recollect yourself"
+description = "It is time to move on."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = "suffoctionFound"

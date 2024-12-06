@@ -9,6 +9,7 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy6kg"]
 bg_color = Color(1, 1, 1, 1)

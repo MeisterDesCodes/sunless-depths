@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Segment" load_steps=6 format=3 uid="uid://cu5ass66kg2v8"]
+
+[ext_resource type="PackedScene" uid="uid://d7jjg4yyt2iv" path="res://generation/exits/exit-2/exit-2-0.tscn" id="1_6wsyi"]
+[ext_resource type="PackedScene" uid="uid://c6s4ogbempc51" path="res://generation/exits/exit-2/exit-2-90.tscn" id="2_se30d"]
+[ext_resource type="PackedScene" uid="uid://d0thnlaw3llvk" path="res://generation/exits/exit-2/exit-2-180.tscn" id="3_qbkeo"]
+[ext_resource type="PackedScene" uid="uid://dasnwrwf3vpkd" path="res://generation/exits/exit-2/exit-2-270.tscn" id="4_vqnlm"]
+[ext_resource type="Script" path="res://generation/segment.gd" id="5_li71f"]
+
+[resource]
+script = ExtResource("5_li71f")
+allSegments = Array[PackedScene]([ExtResource("1_6wsyi"), ExtResource("2_se30d"), ExtResource("3_qbkeo"), ExtResource("4_vqnlm")])

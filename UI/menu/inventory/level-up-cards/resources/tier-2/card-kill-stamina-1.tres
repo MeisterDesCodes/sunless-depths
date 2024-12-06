@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://caxbgfata11ub"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://caxbgfata11ub"]
 
 [ext_resource type="Texture2D" uid="uid://b66ku2b0m1beh" path="res://assets/UI/icons/entities/player/stats/Bloodlust.png" id="1_7d1a7"]
 [ext_resource type="Resource" uid="uid://jwx3knrang51" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-stamina-cost-1.tres" id="2_8ma0j"]
 [ext_resource type="Resource" uid="uid://dk4pxtjyldmu7" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-1.tres" id="3_d17g2"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_51iow"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="5_1p7wo"]
+
+[sub_resource type="Resource" id="Resource_kg43x"]
+script = ExtResource("5_1p7wo")
+resource = 2
+amount = 4
 
 [resource]
 script = ExtResource("4_51iow")
@@ -14,5 +20,5 @@ requirements = Array[ExtResource("4_51iow")]([ExtResource("2_8ma0j"), ExtResourc
 type = 16
 value = 4.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("5_1p7wo")]([SubResource("Resource_kg43x")])
 tier = 1

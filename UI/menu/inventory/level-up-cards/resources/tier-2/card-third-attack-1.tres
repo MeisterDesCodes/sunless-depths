@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="LevelUpCard" load_steps=5 format=3 uid="uid://dnkphiu2pkohv"]
+[gd_resource type="Resource" script_class="LevelUpCard" load_steps=7 format=3 uid="uid://dnkphiu2pkohv"]
 
 [ext_resource type="Texture2D" uid="uid://dw5w2jsg4opvp" path="res://assets/UI/icons/entities/player/stats/Pummel.png" id="1_5k6sw"]
 [ext_resource type="Resource" uid="uid://dk4pxtjyldmu7" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-ranged-1.tres" id="2_ria64"]
 [ext_resource type="Resource" uid="uid://d07qv8wjqw5y1" path="res://UI/menu/inventory/level-up-cards/resources/tier-1/card-attack-delay-1.tres" id="3_3gijm"]
 [ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/level-up-card.gd" id="4_vp5im"]
+[ext_resource type="Script" path="res://UI/menu/inventory/level-up-cards/card-resource.gd" id="5_16glr"]
+
+[sub_resource type="Resource" id="Resource_w281j"]
+script = ExtResource("5_16glr")
+resource = 2
+amount = 4
 
 [resource]
 script = ExtResource("4_vp5im")
@@ -14,5 +20,5 @@ requirements = Array[ExtResource("4_vp5im")]([ExtResource("2_ria64"), ExtResourc
 type = 12
 value = 20.0
 value2 = 0.0
-stats = Array[Resource("res://UI/menu/inventory/level-up-cards/card-resource.gd")]([])
+stats = Array[ExtResource("5_16glr")]([SubResource("Resource_w281j")])
 tier = 1

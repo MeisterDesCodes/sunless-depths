@@ -7,4 +7,6 @@
 script = ExtResource("1_m0phi")
 
 [node name="Curiosity" parent="." instance=ExtResource("2_a6rla")]
-modulate = Color(0.360784, 0.847059, 0.380392, 1)
+modulate = Color(0.254902, 0.584314, 0.266667, 1)
+
+[connection signal="onEnter" from="Curiosity" to="." method="_on_curiosity_on_enter"]

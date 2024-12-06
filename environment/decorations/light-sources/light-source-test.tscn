@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkfnv1qgqhq3c"]
+
+[ext_resource type="Script" path="res://environment/decorations/light-sources/light-source-test.gd" id="1_s4otj"]
+
+[sub_resource type="Gradient" id="Gradient_60pnu"]
+offsets = PackedFloat32Array(0.162338, 0.350649, 0.525974, 0.701299)
+colors = PackedColorArray(1, 1, 1, 1, 0.393086, 0.393085, 0.393086, 1, 0.103744, 0.103743, 0.103744, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ww04t"]
+gradient = SubResource("Gradient_60pnu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxj2q"]
+radius = 32.0
+
+[node name="LightSource" type="Node2D"]
+script = ExtResource("1_s4otj")
+color = Color(1, 0.882353, 0.847059, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_ww04t")
+
+[node name="Area2D" type="Area2D" parent="PointLight2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
+shape = SubResource("CircleShape2D_gxj2q")
+
+[connection signal="body_entered" from="PointLight2D/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -3,19 +3,19 @@ extends Control
 
 signal updateInventory
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var inventory: Inventory = preload("res://inventory-resource/resources/player/player-inventory.tres")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 
-@onready var ferocity: Label = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/Ferocity")
-@onready var perseverance: Label = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer/Perseverance")
-@onready var agility: Label = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer/Agility")
-@onready var perception: Label = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer/Perception")
+@onready var ferocityContainer: HBoxContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer")
+@onready var perseveranceContainer: HBoxContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer/HBoxContainer")
+@onready var agilityContainer: HBoxContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer/HBoxContainer")
+@onready var perceptionContainer: HBoxContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer/HBoxContainer")
 
-@onready var ferocityBar: TextureProgressBar = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/TextureProgressBar")
-@onready var perseveranceBar: TextureProgressBar = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer/TextureProgressBar")
-@onready var agilityBar: TextureProgressBar = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer/TextureProgressBar")
-@onready var perceptionBar: TextureProgressBar = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer/TextureProgressBar")
+@onready var ferocityBarContainer: PanelContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/PanelContainer")
+@onready var perseveranceBarContainer: PanelContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer2/HBoxContainer/PanelContainer")
+@onready var agilityBarContainer: PanelContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer3/HBoxContainer/PanelContainer")
+@onready var perceptionBarContainer: PanelContainer = get_node("MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/VBoxContainer4/HBoxContainer/PanelContainer")
 
 @onready var levelLabel: Label = get_node("MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Level")
 @onready var experienceBar: TextureProgressBar = get_node("MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/HBoxContainer3/Experience")
@@ -43,19 +43,27 @@ func update():
 
 func updateLabels():
 	levelLabel.text = "Level " + str(playerScene.level)
-	ferocity.text = str(round(playerScene.entityResource.ferocity))
-	perseverance.text = str(round(playerScene.entityResource.perseverance))
-	agility.text = str(round(playerScene.entityResource.agility))
-	perception.text = str(round(playerScene.entityResource.perception))
+	ferocityContainer.get_child(0).text = str(round(playerScene.baseFerocity))
+	ferocityContainer.get_child(1).text = "+ " + str(round(playerScene.entityResource.ferocity - playerScene.baseFerocity))
+	perseveranceContainer.get_child(0).text = str(round(playerScene.entityResource.perseverance))
+	perseveranceContainer.get_child(1).text = "+ " + str(round(playerScene.entityResource.perseverance - playerScene.basePerseverance))
+	agilityContainer.get_child(0).text = str(round(playerScene.entityResource.agility))
+	agilityContainer.get_child(1).text = "+ " + str(round(playerScene.entityResource.agility - playerScene.baseAgility))
+	perceptionContainer.get_child(0).text = str(round(playerScene.entityResource.perception))
+	perceptionContainer.get_child(1).text = "+ " + str(round(playerScene.entityResource.perception - playerScene.basePerception))
 	playerScene.updateMaxHealth()
 
 
 func updateBars():
 	var modifier: float = 2
-	ferocityBar.value = playerScene.entityResource.ferocity * modifier
-	perseveranceBar.value = playerScene.entityResource.perseverance * modifier
-	agilityBar.value = playerScene.entityResource.agility * modifier
-	perceptionBar.value = playerScene.entityResource.perception * modifier
+	ferocityBarContainer.get_child(1).value = playerScene.baseFerocity * modifier
+	ferocityBarContainer.get_child(0).value = playerScene.entityResource.ferocity * modifier
+	perseveranceBarContainer.get_child(1).value = playerScene.basePerseverance * modifier
+	perseveranceBarContainer.get_child(0).value = playerScene.entityResource.perseverance * modifier
+	agilityBarContainer.get_child(1).value = playerScene.baseAgility * modifier
+	agilityBarContainer.get_child(0).value = playerScene.entityResource.agility * modifier
+	perceptionBarContainer.get_child(1).value = playerScene.basePerception * modifier
+	perceptionBarContainer.get_child(0).value = playerScene.entityResource.perception * modifier
 
 
 func updateExperienceBar():

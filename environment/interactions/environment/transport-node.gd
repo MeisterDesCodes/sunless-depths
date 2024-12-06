@@ -5,7 +5,7 @@ extends Node2D
 @export var interactionCost: float
 @export var repairCosts: Array[InventorySlot]
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var interaction = get_node("Interactions/InteractionComponent")
 @onready var playerSpawner = get_node("PlayerSpawner")
 

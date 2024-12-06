@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=10 format=3 uid="uid://cxcpa8wrf3b55"]
+
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_7aqb0"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="1_8h3w0"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="1_keoyu"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_qcofa"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="2_sin6c"]
+
+[sub_resource type="Resource" id="Resource_ybk0c"]
+script = ExtResource("2_qcofa")
+resource = ExtResource("1_8h3w0")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_7m8ib"]
+script = ExtResource("2_qcofa")
+resource = ExtResource("1_keoyu")
+amount = 8
+
+[sub_resource type="Resource" id="Resource_7wllr"]
+script = ExtResource("2_qcofa")
+resource = ExtResource("1_keoyu")
+amount = 8
+
+[sub_resource type="Resource" id="Resource_bknho"]
+script = ExtResource("2_sin6c")
+stat = 1
+baseChance = 0.4
+statMaximum = 25
+
+[resource]
+script = ExtResource("1_7aqb0")
+title = "Feast on some meat scraps"
+description = "Anemic pieces of meat, uncooked. They look repulsing, but will keep you going for a while."
+statCheck = SubResource("Resource_bknho")
+requiredResources = Array[ExtResource("2_qcofa")]([SubResource("Resource_7wllr")])
+forbiddenResources = Array[ExtResource("2_qcofa")]([])
+addedResourcesS = Array[ExtResource("2_qcofa")]([SubResource("Resource_ybk0c")])
+removedResourcesS = Array[ExtResource("2_qcofa")]([SubResource("Resource_7m8ib")])
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_qcofa")]([])
+removedResourcesF = Array[ExtResource("2_qcofa")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

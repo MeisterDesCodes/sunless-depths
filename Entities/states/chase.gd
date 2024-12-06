@@ -3,7 +3,7 @@ extends State
 
 class_name ChaseState
 
-@onready var playerScene = get_tree().get_root().get_node("Game/Entities/Player")
+@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 
 @export var entity: CharacterBody2D
 

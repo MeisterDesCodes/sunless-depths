@@ -24,6 +24,7 @@ locationTo = 2
 travelDirections = Array[int]([3, 1])
 attributes = Array[int]([])
 caveVariation = 0
+ambientMusic = Array[AudioStreamMP3]([])
 
 [sub_resource type="Resource" id="Resource_fjtye"]
 script = ExtResource("6_2hfbu")
@@ -36,6 +37,7 @@ locationTo = 7
 travelDirections = Array[int]([2, 0])
 attributes = Array[int]([])
 caveVariation = 1
+ambientMusic = Array[AudioStreamMP3]([])
 
 [sub_resource type="Resource" id="Resource_ylear"]
 script = ExtResource("6_2hfbu")
@@ -48,6 +50,7 @@ locationTo = 3
 travelDirections = Array[int]([0, 2])
 attributes = Array[int]([])
 caveVariation = 0
+ambientMusic = Array[AudioStreamMP3]([])
 
 [sub_resource type="Resource" id="Resource_0j77k"]
 script = ExtResource("6_2hfbu")
@@ -60,6 +63,7 @@ locationTo = 4
 travelDirections = Array[int]([3, 1])
 attributes = Array[int]([])
 caveVariation = 0
+ambientMusic = Array[AudioStreamMP3]([])
 
 [sub_resource type="Resource" id="Resource_ph8b0"]
 script = ExtResource("6_2hfbu")
@@ -72,6 +76,7 @@ locationTo = 5
 travelDirections = Array[int]([3, 1])
 attributes = Array[int]([])
 caveVariation = 0
+ambientMusic = Array[AudioStreamMP3]([])
 
 [sub_resource type="Resource" id="Resource_hchg2"]
 script = ExtResource("6_2hfbu")
@@ -84,6 +89,7 @@ locationTo = 6
 travelDirections = Array[int]([3, 1])
 attributes = Array[int]([0, 1])
 caveVariation = 0
+ambientMusic = Array[AudioStreamMP3]([])
 
 [node name="MapUI" type="Control"]
 custom_minimum_size = Vector2(1400, 600)

@@ -725,7 +725,6 @@ layer_3/name = "Ground_Level"
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array()
 layer_4/name = "Ground_Below"
-layer_4/z_index = 1
 layer_4/tile_data = PackedInt32Array()
 layer_5/name = "Walls_Detail"
 layer_5/z_index = 2
