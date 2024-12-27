@@ -1,33 +1,41 @@
-extends StaticBody2D
+extends Node2D
 
 
+@onready var staticBody: StaticBody2D = get_node("StaticBody2D")
+@onready var collision: CollisionShape2D = get_node("StaticBody2D/CollisionShape2D")
+@onready var sprite: Sprite2D = get_node("Sprite2D")
 @onready var projectileHitParticle: Node2D = get_node("ProjectileHitParticles")
 
 var hitEntities: Array
 var direction: Vector2 = Vector2.ZERO
 
-var caster: CharacterBody2D
+var entityScene: CharacterBody2D
 var projectileSpeedModifier: float
 var critChance: float
-var enemyAttack: EnemyAttack
 var projectile: InventoryAmmunition
 var weapon: InventoryWeapon
 var isPlayer: bool
 
 
 func setup(_caster: CharacterBody2D, _projectile: InventoryAmmunition, _position: Vector2, _direction: Vector2):
-	caster = _caster
-	projectileSpeedModifier = caster.projectileSpeedModifier
-	critChance = caster.critChance
+	entityScene = _caster
+	projectileSpeedModifier = entityScene.projectileSpeedModifier
+	critChance = entityScene.critChance
 	projectile = _projectile
 	global_position = _position
 	direction = _direction
 	look_at(position + direction)
-	if caster.has_method("isPlayer"):
-		weapon = caster.weaponInstance.weapon
+	staticBody.collision_layer = 64 if entityScene.has_method("isPlayer") else 128
+	
+	if projectile.texture:
+		sprite.texture = projectile.texture
+	collision.shape.size.x = sprite.texture.get_size().x / 2 * sprite.scale.x
+	collision.shape.size.y = sprite.texture.get_size().y / 2 * sprite.scale.y
+	
+	if entityScene.has_method("isPlayer"):
+		weapon = entityScene.weaponInstance.weapon
 		isPlayer = true
 	else:
-		enemyAttack = caster.currentAttack
 		isPlayer = false
 
 
@@ -40,31 +48,6 @@ func _physics_process(delta):
 	global_position += direction * speed * delta
 
 
-func _on_detection_area_area_entered(area):
-	var target = area.get_parent()
-	if (!isPlayer && target.has_method("isEnemy")):
-		return
-	
-	if caster == target:
-		return
-	
-	if area in hitEntities:
-		return
-		
-	hitEntities.append(area)
-	var attack: Attack
-	if isPlayer:
-		attack = Attack.new(global_position, caster, weapon.damageModifier * projectile.damage, weapon.knockbackModifier * projectile.knockback, Enums.weaponTypes.RANGED, projectile.statusEffects, UtilsS.checkForCrit(critChance))
-	else:
-		attack = Attack.new(global_position, caster, enemyAttack.damage, enemyAttack.knockback, Enums.weaponTypes.RANGED, enemyAttack.statusEffects, UtilsS.checkForCrit(critChance))
-	if projectile.isPiercing:
-		attack.knockback = 0
-	else:
-		queue_free()
-	target.processIncomingAttack(attack)
-
-
-func _on_detection_area_body_entered(body):
-	if body.has_method("isMap") || body.get_parent().has_method("isMap"):
-		UtilsS.playParticleEffect(projectileHitParticle)
-		queue_free()
+func _on_hitbox_body_entered(body):
+	UtilsS.playParticleEffect(projectileHitParticle)
+	queue_free()

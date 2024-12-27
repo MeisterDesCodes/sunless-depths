@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_07rjt")
 name = "Chitin"
-description = "Harvested from the numorous athropods swarming the tunnel. Being extremely durable, it might prove useful to enhance pieces of armor."
+description = "Harvested from the numorous athropods swarming the tunnels. Extremely hard and durable."
 texture = ExtResource("2_tlang")
 rarity = 2
 weight = 0.5

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://cmy4rnhn6jbqo"]
+
+[ext_resource type="Resource" uid="uid://c0dd1rfbg126u" path="res://dialogs/resources/old-toms-workshop/ask/D-ask-project.tres" id="1_7tw4e"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="4_lxsyw"]
+
+[resource]
+script = ExtResource("4_lxsyw")
+title = "Why is he trying to leave?"
+description = "After all, he seems to enjoy the solitude around here."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_7tw4e")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

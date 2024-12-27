@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_w44s6"]
 [ext_resource type="Script" path="res://combat/status-effect.gd" id="2_autkm"]
-[ext_resource type="Texture2D" uid="uid://dvslb6078pqk" path="res://assets/resources/weapons/ancient-bow.png" id="3_fsqg3"]
 
 [sub_resource type="Resource" id="Resource_tahnm"]
 script = ExtResource("2_autkm")
@@ -13,6 +12,9 @@ appliesTo = 0
 isStackable = false
 stackLimit = 0
 effectApplyType = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp2cd"]
+load_path = "res://.godot/imported/ancient-bow.png-7feab62c33d3db9c0fd458e1009556c2.ctex"
 
 [resource]
 script = ExtResource("1_w44s6")
@@ -27,6 +29,6 @@ staminaCost = 10.0
 animations = Array[int]([3])
 name = "Ancient Bow"
 description = ""
-texture = ExtResource("3_fsqg3")
+texture = SubResource("CompressedTexture2D_sp2cd")
 rarity = 3
 weight = 0.75

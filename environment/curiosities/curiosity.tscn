@@ -25,6 +25,7 @@ texture = ExtResource("2_aaiyn")
 
 [node name="DetectionRadius" type="Area2D" parent="."]
 collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
 shape = SubResource("CircleShape2D_nwgc1")

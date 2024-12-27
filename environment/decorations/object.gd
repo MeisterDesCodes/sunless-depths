@@ -13,9 +13,3 @@ extends Node2D
 
 func isMap():
 	pass
-
-
-func _ready():
-	print(name)
-	for child in get_children():
-		print(child.name)

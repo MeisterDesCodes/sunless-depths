@@ -42,10 +42,8 @@ func deactivateEffectParticles():
 
 
 func activateHitParticles(position: Vector2):
-	#TODO Direction faulty sometimes
-	var _rotation = (entity.global_position.direction_to(position).rotated(-entity.rotation) * -1).angle()
 	var color = UtilsS.colorPrimary
-	UtilsS.playParticleEffect(hitParticles, _rotation, color)
+	UtilsS.playParticleEffect(hitParticles, 0, color)
 
 
 func activateDeathParticles():

@@ -16,7 +16,7 @@ extends Button
 @onready var textureRect: TextureRect = get_node("MarginContainer/TextureRect")
 @onready var particles: Node2D = get_node("ClickParticles")
 
-var playerScene
+var playerScene: CharacterBody2D
 var selected: bool = false
 var initialScale: Vector2
 var scaleIncrease: Vector2

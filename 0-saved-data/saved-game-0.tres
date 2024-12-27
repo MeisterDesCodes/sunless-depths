@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="SavedData" load_steps=34 format=3 uid="uid://dplydmt44pob7"]
+[gd_resource type="Resource" script_class="SavedData" load_steps=38 format=3 uid="uid://dplydmt44pob7"]
 
-[ext_resource type="Resource" uid="uid://b4kgtexf6j6dj" path="res://dialogs/resources/old-toms-workshop/DC-offer.tres" id="1_m6u4f"]
+[ext_resource type="Resource" uid="uid://b4kgtexf6j6dj" path="res://dialogs/resources/old-toms-workshop/ask/DC-ask-offer.tres" id="1_m6u4f"]
 [ext_resource type="Resource" uid="uid://buco1qws0fm6y" path="res://inventory-resource/resources/equipment/old-torch.tres" id="2_0pc8b"]
-[ext_resource type="AudioStream" uid="uid://c1ldis0f8pslk" path="res://assets/music/background/areas/mysterious-stressful.mp3" id="2_fp10r"]
+[ext_resource type="Resource" uid="uid://dfu058hop23wt" path="res://UI/menu/map/resources/the-settlement.tres" id="2_ogykm"]
 [ext_resource type="Resource" uid="uid://bvsi7quqj0cr6" path="res://inventory-resource/resources/equipment/rusty-tank.tres" id="3_g3yoe"]
-[ext_resource type="Script" path="res://UI/menu/map/map-location.gd" id="3_ijf0r"]
 [ext_resource type="Resource" uid="uid://cmh04mkgurn5p" path="res://inventory-resource/resources/ammunition/scrap-arrow.tres" id="4_0mj63"]
 [ext_resource type="Resource" uid="uid://bp437lt7ymavk" path="res://weapons/resources/daggers/fists.tres" id="4_ixoyg"]
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="5_m8eok"]
@@ -13,22 +12,15 @@
 [ext_resource type="Resource" uid="uid://by4t5mlajd8kb" path="res://weapons/resources/bows/advanced-bow.tres" id="10_ibwqi"]
 [ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/material/primary/oxygen.tres" id="12_11yhp"]
 [ext_resource type="Script" path="res://0-saved-data/saved-data.gd" id="15_vc2fh"]
-[ext_resource type="Resource" uid="uid://b7mblt1oqmpyo" path="res://inventory-resource/resources/equipment/ragged-backpack.tres" id="32_g2ncf"]
+[ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="17_qruox"]
+[ext_resource type="Resource" uid="uid://dtr6xjqf7hlx2" path="res://inventory-resource/resources/material/curiosities/omnious-stone.tres" id="17_uo6cx"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="18_vfpmi"]
+[ext_resource type="Resource" uid="uid://b7mblt1oqmpyo" path="res://inventory-resource/resources/equipment/small-backpack.tres" id="32_g2ncf"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="42_005ek"]
 [ext_resource type="Resource" uid="uid://0ksteuiaw44v" path="res://inventory-resource/resources/material/common/planks.tres" id="47_4vxbc"]
 [ext_resource type="Resource" uid="uid://wqed7ldr02ve" path="res://inventory-resource/resources/consumables/cave-fish.tres" id="48_y5a7p"]
 [ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="49_atxoa"]
 [ext_resource type="Resource" uid="uid://djb7stj3mgohy" path="res://inventory-resource/resources/material/common/rubble.tres" id="50_ys80k"]
-
-[sub_resource type="Resource" id="Resource_uh2dw"]
-script = ExtResource("3_ijf0r")
-name = "Eastward Quarries - I"
-description = "The beginning of a large network of quarries, providing building materials for the tunnels. This place was recently abandoned by the settlement and is now roamed by bandits."
-tier = 1
-locationType = 3
-attributes = Array[int]([0])
-location = 4
-ambientMusic = Array[AudioStreamMP3]([ExtResource("2_fp10r")])
 
 [sub_resource type="Resource" id="Resource_wi3x4"]
 script = ExtResource("5_m8eok")
@@ -80,6 +72,21 @@ script = ExtResource("5_m8eok")
 resource = ExtResource("47_4vxbc")
 amount = 5
 
+[sub_resource type="Resource" id="Resource_iodkl"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("17_qruox")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_e1bj1"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("17_uo6cx")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2xljc"]
+script = ExtResource("5_m8eok")
+resource = ExtResource("18_vfpmi")
+amount = 1000
+
 [sub_resource type="Resource" id="Resource_blmnj"]
 script = ExtResource("5_m8eok")
 resource = ExtResource("47_4vxbc")
@@ -97,18 +104,18 @@ amount = 10
 
 [resource]
 script = ExtResource("15_vc2fh")
-currentLocation = SubResource("Resource_uh2dw")
-position = Vector2(2682.76, 1223.57)
+currentLocation = ExtResource("2_ogykm")
+position = Vector2(3200, 350)
 level = 0
 health = 8.35666
-supplies = 33.8304
-oxygen = 34.6454
+supplies = 88.0
+oxygen = 88.0
 stamina = 92.6667
 visitedLocations = Array[int]([1, 2])
 exploredLocations = Array[int]([4, 4])
 transportableLocations = Array[int]([4])
 completedDialogChoices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_m6u4f")])
-inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_wi3x4"), SubResource("Resource_nxxen"), SubResource("Resource_8sbe8"), SubResource("Resource_mrvd7"), SubResource("Resource_12ox3"), SubResource("Resource_m5fgu"), SubResource("Resource_o5kw2"), SubResource("Resource_kltqi"), SubResource("Resource_y844j"), SubResource("Resource_kvujg")])
+inventory = Array[ExtResource("5_m8eok")]([SubResource("Resource_wi3x4"), SubResource("Resource_nxxen"), SubResource("Resource_8sbe8"), SubResource("Resource_mrvd7"), SubResource("Resource_12ox3"), SubResource("Resource_m5fgu"), SubResource("Resource_o5kw2"), SubResource("Resource_kltqi"), SubResource("Resource_y844j"), SubResource("Resource_kvujg"), SubResource("Resource_iodkl"), SubResource("Resource_e1bj1"), SubResource("Resource_2xljc")])
 storage = Array[ExtResource("5_m8eok")]([SubResource("Resource_blmnj"), SubResource("Resource_qgkxx"), SubResource("Resource_n475f")])
 equippedWeapons = Array[Resource("res://inventory-resource/weapon.gd")]([ExtResource("7_schab"), ExtResource("10_ibwqi"), ExtResource("4_ixoyg")])
 equippedAmmunitions = Array[Resource("res://inventory-resource/inventory-ammunition.gd")]([null, ExtResource("4_0mj63"), null])

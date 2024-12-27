@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=14 format=3 uid="uid://1yyvu0tbbpop"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="3_4hhvn"]
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-ranged-attack.gd" id="4_hlnj8"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="5_70sgy"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="6_38oq4"]
+[ext_resource type="Resource" uid="uid://cp5wmmeqrheb3" path="res://inventory-resource/resources/material/common/chitin.tres" id="7_onmkp"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="8_co806"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="11_8ol4t"]
+[ext_resource type="Texture2D" uid="uid://bw4vjhfj8uq0l" path="res://assets/entities/spiked-husk.png" id="12_62037"]
+
+[sub_resource type="Resource" id="Resource_pk4qs"]
+script = ExtResource("3_4hhvn")
+damage = 4.0
+knockback = 0.0
+speed = 600.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+isPiercing = false
+name = ""
+description = ""
+rarity = 1
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_rxk3o"]
+script = ExtResource("4_hlnj8")
+ammunition = SubResource("Resource_pk4qs")
+spread = 30.0
+amount = 1.0
+attackDelay = 0.75
+
+[sub_resource type="Resource" id="Resource_awibb"]
+script = ExtResource("6_38oq4")
+resource = ExtResource("5_70sgy")
+amount = 4
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_g58dn"]
+script = ExtResource("6_38oq4")
+resource = ExtResource("7_onmkp")
+amount = 3
+dropChance = 0.75
+
+[sub_resource type="Resource" id="Resource_w862f"]
+script = ExtResource("6_38oq4")
+resource = ExtResource("8_co806")
+amount = 1
+dropChance = 0.75
+
+[resource]
+script = ExtResource("11_8ol4t")
+attacks = Array[Resource("res://entities/resources/attacks/enemy-attack.gd")]([SubResource("Resource_rxk3o")])
+states = Array[int]([0, 4, 5])
+drops = Array[ExtResource("6_38oq4")]([SubResource("Resource_awibb"), SubResource("Resource_g58dn"), SubResource("Resource_w862f")])
+name = "Spiked Husk"
+texture = ExtResource("12_62037")
+maxHealth = 12.0
+moveSpeed = 35.0
+ferocity = 3.0
+perseverance = 15.0
+agility = 0.0
+perception = 0.0

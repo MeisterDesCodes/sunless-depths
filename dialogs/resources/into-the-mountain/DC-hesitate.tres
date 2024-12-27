@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=5 format=3 uid="uid://cros8u0or73ve"]
+
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="1_6ebn4"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_ree3u"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_1ejl4"]
+
+[sub_resource type="Resource" id="Resource_cby1o"]
+script = ExtResource("2_ree3u")
+resource = ExtResource("1_6ebn4")
+amount = 25
+
+[resource]
+script = ExtResource("3_1ejl4")
+title = "Try a more careful approach"
+description = "Someone placed it here, deliberately, purposefully. Sometime treasure is best avoided."
+requiredResources = Array[ExtResource("2_ree3u")]([])
+forbiddenResources = Array[ExtResource("2_ree3u")]([])
+addedResourcesS = Array[ExtResource("2_ree3u")]([SubResource("Resource_cby1o")])
+removedResourcesS = Array[ExtResource("2_ree3u")]([])
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_ree3u")]([])
+removedResourcesF = Array[ExtResource("2_ree3u")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

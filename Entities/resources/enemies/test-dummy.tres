@@ -1,29 +1,46 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://dlv0qcm8b73n5"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=9 format=3 uid="uid://dlv0qcm8b73n5"]
 
-[ext_resource type="Resource" uid="uid://cmh04mkgurn5p" path="res://inventory-resource/resources/ammunition/scrap-arrow.tres" id="1_er7rl"]
-[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_i2ilf"]
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-melee-attack.gd" id="1_o7un0"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="2_2xl2e"]
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-ranged-attack.gd" id="3_5wsww"]
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="5_qt5ef"]
 [ext_resource type="Texture2D" uid="uid://dnl6yp8gkfp40" path="res://assets/entities/giant-rat.png" id="6_6r2bo"]
 
-[sub_resource type="Resource" id="Resource_24rk2"]
-script = ExtResource("1_i2ilf")
+[sub_resource type="Resource" id="Resource_cx20n"]
+script = ExtResource("1_o7un0")
 damage = 10.0
-knockback = 20.0
+knockback = 50.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
-ammunition = ExtResource("1_er7rl")
+attackDelay = 5.0
+
+[sub_resource type="Resource" id="Resource_eaa1f"]
+script = ExtResource("2_2xl2e")
+damage = 5.0
+knockback = 20.0
+speed = 200.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+isPiercing = true
+name = ""
+description = ""
+rarity = 1
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_r41nk"]
+script = ExtResource("3_5wsww")
+ammunition = SubResource("Resource_eaa1f")
+spread = 360.0
+amount = 3.0
 attackDelay = 0.5
-spread = 0.0
-amount = 0.0
 
 [resource]
 script = ExtResource("5_qt5ef")
-attacks = Array[ExtResource("1_i2ilf")]([SubResource("Resource_24rk2")])
-states = Array[int]([0])
+attacks = Array[Resource("res://entities/resources/attacks/enemy-attack.gd")]([SubResource("Resource_cx20n"), SubResource("Resource_r41nk")])
+states = Array[int]([0, 4])
 drops = Array[Resource("res://inventory-resource/drop-resource.gd")]([])
 name = "Test Dummy"
 texture = ExtResource("6_6r2bo")
 maxHealth = 3000.0
-moveSpeed = 0.0
+moveSpeed = 10.0
 ferocity = 0.0
 perseverance = 0.0
 agility = 0.0

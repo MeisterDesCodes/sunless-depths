@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://c5xjqfbt7bub4"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_6pa0o"]
+[ext_resource type="Resource" uid="uid://b3ii521fywxms" path="res://dialogs/resources/settlement-headquarters/ask/DC-ask-info.tres" id="1_q6n8o"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_bxpes"]
+
+[resource]
+script = ExtResource("4_bxpes")
+title = "A place forgotten in crisis"
+description = "Despite the worn down tents and people, this place has an indescribable sense of importance to it.
+
+A particularly bulky looking guard turns around, a scent of regret flickering in his eye. \"This used to be a place of hope\", he says with a sigh. 
+
+\"Now its nothing more than a prison of our aspirations and dreams.\""
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_q6n8o"), ExtResource("1_6pa0o")])
+canExit = false

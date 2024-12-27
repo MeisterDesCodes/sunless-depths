@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1_4kmcw")
 title = "The gnawing hunger"
-description = "You haven't eaten in a while. Resting against the tunnel walls, your stomach is growling, almost as a last warning sign for your impending doom.
+description = "You haven't eaten in a while. Resting against the tunnel walls, your stomach is growling, warning you one last time of your impending doom.
 
-If you don't find food soon, your condition will quickly worsen."
+If you don't find food soon, your condition will drastically worsen."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_tuxn1"), ExtResource("2_egmcx"), ExtResource("3_2tbdv"), ExtResource("4_3g8c0"), ExtResource("4_pf0jj")])
 canExit = false

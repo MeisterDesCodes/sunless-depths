@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://4fwstytiuddp"]
+
+[ext_resource type="Resource" uid="uid://u7c0fvpd5ntw" path="res://dialogs/resources/settlement-headquarters/present/D-present-stone.tres" id="1_3s3mq"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_55i8k"]
+
+[resource]
+script = ExtResource("1_55i8k")
+title = "Ask about the omnious stone"
+description = "Do they know what it is?"
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_3s3mq")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

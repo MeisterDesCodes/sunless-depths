@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://c1rds1k47vk7u"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_7bevn"]
+[ext_resource type="Resource" uid="uid://4fwstytiuddp" path="res://dialogs/resources/settlement-headquarters/present/DC-present-stone.tres" id="1_w055b"]
+[ext_resource type="Resource" uid="uid://smmvx6mdor3h" path="res://dialogs/resources/settlement-headquarters/present/DC-present-wall.tres" id="2_2ca7y"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_s7vam"]
+
+[resource]
+script = ExtResource("2_s7vam")
+title = "A raised eyebrow"
+description = "\"Where did you acquire this?\" A bulky figure forces its way through a rather tacky looking red curtain in the back, serving as an improvised door inside the tent.
+
+As the figure walks towards you with determined steps, you can make out the shape of a middle-aged woman, her face drawn by stories of famine, war and sacrifice. She stops two feet in front of you, just close enough to feel her breath."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_w055b"), ExtResource("2_2ca7y"), ExtResource("1_7bevn")])
+canExit = false

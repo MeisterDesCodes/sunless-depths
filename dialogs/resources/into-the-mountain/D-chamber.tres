@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://c13hymfgb3kbo"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://c13hymfgb3kbo"]
 
 [ext_resource type="Resource" uid="uid://cq6rp44v26ypx" path="res://dialogs/resources/into-the-mountain/DC-pickup.tres" id="1_55004"]
+[ext_resource type="Resource" uid="uid://cros8u0or73ve" path="res://dialogs/resources/into-the-mountain/DC-hesitate.tres" id="2_xdt1s"]
 [ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_7nw46"]
 
 [resource]
 script = ExtResource("3_7nw46")
-title = "The omnious chamber"
-description = "xxx"
-choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_55004")])
+title = "A chamber before time"
+description = "You find yourself in a large, circular chamber. There is nothing much to it, exept a small pedestal in the center of it. Placed on top is a small stone, pitch-black and almost perfectly round. As you move your hand closer to it, you sense rythmic vibrations being emitted by the stone."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_55004"), ExtResource("2_xdt1s")])
 canExit = false

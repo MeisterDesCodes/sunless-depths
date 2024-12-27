@@ -3,7 +3,7 @@ extends Control
 
 signal updateInventory
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var inventory: Inventory = preload("res://inventory-resource/resources/player/player-inventory.tres")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 

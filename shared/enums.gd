@@ -50,7 +50,7 @@ enum statType {FEROCITY, PERSEVERANCE, AGILITY, PERCEPTION}
 
 enum chestType {CHEST, BASKET}
 
-enum meleeWeaponType {LANCE, SWORD, DAGGER}
+enum meleeWeaponType {DAGGER, SWORD, LANCE}
 
 enum effectApplyType {APPLY, TICK, HIT}
 

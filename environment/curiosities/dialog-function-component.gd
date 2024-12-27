@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var game = get_tree().get_root().get_node("GameController/Game")
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var timer = get_node("Timer")
 
 

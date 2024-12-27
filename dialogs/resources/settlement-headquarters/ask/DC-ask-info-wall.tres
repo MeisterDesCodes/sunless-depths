@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://cgert57q1qos8"]
+
+[ext_resource type="Resource" uid="uid://5k08dh86yvuo" path="res://dialogs/resources/settlement-headquarters/ask/D-ask-info-wall.tres" id="1_pex3w"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="4_jjfh1"]
+
+[resource]
+script = ExtResource("4_jjfh1")
+title = "Can't we bring the wall down?"
+description = "Surely they must have tried everything to get themselves out of this misery."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_pex3w")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

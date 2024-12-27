@@ -1,29 +1,36 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=6 format=3 uid="uid://cqjoct66n4acu"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://cqjoct66n4acu"]
 
-[ext_resource type="Resource" uid="uid://pamwwbveqlv7" path="res://dialogs/resources/into-the-mountain/D-wind-f.tres" id="1_8eeal"]
+[ext_resource type="Resource" uid="uid://pamwwbveqlv7" path="res://dialogs/resources/into-the-mountain/D-investigate-f.tres" id="1_8eeal"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_ck63w"]
 [ext_resource type="Resource" uid="uid://c13hymfgb3kbo" path="res://dialogs/resources/into-the-mountain/D-chamber.tres" id="2_uc2yg"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/material/primary/oxygen.tres" id="3_08lws"]
 [ext_resource type="Script" path="res://dialogs/stat-check.gd" id="3_b7jje"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="4_tcv8n"]
+
+[sub_resource type="Resource" id="Resource_ogt0e"]
+script = ExtResource("4_tcv8n")
+resource = ExtResource("3_08lws")
+amount = 5
 
 [sub_resource type="Resource" id="Resource_vo5ex"]
 script = ExtResource("3_b7jje")
 stat = 3
-baseChance = 0.5
-statMaximum = 10
+baseChance = 0.4
+statMaximum = 20
 
 [resource]
 script = ExtResource("2_ck63w")
-title = "Find the source of the airstream"
-description = "It shouldn't be. Where is this coming from?"
+title = "Investigate the stream of air"
+description = "It shouldn't be. Where is it coming from?"
 statCheck = SubResource("Resource_vo5ex")
-requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+requiredResources = Array[ExtResource("4_tcv8n")]([])
+forbiddenResources = Array[ExtResource("4_tcv8n")]([])
+addedResourcesS = Array[ExtResource("4_tcv8n")]([])
+removedResourcesS = Array[ExtResource("4_tcv8n")]([])
 nextDialogS = ExtResource("2_uc2yg")
 moveBackwardsS = -1
-addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesF = Array[ExtResource("4_tcv8n")]([])
+removedResourcesF = Array[ExtResource("4_tcv8n")]([SubResource("Resource_ogt0e")])
 nextDialogF = ExtResource("1_8eeal")
 moveBackwardsF = -1
 oneTimeUse = false

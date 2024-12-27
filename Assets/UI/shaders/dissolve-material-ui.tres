@@ -12,5 +12,5 @@ shader = ExtResource("1_egc01")
 shader_parameter/dissolve_threshold = 1.25
 shader_parameter/border_width = 0.0
 shader_parameter/border_smoothness = 0.01
-shader_parameter/border_color = Vector4(1, 1, 1, 1)
+shader_parameter/border_color = Color(1, 0.2, 0.1, 1)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_42bi8")

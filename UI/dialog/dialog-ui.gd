@@ -4,7 +4,7 @@ extends PanelContainer
 signal choiceSelected
 
 @onready var dialogMenu = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/DialogMenuUI")
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var title = get_node("MarginContainer/LocationDialogContainer/Title")
 @onready var description = get_node("MarginContainer/LocationDialogContainer/Description")
 @onready var dialogResources = get_node("MarginContainer/LocationDialogContainer/DialogResources")

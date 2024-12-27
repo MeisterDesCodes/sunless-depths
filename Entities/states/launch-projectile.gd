@@ -5,18 +5,21 @@ class_name ProjectileState
 
 @export var entity: CharacterBody2D
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var projectileSpawner = get_node("ProjectileSpawner")
 @onready var projectileCooldown = get_node("ProjectileCooldown")
 @onready var projectileTimer = get_node("ProjectileTimer")
 
 func enter():
-	projectileTimer.start()
-	projectileCooldown.wait_time = UtilsS.getRandomRange(entity.currentAttack.attackDelay)
-	projectileCooldown.start()
 	entity.canLaunchProjectile = false
-	projectileSpawner.spawnProjectiles(entity, entity.currentAttack.ammunition, entity.global_position, \
-		entity.global_position.direction_to(playerScene.global_position), entity.currentAttack.spread, entity.currentAttack.amount)
+	var currentProjectile = entity.entityResource.attacks.filter(func(attack): return attack is EnemyRangedAttack).pick_random()
+	
+	projectileTimer.start()
+	projectileCooldown.wait_time = UtilsS.getRandomRange(currentProjectile.attackDelay)
+	projectileCooldown.start()
+	
+	projectileSpawner.spawnProjectiles(entity, currentProjectile.ammunition, entity.global_position, \
+		entity.global_position.direction_to(playerScene.global_position), currentProjectile.spread, currentProjectile.amount)
 
 
 func exit():

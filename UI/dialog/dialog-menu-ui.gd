@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var dialogFunctionComponent = get_tree().get_root().get_node("GameController/Game/DialogFunctionComponent")
 @onready var MerchantWindow = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/Merchant")
 @onready var approachLabel = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/DialogApproachLabel")
@@ -85,6 +85,7 @@ func pushDialog(dialog: Dialog, choiceResources: Array[ChoiceResource], wasRetur
 		dialogWindow.choiceSelected.connect(selectChoice)
 		currentDialog = dialogWindow
 		updateExitButton(dialog)
+		playerScene.canExitUIScene = dialog.canExit
 
 
 func updateExitButton(dialog: Dialog):

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://smmvx6mdor3h"]
+
+[ext_resource type="Resource" uid="uid://cyj8gdfmv0e3r" path="res://dialogs/resources/settlement-headquarters/present/D-present-wall.tres" id="1_ka3tg"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_uja0o"]
+
+[resource]
+script = ExtResource("2_uja0o")
+title = "Ask about the great wall"
+description = "Surely there must be a way past this."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_ka3tg")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

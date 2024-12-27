@@ -47,7 +47,7 @@ turbulence_noise_speed_random = 0.1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 20
+amount = 25
 process_material = SubResource("ParticleProcessMaterial_w8aek")
 texture = ExtResource("1_a0b7x")
 lifetime = 0.5

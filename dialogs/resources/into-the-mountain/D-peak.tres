@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://dy41fynbwevpk"]
+
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="1_2eew5"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_5a8m5"]
+
+[resource]
+script = ExtResource("3_5a8m5")
+title = "The mountain's peak"
+description = "More than once your hands almost slip off the worn down rope. After what's feeös like an eternity, you eventually reach the hole in the ceiling and heave yourself over its edge. Lying down in exhaustion, you see the quarry beneath you. From here the way back looks almost straightforward."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_2eew5")])
+canExit = false

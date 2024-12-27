@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://bykm6xyn4c1x3"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="3_xw3e2"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_22d6n"]
+
+[resource]
+script = ExtResource("4_22d6n")
+title = "Happiness"
+description = "He finishes the whole meal within minutes, barely taking time to swallow. After he's finished, he looks at you. This is the first time you see him smile."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("3_xw3e2")])
+canExit = false

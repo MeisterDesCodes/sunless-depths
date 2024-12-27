@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://b3ii521fywxms"]
+
+[ext_resource type="Resource" uid="uid://mhi1byi3behk" path="res://dialogs/resources/settlement-headquarters/ask/D-ask-info.tres" id="1_w7tto"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_tvst7"]
+
+[resource]
+script = ExtResource("2_tvst7")
+title = "What happeded here?"
+description = "It explains why everything looks so worn out."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_w7tto")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

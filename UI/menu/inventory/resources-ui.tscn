@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0yvfjmya7pbf" path="res://assets/UI/icons/menu/inventory/Weapons.png" id="7_81jl7"]
 [ext_resource type="Texture2D" uid="uid://b2lumeyjd8l0p" path="res://assets/UI/icons/menu/inventory/Ammunition.png" id="8_nfy4b"]
 [ext_resource type="Texture2D" uid="uid://dnc8byekafeh4" path="res://assets/UI/icons/menu/inventory/Curiosities.png" id="11_55hyf"]
-[ext_resource type="Texture2D" uid="uid://c5i8qxqixb2vr" path="res://assets/resources/equipment/bagpacks/Backpack.png" id="11_mv2iu"]
+[ext_resource type="Texture2D" uid="uid://cximbxmimaxfe" path="res://assets/resources/equipment/bagpacks/Large Backpack.png" id="12_lqoud"]
 
 [node name="ResourcesUI" type="Control"]
 layout_mode = 3
@@ -119,7 +119,7 @@ theme_override_constants/separation = 10
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("11_mv2iu")
+texture = ExtResource("12_lqoud")
 expand_mode = 1
 stretch_mode = 5
 

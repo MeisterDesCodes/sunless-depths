@@ -6,7 +6,12 @@
 [resource]
 script = ExtResource("3_7o8wi")
 title = "Lost memories"
-description = "Blackness fades as you regain consciousness. You awaken in nearly complete darkness, merely the cinders of a dying campfire shed some light. Your head is heavy, it feels like a metal boulder was mounted on your very shoulders.
+description = "Blackness fades as you regain consciousness. You awaken in nearly complete darkness, merely the cinders of a dying campfire shed some light. 
 
-A thought rushes into your mind. \"How did I get here?\""
+You slowly lift youself up, leaning with one arm on the cave walls to keep your shaky feet from collapsing.Your head feels unnaturally heavy, dragging you down with every step you take.
+
+As you try to concentrate on a name, location or day, you realize that you can't remember a thing. Like in a distant dream, thoughts fade away just before you can get a hold on them.
+
+Instead, just a simple question enters your mind. \"How did I get here?\""
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("2_pipsi")])
+canExit = false

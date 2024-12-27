@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://fbfiviawk8p3"]
+
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="1_agcjf"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_qlf5v"]
+
+[resource]
+script = ExtResource("2_qlf5v")
+title = "Ready and armed"
+description = "It was a long and tiresome process. More than once, you had the feeling Tom's ever twitching hand would blow up the device preemptively. But at last, you were successful. You better bring this to the wall quickly."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_agcjf")])
+canExit = false

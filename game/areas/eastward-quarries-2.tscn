@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://db4an6ch1f4xv"]
+
+[ext_resource type="Script" path="res://game/areas/area.gd" id="1_edt0t"]
+[ext_resource type="PackedScene" uid="uid://ca0d7whibvanw" path="res://entities/enemy-ui.tscn" id="2_nu754"]
+[ext_resource type="Resource" uid="uid://c43tnn85a1ylf" path="res://entities/resources/enemies/bandit-chieftain.tres" id="4_2i6cl"]
+[ext_resource type="Resource" uid="uid://csj7grpf30j7s" path="res://entities/resources/enemies/bandit-rogue.tres" id="4_dj8aq"]
+[ext_resource type="Resource" uid="uid://dlv0qcm8b73n5" path="res://entities/resources/enemies/test-dummy.tres" id="5_0kuln"]
+[ext_resource type="PackedScene" uid="uid://btup4e4gco38c" path="res://assets/environment/tilesets/tileset.tscn" id="6_3q0gq"]
+
+[node name="EastwardQuarries2" type="Node2D"]
+script = ExtResource("1_edt0t")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+
+[node name="Enemy" parent="Entities/Enemies" instance=ExtResource("2_nu754")]
+position = Vector2(343, 94)
+rotation = 2.61799
+entityResource = ExtResource("4_dj8aq")
+
+[node name="Enemy2" parent="Entities/Enemies" instance=ExtResource("2_nu754")]
+position = Vector2(179.493, 69.0679)
+rotation = 1.309
+entityResource = ExtResource("4_2i6cl")
+
+[node name="Enemy3" parent="Entities/Enemies" instance=ExtResource("2_nu754")]
+position = Vector2(355.001, 262.393)
+rotation = 3.40339
+entityResource = ExtResource("5_0kuln")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Tilemap" parent="Map" instance=ExtResource("6_3q0gq")]
+layer_0/tile_data = PackedInt32Array(0, 262146, 1, 6, 327682, 1, 1, 131074, 2, 2, 131074, 2, 5, 131074, 2, 3, 131074, 2, 4, 131074, 2, 262145, 131074, 0, 262146, 131074, 0, 262147, 131074, 0, 262148, 131074, 0, 262149, 131074, 0, 65542, 65538, 1, 131078, 65538, 1, 196614, 65538, 1, 65536, 196610, 1, 131072, 196610, 1, 196608, 196610, 1, 262144, 262146, 2, 262150, 327682, 2)
+layer_1/tile_data = PackedInt32Array(65539, 458754, 2, 131075, 458754, 2, 65540, 458754, 2, 0, 458754, 2, 1, 458754, 2, 2, 458754, 2, 3, 458754, 2, 4, 458754, 2, 5, 458754, 2, 6, 458754, 2, 65542, 458754, 2, 131078, 458754, 2, 196614, 458754, 2, 196613, 458754, 2, 262149, 458754, 2, 262148, 458754, 2, 262147, 458754, 2, 262146, 458754, 2, 262145, 458754, 2, 262144, 458754, 2, 196608, 458754, 2, 131072, 458754, 2, 65536, 458754, 2, 131073, 458754, 2, 131074, 458754, 2, 65538, 458754, 2, 196609, 458754, 2, 196610, 458754, 2, 65537, 458754, 2, 131076, 458754, 2, 196612, 458754, 2, 131077, 458754, 2, 65541, 458754, 2, 196611, 458754, 2, 262150, 458754, 2)
+removeRandomObjects = false
+
+[node name="EnvironmentalObjects" type="Node2D" parent="Map"]
+
+[node name="Decorations" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Textures" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+
+[node name="Rubble" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Regular"]
+
+[node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+z_index = 3
+
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
+z_index = 1
+
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
+z_index = 1
+
+[node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
+
+[node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
+
+[node name="Spawners" type="Node2D" parent="Map/EnvironmentalObjects"]

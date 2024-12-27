@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://5k08dh86yvuo"]
+
+[ext_resource type="Resource" uid="uid://cnoh8eqo7ldy1" path="res://dialogs/resources/settlement-headquarters/ask/DC-ask-info-wall-tom.tres" id="1_btndj"]
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_ixl0w"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_bmr2q"]
+
+[resource]
+script = ExtResource("2_bmr2q")
+title = "Impossible"
+description = "\"What do you think we have been doing for the past 3 months?\". You feel the guard slowly loosing his patience with you.
+
+\"The wall can't we moved, and there is no way past it. Old Tom has been working on something lately, but he is not to be trusted.\""
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_btndj"), ExtResource("1_ixl0w")])
+canExit = false

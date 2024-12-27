@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var ambientPlayer = get_node("AmbientMusic")
 @onready var effectPlayer = get_node("EffectMusic")
 @onready var ambientEffectPlayer = get_node("AmbientEffectMusic")

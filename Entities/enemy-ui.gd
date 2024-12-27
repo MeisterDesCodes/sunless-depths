@@ -5,7 +5,8 @@ signal onDeath
 
 @export var entityResource: Entity
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var game: Node2D = get_tree().get_root().get_node("GameController/Game")
 @onready var navigationHandler = get_node("NavigationAgent2D")
 @onready var animations = get_node("AnimationPlayer")
 @onready var particleComponent = get_node("ParticleComponent")
@@ -13,13 +14,15 @@ signal onDeath
 @onready var resourceSpawner = get_node("ResourceSpawner")
 @onready var stateMachine = get_node("StateMachine")
 @onready var visionRange = get_node("DetectionRadius/CollisionShape2D")
+@onready var collision = get_node("CollisionShape2D")
 @onready var immunityFramesTimer = get_node("ImmunityFrames")
 @onready var chaseAfterTimer = get_node("ChaseAfterTimer")
 @onready var awarenessTimer = get_node("AwarenessTimer")
 @onready var damageReceiver = get_node("DamageReceiver")
 @onready var statusEffectComponent = get_node("StatusEffectComponent")
-@onready var image: Sprite2D = get_node("Sprite2D")
+@onready var sprite: Sprite2D = get_node("Sprite2D")
 @onready var soundComponent: Node2D = get_node("SoundComponent")
+@onready var vision: Node2D = get_node("Vision")
 
 var awarenessEffect = preload("res://entities/resources/status-effects/awareness-combat.tres")
 
@@ -34,13 +37,15 @@ var knockbackVector: Vector2 = Vector2.ZERO
 var immunityFramesActive: bool = false
 
 var baseVisionRange: float
-var visionRangeSpeedModifier: float = 0.5
-var visionRangeAttackedModifier: float = 2
+var visionRangeBaseModifier: float = 75
+var visionRangeSpeedModifier: float = 0.25
+var visionRangeAttackedModifier: float = 3
 var visionRangeModifier: float = 1
 
 var canDash: bool = true
 var isDashing: bool = false
 var canDealContactDamage: bool = false
+var playerSpotted: bool = false
 
 var canLaunchProjectile = true
 
@@ -57,6 +62,7 @@ var attackCounter: int = 1
 var damageModifier: float = 1
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
+var damageTakenModifier: float = 1
 var effectStrengthModifier: float = 1
 var movementSpeedModifier: float = 1
 var knockbackModifier: float = 1
@@ -82,8 +88,12 @@ func _ready():
 	maxHealth = entityResource.maxHealth
 	health = entityResource.maxHealth
 	moveSpeed = entityResource.moveSpeed
-	image.texture = entityResource.texture
-	currentAttack = entityResource.attacks[0]
+	sprite.texture = entityResource.texture
+	
+	var meleeAttacks = entityResource.attacks.filter(func(attack): return attack is EnemyMeleeAttack)
+	if !meleeAttacks.is_empty():
+		currentAttack = meleeAttacks.pick_random()
+	
 	updateVisionRange()
 
 
@@ -93,7 +103,7 @@ func _physics_process(delta):
 	
 	if isDying:
 		currentThreshold += dissolveSpeed * delta
-		image.material.set_shader_parameter("dissolve_threshold", currentThreshold)
+		sprite.material.set_shader_parameter("dissolve_threshold", currentThreshold)
 		if currentThreshold >= 1.5:
 			resourceSpawner.spawnResources(entityResource.drops, Enums.resourceSpawnType.DROP, global_position, Vector2.DOWN, UtilsS.resourceDropSpeed * 0.5)
 			queue_free()
@@ -104,11 +114,20 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE) && canLaunchProjectile && stateMachine.currentState != stateMachine.getState(Enums.enemyStates.IDLE):
+	if stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE) && canLaunchProjectile && playerSpotted:
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.LAUNCH_PROJECTILE))
 
-	if stateMachine.getState(Enums.enemyStates.DASH) && canDash && global_position.distance_to(playerScene.global_position) <= (50 + moveSpeed) * movementSpeedModifier:
+	if stateMachine.getState(Enums.enemyStates.DASH) && canDash && playerSpotted \
+		&& global_position.distance_to(playerScene.global_position) <= (50 + moveSpeed / 2) * movementSpeedModifier:
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.DASH))
+	
+	for raycast in vision.get_children():
+		if raycast.is_colliding():
+			if raycast.get_collider() && raycast.get_collider().has_method("isPlayer"):
+				toggleAwareness()
+				if !playerSpotted:
+					changeToAggressiveStage()
+
 
 
 func getDistanceThreshold(distance: float):
@@ -133,28 +152,31 @@ func moveToPath(speed: float, lookInDirection: bool):
 
 
 func changeToLastState():
-	stateMachine.onChange(stateMachine.currentState, stateMachine.lastState)
+	#TODO
+	changeToAggressiveStage()
+	#stateMachine.onChange(stateMachine.currentState, stateMachine.lastState)
 
 
 func changeToAggressiveStage():
+	playerSpotted = true
 	if stateMachine.getState(Enums.enemyStates.CHASE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.CHASE))
 	if stateMachine.getState(Enums.enemyStates.KEEP_DISTANCE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.KEEP_DISTANCE))
 
 
-func _on_detection_radius_body_entered(body):
+func spotPlayer():
+	toggleAwareness()
 	changeToAggressiveStage()
 	chaseAfterTimer.stop()
 
 
+func _on_detection_radius_body_entered(body):
+	spotPlayer()
+
+
 func _on_detection_radius_body_exited(body):
 	chaseAfterTimer.start()
-
-
-func processIncomingAttack(attack: Attack):
-	toggleAwareness()
-	damageReceiver.receiveAttack(attack)
 
 
 func entityKilled():
@@ -171,7 +193,7 @@ func entityKilled():
 			playerScene.staminaGainAfterKill))
 	
 	var shaderMaterial = preload("res://assets/UI/shaders/dissolve-material-entities.tres").duplicate()
-	image.material = shaderMaterial
+	sprite.material = shaderMaterial
 
 	stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.DEATH))
 	isDying = true
@@ -181,11 +203,13 @@ func entityKilled():
 
 
 func toggleAwareness():
-	UtilsS.applyStatusEffect(self, self, awarenessEffect)
+	for enemy in game.enemies.get_children():
+		if enemy.global_position.distance_to(global_position) <= 300:
+			UtilsS.applyStatusEffect(enemy, enemy, awarenessEffect)
 
 
 func updateVisionRange():
-	baseVisionRange = (150 + entityResource.moveSpeed * visionRangeSpeedModifier) * visionRangeModifier
+	baseVisionRange = (visionRangeBaseModifier + entityResource.moveSpeed * visionRangeSpeedModifier) * visionRangeModifier
 	visionRange.shape.radius = baseVisionRange
 
 
@@ -200,3 +224,4 @@ func _on_immunity_frames_timeout():
 func _on_chase_after_timer_timeout():
 	if stateMachine.getState(Enums.enemyStates.IDLE):
 		stateMachine.onChange(stateMachine.currentState, stateMachine.getState(Enums.enemyStates.IDLE))
+	playerSpotted = false

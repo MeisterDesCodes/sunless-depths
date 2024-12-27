@@ -1,0 +1,144 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=30 format=3 uid="uid://pg6hcxoonaa6"]
+
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-melee-attack.gd" id="1_hgubo"]
+[ext_resource type="Script" path="res://combat/status-effect.gd" id="2_wde4k"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-ammunition.gd" id="3_qqphi"]
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-ranged-attack.gd" id="3_y8q74"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="4_45wjl"]
+[ext_resource type="Texture2D" uid="uid://dnu1dcy65bkv1" path="res://assets/projectiles/poison-cloud.png" id="4_dcns7"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="5_kw31g"]
+[ext_resource type="Texture2D" uid="uid://8t8hgml8prur" path="res://assets/projectiles/web-shot.png" id="6_n1yeg"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="9_gh2nk"]
+[ext_resource type="Resource" uid="uid://cp5wmmeqrheb3" path="res://inventory-resource/resources/material/common/chitin.tres" id="10_d3nr5"]
+[ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/uncommon/silk.tres" id="11_j2tes"]
+[ext_resource type="Resource" uid="uid://oxobputpmy6u" path="res://inventory-resource/resources/material/uncommon/venom.tres" id="12_05eyq"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="12_027ta"]
+[ext_resource type="Resource" uid="uid://cropdhcbghu8c" path="res://inventory-resource/resources/material/curiosities/tale-of-the-tunnels.tres" id="13_1tkrv"]
+[ext_resource type="Texture2D" uid="uid://c5ylvawepph3v" path="res://assets/entities/broodmother.png" id="13_d2cy7"]
+
+[sub_resource type="Resource" id="Resource_pm581"]
+script = ExtResource("2_wde4k")
+effectType = 0
+strength = 2.0
+duration = 4.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[sub_resource type="Resource" id="Resource_1p26f"]
+script = ExtResource("1_hgubo")
+damage = 15.0
+knockback = 25.0
+statusEffects = Array[ExtResource("2_wde4k")]([SubResource("Resource_pm581")])
+attackDelay = 4.5
+
+[sub_resource type="Resource" id="Resource_ffbu0"]
+script = ExtResource("2_wde4k")
+effectType = 1
+strength = 7.0
+duration = 3.0
+appliesTo = 1
+isStackable = true
+stackLimit = 0
+effectApplyType = 1
+
+[sub_resource type="Resource" id="Resource_kdoos"]
+script = ExtResource("3_qqphi")
+damage = 0.0
+knockback = 0.0
+speed = 150.0
+statusEffects = Array[ExtResource("2_wde4k")]([SubResource("Resource_ffbu0")])
+isPiercing = false
+name = ""
+description = ""
+texture = ExtResource("4_dcns7")
+rarity = 1
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_japdy"]
+script = ExtResource("3_y8q74")
+ammunition = SubResource("Resource_kdoos")
+spread = 360.0
+amount = 12.0
+attackDelay = 7.0
+
+[sub_resource type="Resource" id="Resource_ftfne"]
+script = ExtResource("2_wde4k")
+effectType = 0
+strength = 0.0
+duration = 1.5
+appliesTo = 1
+isStackable = false
+stackLimit = 0
+effectApplyType = 0
+
+[sub_resource type="Resource" id="Resource_0s7j3"]
+script = ExtResource("3_qqphi")
+damage = 4.0
+knockback = 0.0
+speed = 400.0
+statusEffects = Array[ExtResource("2_wde4k")]([SubResource("Resource_ftfne")])
+isPiercing = false
+name = ""
+description = ""
+texture = ExtResource("6_n1yeg")
+rarity = 1
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_3y5jv"]
+script = ExtResource("3_y8q74")
+ammunition = SubResource("Resource_0s7j3")
+spread = 10.0
+amount = 1.0
+attackDelay = 4.0
+
+[sub_resource type="Resource" id="Resource_awibb"]
+script = ExtResource("4_45wjl")
+resource = ExtResource("5_kw31g")
+amount = 40
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_28438"]
+script = ExtResource("4_45wjl")
+resource = ExtResource("9_gh2nk")
+amount = 10
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_3ubqr"]
+script = ExtResource("4_45wjl")
+resource = ExtResource("10_d3nr5")
+amount = 6
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_reoju"]
+script = ExtResource("4_45wjl")
+resource = ExtResource("11_j2tes")
+amount = 5
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_dsy84"]
+script = ExtResource("4_45wjl")
+resource = ExtResource("12_05eyq")
+amount = 3
+dropChance = 1.0
+
+[sub_resource type="Resource" id="Resource_r22d4"]
+script = ExtResource("4_45wjl")
+resource = ExtResource("13_1tkrv")
+amount = 1
+dropChance = 1.0
+
+[resource]
+script = ExtResource("12_027ta")
+attacks = Array[Resource("res://entities/resources/attacks/enemy-attack.gd")]([SubResource("Resource_1p26f"), SubResource("Resource_japdy"), SubResource("Resource_3y5jv")])
+states = Array[int]([0, 1, 2, 4, 5])
+drops = Array[ExtResource("4_45wjl")]([SubResource("Resource_awibb"), SubResource("Resource_28438"), SubResource("Resource_3ubqr"), SubResource("Resource_reoju"), SubResource("Resource_dsy84"), SubResource("Resource_r22d4")])
+name = "Broodmother"
+texture = ExtResource("13_d2cy7")
+maxHealth = 240.0
+moveSpeed = 65.0
+ferocity = 14.0
+perseverance = 12.0
+agility = 8.0
+perception = 6.0

@@ -3,7 +3,7 @@ extends Node2D
 
 @export var lifetime: int
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var interactionComponent = get_node("InteractionConponent")
 @onready var exitParticles = get_node("ExitParticles")
 

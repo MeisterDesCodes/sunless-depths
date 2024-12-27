@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryCuriosity" load_steps=3 format=3 uid="uid://dtr6xjqf7hlx2"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-curiosity.gd" id="1_6ni2a"]
+[ext_resource type="Texture2D" uid="uid://beu0o8xnwumtp" path="res://assets/resources/curiosities/Omnious Stone.png" id="2_3pg6v"]
+
+[resource]
+script = ExtResource("1_6ni2a")
+name = "Omnious Stone"
+description = "It is almost perfectly round. You examine its surface to make out any imperfections, but there's nothing. Whatever this is, someone or something created it. WIth strange vibrations coming out of it, it's propably better to put this away for now."
+texture = ExtResource("2_3pg6v")
+rarity = 3
+weight = 10.0

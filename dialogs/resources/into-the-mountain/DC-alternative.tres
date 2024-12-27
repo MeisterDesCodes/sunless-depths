@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://1s8iv20jibrp"]
+
+[ext_resource type="Resource" uid="uid://pamwwbveqlv7" path="res://dialogs/resources/into-the-mountain/D-investigate-f.tres" id="1_beb8i"]
+[ext_resource type="Resource" uid="uid://c13hymfgb3kbo" path="res://dialogs/resources/into-the-mountain/D-chamber.tres" id="2_luj4b"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_bjln6"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/material/primary/oxygen.tres" id="3_pw80k"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="4_7obns"]
+[ext_resource type="Script" path="res://dialogs/stat-check.gd" id="4_713ke"]
+
+[sub_resource type="Resource" id="Resource_fe4ot"]
+script = ExtResource("4_7obns")
+resource = ExtResource("3_pw80k")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_vo5ex"]
+script = ExtResource("4_713ke")
+stat = 3
+baseChance = 0.5
+statMaximum = 10
+
+[resource]
+script = ExtResource("3_bjln6")
+title = "Find an alternative route"
+description = "You have no time to waste. There's gotta be another way to go deeper into the mountain."
+statCheck = SubResource("Resource_vo5ex")
+requiredResources = Array[ExtResource("4_7obns")]([])
+forbiddenResources = Array[ExtResource("4_7obns")]([])
+addedResourcesS = Array[ExtResource("4_7obns")]([])
+removedResourcesS = Array[ExtResource("4_7obns")]([])
+nextDialogS = ExtResource("2_luj4b")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("4_7obns")]([])
+removedResourcesF = Array[ExtResource("4_7obns")]([SubResource("Resource_fe4ot")])
+nextDialogF = ExtResource("1_beb8i")
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

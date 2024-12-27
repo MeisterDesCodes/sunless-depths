@@ -10,13 +10,13 @@
 [sub_resource type="Resource" id="Resource_du0cg"]
 script = ExtResource("4_jiwfh")
 resource = ExtResource("3_lsh6s")
-amount = 5
+amount = 4
 
 [sub_resource type="Resource" id="Resource_6cp6v"]
 script = ExtResource("4_0raem")
 stat = 2
-baseChance = 0.5
-statMaximum = 20
+baseChance = 0.35
+statMaximum = 25
 
 [resource]
 script = ExtResource("3_k7g3f")

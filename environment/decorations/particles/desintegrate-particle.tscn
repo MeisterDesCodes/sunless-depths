@@ -28,7 +28,7 @@ curve = SubResource("Curve_ob301")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8aek"]
 lifetime_randomness = 0.16
 emission_shape = 1
-emission_sphere_radius = 25.0
+emission_sphere_radius = 20.0
 direction = Vector3(1, -1, 0)
 spread = 25.0
 initial_velocity_min = 3.0
@@ -54,7 +54,7 @@ emitting = false
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_w8aek")
 texture = ExtResource("1_svdso")
-lifetime = 3.0
+lifetime = 3.5
 one_shot = true
 explosiveness = 0.9
 randomness = 0.27

@@ -9,6 +9,6 @@
 [resource]
 script = ExtResource("1_0smtp")
 title = "Panic!"
-description = "Nausea, a clouded mind and blurred vision. The indescribable sense of death appraoching. You have run out of oxygen."
+description = "Nausea, a foggy mind and blurred vision. The indescribable sense of death appraoching. You have run out of oxygen."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_c0nva"), ExtResource("2_i7omj"), ExtResource("3_1nrlp"), ExtResource("4_neh1v")])
 canExit = false

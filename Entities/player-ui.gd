@@ -18,7 +18,7 @@ signal healthModified
 @onready var lightSource = get_node("RotationPoint/LightSource")
 @onready var directionalLight = get_node("RotationPoint/DirectionalLight")
 @onready var camera = get_tree().get_root().get_node("GameController/Game/FollowCamera")
-@onready var image: Sprite2D = get_node("RotationPoint/Image")
+@onready var sprite: Sprite2D = get_node("RotationPoint/Sprite2D")
 @onready var soundComponent: Node2D = get_node("SoundComponent")
 @onready var rotationPoint: Marker2D = get_node("RotationPoint")
 @onready var resourceSpawner = get_node("ResourceSpawner")
@@ -82,9 +82,10 @@ var completedDialogChoices: Array[DialogChoice]
 
 var attackCounter: int = 1
 
-var damageModifier: float = 5
+var damageModifier: float = 3
 var meleeDamageModifier: float = 1
 var rangedDamageModifier: float = 1
+var damageTakenModifier: float = 0.3
 var attackDelayModifier: float = 1
 var healthModifier: float = 1
 var movementSpeedModifier: float = 1
@@ -132,10 +133,10 @@ func setup():
 	inventory.updateResources.connect(updateTotalWeight)
 	inventory.updateHealth.connect(updateCurrentHealth)
 	inventory.updateOxygen.connect(updateOxygen)
-	image.texture = entityResource.texture
+	sprite.texture = entityResource.texture
 	initializePlayer()
 	updateActiveWeapon()
-	updateWepaonTypes()
+	updateWeaponTypes()
 	updateWeapons()
 	setupLightSource()
 	inventory.updateResourceTypes()
@@ -255,8 +256,7 @@ func setupLightSource():
 
 
 func updateWeapons():
-	updateActiveWeapon()
-	updateWepaonTypes()
+	updateWeaponTypes()
 	hudUI.setupWeaponTextures()
 
 
@@ -269,10 +269,10 @@ func equipConsumable(consumable: InventoryConsumable):
 
 
 func updateActiveWeapon():
-	weaponInstance.setup(self, equippedWeapons[0])
+	weaponInstance.setup(equippedWeapons[0])
 
 
-func updateWepaonTypes():
+func updateWeaponTypes():
 	for weapon in equippedWeapons:
 		UtilsS.updateResourceType(weapon)
 
@@ -357,12 +357,6 @@ func canAttack():
 func hasEnoughAmmunition():
 	return weaponInstance.weapon.ammunition && \
 		inventory.getResourceAmount(weaponInstance.weapon.ammunition) >= weaponInstance.weapon.projectileAmount
-
-
-func processIncomingAttack(attack: Attack):
-	if !immunityFramesActive:
-		damageReceiver.receiveAttack(attack)
-		healthModified.emit()
 
 
 func zoom():

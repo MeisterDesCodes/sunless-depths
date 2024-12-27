@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ca0d7whibvanw"]
+[gd_scene load_steps=21 format=3 uid="uid://ca0d7whibvanw"]
 
 [ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
 [ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="2_u0ny8"]
@@ -16,20 +16,18 @@
 [ext_resource type="PackedScene" uid="uid://hsibopu7e36h" path="res://entities/entity-sound-component.tscn" id="13_l4cay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
-radius = 120.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s8ae5"]
-radius = 25.0
+resource_local_to_scene = true
+radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
-radius = 6.0
+resource_local_to_scene = true
 
-[sub_resource type="Animation" id="Animation_3bes3"]
+[sub_resource type="Animation" id="Animation_cdjks"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,51 +48,10 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0.12, 0.12)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
-[sub_resource type="Animation" id="Animation_shkm4"]
+[sub_resource type="Animation" id="Animation_jqlit"]
 resource_name = "damage-received"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.717647, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.15, 0.15), Vector2(0.12, 0.12)]
-}
-
-[sub_resource type="Animation" id="Animation_tdwd2"]
-resource_name = "dashing"
-length = 0.65
-step = 0.05
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,38 +59,61 @@ tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.55, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.611765, 0.517647, 1), Color(1, 0.611765, 0.517647, 1), Color(1, 1, 1, 1)]
+"values": [Color(0.709804, 0.0666667, 0.0666667, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.13, 0.13), Vector2(0.12, 0.12)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4oud"]
+[sub_resource type="Animation" id="Animation_iij26"]
+resource_name = "dashing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.882353, 0.309804, 0.129412, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhbe6"]
 _data = {
-"RESET": SubResource("Animation_3bes3"),
-"damage-received": SubResource("Animation_shkm4"),
-"dashing": SubResource("Animation_tdwd2")
+"RESET": SubResource("Animation_cdjks"),
+"damage-received": SubResource("Animation_jqlit"),
+"dashing": SubResource("Animation_iij26")
 }
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 2
+collision_mask = 515
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_tud5h")
 
 [node name="DetectionRadius" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
 shape = SubResource("CircleShape2D_6eh1t")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_s8ae5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uwt41")
@@ -161,6 +141,37 @@ entity = NodePath("../..")
 [node name="Death" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("8_ie6si")]
 entity = NodePath("../..")
 
+[node name="Vision" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Vision"]
+position = Vector2(0, 6)
+rotation = -1.57079
+target_position = Vector2(-40, 200)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Vision"]
+position = Vector2(0, 3)
+rotation = -1.57079
+target_position = Vector2(-20, 200)
+collision_mask = 3
+
+[node name="RayCast2D3" type="RayCast2D" parent="Vision"]
+rotation = -1.57079
+target_position = Vector2(0, 200)
+collision_mask = 3
+
+[node name="RayCast2D4" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -3)
+rotation = -1.57079
+target_position = Vector2(20, 200)
+collision_mask = 3
+
+[node name="RayCast2D5" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -6)
+rotation = -1.57079
+target_position = Vector2(40, 200)
+collision_mask = 3
+
 [node name="ContactDamageComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("8_fhwn0")]
 entityScene = NodePath("..")
 
@@ -184,11 +195,12 @@ scale = Vector2(0.12, 0.12)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_f4oud")
+"": SubResource("AnimationLibrary_vhbe6")
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
+debug_enabled = true
 
 [node name="ImmunityFrames" type="Timer" parent="."]
 wait_time = 0.1

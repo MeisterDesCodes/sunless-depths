@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var gold = preload("res://inventory-resource/resources/material/primary/gold.tres")
 @onready var approachLabel = get_tree().get_root().get_node("GameController/Game/CanvasLayer/UIControl/DialogApproachLabel")
 

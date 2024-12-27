@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://61uv8w1tqhhi" path="res://environment/decorations/light-sources/light-source.tscn" id="11_nja8b"]
 [ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="12_rm3wq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iqlct"]
-radius = 13.0384
+[sub_resource type="CircleShape2D" id="CircleShape2D_avym6"]
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_016k8"]
 radius = 6.0
@@ -38,42 +38,54 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RotationPoint/Image:scale")
+tracks/1/path = NodePath("RotationPoint/Sprite2D:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.12, 0.12)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RotationPoint/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
 }
 
 [sub_resource type="Animation" id="Animation_qnn0m"]
 resource_name = "damage-received"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RotationPoint/Image:modulate")
+tracks/0/path = NodePath("RotationPoint/Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.752941, 0.0470588, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(0.709804, 0.0666667, 0.0666667, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RotationPoint/Image:scale")
+tracks/1/path = NodePath("RotationPoint/Sprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.15, 0.15), Vector2(0.12, 0.12)]
+"values": [Vector2(0.13, 0.13), Vector2(0.12, 0.12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thox3"]
@@ -84,7 +96,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-collision_layer = 3
+collision_mask = 514
 motion_mode = 1
 safe_margin = 5.0
 script = ExtResource("1_22f2w")
@@ -92,12 +104,12 @@ entityResource = ExtResource("2_cu86e")
 inventory = ExtResource("3_bh5x3")
 storage = ExtResource("4_1lhmx")
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 264
+[node name="PickupRange" type="Area2D" parent="."]
 collision_mask = 0
+monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_iqlct")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+shape = SubResource("CircleShape2D_avym6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_016k8")
@@ -120,10 +132,10 @@ entity = NodePath("..")
 [node name="RotationPoint" type="Marker2D" parent="."]
 script = ExtResource("3_qyr1b")
 
-[node name="Image" type="Sprite2D" parent="RotationPoint"]
+[node name="Sprite2D" type="Sprite2D" parent="RotationPoint"]
 z_index = 1
 rotation = 4.71239
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.15, 0.15)
 
 [node name="LightSource" parent="RotationPoint" instance=ExtResource("11_nja8b")]
 energy = 2.0
@@ -131,12 +143,12 @@ energy = 2.0
 [node name="DirectionalLight" parent="RotationPoint" instance=ExtResource("8_j54sr")]
 
 [node name="Weapons" type="Node2D" parent="RotationPoint"]
-z_index = 1
-position = Vector2(-9, 8)
-rotation = 1.5708
-scale = Vector2(0.8, 0.8)
+position = Vector2(-8, 7)
+rotation = 1.57079
 
-[node name="Weapon" parent="RotationPoint/Weapons" instance=ExtResource("8_o73pc")]
+[node name="Weapon" parent="RotationPoint/Weapons" node_paths=PackedStringArray("entityScene") instance=ExtResource("8_o73pc")]
+scale = Vector2(0.8, 0.8)
+entityScene = NodePath("../../..")
 
 [node name="SoundComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("10_joknd")]
 entity = NodePath("..")
@@ -165,8 +177,6 @@ wait_time = 2.0
 wait_time = 0.25
 autostart = true
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="ImmunityFrames" to="." method="_on_immunity_frames_timeout"]
 [connection signal="timeout" from="StaminaRestore" to="." method="_on_stamina_restore_timeout"]

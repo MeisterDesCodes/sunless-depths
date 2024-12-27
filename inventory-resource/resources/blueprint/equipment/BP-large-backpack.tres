@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="InventoryBlueprint" load_steps=14 format=3 uid="uid://byx0wy56sm7rp"]
+
+[ext_resource type="Resource" uid="uid://djucwyhoiu8us" path="res://inventory-resource/resources/material/common/fiber.tres" id="1_c1x4j"]
+[ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_uk1ah"]
+[ext_resource type="Resource" uid="uid://d22n2cln32r42" path="res://inventory-resource/resources/material/common/cloth.tres" id="3_yr40n"]
+[ext_resource type="Resource" uid="uid://l8tk0xe2kkoo" path="res://inventory-resource/resources/material/uncommon/silk.tres" id="4_43ojo"]
+[ext_resource type="Resource" uid="uid://b77626vhf1e2b" path="res://inventory-resource/resources/material/uncommon/iron-bar.tres" id="5_y68lt"]
+[ext_resource type="Resource" uid="uid://c4g6r85iv64rp" path="res://inventory-resource/resources/equipment/large-backpack.tres" id="6_cqja8"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="7_kmio4"]
+[ext_resource type="Texture2D" uid="uid://cximbxmimaxfe" path="res://assets/resources/equipment/bagpacks/Large Backpack.png" id="8_qfifa"]
+
+[sub_resource type="Resource" id="Resource_xtk5x"]
+script = ExtResource("2_uk1ah")
+resource = ExtResource("1_c1x4j")
+amount = 12
+
+[sub_resource type="Resource" id="Resource_dx0bw"]
+script = ExtResource("2_uk1ah")
+resource = ExtResource("3_yr40n")
+amount = 8
+
+[sub_resource type="Resource" id="Resource_psxcf"]
+script = ExtResource("2_uk1ah")
+resource = ExtResource("4_43ojo")
+amount = 4
+
+[sub_resource type="Resource" id="Resource_wh7sj"]
+script = ExtResource("2_uk1ah")
+resource = ExtResource("5_y68lt")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4dyvn"]
+script = ExtResource("2_uk1ah")
+resource = ExtResource("6_cqja8")
+amount = 1
+
+[resource]
+script = ExtResource("7_kmio4")
+inputResources = Array[ExtResource("2_uk1ah")]([SubResource("Resource_xtk5x"), SubResource("Resource_dx0bw"), SubResource("Resource_psxcf"), SubResource("Resource_wh7sj")])
+outputResources = Array[ExtResource("2_uk1ah")]([SubResource("Resource_4dyvn")])
+name = "Large Backpack - Blueprint"
+description = ""
+texture = ExtResource("8_qfifa")
+rarity = 3
+weight = -1.0

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dewfnljg88yw5" path="res://assets/UI/themes/UI-elements/dialog-choice.tres" id="1_gbwvl"]
 [ext_resource type="Script" path="res://UI/dialog/dialog-choice-ui.gd" id="1_w0whr"]
 [ext_resource type="Theme" uid="uid://lkf3mb4llx74" path="res://assets/UI/themes/text/text-large-highlight.tres" id="3_yefmb"]
-[ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="4_syplv"]
+[ext_resource type="Theme" uid="uid://ducsmrwpmucd8" path="res://assets/UI/themes/text/text-regular-italic-gray.tres" id="4_ku036"]
 [ext_resource type="PackedScene" uid="uid://cjix7ww6xkx3p" path="res://UI/dialog/dialog-stat-check-ui.tscn" id="5_mya1w"]
 [ext_resource type="PackedScene" uid="uid://bfw7jp1wfuqal" path="res://UI/shared/button.tscn" id="5_uuq2v"]
 
@@ -48,9 +48,7 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(765, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme = ExtResource("4_syplv")
-text = "
-"
+theme = ExtResource("4_ku036")
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/LocationChoiceContainer"]

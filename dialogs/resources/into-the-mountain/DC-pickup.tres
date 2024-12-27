@@ -1,18 +1,33 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=2 format=3 uid="uid://cq6rp44v26ypx"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=8 format=3 uid="uid://cq6rp44v26ypx"]
 
+[ext_resource type="Resource" uid="uid://dtr6xjqf7hlx2" path="res://inventory-resource/resources/material/curiosities/omnious-stone.tres" id="1_i802q"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_rew7e"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="3_tt5ep"]
+[ext_resource type="Resource" uid="uid://bo6k3n2sftjvd" path="res://dialogs/resources/into-the-mountain/D-rope.tres" id="4_5mgm7"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_cwrc0"]
+
+[sub_resource type="Resource" id="Resource_kueou"]
+script = ExtResource("2_rew7e")
+resource = ExtResource("1_i802q")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_vdkjk"]
+script = ExtResource("2_rew7e")
+resource = ExtResource("3_tt5ep")
+amount = 50
 
 [resource]
 script = ExtResource("5_cwrc0")
 title = "Pick up the omnious stone"
-description = "xxx"
-requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+description = "It's time to get what you can and leave this place."
+requiredResources = Array[ExtResource("2_rew7e")]([])
+forbiddenResources = Array[ExtResource("2_rew7e")]([])
+addedResourcesS = Array[ExtResource("2_rew7e")]([SubResource("Resource_kueou"), SubResource("Resource_vdkjk")])
+removedResourcesS = Array[ExtResource("2_rew7e")]([])
+nextDialogS = ExtResource("4_5mgm7")
 moveBackwardsS = -1
-addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
-removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesF = Array[ExtResource("2_rew7e")]([])
+removedResourcesF = Array[ExtResource("2_rew7e")]([])
 moveBackwardsF = -1
-oneTimeUse = false
+oneTimeUse = true
 function = ""

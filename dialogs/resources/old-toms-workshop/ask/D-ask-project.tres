@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://c0dd1rfbg126u"]
+
+[ext_resource type="Resource" uid="uid://cmy4rnhn6jbqo" path="res://dialogs/resources/old-toms-workshop/ask/DC-ask-project-leaving.tres" id="1_a4cwj"]
+[ext_resource type="Resource" uid="uid://ddfpqeo0lmpdj" path="res://dialogs/resources/old-toms-workshop/ask/DC-assemble.tres" id="1_n3pva"]
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="2_p27uw"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_rii53"]
+
+[resource]
+script = ExtResource("3_rii53")
+title = "Destructive plans"
+description = "\"I've been collecting components for assembling xxx
+
+\"Then I can finally go south\".
+
+You have a bad feeling about this. It would not be the first time someone died being involbed with toms \"projects\"."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_a4cwj"), ExtResource("1_n3pva"), ExtResource("2_p27uw")])
+canExit = false

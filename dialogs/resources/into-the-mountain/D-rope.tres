@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://bo6k3n2sftjvd"]
+
+[ext_resource type="Resource" uid="uid://dpcjp8uccpb2c" path="res://dialogs/resources/into-the-mountain/DC-grab.tres" id="1_rq6of"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_fgarb"]
+
+[resource]
+script = ExtResource("2_fgarb")
+title = "A glimmer of light"
+description = "You make out the sillouette of a rope, casting a thin shadow on the cave wall behind it. I hangs down from an opening in the cave's ceiling, giving birth to a dim beam of light, marginally brigthening the chamber. This proves your suspicion that someone - or something - was here before."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_rq6of")])
+canExit = false

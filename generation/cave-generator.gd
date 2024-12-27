@@ -58,7 +58,6 @@ func generateCave():
 
 func clearCave():
 	cave.global_position = Vector2.ZERO
-	print(cave.global_position)
 	
 	placedSpecialRooms = 0
 	placedSpecialRoomsDeadEnd = 0
@@ -269,6 +268,9 @@ func generateExitInDirection(exits, direction):
 	#				foundExit = exit
 	
 	foundExit = filterExitsByDirection(exits, direction).pick_random()
+	if !foundExit:
+		foundExit = exits.pick_random()
+	
 	var room = placeRoom(foundExit, Enums.segmentType.EXIT)
 	if room:
 		generatedExits.append(room)

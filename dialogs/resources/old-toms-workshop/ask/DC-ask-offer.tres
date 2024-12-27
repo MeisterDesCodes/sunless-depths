@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://b4kgtexf6j6dj"]
+
+[ext_resource type="Resource" uid="uid://bjvdcj5c4nhe7" path="res://inventory-resource/resources/material/curiosities/old-toms-favor.tres" id="1_5hn48"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_ygqq0"]
+[ext_resource type="Resource" uid="uid://bykm6xyn4c1x3" path="res://dialogs/resources/old-toms-workshop/ask/D-ask-offer.tres" id="3_6mnct"]
+[ext_resource type="Resource" uid="uid://cryo4sw7600iq" path="res://inventory-resource/resources/consumables/small-feast.tres" id="4_w7w2x"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_kvxmv"]
+
+[sub_resource type="Resource" id="Resource_atl1a"]
+script = ExtResource("2_ygqq0")
+resource = ExtResource("1_5hn48")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_e715w"]
+script = ExtResource("2_ygqq0")
+resource = ExtResource("4_w7w2x")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nl7g6"]
+script = ExtResource("2_ygqq0")
+resource = ExtResource("4_w7w2x")
+amount = 1
+
+[resource]
+script = ExtResource("5_kvxmv")
+title = "Offer him some food"
+description = "By offering him a meal, you might be able to press for more information."
+requiredResources = Array[ExtResource("2_ygqq0")]([SubResource("Resource_nl7g6")])
+forbiddenResources = Array[ExtResource("2_ygqq0")]([])
+addedResourcesS = Array[ExtResource("2_ygqq0")]([SubResource("Resource_atl1a")])
+removedResourcesS = Array[ExtResource("2_ygqq0")]([SubResource("Resource_e715w")])
+nextDialogS = ExtResource("3_6mnct")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_ygqq0")]([])
+removedResourcesF = Array[ExtResource("2_ygqq0")]([])
+moveBackwardsF = -1
+oneTimeUse = true
+function = ""

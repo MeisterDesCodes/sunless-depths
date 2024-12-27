@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("5_vel6h")
 title = "Last Breath"
-description = "You keep moving, and its painful. Every step feels like another needle in your brain, every turn a stab in your lungs. You don't have much time."
+description = "You keep moving, and its painful. Every step feels like a needle poking your brain, every attempted breath like a stab in your lungs. You don't have much time."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_4n0u3")])
 canExit = false

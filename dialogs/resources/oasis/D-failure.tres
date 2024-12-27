@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://cajx836dc4hkm"]
 
-[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_w6dp6"]
+[ext_resource type="Resource" uid="uid://b63ofd7om5k4r" path="res://dialogs/resources/shared/DC-leave.tres" id="1_yeyw5"]
 [ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_lle21"]
 
 [resource]
 script = ExtResource("3_lle21")
 title = "A missed opportunity"
-description = "The fish notice you approaching and disappear. You wait patiently for a while, but they are not coming back up."
-choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_w6dp6")])
+description = "The fish notice you approaching and disappear. You wait patiently for a while, but they are not coming back."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_yeyw5")])
 canExit = false

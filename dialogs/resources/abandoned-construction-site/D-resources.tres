@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("2_edfli")
 title = "A little success"
-description = "After a lengthy search, you manage to collect what can only be decribed as a messy assemblance of scrap metal. You eagerly stuff nails, screws, metal contraptions no longer identifiable, into your backpack. After all, they might come in handy."
+description = "After a lengthy search, you manage to collect what can only be decribed as a unorganized heap of scrap metal. You eagerly stuff nails, screws, metal contraptions no longer identifiable, into your backpack. After all, they might come in handy."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_qr07h")])
+canExit = false

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=5 format=3 uid="uid://csqkt55wh64xr"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_v71ca"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="2_imyf5"]
+
+[sub_resource type="Resource" id="Resource_gqoug"]
+script = ExtResource("1_v71ca")
+type = 8
+value = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tmt6r"]
+load_path = "res://.godot/imported/Backpack.png-ff131bca730be7d466bfdbb0ccef0dce.ctex"
+
+[resource]
+script = ExtResource("2_imyf5")
+equipmentType = 2
+modifiers = Array[ExtResource("1_v71ca")]([SubResource("Resource_gqoug")])
+name = "Pouch"
+description = ""
+texture = SubResource("CompressedTexture2D_tmt6r")
+rarity = 1
+weight = 0.5

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/components/particle-component.gd" id="1_0sdwx"]
 [ext_resource type="PackedScene" uid="uid://c8sm53impkash" path="res://environment/decorations/particles/effect-particle.tscn" id="2_0dr4l"]
-[ext_resource type="PackedScene" uid="uid://cwpqm6ejkwbyw" path="res://environment/decorations/particles/hit-particle.tscn" id="3_werp2"]
+[ext_resource type="PackedScene" uid="uid://w4cycm445qss" path="res://environment/decorations/particles/hit-particle.tscn" id="3_werp2"]
 [ext_resource type="PackedScene" uid="uid://u0jvwr4sc327" path="res://environment/decorations/particles/death-particle.tscn" id="4_2k1rx"]
 [ext_resource type="PackedScene" uid="uid://c5if4qbofp5mc" path="res://environment/decorations/particles/dash-particle.tscn" id="5_7ts1s"]
 [ext_resource type="PackedScene" uid="uid://bvc4xv0d71hyd" path="res://environment/decorations/particles/desintegrate-particle.tscn" id="6_1ixwo"]
@@ -10,12 +10,12 @@
 [node name="ParticleComponent" type="Node2D"]
 script = ExtResource("1_0sdwx")
 
-[node name="EffectParticles" parent="." instance=ExtResource("2_0dr4l")]
-
 [node name="HitParticles" parent="." instance=ExtResource("3_werp2")]
+
+[node name="DesintegrateParticles" parent="." instance=ExtResource("6_1ixwo")]
 
 [node name="DeathParticles" parent="." instance=ExtResource("4_2k1rx")]
 
-[node name="DashParticles" parent="." instance=ExtResource("5_7ts1s")]
+[node name="EffectParticles" parent="." instance=ExtResource("2_0dr4l")]
 
-[node name="DesintegrateParticles" parent="." instance=ExtResource("6_1ixwo")]
+[node name="DashParticles" parent="." instance=ExtResource("5_7ts1s")]

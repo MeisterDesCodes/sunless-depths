@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=6 format=3 uid="uid://ctrndbglt5sik"]
+
+[ext_resource type="Resource" uid="uid://c1rds1k47vk7u" path="res://dialogs/resources/settlement-headquarters/present/D-present.tres" id="1_hihem"]
+[ext_resource type="Resource" uid="uid://dtr6xjqf7hlx2" path="res://inventory-resource/resources/material/curiosities/omnious-stone.tres" id="2_2eaej"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_jl4fa"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_qbaut"]
+
+[sub_resource type="Resource" id="Resource_qxcq2"]
+script = ExtResource("2_jl4fa")
+resource = ExtResource("2_2eaej")
+amount = 1
+
+[resource]
+script = ExtResource("3_qbaut")
+title = "Present your omnious stone"
+description = "Perhaps you can get the guards attention that way."
+requiredResources = Array[ExtResource("2_jl4fa")]([SubResource("Resource_qxcq2")])
+forbiddenResources = Array[ExtResource("2_jl4fa")]([])
+addedResourcesS = Array[ExtResource("2_jl4fa")]([])
+removedResourcesS = Array[ExtResource("2_jl4fa")]([])
+nextDialogS = ExtResource("1_hihem")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_jl4fa")]([])
+removedResourcesF = Array[ExtResource("2_jl4fa")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

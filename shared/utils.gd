@@ -6,7 +6,7 @@ class_name Utils
 var colorBackground = Color("#161616")
 var colorPrimary = Color("#E14F21")
 var colorPrimaryBright = Color("#E14F21")
-var colorPrimaryTransparent = Color("#e5795b75")
+var colorPrimaryTransparent = Color("#e5795b50")
 var colorCommon = Color("#FFFFFF")
 var colorUncommon = Color("#54A32F")
 var colorRare = Color("#1E5F9B")
@@ -452,6 +452,8 @@ func playAnimation(animationPlayer: AnimationPlayer, animation: String):
 	if animationPlayer.is_playing():
 		animationPlayer.stop()
 		animationPlayer.seek(0.0, true)
+	
+	await get_tree().process_frame
 	animationPlayer.play(animation)
 
 
@@ -480,7 +482,6 @@ func getValueFromStat(playerScene: CharacterBody2D, statCheck: StatCheck):
 
 func runShader(element, shader: String):
 	var shaderMaterial = preload("res://assets/UI/shaders/dissolve-material-ui.tres").duplicate()
-	#shaderMaterial.set_shader_parameter("dissolve_threshold", 1.25)
 	element.material = shaderMaterial
 	shaderElements.append(element)
 

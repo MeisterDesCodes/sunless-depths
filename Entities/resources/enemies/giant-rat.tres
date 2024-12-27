@@ -1,21 +1,19 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://egkn5f1g2uuv"]
 
 [ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="1_12d5c"]
-[ext_resource type="Script" path="res://entities/resources/classes/enemy-attack.gd" id="1_igf4x"]
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-melee-attack.gd" id="1_jidhj"]
 [ext_resource type="Texture2D" uid="uid://dnl6yp8gkfp40" path="res://assets/entities/giant-rat.png" id="2_5cuxh"]
 [ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="4_4sxbu"]
 [ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="4_bv0hn"]
 [ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="4_rpyqr"]
 [ext_resource type="Resource" uid="uid://cct8ajp56qlgm" path="res://inventory-resource/resources/material/common/bone.tres" id="5_ne3cm"]
 
-[sub_resource type="Resource" id="Resource_o5h46"]
-script = ExtResource("1_igf4x")
-damage = 3.0
-knockback = 15.0
+[sub_resource type="Resource" id="Resource_qxwnl"]
+script = ExtResource("1_jidhj")
+damage = 4.0
+knockback = 10.0
 statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
 attackDelay = 3.0
-spread = 0.0
-amount = 0.0
 
 [sub_resource type="Resource" id="Resource_w862f"]
 script = ExtResource("4_4sxbu")
@@ -37,7 +35,7 @@ dropChance = 0.5
 
 [resource]
 script = ExtResource("1_12d5c")
-attacks = Array[ExtResource("1_igf4x")]([SubResource("Resource_o5h46")])
+attacks = Array[Resource("res://entities/resources/attacks/enemy-attack.gd")]([SubResource("Resource_qxwnl")])
 states = Array[int]([0, 1, 2, 5])
 drops = Array[ExtResource("4_4sxbu")]([SubResource("Resource_w862f"), SubResource("Resource_awibb"), SubResource("Resource_aps46")])
 name = "Giant Rat"

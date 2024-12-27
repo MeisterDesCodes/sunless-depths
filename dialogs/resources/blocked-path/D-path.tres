@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("3_17ko3")
 title = "A cleared path"
-description = "The explosion is deafening. In retrospect, taking more steps backwards wouldn't have hurt. But the experiment worked, a path is now free, just large enough for you to fit through."
+description = "The explosion is deafening. For the next time, taking some steps backwards wouldn't hurt. But the experiment was a success. The path is now free, just large enough for you to fit through."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("2_b82im")])
 canExit = false

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var healthBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HealthWindow/VBoxContainer/Health")
 @onready var suppliesBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SuppliesWindow/VBoxContainer/Supplies")
 @onready var oxygenBar: ProgressBar = get_node("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OxygenWindow/VBoxContainer/Oxygen")

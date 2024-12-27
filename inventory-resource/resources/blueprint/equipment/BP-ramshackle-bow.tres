@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://UI/menu/inventory/inventory-slot.gd" id="2_x74go"]
 [ext_resource type="Resource" uid="uid://bx3w34ioc0w4j" path="res://weapons/resources/bows/ramshackle-bow.tres" id="4_5wsdh"]
 [ext_resource type="Script" path="res://inventory-resource/inventory-blueprint.gd" id="5_3kjmn"]
-[ext_resource type="Texture2D" uid="uid://6786hr1kqqxv" path="res://assets/resources/weapons/ramshackle-bow.png" id="6_3it62"]
+[ext_resource type="Texture2D" uid="uid://jusxtcwienxq" path="res://assets/resources/weapons/ramshackle-bow.png" id="6_3it62"]
 
 [sub_resource type="Resource" id="Resource_ndo7o"]
 script = ExtResource("2_x74go")

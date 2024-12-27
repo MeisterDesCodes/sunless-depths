@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/dialog/dialog-ui.gd" id="1_6i0cn"]
 [ext_resource type="Theme" uid="uid://c6rp0i4nnn7ww" path="res://assets/UI/themes/UI-elements/dialog.tres" id="1_xk14v"]
-[ext_resource type="Theme" uid="uid://ct6ax5ic4d7tk" path="res://assets/UI/themes/text/text-large.tres" id="2_0aib0"]
 [ext_resource type="Theme" uid="uid://bdvxr5ol13qak" path="res://assets/UI/themes/text/text-regular.tres" id="3_3q162"]
+[ext_resource type="Theme" uid="uid://bet4l4ncyh6qm" path="res://assets/UI/themes/text/text-huge-gray.tres" id="3_pxi4u"]
 
 [node name="Dialog" type="PanelContainer"]
 custom_minimum_size = Vector2(850, 0)
@@ -33,7 +33,7 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_0aib0")
+theme = ExtResource("3_pxi4u")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

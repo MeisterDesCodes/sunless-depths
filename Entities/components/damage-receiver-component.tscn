@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://begmikbad6gha"]
+[gd_scene load_steps=3 format=3 uid="uid://begmikbad6gha"]
 
 [ext_resource type="Script" path="res://entities/components/damage-receiver-component.gd" id="1_o5op1"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbwry"]
+resource_local_to_scene = true
+radius = 20.0
+
 [node name="DamageReceiver" type="Node2D"]
 script = ExtResource("1_o5op1")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 240
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_lbwry")

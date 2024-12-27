@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://s55k6ohrdsg6" path="res://inventory-resource/resources/material/primary/health.tres" id="1_4ocar"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="1_upeep"]
-[ext_resource type="Resource" uid="uid://c7coglid6rw4g" path="res://inventory-resource/resources/material/curiosities/unreasonable-peckish.tres" id="1_ux8q5"]
+[ext_resource type="Resource" uid="uid://c7coglid6rw4g" path="res://inventory-resource/resources/material/curiosities/desperately-peckish.tres" id="1_ux8q5"]
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_i7imf"]
 [ext_resource type="Resource" uid="uid://bmsjt3slk5quo" path="res://dialogs/resources/starvation/D-suffer-S.tres" id="3_55t2m"]
 

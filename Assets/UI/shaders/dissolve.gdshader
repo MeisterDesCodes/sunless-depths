@@ -4,7 +4,7 @@ shader_type canvas_item;
 uniform float dissolve_threshold : hint_range(0.0, 1.5) = 0.5;
 uniform float border_width : hint_range(0.0, 0.1) = 0.1; // Width of the border.
 uniform float border_smoothness : hint_range(0.01, 0.5) = 0.5; // Smoothness of the border transition.
-uniform vec4 border_color = vec4(1.0, 0.2, 0.1, 1.0); // Border color (default red).
+uniform vec4 border_color: source_color = vec4(1.0, 0.2, 0.1, 1.0); // Border color (default red).
 
 // Noise texture for the dissolve effect
 uniform sampler2D noise_texture;

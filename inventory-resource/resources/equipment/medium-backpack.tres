@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=5 format=3 uid="uid://83nrs5v60pxf"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_yplvm"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="2_o40on"]
+[ext_resource type="Texture2D" uid="uid://d0lo8p2gikwm8" path="res://assets/resources/equipment/bagpacks/Medium Backpack.png" id="3_o16f2"]
+
+[sub_resource type="Resource" id="Resource_gqoug"]
+script = ExtResource("1_yplvm")
+type = 8
+value = 40.0
+
+[resource]
+script = ExtResource("2_o40on")
+equipmentType = 2
+modifiers = Array[ExtResource("1_yplvm")]([SubResource("Resource_gqoug")])
+name = "Medium Backpack"
+description = ""
+texture = ExtResource("3_o16f2")
+rarity = 2
+weight = 3.0

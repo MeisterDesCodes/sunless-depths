@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://qvf4cvwwsb"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="2_1kvmn"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_ss327"]
+
+[resource]
+script = ExtResource("3_ss327")
+title = "A promising revelation"
+description = "\"You really live behind a rock, don't you?\". The guard mockingly hits you with his elbow.
+
+You try to concentrate, but nothing comes to your mind. Still, you are entirely stripped of your memories. 
+
+\"The first settlement that was founded after the sun favored us no more. This is where everything started, and where everything will end, probably.\"
+
+After some more moderately helpful chatter, the guard reveals that Aornum lies down south, behind the giant wall. You assume it to be a capital of some sort, so going there next might give you some anwsers to this mystery."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("2_1kvmn")])
+canExit = false

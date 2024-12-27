@@ -3,7 +3,7 @@ extends Control
 
 signal cardSelected
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var title: Label = get_node("MarginContainer/VBoxContainer/Title")
 @onready var icon: TextureRect = get_node("MarginContainer/VBoxContainer/PanelContainer/Icon")
 @onready var requirementsDescription: Label = get_node("MarginContainer/VBoxContainer/Requirements/Description")
@@ -51,8 +51,7 @@ func setup(_card: LevelUpCard):
 		instance.setup(null, stat.amount, statIcons[stat.resource], true, false)
 		
 		var colors = [UtilsS.colorMissing, UtilsS.colorUncommon, UtilsS.colorLegendary, UtilsS.colorRare]
-		instance.changeIconColor(colors[stat.resource])
-		instance.changeFrameColor(colors[stat.resource])
+		instance.modulate = colors[stat.resource]
 
 
 func getTotalStrengthValues(_card: LevelUpCard):

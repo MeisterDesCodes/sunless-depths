@@ -1,16 +1,22 @@
-[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://3q3pnfc0s70y"]
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=11 format=3 uid="uid://3q3pnfc0s70y"]
 
 [ext_resource type="Resource" uid="uid://dv6kn0ki074in" path="res://dialogs/resources/into-the-mountain/D-remove-f.tres" id="1_lwt3j"]
 [ext_resource type="Resource" uid="uid://bna6bjh8j6q3" path="res://dialogs/resources/into-the-mountain/D-bats.tres" id="1_yeod0"]
 [ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="3_sydqh"]
 [ext_resource type="Resource" uid="uid://kjfua18msrf6" path="res://inventory-resource/resources/material/primary/supplies.tres" id="3_yru71"]
 [ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="4_rxbb0"]
+[ext_resource type="Resource" uid="uid://da0wxvw6d1y3d" path="res://inventory-resource/resources/material/primary/oxygen.tres" id="5_53qn6"]
 [ext_resource type="Script" path="res://dialogs/stat-check.gd" id="6_aqcqh"]
 
 [sub_resource type="Resource" id="Resource_rgoj4"]
 script = ExtResource("4_rxbb0")
 resource = ExtResource("3_yru71")
 amount = 1
+
+[sub_resource type="Resource" id="Resource_0u1ow"]
+script = ExtResource("4_rxbb0")
+resource = ExtResource("5_53qn6")
+amount = 5
 
 [sub_resource type="Resource" id="Resource_hm36q"]
 script = ExtResource("6_aqcqh")
@@ -30,7 +36,7 @@ removedResourcesS = Array[ExtResource("4_rxbb0")]([])
 nextDialogS = ExtResource("1_yeod0")
 moveBackwardsS = -1
 addedResourcesF = Array[ExtResource("4_rxbb0")]([])
-removedResourcesF = Array[ExtResource("4_rxbb0")]([SubResource("Resource_rgoj4")])
+removedResourcesF = Array[ExtResource("4_rxbb0")]([SubResource("Resource_rgoj4"), SubResource("Resource_0u1ow")])
 nextDialogF = ExtResource("1_lwt3j")
 moveBackwardsF = -1
 oneTimeUse = false

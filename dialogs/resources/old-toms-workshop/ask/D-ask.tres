@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://b8b8lph46kowx"]
+
+[ext_resource type="Resource" uid="uid://fo8f3gr66apw" path="res://dialogs/resources/old-toms-workshop/ask/DC-ask-project.tres" id="1_ygars"]
+[ext_resource type="Resource" uid="uid://b4kgtexf6j6dj" path="res://dialogs/resources/old-toms-workshop/ask/DC-ask-offer.tres" id="2_gdu8r"]
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="3_2w3hg"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_57sqk"]
+
+[resource]
+script = ExtResource("4_57sqk")
+title = "Focused work"
+description = "\"I like my quiet\", he says, nervously moving back and forth on his chair. 
+
+\"Back things happened, and I had to move. Turns out, now I can fully concentrate on my work!\", he almost yells in exitement. 
+
+After calming down a little, he adds: \"Away from the people. Now I can spent time with my tools. \"
+
+Old Tom looks miserable. His body tells you he hasn't eaten anything for at least a week. With no food lying around, he is most likely to starve in here.
+
+Without looking at you, he goes on talking: \"I'm busy with something big right now, but I can't tell you what it is.\"
+"
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_ygars"), ExtResource("2_gdu8r"), ExtResource("3_2w3hg")])
+canExit = false

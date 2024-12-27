@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://cidtpylhvd6ue"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="3_pbg4w"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_e8bq2"]
+
+[resource]
+script = ExtResource("4_e8bq2")
+title = "Finding someone"
+description = "\"I have to search for someone. Someone very special that got lost.\"
+
+He looks at you. It seems like he wants to tell you more, but after a minute of silence, he looks aways and keeps his quiet."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("3_pbg4w")])
+canExit = false

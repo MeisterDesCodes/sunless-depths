@@ -1,7 +1,7 @@
 extends PanelContainer
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var icon: TextureRect = get_node("Icon")
 @onready var amountLabel: Label = get_node("Amount")
 

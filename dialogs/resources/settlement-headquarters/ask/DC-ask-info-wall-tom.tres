@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=9 format=3 uid="uid://cnoh8eqo7ldy1"]
+
+[ext_resource type="Resource" uid="uid://cropdhcbghu8c" path="res://inventory-resource/resources/material/curiosities/tale-of-the-tunnels.tres" id="1_jqpdp"]
+[ext_resource type="Script" path="res://inventory-resource/choice-requirement-resource.gd" id="2_goiep"]
+[ext_resource type="Resource" uid="uid://dk7xwwuvelx71" path="res://dialogs/resources/settlement-headquarters/ask/D-ask-info-wall-tom.tres" id="3_xm85f"]
+[ext_resource type="Resource" uid="uid://hlcaa6t6k6kc" path="res://inventory-resource/resources/material/primary/gold.tres" id="4_40ml7"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="5_qesl2"]
+
+[sub_resource type="Resource" id="Resource_f3ioo"]
+script = ExtResource("2_goiep")
+resource = ExtResource("1_jqpdp")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_bvfbt"]
+script = ExtResource("2_goiep")
+resource = ExtResource("4_40ml7")
+amount = 20
+
+[sub_resource type="Resource" id="Resource_vbml2"]
+script = ExtResource("2_goiep")
+resource = ExtResource("4_40ml7")
+amount = 20
+
+[resource]
+script = ExtResource("5_qesl2")
+title = "Who is Old Tom and why don't they trust him?"
+description = "\"I am not supposed to tell. But everything for a price.\""
+requiredResources = Array[ExtResource("2_goiep")]([SubResource("Resource_vbml2")])
+forbiddenResources = Array[ExtResource("2_goiep")]([])
+addedResourcesS = Array[ExtResource("2_goiep")]([SubResource("Resource_f3ioo")])
+removedResourcesS = Array[ExtResource("2_goiep")]([SubResource("Resource_bvfbt")])
+nextDialogS = ExtResource("3_xm85f")
+moveBackwardsS = -1
+addedResourcesF = Array[ExtResource("2_goiep")]([])
+removedResourcesF = Array[ExtResource("2_goiep")]([])
+moveBackwardsF = -1
+oneTimeUse = true
+function = ""

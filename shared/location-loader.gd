@@ -2,7 +2,7 @@ extends Node
 
 
 @onready var game = get_tree().get_root().get_node("GameController/Game")
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var caveGenerator = get_tree().get_root().get_node("GameController/Game/NavigationRegion2D/CaveGenerator")
 
 var currentLocation: MapLocation

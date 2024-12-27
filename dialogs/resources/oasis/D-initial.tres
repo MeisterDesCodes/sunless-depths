@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_lh1jr")
 title = "A moment of relief"
-description = "xxx"
+description = "You find yourself in front of a small underground pond. With a relieved sigh, you sit down for a while. This place feels peaceful, almost too peaceful. On closer inspection, you see a small school of fish swimming inside the pond."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_iwqco"), ExtResource("2_gshpm")])
 canExit = false

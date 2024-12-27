@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var playerResources = get_node("VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/ResourcesUI")
 @onready var boxResources = get_node("VBoxContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/ResourcesUI")
 

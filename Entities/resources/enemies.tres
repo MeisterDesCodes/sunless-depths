@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Enemies" load_steps=19 format=3 uid="uid://bm3ea4iltxsvr"]
+[gd_resource type="Resource" script_class="Enemies" load_steps=21 format=3 uid="uid://bm3ea4iltxsvr"]
 
 [ext_resource type="Script" path="res://entities/resources/enemy-spawn-container.gd" id="1_8cmwc"]
 [ext_resource type="Resource" uid="uid://egkn5f1g2uuv" path="res://entities/resources/enemies/giant-rat.tres" id="1_gwjrc"]
 [ext_resource type="Script" path="res://entities/resources/enemies.gd" id="2_0libn"]
 [ext_resource type="Resource" uid="uid://dum4ni3lxgxqv" path="res://entities/resources/enemies/crawler.tres" id="2_w15yg"]
-[ext_resource type="Resource" uid="uid://cwaapu5hqbqij" path="res://entities/resources/enemies/bat.tres" id="3_2c8ya"]
+[ext_resource type="Resource" uid="uid://cwaapu5hqbqij" path="res://entities/resources/enemies/cave-bat.tres" id="3_2c8ya"]
+[ext_resource type="Resource" uid="uid://1yyvu0tbbpop" path="res://entities/resources/enemies/spiked-husk.tres" id="5_17ff1"]
 [ext_resource type="Resource" uid="uid://cu2kjfnxku1qq" path="res://entities/resources/enemies/bandit-brawler.tres" id="5_g24fy"]
 [ext_resource type="Resource" uid="uid://jq1oi7xmfhrq" path="res://entities/resources/enemies/carapace.tres" id="5_j36qe"]
 [ext_resource type="Resource" uid="uid://csj7grpf30j7s" path="res://entities/resources/enemies/bandit-rogue.tres" id="6_i2htf"]
@@ -23,6 +24,11 @@ chance = 2.0
 script = ExtResource("1_8cmwc")
 enemy = ExtResource("3_2c8ya")
 chance = 1.0
+
+[sub_resource type="Resource" id="Resource_erprw"]
+script = ExtResource("1_8cmwc")
+enemy = ExtResource("5_17ff1")
+chance = 0.5
 
 [sub_resource type="Resource" id="Resource_ebduy"]
 script = ExtResource("1_8cmwc")
@@ -61,7 +67,7 @@ chance = 1.0
 
 [resource]
 script = ExtResource("2_0libn")
-allEnemiesTier0 = Array[ExtResource("1_8cmwc")]([SubResource("Resource_wgjaw"), SubResource("Resource_35vj1"), SubResource("Resource_q3so7"), SubResource("Resource_ebduy"), SubResource("Resource_ly13j")])
+allEnemiesTier0 = Array[ExtResource("1_8cmwc")]([SubResource("Resource_wgjaw"), SubResource("Resource_35vj1"), SubResource("Resource_q3so7"), SubResource("Resource_erprw"), SubResource("Resource_ebduy"), SubResource("Resource_ly13j")])
 allEnemiesTier1 = Array[ExtResource("1_8cmwc")]([SubResource("Resource_wy0nw"), SubResource("Resource_y85ef"), SubResource("Resource_7dk2q"), SubResource("Resource_t07w0"), SubResource("Resource_18xg7")])
 allEnemiesTier2 = Array[ExtResource("1_8cmwc")]([])
 allEnemiesTier3 = Array[ExtResource("1_8cmwc")]([])

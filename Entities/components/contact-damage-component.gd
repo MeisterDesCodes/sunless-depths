@@ -3,17 +3,11 @@ extends Node2D
 
 @export var entityScene: CharacterBody2D
 
-@onready var damageRadius = get_node("Area2D")
+@onready var collision: CollisionShape2D = get_node("StaticBody2D/CollisionShape2D")
 
 
-func _process(delta):
-	if !entityScene.canDealContactDamage || entityScene.isDying:
-		return
+func _ready():
+	await get_tree().process_frame
 	
-	var areas = damageRadius.get_overlapping_areas()
-	for area in areas:
-		var targetEntityScene = area.get_parent()
-		var damage: float = entityScene.currentAttack.damage
-		var knockback: float = entityScene.currentAttack.knockback
-		var attack = Attack.new(global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, entityScene.currentAttack.statusEffects, false)
-		targetEntityScene.processIncomingAttack(attack)
+	collision.shape.radius = (entityScene.sprite.texture.get_size().x + \
+		entityScene.sprite.texture.get_size().y) / 5 * entityScene.sprite.scale.x

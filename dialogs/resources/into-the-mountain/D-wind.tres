@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://2pwlto81ijtg"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://2pwlto81ijtg"]
 
 [ext_resource type="Resource" uid="uid://cqjoct66n4acu" path="res://dialogs/resources/into-the-mountain/DC-investigate.tres" id="1_7dde2"]
+[ext_resource type="Resource" uid="uid://1s8iv20jibrp" path="res://dialogs/resources/into-the-mountain/DC-alternative.tres" id="2_r0st4"]
 [ext_resource type="Resource" uid="uid://bgi1kw2xpq6dc" path="res://dialogs/resources/into-the-mountain/DC-retrace.tres" id="3_6t4ak"]
 [ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_n1ntm"]
 
 [resource]
 script = ExtResource("4_n1ntm")
-title = ""
-description = ""
-choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_7dde2"), ExtResource("3_6t4ak")])
+title = "The mountain's breath"
+description = "As you venture deeper into the mountain, you feel a stream of air, gently touching your left leg."
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_7dde2"), ExtResource("2_r0st4"), ExtResource("3_6t4ak")])
 canExit = false

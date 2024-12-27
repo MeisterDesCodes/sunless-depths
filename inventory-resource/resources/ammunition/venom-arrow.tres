@@ -17,7 +17,7 @@ effectApplyType = 0
 [resource]
 script = ExtResource("1_cqcku")
 damage = 2.0
-knockback = 0.0
+knockback = 10.0
 speed = 800.0
 statusEffects = Array[ExtResource("2_75vmh")]([SubResource("Resource_00adc")])
 isPiercing = false

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://mhi1byi3behk"]
+
+[ext_resource type="Resource" uid="uid://dehmeghfhl8xc" path="res://dialogs/resources/settlement-headquarters/ask/DC-ask-info-aornum.tres" id="1_t23ut"]
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="2_1e1s0"]
+[ext_resource type="Resource" uid="uid://cgert57q1qos8" path="res://dialogs/resources/settlement-headquarters/ask/DC-ask-info-wall.tres" id="2_cr3is"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="3_6sppf"]
+
+[resource]
+script = ExtResource("3_6sppf")
+title = "Former glory"
+description = "\"This used to be promising traderoute, connecting Aornum with remote settlements up north.\"
+
+\"Then everything went south. I still remember the morning it happened. The deafening sound of rocks collapsing like I've never heard before. After that, silence. Nobody knew what was going on. Later that day, we tried to ship some goods to Aornum over the usual way, but the way was no more. In its place was a huge wall, stretching across the entire pathway. Witnessing this, we understood the terrible truth of our situation.
+
+The guard looks down and pauses for a moment. \"That was 3 months ago. Supplies are running low, people start to panic. I don't know how much time we have left. This place was founded upon the vision of bringing people together, not sustaining them.\""
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_t23ut"), ExtResource("2_cr3is"), ExtResource("2_1e1s0")])
+canExit = false

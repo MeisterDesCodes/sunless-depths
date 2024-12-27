@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=10 format=3 uid="uid://cwaapu5hqbqij"]
+
+[ext_resource type="Script" path="res://entities/resources/attacks/enemy-melee-attack.gd" id="1_3y7j7"]
+[ext_resource type="Resource" uid="uid://d8khmuxxyed7" path="res://inventory-resource/resources/material/common/meat-scraps.tres" id="2_lgp74"]
+[ext_resource type="Script" path="res://inventory-resource/drop-resource.gd" id="3_wfuki"]
+[ext_resource type="Resource" uid="uid://dmj3bm2m1ibsi" path="res://inventory-resource/resources/material/primary/experience.tres" id="4_8ntrw"]
+[ext_resource type="Script" path="res://entities/resources/classes/enemy.gd" id="5_c80sc"]
+[ext_resource type="Texture2D" uid="uid://cfyf06julobcm" path="res://assets/entities/cave-bat.png" id="6_35d3x"]
+
+[sub_resource type="Resource" id="Resource_e6o2e"]
+script = ExtResource("1_3y7j7")
+damage = 5.0
+knockback = 5.0
+statusEffects = Array[Resource("res://combat/status-effect.gd")]([])
+attackDelay = 2.5
+
+[sub_resource type="Resource" id="Resource_7nnmn"]
+script = ExtResource("3_wfuki")
+resource = ExtResource("2_lgp74")
+amount = 2
+dropChance = 0.5
+
+[sub_resource type="Resource" id="Resource_6lqcj"]
+script = ExtResource("3_wfuki")
+resource = ExtResource("4_8ntrw")
+amount = 4
+dropChance = 1.0
+
+[resource]
+script = ExtResource("5_c80sc")
+attacks = Array[Resource("res://entities/resources/attacks/enemy-attack.gd")]([SubResource("Resource_e6o2e")])
+states = Array[int]([0, 1, 2, 5])
+drops = Array[ExtResource("3_wfuki")]([SubResource("Resource_7nnmn"), SubResource("Resource_6lqcj")])
+name = "Cave Bat"
+texture = ExtResource("6_35d3x")
+maxHealth = 18.0
+moveSpeed = 115.0
+ferocity = 3.0
+perseverance = 1.0
+agility = 5.0
+perception = 3.0

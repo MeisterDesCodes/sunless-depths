@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_ktckg")
-title = "Continue from the past"
-description = "There is always another chance."
+title = "I am not done yet"
+description = "The lower I fall, the more I see. There is more to be uncovered. This is not the time."
 requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 moveBackwardsS = -1

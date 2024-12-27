@@ -2,7 +2,7 @@ extends Control
 
 
 @onready var game = get_tree().get_root().get_node("GameController/Game")
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var scrollContainer: ScrollContainer = get_node("PanelContainer/MarginContainer/ScrollContainer")
 @onready var caveContainer: Node2D = get_node("PanelContainer/MarginContainer/ScrollContainer/CaveContainer")
 @onready var unexploredLabel: Label = get_node("PanelContainer/MarginContainer/ScrollContainer/Label")

@@ -3,7 +3,7 @@ extends PanelContainer
 
 signal purchasedResourcesUpdate
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var texture: TextureRect = get_node("MarginContainer/HBoxContainer/HBoxContainer/Texture")
 @onready var description: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer/Name")
 @onready var cost: Label = get_node("MarginContainer/HBoxContainer/HBoxContainer2/Cost")

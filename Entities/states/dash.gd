@@ -5,7 +5,7 @@ class_name DashState
 
 @export var entity: CharacterBody2D
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var dashTimer = get_node("DashTimer")
 @onready var dashCooldown = get_node("DashCooldown")
 

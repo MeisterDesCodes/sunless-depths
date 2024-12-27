@@ -5,7 +5,7 @@ signal updateInventory
 
 @export var inventoryType: Enums.inventoryType
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var experience: InventoryResource = preload("res://inventory-resource/resources/material/primary/experience.tres")
 @onready var resourceContainer: VBoxContainer = get_node("MarginContainer/VBoxContainer/ScrollContainer/Resources")
 @onready var filterContainer: HBoxContainer = get_node("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2")

@@ -1,7 +1,7 @@
 extends PanelContainer
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var statTexture: TextureRect = get_node("Stat")
 @onready var chanceTexture: TextureRect = get_node("Chance")
 

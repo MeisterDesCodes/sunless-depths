@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_1jr07")
 title = "Surrender"
-description = "Accept your fate and let the tunnels consume you. After all, there is no running from death."
+description = "Accept your fate and give yourself to the tunnels. After all, there is no running from death."
 requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
 moveBackwardsS = -1

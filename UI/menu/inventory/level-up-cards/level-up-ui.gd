@@ -3,7 +3,7 @@ extends Control
 
 signal cardSelected
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var cardsContainer: HBoxContainer = get_node("MarginContainer/HBoxContainer/Cards")
 
 var allCardsTier1 = preload("res://UI/menu/inventory/level-up-cards/resources/tier-1/cards-tier-1.tres").allCards

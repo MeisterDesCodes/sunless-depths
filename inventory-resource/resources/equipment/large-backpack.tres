@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryEquipment" load_steps=5 format=3 uid="uid://c4g6r85iv64rp"]
+
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment-modifier.gd" id="1_fcj2e"]
+[ext_resource type="Script" path="res://inventory-resource/inventory-equipment.gd" id="2_5vfpn"]
+[ext_resource type="Texture2D" uid="uid://cximbxmimaxfe" path="res://assets/resources/equipment/bagpacks/Large Backpack.png" id="3_vxjj2"]
+
+[sub_resource type="Resource" id="Resource_gqoug"]
+script = ExtResource("1_fcj2e")
+type = 8
+value = 70.0
+
+[resource]
+script = ExtResource("2_5vfpn")
+equipmentType = 2
+modifiers = Array[ExtResource("1_fcj2e")]([SubResource("Resource_gqoug")])
+name = "Large Backpack"
+description = ""
+texture = ExtResource("3_vxjj2")
+rarity = 3
+weight = 5.0

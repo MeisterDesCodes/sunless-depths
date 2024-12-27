@@ -10,43 +10,43 @@ script = ExtResource("1_jumru")
 
 [node name="Enemies" type="Node2D" parent="Entities"]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="Map" type="Node2D" parent="."]
 
-[node name="Tilemap" parent="NavigationRegion2D" instance=ExtResource("2_wu327")]
+[node name="Tilemap" parent="Map" instance=ExtResource("2_wu327")]
 removeRandomObjects = false
 
-[node name="EnvironmentalObjects" type="Node2D" parent="NavigationRegion2D"]
+[node name="EnvironmentalObjects" type="Node2D" parent="Map"]
 
-[node name="Decorations" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
+[node name="Decorations" type="Node2D" parent="Map/EnvironmentalObjects"]
 
-[node name="Textures" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
+[node name="Textures" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
-[node name="Ground" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
+[node name="Ground" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
-[node name="LightSources" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
-[node name="Regular" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 
-[node name="Rubble" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Regular"]
+[node name="Rubble" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Regular"]
 
-[node name="Overlays" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
+[node name="Overlays" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 z_index = 3
 
-[node name="Walls" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations"]
+[node name="Walls" type="Node2D" parent="Map/EnvironmentalObjects/Decorations"]
 z_index = 1
 
-[node name="LightSources" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls"]
+[node name="LightSources" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
 
-[node name="Regular" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Decorations/Walls"]
+[node name="Regular" type="Node2D" parent="Map/EnvironmentalObjects/Decorations/Walls"]
 z_index = 1
 
-[node name="Interactions" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
+[node name="Interactions" type="Node2D" parent="Map/EnvironmentalObjects"]
 
-[node name="Loot" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
+[node name="Loot" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 
-[node name="ResourceNodes" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects/Interactions"]
+[node name="ResourceNodes" type="Node2D" parent="Map/EnvironmentalObjects/Interactions"]
 
-[node name="Curiosities" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
+[node name="Curiosities" type="Node2D" parent="Map/EnvironmentalObjects"]
 
-[node name="Spawners" type="Node2D" parent="NavigationRegion2D/EnvironmentalObjects"]
+[node name="Spawners" type="Node2D" parent="Map/EnvironmentalObjects"]

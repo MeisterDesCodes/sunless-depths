@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://dk7xwwuvelx71"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="1_hyamy"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="2_53kmp"]
+
+[resource]
+script = ExtResource("2_53kmp")
+title = "A remote life"
+description = "Before speaking, the guard looks sideways, as to make sure nobody is listening.
+
+\"Old Tom used to be one of the merchants here, lousy at bargaining, but unparrelleled in ingenuity and thirst for knowledge. Outside his tent he was running a small workshop working on small devices and tools whenever he wasn't selling at the marketplace.\"
+
+The guard moves closer to you, almost whispering in your ear. \"I'm not sure what exactly happened, but one of his creations malfunctioned and ended up killing one of the residents here. They left him with a choice, to keep living in the settlement locked in chains or to be exiled. He chose the latter one. Now he lives in a small cave near the settlement, and set up some sort of improvised workshop there.\"
+
+The guard shrugs his shoulders. \"I have no idea what he does there and how he sustains himself.\""
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_hyamy")])
+canExit = false

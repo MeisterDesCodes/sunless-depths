@@ -1,49 +1,38 @@
-extends Marker2D
+extends Node2D
 
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@export var entityScene: CharacterBody2D
+
 @onready var animations = get_node("AnimationPlayer")
-@onready var hitbox = get_node("StaticBody2D/Area2D")
+@onready var hitbox = get_node("StaticBody2D")
 @onready var projectileSpawner = get_node("ProjectileSpawner")
-@onready var sprite = get_node("StaticBody2D/Sprite2D")
+@onready var sprite = get_node("Sprite2D")
 
-var entityScene: CharacterBody2D
 var weapon: InventoryWeapon
-var hitEntities: Array
+var hitEntities: Array[CharacterBody2D]
 var currentAnimationFrame = 0
 
 
-func removeHitboxes():
-	for collision in hitbox.get_children():
-		collision.disabled = true
-
-
-func setup(_entityScene: CharacterBody2D, _weapon: InventoryWeapon):
-	entityScene = _entityScene
+func setup(_weapon: InventoryWeapon):
 	weapon = _weapon
 	sprite.texture = weapon.texture
-	if _weapon is RangedWeapon:
-		sprite.rotation = deg_to_rad(-90)
-	else:
-		sprite.rotation = 0
-		sprite.position.y = 17
-		sprite.position.y -= (sprite.texture.get_height() - 150) * 0.5 * sprite.scale.x
 	
-	removeHitboxes()
+	if weapon is MeleeWeapon:
+		match weapon.meleeWeaponType:
+			Enums.meleeWeaponType.DAGGER:
+				sprite.position.y = -33
+			Enums.meleeWeaponType.SWORD:
+				sprite.position.y = -33
+			Enums.meleeWeaponType.LANCE:
+				sprite.position.y = -50
+	else:
+		sprite.position.y = -33
+	
+	for collision in hitbox.get_children():
+		collision.disabled = true
+	
 	if weapon is MeleeWeapon:
 		hitbox.get_children()[weapon.meleeWeaponType].disabled = false
-
-
-func _process(delta):
-	if entityScene.isAttacking:
-		var areas = hitbox.get_overlapping_areas()
-		for area in areas:
-			if weapon is MeleeWeapon && !(area in hitEntities):
-				hitEntities.append(area)
-				var damage: float = weapon.damage * (1.25 * entityScene.dashingDamageModifier) if entityScene.isDashing else weapon.damage
-				var knockback: float = weapon.knockback * 1.5 if entityScene.isDashing else weapon.knockback
-				var attack = Attack.new(global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, weapon.statusEffects, UtilsS.checkForCrit(playerScene.critChance))
-				area.get_parent().processIncomingAttack(attack)
 
 
 func attack(attackDirection: Vector2):
@@ -68,18 +57,18 @@ func meleeAttack(animationType: String):
 
 func rangedAttack(animation: String, attackDirection: Vector2):
 	var consumeAmount: int = weapon.projectileAmount
-	if randf() > playerScene.ammunitionConsumeModifier:
+	if randf() > entityScene.ammunitionConsumeModifier:
 		consumeAmount = 0
-	playerScene.inventory.removeResource(weapon.ammunition, consumeAmount)
+	entityScene.inventory.removeResource(weapon.ammunition, consumeAmount)
 	
 	if animations.is_playing():
 		animations.stop()
 	animations.play(animation)
 	
 	var spawnPosition = global_position + Vector2(30, 5).rotated(attackDirection.angle())
-	projectileSpawner.spawnProjectiles(entityScene, weapon.ammunition, spawnPosition, attackDirection, weapon.spread * playerScene.projectileSpreadModifier, weapon.projectileAmount)
+	projectileSpawner.spawnProjectiles(entityScene, weapon.ammunition, spawnPosition, attackDirection, weapon.spread * entityScene.projectileSpreadModifier, weapon.projectileAmount)
 	
-	if playerScene.inventory.getResourceAmount(weapon.ammunition) == 0:
+	if entityScene.inventory.getResourceAmount(weapon.ammunition) == 0:
 		weapon.ammunition = null
 	
 	entityScene.isAttacking = true

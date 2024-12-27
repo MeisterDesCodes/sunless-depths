@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://u7c0fvpd5ntw"]
+
+[ext_resource type="Resource" uid="uid://bjmj5122wv47o" path="res://dialogs/resources/shared/DC-return-1.tres" id="3_tf4hv"]
+[ext_resource type="Script" path="res://dialogs/dialog.gd" id="4_ifywg"]
+
+[resource]
+script = ExtResource("4_ifywg")
+title = "xxx"
+description = "xxx"
+choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("3_tf4hv")])
+canExit = false

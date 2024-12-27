@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogChoice" load_steps=3 format=3 uid="uid://dpcjp8uccpb2c"]
+
+[ext_resource type="Resource" uid="uid://dy41fynbwevpk" path="res://dialogs/resources/into-the-mountain/D-peak.tres" id="1_ujq3h"]
+[ext_resource type="Script" path="res://dialogs/dialog-choice.gd" id="2_k44tr"]
+
+[resource]
+script = ExtResource("2_k44tr")
+title = "Grab the rope"
+description = "You are less than eager to follow whatever was here before. But this seems like the only way out."
+requiredResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+forbiddenResources = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+addedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesS = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+nextDialogS = ExtResource("1_ujq3h")
+moveBackwardsS = -1
+addedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+removedResourcesF = Array[Resource("res://inventory-resource/choice-requirement-resource.gd")]([])
+moveBackwardsF = -1
+oneTimeUse = false
+function = ""

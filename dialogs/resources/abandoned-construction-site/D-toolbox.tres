@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("4_g5dm6")
 title = "Destructive plans"
-description = "Inside the box you find a collection of old blueprints, worn out over the years and barely readable anymore. Still, you are able to make out some of the details. Those blueprints seem to be instructions on assembling rudimentary explosives."
+description = "Inside the box you find a collection of old blueprints, worn out over the years and barely readable anymore. After staring at them for a while, you come to the conclusion that they must be instructions on assembling rudimentary explosives."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_2c0pg")])
+canExit = false

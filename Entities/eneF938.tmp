@@ -1,0 +1,215 @@
+[gd_scene load_steps=21 format=3 uid="uid://ca0d7whibvanw"]
+
+[ext_resource type="Script" path="res://entities/enemy-ui.gd" id="1_tud5h"]
+[ext_resource type="PackedScene" uid="uid://bxumjfcn0o6ih" path="res://entities/components/particle-component.tscn" id="2_u0ny8"]
+[ext_resource type="Script" path="res://entities/states/state-machine.gd" id="3_fbfho"]
+[ext_resource type="PackedScene" uid="uid://c30m4otyx5tja" path="res://shared/resource-spawner.tscn" id="3_rnx55"]
+[ext_resource type="PackedScene" uid="uid://fkdvi0lmlkno" path="res://entities/states/idle.tscn" id="4_3b136"]
+[ext_resource type="PackedScene" uid="uid://fvvlo7poxdkl" path="res://entities/states/chase.tscn" id="5_avrlx"]
+[ext_resource type="PackedScene" uid="uid://cooro488a6s8h" path="res://entities/states/dash.tscn" id="6_e5s4b"]
+[ext_resource type="PackedScene" uid="uid://begmikbad6gha" path="res://entities/components/damage-receiver-component.tscn" id="6_vf118"]
+[ext_resource type="PackedScene" uid="uid://byhgk6jja038" path="res://entities/states/launch-projectile.tscn" id="7_813tm"]
+[ext_resource type="PackedScene" uid="uid://bibqyv7bymwus" path="res://entities/components/contact-damage-component.tscn" id="8_fhwn0"]
+[ext_resource type="PackedScene" uid="uid://c60ss8qk6erso" path="res://entities/states/death.tscn" id="8_ie6si"]
+[ext_resource type="PackedScene" uid="uid://bd8rt738qybox" path="res://entities/states/keep-distance.tscn" id="8_p7ty3"]
+[ext_resource type="PackedScene" uid="uid://cfgabtoewjrre" path="res://entities/components/status-effect-component.tscn" id="9_0gbff"]
+[ext_resource type="PackedScene" uid="uid://hsibopu7e36h" path="res://entities/entity-sound-component.tscn" id="13_l4cay"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eh1t"]
+resource_local_to_scene = true
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwt41"]
+resource_local_to_scene = true
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_jqlit"]
+resource_name = "damage-received"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.709804, 0.0666667, 0.0666667, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.13, 0.13), Vector2(0.12, 0.12)]
+}
+
+[sub_resource type="Animation" id="Animation_cdjks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0.12)]
+}
+
+[sub_resource type="Animation" id="Animation_iij26"]
+resource_name = "dashing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.882353, 0.309804, 0.129412, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhbe6"]
+_data = {
+"RESET": SubResource("Animation_cdjks"),
+"damage-received": SubResource("Animation_jqlit"),
+"dashing": SubResource("Animation_iij26")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 515
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_tud5h")
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_6eh1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uwt41")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("entityScene", "initialState")]
+script = ExtResource("3_fbfho")
+entityScene = NodePath("..")
+initialState = NodePath("Idle")
+
+[node name="Idle" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("4_3b136")]
+entity = NodePath("../..")
+
+[node name="Chase" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("5_avrlx")]
+entity = NodePath("../..")
+
+[node name="Dash" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("6_e5s4b")]
+entity = NodePath("../..")
+
+[node name="Keep Distance" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("8_p7ty3")]
+entity = NodePath("../..")
+
+[node name="Launch Projectile" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("7_813tm")]
+entity = NodePath("../..")
+
+[node name="Death" parent="StateMachine" node_paths=PackedStringArray("entity") instance=ExtResource("8_ie6si")]
+entity = NodePath("../..")
+
+[node name="Vision" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Vision"]
+position = Vector2(0, 6)
+rotation = -1.57079
+target_position = Vector2(-40, 200)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Vision"]
+position = Vector2(0, 3)
+rotation = -1.57079
+target_position = Vector2(-20, 200)
+collision_mask = 3
+
+[node name="RayCast2D3" type="RayCast2D" parent="Vision"]
+rotation = -1.57079
+target_position = Vector2(0, 200)
+collision_mask = 3
+
+[node name="RayCast2D4" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -3)
+rotation = -1.57079
+target_position = Vector2(20, 200)
+collision_mask = 3
+
+[node name="RayCast2D5" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -6)
+rotation = -1.57079
+target_position = Vector2(40, 200)
+collision_mask = 3
+
+[node name="ContactDamageComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("8_fhwn0")]
+entityScene = NodePath("..")
+
+[node name="DamageReceiver" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("6_vf118")]
+entity = NodePath("..")
+
+[node name="StatusEffectComponent" parent="." node_paths=PackedStringArray("entityScene") instance=ExtResource("9_0gbff")]
+entityScene = NodePath("..")
+
+[node name="ResourceSpawner" parent="." instance=ExtResource("3_rnx55")]
+
+[node name="ParticleComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_u0ny8")]
+entity = NodePath("..")
+
+[node name="SoundComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("13_l4cay")]
+entity = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.12, 0.12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vhbe6")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="ImmunityFrames" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ChaseAfterTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
+[connection signal="timeout" from="ImmunityFrames" to="." method="_on_immunity_frames_timeout"]
+[connection signal="timeout" from="ChaseAfterTimer" to="." method="_on_chase_after_timer_timeout"]

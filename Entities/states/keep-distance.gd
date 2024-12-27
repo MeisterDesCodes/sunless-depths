@@ -3,7 +3,7 @@ extends State
 
 class_name KeepDistanceState
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 
 @export var entity: CharacterBody2D
 

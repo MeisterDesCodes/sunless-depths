@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://by4t5mlajd8kb"]
 
 [ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_yfym3"]
-[ext_resource type="Texture2D" uid="uid://dn8wcyp5daox0" path="res://assets/resources/weapons/advanced-bow.png" id="2_kwp6v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x3o5k"]
+load_path = "res://.godot/imported/advanced-bow.png-c19c7dd9c2be0a0aea7271e96f881acf.ctex"
 
 [resource]
 script = ExtResource("1_yfym3")
@@ -16,6 +18,6 @@ staminaCost = 20.0
 animations = Array[int]([3])
 name = "Advanced Bow"
 description = ""
-texture = ExtResource("2_kwp6v")
+texture = SubResource("CompressedTexture2D_x3o5k")
 rarity = 3
 weight = 3.5

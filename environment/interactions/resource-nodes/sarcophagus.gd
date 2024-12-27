@@ -5,7 +5,7 @@ extends Node2D
 @export var lifetime: int
 @export var interactionCost: float
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
 @onready var interaction = get_node("Interaction")
 @onready var animationPlayer = get_node("AnimationPlayer")
 

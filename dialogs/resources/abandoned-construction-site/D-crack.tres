@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("2_kegfg")
 title = "The crack"
-description = "You stand before a thin crack, vertically opening the wall in front of you like a wound. "
+description = "You stand before a thin crack, vertically opening the wall in front of you like a wound."
 choices = Array[Resource("res://dialogs/dialog-choice.gd")]([ExtResource("1_od8an"), ExtResource("1_dt1jt")])
 canExit = false

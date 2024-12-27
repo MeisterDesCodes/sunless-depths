@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://cheejvbbqws2r"]
 
 [ext_resource type="Script" path="res://inventory-resource/ranged-weapon.gd" id="1_fvlww"]
-[ext_resource type="Texture2D" uid="uid://de2lvpcvt7ttk" path="res://assets/resources/weapons/refined_crossbow.png" id="2_neh5s"]
+[ext_resource type="Texture2D" uid="uid://de2lvpcvt7ttk" path="res://assets/resources/weapons/refined-crossbow.png" id="2_neh5s"]
 
 [resource]
 script = ExtResource("1_fvlww")

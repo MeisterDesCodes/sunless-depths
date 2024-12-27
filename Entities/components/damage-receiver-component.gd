@@ -3,7 +3,83 @@ extends Node2D
 
 @export var entity: CharacterBody2D
 
-@onready var playerScene = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var playerScene: CharacterBody2D = get_tree().get_root().get_node("GameController/Game/Entities/Player")
+@onready var hitbox: Area2D = get_node("Hitbox")
+@onready var collision: CollisionShape2D = get_node("Hitbox/CollisionShape2D")
+
+
+func _ready():
+	if entity.has_method("isPlayer"):
+		hitbox.collision_mask = 160
+	else:
+		hitbox.collision_mask = 80
+	
+	await get_tree().process_frame
+	
+	collision.shape.radius = (entity.sprite.texture.get_size().x + \
+		entity.sprite.texture.get_size().y) / 5 * entity.sprite.scale.x
+
+
+func _process(delta):
+	for body in hitbox.get_overlapping_bodies():
+		var entityScene = body.get_parent().entityScene
+		if entity.has_method("isPlayer"):
+			if body.collision_layer == 32:
+				handleEnemyContactDamage(entityScene)
+			if body.collision_layer == 128:
+				handleProjectile(entityScene, body, true)
+		else:
+			if body.collision_layer == 16:
+				handleWeaponContactDamage(entityScene, body)
+			if body.collision_layer == 64:
+				handleProjectile(entityScene, body, false)
+
+
+func handleEnemyContactDamage(entityScene: CharacterBody2D):
+	if !entityScene.canDealContactDamage || entityScene.isDying:
+		return
+	
+	var damage: float = entityScene.currentAttack.damage
+	var knockback: float = entityScene.currentAttack.knockback
+	var attack = Attack.new(entityScene.global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, entityScene.currentAttack.statusEffects, false)
+	
+	if !entity.immunityFramesActive:
+		receiveAttack(attack)
+		entity.healthModified.emit()
+
+
+func handleWeaponContactDamage(entityScene: CharacterBody2D, body: StaticBody2D):
+	var weaponScene = body.get_parent()
+	var weapon = weaponScene.weapon
+	
+	if entityScene.isAttacking && weapon is MeleeWeapon && !(entity in weaponScene.hitEntities):
+		weaponScene.hitEntities.append(entity)
+		var damage: float = weapon.damage * (1.25 * entityScene.dashingDamageModifier) if entityScene.isDashing else weapon.damage
+		var knockback: float = weapon.knockback * 1.5 if entityScene.isDashing else weapon.knockback
+		var attack = Attack.new(entityScene.global_position, entityScene, damage, knockback, Enums.weaponTypes.MELEE, weapon.statusEffects, UtilsS.checkForCrit(entityScene.critChance))
+		entity.toggleAwareness()
+		receiveAttack(attack)
+
+
+func handleProjectile(entityScene: CharacterBody2D, body: StaticBody2D, isPlayer: bool):
+	var projectileScene = body.get_parent()
+	projectileScene.hitEntities.append(entity)
+	
+	var attack: Attack
+	if isPlayer:
+		attack = Attack.new(projectileScene.global_position, entityScene, projectileScene.projectile.damage, projectileScene.projectile.knockback, Enums.weaponTypes.RANGED, projectileScene.projectile.statusEffects, UtilsS.checkForCrit(projectileScene.critChance))
+	else:
+		attack = Attack.new(projectileScene.global_position, entityScene, projectileScene.weapon.damageModifier * projectileScene.projectile.damage, projectileScene.weapon.knockbackModifier * projectileScene.projectile.knockback, Enums.weaponTypes.RANGED, projectileScene.projectile.statusEffects, UtilsS.checkForCrit(projectileScene.critChance))
+	
+	if projectileScene.projectile.isPiercing:
+		attack.knockback = 0
+	else:
+		projectileScene.queue_free()
+
+	if !entity.immunityFramesActive:
+		receiveAttack(attack)
+		if isPlayer:
+			entity.healthModified.emit()
 
 
 func receiveAttack(attack: Attack):
@@ -53,7 +129,8 @@ func receiveAttack(attack: Attack):
 				attack.caster.critStatIncrease))
 	
 	var finalDamage = attack.damage * randf_range(attack.caster.damageRangeMin, attack.caster.damageRangeMax) \
-		* damageModifier * damageTypeModifier * exhaustionModifier * critModifier * attack.caster.damageModifier
+		* damageModifier * damageTypeModifier * exhaustionModifier * critModifier * attack.caster.damageModifier \
+		* entity.damageTakenModifier
 	receiveDamage(finalDamage, attack.isCrit, null)
 	applyOnHitEffects(attack.caster, attack, finalDamage)
 
@@ -131,6 +208,3 @@ func playHitAnimation(position: Vector2):
 
 func canReceiveHealing():
 	return !entity.isDying && !entity.isSuffocating
-
-
-

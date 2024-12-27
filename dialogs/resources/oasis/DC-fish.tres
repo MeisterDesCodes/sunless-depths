@@ -21,7 +21,7 @@ statMaximum = 12
 [resource]
 script = ExtResource("4_oa10g")
 title = "Attempt to catch a fish"
-description = "You see several fish swimming in the little pond. Having no equipment, you have to use your bare hands. It might be worth a try."
+description = "With no equipment, you have to use your bare hands. It might be worth a try."
 statCheck = SubResource("Resource_bs3iy")
 requiredResources = Array[ExtResource("2_cfcd5")]([])
 forbiddenResources = Array[ExtResource("2_cfcd5")]([])

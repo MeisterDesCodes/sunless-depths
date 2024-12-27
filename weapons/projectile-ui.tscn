@@ -1,60 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpr3at4hehmur"]
+[gd_scene load_steps=7 format=3 uid="uid://dpr3at4hehmur"]
 
 [ext_resource type="Script" path="res://weapons/projectile-ui.gd" id="1_1chbn"]
-[ext_resource type="Texture2D" uid="uid://d3y5lj33cvb26" path="res://assets/resources/weapons/ammunition/arrow.png" id="2_uhsn4"]
+[ext_resource type="Texture2D" uid="uid://pqwv0cbt8ksw" path="res://assets/particles/hit-particle.png" id="2_36qdm"]
 [ext_resource type="PackedScene" uid="uid://dgic8f1brmy72" path="res://environment/decorations/particles/projectile-particle.tscn" id="3_xrhlk"]
 [ext_resource type="PackedScene" uid="uid://dkao4jqlrlta" path="res://environment/decorations/particles/projectile-hit-particle.tscn" id="4_u6xhs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cylg2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3h53"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvrca"]
 radius = 5.0
 
-[sub_resource type="Curve" id="Curve_q0ki2"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_t703m"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iues5"]
-radius = 5.0
-
-[node name="StaticBody2D" type="StaticBody2D"]
-top_level = true
-z_index = 1
-collision_layer = 0
-collision_mask = 0
+[node name="ProjectileUI" type="Node2D"]
 script = ExtResource("1_1chbn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, -2)
-shape = SubResource("CircleShape2D_cylg2")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 192
+collision_mask = 0
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(-15, -2, -38, -2)
-width = 4.0
-width_curve = SubResource("Curve_q0ki2")
-gradient = SubResource("Gradient_t703m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_p3h53")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.341549, 0.341549)
-texture = ExtResource("2_uhsn4")
-
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 13
+collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(10, -2)
-shape = SubResource("CircleShape2D_iues5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_wvrca")
 
 [node name="ProjectileParticles" parent="." instance=ExtResource("3_xrhlk")]
-position = Vector2(-15, -2)
+position = Vector2(-13, 0)
 rotation = 3.14159
 
 [node name="ProjectileHitParticles" parent="." instance=ExtResource("4_u6xhs")]
 position = Vector2(10, -2)
 rotation = 3.14159
 
-[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_36qdm")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
